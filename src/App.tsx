@@ -4,7 +4,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div className="App">
-      Hello World
+      Hello Zeit
     </div>
   );
 }
