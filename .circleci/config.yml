@@ -1,13 +1,28 @@
 version: 2
 jobs:
-  build:
+  test:
+    name: Build and test with Jest
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:10.16.0
     steps:
       - checkout
-      - run: echo "Hello world bim"
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: 
+          name: test
+          command: npm test  # CI envvar is true so watcher is disabled
 workflows:
   version: 2
-  just_build:
+  test:
     jobs:
-      - build
+      - test
