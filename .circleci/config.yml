@@ -5,4 +5,9 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "Hello world"
+      - run: echo "Hello world bim"
+workflows:
+  version: 2
+  just_build:
+    jobs:
+      - build
