@@ -1,16 +1,28 @@
-orbs:
-  react: 'thefrontside/react@dev:alpha'
-version: 2.1
+version: 2
+jobs:
+  test:
+    name: Build and test with Jest
+    docker:
+      - image: circleci/node:10.16.0
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: 
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: 
+          name: test
+          command: npm test  # CI envvar is true so watcher is disabled
 workflows:
-  push:
+  version: 2
+  test:
     jobs:
-      - react/install
-      - react/stylelint:
-          requires:
-            - react/install
-      - react/test:
-          requires:
-            - react/install
-      - react/coverage:
-          requires:
-            - react/install
+      - test
