@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
 
-const App: React.FC = () => {
-    return <div className="App">Hello Zeit</div>
+function foo() {
+    return 'Vincent'
 }
 
-function foo() {
-    return 'Hello'
+const App: React.FC = () => {
+    return <div className="App">Hello {foo()}</div>
 }
 
 export default App
