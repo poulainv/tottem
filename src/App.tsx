@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      Hello Zeit
-    </div>
-  );
+    return <div className="App">Hello Zeit</div>
 }
 
-export default App;
+function foo() {
+    return 'Hello'
+}
+
+export default App

@@ -1,36 +1,52 @@
 {
-  "name": "quiet",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.18",
-    "@types/node": "12.7.4",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "typescript": "3.6.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "quiet",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@types/jest": "24.0.18",
+        "@types/node": "12.7.4",
+        "@types/react": "16.9.2",
+        "@types/react-dom": "16.9.0",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "react-scripts": "3.1.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "lint": "tslint 'src/**/*.{tsx,ts}'",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    },
+    "devDependencies": {
+        "eslint": "^6.3.0",
+        "husky": "^3.0.5",
+        "prettier": "1.18.2",
+        "pretty-quick": "^1.11.1",
+        "tslint": "^5.19.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.0.1",
+        "tslint-react": "^4.0.0",
+        "typescript": "^3.6.2"
+    }
 }
