@@ -6,7 +6,8 @@
     },
     "rules": {
         "interface-name": [false, "never-prefix"],
-        "prettier": true
+        "prettier": true,
+        "react/jsx-boolean-value": ["always", "never"]
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }

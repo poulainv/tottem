@@ -8,18 +8,14 @@ const StyledImage = styled.img`
     border-radius: 8px;
 `
 
-const StyledBox = styled.div`
-    border-color: black;
-    border-style: dotted;
-    border-width: 1px;
-`
+const StyledBox = styled.div``
 
 const BookCard: React.FC<Book> = props => {
     const image = props.imageUrl
     return (
         <StyledBox>
             <StyledImage src={image} />
-            <p>{props.title}</p>
+            {/* <p>{props.title}</p> */}
         </StyledBox>
     )
 }
