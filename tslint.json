@@ -1,9 +1,13 @@
 {
     "defaultSeverity": "error",
     "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-    "jsRules": {},
+    "jsRules": {
+        "prefixWithI": "never"
+    },
     "rules": {
-        "prettier": true
+        "interface-name": [false, "never-prefix"],
+        "prettier": true,
+        "react/jsx-boolean-value": ["always", "never"]
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }
