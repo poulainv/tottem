@@ -15,7 +15,6 @@ const BookCard: React.FC<Book> = props => {
     return (
         <StyledBox>
             <StyledImage src={image} />
-            {/* <p>{props.title}</p> */}
         </StyledBox>
     )
 }

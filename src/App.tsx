@@ -1,8 +1,8 @@
 import React from 'react'
-import BookCard from './components/BookCard'
+import BookCard from './components/bookCard'
 import books from './data/books'
 
-import { Box, Button, Grommet, Grid, Heading } from 'grommet'
+import { Box, Grid, Grommet, Heading } from 'grommet'
 import { Book } from './types'
 
 const theme = {
