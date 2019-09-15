@@ -1,5 +1,6 @@
 import React from 'react'
 import { Book } from '../types'
+import foo from '../types'
 
 import styled from 'styled-components'
 
