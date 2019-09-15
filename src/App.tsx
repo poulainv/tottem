@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidenav from './components/Sidenav/Nav'
+import Sidenav from './components/sidenav/Nav'
 
 import { Box, Grid, Grommet } from 'grommet'
 import theme from './theme'
