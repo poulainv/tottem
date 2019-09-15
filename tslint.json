@@ -8,6 +8,7 @@
         "interface-name": [false, "never-prefix"],
         "prettier": true,
         "jsx-boolean-value": ["always"]
+
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }
