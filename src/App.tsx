@@ -1,8 +1,8 @@
 import React from 'react'
-import Sidenav from './components/Sidenav/Sidenav'
-import theme from './theme'
+import Sidenav from './components/Sidenav/Nav'
 
 import { Box, Grid, Grommet } from 'grommet'
+import theme from './theme'
 
 const App: React.FC = () => {
     return (

@@ -1,9 +1,9 @@
 import { Box, Heading, Text } from 'grommet'
 import React from 'react'
-import styled from 'styled-components'
 import Separator from './Separator'
 
 import theme from '../../theme'
+
 import PictureProfile from './PictureProfile'
 
 const Sidenav: React.FC<any> = () => {
