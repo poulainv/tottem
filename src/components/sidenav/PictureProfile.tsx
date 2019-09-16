@@ -1,27 +1,22 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import { Box, Image } from 'grommet'
 
-const UserPictureContainer = styled.div`
-    border-radius: 50%;
-    height: 172px;
-    width: 172px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+interface IPictureProfile {
+    imageUrl: string
+}
 
-const userPictureSrc = require('../../static/images/profiles/stiegler.jpg')
-
-const UserPictureImg = styled.img`
-    width: 100%;
-`
-
-const PictureProfile = () => {
+const PictureProfile: React.FC<IPictureProfile> = props => {
     return (
-        <UserPictureContainer>
-            <UserPictureImg src={userPictureSrc} />
-        </UserPictureContainer>
+        <Box
+            overflow="hidden"
+            width="172px"
+            height="172px"
+            justify="center"
+            align="center"
+            round="full"
+        >
+            <Image src={props.imageUrl} width="100%" />
+        </Box>
     )
 }
 

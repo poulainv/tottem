@@ -6,6 +6,8 @@ import theme from '../../theme'
 
 import PictureProfile from './PictureProfile'
 
+const imageProfileUrl = require('../../static/images/profiles/stiegler.jpg')
+
 const Sidenav: React.FC<any> = () => {
     return (
         <Box direction="column" width="511px">
@@ -13,7 +15,7 @@ const Sidenav: React.FC<any> = () => {
                 <Box width="296px">
                     <Box direction="column">
                         <Box direction="column">
-                            <PictureProfile />
+                            <PictureProfile imageUrl={imageProfileUrl} />
                             <Heading
                                 level={1}
                                 color="dark-1"
