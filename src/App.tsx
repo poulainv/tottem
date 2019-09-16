@@ -6,10 +6,11 @@ import theme from './theme'
 
 const App: React.FC = () => {
     return (
-        <Grommet theme={theme} full={true}>
-            <Box direction="row" align="start" justify="stretch" height="full">
-                <Sidenav />
-                <Main />
+        <Grommet theme={theme} full>
+            <Box direction="row" justify="center">
+                <Box width="xlarge" margin={{ top: 'xlarge' }}>
+                    <Sidenav />
+                </Box>
             </Box>
         </Grommet>
     )

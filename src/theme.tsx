@@ -8,6 +8,9 @@ const theme = {
         colors: {
             brand: '#3F55C9',
         },
+        size: {
+            xmedium: '296px',
+        },
     },
     heading: {
         level: {

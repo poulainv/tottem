@@ -11,9 +11,9 @@ const imageProfileUrl = require('../../static/images/profiles/stiegler.jpg')
 
 const Sidenav: React.FC = () => {
     return (
-        <Box direction="column" width="511px">
-            <Box margin={{ top: '115px', left: '142px' }}>
-                <Box width="296px">
+        <Box direction="column">
+            <Box>
+                <Box width="xmedium">
                     <Box direction="column">
                         <Box direction="column">
                             <PictureProfile imageUrl={imageProfileUrl} />
