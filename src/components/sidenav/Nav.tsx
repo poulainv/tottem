@@ -6,21 +6,15 @@ import theme from '../../theme'
 
 import PictureProfile from './PictureProfile'
 import Social from './Social'
+import { UserProfile } from '../../types'
 
-const imageProfileUrl = require('../../static/images/profiles/vincent.png')
-
-const biography: string =
-    'I like building things. <br /> My primary job function is as \
-a software engineer. <br />I care about how technology can support \
-well-being and global challenges.'
-
-const Sidenav: React.FC = () => {
+const Sidenav: React.FC<UserProfile> = props => {
     return (
         <Box direction="column">
             <Box width="xmedium">
                 <Box direction="column">
                     <Box direction="column">
-                        <PictureProfile imageUrl={imageProfileUrl} />
+                        <PictureProfile imageUrl={props.pictureUrl} />
                         <Heading
                             level={1}
                             color="dark-1"
@@ -45,7 +39,7 @@ const Sidenav: React.FC = () => {
                     <Separator color={theme.global.colors.brand} />
                 </Box>
                 <Heading level={3} size="large" color="dark-1">
-                    <Markdown>{biography}</Markdown>
+                    <Markdown>{props.biography}</Markdown>
                 </Heading>
                 <Social />
             </Box>

@@ -19,3 +19,9 @@ export interface Album extends Item {
     imageColor: string
     spotifyUrl?: string
 }
+
+export interface UserProfile {
+    firstname: string
+    pictureUrl: string
+    biography: string
+}
