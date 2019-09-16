@@ -1,4 +1,4 @@
-import { Box, Grid, Grommet, Stack, Image } from 'grommet'
+import { Box, Grommet, Image } from 'grommet'
 import React from 'react'
 import Main from './components/Layouts/Main'
 import Sidenav from './components/sidenav/Nav'

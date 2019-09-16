@@ -1,11 +1,11 @@
 import React from 'react'
-import { Book } from '../../types'
+import { Album } from '../../types'
 import { Box, Heading, Image, Text, Stack } from 'grommet'
 import Truncate from 'react-truncate'
-import picto from '../../static/pictograms/book.svg'
+import picto from '../../static/pictograms/album.svg'
 import ShadowCover from '../ShadowCover'
 
-const BookCard: React.FC<Book> = props => {
+const AlbumCard: React.FC<Album> = props => {
     return (
         <Box
             direction="column"
@@ -24,7 +24,7 @@ const BookCard: React.FC<Book> = props => {
                     <Box
                         round="4px"
                         width="132px"
-                        height="186px"
+                        height="132px"
                         overflow="hidden"
                     >
                         <Image src={props.imageUrl} fit="cover" width="100%" />
@@ -34,15 +34,16 @@ const BookCard: React.FC<Book> = props => {
                 <Box
                     height={{ max: '40px' }}
                     overflow="hidden"
-                    margin={{ top: 'small', bottom: 'xsmall' }}
+                    justify="center"
+                    margin={{ top: 'small' }}
                 >
                     <Heading
                         level={3}
                         size="medium"
                         color="dark-1"
-                        margin={{ top: '0px' }}
+                        margin={{ top: '0px', bottom: '8px' }}
                     >
-                        <Truncate lines={2}>{props.title}</Truncate>
+                        <Truncate lines={1}>{props.title}</Truncate>
                     </Heading>
                 </Box>
                 <Box direction="row" justify="between">
@@ -60,4 +61,4 @@ const BookCard: React.FC<Book> = props => {
     )
 }
 
-export default BookCard
+export default AlbumCard
