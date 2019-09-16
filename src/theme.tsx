@@ -13,6 +13,8 @@ const theme = deepMerge(grommet, {
         },
         size: {
             xmedium: '296px',
+            xxlarge: '1272px',
+            large: '800px',
         },
         elevation: {
             light: {
