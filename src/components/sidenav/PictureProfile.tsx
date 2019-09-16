@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { Box, Image } from 'grommet'
+import * as React from 'react'
 
 interface IPictureProfile {
     imageUrl: string
