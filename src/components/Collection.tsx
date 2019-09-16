@@ -2,17 +2,18 @@ import React from 'react'
 
 import { Box, Heading, Markdown } from 'grommet'
 import ItemList from './ItemList'
+import { ICollection } from '../types'
 
-const Collection: React.FC = () => {
+const Collection: React.FC<ICollection> = props => {
     return (
         <Box direction="column" fill="vertical" margin={{ top: '70px' }}>
             <Box>
                 <Heading level="2" size="medium">
-                    <Markdown>**Books,** that get me inspired</Markdown>
+                    <Markdown>{props.name}</Markdown>
                 </Heading>
             </Box>
             <Box>
-                <ItemList />
+                <ItemList items={props.items} />
             </Box>
         </Box>
     )

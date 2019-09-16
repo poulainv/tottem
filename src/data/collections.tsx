@@ -1,4 +1,4 @@
-import { Book } from '../types'
+import { Book, ICollection } from '../types'
 
 const books: Book[] = [
     {
@@ -31,5 +31,11 @@ const books: Book[] = [
         imageColor: '#555146',
     },
 ]
+export const collections: ICollection[] = [
+    {
+        name: '**Books,** that get me inspired',
+        items: books,
+    },
+]
 
-export default books
+export default collections

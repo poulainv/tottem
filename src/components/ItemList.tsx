@@ -1,16 +1,15 @@
 import React from 'react'
 import { Box } from 'grommet'
 import BookCard from './Cards/BookCard'
-import books from '../data/books'
-import { Book } from '../types'
+import { Book, Item } from '../types'
 
-const ItemList: React.FC = () => {
+const ItemList: React.FC<{ items: Item[] }> = props => {
     return (
         <Box direction="row" justify="between">
-            {books.map((book: Book) => {
+            {props.items.map((item: Item) => {
                 return (
-                    <Box key={book.title.toString()}>
-                        <BookCard {...book} />
+                    <Box key={item.title.toString()}>
+                        <BookCard {...(item as Book)} />
                     </Box>
                 )
             })}
