@@ -19,7 +19,7 @@ const BookCard: React.FC<Book> = props => {
         <Box
             direction="column"
             round="8px"
-            elevation="small"
+            elevation="card"
             align="center"
             width="166px"
         >

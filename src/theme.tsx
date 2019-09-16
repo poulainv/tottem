@@ -14,6 +14,11 @@ const theme = deepMerge(grommet, {
         size: {
             xmedium: '296px',
         },
+        elevation: {
+            light: {
+                card: '0px 12px 24px rgba(0, 0, 0, 0.1)',
+            },
+        },
     },
     heading: {
         level: {
