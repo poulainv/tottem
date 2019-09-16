@@ -5,6 +5,7 @@ import Separator from './Separator'
 import theme from '../../theme'
 
 import PictureProfile from './PictureProfile'
+import Social from './Social'
 
 const imageProfileUrl = require('../../static/images/profiles/stiegler.jpg')
 
@@ -46,7 +47,7 @@ const Sidenav: React.FC = () => {
                         <br />I care about how technology can support well-being
                         and global challenges.
                     </Heading>
-                    <div>Social</div>
+                    <Social />
                 </Box>
             </Box>
         </Box>
