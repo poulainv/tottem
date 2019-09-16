@@ -3,4 +3,5 @@ export interface Book {
     imageUrl: string
     title: string
     productUrl: string
+    imageColor: string
 }

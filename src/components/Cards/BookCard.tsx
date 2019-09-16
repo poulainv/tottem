@@ -1,10 +1,18 @@
 import React from 'react'
 import { Book } from '../../types'
-import { Box, Heading, Image, Text } from 'grommet'
+import { Box, Heading, Image, Text, Stack } from 'grommet'
 import Truncate from 'react-truncate'
+import styled from 'styled-components'
 
 const bookUrl = require('../../static/images/books/patagonia.jpg')
 const bookPicto = require('../../static/pictograms/book.svg')
+
+const Shadow = styled.div`
+    box-shadow: 1px 6px 25px 0px ${props => props.color || 'grey'};
+    border-radius: 50%;
+    height: 7px;
+    width: 80px;
+`
 
 const BookCard: React.FC<Book> = props => {
     return (
@@ -21,9 +29,17 @@ const BookCard: React.FC<Book> = props => {
                 width="132px"
                 pad={{ vertical: 'small' }}
             >
-                <Box round="4px" width="132px" height="186px" overflow="hidden">
-                    {<Image src={props.imageUrl} fit="cover" width="100%" />}
-                </Box>
+                <Stack anchor="bottom">
+                    <Box
+                        round="4px"
+                        width="132px"
+                        height="186px"
+                        overflow="hidden"
+                    >
+                        <Image src={props.imageUrl} fit="cover" width="100%" />
+                    </Box>
+                    <Shadow color={props.imageColor} />
+                </Stack>
                 <Box
                     height={{ max: '40px' }}
                     overflow="hidden"

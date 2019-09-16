@@ -1,4 +1,7 @@
-const theme = {
+import { grommet } from 'grommet'
+import { deepMerge } from 'grommet/utils'
+
+const theme = deepMerge(grommet, {
     global: {
         font: {
             family: 'Roboto',
@@ -55,6 +58,6 @@ const theme = {
             },
         },
     },
-}
+})
 
 export default theme
