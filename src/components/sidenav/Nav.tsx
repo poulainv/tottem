@@ -7,7 +7,7 @@ import theme from '../../theme'
 import PictureProfile from './PictureProfile'
 import Social from './Social'
 
-const imageProfileUrl = require('../../static/images/profiles/stiegler.jpg')
+const imageProfileUrl = require('../../static/images/profiles/vincent.png')
 
 const Sidenav: React.FC = () => {
     return (
