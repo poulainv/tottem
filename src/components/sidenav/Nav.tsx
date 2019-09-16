@@ -8,7 +8,7 @@ import PictureProfile from './PictureProfile'
 
 const imageProfileUrl = require('../../static/images/profiles/stiegler.jpg')
 
-const Sidenav: React.FC<any> = () => {
+const Sidenav: React.FC = () => {
     return (
         <Box direction="column" width="511px">
             <Box margin={{ top: '115px', left: '142px' }}>

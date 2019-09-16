@@ -1,11 +1,7 @@
 import { Box, Image } from 'grommet'
-import * as React from 'react'
+import React from 'react'
 
-interface IPictureProfile {
-    imageUrl: string
-}
-
-const PictureProfile: React.FC<IPictureProfile> = props => {
+const PictureProfile: React.FC<{ imageUrl: string }> = props => {
     return (
         <Box
             overflow="hidden"
