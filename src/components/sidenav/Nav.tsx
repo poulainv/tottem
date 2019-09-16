@@ -1,4 +1,4 @@
-import { Box, Heading } from 'grommet'
+import { Box, Heading, Markdown } from 'grommet'
 import React from 'react'
 import Separator from './Separator'
 
@@ -8,6 +8,11 @@ import PictureProfile from './PictureProfile'
 import Social from './Social'
 
 const imageProfileUrl = require('../../static/images/profiles/vincent.png')
+
+const biography: string =
+    'I like building things. <br /> My primary job function is as \
+a software engineer. <br />I care about how technology can support \
+well-being and global challenges.'
 
 const Sidenav: React.FC = () => {
     return (
@@ -40,11 +45,7 @@ const Sidenav: React.FC = () => {
                     <Separator color={theme.global.colors.brand} />
                 </Box>
                 <Heading level={3} size="large" color="dark-1">
-                    I like building things.
-                    <br />
-                    My primary job function is as a software engineer.
-                    <br />I care about how technology can support well-being and
-                    global challenges.
+                    <Markdown>{biography}</Markdown>
                 </Heading>
                 <Social />
             </Box>
