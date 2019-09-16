@@ -27,7 +27,7 @@ const BookCard: React.FC<Book> = props => {
                 direction="column"
                 justify="center"
                 width="132px"
-                pad={{ vertical: 'small' }}
+                pad={{ vertical: '17px' }}
             >
                 <Stack anchor="bottom">
                     <Box
