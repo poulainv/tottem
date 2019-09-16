@@ -21,7 +21,12 @@ const App: React.FC = () => {
                         <Image src={artWork} />
                     </Box>
                 </Box>
-                <Box direction="row" justify="between" width="xlarge">
+                <Box
+                    direction="row"
+                    justify="between"
+                    width="xxlarge"
+                    gap="large"
+                >
                     <Box>
                         <Sidenav />
                     </Box>

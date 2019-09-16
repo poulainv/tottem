@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from 'grommet'
+import { Box, Heading } from 'grommet'
 import React from 'react'
 import Separator from './Separator'
 

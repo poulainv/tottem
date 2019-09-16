@@ -6,7 +6,7 @@ import { ICollection } from '../types'
 
 const Collection: React.FC<ICollection> = props => {
     return (
-        <Box direction="column" fill="vertical" margin={{ top: '70px' }}>
+        <Box direction="column" fill="vertical" margin={{ top: '50px' }}>
             <Box>
                 <Heading level="2" size="medium">
                     <Markdown>{props.name}</Markdown>
