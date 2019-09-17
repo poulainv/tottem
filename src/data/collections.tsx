@@ -1,4 +1,4 @@
-import { Book, ICollection, Album } from '../types'
+import { Book, ICollection, Album, Movie } from '../types'
 
 const albums: Album[] = [
     {
@@ -58,19 +58,58 @@ const books: Book[] = [
         author: 'Matthiew Crawford',
         imageUrl: require('../static/images/books/eloge.jpg'),
         amazonUrl: '',
-        title: "L'égole du carburateur",
+        title: `L'égole du carburateur`,
         imageColor: '#555146',
+    },
+]
+
+const movies: Movie[] = [
+    {
+        author: 'Stanley Kubrick',
+        imageUrl: require('../static/images/movies/pathsofglory.jpg'),
+        amazonUrl:
+            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
+        title: 'Les sentiers de la gloire',
+        imageColor: '#000302',
+    },
+    {
+        author: 'Sergio Leone',
+        imageUrl: require('../static/images/movies/goodbadugly.jpg'),
+        amazonUrl: '',
+        title: 'Le bon, la brute et le truand',
+        imageColor: '#D1D21B',
+    },
+    {
+        author: 'Peter Jackson',
+        imageUrl: require('../static/images/movies/seigneur.jpg'),
+        amazonUrl: '',
+        title: 'Le seigneur des anneaux : Le retour du roi',
+        imageColor: '#BEBE91',
+    },
+    {
+        author: 'Christopher Nolan',
+        imageUrl: require('../static/images/movies/interstellar.jpg'),
+        amazonUrl: '',
+        title: 'Interstellar',
+        imageColor: '#DAE5E8',
     },
 ]
 
 export const collections: ICollection[] = [
     {
+        type: 'books',
         name: '**Books,** that get me inspired',
         items: books,
     },
     {
+        type: 'albums',
         name: '**Albums,** on repeat',
         items: albums,
+    },
+    {
+        type: 'movies',
+        name: '**Films,** that matter',
+        items: movies,
     },
 ]
 
