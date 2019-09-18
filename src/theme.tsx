@@ -2,6 +2,27 @@ import { grommet } from 'grommet'
 import { deepMerge } from 'grommet/utils'
 
 const theme = deepMerge(grommet, {
+    tab: {
+        color: 'dark-1',
+        active: {
+            color: 'accent-1',
+        },
+        border: {
+            active: {
+                color: {
+                    light: 'accent-1',
+                    dark: 'accent-1',
+                },
+                size: '4px',
+            },
+            size: '0px',
+        },
+    },
+    tabs: {
+        header: {
+            extend: `background-color: white;`,
+        },
+    },
     global: {
         font: {
             family: 'Roboto',
@@ -10,6 +31,7 @@ const theme = deepMerge(grommet, {
         },
         colors: {
             brand: '#3F55C9',
+            'accent-1': '#FFCA4F',
         },
         size: {
             xmedium: '296px',
@@ -28,6 +50,9 @@ const theme = deepMerge(grommet, {
                 font: {
                     family: 'Work Sans',
                     weight: '700',
+                },
+                tab: {
+                    size: '16px',
                 },
                 medium: {
                     height: '150%',
@@ -57,10 +82,14 @@ const theme = deepMerge(grommet, {
                     height: '150%',
                     size: '14px',
                 },
+                tab: {
+                    height: '150%',
+                    size: '14px',
+                },
                 // biography mainly
                 large: {
                     height: '160%',
-                    size: '15px',
+                    size: '16px',
                 },
             },
         },
