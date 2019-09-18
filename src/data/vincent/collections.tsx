@@ -1,63 +1,80 @@
-import { Book, ICollection, Album } from '../types'
+import { Book, ICollection, Album } from '../../types'
 
 const albums: Album[] = [
     {
+        collectionId: '10',
+        type: 'album',
         author: 'Jon Hopkins',
         imageUrl: require('../static/images/albums/hopkins.jpg'),
         title: 'Immunity',
         imageColor: '#1A1728',
-        spotifyUrl: '',
+        productUrl: '',
     },
     {
+        collectionId: '10',
+        type: 'album',
         author: 'Moderat',
         imageUrl: require('../static/images/albums/moderat.jpg'),
         title: 'II',
         imageColor: '#CFE3E2',
-        spotifyUrl: '',
+        productUrl: '',
     },
     {
+        collectionId: '10',
+        type: 'album',
         author: 'Nils Frahm',
         imageUrl: require('../static/images/albums/spaces.jpg'),
         title: 'Spaces',
         imageColor: 'white',
-        spotifyUrl: '',
+        productUrl: '',
     },
     {
+        collectionId: '10',
+        type: 'album',
         author: 'Nils Frahm',
         imageUrl: require('../static/images/albums/melody.jpg'),
         title: 'All Melody',
         imageColor: '#4A1514',
-        spotifyUrl: '',
+        productUrl: '',
     },
 ]
 
 const books: Book[] = [
     {
+        collectionId: '11',
+        type: 'book',
         author: 'Yvon Chouinard',
-        imageUrl: require('../static/images/books/patagonia.jpg'),
-        amazonUrl:
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/51LX032xQUL._SX307_BO1,204,203,200_.jpg',
+        productUrl:
             'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
         title: 'Let my people go Surfing',
         imageColor: '#6DA03B',
     },
     {
+        collectionId: '11',
+        type: 'book',
         author: 'Frederic Laloux',
         imageUrl: require('../static/images/books/reinventing.jpg'),
-        amazonUrl: '',
+        productUrl: '',
         title: 'Reinventing Organizations',
         imageColor: '#D6D6D6',
     },
     {
+        collectionId: '11',
+        type: 'book',
         author: 'Barry Schwartz',
         imageUrl: require('../static/images/books/paradox.jpg'),
-        amazonUrl: '',
+        productUrl: '',
         title: 'The Paradox of Choice',
         imageColor: '#FBDF50',
     },
     {
+        collectionId: '11',
+        type: 'book',
         author: 'Matthiew Crawford',
         imageUrl: require('../static/images/books/eloge.jpg'),
-        amazonUrl: '',
+        productUrl: '',
         title: "L'égole du carburateur",
         imageColor: '#555146',
     },
@@ -65,11 +82,15 @@ const books: Book[] = [
 
 export const collections: ICollection[] = [
     {
-        name: '**Books,** that get me inspired',
+        id: '10',
+        name:
+            '**Eric Dénécé** - La France en danger : où en est le renseignement ? [Vidéo](www.google.com)',
         items: books,
     },
     {
-        name: '**Albums,** on repeat',
+        id: '11',
+        name:
+            '**Vikash Dhorasoo,** football : du pain, des jeux et des magouilles ?',
         items: albums,
     },
 ]

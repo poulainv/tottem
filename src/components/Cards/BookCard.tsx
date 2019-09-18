@@ -23,13 +23,17 @@ const BookCard: React.FC<Book> = props => {
                 <Stack anchor="bottom">
                     <Box
                         round="4px"
-                        width="132px"
-                        height="186px"
+                        // width="132px"
+                        height="206px"
                         overflow="hidden"
                     >
-                        <Image src={props.imageUrl} fit="cover" width="100%" />
+                        <Image src={props.imageUrl} fit="cover" />
                     </Box>
-                    <ShadowCover color={props.imageColor} />
+                    {props.imageColor ? (
+                        <ShadowCover color={props.imageColor} />
+                    ) : (
+                        <div />
+                    )}
                 </Stack>
                 <Box
                     height={{ max: '40px' }}

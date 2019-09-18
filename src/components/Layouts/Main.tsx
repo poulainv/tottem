@@ -2,7 +2,8 @@ import { Box } from 'grommet'
 
 import React from 'react'
 import Collection from '../Collection'
-import collections from '../../data/collections'
+import collections from '../../data/thinkerview/collections'
+// import collections from '../../data/collections'
 import { ICollection } from '../../types'
 
 const Main: React.FC = () => {

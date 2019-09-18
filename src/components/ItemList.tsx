@@ -6,9 +6,9 @@ import AlbumCard from './Cards/AlbumCard'
 
 const ItemList: React.FC<{ items: Item[] }> = props => {
     return (
-        <Box direction="row" wrap={true} gap="medium" justify="between">
+        <Box direction="row" wrap={true} gap="medium" justify="start">
             {props.items.map((item: Item) => {
-                if ('amazonUrl' in item) {
+                if (item.type === 'book') {
                     const book: Book = item as Book
                     return (
                         <Box
@@ -18,7 +18,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
                             <BookCard {...book} />
                         </Box>
                     )
-                } else if ('spotifyUrl' in item) {
+                } else if (item.type === 'album') {
                     const album: Album = item as Album
                     return (
                         <Box
