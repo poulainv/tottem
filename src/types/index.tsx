@@ -2,12 +2,14 @@ export interface ICollection {
     id: string
     name: string
     items: Item[]
+    sectionId?: string
 }
 
 export interface Section {
     id: string
     name: string
     index: number
+    collections: ICollection[]
 }
 
 export interface Item {

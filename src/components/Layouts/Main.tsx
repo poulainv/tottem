@@ -1,18 +1,34 @@
-import { Box } from 'grommet'
+import { Box, Tabs, Tab } from 'grommet'
 
 import React from 'react'
 import Collection from '../Collection'
-import collections from '../../data/thinkerview/collections'
-// import collections from '../../data/collections'
-import { ICollection } from '../../types'
+import sections from '../../data/thinkerview/sections'
+// import collections from '../../data/vincent/collections'
+import { ICollection, Section } from '../../types'
+import { tsPropertySignature } from '@babel/types'
 
 const Main: React.FC = () => {
     return (
-        <Box direction="column" width="large">
-            {collections.map((collection: ICollection) => {
-                return <Collection key={collection.name} {...collection} />
+        <Tabs justify="start">
+            {sections.map((section: Section) => {
+                return (
+                    <Tab key={section.id} title={section.name}>
+                        <Box direction="column" width="large">
+                            {section.collections.map(
+                                (collection: ICollection) => {
+                                    return (
+                                        <Collection
+                                            key={collection.name}
+                                            {...collection}
+                                        />
+                                    )
+                                }
+                            )}
+                        </Box>
+                    </Tab>
+                )
             })}
-        </Box>
+        </Tabs>
     )
 }
 
