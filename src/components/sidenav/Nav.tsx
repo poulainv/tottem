@@ -28,7 +28,7 @@ const Sidenav: React.FC<UserProfile> = props => {
                             color="dark-1"
                             margin={{ vertical: '0px' }}
                         >
-                            I'm Vincent
+                            {props.firstname}
                         </Heading>
                     </Box>
                 </Box>

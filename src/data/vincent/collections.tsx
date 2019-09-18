@@ -1,4 +1,4 @@
-import { Book, ICollection, Album } from '../types'
+import { Book, ICollection, Album } from '../../types'
 
 const albums: Album[] = [
     {
