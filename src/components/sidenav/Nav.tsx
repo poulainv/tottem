@@ -36,7 +36,7 @@ const Sidenav: React.FC<UserProfile> = props => {
                     direction="column"
                     margin={{ top: '40px', bottom: '10px' }}
                 >
-                    <Separator color={theme.global.colors.brand} />
+                    <Separator color={theme.global.colors['accent-1']} />
                 </Box>
                 <Heading level={3} size="large" color="dark-1">
                     <Markdown>{props.biography}</Markdown>

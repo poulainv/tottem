@@ -1,19 +1,38 @@
-import { Box, Tabs, Tab } from 'grommet'
+import { Box, Tabs, Tab, Heading, Stack } from 'grommet'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Collection from '../Collection'
 import sections from '../../data/thinkerview/sections'
+
 // import collections from '../../data/vincent/collections'
 import { ICollection, Section } from '../../types'
-import { tsPropertySignature } from '@babel/types'
+import TabTitle from '../Tab'
 
 const Main: React.FC = () => {
+    const [activeTab, setActiveTab] = useState(0)
+
     return (
-        <Tabs justify="start">
-            {sections.map((section: Section) => {
+        <Tabs justify="start" onActive={setActiveTab}>
+            {sections.map((section: Section, index: number) => {
                 return (
-                    <Tab key={section.id} title={section.name}>
-                        <Box direction="column" width="large">
+                    <Tab
+                        key={section.id}
+                        title={
+                            <TabTitle
+                                title={section.name}
+                                active={activeTab === index}
+                            />
+                        }
+                    >
+                        <Box
+                            direction="column"
+                            width="large"
+                            border={{
+                                color: 'light-2',
+                                size: '1px',
+                                side: 'top',
+                            }}
+                        >
                             {section.collections.map(
                                 (collection: ICollection) => {
                                     return (

@@ -18,9 +18,7 @@ const App: React.FC = () => {
                     overflow="visible"
                     width="full"
                 >
-                    <Box>
-                        <Image src={artWork} />
-                    </Box>
+                    <Box>{/* <Image src={artWork} /> */}</Box>
                 </Box>
                 <Box
                     direction="row"
