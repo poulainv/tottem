@@ -18,6 +18,19 @@ const theme = deepMerge(grommet, {
             size: '0px',
         },
     },
+    button: {
+        color: { dark: 'white', light: 'white' },
+        border: {
+            width: '1px',
+            color: { dark: 'white', light: 'white' },
+        },
+        extend: {
+            font: {
+                family: 'Work Sans',
+            },
+            'font-size': '13px',
+        },
+    },
     tabs: {
         header: {
             extend: `background-color: white;`,
