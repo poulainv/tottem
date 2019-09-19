@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import Collection from '../Collection'
 import sections from '../../data/thinkerview/sections'
 
-// import collections from '../../data/vincent/collections'
 import { ICollection, Section } from '../../types'
 import TabTitle from '../Tab'
 

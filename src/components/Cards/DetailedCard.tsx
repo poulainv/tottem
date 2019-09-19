@@ -52,7 +52,7 @@ const DetailedCard: React.FC<Book> = props => {
                     icon={<Share color="white" size="small" />}
                     label={
                         <Heading level={3} size="medium" margin="0px">
-                            GET IT
+                            Get it
                         </Heading>
                     }
                     href={props.productUrl}
