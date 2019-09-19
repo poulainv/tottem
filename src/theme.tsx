@@ -4,17 +4,7 @@ import { deepMerge } from 'grommet/utils'
 const theme = deepMerge(grommet, {
     tab: {
         color: 'dark-1',
-        active: {
-            color: 'accent-1',
-        },
         border: {
-            active: {
-                color: {
-                    light: 'accent-1',
-                    dark: 'accent-1',
-                },
-                size: '4px',
-            },
             size: '0px',
         },
     },
@@ -31,25 +21,19 @@ const theme = deepMerge(grommet, {
             'font-size': '13px',
         },
     },
-    tabs: {
-        header: {
-            extend: `background-color: white;`,
+    // Increase maxWidth to avoid too small paragraph
+    paragraph: {
+        small: {
+            maxWidth: '380px',
+        },
+        medium: {
+            maxWidth: '380px',
         },
     },
     global: {
-        font: {
-            family: 'Roboto',
-            height: '20px',
-            size: '14px',
-        },
         colors: {
             brand: '#3F55C9',
             'accent-1': '#FFCA4F',
-        },
-        size: {
-            xmedium: '296px',
-            xxlarge: '1272px',
-            large: '800px',
         },
         elevation: {
             light: {
@@ -58,51 +42,59 @@ const theme = deepMerge(grommet, {
         },
     },
     heading: {
+        font: {
+            family: 'Work Sans',
+            weight: '500',
+        },
         level: {
-            '1': {
+            1: {
                 font: {
-                    family: 'Work Sans',
                     weight: '700',
                 },
-                tab: {
-                    size: '16px',
-                },
-                medium: {
-                    height: '150%',
+                // Hello desktop
+                large: {
                     size: '48px',
                 },
+                small: {
+                    size: '16px',
+                },
             },
-            '2': {
+            2: {
                 font: {
-                    family: 'Work Sans',
+                    weight: '700',
+                },
+                // Hello mobile
+                large: {
+                    size: '36px',
+                    height: '42px',
+                },
+                small: {
+                    size: '13px',
+                },
+            },
+            3: {
+                font: {
                     weight: '400',
                 },
                 medium: {
-                    height: '150%',
                     size: '22px',
+                    maxWidth: '858px', // avoid collection name truncation
                 },
-                large: {
-                    height: '150%',
-                    size: '24px',
+                xsmall: {
+                    size: '14px',
+                    height: '18px',
                 },
             },
-            '3': {
+            4: {
                 font: {
-                    family: 'Work Sans',
-                    weight: '500',
+                    weight: '400',
                 },
                 medium: {
-                    height: '150%',
-                    size: '14px',
+                    size: '18px',
                 },
-                tab: {
-                    height: '150%',
-                    size: '14px',
-                },
-                // biography mainly
-                large: {
-                    height: '160%',
-                    size: '16px',
+                xsmall: {
+                    size: '12px',
+                    height: '14px',
                 },
             },
         },

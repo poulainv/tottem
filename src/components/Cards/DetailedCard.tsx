@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Heading, Paragraph, Button, Text, Markdown } from 'grommet'
 import { Book } from '../../types'
 import { Share } from 'grommet-icons'
+import { unstable_renderSubtreeIntoContainer } from 'react-dom'
 
 const DetailedCard: React.FC<Book> = props => {
     return (
@@ -19,7 +20,7 @@ const DetailedCard: React.FC<Book> = props => {
             animation={{
                 type: 'fadeIn',
                 delay: 0,
-                duration: 400,
+                duration: 100,
                 size: 'medium',
             }}
         >
@@ -29,7 +30,7 @@ const DetailedCard: React.FC<Book> = props => {
                 >
                     <Heading
                         level={3}
-                        size="medium"
+                        size="xsmall"
                         color="white"
                         margin={{ top: '0px' }}
                     >
@@ -51,7 +52,7 @@ const DetailedCard: React.FC<Book> = props => {
                     fill="horizontal"
                     icon={<Share color="white" size="small" />}
                     label={
-                        <Heading level={3} size="medium" margin="0px">
+                        <Heading level={3} size="title" margin="0px">
                             Get it
                         </Heading>
                     }

@@ -1,5 +1,5 @@
-import { Box, Heading, Markdown } from 'grommet'
-import React from 'react'
+import { Box, Heading, Markdown, ResponsiveContext, Paragraph } from 'grommet'
+import React, { useContext } from 'react'
 import Separator from './Separator'
 
 import theme from '../../theme'
@@ -9,39 +9,55 @@ import Social from './Social'
 import { UserProfile } from '../../types'
 
 const Sidenav: React.FC<UserProfile> = props => {
+    const size = useContext(ResponsiveContext)
+    const isMobile = size === 'small'
+    const fontColor = isMobile ? 'white' : 'dark-1'
     return (
-        <Box direction="column">
-            <Box width="xmedium">
-                <Box direction="column">
-                    <Box direction="column">
-                        <PictureProfile imageUrl={props.pictureUrl} />
-                        <Heading
-                            level={1}
-                            color="dark-1"
-                            margin={{ top: '16px', bottom: '0px' }}
-                        >
-                            Hello,
-                        </Heading>
-                        <Heading
-                            level={2}
-                            size="large"
-                            color="dark-1"
-                            margin={{ vertical: '0px' }}
-                        >
-                            {props.firstname}
-                        </Heading>
+        <Box direction="column" pad={{ horizontal: 'medium' }}>
+            <Box
+                direction={isMobile ? 'row' : 'column'}
+                align={isMobile ? 'center' : 'start'}
+                justify="start"
+            >
+                <Box margin={{ right: 'large' }}>
+                    <PictureProfile size={size} imageUrl={props.pictureUrl} />
+                </Box>
+                <Box>
+                    <Heading
+                        level={1}
+                        color={fontColor}
+                        size="large"
+                        margin="none"
+                    >
+                        Hello,
+                    </Heading>
+                    <Heading
+                        level={3}
+                        size="small"
+                        color={fontColor}
+                        margin="none"
+                    >
+                        {props.firstname}
+                    </Heading>
+                    <Box
+                        direction="column"
+                        margin={{ top: 'medium', bottom: '10px' }}
+                    >
+                        <Separator
+                            size={size}
+                            color={theme.global.colors['accent-1']}
+                        />
                     </Box>
                 </Box>
-                <Box
-                    direction="column"
-                    margin={{ top: '40px', bottom: '10px' }}
+            </Box>
+            <Box>
+                <Paragraph
+                    size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
+                    color={fontColor}
                 >
-                    <Separator color={theme.global.colors['accent-1']} />
-                </Box>
-                <Heading level={3} size="large" color="dark-1">
                     <Markdown>{props.biography}</Markdown>
-                </Heading>
-                <Social />
+                </Paragraph>
+                {/* <Social /> */}
             </Box>
         </Box>
     )

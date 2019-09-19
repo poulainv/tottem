@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 
+interface CircleProps {
+    color: string
+    size: string
+}
+
 const Circle = styled.div`
-    width: 11px;
-    height: 11px;
+    width: ${(props: CircleProps) => (props.size === 'small' ? '8px' : '11px')};
+    height: ${(props: CircleProps) =>
+        props.size === 'small' ? '8px' : '11px'};
     border-radius: 50%;
-    background-color: ${props => props.color || 'black'};
+    background-color: ${(props: CircleProps) => props.color || 'black'};
 `
 
 export default Circle

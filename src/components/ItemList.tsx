@@ -1,10 +1,12 @@
-import React from 'react'
-import { Box } from 'grommet'
+import React, { useContext } from 'react'
+import { Box, ResponsiveContext } from 'grommet'
 import BookCard from './Cards/BookCard'
 import { Book, Item, Album } from '../types'
 import AlbumCard from './Cards/AlbumCard'
 
 const ItemList: React.FC<{ items: Item[] }> = props => {
+    const size = useContext(ResponsiveContext)
+    const isMobile = size === 'small'
     return (
         <Box direction="row" wrap={true} gap="medium" justify="start">
             {props.items.map((item: Item) => {
@@ -13,9 +15,10 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
                     return (
                         <Box
                             key={book.title.toString()}
+                            basis={isMobile ? '45%' : '25%'}
                             margin={{ vertical: 'small' }}
                         >
-                            <BookCard {...book} />
+                            <BookCard item={book} size={size} />
                         </Box>
                     )
                 } else if (item.type === 'album') {

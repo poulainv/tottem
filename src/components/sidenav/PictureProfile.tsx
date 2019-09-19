@@ -1,12 +1,17 @@
 import { Box, Image } from 'grommet'
 import React from 'react'
 
-const PictureProfile: React.FC<{ imageUrl: string }> = props => {
+interface PictureProfileProps {
+    size: string
+    imageUrl: string
+}
+
+const PictureProfile: React.FC<PictureProfileProps> = props => {
     return (
         <Box
             overflow="hidden"
-            width="172px"
-            height="172px"
+            width={props.size === 'small' ? '100px' : '172px'}
+            height={props.size === 'small' ? '100px' : '172px'}
             justify="center"
             align="center"
             round="full"
