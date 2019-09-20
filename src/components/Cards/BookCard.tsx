@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Book } from '../../types'
-import { Box, Heading, Image, Text, Stack, Button, Paragraph } from 'grommet'
-import Truncate from 'react-truncate'
-import picto from '../../static/pictograms/book.svg'
-import ShadowCover from '../ShadowCover'
+import { Box } from 'grommet'
 import styled from 'styled-components'
+
+import CoverImage from './CoverImage'
+import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
 
 const Hoverable = styled.div`
@@ -28,8 +28,15 @@ const HoverCard = styled.div`
     }
 `
 
-const BookCard: React.FC<Book> = props => {
+interface CardProps {
+    size: string
+    item: Book
+}
+
+const BookCard: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
+    // FIXME Can not do better for now...
+    const widthCard = props.size === 'small' ? '180px' : '190px'
     return (
         <Hoverable // tslint:disable-next-line: jsx-no-lambda
             onMouseEnter={() => setHover(true)}
@@ -41,49 +48,19 @@ const BookCard: React.FC<Book> = props => {
                 round="8px"
                 elevation="card"
                 align="center"
-                width="166px"
+                pad="small"
+                width={{ max: widthCard }}
             >
-                <Box
-                    direction="column"
-                    justify="center"
-                    width="132px"
-                    pad={{ vertical: '17px' }}
-                >
-                    <Stack anchor="bottom">
-                        <Box round="4px" height="206px" overflow="hidden">
-                            <Image src={props.imageUrl} fit="cover" />
-                        </Box>
-                        {props.imageColor && (
-                            <ShadowCover color={props.imageColor} />
-                        )}
-                    </Stack>
-                    <Box
-                        height={{ max: '40px' }}
-                        overflow="hidden"
-                        margin={{ top: 'small', bottom: 'xsmall' }}
-                    >
-                        <Heading
-                            level={3}
-                            size="medium"
-                            color="dark-1"
-                            margin={{ top: '0px' }}
-                        >
-                            <Truncate lines={2}>{props.title}</Truncate>
-                        </Heading>
-                    </Box>
-                    <Box direction="row" justify="between">
-                        <Box>
-                            <Text color="dark-3" size="xsmall" truncate>
-                                {props.author}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Image src={picto} />
-                        </Box>
-                    </Box>
+                <Box direction="column" justify="center">
+                    <CoverImage
+                        imageColor={props.item.imageColor}
+                        imageUrl={props.item.imageUrl}
+                        size={props.size}
+                    />
+                    <CardInfo {...props.item} />
                 </Box>
             </Box>
-            <HoverCard>{isHover && <DetailedCard {...props} />}</HoverCard>
+            <HoverCard>{isHover && <DetailedCard {...props.item} />}</HoverCard>
         </Hoverable>
     )
 }
