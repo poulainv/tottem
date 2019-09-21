@@ -21,13 +21,17 @@ const CardInfo: React.FC<Item> = (props: Item) => {
                     <Truncate lines={2}>{props.title}</Truncate>
                 </Heading>
             </Box>
-            <Box direction="row" justify="between">
-                <Box>
+            <Box direction="row">
+                <Box fill>
                     <Text color="dark-3" size="xsmall" truncate>
                         {props.author}
                     </Text>
                 </Box>
-                <Box>{picto ? <Image src={picto} /> : null}</Box>
+                {picto ? (
+                    <Box margin={{ left: '5px' }}>
+                        <Image src={picto} />
+                    </Box>
+                ) : null}
             </Box>
         </Box>
     )
