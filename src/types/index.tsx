@@ -1,22 +1,33 @@
-export type CollectionType = 'books' | 'albums' | 'movies'
-
 export interface ICollection {
-    type: CollectionType
+    id: string
     name: string
     items: Item[]
+    sectionId?: string
+}
+
+export interface Section {
+    id: string
+    name: string
+    index: number
+    collections: ICollection[]
 }
 
 export interface Item {
+    collectionId: string
     author: string
     imageUrl: string
     title: string
     size?: 'small' | 'big'
     roundedImg?: boolean
     imageColor?: string
+    productUrl: string
+    note?: string
+    type: string
+    detail?: string
 }
 
 export interface Book extends Item {
-    amazonUrl: string
+    imageColor?: string
 }
 
 export interface Album extends Item {

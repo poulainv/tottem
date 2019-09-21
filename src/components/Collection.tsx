@@ -6,13 +6,13 @@ import { ICollection } from '../types'
 
 const Collection: React.FC<ICollection> = props => {
     return (
-        <Box direction="column" fill="vertical" margin={{ top: '50px' }}>
-            <Box>
-                <Heading level="2" size="medium">
+        <Box direction="column" fill="vertical" margin={{ top: 'medium' }}>
+            <Box margin="small">
+                <Heading level="3" size="medium">
                     <Markdown>{props.name}</Markdown>
                 </Heading>
             </Box>
-            <Box>
+            <Box margin="small">
                 <ItemList items={props.items} type={props.type} />
             </Box>
         </Box>
