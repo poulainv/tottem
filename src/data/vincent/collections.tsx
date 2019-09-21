@@ -121,7 +121,7 @@ const movies: Movie[] = [
 
 const papers: Item[] = [
     {
-        collectionId: '10',
+        collectionId: '13',
         type: 'paper',
         author: 'Joe Edelman',
         imageUrl: require('../../static/images/articles/humantec.jpg'),
@@ -131,7 +131,7 @@ const papers: Item[] = [
             'https://medium.com/what-to-build/is-anything-worth-maximizing-d11e648eb56f',
     },
     {
-        collectionId: '10',
+        collectionId: '13',
         type: 'paper',
         author: 'Maxime Beauchemin',
         imageUrl: require('../../static/images/articles/data-func.jpg'),
@@ -142,7 +142,7 @@ const papers: Item[] = [
             'https://medium.com/@maximebeauchemin/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a',
     },
     {
-        collectionId: '10',
+        collectionId: '13',
         type: 'paper',
         author: 'Tristan Harris',
         imageUrl: require('../../static/images/articles/clickgoal.jpg'),
@@ -152,7 +152,7 @@ const papers: Item[] = [
             'https://www.wired.com/story/tristan-harris-tech-is-downgrading-humans-time-to-fight-back/',
     },
     {
-        collectionId: '10',
+        collectionId: '13',
         type: 'paper',
         author: 'The Syndicate Post',
         imageUrl: require('../../static/images/articles/introvert.jpg'),
@@ -160,6 +160,36 @@ const papers: Item[] = [
         imageColor: '#0F1F1E',
         productUrl:
             'https://medium.com/syndicate-post/introverts-your-guide-into-the-world-of-an-introverted-personality-98ff89703a1e',
+    },
+]
+
+const people: Item[] = [
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Center for Humane Technology',
+        imageUrl: require('../../static/images/people/tristan.jpg'),
+        title: 'Tristan Harris',
+        imageColor: '#2A4034',
+        productUrl: '',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Ars Industrialis',
+        imageUrl: require('../../static/images/people/stiegler.jpg'),
+        title: 'Bernard Stiegler',
+        imageColor: '#0D0D1A',
+        productUrl: '',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: '',
+        imageUrl: require('../../static/images/people/damasio.jpg'),
+        title: 'Alain Damasio',
+        imageColor: '#87160D',
+        productUrl: '',
     },
 ]
 
@@ -181,6 +211,12 @@ export const collections: ICollection[] = [
         sectionId: '1',
         name: '**Albums,** on repeat',
         items: albums,
+    },
+    {
+        id: '14',
+        sectionId: '1',
+        name: '**Influencers,** that get me inspired',
+        items: people,
     },
     {
         id: '12',

@@ -5,5 +5,6 @@ const ShadowCover = styled.div`
     border-radius: 50%;
     height: 7px;
     width: 80px;
+    margin-top: -10px;
 `
 export default ShadowCover
