@@ -22,7 +22,7 @@ export interface Item {
     imageColor?: string
     productUrl: string
     note?: string
-    type: 'book' | 'album' | 'movie' | 'people' | 'video'
+    type: ItemType
     detail?: string
 }
 
@@ -38,7 +38,14 @@ export interface Movie extends Item {
     imageColor?: string
 }
 
-export type ItemType = Book | Album | Movie
+export type ItemType =
+    | 'book'
+    | 'album'
+    | 'movie'
+    | 'people'
+    | 'video'
+    | 'paper'
+    | 'podcast'
 
 export interface UserProfile {
     firstname: string

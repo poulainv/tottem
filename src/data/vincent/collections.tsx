@@ -1,4 +1,4 @@
-import { Book, ICollection, Album, Movie } from '../../types'
+import { Book, ICollection, Album, Movie, Item } from '../../types'
 
 const albums: Album[] = [
     {
@@ -119,12 +119,62 @@ const movies: Movie[] = [
     },
 ]
 
+const papers: Item[] = [
+    {
+        collectionId: '10',
+        type: 'paper',
+        author: 'Joe Edelman',
+        imageUrl: require('../../static/images/articles/humantec.jpg'),
+        title: 'Is Anything worth Maximizing',
+        imageColor: '#0F1F1E',
+        productUrl:
+            'https://medium.com/what-to-build/is-anything-worth-maximizing-d11e648eb56f',
+    },
+    {
+        collectionId: '10',
+        type: 'paper',
+        author: 'Maxime Beauchemin',
+        imageUrl: require('../../static/images/articles/data-func.jpg'),
+        title:
+            'Functional Data Engineering — a modern paradigm for batch data processing',
+        imageColor: '#3F78A6',
+        productUrl:
+            'https://medium.com/@maximebeauchemin/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a',
+    },
+    {
+        collectionId: '10',
+        type: 'paper',
+        author: 'Tristan Harris',
+        imageUrl: require('../../static/images/articles/clickgoal.jpg'),
+        title: 'Downgrading technology should be more challenged',
+        imageColor: '#D30229',
+        productUrl:
+            'https://www.wired.com/story/tristan-harris-tech-is-downgrading-humans-time-to-fight-back/',
+    },
+    {
+        collectionId: '10',
+        type: 'paper',
+        author: 'The Syndicate Post',
+        imageUrl: require('../../static/images/articles/introvert.jpg'),
+        title: 'Introverts: Inside The Mind of An Introverted Personality',
+        imageColor: '#0F1F1E',
+        productUrl:
+            'https://medium.com/syndicate-post/introverts-your-guide-into-the-world-of-an-introverted-personality-98ff89703a1e',
+    },
+]
+
 export const collections: ICollection[] = [
     {
         id: '10',
         sectionId: '1',
         name: '**Books,** that get me inspired',
         items: books,
+    },
+    {
+        id: '13',
+        sectionId: '1',
+        name: '**Papers,** worth reading',
+        items: papers,
     },
     {
         id: '11',
