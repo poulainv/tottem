@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, Heading, Text, Image } from 'grommet'
 import Truncate from 'react-truncate'
-import picto from '../../static/pictograms/book.svg'
 import { Item } from '../../types'
 
 const CardInfo: React.FC<Item> = (props: Item) => {
+    const picto = require(`../../static/pictograms/${props.type}.svg`)
     return (
         <Box>
             <Box
@@ -27,9 +27,7 @@ const CardInfo: React.FC<Item> = (props: Item) => {
                         {props.author}
                     </Text>
                 </Box>
-                <Box>
-                    <Image src={picto} />
-                </Box>
+                <Box>{picto ? <Image src={picto} /> : null}</Box>
             </Box>
         </Box>
     )

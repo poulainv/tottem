@@ -193,6 +193,18 @@ const people: Item[] = [
     },
 ]
 
+const podcasts: Item[] = [
+    {
+        collectionId: '15',
+        type: 'podcast',
+        author: '',
+        imageUrl: require('../../static/images/podcasts/undivided.jpg'),
+        title: 'Your Individed Attention',
+        imageColor: '#08ADAD',
+        productUrl: '',
+    },
+]
+
 export const collections: ICollection[] = [
     {
         id: '10',
@@ -211,6 +223,12 @@ export const collections: ICollection[] = [
         sectionId: '1',
         name: '**Albums,** on repeat',
         items: albums,
+    },
+    {
+        id: '15',
+        sectionId: '1',
+        name: '**Podcasts,** everyday',
+        items: podcasts,
     },
     {
         id: '14',
