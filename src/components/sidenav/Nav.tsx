@@ -5,7 +5,6 @@ import Separator from './Separator'
 import theme from '../../theme'
 
 import PictureProfile from './PictureProfile'
-import Social from './Social'
 import { UserProfile } from '../../types'
 
 const Sidenav: React.FC<UserProfile> = props => {
@@ -57,7 +56,6 @@ const Sidenav: React.FC<UserProfile> = props => {
                 >
                     <Markdown>{props.biography}</Markdown>
                 </Paragraph>
-                {/* <Social /> */}
             </Box>
         </Box>
     )

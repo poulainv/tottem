@@ -13,7 +13,7 @@ const Collection: React.FC<ICollection> = props => {
                 </Heading>
             </Box>
             <Box margin="small">
-                <ItemList items={props.items} type={props.type} />
+                <ItemList items={props.items} />
             </Box>
         </Box>
     )

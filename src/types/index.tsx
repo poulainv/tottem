@@ -22,7 +22,7 @@ export interface Item {
     imageColor?: string
     productUrl: string
     note?: string
-    type: string
+    type: 'book' | 'album' | 'movie' | 'people' | 'video'
     detail?: string
 }
 
@@ -35,7 +35,7 @@ export interface Album extends Item {
 }
 
 export interface Movie extends Item {
-    amazonUrl: string
+    imageColor?: string
 }
 
 export type ItemType = Book | Album | Movie
