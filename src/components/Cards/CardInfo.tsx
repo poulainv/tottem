@@ -1,10 +1,10 @@
 import React from 'react'
 import { Box, Heading, Text, Image } from 'grommet'
 import Truncate from 'react-truncate'
-import picto from '../../static/pictograms/book.svg'
 import { Item } from '../../types'
 
 const CardInfo: React.FC<Item> = (props: Item) => {
+    const picto = require(`../../static/pictograms/${props.type}.svg`)
     return (
         <Box>
             <Box
@@ -21,15 +21,17 @@ const CardInfo: React.FC<Item> = (props: Item) => {
                     <Truncate lines={2}>{props.title}</Truncate>
                 </Heading>
             </Box>
-            <Box direction="row" justify="between">
-                <Box>
+            <Box direction="row">
+                <Box fill>
                     <Text color="dark-3" size="xsmall" truncate>
                         {props.author}
                     </Text>
                 </Box>
-                <Box>
-                    <Image src={picto} />
-                </Box>
+                {picto && (
+                    <Box margin={{ left: '5px' }}>
+                        <Image src={picto} />
+                    </Box>
+                )}
             </Box>
         </Box>
     )

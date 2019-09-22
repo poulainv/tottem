@@ -2,7 +2,8 @@ import { Box, Tabs, Tab, ResponsiveContext } from 'grommet'
 
 import React, { useState, useContext } from 'react'
 import Collection from '../Collection'
-import sections from '../../data/thinkerview/sections'
+// Choose your profile here for now :)
+import sections from '../../data/vincent/sections'
 
 import { ICollection, Section } from '../../types'
 import TabTitle from '../Tab'
@@ -19,11 +20,13 @@ const Main: React.FC = () => {
                         <Tab
                             key={section.id}
                             title={
-                                <TabTitle
-                                    size={size}
-                                    title={section.name}
-                                    active={activeTab === index}
-                                />
+                                sections.length > 1 ? (
+                                    <TabTitle
+                                        size={size}
+                                        title={section.name}
+                                        active={activeTab === index}
+                                    />
+                                ) : null
                             }
                         >
                             <Box

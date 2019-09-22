@@ -3,7 +3,7 @@ import { Book } from '../../types'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 
-import CoverImage from './CoverImage'
+import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
 
@@ -31,9 +31,10 @@ const HoverCard = styled.div`
 interface CardProps {
     size: string
     item: Book
+    imageShape: ImageShapeType
 }
 
-const BookCard: React.FC<CardProps> = props => {
+const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
     // FIXME Can not do better for now...
     const widthCard = props.size === 'small' ? '180px' : '190px'
@@ -56,6 +57,7 @@ const BookCard: React.FC<CardProps> = props => {
                         imageColor={props.item.imageColor}
                         imageUrl={props.item.imageUrl}
                         size={props.size}
+                        imageShape={props.imageShape}
                     />
                     <CardInfo {...props.item} />
                 </Box>
@@ -65,4 +67,4 @@ const BookCard: React.FC<CardProps> = props => {
     )
 }
 
-export default BookCard
+export default Card

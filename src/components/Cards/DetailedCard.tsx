@@ -1,8 +1,7 @@
 import React from 'react'
-import { Box, Heading, Paragraph, Button, Text, Markdown } from 'grommet'
+import { Box, Heading, Paragraph, Button, Markdown } from 'grommet'
 import { Book } from '../../types'
 import { Share } from 'grommet-icons'
-import { unstable_renderSubtreeIntoContainer } from 'react-dom'
 
 const DetailedCard: React.FC<Book> = props => {
     return (

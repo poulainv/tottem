@@ -17,10 +17,11 @@ export interface Item {
     author: string
     imageUrl: string
     title: string
+    size?: 'small' | 'big'
     imageColor?: string
     productUrl: string
     note?: string
-    type: string
+    type: ItemType
     detail?: string
 }
 
@@ -29,9 +30,21 @@ export interface Book extends Item {
 }
 
 export interface Album extends Item {
-    imageColor: string
     spotifyUrl?: string
 }
+
+export interface Movie extends Item {
+    imageColor?: string
+}
+
+export type ItemType =
+    | 'book'
+    | 'album'
+    | 'movie'
+    | 'people'
+    | 'video'
+    | 'paper'
+    | 'podcast'
 
 export interface UserProfile {
     firstname: string

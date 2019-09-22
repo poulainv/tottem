@@ -1,18 +1,9 @@
-import {
-    Box,
-    Grommet,
-    Image,
-    ResponsiveContext,
-    ThemeContext,
-    Button,
-} from 'grommet'
+import { Box, Grommet, ResponsiveContext, Button } from 'grommet'
 import React from 'react'
 import Main from './components/Layouts/Main'
 import Sidenav from './components/sidenav/Nav'
 import theme from './theme'
-import profile from './data/thinkerview/profile'
-
-const artWork = require('./static/images/artworks/artwork-1.svg')
+import profile from './data/vincent/profile'
 
 const App: React.FC = () => {
     const isMobile = (size: string) => size === 'small'

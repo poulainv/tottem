@@ -1,7 +1,7 @@
 import React from 'react'
 import theme from '../theme'
 import Circle from './Circle'
-import { Stack, Box, Heading, ResponsiveContext } from 'grommet'
+import { Stack, Box, Heading } from 'grommet'
 
 interface TabTitleProps {
     active: boolean
