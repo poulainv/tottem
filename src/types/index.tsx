@@ -18,7 +18,6 @@ export interface Item {
     imageUrl: string
     title: string
     size?: 'small' | 'big'
-    roundedImg?: boolean
     imageColor?: string
     productUrl: string
     note?: string

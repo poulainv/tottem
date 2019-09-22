@@ -2,11 +2,13 @@ import React from 'react'
 import { Stack, Box, Image } from 'grommet'
 import ShadowCover from '../ShadowCover'
 
+export type ImageShapeType = 'rectangle' | 'square' | 'circle'
+
 interface CoverProps {
     imageUrl: string
     imageColor?: string
     size: string
-    imageShape?: 'rectangle' | 'square' | 'circle' // assume rectangle by default
+    imageShape?: ImageShapeType
 }
 
 const CoverImage: React.FC<CoverProps> = props => {
@@ -31,6 +33,5 @@ const CoverImage: React.FC<CoverProps> = props => {
         </Stack>
     )
 }
-CoverImage.defaultProps = { imageShape: 'rectangle' }
 
 export default CoverImage

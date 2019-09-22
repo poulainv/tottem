@@ -3,7 +3,7 @@ import { Book } from '../../types'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 
-import CoverImage from './CoverImage'
+import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
 
@@ -31,8 +31,7 @@ const HoverCard = styled.div`
 interface CardProps {
     size: string
     item: Book
-    hoverable?: boolean
-    imageShape?: 'rectangle' | 'square' | 'circle'
+    imageShape: ImageShapeType
 }
 
 const Card: React.FC<CardProps> = props => {
@@ -63,11 +62,7 @@ const Card: React.FC<CardProps> = props => {
                     <CardInfo {...props.item} />
                 </Box>
             </Box>
-            {props.hoverable ? (
-                <HoverCard>
-                    {isHover && <DetailedCard {...props.item} />}
-                </HoverCard>
-            ) : null}
+            <HoverCard>{isHover && <DetailedCard {...props.item} />}</HoverCard>
         </Hoverable>
     )
 }

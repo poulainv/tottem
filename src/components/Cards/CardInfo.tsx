@@ -27,11 +27,11 @@ const CardInfo: React.FC<Item> = (props: Item) => {
                         {props.author}
                     </Text>
                 </Box>
-                {picto ? (
+                {picto && (
                     <Box margin={{ left: '5px' }}>
                         <Image src={picto} />
                     </Box>
-                ) : null}
+                )}
             </Box>
         </Box>
     )
