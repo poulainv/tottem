@@ -27,11 +27,13 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
     const widthCard = isMobile ? '186px' : '186px'
     return (
         <StyledBox
-            responsive={false}
             direction="row"
             wrap={!isMobile}
             gap="large"
-            pad={{ horizontal: 'medium', bottom: 'medium' }}
+            pad={{
+                horizontal: 'medium',
+                bottom: 'large',
+            }}
             justify="start"
             overflow={{ horizontal: isMobile ? 'auto' : 'visible' }}
         >
