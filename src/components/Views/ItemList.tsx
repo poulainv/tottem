@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
-import Card from '../Cards/Card'
+import Card, { CardSize } from '../Cards/Card'
 import { Item, ItemType } from '../../types'
 import { ImageShapeType } from '../Cards/CoverImage'
 import styled from 'styled-components'
@@ -24,7 +24,6 @@ const StyledBox = styled(Box)`
 const ItemList: React.FC<{ items: Item[] }> = props => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
-    const widthCard = isMobile ? '186px' : '186px'
     return (
         <StyledBox
             direction="row"
@@ -42,10 +41,18 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
                     <Box
                         key={item.title.toString()}
                         margin={{ vertical: 'small' }}
-                        width={{ min: widthCard }}
+                        width={{
+                            min: isMobile
+                                ? CardSize.small.width
+                                : CardSize.large.width,
+                        }}
                     >
                         <Card
-                            width={widthCard}
+                            width={
+                                isMobile
+                                    ? CardSize.small.width
+                                    : CardSize.large.width
+                            }
                             item={item}
                             small={isMobile}
                             imageShape={imageShapes[item.type]}

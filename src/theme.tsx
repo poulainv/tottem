@@ -55,6 +55,16 @@ const theme = deepMerge(grommet, {
             family:
                 '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";ﬂ',
         },
+        breakpoints: {
+            small: {
+                edgeSize: {
+                    card: '12px',
+                },
+            },
+        },
+        edgeSize: {
+            card: '17px',
+        },
     },
     heading: {
         font: {

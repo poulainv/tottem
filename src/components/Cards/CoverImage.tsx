@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Image } from 'grommet'
+import { CardSize } from './Card'
 
 export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 
@@ -10,18 +11,16 @@ interface CoverProps {
 }
 
 const CoverImage: React.FC<CoverProps> = props => {
-    // FIXME
-
     const getImageHeight = (small: boolean, shape?: ImageShapeType) => {
         // The width is full and fixed depending on parent width
         if (shape === 'rectangle' && !small) {
-            return '210px'
+            return CardSize.large.rectangleImageHeight
         } else if (shape === 'rectangle' && small) {
-            return '210px'
+            return CardSize.small.rectangleImageHeight
         } else if (small) {
-            return '142px'
+            return CardSize.small.squareImageHeight
         } else {
-            return '142px'
+            return CardSize.large.squareImageHeight
         }
     }
 

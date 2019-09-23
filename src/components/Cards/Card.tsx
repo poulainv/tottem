@@ -27,6 +27,19 @@ interface CardProps {
     imageShape: ImageShapeType
 }
 
+export const CardSize = {
+    small: {
+        width: '166px',
+        rectangleImageHeight: '200px',
+        squareImageHeight: '142px',
+    },
+    large: {
+        width: '186px',
+        rectangleImageHeight: '226px',
+        squareImageHeight: '142px',
+    },
+}
+
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
     const touchScreen = props.small
@@ -39,12 +52,12 @@ const Card: React.FC<CardProps> = props => {
             onClick={() => touchScreen && setHover(!isHover)}
         >
             <Box
-                responsive={false}
+                // responsive={false}
                 direction="column"
                 round="8px"
                 elevation="card"
                 align="center"
-                pad="20px"
+                pad="card"
                 width={props.width}
             >
                 <Box direction="column" width="full">
