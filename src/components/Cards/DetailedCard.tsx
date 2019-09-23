@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Heading, Paragraph, Button, Markdown } from 'grommet'
-import { Book } from '../../types'
 import { Share } from 'grommet-icons'
+import { Item } from '../../types'
 
-const DetailedCard: React.FC<Book> = props => {
+const DetailedCard: React.FC<Item> = props => {
     return (
         <Box
             direction="column"

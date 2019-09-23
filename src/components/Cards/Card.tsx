@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Book } from '../../types'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 
 import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
+import { Item } from '../../types'
 
 const Hoverable = styled.div`
     position: relative;
@@ -30,7 +30,7 @@ const HoverCard = styled.div`
 
 interface CardProps {
     size: string
-    item: Book
+    item: Item
     imageShape: ImageShapeType
 }
 

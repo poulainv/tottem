@@ -25,18 +25,6 @@ export interface Item {
     detail?: string
 }
 
-export interface Book extends Item {
-    imageColor?: string
-}
-
-export interface Album extends Item {
-    spotifyUrl?: string
-}
-
-export interface Movie extends Item {
-    imageColor?: string
-}
-
 export type ItemType =
     | 'book'
     | 'album'
