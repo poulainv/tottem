@@ -3,6 +3,7 @@ import { Box, ResponsiveContext } from 'grommet'
 import Card from '../Cards/Card'
 import { Item, ItemType } from '../../types'
 import { ImageShapeType } from '../Cards/CoverImage'
+import styled from 'styled-components'
 
 const imageShapes: { [type in ItemType]: ImageShapeType } = {
     album: 'square',
@@ -14,12 +15,18 @@ const imageShapes: { [type in ItemType]: ImageShapeType } = {
     video: 'square',
 }
 
+const StyledBox = styled(Box)`
+    ::-webkit-scrollbar {
+        display: none;
+    }
+`
+
 const ItemList: React.FC<{ items: Item[] }> = props => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
     const widthCard = isMobile ? '140px' : '166px'
     return (
-        <Box
+        <StyledBox
             responsive={false}
             direction="row"
             wrap={!isMobile}
@@ -44,7 +51,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
                     </Box>
                 )
             })}
-        </Box>
+        </StyledBox>
     )
 }
 
