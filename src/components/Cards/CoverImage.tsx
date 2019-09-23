@@ -18,9 +18,9 @@ const CoverImage: React.FC<CoverProps> = props => {
         if (shape === 'rectangle' && !small) {
             return '210px'
         } else if (shape === 'rectangle' && small) {
-            return '170px'
+            return '210px'
         } else if (small) {
-            return '116px'
+            return '142px'
         } else {
             return '142px'
         }

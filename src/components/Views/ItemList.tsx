@@ -24,7 +24,7 @@ const StyledBox = styled(Box)`
 const ItemList: React.FC<{ items: Item[] }> = props => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
-    const widthCard = isMobile ? '140px' : '166px'
+    const widthCard = isMobile ? '166px' : '166px'
     return (
         <StyledBox
             responsive={false}
