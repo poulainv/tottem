@@ -44,7 +44,7 @@ const Sidenav: React.FC<UserProfile> = props => {
                 </Box>
                 <Box margin={{ vertical: 'medium' }}>
                     <Text
-                        size={isMobile ? 'xsmall' : 'medium'} // Paragraph & text are not responsive
+                        size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
                     >
                         {props.biography}
                     </Text>
