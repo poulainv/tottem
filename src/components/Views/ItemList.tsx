@@ -16,17 +16,29 @@ const imageShapes: { [type in ItemType]: ImageShapeType } = {
 
 const ItemList: React.FC<{ items: Item[] }> = props => {
     const size = useContext(ResponsiveContext)
+    const isMobile = size === 'small'
+    const widthCard = isMobile ? '140px' : '166px'
     return (
-        <Box direction="row" wrap={true} gap="medium" justify="start">
+        <Box
+            responsive={false}
+            direction="row"
+            wrap={!isMobile}
+            gap="medium"
+            pad="medium"
+            justify="start"
+            overflow={{ horizontal: isMobile ? 'auto' : 'visible' }}
+        >
             {props.items.map((item: Item) => {
                 return (
                     <Box
                         key={item.title.toString()}
                         margin={{ vertical: 'small' }}
+                        width={{ min: widthCard }}
                     >
                         <Card
+                            width={widthCard}
                             item={item}
-                            small={size === 'small' ? true : false}
+                            small={isMobile}
                             imageShape={imageShapes[item.type]}
                         />
                     </Box>

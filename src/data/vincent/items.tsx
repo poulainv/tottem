@@ -50,6 +50,36 @@ const items: Item[] = [
     {
         collectionId: '11',
         type: 'book',
+        author: 'Yvon Chouinard',
+        imageUrl: require('../../static/images/books/patagonia.jpg'),
+        productUrl:
+            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
+        title: 'Let my people go Surfing',
+        imageColor: '#6DA03B',
+    },
+    {
+        collectionId: '11',
+        type: 'book',
+        author: 'Yvon Chouinard',
+        imageUrl: require('../../static/images/books/patagonia.jpg'),
+        productUrl:
+            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
+        title: 'Let my people go Surfing',
+        imageColor: '#6DA03B',
+    },
+    {
+        collectionId: '11',
+        type: 'book',
+        author: 'Yvon Chouinard',
+        imageUrl: require('../../static/images/books/patagonia.jpg'),
+        productUrl:
+            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
+        title: 'Let my people go Surfing',
+        imageColor: '#6DA03B',
+    },
+    {
+        collectionId: '11',
+        type: 'book',
         author: 'Frederic Laloux',
         imageUrl: require('../../static/images/books/reinventing.jpg'),
         productUrl: '',
@@ -64,6 +94,24 @@ const items: Item[] = [
         productUrl: '',
         title: 'The Paradox of Choice',
         imageColor: '#FBDF50',
+    },
+    {
+        collectionId: '11',
+        type: 'book',
+        author: 'Matthiew Crawford',
+        imageUrl: require('../../static/images/books/eloge.jpg'),
+        productUrl: '',
+        title: `L'égole du carburateur`,
+        imageColor: '#555146',
+    },
+    {
+        collectionId: '11',
+        type: 'book',
+        author: 'Matthiew Crawford',
+        imageUrl: require('../../static/images/books/eloge.jpg'),
+        productUrl: '',
+        title: `L'égole du carburateur`,
+        imageColor: '#555146',
     },
     {
         collectionId: '11',

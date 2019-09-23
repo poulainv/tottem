@@ -16,7 +16,7 @@ const Main: React.FC = () => {
         <Box
             background="white"
             round={{ size: '25px', corner: 'top' }}
-            overflow="hidden"
+            basis="50%"
         >
             <Box pad={{ horizontal: size === 'large' ? 'none' : 'large' }}>
                 <Tabs justify="start" onActive={setActiveTab}>
