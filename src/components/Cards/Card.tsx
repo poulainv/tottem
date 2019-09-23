@@ -17,15 +17,7 @@ const HoverCard = styled.div`
     top: 0;
     height: 100%;
     width: 100%;
-    background: transparent;
     border-radius: 8px;
-
-    :hover {
-        height: 108%;
-        left: -4%;
-        top: -4%;
-        width: 108%;
-    }
 `
 
 interface CardProps {
@@ -62,7 +54,11 @@ const Card: React.FC<CardProps> = props => {
                     <CardInfo {...props.item} />
                 </Box>
             </Box>
-            <HoverCard>{isHover && <DetailedCard {...props.item} />}</HoverCard>
+            {isHover && (
+                <HoverCard>
+                    <DetailedCard {...props.item} />
+                </HoverCard>
+            )}
         </Hoverable>
     )
 }

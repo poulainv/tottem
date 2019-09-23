@@ -16,12 +16,6 @@ const DetailedCard: React.FC<Item> = props => {
                 bottom: 'medium',
             }}
             fill="vertical"
-            animation={{
-                type: 'fadeIn',
-                delay: 0,
-                duration: 100,
-                size: 'medium',
-            }}
         >
             <Box>
                 <Box
