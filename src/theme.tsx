@@ -8,6 +8,17 @@ const theme = deepMerge(grommet, {
             size: '0px',
         },
     },
+    tabs: {
+        header: {
+            extend: {
+                'overflow-x': 'auto',
+                'flex-wrap': 'nowrap',
+                '::-webkit-scrollbar': {
+                    display: 'none',
+                },
+            },
+        },
+    },
     button: {
         color: { dark: 'white', light: 'white' },
         border: {

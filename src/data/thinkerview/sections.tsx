@@ -30,6 +30,12 @@ const sections: ISection[] = [
         name: 'Climat',
         index: 3,
     },
+    {
+        id: '5',
+        collections: collectionsBySection['4'],
+        name: 'Environnement',
+        index: 4,
+    },
 ]
 
 export default sections

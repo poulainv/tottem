@@ -19,7 +19,7 @@ const Main: React.FC = () => {
             basis="60%"
         >
             <Box pad={{ horizontal: size === 'large' ? 'none' : 'large' }}>
-                <Tabs justify="start" onActive={setActiveTab}>
+                <Tabs justify="start" onActive={setActiveTab} flex={false}>
                     {sections.map((section: ISection, index: number) => {
                         return (
                             <Tab
