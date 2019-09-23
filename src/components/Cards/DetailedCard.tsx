@@ -26,7 +26,7 @@ const DetailedCard: React.FC<Item> = props => {
                         size="small"
                         margin={{ top: '0px', bottom: 'small' }}
                     >
-                        {props.title}
+                        <strong> {props.title}</strong>
                     </Text>
                 </Box>
                 <Box>
