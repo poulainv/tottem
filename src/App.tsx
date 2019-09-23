@@ -3,7 +3,7 @@ import React from 'react'
 import Main from './components/Views/Main'
 import Sidenav from './components/Views/Nav'
 import theme from './theme'
-import profile from './data/vincent/profile'
+import profile from './data/thinkerview/profile'
 import Header from './components/Views/Header'
 
 const App: React.FC = () => {

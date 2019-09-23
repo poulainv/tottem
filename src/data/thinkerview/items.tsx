@@ -193,7 +193,7 @@ const items: Item[] = [
     {
         collectionId: '5',
         title:
-            "Une histoire du wahhabisme : : Comment l'islam sectaire est devenu l'islam",
+            "Une histoire du wahhabisme : Comment l'islam sectaire est devenu l'islam",
         author: 'Hamadi Redissi',
         note: '',
         imageUrl:
@@ -361,7 +361,7 @@ const items: Item[] = [
         collectionId: '9',
         title: 'Naissance de la biopolitique : cours au Collège de France',
         author: 'Michel Foucault',
-        note: '',
+        note: 'Playlist Youtube mais un bouquin est aussi disponible',
         imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
         productUrl:
             'https://www.youtube.com/playlist?list=PLw4-Fp0S2dJakQHXcXxTSjISLCAuT0Qiv',

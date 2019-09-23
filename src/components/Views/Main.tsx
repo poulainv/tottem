@@ -3,7 +3,7 @@ import { Box, Tabs, Tab, ResponsiveContext } from 'grommet'
 import React, { useState, useContext } from 'react'
 import Section from './Section'
 // Choose your profile here for now :)
-import sections from '../../data/vincent/sections'
+import sections from '../../data/thinkerview/sections'
 
 import { ISection } from '../../types'
 import TabTitle from '../Tab'
