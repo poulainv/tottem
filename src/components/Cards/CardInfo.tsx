@@ -9,7 +9,9 @@ const CardInfo: React.FC<Item> = (props: Item) => {
         <Box>
             <Box height="xxsmall" margin={{ top: 'xsmall' }} responsive={false}>
                 <Text color="dark-1" size="small">
-                    <Truncate lines={2}>{props.title}</Truncate>
+                    <strong>
+                        <Truncate lines={2}>{props.title}</Truncate>
+                    </strong>
                 </Text>
             </Box>
             <Box direction="row">
