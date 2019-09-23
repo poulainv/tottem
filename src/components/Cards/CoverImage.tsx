@@ -5,7 +5,6 @@ export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 
 interface CoverProps {
     imageUrl: string
-    imageColor?: string
     small: boolean
     imageShape?: ImageShapeType
 }

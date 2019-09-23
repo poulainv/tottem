@@ -49,7 +49,6 @@ const Card: React.FC<CardProps> = props => {
             >
                 <Box direction="column" width="full">
                     <CoverImage
-                        imageColor={props.item.imageColor}
                         imageUrl={props.item.imageUrl}
                         small={props.small}
                         imageShape={props.imageShape}
