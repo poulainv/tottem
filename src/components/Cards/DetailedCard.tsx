@@ -33,7 +33,7 @@ const DetailedCard: React.FC<Item> = props => {
                 <Box>
                     <Paragraph size="small" color="white">
                         <Markdown>
-                            {props.note ? props.note : 'No additional detail'}
+                            {props.note ? props.note : 'No details'}
                         </Markdown>
                     </Paragraph>
                 </Box>
