@@ -5,7 +5,7 @@ export interface ICollection {
     sectionId?: string
 }
 
-export interface Section {
+export interface ISection {
     id: string
     name: string
     index: number

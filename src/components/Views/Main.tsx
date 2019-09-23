@@ -1,11 +1,11 @@
 import { Box, Tabs, Tab, ResponsiveContext } from 'grommet'
 
 import React, { useState, useContext } from 'react'
-import Collection from '../Collection'
+import Section from './Section'
 // Choose your profile here for now :)
 import sections from '../../data/vincent/sections'
 
-import { ICollection, Section } from '../../types'
+import { ISection } from '../../types'
 import TabTitle from '../Tab'
 
 const Main: React.FC = () => {
@@ -20,40 +20,21 @@ const Main: React.FC = () => {
         >
             <Box pad={{ horizontal: size === 'large' ? 'none' : 'large' }}>
                 <Tabs justify="start" onActive={setActiveTab}>
-                    {sections.map((section: Section, index: number) => {
+                    {sections.map((section: ISection, index: number) => {
                         return (
                             <Tab
                                 key={section.id}
                                 title={
-                                    sections.length > 1 ? (
+                                    sections.length > 1 && (
                                         <TabTitle
                                             size={size}
                                             title={section.name}
                                             active={activeTab === index}
                                         />
-                                    ) : null
+                                    )
                                 }
                             >
-                                <Box
-                                    direction="column"
-                                    width="large"
-                                    border={{
-                                        color: 'light-2',
-                                        size: '1px',
-                                        side: 'top',
-                                    }}
-                                >
-                                    {section.collections.map(
-                                        (collection: ICollection) => {
-                                            return (
-                                                <Collection
-                                                    key={collection.name}
-                                                    {...collection}
-                                                />
-                                            )
-                                        }
-                                    )}
-                                </Box>
+                                <Section collections={section.collections} />
                             </Tab>
                         )
                     })}

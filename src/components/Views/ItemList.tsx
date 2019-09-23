@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Box, ResponsiveContext } from 'grommet'
-import Card from './Cards/Card'
-import { Item, ItemType } from '../types'
-import { ImageShapeType } from './Cards/CoverImage'
+import Card from '../Cards/Card'
+import { Item, ItemType } from '../../types'
+import { ImageShapeType } from '../Cards/CoverImage'
 
 const imageShapes: { [type in ItemType]: ImageShapeType } = {
     album: 'square',

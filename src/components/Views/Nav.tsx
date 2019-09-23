@@ -1,10 +1,10 @@
 import { Box, Heading, Markdown, ResponsiveContext, Paragraph } from 'grommet'
 import React, { useContext } from 'react'
-import Separator from './Separator'
+import Separator from '../Separator'
 
 import theme from '../../theme'
 
-import PictureProfile from './PictureProfile'
+import PictureProfile from '../PictureProfile'
 import { UserProfile } from '../../types'
 
 const Sidenav: React.FC<UserProfile> = props => {
