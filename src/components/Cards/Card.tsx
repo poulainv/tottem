@@ -30,7 +30,7 @@ interface CardProps {
 export const CardSize = {
     small: {
         width: '166px',
-        rectangleImageHeight: '200px',
+        rectangleImageHeight: '216px',
         squareImageHeight: '142px',
     },
     large: {
