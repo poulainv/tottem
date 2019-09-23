@@ -77,7 +77,7 @@ const theme = deepMerge(grommet, {
                 font: {
                     weight: '600',
                 },
-                // Hello desktop
+                // Firstname desktop
                 large: {
                     size: '48px',
                 },
@@ -89,9 +89,9 @@ const theme = deepMerge(grommet, {
                 font: {
                     weight: '600',
                 },
-                // Hello mobile
+                // Firstname mobile
                 large: {
-                    size: '36px',
+                    size: '28px',
                     height: '42px',
                 },
                 small: {
@@ -117,6 +117,7 @@ const theme = deepMerge(grommet, {
                 },
                 medium: {
                     size: '18px',
+                    maxWidth: '858px', // avoid collection name truncation
                 },
                 xsmall: {
                     size: '12px',
