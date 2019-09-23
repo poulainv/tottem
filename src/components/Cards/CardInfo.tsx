@@ -7,7 +7,11 @@ const CardInfo: React.FC<Item> = (props: Item) => {
     const picto = require(`../../static/pictograms/${props.type}.svg`)
     return (
         <Box>
-            <Box height="xxsmall" margin={{ top: 'small', bottom: 'xsmall' }}>
+            <Box
+                height="xxsmall"
+                margin={{ top: 'small', bottom: 'xsmall' }}
+                responsive={false}
+            >
                 <Text color="dark-1" size="small">
                     <Truncate lines={2}>{props.title}</Truncate>
                 </Text>
