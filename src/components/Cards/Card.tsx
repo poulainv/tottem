@@ -30,11 +30,14 @@ const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
     // FIXME
     const widthCard = props.small ? '140px' : '166px'
+    const touchScreen = props.small
     return (
         <Hoverable // tslint:disable-next-line: jsx-no-lambda
-            onMouseEnter={() => setHover(true)}
+            onMouseEnter={() => !touchScreen && setHover(true)}
             // tslint:disable-next-line: jsx-no-lambda
             onMouseLeave={() => setHover(false)}
+            // tslint:disable-next-line: jsx-no-lambda
+            onClick={() => touchScreen && setHover(!isHover)}
         >
             <Box
                 responsive={false}
@@ -56,9 +59,7 @@ const Card: React.FC<CardProps> = props => {
                 </Box>
             </Box>
             {isHover && (
-                <HoverCard // tslint:disable-next-line: jsx-no-lambda
-                    onClick={() => setHover(false)}
-                >
+                <HoverCard>
                     <DetailedCard {...props.item} />
                 </HoverCard>
             )}
