@@ -23,13 +23,12 @@ const HoverCard = styled.div`
 interface CardProps {
     item: Item
     small: boolean
+    width: string
     imageShape: ImageShapeType
 }
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    // FIXME
-    const widthCard = props.small ? '140px' : '166px'
     const touchScreen = props.small
     return (
         <Hoverable // tslint:disable-next-line: jsx-no-lambda
@@ -46,7 +45,7 @@ const Card: React.FC<CardProps> = props => {
                 elevation="card"
                 align="center"
                 pad="small"
-                width={widthCard}
+                width={props.width}
             >
                 <Box direction="column" width="full">
                     <CoverImage

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Stack, Box, Image } from 'grommet'
-import ShadowCover from '../ShadowCover'
+import { Box, Image } from 'grommet'
 
 export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 
