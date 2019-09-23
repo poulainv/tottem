@@ -6,9 +6,10 @@ import { Item } from '../../types'
 const DetailedCard: React.FC<Item> = props => {
     return (
         <Box
+            responsive={false}
             direction="column"
             justify="between"
-            background="#3f55c9;"
+            background="brand"
             round="8px"
             pad={{
                 horizontal: 'small',
