@@ -74,7 +74,7 @@ const theme = deepMerge(grommet, {
         level: {
             1: {
                 font: {
-                    weight: '700',
+                    weight: '600',
                 },
                 // Hello desktop
                 large: {
@@ -86,7 +86,7 @@ const theme = deepMerge(grommet, {
             },
             2: {
                 font: {
-                    weight: '700',
+                    weight: '600',
                 },
                 // Hello mobile
                 large: {
