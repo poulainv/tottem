@@ -16,7 +16,6 @@ const App: React.FC = () => {
                         direction="column"
                         align="center"
                         gap={isMobile(size) ? 'none' : 'large'}
-                        background={isMobile(size) ? 'brand' : 'white'}
                     >
                         <Header />
                         <Box

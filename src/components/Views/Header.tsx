@@ -12,7 +12,7 @@ const Header = () => {
             pad="medium"
         >
             <Box>
-                <Button label="About" plain={true} />
+                <Button label="About" plain={true} color="dark-2" />
             </Box>
         </Box>
     )
