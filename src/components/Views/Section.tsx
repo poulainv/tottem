@@ -11,7 +11,7 @@ const Section: React.FC<Props> = props => {
     return (
         <Box
             direction="column"
-            width="large"
+            fill
             border={{
                 color: 'light-2',
                 size: '1px',

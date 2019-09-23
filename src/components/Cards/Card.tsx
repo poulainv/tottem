@@ -21,15 +21,15 @@ const HoverCard = styled.div`
 `
 
 interface CardProps {
-    size: string
     item: Item
+    small: boolean
     imageShape: ImageShapeType
 }
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    // FIXME Can not do better for now...
-    const widthCard = props.size === 'small' ? '180px' : '190px'
+    // FIXME
+    const widthCard = props.small ? '140px' : '166px'
     return (
         <Hoverable // tslint:disable-next-line: jsx-no-lambda
             onMouseEnter={() => setHover(true)}
@@ -37,18 +37,19 @@ const Card: React.FC<CardProps> = props => {
             onMouseLeave={() => setHover(false)}
         >
             <Box
+                responsive={false}
                 direction="column"
                 round="8px"
                 elevation="card"
                 align="center"
                 pad="small"
-                width={{ max: widthCard }}
+                width={widthCard}
             >
-                <Box direction="column" justify="center">
+                <Box direction="column" width="full">
                     <CoverImage
                         imageColor={props.item.imageColor}
                         imageUrl={props.item.imageUrl}
-                        size={props.size}
+                        small={props.small}
                         imageShape={props.imageShape}
                     />
                     <CardInfo {...props.item} />

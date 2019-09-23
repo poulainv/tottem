@@ -12,7 +12,7 @@ const Sidenav: React.FC<UserProfile> = props => {
     const isMobile = size === 'small'
     const fontColor = isMobile ? 'white' : 'dark-1'
     return (
-        <Box align="center" basis="20%">
+        <Box align="center" basis="20%" width={{ min: '350px' }}>
             <Box direction="column" pad={{ horizontal: 'medium' }}>
                 <Box
                     direction={isMobile ? 'row' : 'column'}

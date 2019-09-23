@@ -8,10 +8,10 @@ const itemsByCollection = keyBy(items, (x: Item) => x.collectionId)
 
 export const collections: ICollection[] = [
     {
-        id: '10',
+        id: '11',
         sectionId: '1',
         name: '**Books,** that get me inspired',
-        items: itemsByCollection['10'],
+        items: itemsByCollection['11'],
     },
     {
         id: '13',
@@ -20,10 +20,10 @@ export const collections: ICollection[] = [
         items: itemsByCollection['13'],
     },
     {
-        id: '11',
+        id: '10',
         sectionId: '1',
         name: '**Albums,** on repeat',
-        items: itemsByCollection['11'],
+        items: itemsByCollection['10'],
     },
     {
         id: '15',

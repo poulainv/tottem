@@ -22,7 +22,6 @@ const App: React.FC = () => {
                         <Box
                             direction="row-responsive"
                             justify="evenly"
-                            basis="auto"
                             width="full"
                         >
                             <Sidenav {...profile} />
