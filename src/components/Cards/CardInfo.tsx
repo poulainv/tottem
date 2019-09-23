@@ -2,17 +2,20 @@ import React from 'react'
 import { Box, Text, Image } from 'grommet'
 import Truncate from 'react-truncate'
 import { Item } from '../../types'
+import styled from 'styled-components'
+
+const StyledTitle = styled(Text)`
+    font-weight: 500;
+`
 
 const CardInfo: React.FC<Item> = (props: Item) => {
     const picto = require(`../../static/pictograms/${props.type}.svg`)
     return (
         <Box>
             <Box height="xxsmall" margin={{ top: 'xsmall' }} responsive={false}>
-                <Text color="dark-1" size="small">
-                    <strong>
-                        <Truncate lines={2}>{props.title}</Truncate>
-                    </strong>
-                </Text>
+                <StyledTitle color="dark-1" size="small">
+                    <Truncate lines={2}>{props.title}</Truncate>
+                </StyledTitle>
             </Box>
             <Box direction="row">
                 <Box fill>

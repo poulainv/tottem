@@ -36,7 +36,7 @@ export const CardSize = {
     large: {
         width: '186px',
         rectangleImageHeight: '226px',
-        squareImageHeight: '142px',
+        squareImageHeight: '152px',
     },
 }
 
