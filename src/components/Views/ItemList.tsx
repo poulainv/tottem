@@ -31,7 +31,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
             direction="row"
             wrap={!isMobile}
             gap="large"
-            pad={{ horizontal: 'medium' }}
+            pad={{ horizontal: 'medium', bottom: 'medium' }}
             justify="start"
             overflow={{ horizontal: isMobile ? 'auto' : 'visible' }}
         >
