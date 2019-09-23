@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Paragraph, Button, Markdown } from 'grommet'
+import { Box, Text, Paragraph, Button, Markdown } from 'grommet'
 import { Share } from 'grommet-icons'
 import { Item } from '../../types'
 
@@ -21,14 +21,13 @@ const DetailedCard: React.FC<Item> = props => {
                 <Box
                     border={{ side: 'bottom', size: '0.5px', color: 'light-6' }}
                 >
-                    <Heading
-                        level={3}
-                        size="xsmall"
+                    <Text
                         color="white"
-                        margin={{ top: '0px' }}
+                        size="small"
+                        margin={{ top: '0px', bottom: 'small' }}
                     >
                         {props.title}
-                    </Heading>
+                    </Text>
                 </Box>
                 <Box>
                     <Paragraph size="small" color="white">

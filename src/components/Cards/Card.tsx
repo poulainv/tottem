@@ -44,7 +44,7 @@ const Card: React.FC<CardProps> = props => {
                 round="8px"
                 elevation="card"
                 align="center"
-                pad="small"
+                pad="20px"
                 width={props.width}
             >
                 <Box direction="column" width="full">
