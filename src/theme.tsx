@@ -48,6 +48,7 @@ const theme = deepMerge(grommet, {
         },
         elevation: {
             light: {
+                profile: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                 card: '2px 10px 20px rgba(0, 0, 0, 0.1)',
             },
         },

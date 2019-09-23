@@ -15,6 +15,7 @@ const PictureProfile: React.FC<PictureProfileProps> = props => {
             justify="center"
             align="center"
             round="full"
+            elevation="profile"
         >
             <Image src={props.imageUrl} width="100%" />
         </Box>
