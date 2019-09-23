@@ -77,7 +77,7 @@ const items: Item[] = [
         collectionId: '2',
         title: 'Daniel Pennac',
         author: '',
-        note: '',
+        note: "Toute l'oeuvre de Daniel Pennac",
         imageUrl:
             'https://commons.wikimedia.org/wiki/File:Daniel_Pennac.jpg?uselang=fr',
         productUrl: 'https://fr.wikipedia.org/wiki/Daniel_Pennac',
@@ -111,7 +111,7 @@ const items: Item[] = [
         collectionId: '3',
         title: 'Monique Pinçon-Charlot',
         author: '',
-        note: '',
+        note: "Toute l'oeuvre de Monique Pinçon-Charlot",
         imageUrl:
             'https://i1.wp.com/journal.ccas.fr/wp-content/uploads/sites/6/2018/11/63576_-_Monique-Pinc%CC%A7on-Charlot.jpg?resize=1024%2C678&ssl=1',
         productUrl: 'https://fr.wikipedia.org/wiki/Monique_Pin%C3%A7on-Charlot',
@@ -362,7 +362,7 @@ const items: Item[] = [
         title: 'Naissance de la biopolitique : cours au Collège de France',
         author: 'Michel Foucault',
         note: '',
-        imageUrl: '',
+        imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
         productUrl:
             'https://www.youtube.com/playlist?list=PLw4-Fp0S2dJakQHXcXxTSjISLCAuT0Qiv',
         type: 'video',
@@ -515,7 +515,7 @@ const items: Item[] = [
         collectionId: '11',
         title: 'Jules Michelet',
         author: '',
-        note: '',
+        note: "Toute l'oeuvre de Jules Michelet",
         imageUrl:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8pnVQllaEJbokjEs-yOLpb4sogIlAmYsyATtfMullLvhnSmr7',
         productUrl: 'https://fr.wikipedia.org/wiki/Jules_Michelet',
@@ -550,7 +550,7 @@ const items: Item[] = [
         collectionId: '12',
         title: 'Friedrich Nietzsche',
         author: '',
-        note: '',
+        note: "Toute l'oeuvre de Friedrich Nietzsche",
         imageUrl:
             'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nietzsche187c.jpg',
         productUrl:
