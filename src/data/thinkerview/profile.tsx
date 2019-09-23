@@ -2,6 +2,7 @@ import { UserProfile } from '../../types'
 
 const profile: UserProfile = {
     firstname: 'Thinkerview',
+    website: 'https://thinkerview.com',
     pictureUrl: require('../../static/images/profiles/thinkerview.jpg'),
     biography: `ThinkerView est un laboratoire d'idées français indépendant. Il diffuse de longues entrevues sans montage, 
         avec des personnalités d'horizons différents. 

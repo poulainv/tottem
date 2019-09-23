@@ -1,4 +1,4 @@
-import { Box, Heading, Markdown, ResponsiveContext, Text } from 'grommet'
+import { Box, Heading, ResponsiveContext, Text, Button } from 'grommet'
 import React, { useContext } from 'react'
 import Separator from '../Separator'
 
@@ -6,6 +6,7 @@ import theme from '../../theme'
 
 import PictureProfile from '../PictureProfile'
 import { UserProfile } from '../../types'
+import Social from '../Social'
 
 const Sidenav: React.FC<UserProfile> = props => {
     const size = useContext(ResponsiveContext)
@@ -31,6 +32,15 @@ const Sidenav: React.FC<UserProfile> = props => {
                         <Heading level={1} size="large" margin="none">
                             {props.firstname}
                         </Heading>
+                        {props.website && (
+                            <Button
+                                target="_blank"
+                                href={props.website}
+                                label={props.website}
+                                plain={true}
+                            />
+                        )}
+                        {/* <Social /> */}
                         <Box
                             direction="column"
                             margin={{ top: 'medium', bottom: '10px' }}

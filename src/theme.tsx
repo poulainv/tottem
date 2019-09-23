@@ -42,6 +42,11 @@ const theme = deepMerge(grommet, {
         },
     },
     global: {
+        focus: {
+            border: {
+                color: 'white',
+            },
+        },
         colors: {
             brand: '#3F55C9',
             'accent-1': '#FFCA4F',
@@ -79,7 +84,7 @@ const theme = deepMerge(grommet, {
                 },
                 // Firstname desktop
                 large: {
-                    size: '48px',
+                    size: '42px',
                 },
                 small: {
                     size: '16px',
