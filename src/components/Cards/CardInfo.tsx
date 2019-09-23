@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Text, Image } from 'grommet'
+import { Box, Text, Image } from 'grommet'
 import Truncate from 'react-truncate'
 import { Item } from '../../types'
 
