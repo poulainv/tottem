@@ -56,7 +56,9 @@ const Card: React.FC<CardProps> = props => {
                 </Box>
             </Box>
             {isHover && (
-                <HoverCard>
+                <HoverCard // tslint:disable-next-line: jsx-no-lambda
+                    onClick={() => setHover(false)}
+                >
                     <DetailedCard {...props.item} />
                 </HoverCard>
             )}
