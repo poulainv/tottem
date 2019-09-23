@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Box, Heading, Markdown } from 'grommet'
 import ItemList from './ItemList'
-import { ICollection } from '../types'
+import { ICollection } from '../../types'
 
 const Collection: React.FC<ICollection> = props => {
     return (

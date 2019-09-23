@@ -40,6 +40,10 @@ const theme = deepMerge(grommet, {
                 card: '0px 12px 24px rgba(0, 0, 0, 0.1)',
             },
         },
+        font: {
+            family:
+                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";ﬂ',
+        },
     },
     heading: {
         font: {

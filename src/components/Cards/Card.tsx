@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { Book } from '../../types'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 
 import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
+import { Item } from '../../types'
 
 const Hoverable = styled.div`
     position: relative;
@@ -17,52 +17,52 @@ const HoverCard = styled.div`
     top: 0;
     height: 100%;
     width: 100%;
-    background: transparent;
     border-radius: 8px;
-
-    :hover {
-        height: 108%;
-        left: -4%;
-        top: -4%;
-        width: 108%;
-    }
 `
 
 interface CardProps {
-    size: string
-    item: Book
+    item: Item
+    small: boolean
     imageShape: ImageShapeType
 }
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    // FIXME Can not do better for now...
-    const widthCard = props.size === 'small' ? '180px' : '190px'
+    // FIXME
+    const widthCard = props.small ? '140px' : '166px'
+    const touchScreen = props.small
     return (
         <Hoverable // tslint:disable-next-line: jsx-no-lambda
-            onMouseEnter={() => setHover(true)}
+            onMouseEnter={() => !touchScreen && setHover(true)}
             // tslint:disable-next-line: jsx-no-lambda
             onMouseLeave={() => setHover(false)}
+            // tslint:disable-next-line: jsx-no-lambda
+            onClick={() => touchScreen && setHover(!isHover)}
         >
             <Box
+                responsive={false}
                 direction="column"
                 round="8px"
                 elevation="card"
                 align="center"
                 pad="small"
-                width={{ max: widthCard }}
+                width={widthCard}
             >
-                <Box direction="column" justify="center">
+                <Box direction="column" width="full">
                     <CoverImage
                         imageColor={props.item.imageColor}
                         imageUrl={props.item.imageUrl}
-                        size={props.size}
+                        small={props.small}
                         imageShape={props.imageShape}
                     />
                     <CardInfo {...props.item} />
                 </Box>
             </Box>
-            <HoverCard>{isHover && <DetailedCard {...props.item} />}</HoverCard>
+            {isHover && (
+                <HoverCard>
+                    <DetailedCard {...props.item} />
+                </HoverCard>
+            )}
         </Hoverable>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Heading, Paragraph, Button, Markdown } from 'grommet'
-import { Book } from '../../types'
 import { Share } from 'grommet-icons'
+import { Item } from '../../types'
 
-const DetailedCard: React.FC<Book> = props => {
+const DetailedCard: React.FC<Item> = props => {
     return (
         <Box
             direction="column"
@@ -16,12 +16,6 @@ const DetailedCard: React.FC<Book> = props => {
                 bottom: 'medium',
             }}
             fill="vertical"
-            animation={{
-                type: 'fadeIn',
-                delay: 0,
-                duration: 100,
-                size: 'medium',
-            }}
         >
             <Box>
                 <Box
@@ -50,11 +44,7 @@ const DetailedCard: React.FC<Book> = props => {
                     reverse={true}
                     fill="horizontal"
                     icon={<Share color="white" size="small" />}
-                    label={
-                        <Heading level={3} size="title" margin="0px">
-                            Get it
-                        </Heading>
-                    }
+                    label="Get it"
                     href={props.productUrl}
                     target="_blank"
                 />

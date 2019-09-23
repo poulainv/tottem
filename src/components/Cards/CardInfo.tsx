@@ -7,11 +7,7 @@ const CardInfo: React.FC<Item> = (props: Item) => {
     const picto = require(`../../static/pictograms/${props.type}.svg`)
     return (
         <Box>
-            <Box
-                height="36px"
-                overflow="hidden"
-                margin={{ top: 'small', bottom: 'xsmall' }}
-            >
+            <Box height="36px" margin={{ top: 'small', bottom: 'xsmall' }}>
                 <Heading
                     level={3}
                     size="xsmall"
