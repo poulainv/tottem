@@ -44,11 +44,7 @@ const DetailedCard: React.FC<Item> = props => {
                     reverse={true}
                     fill="horizontal"
                     icon={<Share color="white" size="small" />}
-                    label={
-                        <Heading level={3} size="title" margin="0px">
-                            Get it
-                        </Heading>
-                    }
+                    label="Get it"
                     href={props.productUrl}
                     target="_blank"
                 />
