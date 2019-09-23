@@ -1,9 +1,10 @@
-import { Box, Grommet, ResponsiveContext, Button } from 'grommet'
+import { Box, Grommet, ResponsiveContext } from 'grommet'
 import React from 'react'
-import Main from './components/Layouts/Main'
+import Main from './components/Views/Main'
 import Sidenav from './components/sidenav/Nav'
 import theme from './theme'
 import profile from './data/vincent/profile'
+import Header from './components/Views/Header'
 
 const App: React.FC = () => {
     const isMobile = (size: string) => size === 'small'
@@ -17,36 +18,15 @@ const App: React.FC = () => {
                         gap={isMobile(size) ? 'none' : 'large'}
                         background={isMobile(size) ? 'brand' : 'white'}
                     >
-                        <Box
-                            height="xxsmall"
-                            direction="row"
-                            width="full"
-                            background="brand"
-                            align="center"
-                            justify="end"
-                            pad="small"
-                        >
-                            <Box>
-                                <Button label="About" />
-                            </Box>
-                        </Box>
+                        <Header />
                         <Box
                             direction="row-responsive"
                             justify="evenly"
                             basis="auto"
                             width="full"
-                            // gap="large"
                         >
-                            <Box align="center" basis="20%">
-                                <Sidenav {...profile} />
-                            </Box>
-                            <Box
-                                background="white"
-                                round={{ size: '25px', corner: 'top' }}
-                                overflow="hidden"
-                            >
-                                <Main />
-                            </Box>
+                            <Sidenav {...profile} />
+                            <Main />
                         </Box>
                     </Box>
                 )}
