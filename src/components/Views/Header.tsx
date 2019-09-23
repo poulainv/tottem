@@ -7,13 +7,12 @@ const Header = () => {
             height="xxsmall"
             direction="row"
             width="full"
-            background="brand"
             align="center"
             justify="end"
-            pad="small"
+            pad="medium"
         >
             <Box>
-                <Button label="About" />
+                <Button label="About" plain={true} />
             </Box>
         </Box>
     )
