@@ -1,16 +1,19 @@
 import { Box, Heading, ResponsiveContext, Text, Button } from 'grommet'
 import React, { useContext } from 'react'
+import { RoutingMatchParams } from '../../App'
+import { UserProfile } from '../../types'
 import Separator from '../Separator'
 
 import theme from '../../theme'
 
 import PictureProfile from '../PictureProfile'
-import { UserProfile } from '../../types'
-import Social from '../Social'
 
-const Sidenav: React.FC<UserProfile> = props => {
+const Sidenav: React.FC<RoutingMatchParams> = params => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
+    const userProfile: UserProfile = require(`./../../data/${params.profileId}/profile`)
+        .default
+
     return (
         <Box align="center" basis="20%" width={{ min: '350px' }}>
             <Box
@@ -25,22 +28,21 @@ const Sidenav: React.FC<UserProfile> = props => {
                     <Box margin={{ right: 'large' }}>
                         <PictureProfile
                             size={size}
-                            imageUrl={props.pictureUrl}
+                            imageUrl={userProfile.pictureUrl}
                         />
                     </Box>
                     <Box>
                         <Heading level={1} size="large" margin="none">
-                            {props.firstname}
+                            {userProfile.firstname}
                         </Heading>
-                        {props.website && (
+                        {userProfile.website && (
                             <Button
                                 target="_blank"
-                                href={props.website}
-                                label={props.website}
+                                href={userProfile.website}
+                                label={userProfile.website}
                                 plain={true}
                             />
                         )}
-                        {/* <Social /> */}
                         <Box
                             direction="column"
                             margin={{ top: 'medium', bottom: '10px' }}
@@ -56,7 +58,7 @@ const Sidenav: React.FC<UserProfile> = props => {
                     <Text
                         size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
                     >
-                        {props.biography}
+                        {userProfile.biography}
                     </Text>
                 </Box>
             </Box>

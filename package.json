@@ -7,6 +7,7 @@
         "@types/node": "12.7.4",
         "@types/react": "16.9.2",
         "@types/react-dom": "16.9.0",
+        "@types/react-router-dom": "^4.3.5",
         "@types/react-truncate": "^2.3.3",
         "@types/styled-components": "^4.1.19",
         "grommet": "^2.7.8",
@@ -14,6 +15,7 @@
         "lodash.groupby": "^4.6.0",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
+        "react-router-dom": "^5.1.0",
         "react-scripts": "3.1.1",
         "react-truncate": "^2.4.0",
         "styled-components": "^4.3.2"

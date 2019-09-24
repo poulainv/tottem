@@ -1,16 +1,16 @@
 import { Box, Tabs, Tab, ResponsiveContext } from 'grommet'
 
 import React, { useState, useContext } from 'react'
+import { RoutingMatchParams } from '../../App'
 import Section from './Section'
-// Choose your profile here for now :)
-import sections from '../../data/thinkerview/sections'
 
 import { ISection } from '../../types'
 import TabTitle from '../Tab'
 
-const Main: React.FC = () => {
+const Main: React.FC<RoutingMatchParams> = params => {
     const size = useContext(ResponsiveContext)
     const [activeTab, setActiveTab] = useState(0)
+    const sections = require(`../../data/${params.profileId}/sections`).default
 
     return (
         <Box
