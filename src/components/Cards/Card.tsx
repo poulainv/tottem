@@ -59,6 +59,7 @@ const Card: React.FC<CardProps> = props => {
                 align="center"
                 pad="card"
                 width={props.width}
+                background="white"
             >
                 <Box direction="column" width="full">
                     <CoverImage

@@ -9,15 +9,7 @@ interface Props {
 
 const Section: React.FC<Props> = props => {
     return (
-        <Box
-            direction="column"
-            fill
-            border={{
-                color: 'light-2',
-                size: '1px',
-                side: 'top',
-            }}
-        >
+        <Box direction="column" fill>
             {props.collections.map((collection: ICollection) => {
                 return <Collection key={collection.name} {...collection} />
             })}

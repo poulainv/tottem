@@ -9,11 +9,11 @@ const Social: React.FC = () => {
     return (
         <Box
             direction="row"
-            height="40px"
-            align="stretch"
-            basis="auto"
+            height="14px"
+            // align="stretch"
+            // basis="auto"
             gap="small"
-            margin={{ vertical: '15px' }}
+            margin={{ vertical: '0px' }}
         >
             <Box>
                 <Image src={mail} fit="contain" />

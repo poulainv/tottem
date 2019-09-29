@@ -12,7 +12,7 @@ interface TabTitleProps {
 const TabTitle: React.FC<TabTitleProps> = (props: TabTitleProps) => {
     return (
         <Stack anchor="center">
-            <Box pad={{ vertical: 'small' }}>
+            <Box margin={{ left: '-10px' }}>
                 <Heading
                     responsive={false}
                     margin="none"

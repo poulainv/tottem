@@ -16,6 +16,8 @@ const theme = deepMerge(grommet, {
                 '::-webkit-scrollbar': {
                     display: 'none',
                 },
+                'padding-bottom': '8px',
+                'border-bottom': 'solid 2px #FFFFFF',
             },
         },
     },
@@ -80,11 +82,12 @@ const theme = deepMerge(grommet, {
         level: {
             1: {
                 font: {
-                    weight: '600',
+                    weight: '700',
                 },
                 // Firstname desktop
                 large: {
-                    size: '42px',
+                    size: '28px',
+                    height: '36px',
                 },
                 small: {
                     size: '16px',
@@ -92,12 +95,12 @@ const theme = deepMerge(grommet, {
             },
             2: {
                 font: {
-                    weight: '600',
+                    weight: '700',
                 },
                 // Firstname mobile
                 large: {
-                    size: '28px',
-                    height: '42px',
+                    size: '20px',
+                    height: '24px',
                 },
                 small: {
                     size: '13px',
