@@ -1,24 +1,11 @@
 import React, { useState } from 'react'
-import { Box } from 'grommet'
+import { Box, Stack, Image } from 'grommet'
 import styled from 'styled-components'
 
 import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
 import DetailedCard from './DetailedCard'
-import { Item } from '../../types'
-
-const Hoverable = styled.div`
-    position: relative;
-`
-
-const HoverCard = styled.div`
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-`
+import { Item, ItemType } from '../../types'
 
 interface CardProps {
     item: Item
@@ -30,34 +17,37 @@ interface CardProps {
 export const CardSize = {
     small: {
         width: '166px',
-        rectangleImageHeight: '216px',
-        squareImageHeight: '142px',
+        rectangleImageHeight: '280px',
+        squareImageHeight: '166px',
     },
     large: {
         width: '186px',
-        rectangleImageHeight: '226px',
-        squareImageHeight: '152px',
+        rectangleImageHeight: '312px',
+        squareImageHeight: '186px',
     },
+}
+
+const colors: { [type in ItemType]: string } = {
+    album: '#26547C',
+    book: '#26547C',
+    movie: '#EF476F',
+    paper: '#square',
+    people: '#FFD166',
+    podcast: '#square',
+    video: '#EF476F',
 }
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
     const touchScreen = props.small
+    const picto = require(`../../static/pictograms/book-white.svg`)
     return (
-        <Hoverable // tslint:disable-next-line: jsx-no-lambda
-            onMouseEnter={() => !touchScreen && setHover(true)}
-            // tslint:disable-next-line: jsx-no-lambda
-            onMouseLeave={() => setHover(false)}
-            // tslint:disable-next-line: jsx-no-lambda
-            onClick={() => touchScreen && setHover(!isHover)}
-        >
+        <Stack anchor="top-left">
             <Box
-                // responsive={false}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
                 direction="column"
-                round="8px"
-                elevation="card"
                 align="center"
-                pad="card"
                 width={props.width}
                 background="white"
             >
@@ -67,15 +57,27 @@ const Card: React.FC<CardProps> = props => {
                         small={props.small}
                         imageShape={props.imageShape}
                     />
-                    <CardInfo {...props.item} />
+                    <CardInfo item={props.item} hover={isHover} />
                 </Box>
             </Box>
-            {isHover && (
-                <HoverCard>
-                    <DetailedCard {...props.item} />
-                </HoverCard>
+            {picto && (
+                <Box
+                    style={{
+                        top: '-12px',
+                        left: '-12px',
+                        position: 'relative',
+                    }}
+                    align="center"
+                    justify="center"
+                    round="50%"
+                    background={colors[props.item.type]}
+                    width="30px"
+                    height="30px"
+                >
+                    <Image src={picto} />
+                </Box>
             )}
-        </Hoverable>
+        </Stack>
     )
 }
 

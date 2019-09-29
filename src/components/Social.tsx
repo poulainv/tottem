@@ -9,9 +9,7 @@ const Social: React.FC = () => {
     return (
         <Box
             direction="row"
-            height="14px"
-            // align="stretch"
-            // basis="auto"
+            height="16px"
             gap="small"
             margin={{ vertical: '0px' }}
         >

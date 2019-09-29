@@ -25,7 +25,11 @@ const Profile: React.FC<RoutingMatchParams> = params => {
     return (
         <Box>
             <Box direction="row" justify="start" margin={{ bottom: 'medium' }}>
-                <Box margin={{ right: 'large' }} flex={false}>
+                <Box
+                    margin={{ right: 'large' }}
+                    flex={false}
+                    responsive={false}
+                >
                     <PictureProfile
                         size={size}
                         imageUrl={userProfile.pictureUrl}

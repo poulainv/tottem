@@ -26,7 +26,7 @@ const CoverImage: React.FC<CoverProps> = props => {
 
     return (
         <Box
-            round={props.imageShape === 'circle' ? '50%' : '4px'}
+            round={props.imageShape === 'circle' ? '50%' : '8px'}
             height={getImageHeight(props.small, props.imageShape)}
             justify="center"
             width="full"

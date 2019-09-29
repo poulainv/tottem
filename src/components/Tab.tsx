@@ -23,7 +23,7 @@ const TabTitle: React.FC<TabTitleProps> = (props: TabTitleProps) => {
                 </Heading>
             </Box>
             {props.active && (
-                <Box margin={{ top: '35px' }}>
+                <Box margin={{ top: '40px' }}>
                     <Circle
                         size={props.size}
                         color={theme.global.colors['accent-1']}

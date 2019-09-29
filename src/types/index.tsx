@@ -3,6 +3,7 @@ export interface ICollection {
     name: string
     items: Item[]
     sectionId?: string
+    detail?: string
 }
 
 export interface ISection {

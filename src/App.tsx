@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router'
 import Main from './components/Views/Main'
 import Profile from './components/Views/Nav'
 import theme from './theme'
+import profile from './data/vincent/profile'
 import Header from './components/Views/Header'
 
 // Interface representing the params passed in the URL
