@@ -15,7 +15,7 @@ const Profile: React.FC<RoutingMatchParams> = params => {
     const Biography = (
         <Box width="large">
             <Text
-                size={isMobile ? 'xsmall' : 'small'} // Paragraph & text are not responsive
+                size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
             >
                 {userProfile.biography}
             </Text>
@@ -25,13 +25,13 @@ const Profile: React.FC<RoutingMatchParams> = params => {
     return (
         <Box>
             <Box direction="row" justify="start" margin={{ bottom: 'medium' }}>
-                <Box margin={{ right: 'medium' }} flex={false}>
+                <Box margin={{ right: 'large' }} flex={false}>
                     <PictureProfile
                         size={size}
                         imageUrl={userProfile.pictureUrl}
                     />
                 </Box>
-                <Box flex={{ shrink: 2 }}>
+                <Box width="full">
                     <Box
                         direction="row-responsive"
                         align="center"

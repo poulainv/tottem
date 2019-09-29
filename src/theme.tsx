@@ -9,6 +9,7 @@ const theme = deepMerge(grommet, {
         },
     },
     tabs: {
+        gap: 'medium',
         header: {
             extend: {
                 'overflow-x': 'auto',
@@ -17,8 +18,13 @@ const theme = deepMerge(grommet, {
                     display: 'none',
                 },
                 'padding-bottom': '8px',
-                'border-bottom': 'solid 2px #FFFFFF',
+                'border-bottom': 'solid 0.5px #E0E0E0',
             },
+        },
+    },
+    text: {
+        medium: {
+            size: '16px',
         },
     },
     button: {

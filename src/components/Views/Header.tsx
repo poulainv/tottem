@@ -9,11 +9,16 @@ const Header = () => {
             direction="row"
             width="full"
             align="center"
-            justify="end"
+            justify="center"
             pad="medium"
             border={{ color: 'light-4', size: '0.5px', side: 'bottom' }}
         >
-            <Box>
+            <Box
+                pad={{ horizontal: 'large' }}
+                width="xlarge"
+                direction="row"
+                justify="end"
+            >
                 <Button label="About" plain={true} color="dark-2" />
             </Box>
         </Box>

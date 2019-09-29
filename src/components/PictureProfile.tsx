@@ -17,8 +17,8 @@ const PictureProfile: React.FC<PictureProfileProps> = props => {
         >
             <Image
                 src={props.imageUrl}
-                width={props.size === 'small' ? '100px' : '140px'}
-                height={props.size === 'small' ? '100px' : '140px'}
+                width={props.size === 'small' ? '80px' : '150px'}
+                height={props.size === 'small' ? '80px' : '150px'}
             />
         </Box>
     )
