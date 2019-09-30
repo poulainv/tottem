@@ -9,6 +9,7 @@ const theme = deepMerge(grommet, {
         },
     },
     tabs: {
+        gap: 'medium',
         header: {
             extend: {
                 'overflow-x': 'auto',
@@ -16,20 +17,36 @@ const theme = deepMerge(grommet, {
                 '::-webkit-scrollbar': {
                     display: 'none',
                 },
+                'padding-bottom': '8px',
+                // 'border-bottom': 'solid 0.5px #E0E0E0',
             },
         },
     },
+    text: {
+        medium: {
+            size: '16px',
+        },
+    },
+    collapsible: {
+        minSpeed: 350,
+    },
+    icon: {
+        size: {
+            small: '15px',
+        },
+    },
     button: {
-        color: { dark: 'white', light: 'white' },
+        color: { dark: 'accent-1', light: 'accent-1' },
         border: {
-            width: '1px',
+            width: '0px',
             color: { dark: 'white', light: 'white' },
         },
         extend: {
             font: {
                 family: 'Work Sans',
             },
-            'font-size': '13px',
+            'font-weight': '500',
+            'font-size': '16px',
         },
     },
     // Increase maxWidth to avoid too small paragraph
@@ -49,12 +66,12 @@ const theme = deepMerge(grommet, {
         },
         colors: {
             brand: '#3F55C9',
-            'accent-1': '#FFCA4F',
+            'accent-1': '#98C6B7',
         },
         elevation: {
             light: {
                 profile: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                card: '0px 4px 10px rgba(0,0,0,0.1)',
+                card: '0px 4px 4px rgba(0, 0, 0, 0.15)',
             },
         },
         font: {
@@ -80,11 +97,12 @@ const theme = deepMerge(grommet, {
         level: {
             1: {
                 font: {
-                    weight: '600',
+                    weight: '700',
                 },
                 // Firstname desktop
                 large: {
-                    size: '42px',
+                    size: '28px',
+                    height: '36px',
                 },
                 small: {
                     size: '16px',
@@ -92,12 +110,12 @@ const theme = deepMerge(grommet, {
             },
             2: {
                 font: {
-                    weight: '600',
+                    weight: '700',
                 },
                 // Firstname mobile
                 large: {
-                    size: '28px',
-                    height: '42px',
+                    size: '20px',
+                    height: '24px',
                 },
                 small: {
                     size: '13px',
@@ -108,7 +126,8 @@ const theme = deepMerge(grommet, {
                     weight: '400',
                 },
                 medium: {
-                    size: '22px',
+                    size: '18px',
+                    height: '22px',
                     maxWidth: '858px', // avoid collection name truncation
                 },
                 xsmall: {
@@ -121,7 +140,8 @@ const theme = deepMerge(grommet, {
                     weight: '400',
                 },
                 medium: {
-                    size: '18px',
+                    size: '16px',
+                    height: '20px',
                     maxWidth: '858px', // avoid collection name truncation
                 },
                 xsmall: {

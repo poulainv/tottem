@@ -1,69 +1,55 @@
-import { Box, Heading, ResponsiveContext, Text, Button } from 'grommet'
-import React, { useContext } from 'react'
+import { Box, Heading, ResponsiveContext, Text } from 'grommet'
+import React, { useContext, Fragment } from 'react'
 import { RoutingMatchParams } from '../../App'
 import { UserProfile } from '../../types'
-import Separator from '../Separator'
-
-import theme from '../../theme'
 
 import PictureProfile from '../PictureProfile'
+import Social from '../Social'
 
-const Sidenav: React.FC<RoutingMatchParams> = params => {
+const ProfileDescription: React.FC<RoutingMatchParams> = params => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
     const userProfile: UserProfile = require(`./../../data/${params.profileId}/profile`)
         .default
 
+    const Biography = (
+        <Box width="large">
+            <Text size={isMobile ? 'small' : 'medium'}>
+                {userProfile.biography}
+            </Text>
+        </Box>
+    )
+
     return (
-        <Box align="center" basis="20%" width={{ min: '350px' }}>
-            <Box
-                direction="column"
-                pad={{ horizontal: isMobile ? 'xlarge' : 'medium' }}
-            >
+        <Fragment>
+            <Box direction="row" justify="start" margin={{ bottom: 'medium' }}>
                 <Box
-                    direction={isMobile ? 'row' : 'column'}
-                    align={isMobile ? 'center' : 'start'}
-                    justify="start"
+                    margin={{ right: 'large' }}
+                    flex={false}
+                    responsive={false}
                 >
-                    <Box margin={{ right: 'large' }}>
-                        <PictureProfile
-                            size={size}
-                            imageUrl={userProfile.pictureUrl}
-                        />
-                    </Box>
-                    <Box>
-                        <Heading level={1} size="large" margin="none">
+                    <PictureProfile
+                        size={size}
+                        imageUrl={userProfile.pictureUrl}
+                    />
+                </Box>
+                <Box width="full">
+                    <Box
+                        direction="row-responsive"
+                        align="center"
+                        justify="between"
+                    >
+                        <Heading level={1} size="large">
                             {userProfile.firstname}
                         </Heading>
-                        {userProfile.website && (
-                            <Button
-                                target="_blank"
-                                href={userProfile.website}
-                                label={userProfile.website}
-                                plain={true}
-                            />
-                        )}
-                        <Box
-                            direction="column"
-                            margin={{ top: 'medium', bottom: '10px' }}
-                        >
-                            <Separator
-                                size={size}
-                                color={theme.global.colors['accent-1']}
-                            />
-                        </Box>
+                        <Social {...userProfile.social} />
                     </Box>
-                </Box>
-                <Box margin={{ vertical: 'medium' }}>
-                    <Text
-                        size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
-                    >
-                        {userProfile.biography}
-                    </Text>
+                    {!isMobile && Biography}
                 </Box>
             </Box>
-        </Box>
+            {isMobile && Biography}
+        </Fragment>
     )
 }
 
-export default Sidenav
+export default ProfileDescription

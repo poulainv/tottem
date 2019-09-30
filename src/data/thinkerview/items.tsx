@@ -11,7 +11,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/secret-lOccident-th%C3%A9orie-g%C3%A9n%C3%A9rale-scientifique/dp/2081218712',
         type: 'book',
-        detail: 'https://youtu.be/mx5QlspmmE8',
     },
     {
         collectionId: '1',
@@ -23,7 +22,6 @@ const items: Item[] = [
         productUrl:
             'https://livre.fnac.com/a169499/Andre-Gide-Les-Nourritures-terrestres-Les-Nouvelles-nourritures',
         type: 'book',
-        detail: 'https://youtu.be/mx5QlspmmE8',
     },
     {
         collectionId: '1',
@@ -35,7 +33,6 @@ const items: Item[] = [
         productUrl:
             'https://livre.fnac.com/a1089211/Charles-de-Gaulle-Ode-a-l-homme-qui-fut-la-France-et-autres-textes-autour-du-general-de-Gaulle',
         type: 'book',
-        detail: 'https://youtu.be/mx5QlspmmE8',
     },
     {
         collectionId: '2',
@@ -47,7 +44,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Comme-ses-pieds-Vikash-Dhorasoo/dp/2021378780',
         type: 'book',
-        detail: 'https://youtu.be/_EFDjsMDlXU',
     },
     {
         collectionId: '2',
@@ -59,7 +55,6 @@ const items: Item[] = [
         productUrl:
             'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwia-cSd9dnkAhWlyYUKHb0RDSEQjRx6BAgBEAQ&url=https%3A%2F%2Flivre.fnac.com%2Fa13206872%2FWestlake-donald-Kahawa&psig=AOvVaw0SIBBltJ03s_hJufQI2Chv&ust=1568880440044714',
         type: 'book',
-        detail: 'https://youtu.be/_EFDjsMDlXU',
     },
     {
         collectionId: '2',
@@ -71,7 +66,6 @@ const items: Item[] = [
         productUrl:
             'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjzoqbF9dnkAhWryIUKHceSAU0QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.amazon.fr%2Fperle-John-Steinbeck%2Fdp%2F2070364283&psig=AOvVaw1rl2m30iacMCCYnP4fXP8m&ust=1568880525536997',
         type: 'book',
-        detail: 'https://youtu.be/_EFDjsMDlXU',
     },
     {
         collectionId: '2',
@@ -82,7 +76,6 @@ const items: Item[] = [
             'https://commons.wikimedia.org/wiki/File:Daniel_Pennac.jpg?uselang=fr',
         productUrl: 'https://fr.wikipedia.org/wiki/Daniel_Pennac',
         type: 'people',
-        detail: 'https://youtu.be/_EFDjsMDlXU',
     },
     {
         collectionId: '3',
@@ -94,7 +87,6 @@ const items: Item[] = [
         productUrl:
             'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj0sKHe_NnkAhXPAWMBHasmCT0QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.amazon.fr%2Fnom-tous-miens-Martin-GRAY%2Fdp%2F2266122215&psig=AOvVaw2YCcq4-lLNls1yKzbKyBTM&ust=1568882457045463',
         type: 'book',
-        detail: 'https://youtu.be/Uj83ZmfT4Dw',
     },
     {
         collectionId: '3',
@@ -105,7 +97,6 @@ const items: Item[] = [
             'https://images-na.ssl-images-amazon.com/images/I/51LX032xQUL._SX307_BO1,204,203,200_.jpg',
         productUrl: '',
         type: 'book',
-        detail: 'https://youtu.be/Uj83ZmfT4Dw',
     },
     {
         collectionId: '3',
@@ -116,7 +107,6 @@ const items: Item[] = [
             'https://i1.wp.com/journal.ccas.fr/wp-content/uploads/sites/6/2018/11/63576_-_Monique-Pinc%CC%A7on-Charlot.jpg?resize=1024%2C678&ssl=1',
         productUrl: 'https://fr.wikipedia.org/wiki/Monique_Pin%C3%A7on-Charlot',
         type: 'people',
-        detail: 'https://youtu.be/Uj83ZmfT4Dw',
     },
     {
         collectionId: '3',
@@ -128,7 +118,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/LHomme-qui-sait-Maxime-Renahy/dp/235204751X',
         type: 'book',
-        detail: 'https://youtu.be/Uj83ZmfT4Dw',
     },
     {
         collectionId: '4',
@@ -140,7 +129,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/droit-nouvelle-arme-guerre-économique/dp/233011821X',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=dejeVuL9-7c',
     },
     {
         collectionId: '4',
@@ -152,7 +140,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/stratégie-choc-montée-capitalisme-désastre/dp/2330026609',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=dejeVuL9-7c',
     },
     {
         collectionId: '4',
@@ -164,7 +151,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Vol-MH370-Une-vie-détournée/dp/2081422239/ref=sr_1_1',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=dejeVuL9-7c',
     },
     {
         collectionId: '4',
@@ -176,7 +162,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/piège-américain-Frédéric-Pierucci/dp/2709664070/ref=sr_1_1',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=dejeVuL9-7c',
     },
     {
         collectionId: '5',
@@ -188,7 +173,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Hollywar-monde-comme-Pierre-CONESA-ebook/dp/B07BYHJ3CJ',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=5TbbV06LlP0',
     },
     {
         collectionId: '5',
@@ -201,7 +185,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/histoire-wahhabisme-Comment-lislam-sectai/dp/2757862081',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=5TbbV06LlP0',
     },
     {
         collectionId: '6',
@@ -212,7 +195,6 @@ const items: Item[] = [
             'https://images-eu.ssl-images-amazon.com/images/I/51PDX0NCtZL.jpg',
         productUrl: 'amazon.fr/dp/B01FT6H6LU',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '6',
@@ -224,7 +206,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Technique-civilisation-Lewis-Mumford/dp/2863646729',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '6',
@@ -235,7 +216,6 @@ const items: Item[] = [
             'https://images-eu.ssl-images-amazon.com/images/I/31l1EXKZGEL.jpg',
         productUrl: 'https://www.amazon.fr/dp/B00N1RPF2M/',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '6',
@@ -248,7 +228,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Case-Against-Education-System-Waste/dp/0691174652',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '6',
@@ -259,7 +238,6 @@ const items: Item[] = [
             'https://images-eu.ssl-images-amazon.com/images/I/51WuFOGJ8-L._SY346_.jpg',
         productUrl: 'https://www.amazon.fr/dp/B01N2PFJPO',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '6',
@@ -270,7 +248,6 @@ const items: Item[] = [
             'https://images-eu.ssl-images-amazon.com/images/I/41-Ywqbf9DL.jpg',
         productUrl: 'https://www.amazon.fr/dp/B0795DNWCF',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9iuBVin9oOk',
     },
     {
         collectionId: '7',
@@ -283,7 +260,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Capitalisme-expliqué-petite-fille-espérant-EXPLIQUE-ebook/dp/B07CNCCNHS',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=sIJd1kuR2Ps',
     },
     {
         collectionId: '7',
@@ -295,7 +271,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/misérables-Victor-Hugo/dp/2211238467',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=sIJd1kuR2Ps',
     },
     {
         collectionId: '7',
@@ -307,7 +282,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Discours-conférences-Jean-Jaures/dp/2081307626',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=sIJd1kuR2Ps',
     },
     {
         collectionId: '8',
@@ -320,7 +294,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Sarkozy-Kadhafi-billets-bombes-Fabrice-Arfi/dp/2413015612',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=DnHUyRfY3Wc',
     },
     {
         collectionId: '8',
@@ -332,7 +305,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Prédateurs-Catherine-GALL/dp/2749155932',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=DnHUyRfY3Wc',
     },
     {
         collectionId: '8',
@@ -344,7 +316,6 @@ const items: Item[] = [
             'https://images-na.ssl-images-amazon.com/images/I/31Yo1n4yTOL._SX305_BO1,204,203,200_.jpg',
         productUrl: 'https://www.amazon.fr/caste-Laurent-MAUDUIT/dp/234803770X',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=DnHUyRfY3Wc',
     },
     {
         collectionId: '8',
@@ -355,7 +326,6 @@ const items: Item[] = [
             'https://images-eu.ssl-images-amazon.com/images/I/412ktS81TsL.jpg',
         productUrl: 'https://www.amazon.fr/dp/B07N6HQJBT',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=DnHUyRfY3Wc',
     },
     {
         collectionId: '9',
@@ -366,7 +336,6 @@ const items: Item[] = [
         productUrl:
             'https://www.youtube.com/playlist?list=PLw4-Fp0S2dJakQHXcXxTSjISLCAuT0Qiv',
         type: 'video',
-        detail: 'https://www.youtube.com/watch?v=uSSFmNHgJQQ',
     },
     {
         collectionId: '9',
@@ -378,7 +347,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/faut-sadapter»-nouvel-impératif-politique/dp/2072757495',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=uSSFmNHgJQQ',
     },
     {
         collectionId: '9',
@@ -390,7 +358,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Good-Society-Walter-Lippmann/dp/1298501865',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=uSSFmNHgJQQ',
     },
     {
         collectionId: '9',
@@ -402,7 +369,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/nouvelle-raison-monde-société-néolibérale/dp/2707156825',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=uSSFmNHgJQQ',
     },
     {
         collectionId: '10',
@@ -414,7 +380,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Larchipel-français-Jerome-Fourquet/dp/2021406024',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=M5_v9ld_LVc',
     },
     {
         collectionId: '10',
@@ -426,7 +391,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Où-sommes-nous-esquisse-lhistoire-humaine/dp/2021319008',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=M5_v9ld_LVc',
     },
     {
         collectionId: '11',
@@ -438,7 +402,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Socialisme-Utopique-Scientifique-Friedrich-Engels/dp/1983116041',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -449,7 +412,6 @@ const items: Item[] = [
             'https://images-na.ssl-images-amazon.com/images/I/51Ma5AxBwpL._SX302_BO1,204,203,200_.jpg',
         productUrl: 'amazon.fr/vieil-homme-mer-Ernest-Hemingway/dp/2072762081/',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -461,7 +423,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Lancêtre-Juan-jose-Saer/dp/237055147X',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -473,7 +434,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Fleurs-du-Mal-Charles-Baudelaire/dp/229011507X/',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -485,7 +445,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/cycle-Fondation-II-Fondation-Empire/dp/2070360555',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -497,7 +456,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Louis-XI-Paul-Murray-Kendall/dp/2818504287',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -509,7 +467,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Quatrevingt-treize-Victor-Hugo/dp/2253160784',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -520,7 +477,6 @@ const items: Item[] = [
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8pnVQllaEJbokjEs-yOLpb4sogIlAmYsyATtfMullLvhnSmr7',
         productUrl: 'https://fr.wikipedia.org/wiki/Jules_Michelet',
         type: 'people',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -532,7 +488,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Coeur-chien-Mikhail-Boulgakov/dp/2253933147/',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '11',
@@ -544,7 +499,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Route-au-tabac-Erskine-CALDWELL/dp/2714475051',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=9y3aC0LruiQ',
     },
     {
         collectionId: '12',
@@ -552,11 +506,10 @@ const items: Item[] = [
         author: '',
         note: "Toute l'oeuvre de Friedrich Nietzsche",
         imageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/f/f4/Nietzsche187c.jpg',
+            'https://spectator.imgix.net/content/uploads/2016/04/Nietzsche.jpg?auto=compress,enhance,format&crop=faces,entropy,edges&fit=crop&w=620&h=413',
         productUrl:
             'https://fr.wikipedia.org/wiki/Biographie_de_Friedrich_Nietzsche',
         type: 'people',
-        detail: 'https://www.youtube.com/watch?v=qYCfx2xFMjE',
     },
     {
         collectionId: '12',
@@ -568,7 +521,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Quappelle-t-panser-lEntropocène-Bernard-Stiegler/dp/B071FQN28V',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=qYCfx2xFMjE',
     },
     {
         collectionId: '13',
@@ -580,7 +532,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/lambeau-Philippe-Lançon/dp/2072689074',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=XK2dsgJWqgk',
     },
     {
         collectionId: '13',
@@ -592,7 +543,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Nouveaux-chiens-garde-NE/dp/2912107261',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=XK2dsgJWqgk',
     },
     {
         collectionId: '13',
@@ -604,7 +554,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/LITTERATRON-ESCARPIT-ROBERT/dp/B003X81M6W',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=XK2dsgJWqgk',
     },
     {
         collectionId: '14',
@@ -616,7 +565,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/furtifs-Alain-Damasio/dp/2370490748/',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=a7KapmsJQOE',
     },
     {
         collectionId: '14',
@@ -628,7 +576,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Lhomme-illustré-Ray-Bradbury/dp/2070417794',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=a7KapmsJQOE',
     },
     {
         collectionId: '14',
@@ -640,7 +587,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Chroniques-martiennes-Ray-Bradbury/dp/2070417743',
         type: 'book',
-        detail: 'https://www.youtube.com/watch?v=a7KapmsJQOE',
     },
 ]
 

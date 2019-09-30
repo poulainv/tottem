@@ -3,6 +3,7 @@ export interface ICollection {
     name: string
     items: Item[]
     sectionId?: string
+    detail?: string
 }
 
 export interface ISection {
@@ -22,7 +23,6 @@ export interface Item {
     productUrl: string
     note?: string
     type: ItemType
-    detail?: string
 }
 
 export type ItemType =
@@ -34,9 +34,17 @@ export type ItemType =
     | 'paper'
     | 'podcast'
 
+export interface ISocial {
+    linkedin?: string
+    github?: string
+    mail?: string
+    youtube?: string
+}
+
 export interface UserProfile {
     firstname: string
     pictureUrl: string
     biography: string
     website?: string
+    social?: ISocial
 }

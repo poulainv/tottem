@@ -221,7 +221,7 @@ const items: Item[] = [
     {
         collectionId: '14',
         type: 'people',
-        author: '',
+        author: 'Auteur',
         imageUrl: require('../../static/images/people/damasio.jpg'),
         title: 'Alain Damasio',
         imageColor: '#87160D',

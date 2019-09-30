@@ -32,9 +32,21 @@ const sections: ISection[] = [
     },
     {
         id: '5',
-        collections: collectionsBySection['4'],
-        name: 'Environnement',
+        collections: collectionsBySection['5'],
+        name: 'Terrorisme',
         index: 4,
+    },
+    {
+        id: '6',
+        collections: collectionsBySection['5'],
+        name: 'Médias',
+        index: 5,
+    },
+    {
+        id: '7',
+        collections: collectionsBySection['5'],
+        name: 'Technologies',
+        index: 6,
     },
 ]
 

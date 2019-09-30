@@ -10,14 +10,16 @@ const PictureProfile: React.FC<PictureProfileProps> = props => {
     return (
         <Box
             overflow="hidden"
-            width={props.size === 'small' ? '100px' : '172px'}
-            height={props.size === 'small' ? '100px' : '172px'}
             justify="center"
             align="center"
             round="full"
             elevation="profile"
         >
-            <Image src={props.imageUrl} width="100%" />
+            <Image
+                src={props.imageUrl}
+                width={props.size === 'small' ? '80px' : '150px'}
+                height={props.size === 'small' ? '80px' : '150px'}
+            />
         </Box>
     )
 }

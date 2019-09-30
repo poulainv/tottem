@@ -13,12 +13,12 @@
         "grommet": "^2.7.8",
         "grommet-icons": "^4.3.0",
         "lodash.groupby": "^4.6.0",
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0",
-        "react-router-dom": "^5.1.0",
+        "react": "^16.10.1",
+        "react-dom": "^16.10.1",
+        "react-router-dom": "^5.1.1",
         "react-scripts": "3.1.1",
         "react-truncate": "^2.4.0",
-        "styled-components": "^4.3.2"
+        "styled-components": "^4.4.0"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -48,15 +48,15 @@
         }
     },
     "devDependencies": {
-        "eslint": "^6.3.0",
-        "husky": "^3.0.5",
+        "eslint": "^6.5.0",
+        "husky": "^3.0.7",
         "prettier": "1.18.2",
         "pretty-quick": "^1.11.1",
-        "tslint": "^5.19.0",
+        "tslint": "^5.20.0",
         "tslint-config-prettier": "^1.18.0",
         "tslint-eslint-rules": "^4.1.1",
         "tslint-plugin-prettier": "^2.0.1",
-        "tslint-react": "^4.0.0",
-        "typescript": "^3.6.2"
+        "tslint-react": "^4.1.0",
+        "typescript": "^3.6.3"
     }
 }

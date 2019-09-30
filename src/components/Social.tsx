@@ -1,30 +1,72 @@
-import { Box, Image } from 'grommet'
+import { Box, Image, Button } from 'grommet'
 import React from 'react'
+import { ISocial } from '../types'
+import { Youtube } from 'grommet-icons'
 
-const github: string = require('../static/pictograms/github.svg')
-const linkedin: string = require('../static/pictograms/linkedin.svg')
-const mail: string = require('../static/pictograms/mail.svg')
-
-const Social: React.FC = () => {
+const Social: React.FC<ISocial> = props => {
+    const pictoHeight = '16px'
     return (
-        <Box
-            direction="row"
-            height="40px"
-            align="stretch"
-            basis="auto"
-            gap="small"
-            margin={{ vertical: '15px' }}
-        >
-            <Box>
-                <Image src={mail} fit="contain" />
-            </Box>
-            <Box>
-                <Image src={github} fit="contain" />
-            </Box>
+        <Box direction="row" height={pictoHeight} gap="medium" align="end">
+            {props.mail && (
+                <Box>
+                    <Button
+                        plain={true}
+                        href={'mailto:' + props.mail}
+                        icon={
+                            <Image
+                                height="14px"
+                                src={require('../static/pictograms/mail.svg')}
+                                fit="contain"
+                            />
+                        }
+                    />
+                </Box>
+            )}
 
-            <Box>
-                <Image src={linkedin} fit="contain" />
-            </Box>
+            {props.github && (
+                <Box>
+                    <Button
+                        target="_blank"
+                        plain={true}
+                        href={props.github}
+                        icon={
+                            <Image
+                                height={pictoHeight}
+                                src={require('../static/pictograms/github.svg')}
+                                fit="contain"
+                            />
+                        }
+                    />
+                </Box>
+            )}
+
+            {props.linkedin && (
+                <Box>
+                    <Button
+                        target="_blank"
+                        plain={true}
+                        href={props.linkedin}
+                        icon={
+                            <Image
+                                height={pictoHeight}
+                                src={require('../static/pictograms/linkedin.svg')}
+                                fit="contain"
+                            />
+                        }
+                    />
+                </Box>
+            )}
+
+            {props.youtube && (
+                <Box>
+                    <Button
+                        target="_blank"
+                        plain={true}
+                        href={props.youtube}
+                        icon={<Youtube height={pictoHeight} />}
+                    />
+                </Box>
+            )}
         </Box>
     )
 }
