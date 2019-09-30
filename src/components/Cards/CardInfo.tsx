@@ -17,13 +17,15 @@ interface CardInfoProps {
 const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
     const optionButton = (
         <Box direction="row">
-            <Button
+            {/* <Button
                 style={{ padding: '0px 5px 0px 5px' }}
                 icon={<Copy size="small" />}
-            />
+            /> */}
             <Button
                 style={{ padding: '0px 5px 0px 5px' }}
                 icon={<Share size="small" />}
+                href={props.item.productUrl}
+                target="_blank"
             />
         </Box>
     )
