@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, Image, Button } from 'grommet'
+import { Box, Text, Button } from 'grommet'
 import Truncate from 'react-truncate'
 import { Item } from '../../types'
 import styled from 'styled-components'
@@ -32,7 +32,6 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
         <Box height="84px">
             <Box
                 height={{ max: 'xxsmall' }}
-                // height="xxsmall"
                 margin={{ top: 'small' }}
                 responsive={false}
             >

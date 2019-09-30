@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Box, Stack, Image } from 'grommet'
-import styled from 'styled-components'
 
 import CoverImage, { ImageShapeType } from './CoverImage'
 import CardInfo from './CardInfo'
-import DetailedCard from './DetailedCard'
 import { Item, ItemType } from '../../types'
 
 interface CardProps {
@@ -14,16 +12,22 @@ interface CardProps {
     imageShape: ImageShapeType
 }
 
+const width = 18 + 8 * 19
+const largeWidthPx = width + 'px'
+const largeHeightPx = 1.68 * width + 'px'
+const smallWidthPx = width * 0.8 + 'px'
+const smallHeightPx = 1.68 * width * 0.8 + 'px'
+
 export const CardSize = {
     small: {
-        width: '166px',
-        rectangleImageHeight: '280px',
-        squareImageHeight: '166px',
+        width: smallWidthPx,
+        rectangleImageHeight: smallHeightPx,
+        squareImageHeight: smallWidthPx,
     },
     large: {
-        width: '186px',
-        rectangleImageHeight: '312px',
-        squareImageHeight: '186px',
+        width: largeWidthPx,
+        rectangleImageHeight: largeHeightPx,
+        squareImageHeight: largeWidthPx,
     },
 }
 
@@ -39,12 +43,13 @@ const colors: { [type in ItemType]: string } = {
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    const touchScreen = props.small
     const picto = require(`../../static/pictograms/book-white.svg`)
     return (
         <Stack anchor="top-left">
             <Box
+                // tslint:disable-next-line: jsx-no-lambda
                 onMouseEnter={() => setHover(true)}
+                // tslint:disable-next-line: jsx-no-lambda
                 onMouseLeave={() => setHover(false)}
                 direction="column"
                 align="center"

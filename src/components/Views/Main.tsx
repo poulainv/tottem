@@ -8,9 +8,10 @@ import { ISection } from '../../types'
 import TabTitle from '../Tab'
 
 const Main: React.FC<RoutingMatchParams> = params => {
+    const sections = require(`../../data/${params.profileId}/sections`).default
+
     const size = useContext(ResponsiveContext)
     const [activeTab, setActiveTab] = useState(0)
-    const sections = require(`../../data/${params.profileId}/sections`).default
 
     return (
         <Box margin={{ top: 'small' }}>

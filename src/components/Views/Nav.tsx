@@ -1,12 +1,12 @@
-import { Box, Heading, ResponsiveContext, Text, Button } from 'grommet'
-import React, { useContext } from 'react'
+import { Box, Heading, ResponsiveContext, Text } from 'grommet'
+import React, { useContext, Fragment } from 'react'
 import { RoutingMatchParams } from '../../App'
 import { UserProfile } from '../../types'
 
 import PictureProfile from '../PictureProfile'
 import Social from '../Social'
 
-const Profile: React.FC<RoutingMatchParams> = params => {
+const ProfileDescription: React.FC<RoutingMatchParams> = params => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
     const userProfile: UserProfile = require(`./../../data/${params.profileId}/profile`)
@@ -14,16 +14,14 @@ const Profile: React.FC<RoutingMatchParams> = params => {
 
     const Biography = (
         <Box width="large">
-            <Text
-                size={isMobile ? 'small' : 'medium'} // Paragraph & text are not responsive
-            >
+            <Text size={isMobile ? 'small' : 'medium'}>
                 {userProfile.biography}
             </Text>
         </Box>
     )
 
     return (
-        <Box>
+        <Fragment>
             <Box direction="row" justify="start" margin={{ bottom: 'medium' }}>
                 <Box
                     margin={{ right: 'large' }}
@@ -50,8 +48,8 @@ const Profile: React.FC<RoutingMatchParams> = params => {
                 </Box>
             </Box>
             {isMobile && Biography}
-        </Box>
+        </Fragment>
     )
 }
 
-export default Profile
+export default ProfileDescription
