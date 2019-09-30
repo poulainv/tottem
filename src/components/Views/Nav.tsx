@@ -1,22 +1,17 @@
 import { Box, Heading, ResponsiveContext, Text } from 'grommet'
 import React, { useContext, Fragment } from 'react'
-import { RoutingMatchParams } from '../../App'
-import { UserProfile } from '../../types'
 
 import PictureProfile from '../PictureProfile'
 import Social from '../Social'
+import { UserProfile } from '../../types'
 
-const ProfileDescription: React.FC<RoutingMatchParams> = params => {
+const ProfileDescription: React.FC<UserProfile> = props => {
     const size = useContext(ResponsiveContext)
     const isMobile = size === 'small'
-    const userProfile: UserProfile = require(`./../../data/${params.profileId}/profile`)
-        .default
 
     const Biography = (
         <Box width="large">
-            <Text size={isMobile ? 'small' : 'medium'}>
-                {userProfile.biography}
-            </Text>
+            <Text size={isMobile ? 'small' : 'medium'}>{props.biography}</Text>
         </Box>
     )
 
@@ -28,10 +23,7 @@ const ProfileDescription: React.FC<RoutingMatchParams> = params => {
                     flex={false}
                     responsive={false}
                 >
-                    <PictureProfile
-                        size={size}
-                        imageUrl={userProfile.pictureUrl}
-                    />
+                    <PictureProfile size={size} imageUrl={props.pictureUrl} />
                 </Box>
                 <Box width="full">
                     <Box
@@ -40,9 +32,9 @@ const ProfileDescription: React.FC<RoutingMatchParams> = params => {
                         justify="between"
                     >
                         <Heading level={1} size="large">
-                            {userProfile.firstname}
+                            {props.firstname}
                         </Heading>
-                        <Social {...userProfile.social} />
+                        <Social {...props.social} />
                     </Box>
                     {!isMobile && Biography}
                 </Box>
