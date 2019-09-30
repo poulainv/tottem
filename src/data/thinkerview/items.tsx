@@ -15,6 +15,42 @@ const items: Item[] = [
     },
     {
         collectionId: '1',
+        title: "Le secret de l'occident",
+        author: 'David Cosandey',
+        note: '',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/5144kZ61XCL._SX294_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/secret-lOccident-th%C3%A9orie-g%C3%A9n%C3%A9rale-scientifique/dp/2081218712',
+        type: 'book',
+        detail: 'https://youtu.be/mx5QlspmmE8',
+    },
+    {
+        collectionId: '1',
+        title: "Le secret de l'occident",
+        author: 'David Cosandey',
+        note: '',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/5144kZ61XCL._SX294_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/secret-lOccident-th%C3%A9orie-g%C3%A9n%C3%A9rale-scientifique/dp/2081218712',
+        type: 'book',
+        detail: 'https://youtu.be/mx5QlspmmE8',
+    },
+    {
+        collectionId: '1',
+        title: "Le secret de l'occident",
+        author: 'David Cosandey',
+        note: '',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/5144kZ61XCL._SX294_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/secret-lOccident-th%C3%A9orie-g%C3%A9n%C3%A9rale-scientifique/dp/2081218712',
+        type: 'book',
+        detail: 'https://youtu.be/mx5QlspmmE8',
+    },
+    {
+        collectionId: '1',
         title: 'Les nourritures terrestres',
         author: 'André Gide',
         note: '',

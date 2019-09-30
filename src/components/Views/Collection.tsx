@@ -23,7 +23,7 @@ const Collection: React.FC<ICollection> = props => {
     const collapsedItems = isMobile ? [] : props.items.slice(maxItem + 1)
 
     const seeMore = (
-        <Box direction="row" justify="end" margin={{ bottom: 'small' }}>
+        <Box direction="row" justify="end">
             <Button
                 label={
                     open
@@ -44,30 +44,39 @@ const Collection: React.FC<ICollection> = props => {
             round="10px"
             elevation="card"
         >
-            <Box border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}>
+            <Box
+                direction="row"
+                justify="between"
+                align="center"
+                border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
+            >
                 <Box margin={{ horizontal: 'medium' }}>
                     <Heading level="3" size="medium">
                         <Markdown>{props.name}</Markdown>
                     </Heading>
                 </Box>
-            </Box>
-            <ItemList items={initialItems} />
-            {!isMobile && (
-                <Collapsible open={open}>
-                    <ItemList items={collapsedItems} />
-                </Collapsible>
-            )}
-            <Box
-                border={{ side: 'top', color: 'light-3', size: '0.5px' }}
-                margin={{ top: 'large' }}
-            >
-                <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
-                    <Text color="dark-3" size="medium">
-                        {props.detail}
-                    </Text>
-                </Box>
                 {props.items.length > 4 && !isMobile && seeMore}
             </Box>
+            <Box margin={{ bottom: 'large' }}>
+                <ItemList items={initialItems} />
+                {!isMobile && (
+                    <Collapsible open={open}>
+                        <ItemList items={collapsedItems} />
+                    </Collapsible>
+                )}
+            </Box>
+            {props.detail && (
+                <Box
+                    border={{ side: 'top', color: 'light-3', size: '0.5px' }}
+                    // margin={{ top: 'large' }}
+                >
+                    <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
+                        <Text color="dark-3" size="medium">
+                            {props.detail}
+                        </Text>
+                    </Box>
+                </Box>
+            )}
         </Box>
     )
 }
