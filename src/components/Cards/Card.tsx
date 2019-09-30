@@ -34,16 +34,16 @@ export const CardSize = {
 const colors: { [type in ItemType]: string } = {
     album: '#26547C',
     book: '#26547C',
-    movie: '#EF476F',
-    paper: '#square',
+    movie: '#FFD166',
+    paper: '#EF476F',
     people: '#FFD166',
-    podcast: '#square',
+    podcast: '#EF476F',
     video: '#EF476F',
 }
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    const picto = require(`../../static/pictograms/book-white.svg`)
+    const picto = require(`../../static/pictograms/${props.item.type}-white.svg`)
     return (
         <Stack anchor="top-left">
             <Box
@@ -79,7 +79,7 @@ const Card: React.FC<CardProps> = props => {
                     width="30px"
                     height="30px"
                 >
-                    <Image src={picto} />
+                    <Image height="16px" src={picto} />
                 </Box>
             )}
         </Stack>

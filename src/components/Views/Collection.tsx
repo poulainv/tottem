@@ -50,7 +50,7 @@ const Collection: React.FC<ICollection> = props => {
                 align="center"
                 border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
             >
-                <Box margin={{ horizontal: 'medium' }}>
+                <Box responsive={false} margin={{ horizontal: 'medium' }}>
                     <Heading level="3" size="medium">
                         <Markdown>{props.name}</Markdown>
                     </Heading>

@@ -26,7 +26,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
     const isMobile = size !== 'large'
     return (
         <StyledBox
-            // responsive={false}
+            responsive={false}
             direction="row"
             wrap={!isMobile}
             pad={{ horizontal: 'medium' }}
