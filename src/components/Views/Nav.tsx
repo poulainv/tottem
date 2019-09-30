@@ -42,7 +42,7 @@ const ProfileDescription: React.FC<RoutingMatchParams> = params => {
                         <Heading level={1} size="large">
                             {userProfile.firstname}
                         </Heading>
-                        <Social />
+                        <Social {...userProfile.social} />
                     </Box>
                     {!isMobile && Biography}
                 </Box>

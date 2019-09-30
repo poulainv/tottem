@@ -35,9 +35,17 @@ export type ItemType =
     | 'paper'
     | 'podcast'
 
+export interface ISocial {
+    linkedin?: string
+    github?: string
+    mail?: string
+    youtube?: string
+}
+
 export interface UserProfile {
     firstname: string
     pictureUrl: string
     biography: string
     website?: string
+    social?: ISocial
 }
