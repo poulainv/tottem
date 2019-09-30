@@ -72,7 +72,7 @@ const Collection: React.FC<ICollection> = props => {
                 >
                     <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
                         <Text color="dark-3" size="medium">
-                            {props.detail}
+                            <Markdown>{props.detail}</Markdown>
                         </Text>
                     </Box>
                 </Box>

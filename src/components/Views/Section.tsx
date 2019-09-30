@@ -10,9 +10,11 @@ interface Props {
 const Section: React.FC<Props> = props => {
     return (
         <Box direction="column" fill>
-            {props.collections.map((collection: ICollection) => {
-                return <Collection key={collection.name} {...collection} />
-            })}
+            {props.collections
+                .filter(x => x.items)
+                .map((collection: ICollection) => {
+                    return <Collection key={collection.name} {...collection} />
+                })}
         </Box>
     )
 }

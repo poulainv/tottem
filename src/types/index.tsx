@@ -23,7 +23,6 @@ export interface Item {
     productUrl: string
     note?: string
     type: ItemType
-    detail?: string
 }
 
 export type ItemType =
