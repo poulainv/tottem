@@ -3,27 +3,34 @@ import React, { useContext, useState } from 'react'
 import { ISection } from '../../types'
 import TabTitle from '../Tab'
 import Section from './Section'
-import sections from '../../data/thinkerview/sections'
+import { useHistory } from 'react-router'
 
 interface IProfileContent {
     sections: ISection[]
+    username: string
     activeSectionId?: string
 }
 
 const ProfileContent: React.FC<IProfileContent> = props => {
     const size = useContext(ResponsiveContext)
     const sortedSections = props.sections.sort(x => x.index)
-
+    const history = useHistory()
     const activeSessionIndex = sortedSections.findIndex(
         x => x.id === props.activeSectionId
     )
+
     const [activeTab, setActiveTab] = useState(
         activeSessionIndex !== -1 ? activeSessionIndex : 0
     )
 
+    const sectionClickHandler = (args: any) => {
+        setActiveTab(args)
+        history.replace(`/${props.username}/${sortedSections[args].id}`)
+    }
+
     return (
         <Box margin={{ top: 'small' }}>
-            <Tabs justify="start" onActive={setActiveTab} flex={false}>
+            <Tabs justify="start" onActive={sectionClickHandler} flex={false}>
                 {sortedSections.map((section: ISection, index: number) => {
                     return (
                         <Tab

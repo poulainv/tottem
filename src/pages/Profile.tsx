@@ -26,6 +26,7 @@ const Profile = (props: RoutingMatchProps) => {
                 <ProfileDescription {...userProfile} />
                 <ProfileContent
                     sections={sections}
+                    username={props.match.params.profileId}
                     activeSectionId={props.match.params.sectionId}
                 />
             </Box>
