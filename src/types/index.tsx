@@ -52,4 +52,5 @@ export interface UserProfile {
 // Interface representing the params passed in the URL
 export interface RoutingMatchParams {
     profileId: string
+    sectionId?: string
 }
