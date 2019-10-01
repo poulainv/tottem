@@ -12,7 +12,7 @@ const App: React.FC = () => {
                 <ResponsiveContext.Consumer>
                     {size => (
                         <Fragment>
-                            <Route exact path="/about" component={Landing} />
+                            <Route exact path="/" component={Landing} />
                             <Route
                                 exact
                                 path="/:profileId/:sectionId?"
