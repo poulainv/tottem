@@ -8,7 +8,7 @@ import theme from './theme'
 const App: React.FC = () => {
     return (
         <Router>
-            <Grommet theme={theme} full>
+            <Grommet theme={theme}>
                 <ResponsiveContext.Consumer>
                     {size => (
                         <Fragment>
