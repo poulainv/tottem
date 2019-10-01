@@ -23,7 +23,7 @@ const ProfileContent: React.FC<IProfileContent> = props => {
         activeSessionIndex !== -1 ? activeSessionIndex : 0
     )
 
-    const sectionClickHandler = (args: any) => {
+    const sectionClickHandler = (args: number) => {
         setActiveTab(args)
         history.replace(`/${props.username}/${sortedSections[args].id}`)
     }
