@@ -1,9 +1,9 @@
-import { Box, Grommet, ResponsiveContext } from 'grommet'
+import { Grommet, ResponsiveContext } from 'grommet'
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import theme from './theme'
-import Profile from './pages/Profile'
 import Landing from './pages/Landing'
+import Profile from './pages/Profile'
+import theme from './theme'
 
 const App: React.FC = () => {
     return (

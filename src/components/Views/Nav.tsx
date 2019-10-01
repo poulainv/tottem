@@ -1,9 +1,8 @@
 import { Box, Heading, ResponsiveContext, Text } from 'grommet'
-import React, { useContext, Fragment } from 'react'
-
+import React, { Fragment, useContext } from 'react'
+import { UserProfile } from '../../types'
 import PictureProfile from '../PictureProfile'
 import Social from '../Social'
-import { UserProfile } from '../../types'
 
 const ProfileDescription: React.FC<UserProfile> = props => {
     const size = useContext(ResponsiveContext)

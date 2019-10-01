@@ -1,10 +1,10 @@
-import * as React from 'react'
-import ProfileContent from '../components/Views/Main'
-import { RoutingMatchParams, UserProfile } from '../types'
-import ProfileDescription from '../components/Views/Nav'
-import { RouteComponentProps } from 'react-router'
 import { Box } from 'grommet'
+import * as React from 'react'
+import { RouteComponentProps } from 'react-router'
 import Header from '../components/Views/Header'
+import ProfileContent from '../components/Views/Main'
+import ProfileDescription from '../components/Views/Nav'
+import { RoutingMatchParams, UserProfile } from '../types'
 
 interface RoutingMatchProps extends RouteComponentProps<RoutingMatchParams> {}
 

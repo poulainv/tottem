@@ -1,8 +1,8 @@
-import { Box, Tabs, Tab, ResponsiveContext } from 'grommet'
-import React, { useState, useContext } from 'react'
-import Section from './Section'
+import { Box, ResponsiveContext, Tab, Tabs } from 'grommet'
+import React, { useContext, useState } from 'react'
 import { ISection } from '../../types'
 import TabTitle from '../Tab'
+import Section from './Section'
 
 const ProfileContent: React.FC<{ sections: ISection[] }> = props => {
     const size = useContext(ResponsiveContext)

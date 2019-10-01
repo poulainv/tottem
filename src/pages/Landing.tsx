@@ -1,9 +1,9 @@
+import { Box, Heading, ResponsiveContext } from 'grommet'
 import * as React from 'react'
-import { Box, Heading, Button, ResponsiveContext } from 'grommet'
+import styled from 'styled-components'
 import Separator from '../components/Separator'
 import artwork from '../static/images/artworks/landing-illustration.png'
 import theme from '../theme'
-import styled from 'styled-components'
 
 const Header = styled(Heading)`
     font-size: 48px;
