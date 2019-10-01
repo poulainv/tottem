@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 interface SeparatorProps {
     color: string
-    size: string
+    size?: string
 }
 
 const Separator = styled.div`

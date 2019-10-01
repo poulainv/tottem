@@ -37,15 +37,14 @@ const CTAButton = styled.a`
     }
 `
 
-const Landing: React.FunctionComponent = props => {
+const Artwork: React.FC = props => {
     const size = React.useContext(ResponsiveContext)
     const imageWidth =
         size === 'large' ? '678px' : size === 'medium' ? '678px' : '312px'
-    const isMobile = size === 'small'
-
-    const artworkBox = (
+    return (
         <Box width={imageWidth}>
             <img
+                alt="Artwork"
                 style={{
                     display: 'block',
                     width: '100%',
@@ -55,6 +54,11 @@ const Landing: React.FunctionComponent = props => {
             />
         </Box>
     )
+}
+
+const Landing: React.FunctionComponent = props => {
+    const size = React.useContext(ResponsiveContext)
+    const isMobile = size === 'small'
 
     return (
         <Box
@@ -85,7 +89,6 @@ const Landing: React.FunctionComponent = props => {
 
                         <Box margin={{ vertical: 'medium' }}>
                             <Separator
-                                size="large"
                                 color={theme.global.colors['accent-1']}
                             />
                         </Box>
@@ -110,14 +113,14 @@ const Landing: React.FunctionComponent = props => {
                             </strong>
                         </SubHeader>
                     </Box>
-                    {isMobile && artworkBox}
+                    {isMobile && <Artwork />}
                     <Box margin={{ top: 'large', bottom: '40px' }}>
                         <CTAButton href="http://eepurl.com/gE44Sz">
                             Keep me in the loop
                         </CTAButton>
                     </Box>
                 </Box>
-                {!isMobile && artworkBox}
+                {!isMobile && <Artwork />}
             </Box>
         </Box>
     )
