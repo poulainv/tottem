@@ -48,3 +48,8 @@ export interface UserProfile {
     website?: string
     social?: ISocial
 }
+
+// Interface representing the params passed in the URL
+export interface RoutingMatchParams {
+    profileId: string
+}

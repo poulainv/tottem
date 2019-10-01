@@ -36,9 +36,16 @@ const theme = deepMerge(grommet, {
         },
     },
     button: {
+        padding: {
+            vertical: '20px',
+        },
+        primary: {
+            color: 'brand',
+        },
         color: { dark: 'accent-1', light: 'accent-1' },
         border: {
             width: '0px',
+            radius: '10px',
             color: { dark: 'white', light: 'white' },
         },
         extend: {
@@ -61,11 +68,11 @@ const theme = deepMerge(grommet, {
     global: {
         focus: {
             border: {
-                color: 'white',
+                color: 'transparent',
             },
         },
         colors: {
-            brand: '#3F55C9',
+            brand: '#D87551',
             'accent-1': '#98C6B7',
         },
         elevation: {

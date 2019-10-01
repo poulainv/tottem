@@ -30,6 +30,7 @@ const Collection: React.FC<ICollection> = props => {
                         ? 'SHOW LESS ITEMS'
                         : 'SHOW ALL ' + props.items.length + ' ITEMS'
                 }
+                // tslint:disable-next-line: jsx-no-lambda
                 onClick={() => setOpen(!open)}
             />
         </Box>
