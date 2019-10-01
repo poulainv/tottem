@@ -4,6 +4,7 @@ import { RoutingMatchParams, UserProfile } from '../types'
 import ProfileDescription from '../components/Views/Nav'
 import { RouteComponentProps } from 'react-router'
 import { Box } from 'grommet'
+import Header from '../components/Views/Header'
 
 interface RoutingMatchProps extends RouteComponentProps<RoutingMatchParams> {}
 
@@ -15,13 +16,16 @@ const Profile = (props: RoutingMatchProps) => {
         .default
 
     return (
-        <Box
-            pad={{ horizontal: 'large' }}
-            margin={{ top: 'medium' }}
-            width="xlarge"
-        >
-            <ProfileDescription {...userProfile} />
-            <ProfileContent sections={sections} />
+        <Box align="center" background="light-1">
+            <Header />
+            <Box
+                pad={{ horizontal: 'large' }}
+                margin={{ top: 'medium' }}
+                width="xlarge"
+            >
+                <ProfileDescription {...userProfile} />
+                <ProfileContent sections={sections} />
+            </Box>
         </Box>
     )
 }

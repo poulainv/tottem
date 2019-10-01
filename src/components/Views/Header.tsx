@@ -19,7 +19,7 @@ const Header = () => {
                 direction="row"
                 justify="end"
             >
-                <Button label="About" plain={true} color="dark-2" />
+                <Button label="About" plain={true} color="dark-2" href="/" />
             </Box>
         </Box>
     )

@@ -1,9 +1,9 @@
 import { Box, Grommet, ResponsiveContext } from 'grommet'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import theme from './theme'
 import Profile from './pages/Profile'
-import Header from './components/Views/Header'
+import Landing from './pages/Landing'
 
 const App: React.FC = () => {
     return (
@@ -11,15 +11,14 @@ const App: React.FC = () => {
             <Grommet theme={theme} full>
                 <ResponsiveContext.Consumer>
                     {size => (
-                        <Box align="center" background="light-1">
-                            <Header />
-                            <Route exact path="/" />
+                        <Fragment>
+                            <Route exact path="/" component={Landing} />
                             <Route
                                 exact
                                 path="/:profileId"
                                 component={Profile}
                             />
-                        </Box>
+                        </Fragment>
                     )}
                 </ResponsiveContext.Consumer>
             </Grommet>
