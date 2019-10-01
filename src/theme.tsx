@@ -68,7 +68,7 @@ const theme = deepMerge(grommet, {
     global: {
         focus: {
             border: {
-                color: 'white',
+                color: 'transparent',
             },
         },
         colors: {
