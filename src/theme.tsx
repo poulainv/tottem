@@ -38,7 +38,6 @@ const theme = deepMerge(grommet, {
     button: {
         padding: {
             vertical: '20px',
-            horizontal: '40px',
         },
         primary: {
             color: 'brand',

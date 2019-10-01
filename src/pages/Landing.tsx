@@ -3,6 +3,39 @@ import { Box, Heading, Button, ResponsiveContext } from 'grommet'
 import Separator from '../components/Separator'
 import artwork from '../static/images/artworks/landing-illustration.png'
 import theme from '../theme'
+import styled from 'styled-components'
+
+const Header = styled(Heading)`
+    font-size: 48px;
+    line-height: 64px;
+    @media screen and (max-width: 600px) {
+        font-size: 26px;
+        line-height: 36px;
+        text-align: center;
+    }
+`
+
+const SubHeader = styled(Heading)`
+    font-size: 20px;
+    line-height: 28px;
+    @media screen and (max-width: 600px) {
+        font-size: 16px;
+        line-height: 22px;
+        text-align: center;
+    }
+`
+
+const CTAButton = styled.a`
+    background-color: ${props => props.theme.global.colors.brand};
+    color: white;
+    padding: 20px 40px 20px 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: inherit;
+    @media screen and (max-width: 600px) {
+        padding: 15px 30px 15px 30px;
+    }
+`
 
 const Landing: React.FunctionComponent = props => {
     const size = React.useContext(ResponsiveContext)
@@ -46,16 +79,9 @@ const Landing: React.FunctionComponent = props => {
                     margin={{ top: isMobile ? 'none' : 'large' }}
                 >
                     <Box align={isMobile ? 'center' : 'start'}>
-                        <Heading
-                            level={2}
-                            textAlign={isMobile ? 'center' : 'start'}
-                            style={{
-                                fontSize: isMobile ? '26px' : '48px',
-                                lineHeight: isMobile ? '36px' : '64px',
-                            }}
-                        >
+                        <Header level={2}>
                             The knowledge platform for community
-                        </Heading>
+                        </Header>
 
                         <Box margin={{ vertical: 'medium' }}>
                             <Separator
@@ -63,15 +89,8 @@ const Landing: React.FunctionComponent = props => {
                                 color={theme.global.colors['accent-1']}
                             />
                         </Box>
-                        <Heading
-                            level={3}
-                            textAlign={isMobile ? 'center' : 'start'}
-                            style={{
-                                fontSize: isMobile ? '16px' : '20px',
-                                lineHeight: isMobile ? '20px' : '28px',
-                            }}
-                        >
-                            Internet was built to support
+                        <SubHeader level={3}>
+                            Internet was built to support{' '}
                             <strong> knowledge sharing. </strong>
                             <br />
                             <br />
@@ -89,20 +108,13 @@ const Landing: React.FunctionComponent = props => {
                             <strong>
                                 relevant collections of hand-picked items.
                             </strong>
-                        </Heading>
+                        </SubHeader>
                     </Box>
                     {isMobile && artworkBox}
                     <Box margin={{ top: 'large', bottom: '40px' }}>
-                        <Button
-                            style={{
-                                fontSize: '18px',
-                                color: 'white',
-                            }}
-                            fill={true}
-                            primary={true}
-                            href="http://eepurl.com/gE44Sz"
-                            label="Keep me in the loop"
-                        />
+                        <CTAButton href="http://eepurl.com/gE44Sz">
+                            Keep me in the loop
+                        </CTAButton>
                     </Box>
                 </Box>
                 {!isMobile && artworkBox}
