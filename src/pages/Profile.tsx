@@ -20,7 +20,7 @@ const Profile = (props: RoutingMatchProps) => {
             <Header />
             <Box
                 pad={{ horizontal: 'large' }}
-                margin={{ top: 'medium' }}
+                margin={{ top: 'large' }}
                 width="xlarge"
             >
                 <ProfileDescription {...userProfile} />
