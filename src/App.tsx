@@ -15,7 +15,7 @@ const App: React.FC = () => {
                             <Route exact path="/" component={Landing} />
                             <Route
                                 exact
-                                path="/:profileId/:sectionId?"
+                                path="/:profileId"
                                 component={Profile}
                             />
                         </Fragment>

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import { ISection } from '../../types'
 import TabTitle from '../Tab'
 import Section from './Section'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation, useParams } from 'react-router'
 
 interface IProfileContent {
     sections: ISection[]
@@ -11,26 +11,36 @@ interface IProfileContent {
     activeSectionId?: string
 }
 
-const ProfileContent: React.FC<IProfileContent> = props => {
-    const size = useContext(ResponsiveContext)
-    const sortedSections = props.sections.sort(x => x.index)
+function useTab(username: string, sortedSections: ISection[]) {
+    // Allow inital section by query params
+    const location = useLocation()
     const history = useHistory()
-    const activeSessionIndex = sortedSections.findIndex(
-        x => x.id === props.activeSectionId
-    )
+    const params = new URLSearchParams(location.search)
+    const activeSectionId = params.get('section')
 
+    const activeSessionIndex = sortedSections.findIndex(
+        x => x.id === activeSectionId
+    )
     const [activeTab, setActiveTab] = useState(
         activeSessionIndex !== -1 ? activeSessionIndex : 0
     )
 
-    const sectionClickHandler = (args: number) => {
+    const setTab = (args: number) => {
         setActiveTab(args)
-        history.replace(`/${props.username}/${sortedSections[args].id}`)
+        history.replace(`/${username}?section=${sortedSections[args].id}`)
     }
+
+    return { activeTab, setTab }
+}
+
+const ProfileContent: React.FC<IProfileContent> = props => {
+    const size = useContext(ResponsiveContext)
+    const sortedSections = props.sections.sort(x => x.index)
+    const { activeTab, setTab } = useTab(props.username, sortedSections)
 
     return (
         <Box margin={{ top: 'small' }}>
-            <Tabs justify="start" onActive={sectionClickHandler} flex={false}>
+            <Tabs justify="start" onActive={setTab} flex={false}>
                 {sortedSections.map((section: ISection, index: number) => {
                     return (
                         <Tab
