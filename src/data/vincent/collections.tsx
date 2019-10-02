@@ -10,8 +10,18 @@ export const collections: ICollection[] = [
     {
         id: '11',
         sectionId: '1',
-        name: '**Books,** that get me inspired',
+        name:
+            "**Essais et biographies** qui revisitent l'entreprise et l'économie 🕴",
         items: itemsByCollection['11'],
+    },
+    {
+        id: '16',
+        sectionId: '1',
+        name:
+            "**Manipulation de masses, destruction de l'attention : ce qui m'a poussé à créer Tottem 🤯",
+        items: itemsByCollection['16'],
+        detail:
+            "Plusieurs volets pour découvrir les effets collatéraux de l'utilisation massive des algorithmes de recommendations.",
     },
     {
         id: '13',

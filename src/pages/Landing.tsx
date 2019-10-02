@@ -78,7 +78,7 @@ const Landing: React.FunctionComponent = props => {
         >
             <Box height="xsmall" fill="horizontal">
                 <Box margin={{ horizontal: 'large' }}>
-                    <Heading> HEED </Heading>
+                    <Heading> TOTTEM </Heading>
                 </Box>
             </Box>
 

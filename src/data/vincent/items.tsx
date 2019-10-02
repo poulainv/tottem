@@ -1,13 +1,13 @@
 import { Item } from '../../types'
 
 const items: Item[] = [
+    // Musique
     {
         collectionId: '10',
         type: 'album',
         author: 'Jon Hopkins',
         imageUrl: require('../../static/images/albums/hopkins.jpg'),
         title: 'Immunity',
-        imageColor: '#1A1728',
         productUrl: '',
     },
     {
@@ -16,7 +16,6 @@ const items: Item[] = [
         author: 'Moderat',
         imageUrl: require('../../static/images/albums/moderat.jpg'),
         title: 'II',
-        imageColor: '#CFE3E2',
         productUrl: '',
     },
     {
@@ -25,7 +24,6 @@ const items: Item[] = [
         author: 'Nils Frahm',
         imageUrl: require('../../static/images/albums/spaces.jpg'),
         title: 'Spaces',
-        imageColor: 'white',
         productUrl: '',
     },
     {
@@ -34,9 +32,11 @@ const items: Item[] = [
         author: 'Nils Frahm',
         imageUrl: require('../../static/images/albums/melody.jpg'),
         title: 'All Melody',
-        imageColor: '#4A1514',
         productUrl: '',
     },
+
+    // GENERAL
+
     {
         collectionId: '11',
         type: 'book',
@@ -45,37 +45,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
         title: 'Let my people go Surfing',
-        imageColor: '#6DA03B',
-    },
-    {
-        collectionId: '11',
-        type: 'book',
-        author: 'Yvon Chouinard',
-        imageUrl: require('../../static/images/books/patagonia.jpg'),
-        productUrl:
-            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
-        title: 'Let my people go Surfing',
-        imageColor: '#6DA03B',
-    },
-    {
-        collectionId: '11',
-        type: 'book',
-        author: 'Yvon Chouinard',
-        imageUrl: require('../../static/images/books/patagonia.jpg'),
-        productUrl:
-            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
-        title: 'Let my people go Surfing',
-        imageColor: '#6DA03B',
-    },
-    {
-        collectionId: '11',
-        type: 'book',
-        author: 'Yvon Chouinard',
-        imageUrl: require('../../static/images/books/patagonia.jpg'),
-        productUrl:
-            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
-        title: 'Let my people go Surfing',
-        imageColor: '#6DA03B',
     },
     {
         collectionId: '11',
@@ -84,7 +53,6 @@ const items: Item[] = [
         imageUrl: require('../../static/images/books/reinventing.jpg'),
         productUrl: '',
         title: 'Reinventing Organizations',
-        imageColor: '#D6D6D6',
     },
     {
         collectionId: '11',
@@ -93,7 +61,6 @@ const items: Item[] = [
         imageUrl: require('../../static/images/books/paradox.jpg'),
         productUrl: '',
         title: 'The Paradox of Choice',
-        imageColor: '#FBDF50',
     },
     {
         collectionId: '11',
@@ -102,25 +69,16 @@ const items: Item[] = [
         imageUrl: require('../../static/images/books/eloge.jpg'),
         productUrl: '',
         title: `L'égole du carburateur`,
-        imageColor: '#555146',
     },
     {
         collectionId: '11',
         type: 'book',
-        author: 'Matthiew Crawford',
-        imageUrl: require('../../static/images/books/eloge.jpg'),
-        productUrl: '',
-        title: `L'égole du carburateur`,
-        imageColor: '#555146',
-    },
-    {
-        collectionId: '11',
-        type: 'book',
-        author: 'Matthiew Crawford',
-        imageUrl: require('../../static/images/books/eloge.jpg'),
-        productUrl: '',
-        title: `L'égole du carburateur`,
-        imageColor: '#555146',
+        author: 'Cennydd Bowles',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/31W0m1isq%2BL._SX322_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.com/Future-Ethics-Cennydd-Bowles/dp/1999601912',
+        title: `Future Ethics`,
     },
     {
         collectionId: '12',
@@ -130,7 +88,6 @@ const items: Item[] = [
         productUrl:
             'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
         title: 'Les sentiers de la gloire',
-        imageColor: '#000302',
     },
     {
         collectionId: '12',
@@ -139,7 +96,6 @@ const items: Item[] = [
         imageUrl: require('../../static/images/movies/goodbadugly.jpg'),
         productUrl: '',
         title: 'Le bon, la brute et le truand',
-        imageColor: '#D1D21B',
     },
     {
         collectionId: '12',
@@ -148,7 +104,6 @@ const items: Item[] = [
         imageUrl: require('../../static/images/movies/seigneur.jpg'),
         productUrl: '',
         title: 'Le seigneur des anneaux : Le retour du roi',
-        imageColor: '#BEBE91',
     },
     {
         collectionId: '12',
@@ -157,17 +112,87 @@ const items: Item[] = [
         imageUrl: require('../../static/images/movies/interstellar.jpg'),
         productUrl: '',
         title: 'Interstellar',
-        imageColor: '#DAE5E8',
     },
     {
-        collectionId: '13',
+        collectionId: '16',
+        type: 'paper',
+        author: 'Tristan Harris',
+        imageUrl: require('../../static/images/articles/humantec.jpg'),
+        title: 'Downgrading technology should be more challenged',
+        productUrl:
+            'https://medium.com/thrive-global/how-technology-hijacks-peoples-minds-from-a-magician-and-google-s-design-ethicist-56d62ef5edf3',
+    },
+    {
+        collectionId: '16',
+        type: 'video',
+        author: 'Tristan Harris',
+        imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
+        title:
+            'How a handful of tech companies control billions of minds every day ',
+        productUrl: 'https://www.youtube.com/watch?v=C74amJRp730',
+    },
+    {
+        collectionId: '16',
         type: 'paper',
         author: 'Joe Edelman',
-        imageUrl: require('../../static/images/articles/humantec.jpg'),
+        imageUrl: require('../../static/images/articles/clickgoal.jpg'),
         title: 'Is Anything worth Maximizing',
-        imageColor: '#0F1F1E',
         productUrl:
             'https://medium.com/what-to-build/is-anything-worth-maximizing-d11e648eb56f',
+    },
+    {
+        collectionId: '16',
+        type: 'podcast',
+        author: '',
+        imageUrl: require('../../static/images/podcasts/undivided.jpg'),
+        title: 'Your Individed Attention',
+        productUrl: '',
+    },
+    {
+        collectionId: '16',
+        type: 'paper',
+        author: 'Tristan Harris',
+        imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
+        title: 'It’s Time to Redesign the Attention Economy',
+        productUrl:
+            'https://medium.com/thrive-global/its-time-to-redesign-the-attention-economy-f9215a2210be',
+    },
+    {
+        collectionId: '16',
+        type: 'movie',
+        author: 'Karim Amer & Jehane Noujaim',
+        imageUrl:
+            'http://fr.web.img6.acsta.net/f_png/c_215_290/o_logo-netflix-n.png_5_se/pictures/19/07/16/09/30/5358083.jpg',
+        title: "The Great Hack : L'Affaire Cambridge Analytica",
+        productUrl: 'https://www.youtube.com/watch?v=iX8GxLP1FHo',
+    },
+    {
+        collectionId: '16',
+        type: 'book',
+        author: 'Cennydd Bowles',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/31W0m1isq%2BL._SX322_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.com/Future-Ethics-Cennydd-Bowles/dp/1999601912',
+        title: `Future Ethics`,
+    },
+    {
+        collectionId: '16',
+        type: 'movie',
+        author: 'Thomas Huchon',
+        imageUrl:
+            'https://s3-eu-west-1.amazonaws.com/boutiquestorage.arte.tv/prod/15686_vod_thumb_114502.jpg',
+        productUrl:
+            'https://boutique.arte.tv/detail/Comment_trump_manipule_Amerique',
+        title: `Comment Trump a manipulé l'Amérique`,
+    },
+    {
+        collectionId: '16',
+        type: 'video',
+        author: 'Bernard Stiegler',
+        imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
+        productUrl: 'https://www.youtube.com/watch?v=nrxR2jmaycY',
+        title: `Crise du désir`,
     },
     {
         collectionId: '13',
@@ -176,19 +201,8 @@ const items: Item[] = [
         imageUrl: require('../../static/images/articles/data-func.jpg'),
         title:
             'Functional Data Engineering — a modern paradigm for batch data processing',
-        imageColor: '#3F78A6',
         productUrl:
             'https://medium.com/@maximebeauchemin/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a',
-    },
-    {
-        collectionId: '13',
-        type: 'paper',
-        author: 'Tristan Harris',
-        imageUrl: require('../../static/images/articles/clickgoal.jpg'),
-        title: 'Downgrading technology should be more challenged',
-        imageColor: '#D30229',
-        productUrl:
-            'https://www.wired.com/story/tristan-harris-tech-is-downgrading-humans-time-to-fight-back/',
     },
     {
         collectionId: '13',
@@ -196,7 +210,6 @@ const items: Item[] = [
         author: 'The Syndicate Post',
         imageUrl: require('../../static/images/articles/introvert.jpg'),
         title: 'Introverts: Inside The Mind of An Introverted Personality',
-        imageColor: '#0F1F1E',
         productUrl:
             'https://medium.com/syndicate-post/introverts-your-guide-into-the-world-of-an-introverted-personality-98ff89703a1e',
     },
@@ -206,7 +219,6 @@ const items: Item[] = [
         author: 'Center for Humane Technology',
         imageUrl: require('../../static/images/people/tristan.jpg'),
         title: 'Tristan Harris',
-        imageColor: '#2A4034',
         productUrl: '',
     },
     {
@@ -215,8 +227,35 @@ const items: Item[] = [
         author: 'Ars Industrialis',
         imageUrl: require('../../static/images/people/stiegler.jpg'),
         title: 'Bernard Stiegler',
-        imageColor: '#0D0D1A',
         productUrl: '',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Patagonia',
+        imageUrl:
+            'https://www.executivegrapevine.com/uploads/articles/Yvon_Chouinard.jpg',
+        title: 'Yvon Chouinard',
+        productUrl: 'https://fr.wikipedia.org/wiki/Yvon_Chouinard',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Patagonia Founder',
+        imageUrl:
+            'https://www.executivegrapevine.com/uploads/articles/Yvon_Chouinard.jpg',
+        title: 'Yvon Chouinard',
+        productUrl: 'https://fr.wikipedia.org/wiki/Yvon_Chouinard',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Artist',
+        imageUrl:
+            'https://guitar.com/wp-content/uploads/2019/08/young-mark-knopfler-black-and-white@1400x1050.jpg',
+        title: 'Mark Knopfler',
+        productUrl:
+            'https://open.spotify.com/artist/0FI0kxP0BWurTz8cB8BBug?si=CsfNbe_ZSJmG878dqvAaoA',
     },
     {
         collectionId: '14',
@@ -224,16 +263,6 @@ const items: Item[] = [
         author: 'Auteur',
         imageUrl: require('../../static/images/people/damasio.jpg'),
         title: 'Alain Damasio',
-        imageColor: '#87160D',
-        productUrl: '',
-    },
-    {
-        collectionId: '15',
-        type: 'podcast',
-        author: '',
-        imageUrl: require('../../static/images/podcasts/undivided.jpg'),
-        title: 'Your Individed Attention',
-        imageColor: '#08ADAD',
         productUrl: '',
     },
 ]
