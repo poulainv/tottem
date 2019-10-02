@@ -11,8 +11,16 @@ interface IProfileContent {
     activeSectionId?: string
 }
 
+/* Hook allowing to keep tab updated with query parameters
+   We probably should React Router to do it properly in order to 
+   conserve history & state.
+
+   - If no query parameter provided the first section is selected by default
+   - Query parameters named "section" is filled with current sectionId when new tab 
+    is clicked
+*/
+
 function useTab(username: string, sortedSections: ISection[]) {
-    // Allow inital section by query params
     const location = useLocation()
     const history = useHistory()
     const params = new URLSearchParams(location.search)
