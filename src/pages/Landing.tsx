@@ -111,7 +111,7 @@ const Landing: React.FunctionComponent = props => {
                             <strong> knowledge sharing. </strong>
                             <br />
                             <br />
-                            However, with the massive usage of recommendation
+                            However, with the massive usage of AI recommendation
                             systems{' '}
                             <strong>
                                 we feel overwhelmed with poor and clickbait
@@ -120,7 +120,7 @@ const Landing: React.FunctionComponent = props => {
                             <br /> <br />
                             <em> Relevant content is getting hard to find? </em>
                             <br /> <br />
-                            Heed is a human-first platform where enthusiastic
+                            Heed is a human centered platform where enthusiastic
                             people and organizations create{' '}
                             <strong>
                                 relevant collections of hand-picked items.
