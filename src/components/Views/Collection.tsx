@@ -20,7 +20,7 @@ const Collection: React.FC<ICollection> = props => {
 
     const maxItem = 4
     const initialItems = isMobile ? props.items : props.items.slice(0, maxItem)
-    const collapsedItems = isMobile ? [] : props.items.slice(maxItem + 1)
+    const collapsedItems = isMobile ? [] : props.items.slice(maxItem)
 
     const seeMore = (
         <Box direction="row" justify="end">
