@@ -32,13 +32,13 @@ export const CardSize = {
 }
 
 const colors: { [type in ItemType]: string } = {
-    album: '#26547C',
-    book: '#26547C',
-    movie: '#FFD166',
-    paper: '#EF476F',
-    people: '#FFD166',
-    podcast: '#EF476F',
-    video: '#EF476F',
+    album: '#417D6F',
+    book: '#D87551',
+    movie: '#7CB7A9',
+    paper: '#5BB1C3',
+    people: '#9E628D',
+    podcast: '#D0B00A',
+    video: '#4D6892',
 }
 
 const Card: React.FC<CardProps> = props => {
