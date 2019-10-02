@@ -81,6 +81,15 @@ const items: Item[] = [
         title: `Future Ethics`,
     },
     {
+        collectionId: '11',
+        type: 'book',
+        author: 'Jason Fried',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/81nvF-p7odL.jpg',
+        productUrl: 'https://www.amazon.fr/dp/B07FQYGWCS',
+        title: `It Doesn't Have to Be Crazy at Work`,
+    },
+    {
         collectionId: '12',
         type: 'movie',
         author: 'Stanley Kubrick',
@@ -232,15 +241,6 @@ const items: Item[] = [
     {
         collectionId: '14',
         type: 'people',
-        author: 'Patagonia',
-        imageUrl:
-            'https://www.executivegrapevine.com/uploads/articles/Yvon_Chouinard.jpg',
-        title: 'Yvon Chouinard',
-        productUrl: 'https://fr.wikipedia.org/wiki/Yvon_Chouinard',
-    },
-    {
-        collectionId: '14',
-        type: 'people',
         author: 'Patagonia Founder',
         imageUrl:
             'https://www.executivegrapevine.com/uploads/articles/Yvon_Chouinard.jpg',
@@ -260,9 +260,18 @@ const items: Item[] = [
     {
         collectionId: '14',
         type: 'people',
-        author: 'Auteur',
+        author: 'Author',
         imageUrl: require('../../static/images/people/damasio.jpg'),
         title: 'Alain Damasio',
+        productUrl: '',
+    },
+    {
+        collectionId: '14',
+        type: 'people',
+        author: 'Basecamp Founder',
+        imageUrl:
+            'https://bridge24.com/wp-content/uploads/2017/06/jason-fried-2017.png',
+        title: 'Jason Fried',
         productUrl: '',
     },
 ]

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button } from 'grommet'
+import { Box, Button, Heading } from 'grommet'
 
 const Header = () => {
     return (
@@ -17,9 +17,20 @@ const Header = () => {
                 pad={{ horizontal: 'large' }}
                 width="xlarge"
                 direction="row"
-                justify="end"
+                align="center"
+                justify="between"
             >
-                <Button label="About" plain={true} color="dark-2" href="/" />
+                <Box>
+                    <Heading level={2}>totem</Heading>
+                </Box>
+                <Box>
+                    <Button
+                        label="About"
+                        plain={true}
+                        color="dark-2"
+                        href="/"
+                    />
+                </Box>
             </Box>
         </Box>
     )

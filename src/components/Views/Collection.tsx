@@ -25,6 +25,7 @@ const Collection: React.FC<ICollection> = props => {
     const seeMore = (
         <Box direction="row" justify="end">
             <Button
+                style={{ fontSize: '14px' }}
                 label={
                     open
                         ? 'SHOW LESS ITEMS'

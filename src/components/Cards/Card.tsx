@@ -35,9 +35,9 @@ const colors: { [type in ItemType]: string } = {
     album: '#417D6F',
     book: '#D87551',
     movie: '#7CB7A9',
-    paper: '#5BB1C3',
-    people: '#9E628D',
-    podcast: '#D0B00A',
+    paper: '#509DAD',
+    people: '#9E4A77',
+    podcast: '#E7A704',
     video: '#4D6892',
 }
 
@@ -75,7 +75,7 @@ const Card: React.FC<CardProps> = props => {
                     align="center"
                     justify="center"
                     round="50%"
-                    background={colors[props.item.type]}
+                    background="#6FAA9C"
                     width="30px"
                     height="30px"
                 >

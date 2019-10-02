@@ -9,8 +9,20 @@ const sections: ISection[] = [
     {
         id: '1',
         collections: collectionsBySection['1'],
-        name: '',
+        name: 'Société',
         index: 0,
+    },
+    {
+        id: '2',
+        collections: collectionsBySection['2'],
+        name: 'Tech',
+        index: 1,
+    },
+    {
+        id: '3',
+        collections: collectionsBySection['3'],
+        name: 'Musique',
+        index: 2,
     },
 ]
 
