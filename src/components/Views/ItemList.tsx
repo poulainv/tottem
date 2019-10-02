@@ -32,7 +32,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
             pad={{ horizontal: 'medium' }}
             gap={isMobile ? 'large' : 'none'}
             justify="start"
-            align="end"
+            align="start"
             overflow={{ horizontal: isMobile ? 'auto' : 'visible' }}
         >
             {props.items.map((item: Item) => {

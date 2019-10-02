@@ -2,7 +2,7 @@ import { Box } from 'grommet'
 import * as React from 'react'
 import { RouteComponentProps } from 'react-router'
 import Header from '../components/Views/Header'
-import ProfileContent from '../components/Views/Main'
+import ProfileContent from '../components/Views/ProfileContent'
 import ProfileDescription from '../components/Views/Nav'
 import { RoutingMatchParams, UserProfile } from '../types'
 
@@ -20,11 +20,14 @@ const Profile = (props: RoutingMatchProps) => {
             <Header />
             <Box
                 pad={{ horizontal: 'large' }}
-                margin={{ top: 'medium' }}
+                margin={{ top: 'large' }}
                 width="xlarge"
             >
                 <ProfileDescription {...userProfile} />
-                <ProfileContent sections={sections} />
+                <ProfileContent
+                    sections={sections}
+                    username={props.match.params.profileId}
+                />
             </Box>
         </Box>
     )
