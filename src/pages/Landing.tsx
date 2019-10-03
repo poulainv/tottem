@@ -2,6 +2,7 @@ import { Box, Heading, ResponsiveContext } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
 import Separator from '../components/Separator'
+import Logo from '../components/Logo'
 import artwork from '../static/images/artworks/landing-illustration-md.png'
 import theme from '../theme'
 
@@ -78,7 +79,7 @@ const Landing: React.FunctionComponent = props => {
         >
             <Box height="xsmall" fill="horizontal">
                 <Box margin={{ horizontal: 'large' }}>
-                    <Heading> tottem </Heading>
+                    <Logo>tottem</Logo>
                 </Box>
             </Box>
 

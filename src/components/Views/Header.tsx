@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Button, Heading } from 'grommet'
+import Logo from '../Logo'
 
 const Header = () => {
     return (
@@ -21,7 +22,7 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Heading level={2}>totem</Heading>
+                    <Logo>tottem</Logo>
                 </Box>
                 <Box>
                     <Button
