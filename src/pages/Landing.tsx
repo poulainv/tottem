@@ -1,10 +1,11 @@
-import { Box, Heading, ResponsiveContext } from 'grommet'
+import { Box, Heading, ResponsiveContext, Button } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
 import Separator from '../components/Separator'
 import Logo from '../components/Logo'
 import artwork from '../static/images/artworks/landing-illustration-md.png'
 import theme from '../theme'
+import { MailOption } from 'grommet-icons'
 
 const Header = styled(Heading)`
     font-size: 40px;
@@ -77,9 +78,22 @@ const Landing: React.FunctionComponent = props => {
             background="white"
             height={size === 'large' ? 'full' : 'none'}
         >
-            <Box height="xsmall" fill="horizontal">
+            <Box
+                direction="row"
+                justify="between"
+                align="center"
+                height="xsmall"
+                fill="horizontal"
+            >
                 <Box margin={{ horizontal: 'large' }}>
                     <Logo>tottem</Logo>
+                </Box>
+                <Box margin={{ horizontal: 'large' }}>
+                    <Button
+                        plain={true}
+                        href="mailto:vincent.poulain2@gmail.com"
+                        icon={<MailOption />}
+                    />
                 </Box>
             </Box>
 
