@@ -881,8 +881,10 @@ const items: Item[] = [
         collectionId: '30',
         type: 'book',
         note: '',
-        imageUrl: '',
-        productUrl: '',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41DqWYT4t%2BL._SX290_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/consciencisme-Kwame-Nkrumah/dp/2708707930/',
         title: 'Le Consciencisme',
         author: 'Kwame Nkrumah',
     },

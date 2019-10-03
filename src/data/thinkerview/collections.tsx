@@ -154,7 +154,7 @@ const collections: ICollection[] = [
         sectionId: '4',
         detail:
             'Interview réalisé le 20/03/2019: [lien de la vidéo](https://youtu.be/2oFARgqG0NA)',
-        name: '**Gaël Giraud** : Tsunami financier, désastre humanitaire ?',
+        name: '**Gaël Giraud** - Tsunami financier, désastre humanitaire ?',
         items: itemsByCollection['18'],
     },
     {
@@ -162,7 +162,7 @@ const collections: ICollection[] = [
         sectionId: '5',
         detail:
             'Interview réalisé le 20/03/2019: [lien de la vidéo](https://www.youtube.com/watch?v=lNS7tA7Nhkw)',
-        name: '**Noam Anouar** : Lucidité face aux terrorismes ?',
+        name: '**Noam Anouar** - Lucidité face aux terrorismes ?',
         items: itemsByCollection['19'],
     },
     {
@@ -170,7 +170,7 @@ const collections: ICollection[] = [
         sectionId: '2',
         detail:
             'Interview réalisé le 25/02/2019: [lien de la vidéo](https://www.youtube.com/watch?v=tRl9_q2ytI8)',
-        name: '**François Boulot - Gilets Jaunes : Avant la révolution',
+        name: '**François Boulot** - Gilets Jaunes : Avant la révolution',
         items: itemsByCollection['20'],
     },
     {
@@ -213,7 +213,7 @@ const collections: ICollection[] = [
         detail:
             'Interview réalisé le 18/02/2019: [lien de la vidéo](https://www.youtube.com/watch?v=hbnzQtLS4T8)',
         name: "**Yánis Varoufákis**, la fin de l'Europe et de l'Euro ?",
-        items: itemsByCollection['23'],
+        items: itemsByCollection['25'],
     },
     {
         id: '26',
@@ -305,7 +305,7 @@ const collections: ICollection[] = [
         sectionId: '4',
         detail:
             'Interview réalisé le 21/09/2018: [lien de la vidéo](https://www.youtube.com/watch?v=lMJbD7Yjfuc)',
-        name: '**Isabelle Attard** : Ex-députée écolo : sans langue de bois ?',
+        name: '**Isabelle Attard** - Ex-députée écolo : sans langue de bois ?',
         items: itemsByCollection['36'],
     },
     {
@@ -328,7 +328,7 @@ const collections: ICollection[] = [
         sectionId: '3',
         detail: 'Interview réalisé le 18/11/2018',
         name:
-            '**Général Vincent Desportes** - Armée française : Quelle stratégie ?  ?',
+            '**Général Vincent Desportes** - Armée française : Quelle stratégie ?',
         items: itemsByCollection['101'],
     },
 ]
