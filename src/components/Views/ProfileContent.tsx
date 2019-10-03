@@ -48,7 +48,12 @@ const ProfileContent: React.FC<IProfileContent> = props => {
 
     return (
         <Box margin={{ top: 'small' }}>
-            <Tabs justify="start" onActive={setTab} flex={false}>
+            <Tabs
+                justify="start"
+                onActive={setTab}
+                flex={false}
+                activeIndex={activeTab}
+            >
                 {sortedSections.map((section: ISection, index: number) => {
                     return (
                         <Tab
