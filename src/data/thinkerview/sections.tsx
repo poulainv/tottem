@@ -38,13 +38,13 @@ const sections: ISection[] = [
     },
     {
         id: '6',
-        collections: collectionsBySection['5'],
+        collections: collectionsBySection['6'],
         name: 'Médias',
         index: 5,
     },
     {
         id: '7',
-        collections: collectionsBySection['5'],
+        collections: collectionsBySection['7'],
         name: 'Technologies',
         index: 6,
     },

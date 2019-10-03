@@ -204,7 +204,7 @@ const collections: ICollection[] = [
         sectionId: '2',
         detail:
             'Interview réalisé le 18/02/2019: [lien de la vidéo](https://www.youtube.com/watch?v=bWlDm9BuB-s)',
-        name: '**Khalid Essa$$: Taxi un métier en danger ?',
+        name: '**Khalid Essa**: Taxi un métier en danger ?',
         items: itemsByCollection['24'],
     },
     {
@@ -246,16 +246,8 @@ const collections: ICollection[] = [
         id: '29',
         sectionId: '2',
         detail:
-            'Interview réalisé le 30/11/2018: [lien de la vidéo](https://www.youtube.com/watch?v=oEG7QQKZ3jQ)',
-        name: '**Carbon de Seze** - Une Justice sous Macron ?',
-        items: itemsByCollection['29'],
-    },
-    {
-        id: '29',
-        sectionId: '2',
-        detail:
             'Interview réalisé le 27/11/2018: [lien de la vidéo](https://www.youtube.com/watch?v=I6zzV4b3nDU)',
-        name: "**Jérémy Ferrari** : la révolte par l'humour ?",
+        name: "**Jérémy Ferrari** - La révolte par l'humour ?",
         items: itemsByCollection['29'],
     },
     {
@@ -281,7 +273,7 @@ const collections: ICollection[] = [
         detail:
             'Interview réalisé le 08/11/2018: [lien de la vidéo](https://www.youtube.com/watch?v=VzeOnBRzDik)',
         name:
-            "**Éric Sadin : l'asservissement par l'Intelligence Artificielle ?",
+            "**Éric Sadin** — L'asservissement par l'Intelligence Artificielle ?",
         items: itemsByCollection['32'],
     },
     {
@@ -315,6 +307,29 @@ const collections: ICollection[] = [
             'Interview réalisé le 21/09/2018: [lien de la vidéo](https://www.youtube.com/watch?v=lMJbD7Yjfuc)',
         name: '**Isabelle Attard** : Ex-députée écolo : sans langue de bois ?',
         items: itemsByCollection['36'],
+    },
+    {
+        id: '99',
+        sectionId: '2',
+        detail:
+            'Interview réalisé le 30/11/2018: [lien de la vidéo](https://www.youtube.com/watch?v=oEG7QQKZ3jQ)',
+        name: '**Carbon de Seze** - Une Justice sous Macron ?',
+        items: itemsByCollection['99'],
+    },
+    {
+        id: '100',
+        sectionId: '2',
+        detail: 'Interview réalisé le 22/01/2019',
+        name: '**Vincent Cespedes** - Gilets Jaunes : Comprendre la violence ?',
+        items: itemsByCollection['100'],
+    },
+    {
+        id: '101',
+        sectionId: '3',
+        detail: 'Interview réalisé le 18/11/2018',
+        name:
+            '**Général Vincent Desportes** - Armée française : Quelle stratégie ?  ?',
+        items: itemsByCollection['101'],
     },
 ]
 
