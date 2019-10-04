@@ -135,8 +135,8 @@ const Landing: React.FunctionComponent = props => {
                             <br /> <br />
                             <em> Relevant content is getting hard to find? </em>
                             <br /> <br />
-                            Heed is a human centered platform where enthusiastic
-                            people and organizations create{' '}
+                            Tottem is a human centered platform where
+                            enthusiastic people and organizations create{' '}
                             <strong>
                                 relevant collections of hand-picked items.
                             </strong>

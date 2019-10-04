@@ -5,6 +5,7 @@ import Header from '../components/Views/Header'
 import ProfileContent from '../components/Views/ProfileContent'
 import ProfileDescription from '../components/Views/Nav'
 import { RoutingMatchParams, UserProfile } from '../types'
+import { Footer } from '../components/Views/Footer'
 
 interface RoutingMatchProps extends RouteComponentProps<RoutingMatchParams> {}
 
@@ -24,6 +25,7 @@ const Profile = (props: RoutingMatchProps) => {
                     sections={sections}
                     username={props.match.params.profileId}
                 />
+                <Footer />
             </Box>
         </Box>
     )

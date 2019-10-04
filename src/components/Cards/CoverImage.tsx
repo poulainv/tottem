@@ -33,7 +33,7 @@ const CoverImage: React.FC<CoverProps> = props => {
             justify="center"
             width="full"
             overflow="hidden"
-            background={props.placeholderColor}
+            background={props.imageUrl ? 'none' : props.placeholderColor}
         >
             {props.imageUrl ? (
                 <Image src={props.imageUrl} fit="cover" />
