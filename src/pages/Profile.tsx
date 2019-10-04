@@ -18,11 +18,7 @@ const Profile = (props: RoutingMatchProps) => {
     return (
         <Box align="center" background="light-1">
             <Header />
-            <Box
-                pad={{ horizontal: 'large' }}
-                margin={{ top: 'large' }}
-                width="xlarge"
-            >
+            <Box margin={{ top: 'large' }} width="xlarge">
                 <ProfileDescription {...userProfile} />
                 <ProfileContent
                     sections={sections}

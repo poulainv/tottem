@@ -21,7 +21,7 @@ export const collections: ICollection[] = [
             "Manipulation de masses, destruction de l'attention : ce qui m'a poussé à créer **Tottem** 🤯",
         items: itemsByCollection['16'],
         detail:
-            "Plusieurs volets pour découvrir les effets collatéraux de l'utilisation massive des algorithmes de \
+            "Nombreuses références pour découvrir les effets collatéraux de l'utilisation massive des algorithmes de \
             recommendations. Système de gratification aliénant, maximisation des clics et des vues en ignorant nos valeurs, crise du désir & manipulation de masse qui affecte nos démocraties...",
     },
     {

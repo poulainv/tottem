@@ -13,18 +13,21 @@ interface CardProps {
 }
 
 const width = 18 + 8 * 19
+const smallWidth = width * 0.8
 const largeWidthPx = width + 'px'
 const largeHeightPx = 1.68 * width + 'px'
-const smallWidthPx = width * 0.8 + 'px'
-const smallHeightPx = 1.68 * width * 0.8 + 'px'
+const smallWidthPx = smallWidth + 'px'
+const smallHeightPx = 1.68 * smallWidth + 'px'
 
 export const CardSize = {
     small: {
+        widthInNumber: smallWidth,
         width: smallWidthPx,
         rectangleImageHeight: smallHeightPx,
         squareImageHeight: smallWidthPx,
     },
     large: {
+        widthInNumber: width,
         width: largeWidthPx,
         rectangleImageHeight: largeHeightPx,
         squareImageHeight: largeWidthPx,
@@ -62,7 +65,11 @@ const Card: React.FC<CardProps> = props => {
                         small={props.small}
                         imageShape={props.imageShape}
                     />
-                    <CardInfo item={props.item} hover={isHover} />
+                    <CardInfo
+                        item={props.item}
+                        hover={isHover}
+                        small={props.small}
+                    />
                 </Box>
             </Box>
             {picto && (

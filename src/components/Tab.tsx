@@ -12,7 +12,10 @@ interface TabTitleProps {
 const TabTitle: React.FC<TabTitleProps> = (props: TabTitleProps) => {
     return (
         <Stack anchor="center">
-            <Box margin={{ left: '-10px' }}>
+            <Box
+                margin={{ left: props.size === 'small' ? 'none' : '-10px' }}
+                style={{ maxWidth: 'max-content' }}
+            >
                 <Heading
                     responsive={false}
                     margin="none"

@@ -893,9 +893,9 @@ const items: Item[] = [
         type: 'book',
         note: '',
         imageUrl:
-            'https://images-na.ssl-images-amazon.com/images/I/41DqWYT4t%2BL._SX290_BO1,204,203,200_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/41%2Bhb9OPGIL._SX326_BO1,204,203,200_.jpg',
         productUrl:
-            'https://www.amazon.fr/consciencisme-Kwame-Nkrumah/dp/2708707930',
+            'https://www.amazon.fr/damnés-terre-Frantz-Fanon/dp/2707142816/',
         title: 'Les Damnés de la Terre',
         author: 'Frantz Fanon',
     },

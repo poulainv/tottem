@@ -4,13 +4,20 @@ import Truncate from 'react-truncate'
 import { Item } from '../../types'
 import styled from 'styled-components'
 import { Copy, Share } from 'grommet-icons'
+import { CardSize } from './Card'
 
 const StyledTitle = styled(Text)`
     font-weight: 500;
+    font-size: 14px;
+
+    @media screen and (max-width: 600px) {
+        font-size: 14px;
+    }
 `
 
 interface CardInfoProps {
     item: Item
+    small: boolean
     hover: boolean
 }
 
@@ -38,7 +45,17 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
                 responsive={false}
             >
                 <StyledTitle color="dark-1" size="medium">
-                    <Truncate lines={2}>{props.item.title}</Truncate>
+                    {/* Crazy stuff to just split multi lines :'( */}
+                    <Truncate
+                        width={
+                            props.small
+                                ? CardSize.small.widthInNumber
+                                : CardSize.large.widthInNumber
+                        }
+                        lines={2}
+                    >
+                        {props.item.title}
+                    </Truncate>
                 </StyledTitle>
             </Box>
             <Box direction="row" margin={{ top: 'xsmall' }} justify="between">

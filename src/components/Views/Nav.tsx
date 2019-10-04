@@ -9,14 +9,14 @@ const ProfileDescription: React.FC<UserProfile> = props => {
     const isMobile = size === 'small'
 
     const Biography = (
-        <Box width="large">
+        <Box width="large" margin={{ bottom: isMobile ? 'medium' : 'none' }}>
             <Text size={isMobile ? 'small' : 'medium'}>{props.biography}</Text>
         </Box>
     )
 
     return (
-        <Fragment>
-            <Box direction="row" justify="start" margin={{ bottom: 'medium' }}>
+        <Box pad={{ horizontal: 'large' }}>
+            <Box direction="row" justify="start" margin={{ bottom: 'large' }}>
                 <Box
                     margin={{ right: 'large' }}
                     flex={false}
@@ -39,7 +39,7 @@ const ProfileDescription: React.FC<UserProfile> = props => {
                 </Box>
             </Box>
             {isMobile && Biography}
-        </Fragment>
+        </Box>
     )
 }
 

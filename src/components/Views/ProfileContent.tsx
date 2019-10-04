@@ -47,7 +47,10 @@ const ProfileContent: React.FC<IProfileContent> = props => {
     const { activeTab, setTab } = useTab(props.username, sortedSections)
 
     return (
-        <Box margin={{ top: 'small' }}>
+        <Box
+            margin={{ top: 'small' }}
+            pad={{ horizontal: size === 'small' ? 'none' : 'large' }}
+        >
             <Tabs
                 justify="start"
                 onActive={setTab}
