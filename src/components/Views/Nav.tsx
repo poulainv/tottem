@@ -1,5 +1,5 @@
 import { Box, Heading, ResponsiveContext, Text } from 'grommet'
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { UserProfile } from '../../types'
 import PictureProfile from '../PictureProfile'
 import Social from '../Social'

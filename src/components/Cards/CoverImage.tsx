@@ -7,6 +7,8 @@ export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 interface CoverProps {
     imageUrl: string
     small: boolean
+    placeholderColor: string
+    placeholderPicto: string
     imageShape?: ImageShapeType
 }
 
@@ -31,8 +33,22 @@ const CoverImage: React.FC<CoverProps> = props => {
             justify="center"
             width="full"
             overflow="hidden"
+            background={props.placeholderColor}
         >
-            <Image src={props.imageUrl} fit="cover" />
+            {props.imageUrl ? (
+                <Image src={props.imageUrl} fit="cover" />
+            ) : (
+                <Image
+                    src={props.placeholderPicto}
+                    style={{
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                    }}
+                    fit="contain"
+                    width="30px"
+                    height="30px"
+                />
+            )}
         </Box>
     )
 }

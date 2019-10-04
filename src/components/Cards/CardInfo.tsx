@@ -1,9 +1,9 @@
+import { Box, Button, Text } from 'grommet'
+import { Share } from 'grommet-icons'
 import React from 'react'
-import { Box, Text, Button } from 'grommet'
 import Truncate from 'react-truncate'
-import { Item } from '../../types'
 import styled from 'styled-components'
-import { Copy, Share } from 'grommet-icons'
+import { Item } from '../../types'
 import { CardSize } from './Card'
 
 const StyledTitle = styled(Text)`

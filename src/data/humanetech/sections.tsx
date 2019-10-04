@@ -1,4 +1,4 @@
-import { ISection, ICollection, Item } from '../../types'
+import { ISection } from '../../types'
 
 const sections: ISection[] = [
     {

@@ -1,9 +1,8 @@
+import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
-import { Box, Stack, Image } from 'grommet'
-
-import CoverImage, { ImageShapeType } from './CoverImage'
-import CardInfo from './CardInfo'
 import { Item, ItemType } from '../../types'
+import CardInfo from './CardInfo'
+import CoverImage, { ImageShapeType } from './CoverImage'
 
 interface CardProps {
     item: Item
@@ -61,6 +60,8 @@ const Card: React.FC<CardProps> = props => {
             >
                 <Box direction="column" width="full">
                     <CoverImage
+                        placeholderColor={colors[props.item.type]}
+                        placeholderPicto={picto}
                         imageUrl={props.item.imageUrl}
                         small={props.small}
                         imageShape={props.imageShape}

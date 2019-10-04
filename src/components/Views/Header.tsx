@@ -1,5 +1,5 @@
+import { Box, Button } from 'grommet'
 import React from 'react'
-import { Box, Button, Heading } from 'grommet'
 import Logo from '../Logo'
 
 const Header = () => {
