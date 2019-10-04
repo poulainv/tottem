@@ -39,14 +39,32 @@ export const collections: ICollection[] = [
     {
         id: '13',
         sectionId: '2',
-        name: '**Papers,** worth reading',
+        name: '**Tech papers** worth reading',
         items: itemsByCollection['13'],
+    },
+    {
+        id: '17',
+        sectionId: '2',
+        name: '**Tools**, productivity obsessed 🍿',
+        items: itemsByCollection['17'],
     },
     {
         id: '10',
         sectionId: '3',
-        name: '**Albums,** on repeat',
+        name: '**Albums électroniques** sur _repeat_ 👌',
         items: itemsByCollection['10'],
+    },
+    {
+        id: '18',
+        sectionId: '3',
+        name: 'Albums **Instrumentaux** 💎',
+        items: itemsByCollection['18'],
+    },
+    {
+        id: '19',
+        sectionId: '3',
+        name: 'Old school & **indémodables** 🎸',
+        items: itemsByCollection['19'],
     },
     // {
     //     id: '12',

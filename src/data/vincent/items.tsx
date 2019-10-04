@@ -8,7 +8,8 @@ const items: Item[] = [
         author: 'Jon Hopkins',
         imageUrl: require('../../static/images/albums/hopkins.jpg'),
         title: 'Immunity',
-        productUrl: '',
+        productUrl:
+            'https://open.spotify.com/album/1rxWlYQcH945S3jpIMYR35?si=FgAw2EPLTPaMebU-ePWw1Q',
     },
     {
         collectionId: '10',
@@ -16,23 +17,168 @@ const items: Item[] = [
         author: 'Moderat',
         imageUrl: require('../../static/images/albums/moderat.jpg'),
         title: 'II',
-        productUrl: '',
+        productUrl:
+            'https://open.spotify.com/album/4HDUXAmHj9KEs9wP1icwcy?si=BICxfcyhRLmKDM_-mIUVog',
     },
     {
         collectionId: '10',
         type: 'album',
-        author: 'Nils Frahm',
-        imageUrl: require('../../static/images/albums/spaces.jpg'),
-        title: 'Spaces',
-        productUrl: '',
+        author: 'Flavien Berger',
+        imageUrl: 'https://f4.bcbits.com/img/0016871601_10.jpg',
+        title: 'Leviathan',
+        productUrl:
+            'https://open.spotify.com/album/3U30u1gMs6hD2Yxv1dWwK3?si=ek3CW7MYTpejVBypUW6dTw',
     },
     {
         collectionId: '10',
+        type: 'album',
+        author: 'Stephan Bodzin',
+        imageUrl:
+            'https://static.fnac-static.com/multimedia/Images/FR/NR/b5/a5/6c/7120309/1540-1/tsp20150514104224/Powers-of-ten.jpg',
+        title: 'Powers of ten',
+        productUrl:
+            'https://open.spotify.com/album/5zj0qH4lKPQOotmWkE3ECb?si=Gx2WLeVKQpiMRwSiGwHDjA',
+    },
+    {
+        collectionId: '10',
+        type: 'album',
+        author: 'Four Tet',
+        imageUrl: 'https://m.media-amazon.com/images/I/81tWFxE01AL._SS500_.jpg',
+        title: 'There Is Love In You',
+        productUrl:
+            'https://open.spotify.com/album/6XoxeeeyZgzqUMzUBUSDG9?si=_pAYEgiYQPius7cVlSAKLw',
+    },
+    {
+        collectionId: '10',
+        type: 'album',
+        author: 'Weval',
+        imageUrl: 'https://f4.bcbits.com/img/a3429340377_10.jpg',
+        title: 'Half Age',
+        productUrl:
+            'https://open.spotify.com/album/1hDdP4atpaoKA5OE8ETG1u?si=g8dnNfTXQPGYoN-vH2uV3g',
+    },
+    {
+        collectionId: '10',
+        type: 'album',
+        author: 'Bicep',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/81s85pH-IiL._SY355_.jpg',
+        title: 'Bicep',
+        productUrl:
+            'https://open.spotify.com/album/4psDRFbIlUM1KUb1omccXo?si=3SsovW_FTAu-V4ejrUYoDQ',
+    },
+    {
+        collectionId: '10',
+        type: 'album',
+        author: 'Jamie XX',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jamie_xx_-_In_Colour.png/220px-Jamie_xx_-_In_Colour.png',
+        title: 'In Colour',
+        productUrl:
+            'https://open.spotify.com/album/0AVPusXNzK1jWwefBiPJ5I?si=0RRGuPCTT1evQHP_O_HviA',
+    },
+    {
+        collectionId: '18',
+        type: 'album',
+        author: 'Gidge',
+        imageUrl:
+            'https://img.discogs.com/FwHDVpEcM506fx7TKHVnKfrLWNY=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6014472-1413575520-7270.jpeg.jpg',
+        title: 'Autumn Bells',
+        productUrl:
+            'https://open.spotify.com/album/0GGP9n1WFDvKLPo8ewdHFi?si=YWxN7-eORPyxnvJ6q3JOew',
+    },
+    {
+        collectionId: '18',
         type: 'album',
         author: 'Nils Frahm',
         imageUrl: require('../../static/images/albums/melody.jpg'),
         title: 'All Melody',
-        productUrl: '',
+        productUrl:
+            'https://open.spotify.com/album/7FUIQIDxNu0F8iH98irz7N?si=a-3uKZcpRj6IuMmeQ92Gyw',
+    },
+    {
+        collectionId: '18',
+        type: 'album',
+        author: 'Grandbrothers',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/81GuW3d-FQL._SY355_.jpg',
+        title: 'All Melody',
+        productUrl:
+            'https://open.spotify.com/album/40NdyNNK6vu96QBK1y7ZCx?si=nkL-Ns-STo-BOyV1DUg_BQ',
+    },
+    {
+        collectionId: '18',
+        type: 'album',
+        author: 'Nicolas Jaar',
+        imageUrl: 'https://m.media-amazon.com/images/I/81ZZVGd2b2L._SS500_.jpg',
+        title: 'Space Is Only Noise',
+        productUrl:
+            'https://open.spotify.com/album/0tUJcqDuXHNkaPKLN0lQhT?si=r7ynmREQQMa3bvYc6MVYCQ',
+    },
+    {
+        collectionId: '18',
+        type: 'album',
+        author: 'Nils Frahm',
+        imageUrl: require('../../static/images/albums/spaces.jpg'),
+        title: 'Spaces',
+        productUrl:
+            'https://open.spotify.com/album/0DFbQjp468sMiIMTrZdr5w?si=jr2rEhf6Rbe10qOvoYFRQA',
+    },
+    {
+        collectionId: '18',
+        type: 'album',
+        author: 'Weval',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/B1DeclGCTkS._SL1500_.jpg',
+        title: 'The Weight',
+        productUrl:
+            'https://open.spotify.com/artist/12tZvy2xFpWSkuJ3FsfisZ?si=t5ycKNZ8Sby_CSfxQBEv-w',
+    },
+    {
+        collectionId: '19',
+        type: 'album',
+        author: 'Derek and the Dominos',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/B1DeclGCTkS._SL1500_.jpg',
+        title: 'Layla and other assorted love songs',
+        productUrl:
+            'https://open.spotify.com/album/5iIWnMgvSM8uEBwXKsPcXM?si=iQ0b3iIxT6CZGNEZ_Lofxw',
+    },
+    {
+        collectionId: '19',
+        type: 'album',
+        author: 'Dire Straits',
+        imageUrl: 'https://m.media-amazon.com/images/I/81ULJ-YpfhL._SS500_.jpg',
+        title: 'On the Night',
+        productUrl:
+            'https://open.spotify.com/album/3tybckgVqaIsR5oGnfWKpA?si=vRk9EOh1TZ2TqWMCtU1NmA',
+    },
+    {
+        collectionId: '19',
+        type: 'album',
+        author: 'Oscar Peterson',
+        imageUrl: 'https://m.media-amazon.com/images/I/61Fs71KoQRL._SS500_.jpg',
+        title: 'Verve Ultimate Cool',
+        productUrl:
+            'https://open.spotify.com/album/2XXmrVR8YowvH8Z1c6MO0i?si=mO4TrqHmQ5ilsaNnfik_bw',
+    },
+    {
+        collectionId: '19',
+        type: 'album',
+        author: 'Simon & Garfunkel',
+        imageUrl: 'https://m.media-amazon.com/images/I/71rKkKb0yML._SS500_.jpg',
+        title: 'Sounds Of Silence',
+        productUrl:
+            'https://open.spotify.com/album/07RAGILF28QweYQSZasr5k?si=9EOYJnHlTTeMjQ-B-Bx8rg',
+    },
+    {
+        collectionId: '19',
+        type: 'album',
+        author: 'Nina Simone',
+        imageUrl: 'https://media1.jpc.de/image/w412/front/0/0602498886984.jpg',
+        title: 'Let It All Out',
+        productUrl:
+            'https://open.spotify.com/album/4bGiPtwVEKcXbXs7oKCMqD?si=p6LwVKZZRmKZxKL7tUMwOg',
     },
 
     // GENERAL
