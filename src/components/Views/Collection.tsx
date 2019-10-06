@@ -50,7 +50,6 @@ const Collection: React.FC<ICollection> = props => {
     return (
         <Box
             direction="column"
-            fill="vertical"
             margin={{ vertical: 'medium' }}
             background="white"
             round={isMobile ? '0px' : '6px'}
@@ -69,7 +68,7 @@ const Collection: React.FC<ICollection> = props => {
                 </Box>
                 {props.items.length > 4 && !isMobile && seeMore}
             </Box>
-            <Box margin={{ bottom: 'large' }}>
+            <Box margin={{ bottom: !isMobile ? 'large' : 'none' }}>
                 <ItemList items={initialItems} />
                 {!isMobile && (
                     <Collapsible open={open}>
