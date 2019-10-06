@@ -50,9 +50,6 @@ const theme = deepMerge(grommet, {
             color: { dark: 'white', light: 'white' },
         },
         extend: {
-            font: {
-                family: 'Work Sans',
-            },
             'font-weight': '500',
             'font-size': '16px',
         },
@@ -85,7 +82,7 @@ const theme = deepMerge(grommet, {
         },
         font: {
             family:
-                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";ﬂ',
+                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";',
         },
         breakpoints: {
             small: {
@@ -99,10 +96,6 @@ const theme = deepMerge(grommet, {
         },
     },
     heading: {
-        font: {
-            family: 'Work Sans',
-            weight: '500',
-        },
         level: {
             1: {
                 font: {

@@ -8,10 +8,13 @@ import theme from '../theme'
 import { MailOption } from 'grommet-icons'
 
 const Header = styled(Heading)`
-    font-size: 40px;
+    font-size: 52px;
     line-height: 1.3;
+    font-weight: 700;
     max-width: 550px;
     margin: 25px 0px 25px 0px;
+    font-family: 'Poiret One';
+
     @media screen and (max-width: 600px) {
         font-size: 26px;
         line-height: 36px;
@@ -23,6 +26,7 @@ const SubHeader = styled.p`
     font-size: 20px;
     line-height: 28px;
     margin: 25px 0px 25px 0px;
+    font-weight: 400;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
         Roboto, 'Helvetica Neue', Arial, sans-serif;
     @media screen and (max-width: 600px) {
@@ -31,7 +35,7 @@ const SubHeader = styled.p`
         text-align: center;
     }
     strong {
-        font-weight: 600;
+        font-weight: 700;
     }
 `
 
@@ -86,7 +90,7 @@ const Landing: React.FunctionComponent = props => {
                 fill="horizontal"
             >
                 <Box margin={{ horizontal: 'large' }}>
-                    <Logo>tottem</Logo>
+                    <Logo>Tottem</Logo>
                 </Box>
                 <Box margin={{ horizontal: 'large' }}>
                     <Button

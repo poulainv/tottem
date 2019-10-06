@@ -1,7 +1,7 @@
 import { UserProfile } from '../../types'
 
 const profile: UserProfile = {
-    firstname: 'Vincent',
+    firstname: 'Vincent P.',
     pictureUrl: require('../../static/images/profiles/vincent.png'),
     biography: `Hi ! My primary job is software engineer. 
     As soon as I am building things, I can't count hours anymore !   

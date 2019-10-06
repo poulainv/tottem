@@ -22,7 +22,7 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Button plain={true} label={<Logo>tottem</Logo>} href="/" />
+                    {/* <Button plain={true} label={<Logo>tottem</Logo>} href="/" /> */}
                 </Box>
                 <Box>
                     <Button
