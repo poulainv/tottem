@@ -11,7 +11,7 @@ interface CardProps {
     imageShape: ImageShapeType
 }
 
-const width = 18 + 8 * 19
+const width = 18 + 8 * 18
 const smallWidth = width * 0.8
 const largeWidthPx = width + 'px'
 const largeHeightPx = 1.68 * width + 'px'
