@@ -15,7 +15,7 @@ const Header = styled(Heading)`
     margin: 25px 0px 25px 0px;
     font-family: 'Poiret One';
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         font-size: 26px;
         line-height: 36px;
         text-align: center;
@@ -29,7 +29,7 @@ const SubHeader = styled.p`
     font-weight: 400;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
         Roboto, 'Helvetica Neue', Arial, sans-serif;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         font-size: 16px;
         line-height: 22px;
         text-align: center;
@@ -46,9 +46,11 @@ const CTAButton = styled.a`
     border-radius: 40px;
     text-decoration: none;
     font-family: inherit;
+    font-size: 18px;
     width: max-content;
     font-weight: 600;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
+        font-size: 16px;
         padding: 15px 30px 15px 30px;
     }
 `
@@ -56,7 +58,7 @@ const CTAButton = styled.a`
 const Artwork: React.FC = props => {
     const size = React.useContext(ResponsiveContext)
     const imageWidth =
-        size === 'large' ? '624px' : size === 'medium' ? '624px' : '312px'
+        size === 'large' ? '624px' : size === 'medium' ? '412px' : '238px'
     return (
         <Box width={imageWidth}>
             <img
@@ -110,15 +112,14 @@ const Landing: React.FunctionComponent = props => {
                     align={isMobile ? 'center' : 'start'}
                     width="700px"
                     pad={{ horizontal: 'large' }}
-                    margin={{ top: isMobile ? 'none' : 'large' }}
+                    margin={{ top: isMobile ? 'none' : 'medium' }}
                 >
                     <Box align={isMobile ? 'center' : 'start'}>
                         <Header level={2}>
                             The knowledge platform for community
                         </Header>
-                        {isMobile ? (
-                            <Artwork />
-                        ) : (
+                        {isMobile && <Artwork />}
+                        {size === 'large' && (
                             <Box margin={{ vertical: 'medium' }}>
                                 <Separator
                                     color={theme.global.colors['accent-1']}

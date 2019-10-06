@@ -86,6 +86,7 @@ const theme = deepMerge(grommet, {
         },
         breakpoints: {
             small: {
+                value: 812,
                 edgeSize: {
                     card: '12px',
                 },

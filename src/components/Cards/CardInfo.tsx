@@ -11,7 +11,15 @@ const StyledTitle = styled(Text)`
     font-size: 14px;
 
     @media screen and (max-width: 600px) {
-        font-size: 14px;
+        font-size: 13px;
+    }
+`
+
+const StyledAuthor = styled(Text)`
+    font-size: 14px;
+
+    @media screen and (max-width: 600px) {
+        font-size: 13px;
     }
 `
 
@@ -60,9 +68,9 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
             </Box>
             <Box direction="row" margin={{ top: 'xsmall' }} justify="between">
                 <Box>
-                    <Text color="dark-3" size="small" truncate>
+                    <StyledAuthor color="dark-3" truncate>
                         {props.item.author}
-                    </Text>
+                    </StyledAuthor>
                 </Box>
                 {props.hover && optionButton}
             </Box>

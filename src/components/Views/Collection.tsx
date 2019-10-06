@@ -22,9 +22,16 @@ const CollectionTitle = styled.h3`
     }
 `
 
+const CollectionDetail = styled(Text)`
+    font-size: 16px;
+    @media screen and (max-width: 600px) {
+        font-size: 14px;
+    }
+`
+
 const Collection: React.FC<ICollection> = props => {
     const size = useContext(ResponsiveContext)
-    const isMobile = size !== 'large'
+    const isMobile = size === 'small'
 
     const [open, setOpen] = React.useState(false)
 
@@ -54,12 +61,17 @@ const Collection: React.FC<ICollection> = props => {
             background="white"
             round={isMobile ? '0px' : '6px'}
             elevation={isMobile ? 'none' : 'card'}
+            border={
+                isMobile
+                    ? { side: 'horizontal', size: '0.5px', color: 'light-5' }
+                    : false
+            }
         >
             <Box
                 direction="row"
                 justify="between"
                 align="center"
-                border={{ side: 'bottom', color: 'light-4', size: '0.5px' }}
+                border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
             >
                 <Box responsive={false} margin={{ horizontal: 'medium' }}>
                     <CollectionTitle>
@@ -77,11 +89,11 @@ const Collection: React.FC<ICollection> = props => {
                 )}
             </Box>
             {props.detail && (
-                <Box border={{ side: 'top', color: 'light-4', size: '0.5px' }}>
+                <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
                     <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
-                        <Text color="dark-3" size="medium">
+                        <CollectionDetail color="dark-3">
                             <Markdown>{props.detail}</Markdown>
-                        </Text>
+                        </CollectionDetail>
                     </Box>
                 </Box>
             )}
