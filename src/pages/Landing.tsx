@@ -16,7 +16,7 @@ const Header = styled(Heading)`
     font-family: 'Poiret One';
 
     @media screen and (max-width: 812px) {
-        font-size: 26px;
+        font-size: 36px;
         line-height: 36px;
         text-align: center;
     }
