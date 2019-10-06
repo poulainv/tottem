@@ -6,6 +6,7 @@ import Logo from '../components/Logo'
 import artwork from '../static/images/artworks/landing-illustration-ld.png'
 import theme from '../theme'
 import { MailOption } from 'grommet-icons'
+import ReactGA from 'react-ga'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -77,6 +78,7 @@ const Artwork: React.FC = props => {
 const Landing: React.FunctionComponent = props => {
     const size = React.useContext(ResponsiveContext)
     const isMobile = size === 'small'
+    ReactGA.pageview('landing')
 
     return (
         <Box
