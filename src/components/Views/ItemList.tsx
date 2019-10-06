@@ -29,7 +29,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
             responsive={false}
             direction="row"
             wrap={!isMobile}
-            pad={{ horizontal: 'medium' }}
+            pad={{ horizontal: 'medium', bottom: isMobile ? 'medium' : 'none' }}
             gap={isMobile ? 'large' : 'none'}
             justify="start"
             align="start"
@@ -40,8 +40,7 @@ const ItemList: React.FC<{ items: Item[] }> = props => {
                     <Box
                         basis={isMobile ? 'none' : '25%'}
                         align="center"
-                        fill="vertical"
-                        margin={{ top: 'large' }}
+                        pad={{ top: 'large' }}
                         key={item.title.toString()}
                         width={{
                             min: isMobile
