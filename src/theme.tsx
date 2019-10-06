@@ -3,13 +3,14 @@ import { deepMerge } from 'grommet/utils'
 
 const theme = deepMerge(grommet, {
     tab: {
-        color: 'dark-1',
         border: {
-            size: '0px',
+            color: 'dark-2',
+            active: {
+                color: 'brand',
+            },
         },
     },
     tabs: {
-        gap: 'medium',
         header: {
             extend: {
                 'overflow-x': 'auto',
@@ -17,8 +18,6 @@ const theme = deepMerge(grommet, {
                 '::-webkit-scrollbar': {
                     display: 'none',
                 },
-                'padding-bottom': '8px',
-                // 'border-bottom': 'solid 0.5px #E0E0E0',
             },
         },
     },

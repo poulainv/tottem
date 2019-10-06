@@ -1,9 +1,21 @@
 import { Box, ResponsiveContext, Tab, Tabs } from 'grommet'
 import React, { useContext, useState } from 'react'
 import { ISection } from '../../types'
-import TabTitle from '../Tab'
 import Section from './Section'
 import { useHistory, useLocation, useParams } from 'react-router'
+import styled from 'styled-components'
+
+interface ITab {
+    isActive: boolean
+}
+
+const TabTitle = styled.span`
+    font-size: 16px;
+    color: ${(props: ITab) => (!props.isActive ? '#333333' : '#D87551')};
+    @media screen and (max-width: 812px) {
+        font-size: 14px;
+    }
+`
 
 interface IProfileContent {
     sections: ISection[]
@@ -63,11 +75,9 @@ const ProfileContent: React.FC<IProfileContent> = props => {
                             key={section.id}
                             title={
                                 props.sections.length > 1 && (
-                                    <TabTitle
-                                        size={size}
-                                        title={section.name}
-                                        active={activeTab === index}
-                                    />
+                                    <TabTitle isActive={activeTab === index}>
+                                        {section.name}
+                                    </TabTitle>
                                 )
                             }
                         >
