@@ -6,6 +6,7 @@ import Logo from '../components/Logo'
 import artwork from '../static/images/artworks/landing-illustration-ld.png'
 import theme from '../theme'
 import { MailOption } from 'grommet-icons'
+import ReactGA from 'react-ga'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -72,6 +73,14 @@ const Artwork: React.FC = props => {
             />
         </Box>
     )
+}
+
+const handleCTA = () => {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Signup',
+        action: 'Click on keepme',
+    })
 }
 
 const Landing: React.FunctionComponent = props => {
@@ -149,7 +158,10 @@ const Landing: React.FunctionComponent = props => {
                     </Box>
 
                     <Box margin={{ top: 'large', bottom: '40px' }}>
-                        <CTAButton href="http://eepurl.com/gE44Sz">
+                        <CTAButton
+                            href="http://eepurl.com/gE44Sz"
+                            onClick={handleCTA}
+                        >
                             Keep me in the loop
                         </CTAButton>
                     </Box>

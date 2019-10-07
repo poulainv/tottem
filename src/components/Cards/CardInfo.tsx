@@ -1,6 +1,7 @@
 import { Box, Button, Text } from 'grommet'
 import { Share } from 'grommet-icons'
 import React from 'react'
+import ReactGA from 'react-ga'
 import Truncate from 'react-truncate'
 import styled from 'styled-components'
 import { Item } from '../../types'
@@ -29,6 +30,14 @@ interface CardInfoProps {
     hover: boolean
 }
 
+function trackOpenItem() {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Item',
+        action: 'Open item',
+    })
+}
+
 const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
     const optionButton = (
         <Box direction="row">
@@ -40,6 +49,7 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
                 style={{ padding: '0px 5px 0px 5px' }}
                 icon={<Share size="small" />}
                 href={props.item.productUrl}
+                onClick={trackOpenItem}
                 target="_blank"
             />
         </Box>

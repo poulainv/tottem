@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
-
 import {
     Box,
-    Markdown,
-    Text,
     Button,
     Collapsible,
+    Markdown,
     ResponsiveContext,
+    Text,
 } from 'grommet'
-import ItemList from './ItemList'
-import { ICollection } from '../../types'
+import React, { useContext } from 'react'
+import ReactGA from 'react-ga'
 import styled from 'styled-components'
+import { ICollection } from '../../types'
+import ItemList from './ItemList'
 
 const CollectionTitle = styled.h3`
     font-size: 16px;
@@ -39,8 +39,16 @@ const Collection: React.FC<ICollection> = props => {
     const initialItems = isMobile ? props.items : props.items.slice(0, maxItem)
     const collapsedItems = isMobile ? [] : props.items.slice(maxItem)
 
+    const trackExpand = () => {
+        ReactGA.initialize('UA-149517534-1')
+        ReactGA.event({
+            category: 'Collection',
+            action: 'Click on expand collection',
+        })
+    }
+
     const seeMore = (
-        <Box margin={{ horizontal: 'medium' }}>
+        <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
             <Button
                 style={{ fontSize: '14px' }}
                 label={
