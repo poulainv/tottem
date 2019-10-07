@@ -1,9 +1,9 @@
 import { Box, ResponsiveContext, Tab, Tabs } from 'grommet'
 import React, { useContext, useState } from 'react'
+import { useHistory, useLocation } from 'react-router'
+import styled from 'styled-components'
 import { ISection } from '../../types'
 import Section from './Section'
-import { useHistory, useLocation, useParams } from 'react-router'
-import styled from 'styled-components'
 
 interface ITab {
     isActive: boolean
