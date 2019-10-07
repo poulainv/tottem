@@ -10,7 +10,7 @@ const collections: ICollection[] = [
         id: '1',
         sectionId: '1',
         detail:
-            'Thinkerview diffusé en direct le 5 septembre 2019, [lien de la vidéo](https://youtu.be/mx5QlspmmE8)',
+            'Thinkerview diffusé en direct le 11 septembre 2019, [lien de la vidéo](https://youtu.be/mx5QlspmmE8)',
         name:
             '**Eric Dénécé** - La France en danger : où en est le renseignement ? ',
         items: itemsByCollection['1'],
@@ -28,7 +28,7 @@ const collections: ICollection[] = [
         id: '3',
         sectionId: '3',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/Uj83ZmfT4Dw)',
+            'Interview réalisé le 03/09/2019: [lien de la vidéo](https://youtu.be/Uj83ZmfT4Dw)',
         name: "**Maxime Renahy** - DGSE : l'impuissance de l'état ?",
         items: itemsByCollection['3'],
     },
@@ -36,7 +36,7 @@ const collections: ICollection[] = [
         id: '4',
         sectionId: '3',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/dejeVuL9-7c)',
+            'Interview réalisé le 08/07/2019: [lien de la vidéo](https://youtu.be/dejeVuL9-7c)',
         name:
             '**Frédéric Pierucci** - Alstom : la France vendue à la découpe ? ',
         items: itemsByCollection['4'],
@@ -45,7 +45,7 @@ const collections: ICollection[] = [
         id: '5',
         sectionId: '3',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/5TbbV06LlP0)',
+            'Interview réalisé le 02/07/2019: [lien de la vidéo](https://youtu.be/5TbbV06LlP0)',
         name: '**Pierre Conesa** - Arabie Saoudite, un pays protégé ?',
         items: itemsByCollection['5'],
     },
@@ -53,7 +53,7 @@ const collections: ICollection[] = [
         id: '6',
         sectionId: '4',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/9iuBVin9oOk)',
+            'Interview réalisé le 25/06/2019: [lien de la vidéo](https://youtu.be/9iuBVin9oOk)',
         name:
             "**Laurent Alexandre et Philippe Bihouix** - Débat : L'avenir de l'humanité ?",
         items: itemsByCollection['6'],
@@ -62,7 +62,7 @@ const collections: ICollection[] = [
         id: '7',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/sIJd1kuR2Ps)',
+            'Interview réalisé le 14/06/2019: [lien de la vidéo](https://youtu.be/sIJd1kuR2Ps)',
         name: '**Jean Ziegler** - Pourquoi il faut détruire le capitalisme ?',
         items: itemsByCollection['7'],
     },
@@ -70,7 +70,7 @@ const collections: ICollection[] = [
         id: '8',
         sectionId: '1',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/DnHUyRfY3Wc)',
+            'Interview réalisé le 04/06/2019: [lien de la vidéo](https://youtu.be/DnHUyRfY3Wc)',
         name: '**Monique Pinçon-Charlot** - Casse sociale, le début ?',
         items: itemsByCollection['8'],
     },
@@ -78,7 +78,7 @@ const collections: ICollection[] = [
         id: '9',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/uSSFmNHgJQQ)',
+            'Interview réalisé le 17/05/2019: [lien de la vidéo](https://youtu.be/uSSFmNHgJQQ)',
         name: "**Barbara Stiegler** - S'adapter à une société malade ?",
         items: itemsByCollection['9'],
     },
@@ -86,7 +86,7 @@ const collections: ICollection[] = [
         id: '10',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/M5_v9ld_LVc)',
+            'Interview réalisé le 10/05/2019: [lien de la vidéo](https://youtu.be/M5_v9ld_LVc)',
         name: '**Coralie Delaume** - Union Européenne pour ou contre ?',
         items: itemsByCollection['10'],
     },
@@ -94,7 +94,7 @@ const collections: ICollection[] = [
         id: '11',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/9y3aC0LruiQ)',
+            'Interview réalisé le 06/05/2019: [lien de la vidéo](https://youtu.be/9y3aC0LruiQ)',
         name: '**Jean-Luc Mélenchon** - Face à la réalité ?',
         items: itemsByCollection['11'],
     },
@@ -102,7 +102,7 @@ const collections: ICollection[] = [
         id: '12',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/qYCfx2xFMjE)',
+            'Interview réalisé le 17/04/2019: [lien de la vidéo](https://youtu.be/qYCfx2xFMjE)',
         name:
             "**Bernard Stiegler** - Etat d'urgence, géopolitique, Médias, Gilets Jaunes",
         items: itemsByCollection['12'],
@@ -111,7 +111,7 @@ const collections: ICollection[] = [
         id: '13',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/XK2dsgJWqgk)',
+            'Interview réalisé le 12/04/2019: [lien de la vidéo](https://youtu.be/XK2dsgJWqgk)',
         name:
             '**Champagne, Duplessy et Fontaine** - Investigation sans filtre ?',
         items: itemsByCollection['13'],
@@ -120,7 +120,7 @@ const collections: ICollection[] = [
         id: '14',
         sectionId: '2',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/a7KapmsJQOE)',
+            'Interview réalisé le 11/04/2019: [lien de la vidéo](https://youtu.be/a7KapmsJQOE)',
         name: "**Alain Damasio** - L'intuition de la science-fiction ?",
         items: itemsByCollection['14'],
     },
@@ -128,7 +128,7 @@ const collections: ICollection[] = [
         id: '15',
         sectionId: '4',
         detail:
-            'Interview réalisé le 01/01/2019: [lien de la vidéo](https://youtu.be/a7KapmsJQOE)',
+            'Interview réalisé le 19/09/2018: [lien de la vidéo](https://youtu.be/a7KapmsJQOE)',
         name: '**Yannick Rousselet** - Greenpeace : menaces nucléaire ?',
         items: itemsByCollection['15'],
     },
@@ -330,6 +330,40 @@ const collections: ICollection[] = [
         name:
             '**Général Vincent Desportes** - Armée française : Quelle stratégie ?',
         items: itemsByCollection['101'],
+    },
+    {
+        id: '102',
+        sectionId: '3',
+        detail:
+            'Interview réalisé le 17/09/2019: [lien de la vidéo](https://youtu.be/2mor2qort4U)',
+        name:
+            '**Olivier Marleix** - Guerre économique sans pitié pour la France ?',
+        items: itemsByCollection['102'],
+    },
+    {
+        id: '103',
+        sectionId: '3',
+        detail:
+            'Interview réalisé le 20/09/2019: [lien de la vidéo](https://youtu.be/_GONFUveBH0)',
+        name: '**Inconnu** - DGSE : Face à la réalité ?',
+        items: itemsByCollection['103'],
+    },
+    {
+        id: '104',
+        sectionId: '1',
+        detail:
+            'Interview réalisé le 25/09/2019: [lien de la vidéo](https://youtu.be/-J_2tNIA4cI)',
+        name: '**Joseph Stiglitz** - Un prix Nobel face au krach à venir ?',
+        items: itemsByCollection['104'],
+    },
+    {
+        id: '105',
+        sectionId: '4',
+        detail:
+            'Interview réalisé le 27/09/2019: [lien de la vidéo](https://youtu.be/tUml_4KZKhk)',
+        name:
+            '**Jouzel & Larrouturou** - Le climat survivra-t-il au capitalisme ?',
+        items: itemsByCollection['105'],
     },
 ]
 

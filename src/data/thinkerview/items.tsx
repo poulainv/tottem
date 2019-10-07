@@ -1468,6 +1468,148 @@ const items: Item[] = [
         title: 'Le Roman inachevé',
         author: 'Louis Aragon',
     },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '105',
+        imageUrl:
+            'https://images-eu.ssl-images-amazon.com/images/I/51HE2nIEQWL.jpg',
+        productUrl: 'https://www.amazon.fr/dp/B077BLF3Y6',
+        title: 'Pour éviter le chaos climatique et financier',
+        author: 'Jean Jouzel & Pierre Larrouturou',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '105',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41BHvpcIVJL._SX367_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Perdre-Terre-Nathaniel-Rich/dp/2021424847',
+        title: 'Perdre la Terre',
+        author: 'Nathaniel Rich',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '105',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41ibCp1G8TL._SX296_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Climat-passons-lacte-Anne-Hessel/dp/2375950704',
+        title: 'Finance, Climat, Réveillez-vous !',
+        author: 'Anne Hessel & Jean Jouzel & Pierre Larrouturou',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '104',
+        imageUrl:
+            'https://images-eu.ssl-images-amazon.com/images/I/51umgmSykhL.jpg',
+        productUrl:
+            'https://www.amazon.fr/Democracy-Chains-history-radical-stealth-ebook/dp/B073Q7VMB1/',
+        title:
+            "Democracy in Chains: The Deep History of the Radical Right's Stealth Plan for America",
+        author: 'Nancy MacLean ',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '104',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41aBNOJdpXL._SY498_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/How-Democracies-Die-Steven-Levitsky/dp/0525574530',
+        title: 'How Democracies Die',
+        author: 'Steven Levitsky & Daniel Ziblatt ',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '104',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41BP3NuUZxL._SX341_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Fascisme-en-action-Robert-Paxton/dp/2020591928',
+        title: 'Le Fascisme en action',
+        author: 'Robert O. Paxton',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '104',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/51S8IitZk4L._SX317_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/People-Power-Profits-Progressive-Capitalism/dp/0241399238',
+        title:
+            'People, Power, and Profits: Progressive Capitalism for an Age of Discontent',
+        author: 'Joseph E. Stiglitz',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/51Hhc1Eb68L._SX342_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Lespion-traître-Ben-Macintyre/dp/B07NRFGFW6',
+        title: "L'espion et le traître",
+        author: 'Ben Macintyre',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '103',
+        imageUrl: '',
+        productUrl: '',
+        title: 'Les Gens de Smiley',
+        author: 'John Le Carré',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '103',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41uuTNH3zsL._SX299_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Gens-Smiley-John-Carré/dp/2020479893',
+        title: 'La Puissance et la Gloire',
+        author: 'Graham Greene',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '102',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41tzfecADsL._SX319_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Mémoires-guerre-mémoires-despoir-Charles/dp/2259249361',
+        title: "Mémoires d'espoir",
+        author: 'Charles de Gaulle',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '102',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/51TFhpepsLL._SX307_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Histoire-intellectuelle-libéralisme-Pierre-Manent/dp/2818502764',
+        title: 'Histoire intellectuelle du libéralisme',
+        author: 'Pierre Manent ',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '102',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41JGdQfSzZL._SX300_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Chartreuse-Parme-Stendhal-scientifiques-Classiques/dp/2253160687',
+        title: 'La Chartreuse de Parme',
+        author: 'Stendhal',
+    },
 ]
 
 export default items
