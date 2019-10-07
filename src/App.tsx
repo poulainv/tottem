@@ -8,7 +8,9 @@ import ReactGA from 'react-ga'
 
 const App: React.FC = () => {
     useEffect(() => {
-        ReactGA.initialize('UA-149517534-1')
+        ReactGA.initialize('UA-149517534-1', {
+            testMode: process.env.NODE_ENV === 'test',
+        })
         ReactGA.pageview(window.location.pathname + window.location.search)
     })
 
