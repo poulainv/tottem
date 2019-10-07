@@ -39,13 +39,13 @@ export interface ISocial {
     github?: string
     mail?: string
     youtube?: string
+    website?: string
 }
 
 export interface UserProfile {
     firstname: string
     pictureUrl: string
     biography: string
-    website?: string
     social?: ISocial
 }
 

@@ -1,10 +1,10 @@
-import { Box, Image, Button } from 'grommet'
+import { Box, Button, Image } from 'grommet'
+import { Link, Youtube } from 'grommet-icons'
 import React from 'react'
 import { ISocial } from '../types'
-import { Youtube } from 'grommet-icons'
 
 const Social: React.FC<ISocial> = props => {
-    const pictoHeight = '16px'
+    const pictoHeight = '15px'
     return (
         <Box direction="row" height={pictoHeight} gap="medium" align="end">
             {props.mail && (
@@ -56,6 +56,18 @@ const Social: React.FC<ISocial> = props => {
                     />
                 </Box>
             )}
+            {props.website && (
+                <Box>
+                    <Button
+                        target="_blank"
+                        plain={true}
+                        href={props.website}
+                        icon={
+                            <Link style={{ height: '18px', width: 'auto' }} />
+                        }
+                    />
+                </Box>
+            )}
 
             {props.youtube && (
                 <Box>
@@ -63,7 +75,11 @@ const Social: React.FC<ISocial> = props => {
                         target="_blank"
                         plain={true}
                         href={props.youtube}
-                        icon={<Youtube height={pictoHeight} />}
+                        icon={
+                            <Youtube
+                                style={{ height: '18px', width: 'auto' }}
+                            />
+                        }
                     />
                 </Box>
             )}
