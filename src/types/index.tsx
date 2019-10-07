@@ -1,6 +1,7 @@
 export interface ICollection {
     id: string
     name: string
+    date: Date
     items: Item[]
     sectionId?: string
     detail?: string
