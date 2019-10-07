@@ -97,7 +97,7 @@ const Landing: React.FunctionComponent = props => {
                 <Box margin={{ horizontal: 'large' }}>
                     <Button
                         plain={true}
-                        href="mailto:vincent.poulain2@gmail.com"
+                        href="mailto:hello@tottem.app"
                         icon={<MailOption />}
                     />
                 </Box>

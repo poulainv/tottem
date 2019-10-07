@@ -12,9 +12,7 @@ const FootItem = styled.a`
 export function Footer(props: {}) {
     return (
         <Box pad={{ horizontal: 'large', vertical: 'medium' }}>
-            <FootItem href="mailto:vincent.poulain2@gmail.com">
-                Contact
-            </FootItem>
+            <FootItem href="mailto:hello@tottem.app">Contact</FootItem>
         </Box>
     )
 }
