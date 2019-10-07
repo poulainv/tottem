@@ -7,6 +7,7 @@ const sections: ISection[] = [
             {
                 id: '200',
                 name: 'To Read',
+                date: new Date('2019-10-01T12:00:00'),
                 items: [
                     {
                         collectionId: '200',
@@ -78,6 +79,7 @@ const sections: ISection[] = [
             {
                 id: '201',
                 name: 'To watch / listen',
+                date: new Date('2019-10-01T12:00:00'),
                 items: [
                     {
                         collectionId: '201',
