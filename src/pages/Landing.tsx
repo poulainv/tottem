@@ -75,10 +75,17 @@ const Artwork: React.FC = props => {
     )
 }
 
+const handleCTA = () => {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Signup',
+        action: 'Click on keepme',
+    })
+}
+
 const Landing: React.FunctionComponent = props => {
     const size = React.useContext(ResponsiveContext)
     const isMobile = size === 'small'
-    ReactGA.pageview('landing')
 
     return (
         <Box
@@ -151,7 +158,10 @@ const Landing: React.FunctionComponent = props => {
                     </Box>
 
                     <Box margin={{ top: 'large', bottom: '40px' }}>
-                        <CTAButton href="http://eepurl.com/gE44Sz">
+                        <CTAButton
+                            href="http://eepurl.com/gE44Sz"
+                            onClick={handleCTA}
+                        >
                             Keep me in the loop
                         </CTAButton>
                     </Box>

@@ -1,5 +1,6 @@
 import { Box, ResponsiveContext, Tab, Tabs } from 'grommet'
 import React, { useContext, useState } from 'react'
+import ReactGA from 'react-ga'
 import { useHistory, useLocation } from 'react-router'
 import styled from 'styled-components'
 import { ISection } from '../../types'
@@ -32,6 +33,14 @@ interface IProfileContent {
     is clicked
 */
 
+function trackChangeTab() {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Section',
+        action: 'Click on change section',
+    })
+}
+
 function useTab(username: string, sortedSections: ISection[]) {
     const location = useLocation()
     const history = useHistory()
@@ -48,6 +57,7 @@ function useTab(username: string, sortedSections: ISection[]) {
     const setTab = (args: number) => {
         setActiveTab(args)
         history.replace(`/${username}?section=${sortedSections[args].id}`)
+        trackChangeTab()
     }
 
     return { activeTab, setTab }
