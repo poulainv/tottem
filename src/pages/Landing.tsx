@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Separator from '../components/Separator'
 import Logo from '../components/Logo'
-import artwork from '../static/images/artworks/landing-illustration-md.png'
+import artwork from '../static/images/artworks/landing-illustration-ld.png'
 import theme from '../theme'
 import { MailOption } from 'grommet-icons'
 
