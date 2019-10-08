@@ -65,7 +65,7 @@ function useTab(username: string, sortedSections: ISection[]) {
 
 const ProfileContent: React.FC<IProfileContent> = props => {
     const size = useContext(ResponsiveContext)
-    const sortedSections = props.sections.sort(x => x.index)
+    const sortedSections = props.sections.sort((a, b) => a.index - b.index)
     const { activeTab, setTab } = useTab(props.username, sortedSections)
 
     return (
