@@ -48,6 +48,7 @@ export interface UserProfile {
     pictureUrl: string
     biography: string
     social?: ISocial
+    label?: string
 }
 
 // Interface representing the params passed in the URL
