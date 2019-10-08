@@ -1,5 +1,8 @@
 import { Item } from '../../types'
 
+// A lot of items have been retrieved thanks to
+// https://github.com/Killkitten/Thinkerview-Recommandations-lecture
+
 const items: Item[] = [
     {
         collectionId: '1',
