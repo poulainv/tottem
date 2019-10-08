@@ -38,8 +38,8 @@ const ProfileDescription: React.FC<UserProfile> = props => {
                     <PictureProfile size={size} imageUrl={props.pictureUrl} />
                 </Box>
                 <Box width="full">
-                    <Box direction="row" align="center" justify="between">
-                        <Box direction="row">
+                    <Box direction="row" align="start" justify="between">
+                        <Box direction="row-responsive">
                             <Heading level={1} size="large">
                                 {props.firstname}
                             </Heading>
