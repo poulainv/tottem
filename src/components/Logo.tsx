@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Logo = styled.h1`
-    font-size: 36px;
+    font-size: 30px;
     color: black;
     font-family: 'Poiret One';
     font-weight: 700;

@@ -1,5 +1,6 @@
 import { Box, Button } from 'grommet'
 import React from 'react'
+import Logo from '../Logo'
 
 const Header = () => {
     return (
@@ -21,7 +22,7 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    {/* <Button plain={true} label={<Logo>tottem</Logo>} href="/" /> */}
+                    <Button plain={true} label={<Logo>Tottem</Logo>} href="/" />
                 </Box>
                 <Box>
                     <Button
