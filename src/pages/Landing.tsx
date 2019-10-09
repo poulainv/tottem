@@ -1,12 +1,12 @@
-import { Box, Heading, ResponsiveContext, Button } from 'grommet'
-import * as React from 'react'
-import styled from 'styled-components'
-import Separator from '../components/Separator'
-import Logo from '../components/Logo'
-import artwork from '../static/images/artworks/landing-illustration-ld.png'
+import { Box, Button, Heading, ResponsiveContext } from 'grommet'
 import { MailOption } from 'grommet-icons'
+import * as React from 'react'
 import ReactGA from 'react-ga'
-import { accent500, brand500 } from '../theme'
+import styled from 'styled-components'
+import Logo from '../components/Logo'
+import Separator from '../components/Separator'
+import artwork from '../static/images/artworks/landing-illustration-ld.png'
+import { accent400, accent500, accent800, brand500 } from '../theme'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -44,6 +44,7 @@ const CTAButton = styled.a`
     background-color: ${accent500};
     color: white;
     padding: 20px 40px 20px 40px;
+    border: 3px transparent solid;
     border-radius: 40px;
     text-decoration: none;
     font-family: inherit;
@@ -53,6 +54,11 @@ const CTAButton = styled.a`
     @media screen and (max-width: 812px) {
         font-size: 16px;
         padding: 15px 30px 15px 30px;
+    }
+
+    :hover {
+        border: 3px ${accent500} solid;
+        background-color: ${accent400};
     }
 `
 
