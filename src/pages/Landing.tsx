@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import Separator from '../components/Separator'
 import Logo from '../components/Logo'
 import artwork from '../static/images/artworks/landing-illustration-ld.png'
-import theme from '../theme'
 import { MailOption } from 'grommet-icons'
 import ReactGA from 'react-ga'
+import { accent500, brand500 } from '../theme'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -41,7 +41,7 @@ const SubHeader = styled.p`
 `
 
 const CTAButton = styled.a`
-    background-color: ${props => props.theme.global.colors.brand};
+    background-color: ${accent500};
     color: white;
     padding: 20px 40px 20px 40px;
     border-radius: 40px;
@@ -130,9 +130,7 @@ const Landing: React.FunctionComponent = props => {
                         {isMobile && <Artwork />}
                         {size === 'large' && (
                             <Box margin={{ vertical: 'medium' }}>
-                                <Separator
-                                    color={theme.global.colors['accent-1']}
-                                />
+                                <Separator color={brand500} />
                             </Box>
                         )}
                         <SubHeader>
