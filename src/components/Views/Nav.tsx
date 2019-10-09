@@ -6,10 +6,10 @@ import PictureProfile from '../PictureProfile'
 import Social from '../Social'
 
 const Label = styled.div`
-    color: #555555;
-    border: 1px #555555 solid;
+    color: #777777;
+    box-shadow: rgb(217, 217, 217) 0px 0px 0px 1px;
     border-radius: 40px;
-    padding: 0px 6px 0px 6px;
+    padding: 0px 8px 0px 8px;
     font-weight: 500;
     margin: 0px;
     font-size: 12px;

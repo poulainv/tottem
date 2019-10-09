@@ -1,12 +1,12 @@
-import { Box, Heading, ResponsiveContext, Button } from 'grommet'
-import * as React from 'react'
-import styled from 'styled-components'
-import Separator from '../components/Separator'
-import Logo from '../components/Logo'
-import artwork from '../static/images/artworks/landing-illustration-ld.png'
-import theme from '../theme'
+import { Box, Button, Heading, ResponsiveContext } from 'grommet'
 import { MailOption } from 'grommet-icons'
+import * as React from 'react'
 import ReactGA from 'react-ga'
+import styled from 'styled-components'
+import Logo from '../components/Logo'
+import Separator from '../components/Separator'
+import artwork from '../static/images/artworks/landing-illustration-ld.png'
+import { accent500, accent900, brand500 } from '../theme'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -41,7 +41,7 @@ const SubHeader = styled.p`
 `
 
 const CTAButton = styled.a`
-    background-color: ${props => props.theme.global.colors.brand};
+    background-color: ${accent500};
     color: white;
     padding: 20px 40px 20px 40px;
     border-radius: 40px;
@@ -53,6 +53,10 @@ const CTAButton = styled.a`
     @media screen and (max-width: 812px) {
         font-size: 16px;
         padding: 15px 30px 15px 30px;
+    }
+
+    :hover {
+        background-color: ${accent900};
     }
 `
 
@@ -130,9 +134,7 @@ const Landing: React.FunctionComponent = props => {
                         {isMobile && <Artwork />}
                         {size === 'large' && (
                             <Box margin={{ vertical: 'medium' }}>
-                                <Separator
-                                    color={theme.global.colors['accent-1']}
-                                />
+                                <Separator color={brand500} />
                             </Box>
                         )}
                         <SubHeader>
