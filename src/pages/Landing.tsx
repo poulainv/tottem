@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Logo from '../components/Logo'
 import Separator from '../components/Separator'
 import artwork from '../static/images/artworks/landing-illustration-ld.png'
-import { accent400, accent500, accent800, brand500 } from '../theme'
+import { accent500, accent900, brand500 } from '../theme'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -44,7 +44,6 @@ const CTAButton = styled.a`
     background-color: ${accent500};
     color: white;
     padding: 20px 40px 20px 40px;
-    border: 3px transparent solid;
     border-radius: 40px;
     text-decoration: none;
     font-family: inherit;
@@ -57,8 +56,7 @@ const CTAButton = styled.a`
     }
 
     :hover {
-        border: 3px ${accent500} solid;
-        background-color: ${accent400};
+        background-color: ${accent900};
     }
 `
 
