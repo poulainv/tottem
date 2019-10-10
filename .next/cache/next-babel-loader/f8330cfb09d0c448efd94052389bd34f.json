@@ -1,0 +1,17 @@
+{
+    "ast": null,
+    "code": "import _taggedTemplateLiteral from \"@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral\";\n\nfunction _templateObject() {\n  const data = _taggedTemplateLiteral([\"\\n    width: \", \";\\n    height: \", \";\\n    background-color: \", \";\\n\"]);\n\n  _templateObject = function () {\n    return data;\n  };\n\n  return data;\n}\n\nimport styled from 'styled-components';\nconst Separator = styled.div(_templateObject(), props => props.size === 'small' ? '28px' : '43px', props => props.size === 'small' ? '8px' : '11px', props => props.color || 'black');\nexport default Separator;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Separator.tsx"
+        ],
+        "names": ["styled", "Separator", "div", "props", "size", "color"],
+        "mappings": ";;;;;;;;;;;;AAAA,OAAOA,MAAP,MAAmB,mBAAnB;AAOA,MAAMC,SAAS,GAAGD,MAAM,CAACE,GAAV,oBACDC,KAAD,IACLA,KAAK,CAACC,IAAN,KAAe,OAAf,GAAyB,MAAzB,GAAkC,MAF3B,EAGAD,KAAD,IACNA,KAAK,CAACC,IAAN,KAAe,OAAf,GAAyB,KAAzB,GAAiC,MAJ1B,EAKSD,KAAK,IAAIA,KAAK,CAACE,KAAN,IAAe,OALjC,CAAf;AAQA,eAAeJ,SAAf",
+        "sourcesContent": [
+            "import styled from 'styled-components'\n\ninterface SeparatorProps {\n    color: string\n    size?: string\n}\n\nconst Separator = styled.div`\n    width: ${(props: SeparatorProps) =>\n        props.size === 'small' ? '28px' : '43px'};\n    height: ${(props: SeparatorProps) =>\n        props.size === 'small' ? '8px' : '11px'};\n    background-color: ${props => props.color || 'black'};\n`\n\nexport default Separator\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

@@ -1,0 +1,34 @@
+{
+    "ast": null,
+    "code": "var _jsxFileName = \"/Users/vincentpoulain/Development/quiet/src/components/Cards/CoverImage.tsx\";\nvar __jsx = React.createElement;\nimport React from 'react';\nimport Box from \"grommet/components/Box/Box\";\nimport Image from \"grommet/components/Image/Image\";\nimport { CardSize } from './Card';\n\nconst CoverImage = props => {\n  const getImageHeight = (small, shape) => {\n    // The width is full and fixed depending on parent width\n    if (shape === 'rectangle' && !small) {\n      return CardSize.large.rectangleImageHeight;\n    } else if (shape === 'rectangle' && small) {\n      return CardSize.small.rectangleImageHeight;\n    } else if (small) {\n      return CardSize.small.squareImageHeight;\n    } else {\n      return CardSize.large.squareImageHeight;\n    }\n  };\n\n  return __jsx(Box, {\n    round: props.imageShape === 'circle' ? '50%' : '8px',\n    height: getImageHeight(props.small, props.imageShape),\n    justify: \"center\",\n    width: \"full\",\n    overflow: \"hidden\",\n    background: props.imageUrl ? 'none' : props.placeholderColor,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 30\n    },\n    __self: this\n  }, props.imageUrl ? __jsx(Image, {\n    src: props.imageUrl,\n    fit: \"cover\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 39\n    },\n    __self: this\n  }) : __jsx(Image, {\n    src: props.placeholderPicto,\n    style: {\n      marginLeft: 'auto',\n      marginRight: 'auto'\n    },\n    fit: \"contain\",\n    width: \"30px\",\n    height: \"30px\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 41\n    },\n    __self: this\n  }));\n};\n\nexport default CoverImage;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Cards/CoverImage.tsx"
+        ],
+        "names": [
+            "React",
+            "CardSize",
+            "CoverImage",
+            "props",
+            "getImageHeight",
+            "small",
+            "shape",
+            "large",
+            "rectangleImageHeight",
+            "squareImageHeight",
+            "imageShape",
+            "imageUrl",
+            "placeholderColor",
+            "placeholderPicto",
+            "marginLeft",
+            "marginRight"
+        ],
+        "mappings": ";;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;;AAEA,SAASC,QAAT,QAAyB,QAAzB;;AAYA,MAAMC,UAAgC,GAAGC,KAAK,IAAI;AAC9C,QAAMC,cAAc,GAAG,CAACC,KAAD,EAAiBC,KAAjB,KAA4C;AAC/D;AACA,QAAIA,KAAK,KAAK,WAAV,IAAyB,CAACD,KAA9B,EAAqC;AACjC,aAAOJ,QAAQ,CAACM,KAAT,CAAeC,oBAAtB;AACH,KAFD,MAEO,IAAIF,KAAK,KAAK,WAAV,IAAyBD,KAA7B,EAAoC;AACvC,aAAOJ,QAAQ,CAACI,KAAT,CAAeG,oBAAtB;AACH,KAFM,MAEA,IAAIH,KAAJ,EAAW;AACd,aAAOJ,QAAQ,CAACI,KAAT,CAAeI,iBAAtB;AACH,KAFM,MAEA;AACH,aAAOR,QAAQ,CAACM,KAAT,CAAeE,iBAAtB;AACH;AACJ,GAXD;;AAaA,SACI,MAAC,GAAD;AACI,IAAA,KAAK,EAAEN,KAAK,CAACO,UAAN,KAAqB,QAArB,GAAgC,KAAhC,GAAwC,KADnD;AAEI,IAAA,MAAM,EAAEN,cAAc,CAACD,KAAK,CAACE,KAAP,EAAcF,KAAK,CAACO,UAApB,CAF1B;AAGI,IAAA,OAAO,EAAC,QAHZ;AAII,IAAA,KAAK,EAAC,MAJV;AAKI,IAAA,QAAQ,EAAC,QALb;AAMI,IAAA,UAAU,EAAEP,KAAK,CAACQ,QAAN,GAAiB,MAAjB,GAA0BR,KAAK,CAACS,gBANhD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAQKT,KAAK,CAACQ,QAAN,GACG,MAAC,KAAD;AAAO,IAAA,GAAG,EAAER,KAAK,CAACQ,QAAlB;AAA4B,IAAA,GAAG,EAAC,OAAhC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IADH,GAGG,MAAC,KAAD;AACI,IAAA,GAAG,EAAER,KAAK,CAACU,gBADf;AAEI,IAAA,KAAK,EAAE;AACHC,MAAAA,UAAU,EAAE,MADT;AAEHC,MAAAA,WAAW,EAAE;AAFV,KAFX;AAMI,IAAA,GAAG,EAAC,SANR;AAOI,IAAA,KAAK,EAAC,MAPV;AAQI,IAAA,MAAM,EAAC,MARX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAXR,CADJ;AAyBH,CAvCD;;AAyCA,eAAeb,UAAf",
+        "sourcesContent": [
+            "import React from 'react'\nimport { Box, Image } from 'grommet'\nimport { CardSize } from './Card'\n\nexport type ImageShapeType = 'rectangle' | 'square' | 'circle'\n\ninterface CoverProps {\n    imageUrl: string\n    small: boolean\n    placeholderColor: string\n    placeholderPicto: string\n    imageShape?: ImageShapeType\n}\n\nconst CoverImage: React.FC<CoverProps> = props => {\n    const getImageHeight = (small: boolean, shape?: ImageShapeType) => {\n        // The width is full and fixed depending on parent width\n        if (shape === 'rectangle' && !small) {\n            return CardSize.large.rectangleImageHeight\n        } else if (shape === 'rectangle' && small) {\n            return CardSize.small.rectangleImageHeight\n        } else if (small) {\n            return CardSize.small.squareImageHeight\n        } else {\n            return CardSize.large.squareImageHeight\n        }\n    }\n\n    return (\n        <Box\n            round={props.imageShape === 'circle' ? '50%' : '8px'}\n            height={getImageHeight(props.small, props.imageShape)}\n            justify=\"center\"\n            width=\"full\"\n            overflow=\"hidden\"\n            background={props.imageUrl ? 'none' : props.placeholderColor}\n        >\n            {props.imageUrl ? (\n                <Image src={props.imageUrl} fit=\"cover\" />\n            ) : (\n                <Image\n                    src={props.placeholderPicto}\n                    style={{\n                        marginLeft: 'auto',\n                        marginRight: 'auto',\n                    }}\n                    fit=\"contain\"\n                    width=\"30px\"\n                    height=\"30px\"\n                />\n            )}\n        </Box>\n    )\n}\n\nexport default CoverImage\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

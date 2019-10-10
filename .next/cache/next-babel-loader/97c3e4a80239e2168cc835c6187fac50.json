@@ -1,0 +1,26 @@
+{
+    "ast": null,
+    "code": "var _jsxFileName = \"/Users/vincentpoulain/Development/quiet/src/components/Views/Footer.tsx\";\nvar __jsx = React.createElement;\nimport * as React from 'react';\nimport Box from \"grommet/components/Box/Box\";\nimport styled from 'styled-components';\nconst FootItem = styled.a`\n    text-transform: uppercase;\n    text-decoration: none;\n    color: grey;\n    font-size: 12px;\n`;\nexport function Footer(props) {\n  return __jsx(Box, {\n    pad: {\n      horizontal: 'large',\n      vertical: 'medium'\n    },\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 14\n    },\n    __self: this\n  }, __jsx(FootItem, {\n    href: \"mailto:hello@tottem.app\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 15\n    },\n    __self: this\n  }, \"Contact\"));\n}",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Views/Footer.tsx"
+        ],
+        "names": [
+            "React",
+            "styled",
+            "FootItem",
+            "a",
+            "Footer",
+            "props",
+            "horizontal",
+            "vertical"
+        ],
+        "mappings": ";;AAAA,OAAO,KAAKA,KAAZ,MAAuB,OAAvB;;AAEA,OAAOC,MAAP,MAAmB,mBAAnB;AAEA,MAAMC,QAAQ,GAAGD,MAAM,CAACE,CAAE;;;;;CAA1B;AAOA,OAAO,SAASC,MAAT,CAAgBC,KAAhB,EAA2B;AAC9B,SACI,MAAC,GAAD;AAAK,IAAA,GAAG,EAAE;AAAEC,MAAAA,UAAU,EAAE,OAAd;AAAuBC,MAAAA,QAAQ,EAAE;AAAjC,KAAV;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACI,MAAC,QAAD;AAAU,IAAA,IAAI,EAAC,yBAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,eADJ,CADJ;AAKH",
+        "sourcesContent": [
+            "import * as React from 'react'\nimport { Box } from 'grommet'\nimport styled from 'styled-components'\n\nconst FootItem = styled.a`\n    text-transform: uppercase;\n    text-decoration: none;\n    color: grey;\n    font-size: 12px;\n`\n\nexport function Footer(props: {}) {\n    return (\n        <Box pad={{ horizontal: 'large', vertical: 'medium' }}>\n            <FootItem href=\"mailto:hello@tottem.app\">Contact</FootItem>\n        </Box>\n    )\n}\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

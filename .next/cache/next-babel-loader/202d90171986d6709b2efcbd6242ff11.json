@@ -1,0 +1,17 @@
+{
+    "ast": null,
+    "code": "import styled from 'styled-components';\nconst Separator = styled.div`\n    width: ${props => props.size === 'small' ? '28px' : '43px'};\n    height: ${props => props.size === 'small' ? '8px' : '11px'};\n    background-color: ${props => props.color || 'black'};\n`;\nexport default Separator;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Separator.tsx"
+        ],
+        "names": ["styled", "Separator", "div", "props", "size", "color"],
+        "mappings": "AAAA,OAAOA,MAAP,MAAmB,mBAAnB;AAOA,MAAMC,SAAS,GAAGD,MAAM,CAACE,GAAI;aACfC,KAAD,IACLA,KAAK,CAACC,IAAN,KAAe,OAAf,GAAyB,MAAzB,GAAkC,MAAO;cAClCD,KAAD,IACNA,KAAK,CAACC,IAAN,KAAe,OAAf,GAAyB,KAAzB,GAAiC,MAAO;wBACxBD,KAAK,IAAIA,KAAK,CAACE,KAAN,IAAe,OAAQ;CALxD;AAQA,eAAeJ,SAAf",
+        "sourcesContent": [
+            "import styled from 'styled-components'\n\ninterface SeparatorProps {\n    color: string\n    size?: string\n}\n\nconst Separator = styled.div`\n    width: ${(props: SeparatorProps) =>\n        props.size === 'small' ? '28px' : '43px'};\n    height: ${(props: SeparatorProps) =>\n        props.size === 'small' ? '8px' : '11px'};\n    background-color: ${props => props.color || 'black'};\n`\n\nexport default Separator\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

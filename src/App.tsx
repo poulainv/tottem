@@ -7,30 +7,21 @@ import theme from './theme'
 import ReactGA from 'react-ga'
 
 const App: React.FC = () => {
-    useEffect(() => {
-        ReactGA.initialize('UA-149517534-1', {
-            testMode: process.env.NODE_ENV === 'test',
-        })
-        ReactGA.pageview(window.location.pathname + window.location.search)
-    })
+    // useEffect(() => {
+    //     ReactGA.initialize('UA-149517534-1', {
+    //         testMode: process.env.NODE_ENV === 'test',
+    //     })
+    //     ReactGA.pageview(window.location.pathname + window.location.search)
+    // })
 
     return (
-        <Router>
-            <Grommet theme={theme}>
-                <ResponsiveContext.Consumer>
-                    {size => (
-                        <Fragment>
-                            <Route exact path="/" component={Landing} />
-                            <Route
-                                exact
-                                path="/:profileId"
-                                component={Profile}
-                            />
-                        </Fragment>
-                    )}
-                </ResponsiveContext.Consumer>
-            </Grommet>
-        </Router>
+        <Grommet theme={theme}>
+            <Fragment>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/:profileId" component={Profile} />
+            </Fragment>
+            )}
+        </Grommet>
     )
 }
 

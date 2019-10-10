@@ -15,7 +15,7 @@ const Social: React.FC<ISocial> = props => {
                         icon={
                             <Image
                                 height="14px"
-                                src={require('../static/pictograms/mail.svg')}
+                                src={'/pictograms/mail.svg'}
                                 fit="contain"
                             />
                         }
@@ -32,7 +32,7 @@ const Social: React.FC<ISocial> = props => {
                         icon={
                             <Image
                                 height={pictoHeight}
-                                src={require('../static/pictograms/github.svg')}
+                                src={'/pictograms/github.svg'}
                                 fit="contain"
                             />
                         }
@@ -49,7 +49,7 @@ const Social: React.FC<ISocial> = props => {
                         icon={
                             <Image
                                 height={pictoHeight}
-                                src={require('../static/pictograms/linkedin.svg')}
+                                src={'/pictograms/linkedin.svg'}
                                 fit="contain"
                             />
                         }

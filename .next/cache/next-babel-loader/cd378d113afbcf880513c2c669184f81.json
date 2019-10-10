@@ -1,0 +1,31 @@
+{
+    "ast": null,
+    "code": "\"use strict\";\n\nvar _Object$defineProperty = require(\"@babel/runtime-corejs2/core-js/object/define-property\");\n\n_Object$defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nfunction getRouteRegex(normalizedRoute) {\n  // Escape all characters that could be considered RegEx\n  const escapedRoute = (normalizedRoute.replace(/\\/$/, '') || '/').replace(/[|\\\\{}()[\\]^$+*?.-]/g, '\\\\$&');\n  const groups = {};\n  let groupIndex = 1;\n  const parameterizedRoute = escapedRoute.replace(/\\/\\\\\\[([^\\/]+?)\\\\\\](?=\\/|$)/g, (_, $1) => (groups[$1 // Un-escape key\n  .replace(/\\\\([|\\\\{}()[\\]^$+*?.-])/g, '$1')] = groupIndex++, '/([^/]+?)'));\n  return {\n    re: new RegExp('^' + parameterizedRoute + '(?:/)?$', 'i'),\n    groups\n  };\n}\n\nexports.getRouteRegex = getRouteRegex;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/node_modules/next/dist/next-server/lib/router/utils/route-regex.js"
+        ],
+        "names": [
+            "exports",
+            "value",
+            "getRouteRegex",
+            "normalizedRoute",
+            "escapedRoute",
+            "replace",
+            "groups",
+            "groupIndex",
+            "parameterizedRoute",
+            "_",
+            "$1",
+            "re",
+            "RegExp"
+        ],
+        "mappings": "AAAA;;;;AACA,uBAAsBA,OAAtB,EAA+B,YAA/B,EAA6C;AAAEC,EAAAA,KAAK,EAAE;AAAT,CAA7C;;AACA,SAASC,aAAT,CAAuBC,eAAvB,EAAwC;AACpC;AACA,QAAMC,YAAY,GAAG,CAACD,eAAe,CAACE,OAAhB,CAAwB,KAAxB,EAA+B,EAA/B,KAAsC,GAAvC,EAA4CA,OAA5C,CAAoD,sBAApD,EAA4E,MAA5E,CAArB;AACA,QAAMC,MAAM,GAAG,EAAf;AACA,MAAIC,UAAU,GAAG,CAAjB;AACA,QAAMC,kBAAkB,GAAGJ,YAAY,CAACC,OAAb,CAAqB,8BAArB,EAAqD,CAACI,CAAD,EAAIC,EAAJ,MAAaJ,MAAM,CAACI,EAAE,CAClG;AADkG,GAEjGL,OAF+F,CAEvF,0BAFuF,EAE3D,IAF2D,CAAD,CAAN,GAE3CE,UAAU,EAFgC,EAGxF,WAH4E,CAArD,CAA3B;AAIA,SAAO;AACHI,IAAAA,EAAE,EAAE,IAAIC,MAAJ,CAAW,MAAMJ,kBAAN,GAA2B,SAAtC,EAAiD,GAAjD,CADD;AAEHF,IAAAA;AAFG,GAAP;AAIH;;AACDN,OAAO,CAACE,aAAR,GAAwBA,aAAxB",
+        "sourcesContent": [
+            "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction getRouteRegex(normalizedRoute) {\n    // Escape all characters that could be considered RegEx\n    const escapedRoute = (normalizedRoute.replace(/\\/$/, '') || '/').replace(/[|\\\\{}()[\\]^$+*?.-]/g, '\\\\$&');\n    const groups = {};\n    let groupIndex = 1;\n    const parameterizedRoute = escapedRoute.replace(/\\/\\\\\\[([^\\/]+?)\\\\\\](?=\\/|$)/g, (_, $1) => ((groups[$1\n        // Un-escape key\n        .replace(/\\\\([|\\\\{}()[\\]^$+*?.-])/g, '$1')] = groupIndex++),\n        '/([^/]+?)'));\n    return {\n        re: new RegExp('^' + parameterizedRoute + '(?:/)?$', 'i'),\n        groups,\n    };\n}\nexports.getRouteRegex = getRouteRegex;\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "script"
+}

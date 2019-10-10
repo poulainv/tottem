@@ -1,0 +1,45 @@
+{
+    "ast": null,
+    "code": "import _taggedTemplateLiteral from \"@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral\";\nvar _jsxFileName = \"/Users/vincentpoulain/Development/quiet/src/components/Cards/CardInfo.tsx\";\nvar __jsx = React.createElement;\n\nfunction _templateObject2() {\n  const data = _taggedTemplateLiteral([\"\\n    font-size: 14px;\\n\\n    @media screen and (max-width: 600px) {\\n        font-size: 13px;\\n    }\\n\"]);\n\n  _templateObject2 = function () {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _templateObject() {\n  const data = _taggedTemplateLiteral([\"\\n    font-weight: 500;\\n    font-size: 14px;\\n\\n    @media screen and (max-width: 600px) {\\n        font-size: 13px;\\n    }\\n\"]);\n\n  _templateObject = function () {\n    return data;\n  };\n\n  return data;\n}\n\nimport Box from \"grommet/components/Box/Box\";\nimport Button from \"grommet/components/Button/Button\";\nimport Text from \"grommet/components/Text/Text\";\nimport Share from \"grommet-icons/icons/Share\";\nimport React from 'react';\nimport ReactGA from 'react-ga';\nimport Truncate from 'react-truncate';\nimport styled from 'styled-components';\nimport { CardSize } from './Card';\nconst StyledTitle = styled(Text)(_templateObject());\nconst StyledAuthor = styled(Text)(_templateObject2());\n\nfunction trackOpenItem() {\n  ReactGA.initialize('UA-149517534-1');\n  ReactGA.event({\n    category: 'Item',\n    action: 'Open item'\n  });\n}\n\nconst CardInfo = props => {\n  const optionButton = __jsx(Box, {\n    direction: \"row\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 43\n    },\n    __self: this\n  }, __jsx(Button, {\n    style: {\n      padding: '0px 5px 0px 5px'\n    },\n    icon: __jsx(Share, {\n      size: \"small\",\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 50\n      },\n      __self: this\n    }),\n    href: props.item.productUrl,\n    onClick: trackOpenItem,\n    target: \"_blank\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 48\n    },\n    __self: this\n  }));\n\n  return __jsx(Box, {\n    height: \"84px\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 59\n    },\n    __self: this\n  }, __jsx(Box, {\n    height: {\n      max: 'xxsmall'\n    },\n    margin: {\n      top: 'small'\n    },\n    responsive: false,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 60\n    },\n    __self: this\n  }, __jsx(StyledTitle, {\n    color: \"dark-1\",\n    size: \"medium\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 65\n    },\n    __self: this\n  }, __jsx(Truncate, {\n    width: props.small ? CardSize.small.widthInNumber : CardSize.large.widthInNumber,\n    lines: 2,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 67\n    },\n    __self: this\n  }, props.item.title))), __jsx(Box, {\n    direction: \"row\",\n    margin: {\n      top: 'xsmall'\n    },\n    justify: \"between\",\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 79\n    },\n    __self: this\n  }, __jsx(Box, {\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 80\n    },\n    __self: this\n  }, __jsx(StyledAuthor, {\n    color: \"dark-3\",\n    truncate: true,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 81\n    },\n    __self: this\n  }, props.item.author)), props.hover && optionButton));\n};\n\nexport default CardInfo;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Cards/CardInfo.tsx"
+        ],
+        "names": [
+            "React",
+            "ReactGA",
+            "Truncate",
+            "styled",
+            "CardSize",
+            "StyledTitle",
+            "Text",
+            "StyledAuthor",
+            "trackOpenItem",
+            "initialize",
+            "event",
+            "category",
+            "action",
+            "CardInfo",
+            "props",
+            "optionButton",
+            "padding",
+            "item",
+            "productUrl",
+            "max",
+            "top",
+            "small",
+            "widthInNumber",
+            "large",
+            "title",
+            "author",
+            "hover"
+        ],
+        "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;AAEA,OAAOA,KAAP,MAAkB,OAAlB;AACA,OAAOC,OAAP,MAAoB,UAApB;AACA,OAAOC,QAAP,MAAqB,gBAArB;AACA,OAAOC,MAAP,MAAmB,mBAAnB;AAEA,SAASC,QAAT,QAAyB,QAAzB;AAEA,MAAMC,WAAW,GAAGF,MAAM,CAACG,IAAD,CAAT,mBAAjB;AASA,MAAMC,YAAY,GAAGJ,MAAM,CAACG,IAAD,CAAT,oBAAlB;;AAcA,SAASE,aAAT,GAAyB;AACrBP,EAAAA,OAAO,CAACQ,UAAR,CAAmB,gBAAnB;AACAR,EAAAA,OAAO,CAACS,KAAR,CAAc;AACVC,IAAAA,QAAQ,EAAE,MADA;AAEVC,IAAAA,MAAM,EAAE;AAFE,GAAd;AAIH;;AAED,MAAMC,QAAiC,GAAIC,KAAD,IAA0B;AAChE,QAAMC,YAAY,GACd,MAAC,GAAD;AAAK,IAAA,SAAS,EAAC,KAAf;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAKI,MAAC,MAAD;AACI,IAAA,KAAK,EAAE;AAAEC,MAAAA,OAAO,EAAE;AAAX,KADX;AAEI,IAAA,IAAI,EAAE,MAAC,KAAD;AAAO,MAAA,IAAI,EAAC,OAAZ;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,MAFV;AAGI,IAAA,IAAI,EAAEF,KAAK,CAACG,IAAN,CAAWC,UAHrB;AAII,IAAA,OAAO,EAAEV,aAJb;AAKI,IAAA,MAAM,EAAC,QALX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IALJ,CADJ;;AAgBA,SACI,MAAC,GAAD;AAAK,IAAA,MAAM,EAAC,MAAZ;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACI,MAAC,GAAD;AACI,IAAA,MAAM,EAAE;AAAEW,MAAAA,GAAG,EAAE;AAAP,KADZ;AAEI,IAAA,MAAM,EAAE;AAAEC,MAAAA,GAAG,EAAE;AAAP,KAFZ;AAGI,IAAA,UAAU,EAAE,KAHhB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAKI,MAAC,WAAD;AAAa,IAAA,KAAK,EAAC,QAAnB;AAA4B,IAAA,IAAI,EAAC,QAAjC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAEI,MAAC,QAAD;AACI,IAAA,KAAK,EACDN,KAAK,CAACO,KAAN,GACMjB,QAAQ,CAACiB,KAAT,CAAeC,aADrB,GAEMlB,QAAQ,CAACmB,KAAT,CAAeD,aAJ7B;AAMI,IAAA,KAAK,EAAE,CANX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAQKR,KAAK,CAACG,IAAN,CAAWO,KARhB,CAFJ,CALJ,CADJ,EAoBI,MAAC,GAAD;AAAK,IAAA,SAAS,EAAC,KAAf;AAAqB,IAAA,MAAM,EAAE;AAAEJ,MAAAA,GAAG,EAAE;AAAP,KAA7B;AAAgD,IAAA,OAAO,EAAC,SAAxD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACI,MAAC,GAAD;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACI,MAAC,YAAD;AAAc,IAAA,KAAK,EAAC,QAApB;AAA6B,IAAA,QAAQ,MAArC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACKN,KAAK,CAACG,IAAN,CAAWQ,MADhB,CADJ,CADJ,EAMKX,KAAK,CAACY,KAAN,IAAeX,YANpB,CApBJ,CADJ;AA+BH,CAhDD;;AAkDA,eAAeF,QAAf",
+        "sourcesContent": [
+            "import { Box, Button, Text } from 'grommet'\nimport { Share } from 'grommet-icons'\nimport React from 'react'\nimport ReactGA from 'react-ga'\nimport Truncate from 'react-truncate'\nimport styled from 'styled-components'\nimport { Item } from '../../types'\nimport { CardSize } from './Card'\n\nconst StyledTitle = styled(Text)`\n    font-weight: 500;\n    font-size: 14px;\n\n    @media screen and (max-width: 600px) {\n        font-size: 13px;\n    }\n`\n\nconst StyledAuthor = styled(Text)`\n    font-size: 14px;\n\n    @media screen and (max-width: 600px) {\n        font-size: 13px;\n    }\n`\n\ninterface CardInfoProps {\n    item: Item\n    small: boolean\n    hover: boolean\n}\n\nfunction trackOpenItem() {\n    ReactGA.initialize('UA-149517534-1')\n    ReactGA.event({\n        category: 'Item',\n        action: 'Open item',\n    })\n}\n\nconst CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {\n    const optionButton = (\n        <Box direction=\"row\">\n            {/* <Button\n                style={{ padding: '0px 5px 0px 5px' }}\n                icon={<Copy size=\"small\" />}\n            /> */}\n            <Button\n                style={{ padding: '0px 5px 0px 5px' }}\n                icon={<Share size=\"small\" />}\n                href={props.item.productUrl}\n                onClick={trackOpenItem}\n                target=\"_blank\"\n            />\n        </Box>\n    )\n\n    return (\n        <Box height=\"84px\">\n            <Box\n                height={{ max: 'xxsmall' }}\n                margin={{ top: 'small' }}\n                responsive={false}\n            >\n                <StyledTitle color=\"dark-1\" size=\"medium\">\n                    {/* Crazy stuff to just split multi lines :'( */}\n                    <Truncate\n                        width={\n                            props.small\n                                ? CardSize.small.widthInNumber\n                                : CardSize.large.widthInNumber\n                        }\n                        lines={2}\n                    >\n                        {props.item.title}\n                    </Truncate>\n                </StyledTitle>\n            </Box>\n            <Box direction=\"row\" margin={{ top: 'xsmall' }} justify=\"between\">\n                <Box>\n                    <StyledAuthor color=\"dark-3\" truncate>\n                        {props.item.author}\n                    </StyledAuthor>\n                </Box>\n                {props.hover && optionButton}\n            </Box>\n        </Box>\n    )\n}\n\nexport default CardInfo\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

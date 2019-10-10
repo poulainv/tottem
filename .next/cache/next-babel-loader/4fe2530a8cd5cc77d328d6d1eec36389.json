@@ -1,0 +1,34 @@
+{
+    "ast": null,
+    "code": "import _extends from \"@babel/runtime-corejs2/helpers/esm/extends\";\nvar _jsxFileName = \"/Users/vincentpoulain/Development/quiet/src/components/Views/Section.tsx\";\nvar __jsx = React.createElement;\nimport React from 'react';\nimport Box from \"grommet/components/Box/Box\";\nimport Collection from './Collection';\n\nconst Section = props => {\n  return __jsx(Box, {\n    direction: \"column\",\n    fill: true,\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 12\n    },\n    __self: this\n  }, props.collections.sort((a, b) => b.date.getTime() - a.date.getTime()).filter(x => x.items).map(collection => {\n    return __jsx(Collection, _extends({\n      key: collection.name\n    }, collection, {\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 17\n      },\n      __self: this\n    }));\n  }));\n};\n\nexport default Section;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Views/Section.tsx"
+        ],
+        "names": [
+            "React",
+            "Collection",
+            "Section",
+            "props",
+            "collections",
+            "sort",
+            "a",
+            "b",
+            "date",
+            "getTime",
+            "filter",
+            "x",
+            "items",
+            "map",
+            "collection",
+            "name"
+        ],
+        "mappings": ";;;AAAA,OAAOA,KAAP,MAAkB,OAAlB;;AAGA,OAAOC,UAAP,MAAuB,cAAvB;;AAMA,MAAMC,OAAwB,GAAGC,KAAK,IAAI;AACtC,SACI,MAAC,GAAD;AAAK,IAAA,SAAS,EAAC,QAAf;AAAwB,IAAA,IAAI,MAA5B;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KACKA,KAAK,CAACC,WAAN,CACIC,IADJ,CACS,CAACC,CAAD,EAAIC,CAAJ,KAAUA,CAAC,CAACC,IAAF,CAAOC,OAAP,KAAmBH,CAAC,CAACE,IAAF,CAAOC,OAAP,EADtC,EAEIC,MAFJ,CAEWC,CAAC,IAAIA,CAAC,CAACC,KAFlB,EAGIC,GAHJ,CAGSC,UAAD,IAA6B;AAC9B,WAAO,MAAC,UAAD;AAAY,MAAA,GAAG,EAAEA,UAAU,CAACC;AAA5B,OAAsCD,UAAtC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OAAP;AACH,GALJ,CADL,CADJ;AAUH,CAXD;;AAaA,eAAeZ,OAAf",
+        "sourcesContent": [
+            "import React from 'react'\nimport { Box } from 'grommet'\nimport { ICollection } from '../../types'\nimport Collection from './Collection'\n\ninterface Props {\n    collections: ICollection[]\n}\n\nconst Section: React.FC<Props> = props => {\n    return (\n        <Box direction=\"column\" fill>\n            {props.collections\n                .sort((a, b) => b.date.getTime() - a.date.getTime())\n                .filter(x => x.items)\n                .map((collection: ICollection) => {\n                    return <Collection key={collection.name} {...collection} />\n                })}\n        </Box>\n    )\n}\n\nexport default Section\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

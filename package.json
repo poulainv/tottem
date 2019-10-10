@@ -14,8 +14,9 @@
         "grommet": "^2.7.8",
         "grommet-icons": "^4.3.0",
         "lodash.groupby": "^4.6.0",
-        "react": "^16.10.1",
-        "react-dom": "^16.10.1",
+        "next": "^9.1.1",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
         "react-ga": "^2.7.0",
         "react-router-dom": "^5.1.2",
         "react-scripts": "3.1.1",
@@ -23,12 +24,9 @@
         "styled-components": "^4.4.0"
     },
     "scripts": {
-        "analyze": "source-map-explorer 'build/static/js/*.js'",
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "lint": "tslint 'src/**/*.{tsx,ts}'",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -51,6 +49,8 @@
         }
     },
     "devDependencies": {
+        "babel-plugin-grommet": "^0.5.3",
+        "babel-plugin-styled-components": "^1.10.6",
         "eslint": "^6.5.1",
         "husky": "^3.0.7",
         "prettier": "1.18.2",

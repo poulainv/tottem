@@ -1,0 +1,26 @@
+{
+    "ast": null,
+    "code": "const profile = {\n  firstname: 'Vincent P.',\n  pictureUrl: '/images/profiles/vincent.png',\n  biography: \"Hi ! My primary job is software engineer. \\n    As soon as I am building things, I can't count hours anymore !   \\n    I try to figure out how technology can better support well-being and global challenges. \\n    Here, I share only what get me inspired and give me energy.\",\n  social: {\n    github: 'https://github.com/poulainv',\n    linkedin: 'https://www.linkedin.com/in/vincentpoulain/',\n    mail: 'vincent.poulain2@gmail.com'\n  }\n};\nexport default profile;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/data/vincent/profile.tsx"
+        ],
+        "names": [
+            "profile",
+            "firstname",
+            "pictureUrl",
+            "biography",
+            "social",
+            "github",
+            "linkedin",
+            "mail"
+        ],
+        "mappings": "AAEA,MAAMA,OAAoB,GAAG;AACzBC,EAAAA,SAAS,EAAE,YADc;AAEzBC,EAAAA,UAAU,EAAE,8BAFa;AAGzBC,EAAAA,SAAS,oRAHgB;AAOzBC,EAAAA,MAAM,EAAE;AACJC,IAAAA,MAAM,EAAE,6BADJ;AAEJC,IAAAA,QAAQ,EAAE,6CAFN;AAGJC,IAAAA,IAAI,EAAE;AAHF;AAPiB,CAA7B;AAcA,eAAeP,OAAf",
+        "sourcesContent": [
+            "import { UserProfile } from '../../types'\n\nconst profile: UserProfile = {\n    firstname: 'Vincent P.',\n    pictureUrl: '/images/profiles/vincent.png',\n    biography: `Hi ! My primary job is software engineer. \n    As soon as I am building things, I can't count hours anymore !   \n    I try to figure out how technology can better support well-being and global challenges. \n    Here, I share only what get me inspired and give me energy.`,\n    social: {\n        github: 'https://github.com/poulainv',\n        linkedin: 'https://www.linkedin.com/in/vincentpoulain/',\n        mail: 'vincent.poulain2@gmail.com',\n    },\n}\n\nexport default profile\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

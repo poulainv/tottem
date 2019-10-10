@@ -45,7 +45,7 @@ const colors: { [type in ItemType]: string } = {
 
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    const picto = require(`../../static/pictograms/${props.item.type}-white.svg`)
+    const picto = `/pictograms/${props.item.type}-white.svg`
     return (
         <Stack anchor="top-left">
             <Box

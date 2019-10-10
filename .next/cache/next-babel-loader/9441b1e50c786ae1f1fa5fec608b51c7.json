@@ -1,0 +1,51 @@
+{
+    "ast": null,
+    "code": "var _jsxFileName = \"/Users/vincentpoulain/Development/quiet/src/components/Views/ItemList.tsx\";\nvar __jsx = React.createElement;\nimport React, { useContext } from 'react';\nimport Box from \"grommet/components/Box/Box\";\nimport ResponsiveContext from \"grommet/contexts/ResponsiveContext/ResponsiveContext\";\nimport Card, { CardSize } from '../Cards/Card';\nimport styled from 'styled-components';\nconst imageShapes = {\n  album: 'square',\n  book: 'rectangle',\n  movie: 'rectangle',\n  paper: 'square',\n  people: 'circle',\n  podcast: 'square',\n  video: 'square'\n};\nconst StyledBox = styled(Box)`\n    ::-webkit-scrollbar {\n        display: none;\n    }\n`;\n\nconst ItemList = props => {\n  const size = useContext(ResponsiveContext);\n  const isMobile = size === 'small';\n  return __jsx(StyledBox, {\n    responsive: false,\n    direction: \"row\",\n    wrap: !isMobile,\n    pad: {\n      horizontal: 'medium',\n      bottom: isMobile ? 'medium' : 'none'\n    },\n    gap: isMobile ? 'large' : 'none',\n    justify: \"start\",\n    align: \"start\",\n    overflow: {\n      horizontal: isMobile ? 'auto' : 'visible'\n    },\n    __source: {\n      fileName: _jsxFileName,\n      lineNumber: 28\n    },\n    __self: this\n  }, props.items.map(item => {\n    return __jsx(Box, {\n      basis: isMobile ? 'none' : '25%',\n      align: \"center\",\n      pad: {\n        top: 'large'\n      },\n      key: item.title.toString(),\n      width: {\n        min: isMobile ? CardSize.small.width : CardSize.large.width\n      },\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 40\n      },\n      __self: this\n    }, __jsx(Card, {\n      width: isMobile ? CardSize.small.width : CardSize.large.width,\n      item: item,\n      small: isMobile,\n      imageShape: imageShapes[item.type],\n      __source: {\n        fileName: _jsxFileName,\n        lineNumber: 51\n      },\n      __self: this\n    }));\n  }));\n};\n\nexport default ItemList;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/src/components/Views/ItemList.tsx"
+        ],
+        "names": [
+            "React",
+            "useContext",
+            "Card",
+            "CardSize",
+            "styled",
+            "imageShapes",
+            "album",
+            "book",
+            "movie",
+            "paper",
+            "people",
+            "podcast",
+            "video",
+            "StyledBox",
+            "Box",
+            "ItemList",
+            "props",
+            "size",
+            "ResponsiveContext",
+            "isMobile",
+            "horizontal",
+            "bottom",
+            "items",
+            "map",
+            "item",
+            "top",
+            "title",
+            "toString",
+            "min",
+            "small",
+            "width",
+            "large",
+            "type"
+        ],
+        "mappings": ";;AAAA,OAAOA,KAAP,IAAgBC,UAAhB,QAAkC,OAAlC;;;AAEA,OAAOC,IAAP,IAAeC,QAAf,QAA+B,eAA/B;AAGA,OAAOC,MAAP,MAAmB,mBAAnB;AAEA,MAAMC,WAAmD,GAAG;AACxDC,EAAAA,KAAK,EAAE,QADiD;AAExDC,EAAAA,IAAI,EAAE,WAFkD;AAGxDC,EAAAA,KAAK,EAAE,WAHiD;AAIxDC,EAAAA,KAAK,EAAE,QAJiD;AAKxDC,EAAAA,MAAM,EAAE,QALgD;AAMxDC,EAAAA,OAAO,EAAE,QAN+C;AAOxDC,EAAAA,KAAK,EAAE;AAPiD,CAA5D;AAUA,MAAMC,SAAS,GAAGT,MAAM,CAACU,GAAD,CAAM;;;;CAA9B;;AAMA,MAAMC,QAAqC,GAAGC,KAAK,IAAI;AACnD,QAAMC,IAAI,GAAGhB,UAAU,CAACiB,iBAAD,CAAvB;AACA,QAAMC,QAAQ,GAAGF,IAAI,KAAK,OAA1B;AACA,SACI,MAAC,SAAD;AACI,IAAA,UAAU,EAAE,KADhB;AAEI,IAAA,SAAS,EAAC,KAFd;AAGI,IAAA,IAAI,EAAE,CAACE,QAHX;AAII,IAAA,GAAG,EAAE;AAAEC,MAAAA,UAAU,EAAE,QAAd;AAAwBC,MAAAA,MAAM,EAAEF,QAAQ,GAAG,QAAH,GAAc;AAAtD,KAJT;AAKI,IAAA,GAAG,EAAEA,QAAQ,GAAG,OAAH,GAAa,MAL9B;AAMI,IAAA,OAAO,EAAC,OANZ;AAOI,IAAA,KAAK,EAAC,OAPV;AAQI,IAAA,QAAQ,EAAE;AAAEC,MAAAA,UAAU,EAAED,QAAQ,GAAG,MAAH,GAAY;AAAlC,KARd;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,KAUKH,KAAK,CAACM,KAAN,CAAYC,GAAZ,CAAiBC,IAAD,IAAgB;AAC7B,WACI,MAAC,GAAD;AACI,MAAA,KAAK,EAAEL,QAAQ,GAAG,MAAH,GAAY,KAD/B;AAEI,MAAA,KAAK,EAAC,QAFV;AAGI,MAAA,GAAG,EAAE;AAAEM,QAAAA,GAAG,EAAE;AAAP,OAHT;AAII,MAAA,GAAG,EAAED,IAAI,CAACE,KAAL,CAAWC,QAAX,EAJT;AAKI,MAAA,KAAK,EAAE;AACHC,QAAAA,GAAG,EAAET,QAAQ,GACPhB,QAAQ,CAAC0B,KAAT,CAAeC,KADR,GAEP3B,QAAQ,CAAC4B,KAAT,CAAeD;AAHlB,OALX;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,OAWI,MAAC,IAAD;AACI,MAAA,KAAK,EACDX,QAAQ,GACFhB,QAAQ,CAAC0B,KAAT,CAAeC,KADb,GAEF3B,QAAQ,CAAC4B,KAAT,CAAeD,KAJ7B;AAMI,MAAA,IAAI,EAAEN,IANV;AAOI,MAAA,KAAK,EAAEL,QAPX;AAQI,MAAA,UAAU,EAAEd,WAAW,CAACmB,IAAI,CAACQ,IAAN,CAR3B;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,MAXJ,CADJ;AAwBH,GAzBA,CAVL,CADJ;AAuCH,CA1CD;;AA4CA,eAAejB,QAAf",
+        "sourcesContent": [
+            "import React, { useContext } from 'react'\nimport { Box, ResponsiveContext } from 'grommet'\nimport Card, { CardSize } from '../Cards/Card'\nimport { Item, ItemType } from '../../types'\nimport { ImageShapeType } from '../Cards/CoverImage'\nimport styled from 'styled-components'\n\nconst imageShapes: { [type in ItemType]: ImageShapeType } = {\n    album: 'square',\n    book: 'rectangle',\n    movie: 'rectangle',\n    paper: 'square',\n    people: 'circle',\n    podcast: 'square',\n    video: 'square',\n}\n\nconst StyledBox = styled(Box)`\n    ::-webkit-scrollbar {\n        display: none;\n    }\n`\n\nconst ItemList: React.FC<{ items: Item[] }> = props => {\n    const size = useContext(ResponsiveContext)\n    const isMobile = size === 'small'\n    return (\n        <StyledBox\n            responsive={false}\n            direction=\"row\"\n            wrap={!isMobile}\n            pad={{ horizontal: 'medium', bottom: isMobile ? 'medium' : 'none' }}\n            gap={isMobile ? 'large' : 'none'}\n            justify=\"start\"\n            align=\"start\"\n            overflow={{ horizontal: isMobile ? 'auto' : 'visible' }}\n        >\n            {props.items.map((item: Item) => {\n                return (\n                    <Box\n                        basis={isMobile ? 'none' : '25%'}\n                        align=\"center\"\n                        pad={{ top: 'large' }}\n                        key={item.title.toString()}\n                        width={{\n                            min: isMobile\n                                ? CardSize.small.width\n                                : CardSize.large.width,\n                        }}\n                    >\n                        <Card\n                            width={\n                                isMobile\n                                    ? CardSize.small.width\n                                    : CardSize.large.width\n                            }\n                            item={item}\n                            small={isMobile}\n                            imageShape={imageShapes[item.type]}\n                        />\n                    </Box>\n                )\n            })}\n        </StyledBox>\n    )\n}\n\nexport default ItemList\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "module"
+}

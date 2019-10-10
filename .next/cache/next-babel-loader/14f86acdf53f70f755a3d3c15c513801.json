@@ -1,0 +1,28 @@
+{
+    "ast": null,
+    "code": "\"use strict\";\n\nvar _Map = require(\"@babel/runtime-corejs2/core-js/map\");\n\nvar _Object$defineProperty = require(\"@babel/runtime-corejs2/core-js/object/define-property\");\n\n_Object$defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nclass DataManager {\n  constructor(data) {\n    this.data = new _Map(data);\n  }\n\n  getData() {\n    return this.data;\n  }\n\n  get(key) {\n    return this.data.get(key);\n  }\n\n  set(key, value) {\n    this.data.set(key, value);\n  }\n\n  overwrite(data) {\n    this.data = new _Map(data);\n  }\n\n}\n\nexports.DataManager = DataManager;",
+    "map": {
+        "version": 3,
+        "sources": [
+            "/Users/vincentpoulain/Development/quiet/node_modules/next/dist/next-server/lib/data-manager.js"
+        ],
+        "names": [
+            "exports",
+            "value",
+            "DataManager",
+            "constructor",
+            "data",
+            "getData",
+            "get",
+            "key",
+            "set",
+            "overwrite"
+        ],
+        "mappings": "AAAA;;;;;;AACA,uBAAsBA,OAAtB,EAA+B,YAA/B,EAA6C;AAAEC,EAAAA,KAAK,EAAE;AAAT,CAA7C;;AACA,MAAMC,WAAN,CAAkB;AACdC,EAAAA,WAAW,CAACC,IAAD,EAAO;AACd,SAAKA,IAAL,GAAY,SAAQA,IAAR,CAAZ;AACH;;AACDC,EAAAA,OAAO,GAAG;AACN,WAAO,KAAKD,IAAZ;AACH;;AACDE,EAAAA,GAAG,CAACC,GAAD,EAAM;AACL,WAAO,KAAKH,IAAL,CAAUE,GAAV,CAAcC,GAAd,CAAP;AACH;;AACDC,EAAAA,GAAG,CAACD,GAAD,EAAMN,KAAN,EAAa;AACZ,SAAKG,IAAL,CAAUI,GAAV,CAAcD,GAAd,EAAmBN,KAAnB;AACH;;AACDQ,EAAAA,SAAS,CAACL,IAAD,EAAO;AACZ,SAAKA,IAAL,GAAY,SAAQA,IAAR,CAAZ;AACH;;AAfa;;AAiBlBJ,OAAO,CAACE,WAAR,GAAsBA,WAAtB",
+        "sourcesContent": [
+            "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nclass DataManager {\n    constructor(data) {\n        this.data = new Map(data);\n    }\n    getData() {\n        return this.data;\n    }\n    get(key) {\n        return this.data.get(key);\n    }\n    set(key, value) {\n        this.data.set(key, value);\n    }\n    overwrite(data) {\n        this.data = new Map(data);\n    }\n}\nexports.DataManager = DataManager;\n"
+        ]
+    },
+    "metadata": {},
+    "sourceType": "script"
+}

@@ -5,7 +5,7 @@ import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import Logo from '../components/Logo'
 import Separator from '../components/Separator'
-import artwork from '../static/images/artworks/landing-illustration-ld.png'
+// import artwork from '../static/images/artworks/landing-illustration-ld.png'
 import { accent500, accent900, brand500 } from '../theme'
 
 const Header = styled(Heading)`
@@ -73,7 +73,7 @@ const Artwork: React.FC = props => {
                     width: '100%',
                     height: 'auto',
                 }}
-                src={artwork}
+                // src={artwork}
             />
         </Box>
     )
@@ -129,7 +129,7 @@ const Landing: React.FunctionComponent = props => {
                 >
                     <Box align={isMobile ? 'center' : 'start'}>
                         <Header level={2}>
-                            The knowledge platform for community
+                            The knowledge platform for community COUCOU
                         </Header>
                         {isMobile && <Artwork />}
                         {size === 'large' && (
