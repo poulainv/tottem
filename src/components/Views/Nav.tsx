@@ -1,9 +1,14 @@
-import { Box, Heading, ResponsiveContext, Text } from 'grommet'
-import React, { useContext } from 'react'
+import { Box, Heading, Text } from 'grommet'
+import React from 'react'
 import styled from 'styled-components'
 import { UserProfile } from '../../types'
 import PictureProfile from '../PictureProfile'
 import Social from '../Social'
+import {
+    LargeAndUp,
+    MediumAndUp,
+    SmallAndDown,
+} from '../ResponsiveStyledComponent'
 
 const Label = styled.div`
     color: #777777;
@@ -17,16 +22,15 @@ const Label = styled.div`
     width: fit-content;
 `
 
+const Biography = styled(Text)`
+    font-size: 16px;
+
+    @media screen and (max-width: 812px) {
+        font-size: 14px;
+    }
+`
+
 const ProfileDescription: React.FC<UserProfile> = props => {
-    const size = useContext(ResponsiveContext)
-    const isMobile = size === 'small'
-
-    const Biography = (
-        <Box width="large" margin={{ bottom: isMobile ? 'medium' : 'none' }}>
-            <Text size={isMobile ? 'small' : 'medium'}>{props.biography}</Text>
-        </Box>
-    )
-
     return (
         <Box pad={{ horizontal: 'large' }}>
             <Box direction="row" justify="start" margin={{ bottom: 'large' }}>
@@ -35,7 +39,7 @@ const ProfileDescription: React.FC<UserProfile> = props => {
                     flex={false}
                     responsive={false}
                 >
-                    <PictureProfile size={size} imageUrl={props.pictureUrl} />
+                    <PictureProfile imageUrl={props.pictureUrl} />
                 </Box>
                 <Box width="full">
                     <Box direction="row" align="start" justify="between">
@@ -47,10 +51,18 @@ const ProfileDescription: React.FC<UserProfile> = props => {
                         </Box>
                         <Social {...props.social} />
                     </Box>
-                    {!isMobile && Biography}
+                    <MediumAndUp>
+                        <Box width="large" margin={{ bottom: 'none' }}>
+                            <Biography>{props.biography}</Biography>
+                        </Box>
+                    </MediumAndUp>
                 </Box>
             </Box>
-            {isMobile && Biography}
+            <SmallAndDown>
+                <Box width="large" margin={{ bottom: 'medium' }}>
+                    <Biography>{props.biography}</Biography>
+                </Box>
+            </SmallAndDown>
         </Box>
     )
 }

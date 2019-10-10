@@ -335,7 +335,7 @@ const items: Item[] = [
         title: 'Naissance de la biopolitique : cours au Collège de France',
         author: 'Michel Foucault',
         note: 'Playlist Youtube mais un bouquin est aussi disponible',
-        imageUrl: require('../../static/images/artworks/video-placeholder.svg'),
+        imageUrl: '/images/artworks/video-placeholder.svg',
         productUrl:
             'https://www.youtube.com/playlist?list=PLw4-Fp0S2dJakQHXcXxTSjISLCAuT0Qiv',
         type: 'video',

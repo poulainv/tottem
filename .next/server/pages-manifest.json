@@ -1,6 +1,6 @@
 {
+    "/[profile]": "static/development/pages/[profile].js",
     "/_app": "static/development/pages/_app.js",
     "/_document": "static/development/pages/_document.js",
-    "/_error": "static/development/pages/_error.js",
-    "/profile": "static/development/pages/profile.js"
+    "/_error": "static/development/pages/_error.js"
 }

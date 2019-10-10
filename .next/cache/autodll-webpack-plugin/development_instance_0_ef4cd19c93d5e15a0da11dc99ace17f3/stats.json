@@ -3,8 +3,8 @@
     "warnings": [],
     "version": "4.39.1",
     "hash": "492c97d20afdca23aa1f",
-    "time": 3570,
-    "builtAt": 1570639729138,
+    "time": 3613,
+    "builtAt": 1570724892286,
     "publicPath": "",
     "outputPath": "/Users/vincentpoulain/Development/quiet/.next/cache/autodll-webpack-plugin/development_instance_0_ef4cd19c93d5e15a0da11dc99ace17f3",
     "assetsByChunkName": {

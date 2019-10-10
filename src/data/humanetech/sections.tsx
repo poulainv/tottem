@@ -95,7 +95,7 @@ const sections: ISection[] = [
                         collectionId: '201',
                         type: 'paper',
                         author: 'Joe Edelman',
-                        imageUrl: require('../../static/images/articles/clickgoal.jpg'),
+                        imageUrl: '/images/articles/clickgoal.jpg',
                         title: 'Is Anything worth Maximizing',
                         productUrl:
                             'https://medium.com/what-to-build/is-anything-worth-maximizing-d11e648eb56f',
