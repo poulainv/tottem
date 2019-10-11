@@ -16,6 +16,7 @@ import {
 } from '../components/ResponsiveStyledComponent'
 import Separator from '../components/Separator'
 import { accent500, accent900, brand500 } from '../theme'
+import { NextSeo } from 'next-seo'
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -92,6 +93,7 @@ const handleCTA = () => {
 const Landing: React.FC = props => {
     return (
         <Box align="center" background="white">
+            <NextSeo title="Tottem" />
             <Box
                 direction="row"
                 justify="between"
