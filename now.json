@@ -1,0 +1,3 @@
+{
+    "builds": [{ "src": "public/*", "use": "@now/static" }]
+}
