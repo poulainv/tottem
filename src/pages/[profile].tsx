@@ -25,16 +25,16 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
         <Grommet theme={theme}>
             <NextSeo
                 title={`${userProfile.firstname} - Tottem`}
-                description={`See ${collectionCount} ${userProfile.firstname} collections`}
+                description={`See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`}
                 openGraph={{
-                    description: `See ${collectionCount} ${userProfile.firstname} collections`,
+                    description: `See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`,
                     url: `https://tottem.app/${router.query.profile}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            width: 698,
-                            height: 388,
-                            url: 'https://tottem.app/thumbnail.png',
+                            width: 556,
+                            height: 392,
+                            url: `https://tottem.app/thumbnail-${router.query.profile}.jpg`,
                         },
                     ],
                 }}
