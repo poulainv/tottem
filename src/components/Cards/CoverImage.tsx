@@ -45,6 +45,7 @@ const CoverImage: React.FC<CoverProps> = props => {
                         marginLeft: 'auto',
                         marginRight: 'auto',
                     }}
+                    alt="Pictogram"
                     fit="contain"
                     width="30px"
                     height="30px"

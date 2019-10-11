@@ -25,7 +25,7 @@ class MyDocument extends Document {
                     description="Knowledge platform for community, it's place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more"
                     openGraph={{
                         type: 'website',
-                        locale: 'en_IE',
+                        locale: 'en_en',
                         url: 'htts://tottem.app',
                         site_name: 'Tottem',
                         images: [

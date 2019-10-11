@@ -2,8 +2,9 @@ import { Box, Button, ResponsiveContext } from 'grommet'
 import React from 'react'
 import Logo from '../Logo'
 import styled from 'styled-components'
+import Link from 'next/link'
 
-const ButtonCTA = styled(Button)`
+const ButtonCTA = styled.a`
     color: #407f6e;
     border: 1px transparent solid;
     background-color: #d4e6e1;
@@ -13,6 +14,7 @@ const ButtonCTA = styled(Button)`
     margin: 0px;
     height: fit-content;
     width: fit-content;
+    font-size: 16px;
 
     :hover {
         border: 1px #407f6e solid;
@@ -44,15 +46,14 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Button plain={true} label={<Logo>Tottem</Logo>} href="/" />
+                    <Link href="/">
+                        <Logo>Tottem</Logo>
+                    </Link>
                 </Box>
                 <Box>
-                    <ButtonCTA
-                        label="What's Tottem?"
-                        plain={true}
-                        color="dark-2"
-                        href="/"
-                    />
+                    <Link href="/">
+                        <ButtonCTA>What's Tottem?</ButtonCTA>
+                    </Link>
                 </Box>
             </Box>
         </Box>

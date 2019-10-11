@@ -12,23 +12,19 @@ interface CardProps {
 
 const width = 18 + 8 * 18
 const smallWidth = width * 0.8
-const largeWidthPx = width + 'px'
-const largeHeightPx = 1.68 * width + 'px'
-const smallWidthPx = smallWidth + 'px'
-const smallHeightPx = 1.68 * smallWidth + 'px'
 
 export const CardSize = {
     small: {
         widthInNumber: smallWidth,
-        width: smallWidthPx,
-        rectangleImageHeight: smallHeightPx,
-        squareImageHeight: smallWidthPx,
+        width: smallWidth + 'px',
+        rectangleImageHeight: 1.68 * smallWidth + 'px',
+        squareImageHeight: smallWidth + 'px',
     },
     large: {
         widthInNumber: width,
-        width: largeWidthPx,
-        rectangleImageHeight: largeHeightPx,
-        squareImageHeight: largeWidthPx,
+        width: width + 'px',
+        rectangleImageHeight: 1.68 * width + 'px',
+        squareImageHeight: width + 'px',
     },
 }
 

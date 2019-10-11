@@ -110,7 +110,7 @@ const Landing: React.FC = props => {
             </Box>
 
             <Box direction="row-responsive" justify="between">
-                <LandingLeftPanel width="700px" pad={{ horizontal: 'large' }}>
+                <LandingLeftPanel pad={{ horizontal: 'large' }}>
                     <Header level={2}>
                         The knowledge platform for community
                     </Header>
