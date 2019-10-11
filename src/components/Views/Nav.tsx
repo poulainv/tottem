@@ -27,6 +27,7 @@ const Biography = styled(Text)`
 
     @media screen and (max-width: 812px) {
         font-size: 14px;
+        line-height: 20px;
     }
 `
 

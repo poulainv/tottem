@@ -1,38 +1,39 @@
 import React from 'react'
 import { Box, Image } from 'grommet'
 import { CardSize } from './Card'
+import styled from 'styled-components'
 
 export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 
 interface CoverProps {
     imageUrl: string
-    small: boolean
     placeholderColor: string
     placeholderPicto: string
     imageShape?: ImageShapeType
 }
 
-const CoverImage: React.FC<CoverProps> = props => {
-    const getImageHeight = (small: boolean, shape?: ImageShapeType) => {
-        // The width is full and fixed depending on parent width
-        if (shape === 'rectangle' && !small) {
-            return CardSize.large.rectangleImageHeight
-        } else if (shape === 'rectangle' && small) {
-            return CardSize.small.rectangleImageHeight
-        } else if (small) {
-            return CardSize.small.squareImageHeight
-        } else {
-            return CardSize.large.squareImageHeight
-        }
+const ImageBox = styled(Box)`
+    height: ${(props: { imageShape?: string }) =>
+        props.imageShape === 'rectangle'
+            ? CardSize.large.rectangleImageHeight
+            : CardSize.large.squareImageHeight};
+    @media screen and (max-width: 600px) {
+        height: ${(props: { imageShape?: string }) =>
+            props.imageShape === 'rectangle'
+                ? CardSize.small.rectangleImageHeight
+                : CardSize.small.squareImageHeight};
     }
+`
 
+const CoverImage: React.FC<CoverProps> = props => {
     return (
-        <Box
+        <ImageBox
+            imageShape={props.imageShape}
             round={props.imageShape === 'circle' ? '50%' : '8px'}
-            height={getImageHeight(props.small, props.imageShape)}
             justify="center"
             width="full"
             overflow="hidden"
+            border={{ color: '#eeeeee', size: '0.5px' }}
             background={props.imageUrl ? 'none' : props.placeholderColor}
         >
             {props.imageUrl ? (
@@ -49,7 +50,7 @@ const CoverImage: React.FC<CoverProps> = props => {
                     height="30px"
                 />
             )}
-        </Box>
+        </ImageBox>
     )
 }
 

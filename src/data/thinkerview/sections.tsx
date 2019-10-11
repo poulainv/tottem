@@ -16,7 +16,7 @@ const sections: ISection[] = [
         id: '2',
         collections: collectionsBySection['2'],
         name: 'Société',
-        index: 1,
+        index: -1,
     },
     {
         id: '3',

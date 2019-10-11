@@ -5,7 +5,6 @@ import ReactGA from 'react-ga'
 import Truncate from 'react-truncate'
 import styled from 'styled-components'
 import { Item } from '../../types'
-import { CardSize } from './Card'
 
 const StyledTitle = styled(Text)`
     font-weight: 500;
@@ -26,7 +25,6 @@ const StyledAuthor = styled(Text)`
 
 interface CardInfoProps {
     item: Item
-    small: boolean
     hover: boolean
 }
 
@@ -63,17 +61,7 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
                 responsive={false}
             >
                 <StyledTitle color="dark-1" size="medium">
-                    {/* Crazy stuff to just split multi lines :'( */}
-                    <Truncate
-                        width={
-                            props.small
-                                ? CardSize.small.widthInNumber
-                                : CardSize.large.widthInNumber
-                        }
-                        lines={2}
-                    >
-                        {props.item.title}
-                    </Truncate>
+                    <Truncate lines={2}>{props.item.title}</Truncate>
                 </StyledTitle>
             </Box>
             <Box direction="row" margin={{ top: 'xsmall' }} justify="between">
