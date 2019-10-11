@@ -9,7 +9,12 @@ interface Props {
 
 const Section: React.FC<Props> = props => {
     return (
-        <Box direction="column" fill>
+        <Box
+            direction="column"
+            fill
+            margin={{ top: 'xsmall' }}
+            responsive={false}
+        >
             {props.collections
                 .sort(
                     (a, b) =>
