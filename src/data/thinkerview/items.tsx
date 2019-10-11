@@ -1613,6 +1613,50 @@ const items: Item[] = [
         title: 'La Chartreuse de Parme',
         author: 'Stendhal',
     },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '106',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41HtOsNN4WL._SX347_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Sapiens-Une-brève-histoire-lhumanité/dp/2226257012',
+        title: "Sapiens: Une brève histoire de l'humanité",
+        author: 'Yuval Noah Harari',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '106',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41tzfecADsL._SX319_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Untold-History-United-States/dp/0091949319',
+        title: 'The Untold History of the United States',
+        author: 'Olivier Stone',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '106',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/31zj4%2BticEL._SX301_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Pour-une-école-publique-émancipatrice/dp/2377290825',
+        title: 'Pour une école publique émancipatrice',
+        author: 'Véronique Decker',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '106',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41q1LkZGk-L._SX302_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Au-coeur-ténèbres-Joseph-Conrad/dp/2081397455',
+        title: 'Au coeur des ténèbres',
+        author: 'Joseph Conrad',
+    },
 ]
 
 export default items

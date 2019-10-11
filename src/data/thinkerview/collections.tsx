@@ -408,6 +408,16 @@ const collections: ICollection[] = [
             '**Jouzel & Larrouturou** - Le climat survivra-t-il au capitalisme ?',
         items: itemsByCollection['105'],
     },
+    {
+        id: '106',
+        date: new Date('2019-10-10T12:00:00'),
+        sectionId: '1',
+        detail:
+            'Interview diffusé en direct le 10/10/2019: [lien de la vidéo](https://www.youtube.com/watch?v=5WHg49trJCw)',
+        name:
+            "** Christophe Nijdam & Jérôme Cazes** - L'explosion des banques ?",
+        items: itemsByCollection['106'],
+    },
 ]
 
 export default collections
