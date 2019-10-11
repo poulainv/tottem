@@ -34,7 +34,7 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                         {
                             width: 556,
                             height: 392,
-                            url: `https://tottem.app/thumbnail-${router.query.profile}.jpg`,
+                            url: `https://quiet-git-nextjs.quiet.now.sh/thumbnail-${router.query.profile}.jpg`,
                         },
                     ],
                 }}
