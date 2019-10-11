@@ -55,7 +55,7 @@ const ItemList: React.FC<{ items: Item[]; expanded: boolean }> = props => {
                         key={item.title.toString()}
                         animation={
                             index >= 4
-                                ? { duration: 250, type: 'slideDown' }
+                                ? { duration: 500, type: 'slideDown' }
                                 : undefined
                         }
                     >
