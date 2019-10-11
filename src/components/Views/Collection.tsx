@@ -1,15 +1,9 @@
-import {
-    Box,
-    Button,
-    Collapsible,
-    Markdown,
-    ResponsiveContext,
-    Text,
-} from 'grommet'
-import React, { useContext } from 'react'
+import { Box, Button, Markdown, Text } from 'grommet'
+import React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import { ICollection } from '../../types'
+import { MediumAndUp } from '../ResponsiveStyledComponent'
 import ItemList from './ItemList'
 
 const CollectionTitle = styled.h3`
@@ -29,15 +23,20 @@ const CollectionDetail = styled(Text)`
     }
 `
 
+const CollectionCard = styled(Box)`
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    @media screen and (max-width: 812px) {
+        box-shadow: none;
+        border-radius: 0px;
+        border-top: 1px #dddddd solid;
+        border-bottom: 1px #dddddd solid;
+    }
+`
+
 const Collection: React.FC<ICollection> = props => {
-    const size = useContext(ResponsiveContext)
-    const isMobile = size === 'small'
-
     const [open, setOpen] = React.useState(false)
-
-    const maxItem = 4
-    const initialItems = isMobile ? props.items : props.items.slice(0, maxItem)
-    const collapsedItems = isMobile ? [] : props.items.slice(maxItem)
 
     const trackExpand = () => {
         ReactGA.initialize('UA-149517534-1')
@@ -63,17 +62,10 @@ const Collection: React.FC<ICollection> = props => {
     )
 
     return (
-        <Box
+        <CollectionCard
             direction="column"
             margin={{ vertical: 'medium' }}
             background="white"
-            round={isMobile ? '0px' : '6px'}
-            elevation={isMobile ? 'none' : 'card'}
-            border={
-                isMobile
-                    ? { side: 'horizontal', size: '0.5px', color: 'light-5' }
-                    : false
-            }
         >
             <Box
                 direction="row"
@@ -86,15 +78,10 @@ const Collection: React.FC<ICollection> = props => {
                         <Markdown>{props.name}</Markdown>
                     </CollectionTitle>
                 </Box>
-                {props.items.length > 4 && !isMobile && seeMore}
+                <MediumAndUp>{props.items.length > 4 && seeMore}</MediumAndUp>
             </Box>
-            <Box margin={{ bottom: !isMobile ? 'large' : 'none' }}>
-                <ItemList items={initialItems} />
-                {!isMobile && (
-                    <Collapsible open={open}>
-                        <ItemList items={collapsedItems} />
-                    </Collapsible>
-                )}
+            <Box margin={{ bottom: 'none' }}>
+                <ItemList items={props.items} expanded={open} />
             </Box>
             {props.detail && (
                 <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
@@ -105,7 +92,7 @@ const Collection: React.FC<ICollection> = props => {
                     </Box>
                 </Box>
             )}
-        </Box>
+        </CollectionCard>
     )
 }
 

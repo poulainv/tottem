@@ -11,7 +11,10 @@ const Section: React.FC<Props> = props => {
     return (
         <Box direction="column" fill>
             {props.collections
-                .sort((a, b) => b.date.getTime() - a.date.getTime())
+                .sort(
+                    (a, b) =>
+                        new Date(b.date).getTime() - new Date(a.date).getTime()
+                )
                 .filter(x => x.items)
                 .map((collection: ICollection) => {
                     return <Collection key={collection.name} {...collection} />

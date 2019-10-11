@@ -1,35 +1,30 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Item, ItemType } from '../../types'
 import CardInfo from './CardInfo'
 import CoverImage, { ImageShapeType } from './CoverImage'
 
 interface CardProps {
     item: Item
-    small: boolean
-    width: string
     imageShape: ImageShapeType
 }
 
 const width = 18 + 8 * 18
 const smallWidth = width * 0.8
-const largeWidthPx = width + 'px'
-const largeHeightPx = 1.68 * width + 'px'
-const smallWidthPx = smallWidth + 'px'
-const smallHeightPx = 1.68 * smallWidth + 'px'
 
 export const CardSize = {
     small: {
         widthInNumber: smallWidth,
-        width: smallWidthPx,
-        rectangleImageHeight: smallHeightPx,
-        squareImageHeight: smallWidthPx,
+        width: smallWidth + 'px',
+        rectangleImageHeight: 1.68 * smallWidth + 'px',
+        squareImageHeight: smallWidth + 'px',
     },
     large: {
         widthInNumber: width,
-        width: largeWidthPx,
-        rectangleImageHeight: largeHeightPx,
-        squareImageHeight: largeWidthPx,
+        width: width + 'px',
+        rectangleImageHeight: 1.68 * width + 'px',
+        squareImageHeight: width + 'px',
     },
 }
 
@@ -43,36 +38,34 @@ const colors: { [type in ItemType]: string } = {
     video: '#4D6892',
 }
 
+const CardBox = styled(Box)`
+    width: ${CardSize.large.width};
+    @media screen and (max-width: 812px) {
+        width: ${CardSize.small.width};
+    }
+`
+
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
-    const picto = require(`../../static/pictograms/${props.item.type}-white.svg`)
+    const picto = `/pictograms/${props.item.type}-white.svg`
     return (
         <Stack anchor="top-left">
-            <Box
+            <CardBox
                 // tslint:disable-next-line: jsx-no-lambda
                 onMouseEnter={() => setHover(true)}
                 // tslint:disable-next-line: jsx-no-lambda
                 onMouseLeave={() => setHover(false)}
                 direction="column"
-                align="center"
-                width={props.width}
                 background="white"
             >
-                <Box direction="column" width="full">
-                    <CoverImage
-                        placeholderColor={colors[props.item.type]}
-                        placeholderPicto={picto}
-                        imageUrl={props.item.imageUrl}
-                        small={props.small}
-                        imageShape={props.imageShape}
-                    />
-                    <CardInfo
-                        item={props.item}
-                        hover={isHover}
-                        small={props.small}
-                    />
-                </Box>
-            </Box>
+                <CoverImage
+                    placeholderColor={colors[props.item.type]}
+                    placeholderPicto={picto}
+                    imageUrl={props.item.imageUrl}
+                    imageShape={props.imageShape}
+                />
+                <CardInfo item={props.item} hover={isHover} />
+            </CardBox>
             {picto && (
                 <Box
                     style={{

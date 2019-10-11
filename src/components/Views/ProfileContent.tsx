@@ -10,6 +10,13 @@ interface ITab {
     isActive: boolean
 }
 
+const ProfileContentBox = styled(Box)`
+    @media screen and (max-width: 812px) {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+`
+
 const TabTitle = styled.span`
     font-size: 16px;
     color: ${(props: ITab) => (!props.isActive ? '#333333' : '#D87551')};
@@ -42,10 +49,7 @@ function trackChangeTab() {
 }
 
 function useTab(username: string, sortedSections: ISection[]) {
-    const location = useLocation()
-    const history = useHistory()
-    const params = new URLSearchParams(location.search)
-    const activeSectionId = params.get('section')
+    const activeSectionId = undefined
 
     const activeSessionIndex = sortedSections.findIndex(
         x => x.id === activeSectionId
@@ -56,7 +60,6 @@ function useTab(username: string, sortedSections: ISection[]) {
 
     const setTab = (args: number) => {
         setActiveTab(args)
-        history.replace(`/${username}?section=${sortedSections[args].id}`)
         trackChangeTab()
     }
 
@@ -64,14 +67,13 @@ function useTab(username: string, sortedSections: ISection[]) {
 }
 
 const ProfileContent: React.FC<IProfileContent> = props => {
-    const size = useContext(ResponsiveContext)
     const sortedSections = props.sections.sort((a, b) => a.index - b.index)
     const { activeTab, setTab } = useTab(props.username, sortedSections)
 
     return (
-        <Box
+        <ProfileContentBox
             margin={{ top: 'small' }}
-            pad={{ horizontal: size === 'small' ? 'none' : 'large' }}
+            pad={{ horizontal: 'large' }}
         >
             <Tabs
                 justify="start"
@@ -96,7 +98,7 @@ const ProfileContent: React.FC<IProfileContent> = props => {
                     )
                 })}
             </Tabs>
-        </Box>
+        </ProfileContentBox>
     )
 }
 

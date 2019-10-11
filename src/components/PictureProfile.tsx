@@ -1,10 +1,19 @@
 import { Box, Image } from 'grommet'
 import React from 'react'
+import styled from 'styled-components'
 
 interface PictureProfileProps {
-    size: string
     imageUrl: string
 }
+
+const ResponsiveImage = styled(Image)`
+    width: 150px;
+    height: 150px;
+    @media screen and (max-width: 812px) {
+        width: 80px;
+        height: 80px;
+    }
+`
 
 const PictureProfile: React.FC<PictureProfileProps> = props => {
     return (
@@ -15,11 +24,7 @@ const PictureProfile: React.FC<PictureProfileProps> = props => {
             round="full"
             elevation="profile"
         >
-            <Image
-                src={props.imageUrl}
-                width={props.size === 'small' ? '80px' : '150px'}
-                height={props.size === 'small' ? '80px' : '150px'}
-            />
+            <ResponsiveImage src={props.imageUrl} />
         </Box>
     )
 }

@@ -6,6 +6,10 @@ const Logo = styled.h1`
     font-family: 'Poiret One';
     font-weight: 700;
 
+    :hover {
+        cursor: pointer;
+    }
+
     @media screen and (max-width: 600px) {
         font-size: 24px;
     }

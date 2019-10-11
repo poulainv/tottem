@@ -1,0 +1,6 @@
+{
+    "builds": [
+        { "src": "package.json", "use": "@now/next" },
+        { "src": "public/*", "use": "@now/static" }
+    ]
+}
