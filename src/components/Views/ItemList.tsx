@@ -20,7 +20,7 @@ const ScrollableBox = styled(Box)`
         display: none;
     }
     flex-wrap: wrap;
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         flex-wrap: nowrap;
         overflow: auto;
     }
@@ -29,7 +29,7 @@ const ScrollableBox = styled(Box)`
 export const ItemCardBox = styled(Box)`
     flex-basis: 25%;
     display: ${(props: { show: boolean }) => (props.show ? 'flex' : 'none')};
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         margin-right: 45px;
         display: 'block';
         min-width: ${CardSize.small.width};

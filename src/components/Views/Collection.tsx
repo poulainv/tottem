@@ -1,4 +1,4 @@
-import { Box, Button, Collapsible, Markdown, Text } from 'grommet'
+import { Box, Button, Markdown, Text } from 'grommet'
 import React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'

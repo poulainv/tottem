@@ -11,23 +11,27 @@
         "@types/react-router-dom": "^4.3.5",
         "@types/react-truncate": "^2.3.3",
         "@types/styled-components": "^4.1.19",
+        "babel-loader": "^7.1.5",
         "grommet": "^2.7.8",
         "grommet-icons": "^4.3.0",
         "lodash.groupby": "^4.6.0",
         "next": "^9.1.1",
         "next-plugin-transpile-modules": "^2.0.0",
+        "next-seo": "^2.1.2",
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-ga": "^2.7.0",
         "react-router-dom": "^5.1.2",
-        "react-scripts": "3.1.1",
         "react-truncate": "^2.4.0",
         "styled-components": "^4.4.0"
     },
     "scripts": {
         "dev": "next",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "analyze": "cross-env BUNDLE_ANALYZE=both next build",
+        "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+        "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -50,8 +54,10 @@
         }
     },
     "devDependencies": {
+        "@next/bundle-analyzer": "^9.1.1",
         "babel-plugin-grommet": "^0.5.3",
         "babel-plugin-styled-components": "^1.10.6",
+        "cross-env": "^6.0.3",
         "eslint": "^6.5.1",
         "husky": "^3.0.7",
         "prettier": "1.18.2",

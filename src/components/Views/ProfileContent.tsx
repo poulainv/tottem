@@ -49,9 +49,6 @@ function trackChangeTab() {
 }
 
 function useTab(username: string, sortedSections: ISection[]) {
-    // const location = useLocation()
-    // const history = useHistory()
-    // const params = new URLSearchParams(location.search)
     const activeSectionId = undefined
 
     const activeSessionIndex = sortedSections.findIndex(
@@ -63,7 +60,6 @@ function useTab(username: string, sortedSections: ISection[]) {
 
     const setTab = (args: number) => {
         setActiveTab(args)
-        // history.replace(`/${username}?section=${sortedSections[args].id}`)
         trackChangeTab()
     }
 

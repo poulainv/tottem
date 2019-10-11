@@ -1,10 +1,9 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Item, ItemType } from '../../types'
 import CardInfo from './CardInfo'
-import { ItemCardBox } from '../Views/ItemList'
 import CoverImage, { ImageShapeType } from './CoverImage'
-import styled from 'styled-components'
 
 interface CardProps {
     item: Item
@@ -45,7 +44,7 @@ const colors: { [type in ItemType]: string } = {
 
 const CardBox = styled(Box)`
     width: ${CardSize.large.width};
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         width: ${CardSize.small.width};
     }
 `

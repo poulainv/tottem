@@ -1,7 +1,7 @@
-import React from 'react'
 import { Box, Image } from 'grommet'
-import { CardSize } from './Card'
+import React from 'react'
 import styled from 'styled-components'
+import { CardSize } from './Card'
 
 export type ImageShapeType = 'rectangle' | 'square' | 'circle'
 
@@ -17,7 +17,7 @@ const ImageBox = styled(Box)`
         props.imageShape === 'rectangle'
             ? CardSize.large.rectangleImageHeight
             : CardSize.large.squareImageHeight};
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 812px) {
         height: ${(props: { imageShape?: string }) =>
             props.imageShape === 'rectangle'
                 ? CardSize.small.rectangleImageHeight
@@ -33,7 +33,7 @@ const CoverImage: React.FC<CoverProps> = props => {
             justify="center"
             width="full"
             overflow="hidden"
-            border={{ color: '#eeeeee', size: '0.5px' }}
+            border={{ color: 'light-3', size: '0.5px' }}
             background={props.imageUrl ? 'none' : props.placeholderColor}
         >
             {props.imageUrl ? (

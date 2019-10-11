@@ -4,6 +4,7 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { DefaultSeo } from 'next-seo'
 
 class MyDocument extends Document {
     static async getInitialProps({ renderPage }) {
@@ -19,34 +20,35 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head />
+                <DefaultSeo
+                    title="Tottem"
+                    description="Knowledge platform for community, it's place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more"
+                    openGraph={{
+                        type: 'website',
+                        locale: 'en_IE',
+                        url: 'htts://tottem.app',
+                        site_name: 'Tottem',
+                        images: [
+                            {
+                                width: 698,
+                                height: 388,
+                                url: 'https://tottem.app/thumbnail.png',
+                            },
+                        ],
+                    }}
+                    twitter={{
+                        site: '@TottemApp',
+                        cardType: 'summary_large_image',
+                    }}
+                />
                 {this.props.styleTags}
                 <meta charset="utf-8" />
-                <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+                <link rel="shortcut icon" href="/favicon.ico" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
                 <meta name="theme-color" content="#000000" />
-                <meta property="og:title" content="Tottem" />
-                <meta property="og:url" content="htts://tottem.app" />
-                <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="Tottem" />
-                <meta property="og:image:width" content="698" />
-                <meta property="og:image:height" content="388" />
-                <meta
-                    property="og:description"
-                    content="Knowledge platform for community, it's a place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more."
-                />
-                <meta
-                    property="og:image"
-                    content="https://tottem.app/thumbnail.png"
-                />
-                <meta
-                    name="description"
-                    content="Knowledge platform for community, it's place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more"
-                />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@TottemApp" />
                 <link rel="apple-touch-icon" href="" />
                 <link
                     rel="stylesheet"

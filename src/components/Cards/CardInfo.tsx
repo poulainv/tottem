@@ -9,6 +9,7 @@ import { Item } from '../../types'
 const StyledTitle = styled(Text)`
     font-weight: 500;
     font-size: 14px;
+    overflow: hidden;
 
     @media screen and (max-width: 600px) {
         font-size: 13px;
@@ -39,10 +40,6 @@ function trackOpenItem() {
 const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
     const optionButton = (
         <Box direction="row">
-            {/* <Button
-                style={{ padding: '0px 5px 0px 5px' }}
-                icon={<Copy size="small" />}
-            /> */}
             <Button
                 style={{ padding: '0px 5px 0px 5px' }}
                 icon={<Share size="small" />}
