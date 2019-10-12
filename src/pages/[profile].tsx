@@ -8,6 +8,7 @@ import Header from '../components/Views/Header'
 import ProfileDescription from '../components/Views/Nav'
 import ProfileContent from '../components/Views/ProfileContent'
 import theme from '../theme'
+import ReactGA from 'react-ga'
 import { ISection, UserProfile } from '../types'
 import { NextSeo } from 'next-seo'
 
@@ -21,6 +22,7 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
         arr.reduce((a: number, b: number) => a + b, 0)
     const collectionCount = arrSum(sections.map(x => x.collections.length))
     const router = useRouter()
+
     return (
         <Grommet theme={theme}>
             <NextSeo
