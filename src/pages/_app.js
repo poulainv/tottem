@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react'
 import App from 'next/app'
 import { DefaultSeo } from 'next-seo'
-
-class Layout extends React.Component {
-    render() {
-        const { children } = this.props
-        return <div className="layout">{children}</div>
-    }
-}
+import ReactGA from 'react-ga'
 
 export default class MyApp extends App {
+    componentDidMount() {
+        ReactGA.initialize('UA-149517534-1', {
+            testMode: process.env.NODE_ENV === 'test',
+        })
+        ReactGA.pageview(window.location.pathname + window.location.search)
+    }
+
     render() {
         const { Component, pageProps } = this.props
         return (
