@@ -7,8 +7,6 @@
         "@types/node": "12.7.4",
         "@types/react": "16.9.2",
         "@types/react-dom": "16.9.0",
-        "@types/react-router": "^5.1.1",
-        "@types/react-router-dom": "^4.3.5",
         "@types/react-truncate": "^2.3.3",
         "@types/styled-components": "^4.1.19",
         "babel-loader": "^7.1.5",
@@ -21,7 +19,6 @@
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-ga": "^2.7.0",
-        "react-router-dom": "^5.1.2",
         "react-truncate": "^2.4.0",
         "styled-components": "^4.4.0"
     },
