@@ -25,3 +25,6 @@ yarn-error.log*
 
 # next.js build output
 .next
+
+# Auth0 variables
+auth0-variables.js
