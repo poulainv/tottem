@@ -17,6 +17,8 @@ import {
 import Separator from '../components/Separator'
 import { accent500, accent900, brand500 } from '../theme'
 import { NextSeo } from 'next-seo'
+import Auth from '../lib/Auth'
+const auth = new Auth()
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -90,6 +92,10 @@ const handleCTA = () => {
     })
 }
 
+const signIn = () => {
+    auth.login()
+}
+
 const Landing: React.FC = props => {
     return (
         <Box align="center" background="white">
@@ -153,6 +159,16 @@ const Landing: React.FC = props => {
                         }}
                     >
                         Keep me in the loop
+                    </CTAButton>
+
+                    <CTAButton
+                        onClick={signIn}
+                        style={{
+                            marginTop: '24px',
+                            marginBottom: '40px',
+                        }}
+                    >
+                        Sign In
                     </CTAButton>
                 </LandingLeftPanel>
                 <MediumAndUp>
