@@ -1,0 +1,23 @@
+{
+    "name": "script",
+    "license": "MIT",
+    "devDependencies": {
+        "ts-node": "^8.4.1",
+        "ts-node-dev": "^1.0.0-pre.43",
+        "typescript": "3.6.4"
+    },
+    "scripts": {
+        "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.tsx",
+        "postinstall": "prisma2 generate",
+        "generate:nexus": "ts-node --transpile-only src/schema",
+        "tsc": "tsc"
+    },
+    "dependencies": {
+        "@types/node": "^12.7.12",
+        "graphql": "^14.5.8",
+        "graphql-yoga": "^1.18.3",
+        "nexus": "^0.11.7",
+        "nexus-prisma": "^0.4.2",
+        "prisma2": "^2.0.0-preview014.1"
+    }
+}
