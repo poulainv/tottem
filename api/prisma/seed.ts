@@ -1,42 +1,76 @@
 import { Photon } from '@generated/photon'
+import vincent from '../../src/data/vincent/profile'
+import humanetech from '../../src/data/humanetech/profile'
+import thinkerview from '../../src/data/thinkerview/profile'
+import { ISection } from '../../src/types'
+
 const photon = new Photon()
 
 async function main() {
-    const user1 = await photon.users.create({
-        data: {
-            email: 'alice@prisma.io',
-            name: 'Alice',
-            posts: {
-                create: {
-                    title: 'Join us for Prisma Day 2019 in Berlin',
-                    content: 'https://www.prisma.io/day/',
-                    published: true,
+    for (const profile of [vincent, humanetech, thinkerview]) {
+        console.log(`Create : ${profile.firstname} profile`)
+        const user = await photon.users.create({
+            data: {
+                firstname: profile.firstname,
+                slug: profile.slug,
+                biography: profile.biography,
+                sections: {
+                    create: profile.sections.map((section: ISection) => {
+                        return {
+                            id: section.id,
+                            name: section.name,
+                            index: section.index,
+                        }
+                    }),
                 },
             },
-        },
-    })
-    const user2 = await photon.users.create({
-        data: {
-            email: 'bob@prisma.io',
-            name: 'Bob',
-            posts: {
-                create: [
-                    {
-                        title: 'Subscribe to GraphQL Weekly for community news',
-                        content: 'https://graphqlweekly.com/',
-                        published: true,
-                    },
-                    {
-                        title: 'Follow Prisma on Twitter',
-                        content: 'https://twitter.com/prisma',
-                        published: false,
-                    },
-                ],
+            include: {
+                sections: true,
             },
-        },
-    })
+        })
 
-    console.log({ user1, user2 })
+        for (const section of profile.sections) {
+            for (const collection of section.collections) {
+                console.log(
+                    `Create : ${profile.slug}' collection ${
+                        collection.name
+                    }  with ${collection.items &&
+                        collection.items.length} items`
+                )
+                await photon.collections.create({
+                    data: {
+                        // author: {
+                        //     connect: {
+                        //         id: user.id,
+                        //     },
+                        // },
+                        section: {
+                            connect: {
+                                id: section.id,
+                            },
+                        },
+                        name: collection.name,
+                        detail: collection.detail,
+                        date: collection.date.toString(),
+                        items: {
+                            create:
+                                collection.items &&
+                                collection.items.map(x => {
+                                    return {
+                                        title: x.title,
+                                        author: x.author,
+                                        type: x.type,
+                                        productUrl: x.productUrl,
+                                        imageUrl: x.imageUrl,
+                                        comment: x.note,
+                                    }
+                                }),
+                        },
+                    },
+                })
+            }
+        }
+    }
 }
 
 main()

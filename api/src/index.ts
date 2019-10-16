@@ -7,4 +7,11 @@ const server = new GraphQLServer({
     context: createContext(),
 })
 
-server.start(() => console.log(`🚀 Server ready at http://localhost:4000`))
+server.start(
+    {
+        endpoint: '/graphql',
+        playground: '/graphql',
+        subscriptions: false,
+    },
+    () => console.log(`🚀 Server ready at http://localhost:4000`)
+)

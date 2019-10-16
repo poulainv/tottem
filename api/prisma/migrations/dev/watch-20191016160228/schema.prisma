@@ -41,7 +41,7 @@ model Collection {
   detail  String?
   items   Item[]
   date    String?
-  // author  User
+  author  User
   section Section
 }
 
@@ -58,11 +58,11 @@ model Item {
 
 
 enum ItemType {
-  book
-  album
-  movie
-  video
-  people
-  paper
-  podcast
+  Book
+  Album
+  Movie
+  Video
+  People
+  Paper
+  Podcast
 }

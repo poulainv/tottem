@@ -13,7 +13,8 @@
         "postinstall": "yarn -s generate",
         "generate": "yarn -s generate:prisma && yarn -s generate:nexus",
         "generate:prisma": "prisma2 generate",
-        "generate:nexus": "ts-node --transpile-only src/schema"
+        "generate:nexus": "ts-node --transpile-only src/schema",
+        "seed": "ts-node --transpile-only prisma/seed.ts"
     },
     "dependencies": {
         "@types/node": "^12.7.12",

@@ -41,7 +41,7 @@ model Collection {
   detail  String?
   items   Item[]
   date    String?
-  // author  User
+  author  User
   section Section
 }
 

@@ -1,20 +1,15 @@
-import { queryType, mutationType, objectType } from 'nexus'
+import { queryType, mutationType, objectType, enumType } from 'nexus'
 
 export const Query = queryType({
     definition(t) {
         t.crud.user()
-        t.crud.users({ ordering: true })
-        t.crud.post()
-        t.crud.posts({ filtering: true })
     },
 })
 
 export const Mutation = mutationType({
     definition(t) {
         t.crud.createOneUser()
-        t.crud.createOnePost()
         t.crud.deleteOneUser()
-        t.crud.deleteOnePost()
     },
 })
 
@@ -22,14 +17,42 @@ export const User = objectType({
     name: 'User',
     definition(t) {
         t.model.id()
-        t.model.email()
-        t.model.posts()
+        t.model.slug()
+        t.model.biography()
+        t.model.firstname()
+        t.model.sections()
     },
 })
 
-export const Post = objectType({
-    name: 'Post',
+export const Section = objectType({
+    name: 'Section',
     definition(t) {
         t.model.id()
+        t.model.index()
+        t.model.name()
+        t.model.collections()
+    },
+})
+
+export const Collection = objectType({
+    name: 'Collection',
+    definition(t) {
+        t.model.id()
+        t.model.name()
+        t.model.date()
+        t.model.detail()
+        t.model.items()
+    },
+})
+
+export const Item = objectType({
+    name: 'Item',
+    definition(t) {
+        t.model.id()
+        t.model.author()
+        t.model.title()
+        t.model.imageUrl()
+        t.model.productUrl()
+        t.model.comment()
     },
 })

@@ -1,0 +1,11 @@
+{
+    "version": "0.3.14-fixed",
+    "steps": [
+        {
+            "stepType": "UpdateField",
+            "model": "Item",
+            "name": "collection",
+            "arity": "optional"
+        }
+    ]
+}

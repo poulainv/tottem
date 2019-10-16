@@ -1,0 +1,18 @@
+{
+    "version": "0.3.14-fixed",
+    "steps": [
+        {
+            "stepType": "UpdateEnum",
+            "name": "ItemType",
+            "values": [
+                "book",
+                "album",
+                "movie",
+                "video",
+                "people",
+                "paper",
+                "podcast"
+            ]
+        }
+    ]
+}
