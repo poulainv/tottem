@@ -12,6 +12,11 @@
             "embedded": false
         },
         {
+            "stepType": "CreateModel",
+            "name": "Category",
+            "embedded": false
+        },
+        {
             "stepType": "CreateField",
             "model": "User",
             "name": "id",
@@ -83,29 +88,6 @@
         {
             "stepType": "CreateField",
             "model": "Post",
-            "name": "createdAt",
-            "type": {
-                "Base": "DateTime"
-            },
-            "arity": "required",
-            "isUnique": false,
-            "default": {
-                "Expression": ["now", "DateTime", []]
-            }
-        },
-        {
-            "stepType": "CreateField",
-            "model": "Post",
-            "name": "updatedAt",
-            "type": {
-                "Base": "DateTime"
-            },
-            "arity": "required",
-            "isUnique": false
-        },
-        {
-            "stepType": "CreateField",
-            "model": "Post",
             "name": "published",
             "type": {
                 "Base": "Boolean"
@@ -150,11 +132,6 @@
             },
             "arity": "optional",
             "isUnique": false
-        },
-        {
-            "stepType": "CreateModel",
-            "name": "Category",
-            "embedded": false
         },
         {
             "stepType": "CreateField",

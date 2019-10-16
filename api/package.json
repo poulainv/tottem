@@ -4,20 +4,22 @@
     "devDependencies": {
         "ts-node": "^8.4.1",
         "ts-node-dev": "^1.0.0-pre.43",
+        "prisma2": "^2.0.0-preview-13.2",
         "typescript": "3.6.4"
     },
     "scripts": {
-        "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.tsx",
-        "postinstall": "prisma2 generate",
-        "generate:nexus": "ts-node --transpile-only src/schema",
-        "tsc": "tsc"
+        "start": "ts-node src/index.ts",
+        "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
+        "postinstall": "yarn -s generate",
+        "generate": "yarn -s generate:prisma && yarn -s generate:nexus",
+        "generate:prisma": "prisma2 generate",
+        "generate:nexus": "ts-node --transpile-only src/schema"
     },
     "dependencies": {
         "@types/node": "^12.7.12",
         "graphql": "^14.5.8",
         "graphql-yoga": "^1.18.3",
-        "nexus": "^0.11.7",
-        "nexus-prisma": "^0.4.2",
-        "prisma2": "^2.0.0-preview014.1"
+        "nexus": "^0.12.0-beta.13",
+        "nexus-prisma": "^0.5.0-next.6"
     }
 }

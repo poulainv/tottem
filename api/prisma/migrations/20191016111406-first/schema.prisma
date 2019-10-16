@@ -16,8 +16,6 @@ model User {
 
 model Post {
   id         String     @default(cuid()) @id
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
   published  Boolean    @default(true)
   title      String
   content    String?

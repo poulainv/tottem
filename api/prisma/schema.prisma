@@ -3,8 +3,8 @@ generator photon {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:dev.db"
+  provider = env("DATABASE_PROVIDER")
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -16,8 +16,6 @@ model User {
 
 model Post {
   id         String     @default(cuid()) @id
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
   published  Boolean    @default(true)
   title      String
   content    String?
