@@ -1,6 +1,8 @@
 import { UserProfile } from '../../types'
+import sections from './sections'
 
 const profile: UserProfile = {
+    sections,
     firstname: 'Center for Humane Technology',
     pictureUrl: '/images/profiles/humanetech.png',
     biography: `The Center for Humane Technology (CHT) is an independent nonprofit 
@@ -11,6 +13,7 @@ const profile: UserProfile = {
     social: {
         website: 'https://humanetech.com/',
     },
+    slug: 'humanetech',
 }
 
 export default profile

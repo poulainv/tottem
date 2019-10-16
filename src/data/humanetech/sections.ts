@@ -2,7 +2,7 @@ import { ISection } from '../../types'
 
 const sections: ISection[] = [
     {
-        id: '1',
+        id: '1000',
         collections: [
             {
                 id: '200',
@@ -150,7 +150,7 @@ const sections: ISection[] = [
         index: 0,
     },
     {
-        id: '2',
+        id: '2000',
         collections: [
             {
                 id: '203',
