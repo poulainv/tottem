@@ -13,19 +13,8 @@ type Collection {
         skip: Int
     ): [Item!]!
     name: String!
-}
-
-input CollectionCreateManyWithoutCollectionsInput {
-    connect: [CollectionWhereUniqueInput!]
-    create: [CollectionCreateWithoutSectionInput!]
-}
-
-input CollectionCreateWithoutSectionInput {
-    date: String
-    detail: String
-    id: ID
-    items: ItemCreateManyWithoutItemsInput
-    name: String!
+    owner: User!
+    section: Section!
 }
 
 input CollectionFilter {
@@ -43,11 +32,8 @@ input CollectionWhereInput {
     name: StringFilter
     NOT: [CollectionWhereInput!]
     OR: [CollectionWhereInput!]
+    owner: UserWhereInput
     section: SectionWhereInput
-}
-
-input CollectionWhereUniqueInput {
-    id: ID
 }
 
 input IntFilter {
@@ -65,20 +51,6 @@ type Item {
     author: String!
     comment: String
     id: ID!
-    imageUrl: String
-    productUrl: String!
-    title: String!
-}
-
-input ItemCreateManyWithoutItemsInput {
-    connect: [ItemWhereUniqueInput!]
-    create: [ItemCreateWithoutCollectionInput!]
-}
-
-input ItemCreateWithoutCollectionInput {
-    author: String!
-    comment: String
-    id: ID
     imageUrl: String
     productUrl: String!
     title: String!
@@ -115,15 +87,6 @@ input ItemWhereInput {
     type: ItemType
 }
 
-input ItemWhereUniqueInput {
-    id: ID
-}
-
-type Mutation {
-    createOneUser(data: UserCreateInput!): User!
-    deleteOneUser(where: UserWhereUniqueInput!): User
-}
-
 input NullableStringFilter {
     contains: String
     endsWith: String
@@ -138,16 +101,31 @@ input NullableStringFilter {
     startsWith: String
 }
 
+enum OrderByArg {
+    asc
+    desc
+}
+
 type Query {
     collections(
         after: String
         before: String
         first: Int
         last: Int
+        orderBy: QueryCollectionsOrderByInput
         skip: Int
-        where: CollectionWhereInput
+        where: QueryCollectionsWhereInput
     ): [Collection!]!
     user(where: UserWhereUniqueInput!): User
+}
+
+input QueryCollectionsOrderByInput {
+    date: OrderByArg
+}
+
+input QueryCollectionsWhereInput {
+    owner: UserWhereInput
+    section: SectionWhereInput
 }
 
 type Section {
@@ -163,18 +141,6 @@ type Section {
     name: String!
 }
 
-input SectionCreateManyWithoutSectionsInput {
-    connect: [SectionWhereUniqueInput!]
-    create: [SectionCreateWithoutAuthorInput!]
-}
-
-input SectionCreateWithoutAuthorInput {
-    collections: CollectionCreateManyWithoutCollectionsInput
-    id: ID
-    index: Int
-    name: String!
-}
-
 input SectionFilter {
     every: SectionWhereInput
     none: SectionWhereInput
@@ -183,31 +149,13 @@ input SectionFilter {
 
 input SectionWhereInput {
     AND: [SectionWhereInput!]
-    author: UserWhereInput
     collections: CollectionFilter
     id: StringFilter
     index: IntFilter
     name: StringFilter
     NOT: [SectionWhereInput!]
     OR: [SectionWhereInput!]
-}
-
-input SectionWhereUniqueInput {
-    id: ID
-}
-
-input SocialCreateOneWithoutSocialInput {
-    connect: SocialWhereUniqueInput
-    create: SocialCreateWithoutUserInput
-}
-
-input SocialCreateWithoutUserInput {
-    github: String
-    id: ID
-    linkedin: String
-    mail: String
-    website: String
-    youtube: String
+    owner: UserWhereInput
 }
 
 input SocialWhereInput {
@@ -221,10 +169,6 @@ input SocialWhereInput {
     user: UserWhereInput
     website: NullableStringFilter
     youtube: NullableStringFilter
-}
-
-input SocialWhereUniqueInput {
-    id: ID
 }
 
 input StringFilter {
@@ -255,19 +199,10 @@ type User {
     slug: String!
 }
 
-input UserCreateInput {
-    biography: String!
-    firstname: String!
-    id: ID
-    label: String
-    sections: SectionCreateManyWithoutSectionsInput
-    slug: String!
-    social: SocialCreateOneWithoutSocialInput
-}
-
 input UserWhereInput {
     AND: [UserWhereInput!]
     biography: StringFilter
+    collections: CollectionFilter
     firstname: StringFilter
     id: StringFilter
     label: NullableStringFilter

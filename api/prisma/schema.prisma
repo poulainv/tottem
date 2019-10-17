@@ -8,14 +8,32 @@ datasource db {
 }
 
 model User {
-  id        String    @default(cuid()) @id
-  slug      String    @unique
-  firstname String
-  biography String
-  social    Social?
-  label     String?
-  sections  Section[]
+  id          String       @default(cuid()) @id
+  slug        String       @unique
+  firstname   String
+  biography   String
+  social      Social?
+  label       String?
+  sections    Section[]
+  collections Collection[]
+}
 
+model Section {
+  id          String       @default(cuid()) @id
+  name        String
+  index       Int          @default(0)
+  collections Collection[]
+  owner       User        
+}
+
+model Collection {
+  id      String  @id @default(cuid())
+  name    String
+  detail  String?
+  items   Item[]
+  date    String?
+  section Section
+  owner   User   
 }
 
 model Social {
@@ -27,32 +45,15 @@ model Social {
   website  String?
 }
 
-model Section {
-  id          String       @default(cuid()) @id
-  name        String
-  index       Int          @default(0)
-  collections Collection[]
-  author      User
-}
-
-model Collection {
-  id      String  @id @default(cuid())
-  name    String
-  detail  String?
-  items   Item[]
-  date    String?
-  // author  User
-  section Section
-}
 
 model Item {
-  id         String     @default(cuid()) @id
+  id         String      @default(cuid()) @id
   title      String
   author     String
   type       ItemType
   productUrl String
   imageUrl   String?
-  comment       String?
+  comment    String?
   collection Collection?
 }
 

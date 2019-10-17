@@ -2,7 +2,7 @@ import { Photon } from '@generated/photon'
 import vincent from '../../src/data/vincent/profile'
 import humanetech from '../../src/data/humanetech/profile'
 import thinkerview from '../../src/data/thinkerview/profile'
-import { ISection } from '../../src/types'
+import { ICollection } from '../../src/types'
 
 const photon = new Photon()
 
@@ -14,61 +14,54 @@ async function main() {
                 firstname: profile.firstname,
                 slug: profile.slug,
                 biography: profile.biography,
-                sections: {
-                    create: profile.sections.map((section: ISection) => {
-                        return {
-                            id: section.id,
-                            name: section.name,
-                            index: section.index,
-                        }
-                    }),
-                },
-            },
-            include: {
-                sections: true,
             },
         })
 
         for (const section of profile.sections) {
-            for (const collection of section.collections) {
-                console.log(
-                    `Create : ${profile.slug}' collection ${
-                        collection.name
-                    }  with ${collection.items &&
-                        collection.items.length} items`
-                )
-                await photon.collections.create({
-                    data: {
-                        // author: {
-                        //     connect: {
-                        //         id: user.id,
-                        //     },
-                        // },
-                        section: {
-                            connect: {
-                                id: section.id,
-                            },
-                        },
-                        name: collection.name,
-                        detail: collection.detail,
-                        date: collection.date.toString(),
-                        items: {
-                            create:
-                                collection.items &&
-                                collection.items.map(x => {
-                                    return {
-                                        title: x.title,
-                                        author: x.author,
-                                        type: x.type,
-                                        productUrl: x.productUrl,
-                                        imageUrl: x.imageUrl,
-                                        comment: x.note,
-                                    }
-                                }),
+            console.log(
+                `Create : ${profile.slug}' collection ${section.name} items`
+            )
+            await photon.sections.create({
+                data: {
+                    name: section.name,
+                    index: section.index,
+                    owner: {
+                        connect: {
+                            id: user.id,
                         },
                     },
-                })
-            }
+                    collections: {
+                        create: section.collections.map(
+                            (collection: ICollection) => {
+                                return {
+                                    name: collection.name,
+                                    detail: collection.detail,
+                                    date: collection.date.toString(),
+                                    owner: {
+                                        connect: {
+                                            id: user.id,
+                                        },
+                                    },
+                                    items: {
+                                        create:
+                                            collection.items &&
+                                            collection.items.map(x => {
+                                                return {
+                                                    title: x.title,
+                                                    author: x.author,
+                                                    type: x.type,
+                                                    productUrl: x.productUrl,
+                                                    imageUrl: x.imageUrl,
+                                                    comment: x.note,
+                                                }
+                                            }),
+                                    },
+                                }
+                            }
+                        ),
+                    },
+                },
+            })
         }
     }
 }

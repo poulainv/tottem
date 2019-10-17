@@ -5,6 +5,7 @@ import { join } from 'path'
 
 export const schema = makeSchema({
     types: [types, nexusPrismaPlugin({ types })],
+    prettierConfig: join(__dirname, '../../.prettierrc.json'),
     outputs: {
         schema: join(__dirname, '/schema.graphql'),
     },

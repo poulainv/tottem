@@ -3,14 +3,10 @@ import { queryType, mutationType, objectType, enumType } from 'nexus'
 export const Query = queryType({
     definition(t) {
         t.crud.user()
-        t.crud.collections({ filtering: true })
-    },
-})
-
-export const Mutation = mutationType({
-    definition(t) {
-        t.crud.createOneUser()
-        t.crud.deleteOneUser()
+        t.crud.collections({
+            ordering: { date: true },
+            filtering: { owner: true, section: true },
+        })
     },
 })
 
@@ -43,6 +39,8 @@ export const Collection = objectType({
         t.model.date()
         t.model.detail()
         t.model.items()
+        t.model.owner()
+        t.model.section()
     },
 })
 
@@ -55,5 +53,11 @@ export const Item = objectType({
         t.model.imageUrl()
         t.model.productUrl()
         t.model.comment()
+        t.model.type()
     },
+})
+
+const ItemType = enumType({
+    name: 'ItemType',
+    members: ['book', 'album', 'movie', 'people', 'video', 'paper', 'podcast'],
 })
