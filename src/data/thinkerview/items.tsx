@@ -1657,6 +1657,39 @@ const items: Item[] = [
         title: 'Au coeur des ténèbres',
         author: 'Joseph Conrad',
     },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '107',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/51ieDUPNDQL._SX351_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/indocile-sciences-sociales-FONDATION-COPERNIC/dp/2348045699',
+        title: 'Manuel indociles des sciences sociales',
+        author: 'Fondation Copernic',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '107',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/512H22tyh3L._SX302_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/lhomme-créa-dieux-Pascal-Boyer/dp/2070426955',
+        title: "Et l'homme créa les dieux",
+        author: 'Pascal Boyer',
+    },
+    {
+        type: 'book',
+        note: '',
+        collectionId: '107',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41JtqNyg6RL._SX349_BO1,204,203,200_.jpg',
+        productUrl:
+            'https://www.amazon.fr/Qui-tué-père-Edouard-Louis/dp/2021399435',
+        title: 'Qui a tué mon père',
+        author: 'Edouard Louis',
+    },
 ]
 
 export default items
