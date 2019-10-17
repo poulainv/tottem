@@ -3,6 +3,7 @@ import { queryType, mutationType, objectType, enumType } from 'nexus'
 export const Query = queryType({
     definition(t) {
         t.crud.user()
+        t.crud.collections({ filtering: true })
     },
 })
 

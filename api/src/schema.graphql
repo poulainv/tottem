@@ -28,8 +28,37 @@ input CollectionCreateWithoutSectionInput {
     name: String!
 }
 
+input CollectionFilter {
+    every: CollectionWhereInput
+    none: CollectionWhereInput
+    some: CollectionWhereInput
+}
+
+input CollectionWhereInput {
+    AND: [CollectionWhereInput!]
+    date: NullableStringFilter
+    detail: NullableStringFilter
+    id: StringFilter
+    items: ItemFilter
+    name: StringFilter
+    NOT: [CollectionWhereInput!]
+    OR: [CollectionWhereInput!]
+    section: SectionWhereInput
+}
+
 input CollectionWhereUniqueInput {
     id: ID
+}
+
+input IntFilter {
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: Int
+    notIn: [Int!]
 }
 
 type Item {
@@ -56,6 +85,12 @@ input ItemCreateWithoutCollectionInput {
     type: ItemType!
 }
 
+input ItemFilter {
+    every: ItemWhereInput
+    none: ItemWhereInput
+    some: ItemWhereInput
+}
+
 enum ItemType {
     album
     book
@@ -64,6 +99,20 @@ enum ItemType {
     people
     podcast
     video
+}
+
+input ItemWhereInput {
+    AND: [ItemWhereInput!]
+    author: StringFilter
+    collection: CollectionWhereInput
+    comment: NullableStringFilter
+    id: StringFilter
+    imageUrl: NullableStringFilter
+    NOT: [ItemWhereInput!]
+    OR: [ItemWhereInput!]
+    productUrl: StringFilter
+    title: StringFilter
+    type: ItemType
 }
 
 input ItemWhereUniqueInput {
@@ -75,7 +124,29 @@ type Mutation {
     deleteOneUser(where: UserWhereUniqueInput!): User
 }
 
+input NullableStringFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: String
+    notIn: [String!]
+    startsWith: String
+}
+
 type Query {
+    collections(
+        after: String
+        before: String
+        first: Int
+        last: Int
+        skip: Int
+        where: CollectionWhereInput
+    ): [Collection!]!
     user(where: UserWhereUniqueInput!): User
 }
 
@@ -104,6 +175,23 @@ input SectionCreateWithoutAuthorInput {
     name: String!
 }
 
+input SectionFilter {
+    every: SectionWhereInput
+    none: SectionWhereInput
+    some: SectionWhereInput
+}
+
+input SectionWhereInput {
+    AND: [SectionWhereInput!]
+    author: UserWhereInput
+    collections: CollectionFilter
+    id: StringFilter
+    index: IntFilter
+    name: StringFilter
+    NOT: [SectionWhereInput!]
+    OR: [SectionWhereInput!]
+}
+
 input SectionWhereUniqueInput {
     id: ID
 }
@@ -122,8 +210,35 @@ input SocialCreateWithoutUserInput {
     youtube: String
 }
 
+input SocialWhereInput {
+    AND: [SocialWhereInput!]
+    github: NullableStringFilter
+    id: StringFilter
+    linkedin: NullableStringFilter
+    mail: NullableStringFilter
+    NOT: [SocialWhereInput!]
+    OR: [SocialWhereInput!]
+    user: UserWhereInput
+    website: NullableStringFilter
+    youtube: NullableStringFilter
+}
+
 input SocialWhereUniqueInput {
     id: ID
+}
+
+input StringFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: String
+    notIn: [String!]
+    startsWith: String
 }
 
 type User {
@@ -148,6 +263,19 @@ input UserCreateInput {
     sections: SectionCreateManyWithoutSectionsInput
     slug: String!
     social: SocialCreateOneWithoutSocialInput
+}
+
+input UserWhereInput {
+    AND: [UserWhereInput!]
+    biography: StringFilter
+    firstname: StringFilter
+    id: StringFilter
+    label: NullableStringFilter
+    NOT: [UserWhereInput!]
+    OR: [UserWhereInput!]
+    sections: SectionFilter
+    slug: StringFilter
+    social: SocialWhereInput
 }
 
 input UserWhereUniqueInput {
