@@ -106,6 +106,26 @@ enum OrderByArg {
     desc
 }
 
+type Profile {
+    linkedin: String
+    mail: String
+    website: String
+    youtube: String
+}
+
+input ProfileWhereInput {
+    AND: [ProfileWhereInput!]
+    github: NullableStringFilter
+    id: StringFilter
+    linkedin: NullableStringFilter
+    mail: NullableStringFilter
+    NOT: [ProfileWhereInput!]
+    OR: [ProfileWhereInput!]
+    user: UserWhereInput
+    website: NullableStringFilter
+    youtube: NullableStringFilter
+}
+
 type Query {
     collections(
         after: String
@@ -158,19 +178,6 @@ input SectionWhereInput {
     owner: UserWhereInput
 }
 
-input SocialWhereInput {
-    AND: [SocialWhereInput!]
-    github: NullableStringFilter
-    id: StringFilter
-    linkedin: NullableStringFilter
-    mail: NullableStringFilter
-    NOT: [SocialWhereInput!]
-    OR: [SocialWhereInput!]
-    user: UserWhereInput
-    website: NullableStringFilter
-    youtube: NullableStringFilter
-}
-
 input StringFilter {
     contains: String
     endsWith: String
@@ -189,6 +196,9 @@ type User {
     biography: String!
     firstname: String!
     id: ID!
+    label: String
+    pictureUrl: String!
+    profile: Profile
     sections(
         after: String
         before: String
@@ -208,9 +218,10 @@ input UserWhereInput {
     label: NullableStringFilter
     NOT: [UserWhereInput!]
     OR: [UserWhereInput!]
+    pictureUrl: StringFilter
+    profile: ProfileWhereInput
     sections: SectionFilter
     slug: StringFilter
-    social: SocialWhereInput
 }
 
 input UserWhereUniqueInput {

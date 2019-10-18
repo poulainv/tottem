@@ -11,8 +11,9 @@ model User {
   id          String       @default(cuid()) @id
   slug        String       @unique
   firstname   String
+  pictureUrl  String
   biography   String
-  social      Social?
+  profile     Profile?
   label       String?
   sections    Section[]
   collections Collection[]
@@ -23,7 +24,7 @@ model Section {
   name        String
   index       Int          @default(0)
   collections Collection[]
-  owner       User        
+  owner       User
 }
 
 model Collection {
@@ -33,10 +34,10 @@ model Collection {
   items   Item[]
   date    String?
   section Section
-  owner   User   
+  owner   User
 }
 
-model Social {
+model Profile {
   id       String  @default(cuid()) @id
   linkedin String?
   github   String?

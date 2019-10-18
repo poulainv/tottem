@@ -14,6 +14,16 @@ async function main() {
                 firstname: profile.firstname,
                 slug: profile.slug,
                 biography: profile.biography,
+                pictureUrl: profile.pictureUrl,
+                label: profile.label,
+                profile: {
+                    create: {
+                        linkedin: profile.social && profile.social.linkedin,
+                        youtube: profile.social && profile.social.youtube,
+                        mail: profile.social && profile.social.mail,
+                        website: profile.social && profile.social.website,
+                    },
+                },
             },
         })
 

@@ -1,4 +1,4 @@
-import { queryType, mutationType, objectType, enumType } from 'nexus'
+import { queryType, objectType, enumType } from 'nexus'
 
 export const Query = queryType({
     definition(t) {
@@ -6,6 +6,7 @@ export const Query = queryType({
         t.crud.collections({
             ordering: { date: true },
             filtering: { owner: true, section: true },
+            pagination: true,
         })
     },
 })
@@ -16,8 +17,21 @@ export const User = objectType({
         t.model.id()
         t.model.slug()
         t.model.biography()
+        t.model.profile()
+        t.model.pictureUrl()
+        t.model.label()
         t.model.firstname()
         t.model.sections()
+    },
+})
+
+export const Profile = objectType({
+    name: 'Profile',
+    definition(t) {
+        t.model.website()
+        t.model.linkedin()
+        t.model.youtube()
+        t.model.mail()
     },
 })
 
