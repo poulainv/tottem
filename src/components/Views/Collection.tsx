@@ -37,7 +37,6 @@ const CollectionCard = styled(Box)`
 
 const Collection: React.FC<ICollection> = props => {
     const [open, setOpen] = React.useState(false)
-
     const trackExpand = () => {
         ReactGA.initialize('UA-149517534-1')
         ReactGA.event({

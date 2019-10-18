@@ -1,0 +1,13 @@
+query getUser($slug: String!) {
+    user(where: { slug: $slug }) {
+        slub
+        biography
+        label
+        profile {
+            mail
+            linkedin
+            youtube
+            website
+        }
+    }
+}
