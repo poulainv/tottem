@@ -1,4 +1,5 @@
 import { UserProfile } from '../../types'
+import sections from './sections'
 
 const profile: UserProfile = {
     firstname: 'Vincent P.',
@@ -12,6 +13,8 @@ const profile: UserProfile = {
         linkedin: 'https://www.linkedin.com/in/vincentpoulain/',
         mail: 'vincent.poulain2@gmail.com',
     },
+    sections,
+    slug: 'vincent',
 }
 
 export default profile

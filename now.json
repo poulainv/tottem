@@ -1,6 +1,23 @@
 {
+    "version": 2,
+    "build": {
+        "env": {
+            "DATABASE_PROVIDER": "@database_provider",
+            "DATABASE_URL": "@database_url"
+        }
+    },
+    "env": {
+        "DATABASE_PROVIDER": "@database_provider",
+        "DATABASE_URL": "@database_url"
+    },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
-        { "src": "public/*", "use": "@now/static" }
-    ]
+        { "src": "public/*", "use": "@now/static" },
+        {
+            "src": "api/src/index.ts",
+            "use": "@now/node",
+            "config": { "maxLambdaSize": "20mb" }
+        }
+    ],
+    "routes": [{ "src": "/graphql", "dest": "/api/src/index.ts" }]
 }
