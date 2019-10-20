@@ -123,9 +123,10 @@ export default class Auth {
         // Remove isLoggedIn flag from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('user_details')
+        localStorage.setItem('redirectTo', window.location.href)
 
-        // refresh the page
-        window.location.reload()
+        // log out of auth0
+        window.location.href = `https://${AUTH_CONFIG.domain}/v2/logout?returnTo=${window.location.origin}&client_id=${AUTH_CONFIG.clientId}`
     }
 
     isAuthenticated() {

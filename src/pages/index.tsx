@@ -1,6 +1,7 @@
 import { Box, Heading } from 'grommet'
 import { MailOption } from 'grommet-icons'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import * as React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
@@ -78,7 +79,7 @@ const LandingLeftPanel = styled(Box)`
     @media screen and (max-width: 812px) {
         height: 100%;
         align-items: center;
-        margin-top: 0px;
+        margin-top: 0;
     }
 `
 
@@ -91,6 +92,16 @@ const handleCTA = () => {
 }
 
 const Landing: React.FC = props => {
+    useEffect(() => {
+        const redirectTo = localStorage.getItem('redirectTo')
+        if (redirectTo) {
+            // If user is logging in or out, we redirect him to the page he was on
+            // TODO for now redirectTo is only set when logging out, it needs to be there when logging in as well
+            window.location.href = redirectTo
+            localStorage.removeItem('redirectTo')
+        }
+    }, [])
+
     return (
         <Box align="center" background="white">
             <NextSeo title="Tottem" />
