@@ -160,16 +160,6 @@ const Landing: React.FC = props => {
                     >
                         Keep me in the loop
                     </CTAButton>
-
-                    <CTAButton
-                        onClick={signIn}
-                        style={{
-                            marginTop: '24px',
-                            marginBottom: '40px',
-                        }}
-                    >
-                        Sign In
-                    </CTAButton>
                 </LandingLeftPanel>
                 <MediumAndUp>
                     <LargeResponsiveArtwork />

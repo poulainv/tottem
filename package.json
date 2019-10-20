@@ -31,6 +31,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
+        "go": "next build && next start",
         "analyze": "cross-env BUNDLE_ANALYZE=both next build",
         "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
         "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"

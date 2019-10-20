@@ -1,8 +1,10 @@
-import { Box, Button, ResponsiveContext } from 'grommet'
-import React from 'react'
+import { Box, ResponsiveContext } from 'grommet'
+import React, { useEffect, useState } from 'react'
+import Auth from '../../lib/Auth'
 import Logo from '../Logo'
 import styled from 'styled-components'
 import Link from 'next/link'
+const auth = new Auth()
 
 const ButtonCTA = styled.a`
     color: #407f6e;
@@ -25,8 +27,22 @@ const ButtonCTA = styled.a`
     }
 `
 
+const logout = () => {
+    auth.logout()
+}
+
 const Header = () => {
     const size = React.useContext(ResponsiveContext)
+    const [isLoggedIn, setIsLoggedIn] = useState()
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        const lsLoggedIn = localStorage.getItem('isLoggedIn')
+        const lsUserDetails = localStorage.getItem('user_details')
+        setIsLoggedIn(lsLoggedIn ? JSON.parse(lsLoggedIn) : false)
+        setUserData(lsUserDetails ? JSON.parse(lsUserDetails) : null)
+    }, [])
+
     return (
         <Box
             background="white"
@@ -50,10 +66,16 @@ const Header = () => {
                         <Logo>Tottem</Logo>
                     </Link>
                 </Box>
-                <Box>
+                <Box direction="row" align="center">
                     <Link href="/">
                         <ButtonCTA>What's Tottem?</ButtonCTA>
                     </Link>
+                    {isLoggedIn ? (
+                        <Box direction="row" align="center">
+                            {`Hi ${userData.given_name}!`}
+                            <button onClick={logout}>Logout</button>
+                        </Box>
+                    ) : null}
                 </Box>
             </Box>
         </Box>
