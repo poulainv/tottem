@@ -44,14 +44,11 @@ export interface ISocial {
 }
 
 export interface UserProfile {
+    slug: string
     firstname: string
     pictureUrl: string
     biography: string
     social?: ISocial
     label?: string
-}
-
-// Interface representing the params passed in the URL
-export interface RoutingMatchParams {
-    profileId: string
+    sections: ISection[]
 }

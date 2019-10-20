@@ -1,0 +1,70 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = env("DATABASE_PROVIDER")
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String       @default(cuid()) @id
+  slug        String       @unique
+  firstname   String
+  pictureUrl  String
+  biography   String
+  profile     Profile?
+  label       String?
+  sections    Section[]
+  collections Collection[]
+}
+
+model Section {
+  id          String       @default(cuid()) @id
+  name        String
+  index       Int          @default(0)
+  collections Collection[]
+  owner       User
+}
+
+model Collection {
+  id      String  @id @default(cuid())
+  name    String
+  detail  String?
+  items   Item[]
+  date    String?
+  section Section
+  owner   User
+}
+
+model Profile {
+  id       String  @default(cuid()) @id
+  linkedin String?
+  github   String?
+  mail     String?
+  youtube  String?
+  website  String?
+}
+
+
+model Item {
+  id         String      @default(cuid()) @id
+  title      String
+  author     String
+  type       ItemType
+  productUrl String
+  imageUrl   String?
+  comment    String?
+  collection Collection?
+}
+
+
+enum ItemType {
+  book
+  album
+  movie
+  video
+  people
+  paper
+  podcast
+}

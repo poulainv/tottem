@@ -415,8 +415,17 @@ const collections: ICollection[] = [
         detail:
             'Interview diffusé en direct le 10/10/2019: [lien de la vidéo](https://www.youtube.com/watch?v=5WHg49trJCw)',
         name:
-            "** Christophe Nijdam & Jérôme Cazes** - L'explosion des banques ?",
+            "**Christophe Nijdam & Jérôme Cazes** - L'explosion des banques ?",
         items: itemsByCollection['106'],
+    },
+    {
+        id: '107',
+        date: new Date('2019-10-16T12:00:00'),
+        sectionId: '6',
+        detail:
+            'Interview diffusé en direct le 16/10/2019: [lien de la vidéo](https://www.youtube.com/watch?v=TFk_w_N2xXM)',
+        name: '**Bruno Gaccio** -  Médias, les nouveaux GUIGNOLS ?',
+        items: itemsByCollection['107'],
     },
 ]
 
