@@ -2,17 +2,6 @@ import auth0 from 'auth0-js'
 import { AUTH_CONFIG } from './auth0-variables'
 import jwtDecode from 'jwt-decode'
 
-const getQueryParams = () => {
-    const params = {}
-    window.location.href.replace(
-        /([^(?|#)=&]+)(=([^&]*))?/g,
-        ($0, $1, $2, $3) => {
-            params[$1] = $3
-        }
-    )
-    return params
-}
-
 export default class Auth {
     accessToken
     idToken
@@ -44,7 +33,7 @@ export default class Auth {
         if (process.server) {
             return
         }
-        const { id_token } = getQueryParams()
+        const { id_token } = this.getQueryParams()
         return {
             token: id_token,
             user_details: jwtDecode(id_token),
@@ -135,8 +124,8 @@ export default class Auth {
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('user_details')
 
-        // navigate to the home route
-        window.location.replace('/')
+        // refresh the page
+        window.location.reload()
     }
 
     isAuthenticated() {

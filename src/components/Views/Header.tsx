@@ -1,10 +1,9 @@
 import { Box, ResponsiveContext } from 'grommet'
 import React, { useEffect, useState } from 'react'
-import Auth from '../../lib/Auth'
+import { Auth0 } from '../../pages/_document'
 import Logo from '../Logo'
 import styled from 'styled-components'
 import Link from 'next/link'
-const auth = new Auth()
 
 const ButtonCTA = styled.a`
     color: #407f6e;
@@ -17,6 +16,7 @@ const ButtonCTA = styled.a`
     height: fit-content;
     width: fit-content;
     font-size: 16px;
+    cursor: pointer;
 
     :hover {
         border: 1px #407f6e solid;
@@ -28,7 +28,7 @@ const ButtonCTA = styled.a`
 `
 
 const logout = () => {
-    auth.logout()
+    Auth0.logout()
 }
 
 const Header = () => {
@@ -67,15 +67,16 @@ const Header = () => {
                     </Link>
                 </Box>
                 <Box direction="row" align="center">
-                    <Link href="/">
-                        <ButtonCTA>What's Tottem?</ButtonCTA>
-                    </Link>
                     {isLoggedIn ? (
-                        <Box direction="row" align="center">
+                        <Box direction="row" align="center" gap="medium">
                             {`Hi ${userData.given_name}!`}
-                            <button onClick={logout}>Logout</button>
+                            <ButtonCTA onClick={logout}>Logout</ButtonCTA>
                         </Box>
-                    ) : null}
+                    ) : (
+                        <Link href="/">
+                            <ButtonCTA>What's Tottem?</ButtonCTA>
+                        </Link>
+                    )}
                 </Box>
             </Box>
         </Box>

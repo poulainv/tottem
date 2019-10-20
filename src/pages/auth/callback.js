@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import Auth from '../../lib/Auth'
-
-const auth = new Auth()
+import { Auth0 } from '../_document'
 
 export default class Callback extends Component {
     componentDidMount() {
-        auth.handleAuthentication().then(res => {
+        Auth0.handleAuthentication().then(res => {
             window.location.replace('/')
         })
     }

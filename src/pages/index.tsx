@@ -17,8 +17,6 @@ import {
 import Separator from '../components/Separator'
 import { accent500, accent900, brand500 } from '../theme'
 import { NextSeo } from 'next-seo'
-import Auth from '../lib/Auth'
-const auth = new Auth()
 
 const Header = styled(Heading)`
     font-size: 52px;
@@ -26,7 +24,7 @@ const Header = styled(Heading)`
     font-weight: 700;
     max-width: 550px;
     margin: 25px 0px 25px 0px;
-    font-family: 'Poiret One';
+    font-family: 'Poiret One', Arial, sans-serif;
     width: 100%;
 
     @media screen and (max-width: 812px) {
@@ -90,10 +88,6 @@ const handleCTA = () => {
         category: 'Signup',
         action: 'Click on keepme',
     })
-}
-
-const signIn = () => {
-    auth.login()
 }
 
 const Landing: React.FC = props => {

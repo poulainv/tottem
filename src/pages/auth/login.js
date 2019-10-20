@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import Auth from '../../lib/Auth'
-const auth = new Auth()
+import { Auth0 } from '../_document'
 
 const Login = () => {
     useEffect(() => {
-        auth.login()
+        Auth0.login()
     }, [])
 
     return ''
