@@ -69,7 +69,7 @@ const Header = () => {
                 <Box direction="row" align="center">
                     {isLoggedIn ? (
                         <Box direction="row" align="center" gap="medium">
-                            {`Hi ${userData.given_name}!`}
+                            {`Hi ${userData.given_name || userData.nickname}!`}
                             <ButtonCTA onClick={logout}>Logout</ButtonCTA>
                         </Box>
                     ) : (
