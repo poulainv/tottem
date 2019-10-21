@@ -52,3 +52,15 @@ export interface UserProfile {
     label?: string
     sections: ISection[]
 }
+
+export type ImageShapeType = 'rectangle' | 'square' | 'circle'
+
+export const imageShapes: { [type in ItemType]: ImageShapeType } = {
+    album: 'square',
+    book: 'rectangle',
+    movie: 'rectangle',
+    paper: 'square',
+    people: 'circle',
+    podcast: 'square',
+    video: 'square',
+}
