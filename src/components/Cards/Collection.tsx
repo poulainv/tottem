@@ -7,6 +7,7 @@ import { MediumAndUp } from '../ResponsiveStyledComponent'
 import ItemList from '../Views/ItemList'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { brand600 } from '../../theme'
 
 const CollectionTitle = styled.h3`
     font-size: 16px;
@@ -52,7 +53,7 @@ const Collection: React.FC<ICollection> = props => {
     const seeMore = (
         <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
             <Button
-                style={{ fontSize: '14px' }}
+                style={{ fontSize: '14px', color: brand600 }}
                 label={
                     open
                         ? 'SHOW LESS ITEMS'

@@ -36,7 +36,7 @@ const theme = deepMerge(grommet, {
         border: {
             color: 'dark-2',
             active: {
-                color: 'brand',
+                color: 'accent-1',
             },
         },
     },
@@ -100,7 +100,7 @@ const theme = deepMerge(grommet, {
         },
         colors: {
             'accent-1': '#D87551',
-            brand: brand900,
+            brand: brand500,
             'light-1': 'rgb(250, 250, 250)',
         },
         elevation: {
