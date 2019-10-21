@@ -1,19 +1,8 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import { Item, ItemType } from '../../types'
+import { Item, imageShapes } from '../../types'
 import Card, { CardSize } from '../Cards/Card'
-import { ImageShapeType } from '../Cards/CoverImage'
-
-const imageShapes: { [type in ItemType]: ImageShapeType } = {
-    album: 'square',
-    book: 'rectangle',
-    movie: 'rectangle',
-    paper: 'square',
-    people: 'circle',
-    podcast: 'square',
-    video: 'square',
-}
 
 const ScrollableBox = styled(Box)`
     ::-webkit-scrollbar {

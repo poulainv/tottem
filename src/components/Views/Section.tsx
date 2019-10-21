@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from 'grommet'
 import { ICollection } from '../../types'
-import Collection from './Collection'
+import Collection from '../Cards/Collection'
 
 interface Props {
     collections: ICollection[]

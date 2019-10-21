@@ -3,12 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { UserProfile } from '../../types'
 import PictureProfile from '../PictureProfile'
+import { MediumAndUp, SmallAndDown } from '../ResponsiveStyledComponent'
 import Social from '../Social'
-import {
-    LargeAndUp,
-    MediumAndUp,
-    SmallAndDown,
-} from '../ResponsiveStyledComponent'
 
 const Label = styled.div`
     color: #777777;
@@ -33,7 +29,7 @@ const Biography = styled(Text)`
 
 const ProfileDescription: React.FC<UserProfile> = props => {
     return (
-        <Box pad={{ horizontal: 'large' }}>
+        <Box pad={{ horizontal: 'large' }} width="full">
             <Box direction="row" justify="start" margin={{ bottom: 'large' }}>
                 <Box
                     margin={{ right: 'large' }}
