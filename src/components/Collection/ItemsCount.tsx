@@ -1,6 +1,7 @@
 import { Box } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
+import { ItemType } from '../../types'
 
 const Pictogram = styled.img`
     height: 24px;
@@ -37,11 +38,13 @@ const ItemCount: React.FC<IItemCount> = ({ type, count }) => {
     )
 }
 
-const ItemsCount: React.FC<{ items: IItemCount[] }> = props => {
+const ItemsCount: React.FC<{
+    items: { [type in ItemType]: number }
+}> = props => {
     return (
         <Box direction="row">
-            {props.items.map(itemCount => (
-                <ItemCount key={itemCount.type} {...itemCount} />
+            {Object.entries(props.items).map(([type, count]) => (
+                <ItemCount key={type} type={type} count={count} />
             ))}
         </Box>
     )

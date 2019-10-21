@@ -7,7 +7,9 @@ import removeMd from 'remove-markdown'
 import CollectionHeader from '../../../components/Collection/Header'
 import ItemList from '../../../components/Collection/ItemList'
 import { Layout } from '../../../components/Views/Layout'
-import { ICollection, ISection, UserProfile } from '../../../types'
+import { ICollection, ISection, UserProfile, Item } from '../../../types'
+
+const countBy = require('lodash.countby')
 
 interface ICollectionProps {
     userProfile: UserProfile
@@ -20,6 +22,8 @@ const Collection: NextPage<ICollectionProps> = ({
 }) => {
     const router = useRouter()
     const collectionName = removeMd(collection.name)
+    const itemsTypeCount = countBy(collection.items, (x: Item) => x.type)
+
     return (
         <Layout>
             <NextSeo
@@ -44,10 +48,7 @@ const Collection: NextPage<ICollectionProps> = ({
                     subtitle={collection.detail || ' '}
                     date={collection.date.toString()}
                     ownerSlug={userProfile.slug}
-                    itemsTypeCount={[
-                        { type: 'book', count: 12 },
-                        { type: 'video', count: 4 },
-                    ]}
+                    itemsTypeCount={itemsTypeCount}
                 />
                 <ItemList items={collection.items} />
             </Box>

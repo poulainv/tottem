@@ -3,6 +3,7 @@ import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
 import ItemsCount from './ItemsCount'
+import { ItemType } from '../../types'
 
 const Title = styled.h1`
     margin: 0px;
@@ -51,7 +52,7 @@ interface ICollectionHeaderProps {
     title: string
     subtitle?: string
     date: string
-    itemsTypeCount: Array<{ type: string; count: number }>
+    itemsTypeCount: { [type in ItemType]: number }
 }
 
 const CollectionHeader: React.FunctionComponent<
