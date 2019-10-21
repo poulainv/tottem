@@ -8,6 +8,9 @@ import CollectionHeader from '../../../components/Collection/Header'
 import ItemList from '../../../components/Collection/ItemList'
 import { Layout } from '../../../components/Views/Layout'
 import { ICollection, ISection, UserProfile, Item } from '../../../types'
+import styled from 'styled-components'
+import { LinkPrevious } from 'grommet-icons'
+import Link from 'next/link'
 
 const countBy = require('lodash.countby')
 
@@ -15,6 +18,16 @@ interface ICollectionProps {
     userProfile: UserProfile
     collection: ICollection
 }
+
+const BackButton = styled(Box)`
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+`
 
 const Collection: NextPage<ICollectionProps> = ({
     userProfile,
@@ -40,17 +53,27 @@ const Collection: NextPage<ICollectionProps> = ({
                     ],
                 }}
             />
-            <Box margin={{ top: 'large' }} width="xlarge">
-                <CollectionHeader
-                    ownerName={userProfile.firstname}
-                    userImage={userProfile.pictureUrl}
-                    title={collectionName}
-                    subtitle={collection.detail || ' '}
-                    date={collection.date.toString()}
-                    ownerSlug={userProfile.slug}
-                    itemsTypeCount={itemsTypeCount}
-                />
-                <ItemList items={collection.items} />
+            <Box direction="row" margin={{ top: 'large' }}>
+                <Link href="/[profile]" as={`/${router.query.profile}`}>
+                    <BackButton>
+                        <LinkPrevious
+                            color="#595959"
+                            style={{ margin: 'auto', display: 'block' }}
+                        />
+                    </BackButton>
+                </Link>
+                <Box width="xlarge">
+                    <CollectionHeader
+                        ownerName={userProfile.firstname}
+                        userImage={userProfile.pictureUrl}
+                        title={collectionName}
+                        subtitle={collection.detail || ' '}
+                        date={collection.date.toString()}
+                        ownerSlug={userProfile.slug}
+                        itemsTypeCount={itemsTypeCount}
+                    />
+                    <ItemList items={collection.items} />
+                </Box>
             </Box>
         </Layout>
     )
