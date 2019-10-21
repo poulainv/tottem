@@ -11,7 +11,7 @@ const FootItem = styled.a`
 
 export function Footer(props: {}) {
     return (
-        <Box pad={{ horizontal: 'large', vertical: 'medium' }} width="full">
+        <Box pad={{ horizontal: 'large', vertical: 'medium' }}>
             <FootItem href="mailto:hello@tottem.app">Contact</FootItem>
         </Box>
     )
