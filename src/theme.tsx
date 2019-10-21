@@ -1,6 +1,36 @@
 import { grommet } from 'grommet'
 import { deepMerge } from 'grommet/utils'
 
+export const brand50 = '#eef5f3'
+export const brand100 = '#d4e6e1'
+export const brand200 = '#b7d5ce'
+export const brand300 = '#9ac4ba'
+export const brand400 = '#85b7ab'
+export const brand500 = '#6faa9c'
+export const brand600 = '#67a394'
+export const brand700 = '#5c998a'
+export const brand800 = '#529080'
+export const brand900 = '#407f6e'
+export const brandA100 = '#d5fff3'
+export const brandA200 = '#a2ffe5'
+export const brandA400 = '#6fffd7'
+export const brandA700 = '#56ffd0'
+
+export const accent50 = '#faeeea'
+export const accent100 = '#f3d6cb'
+export const accent200 = '#ecbaa8'
+export const accent300 = '#e49e85'
+export const accent400 = '#de8a6b'
+export const accent500 = '#d87551'
+export const accent600 = '#d46d4a'
+export const accent700 = '#ce6240'
+export const accent800 = '#c85837'
+export const accent900 = '#bf4527'
+export const accentA100 = '#fffdfc'
+export const accentA200 = '#ffd3c9'
+export const accentA400 = '#ffa996'
+export const accentA700 = '#ff947d'
+
 const theme = deepMerge(grommet, {
     tab: {
         border: {
@@ -69,8 +99,8 @@ const theme = deepMerge(grommet, {
             },
         },
         colors: {
-            brand: '#D87551',
-            'accent-1': '#6FAA9C',
+            'accent-1': '#D87551',
+            brand: brand900,
             'light-1': 'rgb(250, 250, 250)',
         },
         elevation: {
@@ -155,33 +185,3 @@ const theme = deepMerge(grommet, {
 })
 
 export default theme
-
-export const brand50 = '#eef5f3'
-export const brand100 = '#d4e6e1'
-export const brand200 = '#b7d5ce'
-export const brand300 = '#9ac4ba'
-export const brand400 = '#85b7ab'
-export const brand500 = '#6faa9c'
-export const brand600 = '#67a394'
-export const brand700 = '#5c998a'
-export const brand800 = '#529080'
-export const brand900 = '#407f6e'
-export const brandA100 = '#d5fff3'
-export const brandA200 = '#a2ffe5'
-export const brandA400 = '#6fffd7'
-export const brandA700 = '#56ffd0'
-
-export const accent50 = '#faeeea'
-export const accent100 = '#f3d6cb'
-export const accent200 = '#ecbaa8'
-export const accent300 = '#e49e85'
-export const accent400 = '#de8a6b'
-export const accent500 = '#d87551'
-export const accent600 = '#d46d4a'
-export const accent700 = '#ce6240'
-export const accent800 = '#c85837'
-export const accent900 = '#bf4527'
-export const accentA100 = '#fffdfc'
-export const accentA200 = '#ffd3c9'
-export const accentA400 = '#ffa996'
-export const accentA700 = '#ff947d'

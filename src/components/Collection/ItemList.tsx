@@ -13,12 +13,14 @@ const ItemImage = styled(Image)`
     border: solid 0.5px #ededed;
 `
 
-const Title = styled.p`
+const Title = styled.a`
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
     color: #000000;
     margin: 0px;
+    cursor: pointer;
+    text-decoration: none;
 `
 
 const Author = styled.p`
@@ -76,17 +78,25 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                 }
                             >
                                 <Box direction="row">
-                                    <ItemImage
-                                        src={item.imageUrl}
-                                        fit="cover"
-                                        radius={
-                                            imageShapes[item.type] === 'circle'
-                                                ? '50%'
-                                                : '4px'
-                                        }
-                                    />
+                                    <a href={item.productUrl} target="_blank">
+                                        <ItemImage
+                                            src={item.imageUrl}
+                                            fit="cover"
+                                            radius={
+                                                imageShapes[item.type] ===
+                                                'circle'
+                                                    ? '50%'
+                                                    : '4px'
+                                            }
+                                        />
+                                    </a>
                                     <Box margin={{ horizontal: 'large' }}>
-                                        <Title>{item.title}</Title>
+                                        <Title
+                                            href={item.productUrl}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </Title>
                                         <Author>{item.author}</Author>
                                     </Box>
                                 </Box>

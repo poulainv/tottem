@@ -3,11 +3,12 @@ import React from 'react'
 import Logo from '../Logo'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { brand900, brand100 } from '../../theme'
 
 const ButtonCTA = styled.a`
-    color: #407f6e;
+    color: ${brand900};
     border: 1px transparent solid;
-    background-color: #d4e6e1;
+    background-color: ${brand100};
     border-radius: 3px;
     padding: 3px 10px 3px 10px;
     font-weight: 500;
@@ -17,7 +18,7 @@ const ButtonCTA = styled.a`
     font-size: 16px;
 
     :hover {
-        border: 1px #407f6e solid;
+        border: 1px ${brand900} solid;
     }
 
     @media screen and (max-width: 812px) {
