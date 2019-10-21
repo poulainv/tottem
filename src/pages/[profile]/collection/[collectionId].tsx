@@ -13,6 +13,7 @@ import { LinkPrevious } from 'grommet-icons'
 import Link from 'next/link'
 
 const countBy = require('lodash.countby')
+const flatten = require('lodash.flatten')
 
 interface ICollectionProps {
     userProfile: UserProfile
@@ -96,11 +97,11 @@ Collection.getInitialProps = async (context: Context) => {
         .default
     const sections: ISection[] = require(`../../../data/${profile}/sections`)
         .default
-    const collectionOpt: ICollection | undefined = sections
-        .flatMap(x => x.collections)
-        .find((x: ICollection) => x.id === collectionId)
 
-    // FIXME use type check and _error to handle that
+    // flatMap only node 12
+    const collectionOpt: ICollection | undefined = flatten(
+        sections.map(x => x.collections)
+    ).find((x: ICollection) => x.id === collectionId)
     let collection: ICollection
     if (!collectionOpt) {
         throw Error('Collection not found')
