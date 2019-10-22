@@ -46,8 +46,8 @@ const Collection: React.FC<ICollection> = props => {
                 style={{ fontSize: '14px', color: brand600 }}
                 label={
                     open
-                        ? 'SHOW LESS ITEMS'
-                        : 'SHOW ALL ' + props.items.length + ' ITEMS'
+                        ? 'VOIR MOINS'
+                        : 'VOIR LES ' + props.items.length + ' ÉLÉMENTS'
                 }
                 // tslint:disable-next-line: jsx-no-lambda
                 onClick={() => setOpen(!open)}

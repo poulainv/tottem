@@ -51,7 +51,7 @@ const CollectionHeader: React.FunctionComponent<
                             <Owner>{props.ownerName}</Owner>
                         </Link>
                         <CreationDate>
-                            {date.toLocaleDateString('en-US', options)}
+                            {date.toLocaleDateString('fr-FR', options)}
                         </CreationDate>
                     </Box>
                 </Box>
