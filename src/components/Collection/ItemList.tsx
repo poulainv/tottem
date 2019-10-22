@@ -78,7 +78,11 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                 }
                             >
                                 <Box direction="row">
-                                    <a href={item.productUrl} target="_blank">
+                                    <a
+                                        href={item.productUrl}
+                                        target="_blank"
+                                        style={{ display: 'flex ' }}
+                                    >
                                         <ItemImage
                                             src={item.imageUrl}
                                             fit="cover"
