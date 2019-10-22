@@ -136,7 +136,7 @@ i18n.use(initReactI18next)
                     desc3:
                         '<em> Difficile de trouver du contenu pertinent ? </em>',
                     desc4:
-                        'Tottem est une plateforme où des passionnés assemble des <strong> contenus culturels offrant un panorama d’idées et de nouvelles perspectives. </strong>',
+                        'Tottem est une plateforme où des passionnés rassemblent des contenus culturels, offrant <strong> un panorama d’idées et de nouvelles perspectives. </strong>',
                     button: "Je veux m'inscrire pour la beta",
                 },
             },
