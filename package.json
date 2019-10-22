@@ -13,6 +13,8 @@
         "babel-loader": "^7.1.5",
         "grommet": "^2.7.8",
         "grommet-icons": "^4.3.0",
+        "i18next": "^17.3.0",
+        "i18next-browser-languagedetector": "^4.0.0",
         "lodash.countby": "^4.6.0",
         "lodash.flatten": "^4.4.0",
         "lodash.groupby": "^4.6.0",
@@ -22,6 +24,7 @@
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-ga": "^2.7.0",
+        "react-i18next": "^10.13.1",
         "react-truncate": "^2.4.0",
         "remove-markdown": "^0.3.0",
         "styled-components": "^4.4.0"
