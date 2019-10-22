@@ -141,7 +141,6 @@ i18n.use(initReactI18next)
                 },
             },
         },
-        lng: 'fr',
         fallbackLng: 'en',
         interpolation: {
             escapeValue: false,
