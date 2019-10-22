@@ -12,8 +12,13 @@ const ItemImage = styled(Image)`
     width: 160px;
     border-radius: ${(props: { radius: string }) => props.radius};
     border: solid 0.5px #ededed;
+
+    @media screen and (max-width: 600px) {
+        width: 120px;
+    }
 `
 const Pictogram = styled(Box)`
+    flex-shrink: 0;
     height: 30px;
     justify-content: center;
     align-content: center;
@@ -34,8 +39,18 @@ const CollectionCard = styled(Box)`
     }
 `
 
+const ItemBox = styled(Box)`
+    height: ${(props: { square: boolean }) =>
+        props.square ? '160px' : 'auto'};
+    @media screen and (max-width: 600px) {
+        height: ${(props: { square: boolean }) =>
+            props.square ? '120px' : 'auto'};
+    }
+`
+
 const ContentBox = styled(Box)`
-    margin-top: 40px;
+    margin: 40px 0px 40px 0px;
+    padding: 0px 48px 0px 48px;
     width: 100%;
     @media screen and (max-width: 812px) {
         margin-top: 24px;
@@ -46,28 +61,21 @@ const ContentBox = styled(Box)`
 
 const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (
-        <ContentBox
-            pad={{ horizontal: 'large' }}
-            // margin={{ vertical: 'large' }}
-            // width="full"
-        >
+        <ContentBox>
             <CollectionCard background="white" pad="large">
                 {props.items.map(item => {
                     return (
                         <Box
+                            responsive={false}
                             key={item.title}
                             direction="row"
                             margin={{ bottom: 'large' }}
                         >
-                            <Box
+                            <ItemBox
                                 direction="row"
                                 width="100%"
                                 justify="between"
-                                height={
-                                    imageShapes[item.type] === 'rectangle'
-                                        ? 'auto'
-                                        : '160px'
-                                }
+                                square={imageShapes[item.type] !== 'rectangle'}
                             >
                                 <Box direction="row">
                                     <a
@@ -104,7 +112,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         height="16px"
                                     />
                                 </Pictogram>
-                            </Box>
+                            </ItemBox>
                         </Box>
                     )
                 })}

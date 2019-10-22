@@ -6,7 +6,6 @@ import { Layout } from '../components/Views/Layout'
 import ProfileDescription from '../components/Views/Nav'
 import ProfileContent from '../components/Views/ProfileContent'
 import { ISection, UserProfile } from '../types'
-import { Box } from 'grommet'
 
 interface IProfileProps {
     userProfile: UserProfile
@@ -37,10 +36,8 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                     ],
                 }}
             />
-            <Box margin={{ top: '72px' }} width="xlarge">
-                <ProfileDescription {...userProfile} />
-                <ProfileContent sections={sections} username="vincent" />
-            </Box>
+            <ProfileDescription {...userProfile} />
+            <ProfileContent sections={sections} username="vincent" />
         </Layout>
     )
 }

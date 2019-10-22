@@ -6,6 +6,11 @@ import { ItemType } from '../../types'
 const Pictogram = styled.img`
     height: 24px;
     width: 24px;
+
+    @media screen and (max-width: 600px) {
+        height: 20px;
+        width: 20px;
+    }
 `
 
 const Counter = styled.p`
@@ -13,6 +18,19 @@ const Counter = styled.p`
     line-height: 100%;
     margin: 0px;
     color: #595959; // grey-8
+
+    @media screen and (max-width: 600px) {
+        font-size: 12px;
+    }
+`
+
+const ItemCountBox = styled(Box)`
+    position: relative;
+    height: 36px;
+
+    @media screen and (max-width: 600px) {
+        height: 32px;
+    }
 `
 
 interface IItemCount {
@@ -22,19 +40,16 @@ interface IItemCount {
 
 const ItemCount: React.FC<IItemCount> = ({ type, count }) => {
     return (
-        <Box
-            direction="row"
-            margin={{ horizontal: 'small' }}
-            height="36px"
-            style={{ position: 'relative' }}
-        >
+        // The more I see that I have to named those container
+        // The more I think that inline tailwindcss makes completely sense
+        <ItemCountBox direction="row" margin={{ horizontal: 'small' }}>
             <Box>
                 <Pictogram src={`/pictograms/${type}.svg`} />
             </Box>
             <Box justify="end">
                 <Counter>{count}</Counter>
             </Box>
-        </Box>
+        </ItemCountBox>
     )
 }
 

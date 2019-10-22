@@ -12,7 +12,7 @@ interface ITab {
 const ContentBox = styled(Box)`
     margin-top: 40px;
     @media screen and (max-width: 812px) {
-        margin-top: 24px;
+        margin-top: 8px;
         padding-right: 0px;
         padding-left: 0px;
     }

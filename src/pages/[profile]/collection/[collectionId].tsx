@@ -57,31 +57,26 @@ const Collection: NextPage<ICollectionProps> = ({
                     ],
                 }}
             />
-            <Box
-                direction="row"
-                margin={{ top: '72px' }}
-                style={{ position: 'relative' }}
-            >
-                <Link href="/[profile]" as={`/${router.query.profile}`}>
-                    <BackButton>
-                        <LinkPrevious
-                            color="#595959"
-                            style={{ margin: 'auto', display: 'block' }}
-                        />
-                    </BackButton>
-                </Link>
-                <Box width="xlarge">
-                    <CollectionHeader
-                        ownerName={userProfile.firstname}
-                        userImage={userProfile.pictureUrl}
-                        title={collectionName}
-                        subtitle={collection.detail || ' '}
-                        date={collection.date.toString()}
-                        ownerSlug={userProfile.slug}
-                        itemsTypeCount={itemsTypeCount}
+
+            <Link href="/[profile]" as={`/${router.query.profile}`}>
+                <BackButton>
+                    <LinkPrevious
+                        color="#595959"
+                        style={{ margin: 'auto', display: 'block' }}
                     />
-                    <ItemList items={collection.items} />
-                </Box>
+                </BackButton>
+            </Link>
+            <Box width="xlarge">
+                <CollectionHeader
+                    ownerName={userProfile.firstname}
+                    userImage={userProfile.pictureUrl}
+                    title={collectionName}
+                    subtitle={collection.detail || ' '}
+                    date={collection.date.toString()}
+                    ownerSlug={userProfile.slug}
+                    itemsTypeCount={itemsTypeCount}
+                />
+                <ItemList items={collection.items} />
             </Box>
         </Layout>
     )
