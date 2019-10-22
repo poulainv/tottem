@@ -53,7 +53,7 @@ const Header = () => {
                 </Box>
                 <Box>
                     <Link href="/">
-                        <ButtonCTA>What's Tottem?</ButtonCTA>
+                        <ButtonCTA>À propos</ButtonCTA>
                     </Link>
                 </Box>
             </Box>
