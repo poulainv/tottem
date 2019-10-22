@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import { brand100, brand900 } from '../../constants/colors'
-import Logo from '../Logo'
+import { Logo, Beta } from '../Logo'
 
 const ButtonCTA = styled.a`
     color: ${brand900};
@@ -48,7 +48,10 @@ const Header = () => {
             >
                 <Box>
                     <Link href="/">
-                        <Logo>Tottem</Logo>
+                        <Logo>
+                            Tottem
+                            <Beta>beta</Beta>
+                        </Logo>
                     </Link>
                 </Box>
                 <Box>
