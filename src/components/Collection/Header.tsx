@@ -4,45 +4,13 @@ import * as React from 'react'
 import styled from 'styled-components'
 import ItemsCount from './ItemsCount'
 import { ItemType } from '../../types'
-
-const Title = styled.h1`
-    margin: 0px;
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 70px;
-    color: #262626;
-    :first-line {
-        line-height: 100% !important;
-    }
-`
-
-const Subtitle = styled.h3`
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 32px;
-    color: #595959;
-`
+import { PageHeader, PageSubheader, CreationDate, Owner } from '../Typography'
 
 const Avatar = styled.img`
     border-radius: 50%;
     height: 48px;
     width: 48px;
     cursor: pointer;
-`
-
-const Owner = styled.p`
-    margin: 0px;
-    font-size: 14px;
-    cursor: pointer;
-    line-height: 22px;
-    color: #262626;
-`
-
-const CreationDate = styled.p`
-    margin: 0px;
-    font-size: 14px;
-    line-height: 22px;
-    color: #8c8c8c;
 `
 
 interface ICollectionHeaderProps {
@@ -62,11 +30,11 @@ const CollectionHeader: React.FunctionComponent<
     const options = { year: 'numeric', month: 'short', day: 'numeric' }
     return (
         <Box pad={{ horizontal: 'large' }}>
-            <Title>{props.title}</Title>
+            <PageHeader>{props.title}</PageHeader>
             {props.subtitle && (
-                <Subtitle>
+                <PageSubheader>
                     <Markdown>{props.subtitle}</Markdown>
-                </Subtitle>
+                </PageSubheader>
             )}
             <Box
                 direction="row"

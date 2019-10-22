@@ -1,9 +1,9 @@
-import { Box, Button, ResponsiveContext } from 'grommet'
-import React from 'react'
-import Logo from '../Logo'
-import styled from 'styled-components'
+import { Box, ResponsiveContext } from 'grommet'
 import Link from 'next/link'
-import { brand900, brand100 } from '../../theme'
+import React from 'react'
+import styled from 'styled-components'
+import { brand100, brand900 } from '../../constants/colors'
+import Logo from '../Logo'
 
 const ButtonCTA = styled.a`
     color: ${brand900};

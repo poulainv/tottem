@@ -37,7 +37,7 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                     ],
                 }}
             />
-            <Box margin={{ top: 'large' }} width="xlarge">
+            <Box margin={{ top: '72px' }} width="xlarge">
                 <ProfileDescription {...userProfile} />
                 <ProfileContent sections={sections} username="vincent" />
             </Box>

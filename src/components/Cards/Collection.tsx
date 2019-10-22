@@ -7,18 +7,8 @@ import { MediumAndUp } from '../ResponsiveStyledComponent'
 import ItemList from '../Views/ItemList'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { brand600 } from '../../theme'
-
-const CollectionTitle = styled.h3`
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-
-    @media screen and (max-width: 600px) {
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
+import { brand600 } from '../../constants/colors'
+import { CollectionTitle } from '../Typography'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
@@ -95,7 +85,7 @@ const Collection: React.FC<ICollection> = props => {
             {props.detail && (
                 <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
                     <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
-                        <CollectionDetail color="dark-3">
+                        <CollectionDetail>
                             <Markdown>{props.detail}</Markdown>
                         </CollectionDetail>
                     </Box>

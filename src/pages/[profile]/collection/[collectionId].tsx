@@ -59,7 +59,7 @@ const Collection: NextPage<ICollectionProps> = ({
             />
             <Box
                 direction="row"
-                margin={{ top: 'large' }}
+                margin={{ top: '72px' }}
                 style={{ position: 'relative' }}
             >
                 <Link href="/[profile]" as={`/${router.query.profile}`}>

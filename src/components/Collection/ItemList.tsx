@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Box, Image } from 'grommet'
 import { Item, imageShapes } from '../../types'
 import styled from 'styled-components'
+import { ElementTitle, ElementAuthor } from '../Typography'
 
 interface IItemListProps {
     items: Item[]
@@ -12,25 +13,6 @@ const ItemImage = styled(Image)`
     border-radius: ${(props: { radius: string }) => props.radius};
     border: solid 0.5px #ededed;
 `
-
-const Title = styled.a`
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
-    color: #000000;
-    margin: 0px;
-    cursor: pointer;
-    text-decoration: none;
-`
-
-const Author = styled.p`
-    font-size: 16px;
-    margin: 16px 0px 0px 0px;
-    line-height: 24px;
-    /* Dark 3 */
-    color: #777777;
-`
-
 const Pictogram = styled(Box)`
     height: 30px;
     justify-content: center;
@@ -52,12 +34,22 @@ const CollectionCard = styled(Box)`
     }
 `
 
+const ContentBox = styled(Box)`
+    margin-top: 40px;
+    width: 100%;
+    @media screen and (max-width: 812px) {
+        margin-top: 24px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+`
+
 const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (
-        <Box
+        <ContentBox
             pad={{ horizontal: 'large' }}
-            margin={{ vertical: 'large' }}
-            width="full"
+            // margin={{ vertical: 'large' }}
+            // width="full"
         >
             <CollectionCard background="white" pad="large">
                 {props.items.map(item => {
@@ -95,13 +87,15 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         />
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
-                                        <Title
+                                        <ElementTitle
                                             href={item.productUrl}
                                             target="_blank"
                                         >
                                             {item.title}
-                                        </Title>
-                                        <Author>{item.author}</Author>
+                                        </ElementTitle>
+                                        <ElementAuthor>
+                                            {item.author}
+                                        </ElementAuthor>
                                     </Box>
                                 </Box>
                                 <Pictogram>
@@ -115,7 +109,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                     )
                 })}
             </CollectionCard>
-        </Box>
+        </ContentBox>
     )
 }
 

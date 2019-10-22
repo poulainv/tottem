@@ -9,8 +9,8 @@ interface ITab {
     isActive: boolean
 }
 
-const ProfileContentBox = styled(Box)`
-    margin-top: 16px;
+const ContentBox = styled(Box)`
+    margin-top: 40px;
     @media screen and (max-width: 812px) {
         margin-top: 24px;
         padding-right: 0px;
@@ -72,7 +72,7 @@ const ProfileContent: React.FC<IProfileContent> = props => {
     const { activeTab, setTab } = useTab(props.username, sortedSections)
 
     return (
-        <ProfileContentBox pad={{ horizontal: 'large' }}>
+        <ContentBox pad={{ horizontal: 'large' }}>
             <Tabs
                 justify="start"
                 onActive={setTab}
@@ -96,7 +96,7 @@ const ProfileContent: React.FC<IProfileContent> = props => {
                     )
                 })}
             </Tabs>
-        </ProfileContentBox>
+        </ContentBox>
     )
 }
 
