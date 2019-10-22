@@ -1,16 +1,11 @@
-import { Box } from 'grommet/components/Box'
-import { Grommet } from 'grommet/components/Grommet'
 import { NextPage, NextPageContext } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import { Footer } from '../components/Views/Footer'
-import Header from '../components/Views/Header'
+import { Layout } from '../components/Views/Layout'
 import ProfileDescription from '../components/Views/Nav'
 import ProfileContent from '../components/Views/ProfileContent'
-import theme from '../theme'
-import ReactGA from 'react-ga'
 import { ISection, UserProfile } from '../types'
-import { NextSeo } from 'next-seo'
 
 interface IProfileProps {
     userProfile: UserProfile
@@ -24,7 +19,7 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
     const router = useRouter()
 
     return (
-        <Grommet theme={theme}>
+        <Layout>
             <NextSeo
                 title={`${userProfile.firstname} - Tottem`}
                 description={`See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`}
@@ -36,21 +31,14 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                         {
                             width: 556,
                             height: 392,
-                            url: `https://quiet-git-nextjs.quiet.now.sh/thumbnail-${router.query.profile}.jpg`,
+                            url: `https://tottem.app/thumbnail-${router.query.profile}.jpg`,
                         },
                     ],
                 }}
             />
-
-            <Box align="center" background="light-1">
-                <Header />
-                <Box margin={{ top: 'large' }} width="xlarge">
-                    <ProfileDescription {...userProfile} />
-                    <ProfileContent sections={sections} username="vincent" />
-                    <Footer />
-                </Box>
-            </Box>
-        </Grommet>
+            <ProfileDescription {...userProfile} />
+            <ProfileContent sections={sections} username="vincent" />
+        </Layout>
     )
 }
 

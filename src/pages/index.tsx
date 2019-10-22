@@ -15,7 +15,7 @@ import {
     SmallAndDown,
 } from '../components/ResponsiveStyledComponent'
 import Separator from '../components/Separator'
-import { accent500, accent900, brand500 } from '../theme'
+import { accent500, accent900, brand500 } from '../constants/colors'
 import { NextSeo } from 'next-seo'
 
 const Header = styled(Heading)`
