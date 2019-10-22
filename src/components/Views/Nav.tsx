@@ -18,6 +18,13 @@ const Label = styled.div`
     position: absolute;
     right: -90px;
     top: -16px;
+
+    @media screen and (max-width: 600px) {
+        right: auto;
+        top: auto;
+        left: 0px;
+        bottom: -32px;
+    }
 `
 
 const ProfileDescription: React.FC<UserProfile> = props => {
@@ -33,7 +40,7 @@ const ProfileDescription: React.FC<UserProfile> = props => {
                 </Box>
                 <Box width="full">
                     <Box direction="row" align="start" justify="between">
-                        <Box direction="row-responsive">
+                        <Box direction="row">
                             <PageHeader style={{ position: 'relative' }}>
                                 {props.firstname}
                                 {props.label && <Label>{props.label}</Label>}

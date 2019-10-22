@@ -31,6 +31,9 @@ const BackButton = styled(Box)`
     top: 0px;
     left: -32px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
 `
 
 const Collection: NextPage<ICollectionProps> = ({
