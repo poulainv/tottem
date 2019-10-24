@@ -36,13 +36,6 @@ input CollectionWhereInput {
     section: SectionWhereInput
 }
 
-type Foo {
-    """
-    Indicates if process of invoice generation has been executed successfully
-    """
-    success: Boolean!
-}
-
 input IntFilter {
     equals: Int
     gt: Int
@@ -95,7 +88,15 @@ input ItemWhereInput {
 }
 
 type Mutation {
-    createItem(url: String): Foo!
+    createItem(url: String): NewItem!
+}
+
+type NewItem {
+    author: String!
+    imageUrl: String!
+    productUrl: String!
+    title: String!
+    type: String!
 }
 
 input NullableStringFilter {
@@ -132,7 +133,7 @@ input ProfileWhereInput {
     mail: NullableStringFilter
     NOT: [ProfileWhereInput!]
     OR: [ProfileWhereInput!]
-    users: UserFilter
+    user: UserWhereInput
     website: NullableStringFilter
     youtube: NullableStringFilter
 }
@@ -218,12 +219,6 @@ type User {
         skip: Int
     ): [Section!]!
     slug: String!
-}
-
-input UserFilter {
-    every: UserWhereInput
-    none: UserWhereInput
-    some: UserWhereInput
 }
 
 input UserWhereInput {

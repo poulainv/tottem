@@ -1,29 +1,34 @@
 import { queryType, objectType, enumType, mutationType, stringArg } from 'nexus'
-import { getInfos } from './urlResolvers'
+import { inferNewItemFromUrl, NewItem as INewItem } from './parsers'
+import { withOwnImage } from './image'
 
 export const Mutation = mutationType({
     definition(t) {
         t.field('createItem', {
-            type: 'Foo',
+            type: 'NewItem',
             args: {
                 url: stringArg(),
             },
             async resolve(_, { url }, ctx) {
-                return {
-                    success: getInfos(url),
-                }
+                const newItem = inferNewItemFromUrl(url).then(
+                    (item: INewItem) => {
+                        return withOwnImage(item)
+                    }
+                )
+                return newItem
             },
         })
     },
 })
 
-export const Foo = objectType({
-    name: 'Foo',
+export const NewItem = objectType({
+    name: 'NewItem',
     definition: t => {
-        t.boolean('success', {
-            description:
-                'Indicates if process of invoice generation has been executed successfully',
-        })
+        t.string('title')
+        t.string('author')
+        t.string('imageUrl')
+        t.string('productUrl')
+        t.string('type')
     },
 })
 
