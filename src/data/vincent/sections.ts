@@ -13,17 +13,17 @@ const sections: ISection[] = [
         index: 0,
     },
     {
-        id: '2',
-        collections: collectionsBySection['2'],
-        name: 'Tech',
-        index: 1,
-    },
-    {
         id: '3',
         collections: collectionsBySection['3'],
         name: 'Musique',
-        index: 2,
+        index: 1,
     },
+    // {
+    //     id: '2',
+    //     collections: collectionsBySection['2'],
+    //     name: 'Tech',
+    //     index: 1,
+    // },
 ]
 
 export default sections
