@@ -35,8 +35,8 @@ class MyDocument extends Document {
                 <body
                     style={{
                         margin: 0,
-                        '-webkit-font-smoothing': 'antialiased',
-                        '-moz-osx-font-smoothing': 'grayscale',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
                     }}
                 >
                     <Main />

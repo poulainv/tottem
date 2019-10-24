@@ -9,6 +9,7 @@ const ButtonCTA = styled.a`
     color: ${brand900};
     border: 1px transparent solid;
     background-color: ${brand100};
+    text-decoration: none;
     border-radius: 3px;
     padding: 3px 10px 3px 10px;
     font-weight: 500;
@@ -22,7 +23,7 @@ const ButtonCTA = styled.a`
     }
 
     @media screen and (max-width: 812px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 `
 
@@ -55,9 +56,9 @@ const Header = () => {
                     </Link>
                 </Box>
                 <Box>
-                    <Link href="/">
-                        <ButtonCTA>À propos</ButtonCTA>
-                    </Link>
+                    <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
+                        Recevoir les nouvelles collections
+                    </ButtonCTA>
                 </Box>
             </Box>
         </Box>
