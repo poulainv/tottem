@@ -1,4 +1,31 @@
-import { queryType, objectType, enumType } from 'nexus'
+import { queryType, objectType, enumType, mutationType, stringArg } from 'nexus'
+import { getInfos } from './urlResolvers'
+
+export const Mutation = mutationType({
+    definition(t) {
+        t.field('createItem', {
+            type: 'Foo',
+            args: {
+                url: stringArg(),
+            },
+            async resolve(_, { url }, ctx) {
+                return {
+                    success: getInfos(url),
+                }
+            },
+        })
+    },
+})
+
+export const Foo = objectType({
+    name: 'Foo',
+    definition: t => {
+        t.boolean('success', {
+            description:
+                'Indicates if process of invoice generation has been executed successfully',
+        })
+    },
+})
 
 export const Query = queryType({
     definition(t) {
