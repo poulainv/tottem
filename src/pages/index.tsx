@@ -174,9 +174,9 @@ const Landing: React.FC = props => {
                 >
                     <Lang onClick={() => changeLanguage('en')}>EN</Lang>
                     <Lang onClick={() => changeLanguage('fr')}>FR</Lang>
-                    <Link href="/landing">
+                    <a href="mailto:hello@tottem.app">
                         <MailOption />
-                    </Link>
+                    </a>
                 </Box>
             </Box>
 
