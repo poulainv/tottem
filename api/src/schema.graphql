@@ -17,6 +17,32 @@ type Collection {
     section: Section!
 }
 
+input CollectionCreateInput {
+    createdAt: DateTime
+    date: String
+    detail: String
+    id: ID
+    items: ItemCreateManyWithoutItemsInput
+    name: String!
+    owner: UserCreateOneWithoutOwnerInput!
+    section: SectionCreateOneWithoutSectionInput!
+}
+
+input CollectionCreateManyWithoutCollectionsInput {
+    connect: [CollectionWhereUniqueInput!]
+    create: [CollectionCreateWithoutSectionInput!]
+}
+
+input CollectionCreateWithoutSectionInput {
+    createdAt: DateTime
+    date: String
+    detail: String
+    id: ID
+    items: ItemCreateManyWithoutItemsInput
+    name: String!
+    owner: UserCreateOneWithoutOwnerInput!
+}
+
 input CollectionFilter {
     every: CollectionWhereInput
     none: CollectionWhereInput
@@ -25,6 +51,7 @@ input CollectionFilter {
 
 input CollectionWhereInput {
     AND: [CollectionWhereInput!]
+    createdAt: DateTimeFilter
     date: NullableStringFilter
     detail: NullableStringFilter
     id: StringFilter
@@ -34,6 +61,23 @@ input CollectionWhereInput {
     OR: [CollectionWhereInput!]
     owner: UserWhereInput
     section: SectionWhereInput
+}
+
+input CollectionWhereUniqueInput {
+    id: ID
+}
+
+scalar DateTime
+
+input DateTimeFilter {
+    equals: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime!]
+    lt: DateTime
+    lte: DateTime
+    not: DateTime
+    notIn: [DateTime!]
 }
 
 input IntFilter {
@@ -57,6 +101,23 @@ type Item {
     type: ItemType!
 }
 
+input ItemCreateManyWithoutItemsInput {
+    connect: [ItemWhereUniqueInput!]
+    create: [ItemCreateWithoutCollectionInput!]
+}
+
+input ItemCreateWithoutCollectionInput {
+    author: String!
+    comment: String
+    createdAt: DateTime
+    id: ID
+    imageUrl: String
+    productUrl: String!
+    title: String!
+    type: ItemType!
+    updatedAt: DateTime
+}
+
 input ItemFilter {
     every: ItemWhereInput
     none: ItemWhereInput
@@ -71,6 +132,7 @@ enum ItemType {
     people
     podcast
     video
+    website
 }
 
 input ItemWhereInput {
@@ -78,6 +140,7 @@ input ItemWhereInput {
     author: StringFilter
     collection: CollectionWhereInput
     comment: NullableStringFilter
+    createdAt: DateTimeFilter
     id: StringFilter
     imageUrl: NullableStringFilter
     NOT: [ItemWhereInput!]
@@ -85,18 +148,21 @@ input ItemWhereInput {
     productUrl: StringFilter
     title: StringFilter
     type: ItemType
+    updatedAt: DateTimeFilter
+}
+
+input ItemWhereUniqueInput {
+    id: ID
 }
 
 type Mutation {
-    createItem(url: String): NewItem!
-}
-
-type NewItem {
-    author: String!
-    imageUrl: String!
-    productUrl: String!
-    title: String!
-    type: String!
+    createItem(
+        collectionId: String!
+        overridedTitle: String
+        url: String!
+    ): Item!
+    createOneCollection(data: CollectionCreateInput!): Collection!
+    createOneSection(data: SectionCreateInput!): Section!
 }
 
 input NullableStringFilter {
@@ -125,6 +191,20 @@ type Profile {
     youtube: String
 }
 
+input ProfileCreateOneWithoutProfileInput {
+    connect: ProfileWhereUniqueInput
+    create: ProfileCreateWithoutUserInput
+}
+
+input ProfileCreateWithoutUserInput {
+    github: String
+    id: ID
+    linkedin: String
+    mail: String
+    website: String
+    youtube: String
+}
+
 input ProfileWhereInput {
     AND: [ProfileWhereInput!]
     github: NullableStringFilter
@@ -136,6 +216,10 @@ input ProfileWhereInput {
     user: UserWhereInput
     website: NullableStringFilter
     youtube: NullableStringFilter
+}
+
+input ProfileWhereUniqueInput {
+    id: ID
 }
 
 type Query {
@@ -173,6 +257,41 @@ type Section {
     name: String!
 }
 
+input SectionCreateInput {
+    collections: CollectionCreateManyWithoutCollectionsInput
+    createdAt: DateTime
+    id: ID
+    index: Int
+    name: String!
+    owner: UserCreateOneWithoutOwnerInput!
+}
+
+input SectionCreateManyWithoutSectionsInput {
+    connect: [SectionWhereUniqueInput!]
+    create: [SectionCreateWithoutOwnerInput!]
+}
+
+input SectionCreateOneWithoutSectionInput {
+    connect: SectionWhereUniqueInput
+    create: SectionCreateWithoutCollectionsInput
+}
+
+input SectionCreateWithoutCollectionsInput {
+    createdAt: DateTime
+    id: ID
+    index: Int
+    name: String!
+    owner: UserCreateOneWithoutOwnerInput!
+}
+
+input SectionCreateWithoutOwnerInput {
+    collections: CollectionCreateManyWithoutCollectionsInput
+    createdAt: DateTime
+    id: ID
+    index: Int
+    name: String!
+}
+
 input SectionFilter {
     every: SectionWhereInput
     none: SectionWhereInput
@@ -182,12 +301,17 @@ input SectionFilter {
 input SectionWhereInput {
     AND: [SectionWhereInput!]
     collections: CollectionFilter
+    createdAt: DateTimeFilter
     id: StringFilter
     index: IntFilter
     name: StringFilter
     NOT: [SectionWhereInput!]
     OR: [SectionWhereInput!]
     owner: UserWhereInput
+}
+
+input SectionWhereUniqueInput {
+    id: ID
 }
 
 input StringFilter {
@@ -221,10 +345,28 @@ type User {
     slug: String!
 }
 
+input UserCreateOneWithoutOwnerInput {
+    connect: UserWhereUniqueInput
+    create: UserCreateWithoutCollectionsInput
+}
+
+input UserCreateWithoutCollectionsInput {
+    biography: String!
+    createdAt: DateTime
+    firstname: String!
+    id: ID
+    label: String
+    pictureUrl: String!
+    profile: ProfileCreateOneWithoutProfileInput
+    sections: SectionCreateManyWithoutSectionsInput
+    slug: String!
+}
+
 input UserWhereInput {
     AND: [UserWhereInput!]
     biography: StringFilter
     collections: CollectionFilter
+    createdAt: DateTimeFilter
     firstname: StringFilter
     id: StringFilter
     label: NullableStringFilter
