@@ -3,7 +3,8 @@
     "build": {
         "env": {
             "DATABASE_PROVIDER": "@database_provider",
-            "DATABASE_URL": "@database_url"
+            "DATABASE_URL": "@database_url",
+            "INIT_CWD": "api"
         }
     },
     "env": {
