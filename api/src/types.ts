@@ -1,34 +1,39 @@
-import { queryType, objectType, enumType, mutationType, stringArg } from 'nexus'
-import { inferNewItemFromUrl, NewItem as INewItem } from './parsers'
-import { withOwnImage } from './image'
+import { Photon } from '@generated/photon'
+import { enumType, mutationType, objectType, queryType, stringArg } from 'nexus'
+import { inferNewItemFromUrl, InferredItem } from './parsers'
+
+const photon = new Photon()
 
 export const Mutation = mutationType({
     definition(t) {
+        t.crud.createOneSection()
+        t.crud.createOneCollection()
         t.field('createItem', {
-            type: 'NewItem',
+            type: 'Item',
             args: {
-                url: stringArg(),
+                url: stringArg({ required: true }),
+                collectionId: stringArg({ required: true }),
+                overridedTitle: stringArg(),
             },
-            async resolve(_, { url }, ctx) {
-                const newItem = inferNewItemFromUrl(url).then(
-                    (item: INewItem) => {
-                        return withOwnImage(item)
-                    }
-                )
-                return newItem
+            async resolve(_, { url, overridedTitle, collectionId }, ctx) {
+                return inferNewItemFromUrl(url).then((item: InferredItem) => {
+                    return photon.items.create({
+                        data: {
+                            title: overridedTitle || item.title,
+                            author: item.author,
+                            type: item.type,
+                            productUrl: item.productUrl,
+                            imageUrl: item.imageUrl,
+                            collection: {
+                                connect: {
+                                    id: collectionId,
+                                },
+                            },
+                        },
+                    })
+                })
             },
         })
-    },
-})
-
-export const NewItem = objectType({
-    name: 'NewItem',
-    definition: t => {
-        t.string('title')
-        t.string('author')
-        t.string('imageUrl')
-        t.string('productUrl')
-        t.string('type')
     },
 })
 

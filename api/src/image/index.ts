@@ -1,6 +1,7 @@
 import slugify from 'slugify'
 import https from 'https'
-import { NewItem } from '../parsers'
+import { InferredItem } from '../parsers'
+import { Item } from '@generated/photon'
 
 const options = {
     hostname: '5ab54ul325.execute-api.eu-west-1.amazonaws.com',
