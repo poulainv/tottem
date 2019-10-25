@@ -5,13 +5,7 @@ type Collection {
     date: String
     detail: String
     id: ID!
-    items(
-        after: String
-        before: String
-        first: Int
-        last: Int
-        skip: Int
-    ): [Item!]!
+    items(after: ID, before: ID, first: Int, last: Int, skip: Int): [Item!]!
     name: String!
     owner: User!
     section: Section!
@@ -193,10 +187,10 @@ type Profile {
 
 input ProfileCreateOneWithoutProfileInput {
     connect: ProfileWhereUniqueInput
-    create: ProfileCreateWithoutUserInput
+    create: ProfileCreateWithoutUsersInput
 }
 
-input ProfileCreateWithoutUserInput {
+input ProfileCreateWithoutUsersInput {
     github: String
     id: ID
     linkedin: String
@@ -213,7 +207,7 @@ input ProfileWhereInput {
     mail: NullableStringFilter
     NOT: [ProfileWhereInput!]
     OR: [ProfileWhereInput!]
-    user: UserWhereInput
+    users: UserFilter
     website: NullableStringFilter
     youtube: NullableStringFilter
 }
@@ -224,8 +218,8 @@ input ProfileWhereUniqueInput {
 
 type Query {
     collections(
-        after: String
-        before: String
+        after: ID
+        before: ID
         first: Int
         last: Int
         orderBy: QueryCollectionsOrderByInput
@@ -246,8 +240,8 @@ input QueryCollectionsWhereInput {
 
 type Section {
     collections(
-        after: String
-        before: String
+        after: ID
+        before: ID
         first: Int
         last: Int
         skip: Int
@@ -336,8 +330,8 @@ type User {
     pictureUrl: String!
     profile: Profile
     sections(
-        after: String
-        before: String
+        after: ID
+        before: ID
         first: Int
         last: Int
         skip: Int
@@ -360,6 +354,12 @@ input UserCreateWithoutCollectionsInput {
     profile: ProfileCreateOneWithoutProfileInput
     sections: SectionCreateManyWithoutSectionsInput
     slug: String!
+}
+
+input UserFilter {
+    every: UserWhereInput
+    none: UserWhereInput
+    some: UserWhereInput
 }
 
 input UserWhereInput {

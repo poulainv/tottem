@@ -4,7 +4,6 @@
     "devDependencies": {
         "ts-node": "^8.4.1",
         "ts-node-dev": "^1.0.0-pre.43",
-        "prisma2": "^2.0.0-preview-14.2",
         "prettier": "1.18.2",
         "typescript": "3.6.4"
     },
@@ -21,6 +20,7 @@
         "@types/cheerio": "^0.22.13",
         "@types/node": "^12.7.12",
         "@types/node-fetch": "^2.5.2",
+        "prisma2": "^2.0.0-preview015",
         "cheerio": "^1.0.0-rc.3",
         "graphql": "^14.5.8",
         "graphql-yoga": "^1.18.3",
