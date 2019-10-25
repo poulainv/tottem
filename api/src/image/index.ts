@@ -19,49 +19,49 @@ interface AWSImageBody {
     url: string
 }
 
-export function withOwnImage(item: NewItem): Promise<NewItem> {
-    return new Promise((resolve, reject) => {
-        const s3Key = `${slugify(item.title)}-${Buffer.from(
-            item.imageUrl
-        ).toString('base64')}`
+// export function withOwnImage(item: Item): Promise<NewItem> {
+//     return new Promise((resolve, reject) => {
+//         const s3Key = `${slugify(item.title)}-${Buffer.from(
+//             item.imageUrl
+//         ).toString('base64')}`
 
-        const data = JSON.stringify({
-            imageUrl: item.imageUrl,
-            s3Key,
-        })
+//         const data = JSON.stringify({
+//             imageUrl: item.imageUrl,
+//             s3Key,
+//         })
 
-        let response: string = ''
+//         let response: string = ''
 
-        const req = https.request(options, res => {
-            console.log(`statusCode: ${res.statusCode}`)
-            res.on('data', d => {
-                response += d
-                return response
-            })
-            res.on('end', () => {
-                let body: AWSImageBody | null = null
-                try {
-                    body = JSON.parse(response)
-                } catch (e) {
-                    reject(e)
-                }
-                if (!body) {
-                    reject()
-                } else {
-                    const newItem = {
-                        ...item,
-                        imageUrl: body.url,
-                    }
-                    resolve(newItem)
-                }
-            })
-        })
+//         const req = https.request(options, res => {
+//             console.log(`statusCode: ${res.statusCode}`)
+//             res.on('data', d => {
+//                 response += d
+//                 return response
+//             })
+//             res.on('end', () => {
+//                 let body: AWSImageBody | null = null
+//                 try {
+//                     body = JSON.parse(response)
+//                 } catch (e) {
+//                     reject(e)
+//                 }
+//                 if (!body) {
+//                     reject()
+//                 } else {
+//                     const newItem = {
+//                         ...item,
+//                         imageUrl: body.url,
+//                     }
+//                     resolve(newItem)
+//                 }
+//             })
+//         })
 
-        req.on('error', error => {
-            console.error(error)
-        })
+//         req.on('error', error => {
+//             console.error(error)
+//         })
 
-        req.write(data)
-        req.end()
-    })
-}
+//         req.write(data)
+//         req.end()
+//     })
+// }
