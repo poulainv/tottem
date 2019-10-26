@@ -1,7 +1,6 @@
 import { Box, ResponsiveContext } from 'grommet'
 import React, { useEffect, useState } from 'react'
 import { Auth0 } from '../../pages/_document'
-import Logo from '../Logo'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { brand100, brand900 } from '../../constants/colors'
@@ -73,19 +72,15 @@ const Header = () => {
                     </Link>
                 </Box>
                 <Box direction="row" align="center">
-                    {isLoggedIn ? (
+                    {isLoggedIn && (
                         <Box direction="row" align="center" gap="medium">
                             {`Hi ${userData.given_name || userData.nickname}!`}
                             <ButtonCTA onClick={logout}>Logout</ButtonCTA>
                         </Box>
-                    ) : (
-                        <ButtonCTA
-                            href="http://eepurl.com/gE44Sz"
-                            target="_blank"
-                        >
-                            Recevoir les nouvelles collections
-                        </ButtonCTA>
                     )}
+                    <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
+                        Recevoir les nouvelles collections
+                    </ButtonCTA>
                 </Box>
             </Box>
         </Box>
