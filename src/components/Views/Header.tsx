@@ -1,27 +1,35 @@
 import { Box, ResponsiveContext } from 'grommet'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import { Auth0 } from '../../pages/_document'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { brand100, brand900 } from '../../constants/colors'
+import {
+    accent100,
+    accent900,
+    brand100,
+    brand900,
+} from '../../constants/colors'
 import { Logo, Beta } from '../Logo'
 
 const ButtonCTA = styled.a`
-    color: ${brand900};
+    color: ${props => (props.color === 'secondary' ? accent900 : brand900)};
     border: 1px transparent solid;
-    background-color: ${brand100};
+    background-color: ${props =>
+        props.color === 'secondary' ? accent100 : brand100};
     text-decoration: none;
     border-radius: 3px;
     padding: 3px 10px 3px 10px;
     font-weight: 500;
-    margin: 0px;
+    margin-left: 0;
     height: fit-content;
     width: fit-content;
     font-size: 16px;
     cursor: pointer;
 
     :hover {
-        border: 1px ${brand900} solid;
+        border: 1px
+            ${props => (props.color === 'secondary' ? accent900 : brand900)}
+            solid;
     }
 
     @media screen and (max-width: 812px) {
@@ -71,16 +79,17 @@ const Header = () => {
                         </Logo>
                     </Link>
                 </Box>
-                <Box direction="row" align="center">
-                    {isLoggedIn && (
-                        <Box direction="row" align="center" gap="medium">
-                            {`Hi ${userData.given_name || userData.nickname}!`}
-                            <ButtonCTA onClick={logout}>Logout</ButtonCTA>
-                        </Box>
-                    )}
+                <Box direction="row" align="center" gap="small">
+                    {isLoggedIn &&
+                        `Hi ${userData.given_name || userData.nickname}!`}
                     <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
                         Recevoir les nouvelles collections
                     </ButtonCTA>
+                    {isLoggedIn && (
+                        <ButtonCTA color="secondary" onClick={logout}>
+                            Logout
+                        </ButtonCTA>
+                    )}
                 </Box>
             </Box>
         </Box>

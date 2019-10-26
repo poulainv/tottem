@@ -32,10 +32,9 @@
         "styled-components": "^4.4.0"
     },
     "scripts": {
-        "dev": "next",
+        "dev": "ENV=dev next",
         "build": "next build",
         "start": "next start",
-        "go": "next build && ENV=dev next",
         "analyze": "cross-env BUNDLE_ANALYZE=both next build",
         "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
         "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
