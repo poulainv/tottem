@@ -10,6 +10,7 @@ datasource db {
 model User {
   id          String       @default(cuid()) @id
   slug        String       @unique
+  createdAt   DateTime     @default(now())
   firstname   String
   pictureUrl  String
   biography   String
@@ -21,6 +22,7 @@ model User {
 
 model Section {
   id          String       @default(cuid()) @id
+  createdAt   DateTime     @default(now())
   name        String
   index       Int          @default(0)
   collections Collection[]
@@ -28,13 +30,14 @@ model Section {
 }
 
 model Collection {
-  id      String  @id @default(cuid())
-  name    String
-  detail  String?
-  items   Item[]
-  date    String?
-  section Section
-  owner   User
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  detail    String?
+  items     Item[]
+  date      String?
+  section   Section
+  owner     User
 }
 
 model Profile {
@@ -49,6 +52,8 @@ model Profile {
 
 model Item {
   id         String      @default(cuid()) @id
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
   title      String
   author     String
   type       ItemType
@@ -67,4 +72,5 @@ enum ItemType {
   people
   paper
   podcast
+  website
 }

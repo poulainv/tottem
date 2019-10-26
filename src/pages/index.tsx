@@ -1,3 +1,5 @@
+import i18n from 'i18next'
+import { useTranslation, initReactI18next, Trans } from 'react-i18next'
 import { Box, Heading } from 'grommet'
 import { MailOption } from 'grommet-icons'
 import Link from 'next/link'
@@ -5,6 +7,7 @@ import { useEffect } from 'react'
 import * as React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
+import LanguageDetector from 'i18next-browser-languagedetector'
 import {
     LargeResponsiveArtwork,
     MobileArtwork,
@@ -16,11 +19,11 @@ import {
     SmallAndDown,
 } from '../components/ResponsiveStyledComponent'
 import Separator from '../components/Separator'
-import { accent500, accent900, brand500 } from '../theme'
+import { accent500, accent900, brand500 } from '../constants/colors'
 import { NextSeo } from 'next-seo'
 
 const Header = styled(Heading)`
-    font-size: 52px;
+    font-size: 40px;
     line-height: 1.3;
     font-weight: 700;
     max-width: 550px;
@@ -36,9 +39,9 @@ const Header = styled(Heading)`
 `
 
 const SubHeader = styled.p`
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
-    margin: 25px 0px 25px 0px;
+    margin: 8px 0px 8px 0px;
     font-weight: 400;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
         Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -75,7 +78,7 @@ const CTAButton = styled.a`
 
 const LandingLeftPanel = styled(Box)`
     width: 700px;
-    margin-top: 12px;
+    margin-top: 0px;
     @media screen and (max-width: 812px) {
         height: 100%;
         align-items: center;
@@ -91,6 +94,60 @@ const handleCTA = () => {
     })
 }
 
+const Lang = styled.div`
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    :hover {
+        cursor: pointer;
+    }
+`
+
+i18n.use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+        react: {
+            transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'em'],
+        },
+        resources: {
+            en: {
+                translation: {
+                    punchline: 'The knowledge platform for community',
+                    desc1:
+                        'Internet was built to support <strong> knowledge sharing. </strong>',
+                    desc2:
+                        'However, with the massive usage of AI recommendation systems <strong> we feel overwhelmed with poor and clickbait content. </strong>',
+                    desc3:
+                        '<em> Relevant content is getting hard to find? </em>',
+                    desc4:
+                        'Tottem is a human centered platform where enthusiastic people and organizations create <strong> relevant collections of hand-picked items. </strong>',
+                    button: 'Keep me in the loop',
+                },
+            },
+            fr: {
+                translation: {
+                    punchline:
+                        'Des recommandations culturelles, garanties sans IA',
+                    desc1:
+                        'Internet a été construit pour faciliter <strong>l’essor du savoir.</strong>',
+                    desc2:
+                        'Pourtant, l’utilisation massive des algorithmes de recommandation <strong> nous submerge de pièges à clics</strong>... exploitant nos petits faibles pour les vidéos de chat !',
+                    desc3:
+                        '<em> Difficile de trouver du contenu pertinent ? </em>',
+                    desc4:
+                        'Tottem est une plateforme où des passionnés rassemblent des contenus culturels, offrant <strong> un panorama d’idées et de nouvelles perspectives. </strong>',
+                    button: "Je veux m'inscrire pour la beta",
+                },
+            },
+        },
+        fallbackLng: 'en',
+        interpolation: {
+            escapeValue: false,
+        },
+    })
+
 const Landing: React.FC = props => {
     useEffect(() => {
         const redirectTo = localStorage.getItem('redirectTo')
@@ -101,6 +158,12 @@ const Landing: React.FC = props => {
             localStorage.removeItem('redirectTo')
         }
     }, [])
+
+    const { t } = useTranslation()
+
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng)
+    }
 
     return (
         <Box align="center" background="white">
@@ -115,18 +178,25 @@ const Landing: React.FC = props => {
                 <Box margin={{ horizontal: 'large' }}>
                     <Logo>Tottem</Logo>
                 </Box>
-                <Box margin={{ horizontal: 'large' }}>
-                    <Link href="/landing">
+                <Box
+                    margin={{ horizontal: 'large' }}
+                    direction="row"
+                    gap="medium"
+                >
+                    <Lang onClick={() => changeLanguage('en')}>EN</Lang>
+                    <Lang onClick={() => changeLanguage('fr')}>FR</Lang>
+                    <a href="mailto:hello@tottem.app">
                         <MailOption />
-                    </Link>
+                    </a>
                 </Box>
             </Box>
 
             <Box direction="row-responsive" justify="between">
-                <LandingLeftPanel pad={{ horizontal: 'large' }}>
-                    <Header level={2}>
-                        The knowledge platform for community
-                    </Header>
+                <LandingLeftPanel
+                    pad={{ horizontal: 'large' }}
+                    justify="around"
+                >
+                    <Header level={2}>{t('punchline')}</Header>
                     <SmallAndDown>
                         <MobileArtwork />
                     </SmallAndDown>
@@ -136,25 +206,15 @@ const Landing: React.FC = props => {
                         </Box>
                     </LargeAndUp>
                     <SubHeader>
-                        Internet was built to support{' '}
-                        <strong> knowledge sharing. </strong>
+                        <Trans i18nKey="desc1" />
                         <br />
                         <br />
-                        However, with the massive usage of AI recommendation
-                        systems{' '}
-                        <strong>
-                            we feel overwhelmed with poor and clickbait content.
-                        </strong>
+                        <Trans i18nKey="desc2" />
                         <br /> <br />
-                        <em> Relevant content is getting hard to find? </em>
+                        <Trans i18nKey="desc3" />
                         <br /> <br />
-                        Tottem is a human centered platform where enthusiastic
-                        people and organizations create{' '}
-                        <strong>
-                            relevant collections of hand-picked items.
-                        </strong>
+                        <Trans i18nKey="desc4" />
                     </SubHeader>
-
                     <CTAButton
                         href="http://eepurl.com/gE44Sz"
                         onClick={handleCTA}
@@ -163,7 +223,7 @@ const Landing: React.FC = props => {
                             marginBottom: '40px',
                         }}
                     >
-                        Keep me in the loop
+                        {t('button')}
                     </CTAButton>
                 </LandingLeftPanel>
                 <MediumAndUp>

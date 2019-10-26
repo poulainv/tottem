@@ -3,7 +3,8 @@
     "build": {
         "env": {
             "DATABASE_PROVIDER": "@database_provider",
-            "DATABASE_URL": "@database_url"
+            "DATABASE_URL": "@database_url",
+            "INIT_CWD": "api"
         }
     },
     "env": {
@@ -12,12 +13,7 @@
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
-        { "src": "public/*", "use": "@now/static" },
-        {
-            "src": "api/src/index.ts",
-            "use": "@now/node",
-            "config": { "maxLambdaSize": "20mb" }
-        }
+        { "src": "public/*", "use": "@now/static" }
     ],
     "routes": [{ "src": "/graphql", "dest": "/api/src/index.ts" }]
 }

@@ -2,8 +2,7 @@ import { Box, Image } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
 import { CardSize } from './Card'
-
-export type ImageShapeType = 'rectangle' | 'square' | 'circle'
+import { ImageShapeType } from '../../types'
 
 interface CoverProps {
     imageUrl: string

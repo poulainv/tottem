@@ -1,9 +1,9 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Item, ItemType } from '../../types'
+import { Item, ItemType, ImageShapeType } from '../../types'
 import CardInfo from './CardInfo'
-import CoverImage, { ImageShapeType } from './CoverImage'
+import CoverImage from './CoverImage'
 
 interface CardProps {
     item: Item

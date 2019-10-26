@@ -2,13 +2,16 @@ import { Box, ResponsiveContext } from 'grommet'
 import React, { useEffect, useState } from 'react'
 import { Auth0 } from '../../pages/_document'
 import Logo from '../Logo'
-import styled from 'styled-components'
 import Link from 'next/link'
+import styled from 'styled-components'
+import { brand100, brand900 } from '../../constants/colors'
+import { Logo, Beta } from '../Logo'
 
 const ButtonCTA = styled.a`
-    color: #407f6e;
+    color: ${brand900};
     border: 1px transparent solid;
-    background-color: #d4e6e1;
+    background-color: ${brand100};
+    text-decoration: none;
     border-radius: 3px;
     padding: 3px 10px 3px 10px;
     font-weight: 500;
@@ -19,11 +22,11 @@ const ButtonCTA = styled.a`
     cursor: pointer;
 
     :hover {
-        border: 1px #407f6e solid;
+        border: 1px ${brand900} solid;
     }
 
     @media screen and (max-width: 812px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 `
 
@@ -63,7 +66,10 @@ const Header = () => {
             >
                 <Box>
                     <Link href="/">
-                        <Logo>Tottem</Logo>
+                        <Logo>
+                            Tottem
+                            <Beta>beta</Beta>
+                        </Logo>
                     </Link>
                 </Box>
                 <Box direction="row" align="center">
@@ -73,9 +79,12 @@ const Header = () => {
                             <ButtonCTA onClick={logout}>Logout</ButtonCTA>
                         </Box>
                     ) : (
-                        <Link href="/">
-                            <ButtonCTA>What's Tottem?</ButtonCTA>
-                        </Link>
+                        <ButtonCTA
+                            href="http://eepurl.com/gE44Sz"
+                            target="_blank"
+                        >
+                            Recevoir les nouvelles collections
+                        </ButtonCTA>
                     )}
                 </Box>
             </Box>

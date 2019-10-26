@@ -4,17 +4,11 @@ import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import { ICollection } from '../../types'
 import { MediumAndUp } from '../ResponsiveStyledComponent'
-import ItemList from './ItemList'
-
-const CollectionTitle = styled.h3`
-    font-size: 16px;
-    font-weight: 400;
-
-    @media screen and (max-width: 600px) {
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
+import ItemList from '../Views/ItemList'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { brand600 } from '../../constants/colors'
+import { CollectionTitle } from '../Typography'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
@@ -49,18 +43,18 @@ const Collection: React.FC<ICollection> = props => {
     const seeMore = (
         <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
             <Button
-                style={{ fontSize: '14px' }}
+                style={{ fontSize: '14px', color: brand600 }}
                 label={
                     open
-                        ? 'SHOW LESS ITEMS'
-                        : 'SHOW ALL ' + props.items.length + ' ITEMS'
+                        ? 'VOIR MOINS'
+                        : 'VOIR LES ' + props.items.length + ' ÉLÉMENTS'
                 }
                 // tslint:disable-next-line: jsx-no-lambda
                 onClick={() => setOpen(!open)}
             />
         </Box>
     )
-
+    const router = useRouter()
     return (
         <CollectionCard
             direction="column"
@@ -74,9 +68,14 @@ const Collection: React.FC<ICollection> = props => {
                 border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
             >
                 <Box responsive={false} margin={{ horizontal: 'medium' }}>
-                    <CollectionTitle>
-                        <Markdown>{props.name}</Markdown>
-                    </CollectionTitle>
+                    <Link
+                        href="/[profile]/collection/[collectionId]"
+                        as={`/${router.query.profile}/collection/${props.id}`}
+                    >
+                        <CollectionTitle>
+                            <Markdown>{props.name}</Markdown>
+                        </CollectionTitle>
+                    </Link>
                 </Box>
                 <MediumAndUp>{props.items.length > 4 && seeMore}</MediumAndUp>
             </Box>
@@ -86,7 +85,7 @@ const Collection: React.FC<ICollection> = props => {
             {props.detail && (
                 <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
                     <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
-                        <CollectionDetail color="dark-3">
+                        <CollectionDetail>
                             <Markdown>{props.detail}</Markdown>
                         </CollectionDetail>
                     </Box>

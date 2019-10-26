@@ -1,4 +1,41 @@
-import { queryType, objectType, enumType } from 'nexus'
+import { Photon } from '@generated/photon'
+import { enumType, mutationType, objectType, queryType, stringArg } from 'nexus'
+import { inferNewItemFromUrl, InferredItem } from './parsers'
+
+const photon = new Photon()
+
+export const Mutation = mutationType({
+    definition(t) {
+        t.crud.createOneSection()
+        t.crud.createOneCollection()
+        t.field('createItem', {
+            type: 'Item',
+            args: {
+                url: stringArg({ required: true }),
+                collectionId: stringArg({ required: true }),
+                overridedTitle: stringArg(),
+            },
+            async resolve(_, { url, overridedTitle, collectionId }, ctx) {
+                return inferNewItemFromUrl(url).then((item: InferredItem) => {
+                    return photon.items.create({
+                        data: {
+                            title: overridedTitle || item.title,
+                            author: item.author,
+                            type: item.type,
+                            productUrl: item.productUrl,
+                            imageUrl: item.imageUrl,
+                            collection: {
+                                connect: {
+                                    id: collectionId,
+                                },
+                            },
+                        },
+                    })
+                })
+            },
+        })
+    },
+})
 
 export const Query = queryType({
     definition(t) {

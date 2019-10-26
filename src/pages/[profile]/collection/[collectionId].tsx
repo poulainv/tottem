@@ -1,0 +1,123 @@
+import { Box } from 'grommet'
+import { NextPage, NextPageContext } from 'next'
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
+import * as React from 'react'
+import removeMd from 'remove-markdown'
+import CollectionHeader from '../../../components/Collection/Header'
+import ItemList from '../../../components/Collection/ItemList'
+import { Layout } from '../../../components/Views/Layout'
+import { ICollection, ISection, UserProfile, Item } from '../../../types'
+import styled from 'styled-components'
+import { LinkPrevious } from 'grommet-icons'
+import Link from 'next/link'
+
+const countBy = require('lodash.countby')
+const flatten = require('lodash.flatten')
+
+interface ICollectionProps {
+    userProfile: UserProfile
+    collection: ICollection
+}
+
+const BackButton = styled(Box)`
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: -32px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
+`
+
+const Collection: NextPage<ICollectionProps> = ({
+    userProfile,
+    collection,
+}) => {
+    const router = useRouter()
+    const collectionName = removeMd(collection.name)
+    const itemsTypeCount = countBy(collection.items, (x: Item) => x.type)
+
+    return (
+        <Layout>
+            <NextSeo
+                title={`${collectionName} - ${userProfile.firstname} - Tottem`}
+                description={`${collectionName} by ${userProfile.firstname}`}
+                twitter={{
+                    site: '@TottemApp',
+                    cardType: 'summary',
+                }}
+                openGraph={{
+                    description: `${collectionName} by ${userProfile.firstname}`,
+                    url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
+                    site_name: 'Tottem',
+                    images: [
+                        {
+                            url: `https://tottem.app/logo-dark.png`,
+                        },
+                    ],
+                }}
+            />
+
+            <Link href="/[profile]" as={`/${router.query.profile}`}>
+                <BackButton>
+                    <LinkPrevious
+                        color="#595959"
+                        style={{ margin: 'auto', display: 'block' }}
+                    />
+                </BackButton>
+            </Link>
+            <Box width="xlarge">
+                <CollectionHeader
+                    ownerName={userProfile.firstname}
+                    userImage={userProfile.pictureUrl}
+                    title={collectionName}
+                    subtitle={collection.detail || ' '}
+                    date={collection.date.toString()}
+                    ownerSlug={userProfile.slug}
+                    itemsTypeCount={itemsTypeCount}
+                />
+                <ItemList items={collection.items} />
+            </Box>
+        </Layout>
+    )
+}
+
+interface Context extends NextPageContext {
+    query: {
+        profile: string
+        collectionId: string
+    }
+}
+
+Collection.getInitialProps = async (context: Context) => {
+    // Get url query
+    const profile: string = context.query.profile
+    const collectionId: string = context.query.collectionId
+
+    // Fetch data
+    const userProfile: UserProfile = require(`../../../data/${profile}/profile`)
+        .default
+    const sections: ISection[] = require(`../../../data/${profile}/sections`)
+        .default
+
+    // flatMap only node 12
+    const collectionOpt: ICollection | undefined = flatten(
+        sections.map(x => x.collections)
+    ).find((x: ICollection) => x.id === collectionId)
+    let collection: ICollection
+    if (!collectionOpt) {
+        throw Error('Collection not found')
+    } else {
+        collection = collectionOpt
+    }
+    return { userProfile, collection }
+}
+
+export default Collection
