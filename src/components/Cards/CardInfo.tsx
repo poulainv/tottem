@@ -67,7 +67,7 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
                         {props.item.author}
                     </StyledAuthor>
                 </Box>
-                {props.hover && optionButton}
+                {props.hover && props.item.productUrl && optionButton}
             </Box>
         </Box>
     )
