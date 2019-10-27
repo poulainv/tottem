@@ -7,15 +7,15 @@ const collectionsBySection = keyBy(collections, (x: ICollection) => x.sectionId)
 
 const sections: ISection[] = [
     {
-        id: '3',
-        collections: collectionsBySection['3'],
-        name: 'Books',
-        index: 0,
-    },
-    {
         id: '2',
         collections: collectionsBySection['2'],
         name: 'Cinema',
+        index: 0,
+    },
+    {
+        id: '3',
+        collections: collectionsBySection['3'],
+        name: 'Books',
         index: 1,
     },
     {
