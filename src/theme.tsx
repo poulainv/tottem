@@ -63,6 +63,12 @@ const theme = deepMerge(grommet, {
             maxWidth: '380px',
         },
     },
+    anchor: {
+        fontWeight: undefined,
+        hover: {
+            textDecoration: 'none',
+        },
+    },
     global: {
         focus: {
             border: {

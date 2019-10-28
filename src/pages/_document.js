@@ -15,6 +15,7 @@ class MyDocument extends Document {
         return { ...page, styleTags } // return styles collected
     }
 
+
     render() {
         return (
             <Html>

@@ -31,6 +31,10 @@ export default class MyApp extends App {
                             },
                         ],
                     }}
+                    languageAlternate={{
+                        hrefLang: 'fr_FR',
+                        href: 'https://tottem.app',
+                    }}
                     twitter={{
                         site: '@TottemApp',
                         cardType: 'summary_large_image',
