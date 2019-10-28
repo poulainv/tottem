@@ -64,6 +64,7 @@ const theme = deepMerge(grommet, {
         },
     },
     anchor: {
+        fontWeight: undefined,
         hover: {
             textDecoration: 'none',
         },
