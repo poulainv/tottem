@@ -1,4 +1,4 @@
-import { Box, ResponsiveContext } from 'grommet'
+import { Box, ResponsiveContext, Anchor } from 'grommet'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
@@ -48,11 +48,13 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Link href="/">
-                        <Logo>
-                            Tottem
-                            <Beta>beta</Beta>
-                        </Logo>
+                    <Link href="/" passHref>
+                        <Anchor>
+                            <Logo>
+                                Tottem
+                                <Beta>beta</Beta>
+                            </Logo>
+                        </Anchor>
                     </Link>
                 </Box>
                 <Box>

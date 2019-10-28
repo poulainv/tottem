@@ -20,7 +20,8 @@ interface ICollectionProps {
     collection: ICollection
 }
 
-const BackButton = styled(Box)`
+const BackButton = styled.a`
+    display: flex;
     background-color: white;
     cursor: pointer;
     color: black;
@@ -65,7 +66,7 @@ const Collection: NextPage<ICollectionProps> = ({
                 }}
             />
 
-            <Link href="/[profile]" as={`/${router.query.profile}`}>
+            <Link href="/[profile]" as={`/${router.query.profile}`} passHref>
                 <BackButton>
                     <LinkPrevious
                         color="#595959"
