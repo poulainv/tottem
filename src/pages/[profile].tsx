@@ -23,6 +23,7 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
             <NextSeo
                 title={`${userProfile.firstname} - Tottem`}
                 description={`See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`}
+                canonical={`https://tottem.app/${router.query.profile}`}
                 openGraph={{
                     description: `See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`,
                     url: `https://tottem.app/${router.query.profile}`,
