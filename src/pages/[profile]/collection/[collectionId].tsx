@@ -49,13 +49,13 @@ const Collection: NextPage<ICollectionProps> = ({
         <Layout>
             <NextSeo
                 title={`${collectionName} - ${userProfile.firstname} - Tottem`}
-                description={`${collectionName} by ${userProfile.firstname}`}
+                description={`${collectionName} by ${userProfile.firstname} - Tottem`}
                 twitter={{
                     site: '@TottemApp',
                     cardType: 'summary',
                 }}
                 openGraph={{
-                    description: `${collectionName} by ${userProfile.firstname}`,
+                    description: `${collectionName} by ${userProfile.firstname} - Tottem`,
                     url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
                     site_name: 'Tottem',
                     images: [
