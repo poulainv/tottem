@@ -1,34 +1,12 @@
-import { Box, ResponsiveContext, Anchor } from 'grommet'
+import { Anchor, Box, ResponsiveContext } from 'grommet'
 import Link from 'next/link'
 import React from 'react'
-import styled from 'styled-components'
-import { brand100, brand900 } from '../../constants/colors'
-import { Logo, Beta } from '../Logo'
-
-const ButtonCTA = styled.a`
-    color: ${brand900};
-    border: 1px transparent solid;
-    background-color: ${brand100};
-    text-decoration: none;
-    border-radius: 3px;
-    padding: 3px 10px 3px 10px;
-    font-weight: 500;
-    margin: 0px;
-    height: fit-content;
-    width: fit-content;
-    font-size: 16px;
-
-    :hover {
-        border: 1px ${brand900} solid;
-    }
-
-    @media screen and (max-width: 812px) {
-        font-size: 12px;
-    }
-`
+import { Beta, Logo } from '../Logo'
+import { StyledButton } from '../Button'
+import { useRouter } from 'next/router'
 
 const Header = () => {
-    const size = React.useContext(ResponsiveContext)
+    const router = useRouter()
     return (
         <Box
             background="white"
@@ -37,7 +15,6 @@ const Header = () => {
             width="full"
             align="center"
             justify="center"
-            pad={size === 'large' ? 'medium' : 'none'}
             border={{ color: 'light-4', size: '0.5px', side: 'bottom' }}
         >
             <Box
@@ -57,10 +34,20 @@ const Header = () => {
                         </Anchor>
                     </Link>
                 </Box>
-                <Box>
-                    <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
-                        Recevoir les nouvelles collections
-                    </ButtonCTA>
+                <Box direction="row">
+                    <Anchor
+                        href="https://vincentp791262.typeform.com/to/LOiv5v"
+                        target="_blank"
+                    >
+                        <StyledButton>Nouvelle collection</StyledButton>
+                    </Anchor>
+                    <Anchor
+                        href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
+                        target="_blank"
+                        style={{ marginLeft: '16px' }}
+                    >
+                        <StyledButton primary>S'abonner</StyledButton>
+                    </Anchor>
                 </Box>
             </Box>
         </Box>
