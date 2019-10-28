@@ -1,49 +1,56 @@
-import cheerio from 'cheerio'
-import fetch from 'node-fetch'
-import URL from 'url'
 import { ItemType } from '@generated/photon'
+import cheerio from 'cheerio'
+import URL from 'url'
+import { IItem } from '../interfaces'
+import { GithubApiFetch, SimpleFetch } from './fetchers'
 
-export interface InferredItem {
-    title: string
-    productUrl: string
-    imageUrl?: string
-    author: string
-    type: ItemType
-}
-
-function FnacParser(url: string, body: string): InferredItem {
+/* -------- PARSERS DEFINITION --------  */
+function FnacParser(url: string, body: string): IItem {
     const $ = cheerio.load(body)
     return {
-        title: $('.f-productHeader-Title')
-            .text()
-            .trim(),
+        title: $('.f-productHeader-Title').text(),
         author:
             $('.authorStrate__name')
                 .first()
-                .text()
-                .trim() ||
+                .text() ||
             $('.characteristicsDashboard__definition')
                 .first()
-                .text()
-                .trim(),
+                .text(),
         productUrl: url,
         type: 'book' as ItemType,
         imageUrl: $('.js-ProductVisuals-imagePreview').attr('src'),
     }
 }
 
-function MediumParser(url: string, body: string): InferredItem {
+function MediumParser(url: string, body: string): IItem {
     const $ = cheerio.load(body)
     return {
         title: $('meta[property="og:title"]').attr('content'),
         author: $('meta[name="author"]').attr('content'),
         productUrl: url,
-        type: 'article' as ItemType,
+        type: 'paper' as ItemType,
         imageUrl: $('meta[property="og:image"]').attr('content'),
     }
 }
 
-function BabelioParser(url: string, body: string): InferredItem {
+export function GithubApiParser(url: string, body: string): IItem {
+    const json = JSON.parse(body)
+    return {
+        title: json.name,
+        author: json.full_name,
+        productUrl: url,
+        type: 'website' as ItemType,
+        imageUrl: undefined,
+        meta: {
+            stars_count: json.stargazers_count,
+            forks_count: json.forks_count,
+            watchers_count: json.watchers_count,
+            issues_count: json.open_issues,
+        },
+    }
+}
+
+function BabelioParser(url: string, body: string): IItem {
     const $ = cheerio.load(body)
     const headers = $('title')
         .text()
@@ -57,21 +64,17 @@ function BabelioParser(url: string, body: string): InferredItem {
     }
 }
 
-function SCParser(url: string, body: string): InferredItem {
+function SCParser(url: string, body: string): IItem {
     const $ = cheerio.load(body)
     const kind = url.split('.com/')[1].split('/')[0]
     const headers = $('title')
         .text()
         .split(' - ')
     return {
-        title: headers[0].trim(),
+        title: headers[0],
         author:
-            $('span[itemprop="creator"]')
-                .text()
-                .trim() ||
-            $('span[itemprop="director"]')
-                .text()
-                .trim(),
+            $('span[itemprop="creator"]').text() ||
+            $('span[itemprop="director"]').text(),
         productUrl: url,
         type: kind as ItemType,
         imageUrl: $('.lightview ').attr('href'),
@@ -80,7 +83,9 @@ function SCParser(url: string, body: string): InferredItem {
 
 const FallbackParser = {
     regex: '*',
-    parse: (url: string, body: string): InferredItem => {
+    name: 'Fallback',
+    fetch: SimpleFetch,
+    parse: (url: string, body: string): IItem => {
         const $ = cheerio.load(body)
         const header = $('title').text()
         const author =
@@ -95,8 +100,8 @@ const FallbackParser = {
                 'href'
             )}`
         return {
-            title: header.trim(),
-            author: author.trim(),
+            title: header,
+            author,
             productUrl: url,
             type: 'website' as ItemType,
             imageUrl,
@@ -104,43 +109,61 @@ const FallbackParser = {
     },
 }
 
+const trim = (item: IItem) => {
+    return {
+        ...item,
+        title: item.title && item.title.trim(),
+        author: item.author && item.author.trim(),
+    }
+}
+
 const Parsers: Array<{
     regex: RegExp
-    parse: (url: string, body: string) => InferredItem
+    name: string
+    fetch: (url: string) => Promise<string>
+    parse: (url: string, body: string) => IItem
 }> = [
     {
+        name: 'Babelio',
         regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?babelio\.com(\/.*)?$/,
         parse: BabelioParser,
+        fetch: SimpleFetch,
     },
     {
+        name: 'SC',
         regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?senscritique\.com(\/.*)?$/,
         parse: SCParser,
+        fetch: SimpleFetch,
     },
     {
+        name: 'Medium',
         regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?medium\.com(\/.*)?$/,
         parse: MediumParser,
+        fetch: SimpleFetch,
     },
     {
+        name: 'Fnac',
         regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?livre.fnac\.com(\/.*)?$/,
         parse: FnacParser,
+        fetch: SimpleFetch,
+    },
+    {
+        name: 'GithubApi',
+        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.*)?$/,
+        parse: GithubApiParser,
+        fetch: GithubApiFetch,
     },
 ]
 
-const options = {
-    // Some website check useragent
-    headers: {
-        'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',
-    },
-}
-
-export function inferNewItemFromUrl(url: string): Promise<InferredItem> {
-    return fetch(url, options)
-        .then(res => res.text())
-        .then(body => {
-            const Parser =
-                Parsers.find(x => x.regex.test(url)) || FallbackParser
-            console.log(`Use parser ${Parser.regex}`)
-            return Parser.parse(url, body)
-        })
+export async function inferNewItemFromUrl(url: string): Promise<IItem> {
+    const Parser = Parsers.find(x => x.regex.test(url)) || FallbackParser
+    console.log(`Use parser ${Parser.name}`)
+    try {
+        const body = await Parser.fetch(url)
+        const inferredItem = await Parser.parse(url, body)
+        return trim(inferredItem)
+    } catch (err) {
+        console.log(`Err with ${url} ${err}`)
+        throw Error(`Something went wrong when parsing ${url}`)
+    }
 }

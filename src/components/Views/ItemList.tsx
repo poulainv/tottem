@@ -1,7 +1,7 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import { Item, imageShapes } from '../../types'
+import { Item, imageShapes, ItemType } from '../../types'
 import Card, { CardSize } from '../Cards/Card'
 
 const ScrollableBox = styled(Box)`
@@ -48,7 +48,10 @@ const ItemList: React.FC<{ items: Item[]; expanded: boolean }> = props => {
                                 : undefined
                         }
                     >
-                        <Card item={item} imageShape={imageShapes[item.type]} />
+                        <Card
+                            item={item}
+                            imageShape={imageShapes[item.type as ItemType]}
+                        />
                     </ItemCardBox>
                 )
             })}

@@ -36,6 +36,7 @@ const colors: { [type in ItemType]: string } = {
     people: '#9E4A77',
     podcast: '#E7A704',
     video: '#4D6892',
+    website: '#4D6892',
 }
 
 const CardBox = styled(Box)`
@@ -59,7 +60,7 @@ const Card: React.FC<CardProps> = props => {
                 background="white"
             >
                 <CoverImage
-                    placeholderColor={colors[props.item.type]}
+                    placeholderColor={colors[props.item.type as ItemType]} // FIXME
                     placeholderPicto={picto}
                     imageUrl={props.item.imageUrl}
                     imageShape={props.imageShape}
