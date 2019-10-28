@@ -24,15 +24,21 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                 title={`${userProfile.firstname} - Tottem`}
                 description={`${userProfile.firstname} on Tottem - ${userProfile.biography}`}
                 canonical={`https://tottem.app/${router.query.profile}`}
+                twitter={{
+                    site: '@TottemApp',
+                    cardType: 'summary',
+                }}
                 openGraph={{
+                    type: 'profile',
+                    profile: {
+                        username: userProfile.slug,
+                    },
                     description: `${userProfile.firstname} on Tottem - ${userProfile.biography}`,
                     url: `https://tottem.app/${router.query.profile}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            width: 556,
-                            height: 392,
-                            url: `https://tottem.app/thumbnail-${router.query.profile}.jpg`,
+                            url: `https://tottem.app${userProfile.pictureUrl}`,
                         },
                     ],
                 }}
