@@ -39,7 +39,7 @@ const Header = () => {
                         href="https://vincentp791262.typeform.com/to/LOiv5v"
                         target="_blank"
                     >
-                        <StyledButton>Nouvelle collection</StyledButton>
+                        <StyledButton>Créer son profil</StyledButton>
                     </Anchor>
                     <Anchor
                         href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
