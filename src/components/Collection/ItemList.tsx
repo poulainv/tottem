@@ -1,8 +1,8 @@
-import * as React from 'react'
 import { Box, Image } from 'grommet'
-import { Item, imageShapes, ItemType } from '../../types'
+import * as React from 'react'
 import styled from 'styled-components'
-import { ElementTitle, ElementAuthor } from '../Typography'
+import { imageShapes, Item } from '../../types'
+import { ElementAuthor, ElementTitle } from '../Typography'
 
 interface IItemListProps {
     items: Item[]
@@ -75,10 +75,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                 direction="row"
                                 width="100%"
                                 justify="between"
-                                square={
-                                    imageShapes[item.type as ItemType] !==
-                                    'rectangle'
-                                }
+                                square={imageShapes[item.type] !== 'rectangle'}
                             >
                                 <Box direction="row">
                                     <a
@@ -90,9 +87,8 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                             src={item.imageUrl}
                                             fit="cover"
                                             radius={
-                                                imageShapes[
-                                                    item.type as ItemType
-                                                ] === 'circle'
+                                                imageShapes[item.type] ===
+                                                'circle'
                                                     ? '50%'
                                                     : '4px'
                                             }

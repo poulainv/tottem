@@ -18,19 +18,19 @@
                     {
                         "title": "Reference Example",
                         "productUrl": "https://github.com/graphcool/graphql-server-example",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Example Collection",
                         "productUrl": "https://github.com/prisma/prisma-examples",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "GraphQL Boilerplates",
                         "productUrl": "https://github.com/graphql-boilerplates/",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -63,31 +63,31 @@
                     {
                         "title": "Prisma Shop Example",
                         "productUrl": "https://github.com/KATT/shop",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Boilerplate for a Fullstack GraphQL App with React & Prisma",
                         "productUrl": "https://github.com/alan345/naperg",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "NestJS - Prisma - Apollo 2",
                         "productUrl": "https://github.com/awesome-graphql-space/server-nestjs",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Graphql Microservice Starter",
                         "productUrl": "https://github.com/berstend/graphql-microservice-starter",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "RAN-PRISMA : React . GraphQL . Next.js . Prisma Toolkit",
                         "productUrl": "https://github.com/mshameer/ran-with-prisma",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -99,7 +99,7 @@
                     {
                         "title": "Fullstack Boilerplate using React Apollo Prisma Typescript",
                         "productUrl": "https://github.com/DylanMerigaud/react-prisma-typescript-fullstack",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -119,7 +119,7 @@
                     {
                         "title": "GraphQL Yoga",
                         "productUrl": "https://github.com/prisma/graphql-yoga",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -132,7 +132,7 @@
                     {
                         "title": "Collection of GraphQL Yoga Examples",
                         "productUrl": "https://github.com/prisma/graphql-yoga/tree/master/examples",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -159,7 +159,7 @@
                     {
                         "title": "Apex Up and GraphQL Yoga Example",
                         "productUrl": "https://github.com/maxdarque/up-graphql-yoga-server-example",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -193,20 +193,20 @@
                     {
                         "title": "Collection of common scenarios",
                         "productUrl": "https://github.com/graphql-boilerplates/node-graphql-server/issues/35",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Subscription Resolver Examples",
                         "productUrl": "https://github.com/prisma/prisma-binding/issues/78",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "GraphQL Mutation Arguments Validation with Yup using graphql-middleware",
                         "author": "Jonathan Cardoso",
                         "productUrl": "https://medium.com/@jonathancardoso/graphql-mutation-arguments-validation-with-yup-using-graphql-middleware-645822fb748",
-                        "type": "paper",
+                        "type": "article",
                         "imageUrl": "https://miro.medium.com/max/1200/1*gREOEEM39RWzrvbkwsq2AQ.png"
                     }
                 ]
@@ -226,13 +226,13 @@
                     {
                         "title": "Prisma Binding",
                         "productUrl": "https://github.com/prisma/prisma-binding",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "GraphQL Binding",
                         "productUrl": "https://github.com/graphql-binding/graphql-binding",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -245,20 +245,20 @@
                     {
                         "title": "Email & Password Authentication Example",
                         "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-auth",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Authentication with GitHub OAuth2",
                         "author": "Matic Zavadlal",
                         "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-example-series-authentication-282f274b8343",
-                        "type": "paper",
+                        "type": "article",
                         "imageUrl": "https://miro.medium.com/max/1200/1*bSBSdi_Z2FUSadPxnNadJg.png"
                     },
                     {
                         "title": "Facebook Authentication Example",
                         "productUrl": "https://github.com/harrisrobin/prisma-facebook-auth-example",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -278,7 +278,7 @@
                     {
                         "title": "GraphQL Shield",
                         "productUrl": "https://github.com/maticzav/graphql-shield",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -291,7 +291,7 @@
                     {
                         "title": "Subscriptions Example",
                         "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-subscriptions",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -312,7 +312,7 @@
                         "title": "Handling files with Amazon S3 and Prisma",
                         "author": "Matic Zavadlal",
                         "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-examples-series-file-api-3b16b4b8785f",
-                        "type": "paper",
+                        "type": "article",
                         "imageUrl": "https://miro.medium.com/max/1200/1*Nu5cjfpF-9-zMdETqtgspg.png"
                     }
                 ]
@@ -346,7 +346,7 @@
                     {
                         "title": "prisma-multi-tenant",
                         "productUrl": "https://github.com/Errorname/prisma-multi-tenant",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -359,7 +359,7 @@
                     {
                         "title": "GraphQL Yoga",
                         "productUrl": "https://github.com/prisma/graphql-yoga",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -372,7 +372,7 @@
                     {
                         "title": "Collection of GraphQL Yoga Examples",
                         "productUrl": "https://github.com/prisma/graphql-yoga/tree/master/examples",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -445,32 +445,32 @@
                     {
                         "title": "Prisma Binding",
                         "productUrl": "https://github.com/prisma/prisma-binding",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "GraphQL Binding",
                         "productUrl": "https://github.com/graphql-binding/graphql-binding",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Email & Password Authentication Example",
                         "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-auth",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Authentication with GitHub OAuth2",
                         "author": "Matic Zavadlal",
                         "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-example-series-authentication-282f274b8343",
-                        "type": "paper",
+                        "type": "article",
                         "imageUrl": "https://miro.medium.com/max/1200/1*bSBSdi_Z2FUSadPxnNadJg.png"
                     },
                     {
                         "title": "Facebook Authentication Example",
                         "productUrl": "https://github.com/harrisrobin/prisma-facebook-auth-example",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -483,13 +483,13 @@
                     {
                         "title": "GraphQL Shield",
                         "productUrl": "https://github.com/maticzav/graphql-shield",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Subscriptions Example",
                         "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-subscriptions",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -503,7 +503,7 @@
                         "title": "Handling files with Amazon S3 and Prisma",
                         "author": "Matic Zavadlal",
                         "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-examples-series-file-api-3b16b4b8785f",
-                        "type": "paper",
+                        "type": "article",
                         "imageUrl": "https://miro.medium.com/max/1200/1*Nu5cjfpF-9-zMdETqtgspg.png"
                     },
                     {
@@ -523,7 +523,7 @@
                     {
                         "title": "prisma-multi-tenant",
                         "productUrl": "https://github.com/Errorname/prisma-multi-tenant",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     }
                 ]
@@ -564,13 +564,13 @@
                     {
                         "title": "Prisma Docker",
                         "productUrl": "https://github.com/maxdarque/prisma-docker",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
                         "title": "Prisma Docker Compose",
                         "productUrl": "https://github.com/akoenig/prisma-docker-compose/",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {
@@ -644,7 +644,7 @@
                     {
                         "title": "GitHub",
                         "productUrl": "https://github.com/prisma/prisma",
-                        "type": "website",
+                        "type": "repository",
                         "meta": {}
                     },
                     {

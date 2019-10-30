@@ -28,7 +28,7 @@ function MediumParser(url: string, body: string): IItem {
         title: $('meta[property="og:title"]').attr('content'),
         author: $('meta[name="author"]').attr('content'),
         productUrl: url,
-        type: 'paper' as ItemType,
+        type: 'article' as ItemType,
         imageUrl: $('meta[property="og:image"]').attr('content'),
     }
 }
@@ -39,7 +39,7 @@ export function GithubApiParser(url: string, body: string): IItem {
         title: json.name,
         author: json.full_name,
         productUrl: url,
-        type: 'website' as ItemType,
+        type: 'repository' as ItemType,
         imageUrl: undefined,
         meta: {
             stars_count: json.stargazers_count,

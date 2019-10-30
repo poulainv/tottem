@@ -13,9 +13,6 @@ interface IProfileProps {
 }
 
 const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
-    const arrSum = (arr: number[]) =>
-        arr.reduce((a: number, b: number) => a + b, 0)
-    const collectionCount = 1 //arrSum(sections.map(x => x.collections.length))
     const router = useRouter()
 
     return (

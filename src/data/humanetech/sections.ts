@@ -55,7 +55,7 @@ const sections: ISection[] = [
                     },
                     {
                         collectionId: '200',
-                        type: 'paper',
+                        type: 'article',
                         note: '',
                         imageUrl: '',
                         productUrl:
@@ -93,7 +93,7 @@ const sections: ISection[] = [
                     },
                     {
                         collectionId: '201',
-                        type: 'paper',
+                        type: 'article',
                         author: 'Joe Edelman',
                         imageUrl: '/images/articles/clickgoal.jpg',
                         title: 'Is Anything worth Maximizing',
@@ -160,7 +160,7 @@ const sections: ISection[] = [
                 items: [
                     {
                         collectionId: '203',
-                        type: 'paper',
+                        type: 'article',
                         note: '',
                         imageUrl: '',
                         productUrl:
@@ -171,7 +171,7 @@ const sections: ISection[] = [
                     },
                     {
                         collectionId: '203',
-                        type: 'paper',
+                        type: 'article',
                         note: '',
                         imageUrl: '',
                         productUrl: 'http://nxhx.org/Choicemaking/',
@@ -180,7 +180,7 @@ const sections: ISection[] = [
                     },
                     {
                         collectionId: '203',
-                        type: 'paper',
+                        type: 'article',
                         note: '',
                         imageUrl:
                             'https://miro.medium.com/max/2000/0*nvSNIYBweySQ4ofX.jpeg',
@@ -192,7 +192,7 @@ const sections: ISection[] = [
                     },
                     {
                         collectionId: '203',
-                        type: 'paper',
+                        type: 'article',
                         note: '',
                         imageUrl: '',
                         productUrl:
@@ -296,7 +296,7 @@ const sections: ISection[] = [
                             'https://staff.washington.edu/eloftus/Articles/img0.gif',
                         productUrl:
                             'https://staff.washington.edu/eloftus/Articles/sciam.htm',
-                        type: 'paper',
+                        type: 'article',
                         title: 'Made to Stick',
                         author: 'Dan Heath & Chip Heath',
                     },
@@ -646,7 +646,7 @@ const sections: ISection[] = [
                         imageUrl: '',
                         productUrl:
                             'https://en.wikipedia.org/wiki/Wicked_problem',
-                        type: 'paper',
+                        type: 'article',
                         title: 'Wicked Problems',
                         author: 'Horst Rittel',
                     },
@@ -672,7 +672,7 @@ const sections: ISection[] = [
                         imageUrl: '',
                         productUrl:
                             'https://www.yalelawjournal.org/essay/sharing-nicely-on-shareable-goods-and-the-emergence-of-sharing-as-a-modality-of-economic-production',
-                        type: 'paper',
+                        type: 'article',
                         title: 'Sharing Nicely',
                         author: 'Yochai Benkler',
                     },

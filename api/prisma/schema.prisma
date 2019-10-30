@@ -70,7 +70,8 @@ enum ItemType {
   movie
   video
   people
-  paper
+  article
   podcast
   website
+  repository
 }
