@@ -19,7 +19,6 @@ export interface Item {
     author?: string
     imageUrl?: string
     title: string
-    imageColor?: string
     productUrl: string
     provider?: string
     type: ItemType
