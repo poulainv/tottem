@@ -1,3 +1,5 @@
+import { ItemType } from '../types'
+
 export const grey50 = '#ffffff'
 export const grey100 = '#fafafa'
 export const grey200 = '#f5f5f5'
@@ -39,3 +41,15 @@ export const accentA100 = '#fffdfc'
 export const accentA200 = '#ffd3c9'
 export const accentA400 = '#ffa996'
 export const accentA700 = '#ff947d'
+
+export const colorPlaceholders: { [type in ItemType]: string } = {
+    album: '#417D6F',
+    book: '#D87551',
+    movie: '#7CB7A9',
+    article: '#509DAD',
+    people: '#9E4A77',
+    podcast: '#E7A704',
+    video: '#4D6892',
+    website: '#4D6892',
+    repository: '#9E4A77',
+}

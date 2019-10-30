@@ -1,7 +1,8 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Item, ItemType, ImageShapeType } from '../../types'
+import { brand600, colorPlaceholders } from '../../constants/colors'
+import { ImageShapeType, Item } from '../../types'
 import CardInfo from './CardInfo'
 import CoverImage from './CoverImage'
 
@@ -17,26 +18,15 @@ export const CardSize = {
     small: {
         widthInNumber: smallWidth,
         width: smallWidth + 'px',
-        rectangleImageHeight: 1.68 * smallWidth + 'px',
+        rectangleImageHeight: 1.5 * smallWidth + 'px',
         squareImageHeight: smallWidth + 'px',
     },
     large: {
         widthInNumber: width,
         width: width + 'px',
-        rectangleImageHeight: 1.68 * width + 'px',
+        rectangleImageHeight: 1.5 * width + 'px',
         squareImageHeight: width + 'px',
     },
-}
-
-const colors: { [type in ItemType]: string } = {
-    album: '#417D6F',
-    book: '#D87551',
-    movie: '#7CB7A9',
-    paper: '#509DAD',
-    people: '#9E4A77',
-    podcast: '#E7A704',
-    video: '#4D6892',
-    website: '#4D6892',
 }
 
 const CardBox = styled(Box)`
@@ -60,7 +50,7 @@ const Card: React.FC<CardProps> = props => {
                 background="white"
             >
                 <CoverImage
-                    placeholderColor={colors[props.item.type as ItemType]} // FIXME
+                    placeholderColor={colorPlaceholders[props.item.type]}
                     placeholderPicto={picto}
                     imageUrl={props.item.imageUrl}
                     imageShape={props.imageShape}
@@ -77,7 +67,7 @@ const Card: React.FC<CardProps> = props => {
                     align="center"
                     justify="center"
                     round="50%"
-                    background="#6FAA9C"
+                    background={brand600}
                     width="30px"
                     height="30px"
                 >

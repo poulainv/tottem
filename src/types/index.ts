@@ -19,11 +19,11 @@ export interface Item {
     author?: string
     imageUrl?: string
     title: string
-    size?: 'small' | 'big'
-    imageColor?: string
     productUrl: string
-    type: ItemType | string
+    provider?: string
+    type: ItemType
     note?: string
+    description?: string
     meta?: { [index: string]: any }
 }
 
@@ -33,7 +33,8 @@ export type ItemType =
     | 'movie'
     | 'people'
     | 'video'
-    | 'paper'
+    | 'article'
+    | 'repository'
     | 'website'
     | 'podcast'
 
@@ -61,8 +62,9 @@ export const imageShapes: { [type in ItemType]: ImageShapeType } = {
     album: 'square',
     book: 'rectangle',
     movie: 'rectangle',
-    paper: 'square',
+    article: 'square',
     people: 'circle',
+    repository: 'square',
     podcast: 'square',
     video: 'square',
     website: 'square',

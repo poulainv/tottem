@@ -27,8 +27,9 @@ function MediumParser(url: string, body: string): IItem {
     return {
         title: $('meta[property="og:title"]').attr('content'),
         author: $('meta[name="author"]').attr('content'),
+        provider: 'medium',
         productUrl: url,
-        type: 'paper' as ItemType,
+        type: 'article' as ItemType,
         imageUrl: $('meta[property="og:image"]').attr('content'),
     }
 }
@@ -39,13 +40,15 @@ export function GithubApiParser(url: string, body: string): IItem {
         title: json.name,
         author: json.full_name,
         productUrl: url,
-        type: 'website' as ItemType,
+        description: json.description,
+        provider: 'github',
+        type: 'repository' as ItemType,
         imageUrl: undefined,
         meta: {
-            stars_count: json.stargazers_count,
-            forks_count: json.forks_count,
-            watchers_count: json.watchers_count,
-            issues_count: json.open_issues,
+            starsCount: json.stargazers_count,
+            forksCount: json.forks_count,
+            watchersCount: json.watchers_count,
+            issuesCount: json.open_issues,
         },
     }
 }
@@ -88,6 +91,9 @@ const FallbackParser = {
     parse: (url: string, body: string): IItem => {
         const $ = cheerio.load(body)
         const header = $('title').text()
+        const description =
+            $('meta[name="description"]').attr('content') ||
+            $('meta[property="og:description"]').attr('content')
         const author =
             $('meta[name="twitter:creator"]').attr('content') ||
             $('meta[property="og:site_name"]').attr('content') ||
@@ -101,6 +107,7 @@ const FallbackParser = {
             )}`
         return {
             title: header,
+            description,
             author,
             productUrl: url,
             type: 'website' as ItemType,
@@ -114,6 +121,7 @@ const trim = (item: IItem) => {
         ...item,
         title: item.title && item.title.trim(),
         author: item.author && item.author.trim(),
+        description: item.description && item.description.trim(),
     }
 }
 
@@ -149,7 +157,7 @@ const Parsers: Array<{
     },
     {
         name: 'GithubApi',
-        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.*)?$/,
+        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.{1,}){2,}?$/,
         parse: GithubApiParser,
         fetch: GithubApiFetch,
     },

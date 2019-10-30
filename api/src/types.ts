@@ -111,5 +111,13 @@ export const Item = objectType({
 
 const ItemType = enumType({
     name: 'ItemType',
-    members: ['book', 'album', 'movie', 'people', 'video', 'paper', 'podcast'],
+    members: [
+        'book',
+        'album',
+        'movie',
+        'people',
+        'video',
+        'article',
+        'podcast',
+    ],
 })
