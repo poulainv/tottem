@@ -108,7 +108,7 @@ Collection.getInitialProps = async (context: Context) => {
     const sections: ISection[] = require(`../../../data/${profile}/sections`)
         .default
 
-    // flatMap only node 12
+    // flatMap only on node v12
     const collectionOpt: ICollection | undefined = flatten(
         sections.map(x => x.collections)
     ).find((x: ICollection) => x.id === collectionId)

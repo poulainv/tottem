@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Box, Image } from 'grommet'
-import { Item, imageShapes } from '../../types'
+import { Item, imageShapes, ItemType } from '../../types'
 import styled from 'styled-components'
 import { ElementTitle, ElementAuthor } from '../Typography'
 
@@ -75,7 +75,10 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                 direction="row"
                                 width="100%"
                                 justify="between"
-                                square={imageShapes[item.type] !== 'rectangle'}
+                                square={
+                                    imageShapes[item.type as ItemType] !==
+                                    'rectangle'
+                                }
                             >
                                 <Box direction="row">
                                     <a
@@ -87,8 +90,9 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                             src={item.imageUrl}
                                             fit="cover"
                                             radius={
-                                                imageShapes[item.type] ===
-                                                'circle'
+                                                imageShapes[
+                                                    item.type as ItemType
+                                                ] === 'circle'
                                                     ? '50%'
                                                     : '4px'
                                             }
@@ -104,6 +108,19 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         <ElementAuthor>
                                             {item.author}
                                         </ElementAuthor>
+                                        {item.meta &&
+                                            Object.keys(item.meta).map(key => {
+                                                return (
+                                                    item.meta && (
+                                                        <Box key={key}>
+                                                            <p>{key}</p>
+                                                            <p>
+                                                                {item.meta[key]}
+                                                            </p>
+                                                        </Box>
+                                                    )
+                                                )
+                                            })}
                                     </Box>
                                 </Box>
                                 <Pictogram>

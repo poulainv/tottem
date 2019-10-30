@@ -1,6 +1,7 @@
 import { Photon } from '@generated/photon'
 import { enumType, mutationType, objectType, queryType, stringArg } from 'nexus'
-import { inferNewItemFromUrl, InferredItem } from './parsers'
+import { IItem } from './interfaces'
+import { inferNewItemFromUrl } from './parsers'
 
 const photon = new Photon()
 
@@ -16,7 +17,7 @@ export const Mutation = mutationType({
                 overridedTitle: stringArg(),
             },
             async resolve(_, { url, overridedTitle, collectionId }, ctx) {
-                return inferNewItemFromUrl(url).then((item: InferredItem) => {
+                return inferNewItemFromUrl(url).then((item: IItem) => {
                     return photon.items.create({
                         data: {
                             title: overridedTitle || item.title,

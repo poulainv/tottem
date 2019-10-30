@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@types/jest": "24.0.18",
+        "@types/markdown-it": "0.0.9",
         "@types/node": "12.7.4",
         "@types/react": "16.9.2",
         "@types/react-dom": "16.9.0",
@@ -11,6 +12,7 @@
         "@types/remove-markdown": "^0.1.1",
         "@types/styled-components": "^4.1.19",
         "babel-loader": "^7.1.5",
+        "fs": "0.0.1-security",
         "grommet": "^2.7.8",
         "grommet-icons": "^4.3.0",
         "i18next": "^17.3.0",
@@ -64,6 +66,7 @@
         "cross-env": "^6.0.3",
         "eslint": "^6.5.1",
         "husky": "^3.0.7",
+        "json-loader": "^0.5.7",
         "prettier": "1.18.2",
         "pretty-quick": "^1.11.1",
         "tslint": "^5.20.0",

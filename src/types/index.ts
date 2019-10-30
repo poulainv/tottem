@@ -1,7 +1,7 @@
 export interface ICollection {
     id: string
     name: string
-    date: Date
+    date: Date | string
     items: Item[]
     sectionId?: string
     detail?: string
@@ -15,15 +15,16 @@ export interface ISection {
 }
 
 export interface Item {
-    collectionId: string
-    author: string
-    imageUrl: string
+    collectionId?: string
+    author?: string
+    imageUrl?: string
     title: string
     size?: 'small' | 'big'
     imageColor?: string
     productUrl: string
+    type: ItemType | string
     note?: string
-    type: ItemType
+    meta?: { [index: string]: any }
 }
 
 export type ItemType =
@@ -33,6 +34,7 @@ export type ItemType =
     | 'people'
     | 'video'
     | 'paper'
+    | 'website'
     | 'podcast'
 
 export interface ISocial {
@@ -63,4 +65,5 @@ export const imageShapes: { [type in ItemType]: ImageShapeType } = {
     people: 'circle',
     podcast: 'square',
     video: 'square',
+    website: 'square',
 }
