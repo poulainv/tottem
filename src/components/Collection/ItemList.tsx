@@ -108,23 +108,24 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         </ImageBox>
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
-                                        <ElementTitle
-                                            href={item.productUrl}
-                                            target="_blank"
-                                        >
-                                            {item.title}
-                                        </ElementTitle>
+                                        <Box direction="row" align="center">
+                                            <ElementTitle
+                                                href={item.productUrl}
+                                                target="_blank"
+                                            >
+                                                {item.title}
+                                            </ElementTitle>
+                                            {item.provider &&
+                                                item.meta &&
+                                                item.provider === 'github' && (
+                                                    <GithubMetas
+                                                        {...(item.meta as IGithubMetasProps)}
+                                                    />
+                                                )}
+                                        </Box>
                                         <ElementAuthor>
                                             {item.author}
                                         </ElementAuthor>
-                                        <p>{item.description}</p>
-                                        {item.provider &&
-                                            item.meta &&
-                                            item.provider === 'github' && (
-                                                <GithubMetas
-                                                    {...(item.meta as IGithubMetasProps)}
-                                                />
-                                            )}
                                     </Box>
                                 </Box>
                                 <Pictogram>
