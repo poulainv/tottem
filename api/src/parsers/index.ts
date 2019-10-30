@@ -88,6 +88,9 @@ const FallbackParser = {
     parse: (url: string, body: string): IItem => {
         const $ = cheerio.load(body)
         const header = $('title').text()
+        const description =
+            $('meta[name="description"]').attr('content') ||
+            $('meta[property="og:description"]').attr('content')
         const author =
             $('meta[name="twitter:creator"]').attr('content') ||
             $('meta[property="og:site_name"]').attr('content') ||
@@ -101,6 +104,7 @@ const FallbackParser = {
             )}`
         return {
             title: header,
+            description,
             author,
             productUrl: url,
             type: 'website' as ItemType,
@@ -114,6 +118,7 @@ const trim = (item: IItem) => {
         ...item,
         title: item.title && item.title.trim(),
         author: item.author && item.author.trim(),
+        description: item.description && item.description.trim()
     }
 }
 

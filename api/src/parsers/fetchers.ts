@@ -9,7 +9,14 @@ export function SimpleFetch(url: string): Promise<string> {
             'User-Agent':
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36',
         },
-    }).then(res => res.text())
+    })
+        .then(res => {
+            if (res.status === 404) {
+                throw Error(`Url ${url} return 404`)
+            }
+            return res
+        })
+        .then(res => res.text())
 }
 
 export function GithubApiFetch(url: string): Promise<string> {
