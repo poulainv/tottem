@@ -33,10 +33,14 @@ const CoverImage: React.FC<CoverProps> = props => {
             width="full"
             overflow="hidden"
             border={{ color: 'light-3', size: '0.5px' }}
-            background={props.imageUrl ? 'none' : props.placeholderColor}
+            background={props.placeholderColor}
         >
             {props.imageUrl ? (
-                <Image src={props.imageUrl} fit="cover" />
+                <Image
+                    fallback={props.placeholderPicto}
+                    src={props.imageUrl}
+                    fit="cover"
+                />
             ) : (
                 <Image
                     src={props.placeholderPicto}

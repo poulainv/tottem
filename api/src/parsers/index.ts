@@ -42,10 +42,10 @@ export function GithubApiParser(url: string, body: string): IItem {
         type: 'repository' as ItemType,
         imageUrl: undefined,
         meta: {
-            stars_count: json.stargazers_count,
-            forks_count: json.forks_count,
-            watchers_count: json.watchers_count,
-            issues_count: json.open_issues,
+            starsCount: json.stargazers_count,
+            forksCount: json.forks_count,
+            watchersCount: json.watchers_count,
+            issuesCount: json.open_issues,
         },
     }
 }
@@ -118,7 +118,7 @@ const trim = (item: IItem) => {
         ...item,
         title: item.title && item.title.trim(),
         author: item.author && item.author.trim(),
-        description: item.description && item.description.trim()
+        description: item.description && item.description.trim(),
     }
 }
 
