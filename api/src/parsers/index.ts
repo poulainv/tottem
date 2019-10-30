@@ -157,7 +157,7 @@ const Parsers: Array<{
     },
     {
         name: 'GithubApi',
-        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.*)?$/,
+        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.{1,}){2,}?$/,
         parse: GithubApiParser,
         fetch: GithubApiFetch,
     },
