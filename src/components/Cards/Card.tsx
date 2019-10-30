@@ -1,7 +1,8 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Item, ItemType, ImageShapeType } from '../../types'
+import { brand600 } from '../../constants/colors'
+import { ImageShapeType, Item, ItemType } from '../../types'
 import CardInfo from './CardInfo'
 import CoverImage from './CoverImage'
 
@@ -78,7 +79,7 @@ const Card: React.FC<CardProps> = props => {
                     align="center"
                     justify="center"
                     round="50%"
-                    background="#6FAA9C"
+                    background={brand600}
                     width="30px"
                     height="30px"
                 >
