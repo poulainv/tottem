@@ -27,6 +27,7 @@ function MediumParser(url: string, body: string): IItem {
     return {
         title: $('meta[property="og:title"]').attr('content'),
         author: $('meta[name="author"]').attr('content'),
+        provider: 'medium',
         productUrl: url,
         type: 'article' as ItemType,
         imageUrl: $('meta[property="og:image"]').attr('content'),
@@ -39,6 +40,8 @@ export function GithubApiParser(url: string, body: string): IItem {
         title: json.name,
         author: json.full_name,
         productUrl: url,
+        description: json.description,
+        provider: 'github',
         type: 'repository' as ItemType,
         imageUrl: undefined,
         meta: {

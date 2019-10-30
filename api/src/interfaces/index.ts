@@ -6,6 +6,7 @@ export interface IItem {
     imageUrl?: string
     author: string
     type: ItemType
+    provider?: string
     description?: string
     meta?: object
 }

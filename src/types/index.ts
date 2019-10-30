@@ -21,8 +21,10 @@ export interface Item {
     title: string
     imageColor?: string
     productUrl: string
+    provider?: string
     type: ItemType
     note?: string
+    description?: string
     meta?: { [index: string]: any }
 }
 
