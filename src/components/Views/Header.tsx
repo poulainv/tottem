@@ -1,44 +1,10 @@
-import { Anchor, Box, ResponsiveContext } from 'grommet'
-import React, { useEffect, useState, Fragment } from 'react'
-import { Auth0 } from '../../pages/_document'
+import { Anchor, Box } from 'grommet'
 import Link from 'next/link'
-import { Beta, Logo } from '../Logo'
-import { StyledButton } from '../Button'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import {
-    accent100,
-    accent900,
-    brand100,
-    brand900,
-} from '../../constants/colors'
-import { Logo, Beta } from '../Logo'
-
-const ButtonCTA = styled.a`
-    color: ${props => (props.color === 'secondary' ? accent900 : brand900)};
-    border: 1px transparent solid;
-    background-color: ${props =>
-        props.color === 'secondary' ? accent100 : brand100};
-    text-decoration: none;
-    border-radius: 3px;
-    padding: 3px 10px 3px 10px;
-    font-weight: 500;
-    margin-left: 0;
-    height: fit-content;
-    width: fit-content;
-    font-size: 16px;
-    cursor: pointer;
-
-    :hover {
-        border: 1px
-            ${props => (props.color === 'secondary' ? accent900 : brand900)}
-            solid;
-    }
-
-    @media screen and (max-width: 812px) {
-        font-size: 12px;
-    }
-`
+import React, { useEffect, useState } from 'react'
+import { Auth0 } from '../../pages/_document'
+import { StyledButton } from '../Button'
+import { Beta, Logo } from '../Logo'
 
 const logout = () => {
     Auth0.logout()
@@ -82,7 +48,7 @@ const Header = () => {
                         </Anchor>
                     </Link>
                 </Box>
-                <Box direction="row">
+                <Box direction="row" align="center" gap="small">
                     {isLoggedIn &&
                         `Hi ${userData.given_name || userData.nickname}!`}
                     <Anchor
@@ -94,14 +60,11 @@ const Header = () => {
                     <Anchor
                         href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
                         target="_blank"
-                        style={{ marginLeft: '16px' }}
                     >
                         <StyledButton primary>S'abonner</StyledButton>
                     </Anchor>
                     {isLoggedIn && (
-                        <Anchor color="secondary" onClick={logout}>
-                            Logout
-                        </Anchor>
+                        <StyledButton onClick={logout}>Logout</StyledButton>
                     )}
                 </Box>
             </Box>
