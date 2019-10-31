@@ -60,7 +60,7 @@ const Collection: NextPage<ICollectionProps> = ({
                     site_name: 'Tottem',
                     images: [
                         {
-                            url: `https://tottem.app/logo-dark.png`,
+                            url: `https://tottem.app${userProfile.pictureUrl}`,
                         },
                     ],
                 }}
