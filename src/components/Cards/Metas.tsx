@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Image, Box } from 'grommet'
 import Humanize from 'humanize-plus'
+import { Item } from '../../types'
 
 export interface IGithubMetasProps {
     starsCount: number
@@ -8,27 +9,8 @@ export interface IGithubMetasProps {
 
 export function GithubMetas(props: IGithubMetasProps) {
     return (
-        <Box
-            direction="row"
-            style={{
-                marginLeft: '6px',
-            }}
-        >
-            <p
-                style={{
-                    lineHeight: '100%',
-                    marginLeft: '8px',
-                    fontSize: '14px',
-                }}
-            >
-                •
-            </p>
-            <Image
-                src="/pictograms/github.svg"
-                style={{
-                    marginLeft: '8px',
-                }}
-            />
+        <Box direction="row" align="center">
+            <Image src="/pictograms/github.svg" />
             <p
                 style={{
                     lineHeight: '100%',
@@ -40,4 +22,40 @@ export function GithubMetas(props: IGithubMetasProps) {
             </p>
         </Box>
     )
+}
+
+export interface IYoutubeMetasProps {
+    viewCount: number
+}
+
+export function YoutubeMetas(props: IYoutubeMetasProps) {
+    return (
+        <Box direction="row" align="center">
+            <Image src="/pictograms/youtube.svg" />
+            <p
+                style={{
+                    lineHeight: '100%',
+                    marginLeft: '8px',
+                    fontSize: '14px',
+                }}
+            >
+                {Humanize.compactInteger(props.viewCount, 1)} views
+            </p>
+        </Box>
+    )
+}
+
+export interface IItemMetasProps {
+    item: Item
+}
+
+export function ItemMetas({ item }: IItemMetasProps) {
+    if (item.provider && item.meta) {
+        if (item.provider === 'github') {
+            return <GithubMetas {...(item.meta as IGithubMetasProps)} />
+        } else if (item.provider === 'youtube') {
+            return <YoutubeMetas {...(item.meta as IYoutubeMetasProps)} />
+        }
+    }
+    return <React.Fragment />
 }

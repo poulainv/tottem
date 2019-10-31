@@ -1,12 +1,12 @@
 [
     {
-        "id": "cf10c752-fbb4-4cdd-a339-68cdfb01b2a0",
+        "id": "7cb0fce1-9678-4271-9e0f-25d3d7eb3b6d",
         "name": "📚 General Resources",
         "index": 1,
         "collections": [
             {
-                "id": "ffde6062-7abb-4549-98f5-c4d59363cac4",
-                "date": "2019-10-30T16:25:14.343Z",
+                "id": "dfb9a95d-d3ae-44f0-8a61-badc043d1eb9",
+                "date": "2019-10-31T11:19:56.829Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -23,6 +23,7 @@
                         "description": "🏡  GraphQL server reference implementation (Airbnb clone) in Typescript using Prisma & graphql-yoga",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
                             "starsCount": 680,
                             "forksCount": 119,
@@ -37,10 +38,11 @@
                         "description": "💡 Examples of Prisma using different languages and technologies",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 795,
+                            "starsCount": 797,
                             "forksCount": 190,
-                            "watchersCount": 795,
+                            "watchersCount": 797,
                             "issuesCount": 31
                         }
                     },
@@ -90,6 +92,7 @@
                         "description": "🛍🛒 Full-stack React/Prisma/TS/GraphQL E-Commerce Example",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/459267?v=4",
                         "meta": {
                             "starsCount": 289,
                             "forksCount": 31,
@@ -104,6 +107,7 @@
                         "description": "Fullstack Boilerplate GraphQL. Made with React & Prisma + authentication & roles + upload file + chat",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/15246526?v=4",
                         "meta": {
                             "starsCount": 569,
                             "forksCount": 124,
@@ -118,6 +122,7 @@
                         "description": "NestJS With Prisma",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/42722699?v=4",
                         "meta": {
                             "starsCount": 47,
                             "forksCount": 9,
@@ -132,6 +137,7 @@
                         "description": "Nextgen backend stack using independent GraphQL services",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/1368633?v=4",
                         "meta": {
                             "starsCount": 11,
                             "forksCount": 1,
@@ -146,6 +152,7 @@
                         "description": "RAN with Prisma",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/16250683?v=4",
                         "meta": {
                             "starsCount": 7,
                             "forksCount": 0,
@@ -167,6 +174,7 @@
                         "description": "Full-Stack Webpack React Apollo NodeJS Express GraphQL Prisma Typescript Material-UI Formik Yup",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/1936984?v=4",
                         "meta": {
                             "starsCount": 5,
                             "forksCount": 0,
@@ -179,13 +187,13 @@
         ]
     },
     {
-        "id": "b3c5ccaa-1d67-400c-9f93-f64cd8c600f8",
+        "id": "540e92ca-dc1c-41ad-ad05-f0b8649e98a6",
         "name": "🔍 GraphQL Server Development",
         "index": 2,
         "collections": [
             {
-                "id": "d890ceb2-c1b8-4abc-a6d1-e7166f63089f",
-                "date": "2019-10-30T16:25:13.599Z",
+                "id": "495c09e2-d6ab-45be-acf6-4b5b6ddc03b1",
+                "date": "2019-10-31T11:19:56.416Z",
                 "name": "GraphQL Yoga",
                 "items": [
                     {
@@ -195,10 +203,11 @@
                         "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 5006,
-                            "forksCount": 324,
-                            "watchersCount": 5006,
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
                             "issuesCount": 28
                         }
                     },
@@ -217,18 +226,19 @@
                         "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 5006,
-                            "forksCount": 324,
-                            "watchersCount": 5006,
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
                             "issuesCount": 28
                         }
                     }
                 ]
             },
             {
-                "id": "78716f37-c05f-4489-83c9-70a022116c84",
-                "date": "2019-10-30T16:25:15.239Z",
+                "id": "1fa4a889-e3cd-43a5-af53-5234ef650376",
+                "date": "2019-10-31T11:19:59.472Z",
                 "name": "Server Deployment",
                 "items": [
                     {
@@ -254,6 +264,7 @@
                         "description": "Tutorial on how  deploy your graphql-yoga server on AWS Lambda with Apex Up",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
                         "meta": {
                             "starsCount": 45,
                             "forksCount": 3,
@@ -272,8 +283,8 @@
                 ]
             },
             {
-                "id": "66a93e16-d570-45e8-95a7-586d63332da3",
-                "date": "2019-10-30T16:25:14.992Z",
+                "id": "b1902c22-cfec-4cd0-82b6-1f4aecb1ce17",
+                "date": "2019-10-31T11:20:01.382Z",
                 "name": "GraphQL Resolvers",
                 "items": [
                     {
@@ -299,6 +310,7 @@
                         "description": "Boilerplate code for scalable, production-ready GraphQL servers",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/18574799?v=4",
                         "meta": {
                             "starsCount": 661,
                             "forksCount": 110,
@@ -313,10 +325,11 @@
                         "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -331,8 +344,8 @@
                 ]
             },
             {
-                "id": "90c7f91e-0ba7-4675-b04f-9bcdc1e7e8e5",
-                "date": "2019-10-30T16:25:13.366Z",
+                "id": "38e8b1ae-d0a7-432b-bbb1-6d3babeb2599",
+                "date": "2019-10-31T11:19:57.582Z",
                 "name": "GraphQL Bindings",
                 "items": [
                     {
@@ -342,10 +355,11 @@
                         "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -356,6 +370,7 @@
                         "description": "Auto-generated SDK for your GraphQL API (supports schema stitching & codegen)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/3680083?v=4",
                         "meta": {
                             "starsCount": 332,
                             "forksCount": 53,
@@ -366,8 +381,8 @@
                 ]
             },
             {
-                "id": "0ffd7813-87cc-4968-aa7a-91afb88a39e4",
-                "date": "2019-10-30T16:25:14.047Z",
+                "id": "352435d1-0ce4-4d2c-bfc0-759d7738136c",
+                "date": "2019-10-31T11:19:57.614Z",
                 "name": "Authentication",
                 "items": [
                     {
@@ -377,10 +392,11 @@
                         "description": "💡 Examples of Prisma using different languages and technologies",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 795,
+                            "starsCount": 797,
                             "forksCount": 190,
-                            "watchersCount": 795,
+                            "watchersCount": 797,
                             "issuesCount": 31
                         }
                     },
@@ -399,6 +415,7 @@
                         "description": "Example repo demonstrating how to authenticate a user with facebook in Prisma.",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3880008?v=4",
                         "meta": {
                             "starsCount": 18,
                             "forksCount": 2,
@@ -409,8 +426,8 @@
                 ]
             },
             {
-                "id": "49ef6897-e65c-4d82-b300-2a474197f1c1",
-                "date": "2019-10-30T16:25:13.364Z",
+                "id": "c920ae9b-7604-4367-be34-b39195f73aaf",
+                "date": "2019-10-31T11:19:56.195Z",
                 "name": "Permissions",
                 "items": [
                     {
@@ -428,18 +445,19 @@
                         "description": "🛡 A GraphQL tool to ease the creation of permission layer.",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/3924224?v=4",
                         "meta": {
-                            "starsCount": 1853,
+                            "starsCount": 1854,
                             "forksCount": 80,
-                            "watchersCount": 1853,
-                            "issuesCount": 27
+                            "watchersCount": 1854,
+                            "issuesCount": 26
                         }
                     }
                 ]
             },
             {
-                "id": "b74a464c-a076-442c-9435-241770794c12",
-                "date": "2019-10-30T16:25:12.823Z",
+                "id": "e549f2e7-ea43-47a6-a961-b4a20358fa65",
+                "date": "2019-10-31T11:19:55.656Z",
                 "name": "Subscriptions",
                 "items": [
                     {
@@ -449,18 +467,19 @@
                         "description": "💡 Examples of Prisma using different languages and technologies",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 795,
+                            "starsCount": 797,
                             "forksCount": 190,
-                            "watchersCount": 795,
+                            "watchersCount": 797,
                             "issuesCount": 31
                         }
                     }
                 ]
             },
             {
-                "id": "a41e15aa-9320-4ed9-9b63-f6e3199d3be9",
-                "date": "2019-10-30T16:25:13.714Z",
+                "id": "f235be5b-9692-4e4d-821a-b6914cc39731",
+                "date": "2019-10-31T11:19:56.648Z",
                 "name": "File Handling",
                 "items": [
                     {
@@ -482,8 +501,8 @@
                 ]
             },
             {
-                "id": "00814c98-e01b-4141-8ac7-977b58ba2866",
-                "date": "2019-10-30T16:25:12.865Z",
+                "id": "59f78c3a-50a9-4e99-aacf-d6a245a1b3b1",
+                "date": "2019-10-31T11:19:55.862Z",
                 "name": "Error Handling",
                 "items": [
                     {
@@ -497,8 +516,8 @@
                 ]
             },
             {
-                "id": "03a17281-eba3-47a9-8772-5c2e2cd668c8",
-                "date": "2019-10-30T16:25:15.054Z",
+                "id": "195079d9-f6c1-4bfd-a491-7e19572d2ad4",
+                "date": "2019-10-31T11:20:02.851Z",
                 "name": "Multi-tenancy",
                 "items": [
                     {
@@ -516,6 +535,7 @@
                         "description": "🧭 Use Prisma as a multi-tenant provider with Apollo Server or Yoga",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/6669733?v=4",
                         "meta": {
                             "starsCount": 24,
                             "forksCount": 0,
@@ -526,8 +546,8 @@
                 ]
             },
             {
-                "id": "90fd4ae9-38f9-4c76-8ba0-493cf716dea5",
-                "date": "2019-10-30T16:25:17.142Z",
+                "id": "eb214500-e450-483d-95dd-f36e426f47ce",
+                "date": "2019-10-31T11:20:01.442Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -537,10 +557,11 @@
                         "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 5006,
-                            "forksCount": 324,
-                            "watchersCount": 5006,
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
                             "issuesCount": 28
                         }
                     },
@@ -559,10 +580,11 @@
                         "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 5006,
-                            "forksCount": 324,
-                            "watchersCount": 5006,
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
                             "issuesCount": 28
                         }
                     },
@@ -589,6 +611,7 @@
                         "description": "Tutorial on how  deploy your graphql-yoga server on AWS Lambda with Apex Up",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
                         "meta": {
                             "starsCount": 45,
                             "forksCount": 3,
@@ -627,6 +650,7 @@
                         "description": "Boilerplate code for scalable, production-ready GraphQL servers",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/18574799?v=4",
                         "meta": {
                             "starsCount": 661,
                             "forksCount": 110,
@@ -641,10 +665,11 @@
                         "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -663,10 +688,11 @@
                         "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -677,6 +703,7 @@
                         "description": "Auto-generated SDK for your GraphQL API (supports schema stitching & codegen)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/3680083?v=4",
                         "meta": {
                             "starsCount": 332,
                             "forksCount": 53,
@@ -691,10 +718,11 @@
                         "description": "💡 Examples of Prisma using different languages and technologies",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 795,
+                            "starsCount": 797,
                             "forksCount": 190,
-                            "watchersCount": 795,
+                            "watchersCount": 797,
                             "issuesCount": 31
                         }
                     },
@@ -713,6 +741,7 @@
                         "description": "Example repo demonstrating how to authenticate a user with facebook in Prisma.",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3880008?v=4",
                         "meta": {
                             "starsCount": 18,
                             "forksCount": 2,
@@ -735,11 +764,12 @@
                         "description": "🛡 A GraphQL tool to ease the creation of permission layer.",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/3924224?v=4",
                         "meta": {
-                            "starsCount": 1853,
+                            "starsCount": 1854,
                             "forksCount": 80,
-                            "watchersCount": 1853,
-                            "issuesCount": 27
+                            "watchersCount": 1854,
+                            "issuesCount": 26
                         }
                     },
                     {
@@ -749,10 +779,11 @@
                         "description": "💡 Examples of Prisma using different languages and technologies",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 795,
+                            "starsCount": 797,
                             "forksCount": 190,
-                            "watchersCount": 795,
+                            "watchersCount": 797,
                             "issuesCount": 31
                         }
                     },
@@ -795,6 +826,7 @@
                         "description": "🧭 Use Prisma as a multi-tenant provider with Apollo Server or Yoga",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/6669733?v=4",
                         "meta": {
                             "starsCount": 24,
                             "forksCount": 0,
@@ -807,13 +839,13 @@
         ]
     },
     {
-        "id": "5900c512-0107-45a6-9cdb-13275c1cb7c3",
+        "id": "5c37a0fb-f4f7-4870-8070-36e85a2a574d",
         "name": "🔺 Prisma Server Deployment",
         "index": 3,
         "collections": [
             {
-                "id": "a04afedf-9725-47a1-94a7-602b44b02394",
-                "date": "2019-10-30T16:25:13.484Z",
+                "id": "f463d171-3c30-4a13-b0f2-820b6606dc9f",
+                "date": "2019-10-31T11:19:56.560Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -846,6 +878,7 @@
                         "description": "[Unmaintained] - The goal is to connect a Prisma docker instance to a AWS RDS MySQL database",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
                         "meta": {
                             "starsCount": 33,
                             "forksCount": 2,
@@ -860,6 +893,7 @@
                         "description": "Demonstrates how to start a Prisma cluster (MySQL + Prisma) via Docker Compose",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/224910?v=4",
                         "meta": {
                             "starsCount": 16,
                             "forksCount": 3,
@@ -904,41 +938,47 @@
         ]
     },
     {
-        "id": "fcf82e55-32c8-466a-bdce-343e7c43646a",
+        "id": "69a71535-91f1-4aa1-96a9-accab5bfe619",
         "name": "🎥 Video tutorials",
         "index": 4,
         "collections": [
             {
-                "id": "e4605730-b7fc-4def-9ceb-d8baf85aa95a",
-                "date": "2019-10-30T16:25:13.779Z",
+                "id": "788c67b9-3203-45b3-8c67-580c05d70e2a",
+                "date": "2019-10-31T11:19:56.032Z",
                 "name": "Basic",
                 "items": [
                     {
                         "title": "React Native and Prisma YouTube Tutorial Series",
-                        "description": "Auf YouTube findest du großartige Videos und erstklassige Musik. Außerdem kannst du eigene Inhalte hochladen und mit Freunden oder mit der ganzen Welt teilen.",
+                        "author": "Ben Awad",
                         "productUrl": "https://www.youtube.com/watch?v=nyE6shIRzxM&list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy",
-                        "type": "website",
-                        "imageUrl": "www.youtube.com/undefined"
+                        "description": "Introduction for a new project I'm starting. It's going to be an eCommerce app built with React Native and Prisma GraphQL.\n\nPlaylist: https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy\n\n----\nVideo Suggestions:\n\nTrello: https://trello.com/b/mErpLVj7/todo\nJoin the Trello board: https://trello.com/invite/b/mErpLVj7/99020cac2d3397287640d7d86cb3c09a/todo\n\n----\nFollow Me Online Here:\n\nFacebook: https://www.facebook.com/benawad97/\nGitHub: https://github.com/benawad\nTwitter: https://twitter.com/benawad97\nLinkedIn: https://www.linkedin.com/in/benawad/\nInstagram: http://instagram.com/benawad97\nPatreon: https://www.patreon.com/benawad\n----\nJoin the Discord: https://discord.gg/Vehs99V",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/nyE6shIRzxM/hqdefault.jpg",
+                        "meta": { "viewCount": "17126", "likeCount": "147" }
                     },
                     {
                         "title": "Build a ProductHunt GraphQL server with Prisma + GraphQL Yoga",
-                        "description": "Auf YouTube findest du großartige Videos und erstklassige Musik. Außerdem kannst du eigene Inhalte hochladen und mit Freunden oder mit der ganzen Welt teilen.",
+                        "author": "Jamie Barton",
                         "productUrl": "https://www.youtube.com/watch?v=-n30pzgnkW0&list=PLs2PzMqLzi7Xmx44xTLfOBCwCAxVgQvE*",
-                        "type": "website",
-                        "imageUrl": "www.youtube.com/undefined"
+                        "description": "In this video series we will create all that is required to build a website similar to ProductHunt.\n\nThere is one slight catch: Products can only be upvoted on the day of publish! Most voted product wins!\n\nDonations welcome: https://www.paypal.me/notrab",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/-n30pzgnkW0/hqdefault.jpg",
+                        "meta": { "viewCount": "4455", "likeCount": "66" }
                     }
                 ]
             }
         ]
     },
     {
-        "id": "56009b50-6292-4b05-896b-f2428715e5dd",
+        "id": "a87b289d-7d0f-4ccd-b3d7-178f3c1aa57d",
         "name": ":family_man_woman_girl_boy: Community",
         "index": 5,
         "collections": [
             {
-                "id": "630ce7fc-7c1e-4ca4-bd58-212733ff21c9",
-                "date": "2019-10-30T16:25:13.595Z",
+                "id": "41ccfd64-b3c9-4b64-bce7-97a7e807a545",
+                "date": "2019-10-31T11:19:57.077Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -948,10 +988,11 @@
                         "description": "💾 Database Tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
                         "provider": "github",
                         "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
                         "meta": {
-                            "starsCount": 15991,
+                            "starsCount": 15996,
                             "forksCount": 911,
-                            "watchersCount": 15991,
+                            "watchersCount": 15996,
                             "issuesCount": 628
                         }
                     },

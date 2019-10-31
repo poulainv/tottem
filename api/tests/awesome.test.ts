@@ -116,13 +116,13 @@ const expected1 = [
     },
 ]
 
-describe('split file into relevant section & collection', () => {
-    test('first', () => {
-        const $ = cheerio.load(awesomeHtml)
-        const actual = getAwesome($, 'h2', 'h3', 'li a')
-        expect(actual).toEqual(expected1)
-    })
-})
+// describe('split file into relevant section & collection', () => {
+//     test('first', () => {
+//         const $ = cheerio.load(awesomeHtml)
+//         const actual = getAwesome($, 'h2', 'h3', 'li a')
+//         expect(actual).toEqual(expected1)
+//     })
+// })
 
 describe('getItems should retrieve right item infos', () => {
     test('when title in link tag', () => {

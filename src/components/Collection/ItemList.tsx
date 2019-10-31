@@ -5,7 +5,13 @@ import { imageShapes, Item } from '../../types'
 import { ElementAuthor, ElementTitle } from '../Typography'
 import CoverImage from '../Cards/CoverImage'
 import { colorPlaceholders } from '../../constants/colors'
-import { GithubMetas, IGithubMetasProps } from '../Cards/Metas'
+import {
+    GithubMetas,
+    IGithubMetasProps,
+    IYoutubeMetasProps,
+    YoutubeMetas,
+    ItemMetas,
+} from '../Cards/Metas'
 
 interface IItemListProps {
     items: Item[]
@@ -108,24 +114,18 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         </ImageBox>
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
-                                        <Box direction="row" align="center">
-                                            <ElementTitle
-                                                href={item.productUrl}
-                                                target="_blank"
-                                            >
-                                                {item.title}
-                                            </ElementTitle>
-                                            {item.provider &&
-                                                item.meta &&
-                                                item.provider === 'github' && (
-                                                    <GithubMetas
-                                                        {...(item.meta as IGithubMetasProps)}
-                                                    />
-                                                )}
-                                        </Box>
+                                        <ElementTitle
+                                            href={item.productUrl}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </ElementTitle>
                                         <ElementAuthor>
                                             {item.author}
                                         </ElementAuthor>
+                                        <Box style={{ marginTop: '8px' }}>
+                                            <ItemMetas item={item} />
+                                        </Box>
                                     </Box>
                                 </Box>
                                 <Pictogram>
