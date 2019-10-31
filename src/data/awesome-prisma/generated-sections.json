@@ -1,12 +1,12 @@
 [
     {
-        "id": "7cb0fce1-9678-4271-9e0f-25d3d7eb3b6d",
+        "id": "OmJvb2tzOi",
         "name": "📚 General Resources",
         "index": 1,
         "collections": [
             {
-                "id": "dfb9a95d-d3ae-44f0-8a61-badc043d1eb9",
-                "date": "2019-10-31T11:19:56.829Z",
+                "id": "OmJvb2tzOi",
+                "date": "2019-10-31T13:54:57.504Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -43,7 +43,7 @@
                             "starsCount": 797,
                             "forksCount": 190,
                             "watchersCount": 797,
-                            "issuesCount": 31
+                            "issuesCount": 32
                         }
                     },
                     {
@@ -187,13 +187,13 @@
         ]
     },
     {
-        "id": "540e92ca-dc1c-41ad-ad05-f0b8649e98a6",
+        "id": "Om1hZzogR3",
         "name": "🔍 GraphQL Server Development",
         "index": 2,
         "collections": [
             {
-                "id": "495c09e2-d6ab-45be-acf6-4b5b6ddc03b1",
-                "date": "2019-10-31T11:19:56.416Z",
+                "id": "R3JhcGhRTC",
+                "date": "2019-10-31T13:54:56.016Z",
                 "name": "GraphQL Yoga",
                 "items": [
                     {
@@ -237,8 +237,8 @@
                 ]
             },
             {
-                "id": "1fa4a889-e3cd-43a5-af53-5234ef650376",
-                "date": "2019-10-31T11:19:59.472Z",
+                "id": "U2VydmVyIE",
+                "date": "2019-10-31T13:54:58.672Z",
                 "name": "Server Deployment",
                 "items": [
                     {
@@ -283,8 +283,8 @@
                 ]
             },
             {
-                "id": "b1902c22-cfec-4cd0-82b6-1f4aecb1ce17",
-                "date": "2019-10-31T11:20:01.382Z",
+                "id": "R3JhcGhRTC",
+                "date": "2019-10-31T13:54:59.278Z",
                 "name": "GraphQL Resolvers",
                 "items": [
                     {
@@ -327,9 +327,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 426,
+                            "starsCount": 427,
                             "forksCount": 43,
-                            "watchersCount": 426,
+                            "watchersCount": 427,
                             "issuesCount": 49
                         }
                     },
@@ -344,8 +344,8 @@
                 ]
             },
             {
-                "id": "38e8b1ae-d0a7-432b-bbb1-6d3babeb2599",
-                "date": "2019-10-31T11:19:57.582Z",
+                "id": "R3JhcGhRTC",
+                "date": "2019-10-31T13:54:56.868Z",
                 "name": "GraphQL Bindings",
                 "items": [
                     {
@@ -357,9 +357,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 426,
+                            "starsCount": 427,
                             "forksCount": 43,
-                            "watchersCount": 426,
+                            "watchersCount": 427,
                             "issuesCount": 49
                         }
                     },
@@ -381,8 +381,8 @@
                 ]
             },
             {
-                "id": "352435d1-0ce4-4d2c-bfc0-759d7738136c",
-                "date": "2019-10-31T11:19:57.614Z",
+                "id": "QXV0aGVudG",
+                "date": "2019-10-31T13:54:57.996Z",
                 "name": "Authentication",
                 "items": [
                     {
@@ -397,7 +397,7 @@
                             "starsCount": 797,
                             "forksCount": 190,
                             "watchersCount": 797,
-                            "issuesCount": 31
+                            "issuesCount": 32
                         }
                     },
                     {
@@ -426,8 +426,8 @@
                 ]
             },
             {
-                "id": "c920ae9b-7604-4367-be34-b39195f73aaf",
-                "date": "2019-10-31T11:19:56.195Z",
+                "id": "UGVybWlzc2",
+                "date": "2019-10-31T13:54:53.600Z",
                 "name": "Permissions",
                 "items": [
                     {
@@ -456,8 +456,8 @@
                 ]
             },
             {
-                "id": "e549f2e7-ea43-47a6-a961-b4a20358fa65",
-                "date": "2019-10-31T11:19:55.656Z",
+                "id": "U3Vic2NyaX",
+                "date": "2019-10-31T13:54:53.371Z",
                 "name": "Subscriptions",
                 "items": [
                     {
@@ -472,14 +472,14 @@
                             "starsCount": 797,
                             "forksCount": 190,
                             "watchersCount": 797,
-                            "issuesCount": 31
+                            "issuesCount": 32
                         }
                     }
                 ]
             },
             {
-                "id": "f235be5b-9692-4e4d-821a-b6914cc39731",
-                "date": "2019-10-31T11:19:56.648Z",
+                "id": "RmlsZSBIYW",
+                "date": "2019-10-31T13:54:58.035Z",
                 "name": "File Handling",
                 "items": [
                     {
@@ -501,8 +501,8 @@
                 ]
             },
             {
-                "id": "59f78c3a-50a9-4e99-aacf-d6a245a1b3b1",
-                "date": "2019-10-31T11:19:55.862Z",
+                "id": "RXJyb3IgSG",
+                "date": "2019-10-31T13:54:55.696Z",
                 "name": "Error Handling",
                 "items": [
                     {
@@ -516,8 +516,8 @@
                 ]
             },
             {
-                "id": "195079d9-f6c1-4bfd-a491-7e19572d2ad4",
-                "date": "2019-10-31T11:20:02.851Z",
+                "id": "TXVsdGktdG",
+                "date": "2019-10-31T13:54:58.792Z",
                 "name": "Multi-tenancy",
                 "items": [
                     {
@@ -546,8 +546,8 @@
                 ]
             },
             {
-                "id": "eb214500-e450-483d-95dd-f36e426f47ce",
-                "date": "2019-10-31T11:20:01.442Z",
+                "id": "Om1hZzogR3",
+                "date": "2019-10-31T13:54:59.508Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -667,9 +667,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 426,
+                            "starsCount": 427,
                             "forksCount": 43,
-                            "watchersCount": 426,
+                            "watchersCount": 427,
                             "issuesCount": 49
                         }
                     },
@@ -690,9 +690,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 426,
+                            "starsCount": 427,
                             "forksCount": 43,
-                            "watchersCount": 426,
+                            "watchersCount": 427,
                             "issuesCount": 49
                         }
                     },
@@ -723,7 +723,7 @@
                             "starsCount": 797,
                             "forksCount": 190,
                             "watchersCount": 797,
-                            "issuesCount": 31
+                            "issuesCount": 32
                         }
                     },
                     {
@@ -784,7 +784,7 @@
                             "starsCount": 797,
                             "forksCount": 190,
                             "watchersCount": 797,
-                            "issuesCount": 31
+                            "issuesCount": 32
                         }
                     },
                     {
@@ -839,13 +839,13 @@
         ]
     },
     {
-        "id": "5c37a0fb-f4f7-4870-8070-36e85a2a574d",
+        "id": "OnNtYWxsX3",
         "name": "🔺 Prisma Server Deployment",
         "index": 3,
         "collections": [
             {
-                "id": "f463d171-3c30-4a13-b0f2-820b6606dc9f",
-                "date": "2019-10-31T11:19:56.560Z",
+                "id": "OnNtYWxsX3",
+                "date": "2019-10-31T13:54:56.658Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -938,13 +938,13 @@
         ]
     },
     {
-        "id": "69a71535-91f1-4aa1-96a9-accab5bfe619",
+        "id": "Om1vdmllX2",
         "name": "🎥 Video tutorials",
         "index": 4,
         "collections": [
             {
-                "id": "788c67b9-3203-45b3-8c67-580c05d70e2a",
-                "date": "2019-10-31T11:19:56.032Z",
+                "id": "Om1vdmllX2",
+                "date": "2019-10-31T13:54:57.163Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -955,7 +955,7 @@
                         "provider": "youtube",
                         "type": "video",
                         "imageUrl": "https://i.ytimg.com/vi/nyE6shIRzxM/hqdefault.jpg",
-                        "meta": { "viewCount": "17126", "likeCount": "147" }
+                        "meta": { "viewCount": "17130", "likeCount": "147" }
                     },
                     {
                         "title": "Build a ProductHunt GraphQL server with Prisma + GraphQL Yoga",
@@ -972,13 +972,13 @@
         ]
     },
     {
-        "id": "a87b289d-7d0f-4ccd-b3d7-178f3c1aa57d",
+        "id": "OmZhbWlseV",
         "name": ":family_man_woman_girl_boy: Community",
         "index": 5,
         "collections": [
             {
-                "id": "41ccfd64-b3c9-4b64-bce7-97a7e807a545",
-                "date": "2019-10-31T11:19:57.077Z",
+                "id": "OmZhbWlseV",
+                "date": "2019-10-31T13:54:58.572Z",
                 "name": "Basic",
                 "items": [
                     {
