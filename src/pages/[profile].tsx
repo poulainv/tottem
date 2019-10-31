@@ -13,25 +13,29 @@ interface IProfileProps {
 }
 
 const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
-    const arrSum = (arr: number[]) =>
-        arr.reduce((a: number, b: number) => a + b, 0)
-    const collectionCount = arrSum(sections.map(x => x.collections.length))
     const router = useRouter()
 
     return (
         <Layout>
             <NextSeo
                 title={`${userProfile.firstname} - Tottem`}
-                description={`See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`}
+                description={`${userProfile.firstname} on Tottem - ${userProfile.biography}`}
+                canonical={`https://tottem.app/${router.query.profile}`}
+                twitter={{
+                    site: '@TottemApp',
+                    cardType: 'summary',
+                }}
                 openGraph={{
-                    description: `See ${collectionCount} collections of ${userProfile.firstname} - Tottem is place where enthusiastic people and organizations share relevant collections of hand-picked items — books, articles, movies and more`,
+                    type: 'profile',
+                    profile: {
+                        username: userProfile.slug,
+                    },
+                    description: `${userProfile.firstname} on Tottem - ${userProfile.biography}`,
                     url: `https://tottem.app/${router.query.profile}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            width: 556,
-                            height: 392,
-                            url: `https://tottem.app/thumbnail-${router.query.profile}.jpg`,
+                            url: `https://tottem.app${userProfile.pictureUrl}`,
                         },
                     ],
                 }}

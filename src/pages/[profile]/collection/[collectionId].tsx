@@ -20,7 +20,8 @@ interface ICollectionProps {
     collection: ICollection
 }
 
-const BackButton = styled(Box)`
+const BackButton = styled.a`
+    display: flex;
     background-color: white;
     cursor: pointer;
     color: black;
@@ -48,24 +49,24 @@ const Collection: NextPage<ICollectionProps> = ({
         <Layout>
             <NextSeo
                 title={`${collectionName} - ${userProfile.firstname} - Tottem`}
-                description={`${collectionName} by ${userProfile.firstname}`}
+                description={`${collectionName} by ${userProfile.firstname} - Tottem`}
                 twitter={{
                     site: '@TottemApp',
                     cardType: 'summary',
                 }}
                 openGraph={{
-                    description: `${collectionName} by ${userProfile.firstname}`,
+                    description: `${collectionName} by ${userProfile.firstname} - Tottem`,
                     url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            url: `https://tottem.app/logo-dark.png`,
+                            url: `https://tottem.app${userProfile.pictureUrl}`,
                         },
                     ],
                 }}
             />
 
-            <Link href="/[profile]" as={`/${router.query.profile}`}>
+            <Link href="/[profile]" as={`/${router.query.profile}`} passHref>
                 <BackButton>
                     <LinkPrevious
                         color="#595959"
@@ -107,7 +108,7 @@ Collection.getInitialProps = async (context: Context) => {
     const sections: ISection[] = require(`../../../data/${profile}/sections`)
         .default
 
-    // flatMap only node 12
+    // flatMap only on node v12
     const collectionOpt: ICollection | undefined = flatten(
         sections.map(x => x.collections)
     ).find((x: ICollection) => x.id === collectionId)

@@ -270,7 +270,7 @@ const items: Item[] = [
     },
     {
         collectionId: '16',
-        type: 'paper',
+        type: 'article',
         author: 'Tristan Harris',
         imageUrl: '/images/articles/humantec.jpg',
         title: 'Downgrading technology should be more challenged',
@@ -288,7 +288,7 @@ const items: Item[] = [
     },
     {
         collectionId: '16',
-        type: 'paper',
+        type: 'article',
         author: 'Joe Edelman',
         imageUrl: '/images/articles/clickgoal.jpg',
         title: 'Is Anything worth Maximizing',
@@ -305,7 +305,7 @@ const items: Item[] = [
     },
     {
         collectionId: '16',
-        type: 'paper',
+        type: 'article',
         author: 'Tristan Harris',
         imageUrl: '/images/artworks/video-placeholder.svg',
         title: 'It’s Time to Redesign the Attention Economy',
@@ -351,7 +351,7 @@ const items: Item[] = [
     },
     {
         collectionId: '13',
-        type: 'paper',
+        type: 'article',
         author: 'Maxime Beauchemin',
         imageUrl: '/images/articles/data-func.jpg',
         title:
@@ -361,7 +361,7 @@ const items: Item[] = [
     },
     {
         collectionId: '13',
-        type: 'paper',
+        type: 'article',
         author: 'The Syndicate Post',
         imageUrl: '/images/articles/introvert.jpg',
         title: 'Introverts: Inside The Mind of An Introverted Personality',

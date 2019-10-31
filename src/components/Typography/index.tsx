@@ -62,9 +62,9 @@ export const ElementTitle = styled.a`
 
 export const ElementAuthor = styled.p`
     font-size: 16px;
-    margin: 16px 0px 0px 0px;
+    margin: 8px 0px 0px 0px;
     line-height: 24px;
-    /* Dark 3 */
+    word-break: break-all;
     color: ${grey600};
 
     @media screen and (max-width: 600px) {
@@ -73,7 +73,7 @@ export const ElementAuthor = styled.p`
     }
 `
 
-export const CollectionTitle = styled.h3`
+export const CollectionTitle = styled.h2`
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;

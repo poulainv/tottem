@@ -1,14 +1,23 @@
-import * as React from 'react'
 import { Box, Image } from 'grommet'
-import { Item, imageShapes } from '../../types'
+import * as React from 'react'
 import styled from 'styled-components'
-import { ElementTitle, ElementAuthor } from '../Typography'
+import { imageShapes, Item } from '../../types'
+import { ElementAuthor, ElementTitle } from '../Typography'
+import CoverImage from '../Cards/CoverImage'
+import { colorPlaceholders } from '../../constants/colors'
+import {
+    GithubMetas,
+    IGithubMetasProps,
+    IYoutubeMetasProps,
+    YoutubeMetas,
+    ItemMetas,
+} from '../Cards/Metas'
 
 interface IItemListProps {
     items: Item[]
 }
 
-const ItemImage = styled(Image)`
+const ImageBox = styled(Box)`
     width: 160px;
     border-radius: ${(props: { radius: string }) => props.radius};
     border: solid 0.5px #ededed;
@@ -64,6 +73,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
         <ContentBox>
             <CollectionCard background="white" pad="large">
                 {props.items.map(item => {
+                    const picto = `/pictograms/${item.type}-white.svg`
                     return (
                         <Box
                             responsive={false}
@@ -83,16 +93,25 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         target="_blank"
                                         style={{ display: 'flex ' }}
                                     >
-                                        <ItemImage
-                                            src={item.imageUrl}
-                                            fit="cover"
+                                        <ImageBox
                                             radius={
                                                 imageShapes[item.type] ===
                                                 'circle'
                                                     ? '50%'
-                                                    : '4px'
+                                                    : '8px'
                                             }
-                                        />
+                                        >
+                                            <CoverImage
+                                                placeholderColor={
+                                                    colorPlaceholders[item.type]
+                                                }
+                                                placeholderPicto={picto}
+                                                imageUrl={item.imageUrl}
+                                                imageShape={
+                                                    imageShapes[item.type]
+                                                }
+                                            />
+                                        </ImageBox>
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
                                         <ElementTitle
@@ -104,6 +123,9 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         <ElementAuthor>
                                             {item.author}
                                         </ElementAuthor>
+                                        <Box style={{ marginTop: '8px' }}>
+                                            <ItemMetas item={item} />
+                                        </Box>
                                     </Box>
                                 </Box>
                                 <Pictogram>

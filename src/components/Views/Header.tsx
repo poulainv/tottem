@@ -1,7 +1,10 @@
-import { Box, ResponsiveContext } from 'grommet'
+import { Anchor, Box, ResponsiveContext } from 'grommet'
 import React, { useEffect, useState, Fragment } from 'react'
 import { Auth0 } from '../../pages/_document'
 import Link from 'next/link'
+import { Beta, Logo } from '../Logo'
+import { StyledButton } from '../Button'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import {
     accent100,
@@ -42,7 +45,7 @@ const logout = () => {
 }
 
 const Header = () => {
-    const size = React.useContext(ResponsiveContext)
+    const router = useRouter()
     const [isLoggedIn, setIsLoggedIn] = useState()
     const [userData, setUserData] = useState()
 
@@ -52,7 +55,6 @@ const Header = () => {
         setIsLoggedIn(lsLoggedIn ? JSON.parse(lsLoggedIn) : false)
         setUserData(lsUserDetails ? JSON.parse(lsUserDetails) : null)
     }, [])
-
     return (
         <Box
             background="white"
@@ -61,7 +63,6 @@ const Header = () => {
             width="full"
             align="center"
             justify="center"
-            pad={size === 'large' ? 'medium' : 'none'}
             border={{ color: 'light-4', size: '0.5px', side: 'bottom' }}
         >
             <Box
@@ -72,23 +73,35 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Link href="/">
-                        <Logo>
-                            Tottem
-                            <Beta>beta</Beta>
-                        </Logo>
+                    <Link href="/" passHref>
+                        <Anchor>
+                            <Logo>
+                                Tottem
+                                <Beta>beta</Beta>
+                            </Logo>
+                        </Anchor>
                     </Link>
                 </Box>
-                <Box direction="row" align="center" gap="small">
+                <Box direction="row">
                     {isLoggedIn &&
                         `Hi ${userData.given_name || userData.nickname}!`}
-                    <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
-                        Recevoir les nouvelles collections
-                    </ButtonCTA>
+                    <Anchor
+                        href="https://vincentp791262.typeform.com/to/LOiv5v"
+                        target="_blank"
+                    >
+                        <StyledButton>Créer son profil</StyledButton>
+                    </Anchor>
+                    <Anchor
+                        href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
+                        target="_blank"
+                        style={{ marginLeft: '16px' }}
+                    >
+                        <StyledButton primary>S'abonner</StyledButton>
+                    </Anchor>
                     {isLoggedIn && (
-                        <ButtonCTA color="secondary" onClick={logout}>
+                        <Anchor color="secondary" onClick={logout}>
                             Logout
-                        </ButtonCTA>
+                        </Anchor>
                     )}
                 </Box>
             </Box>

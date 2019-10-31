@@ -42,7 +42,7 @@ export const collections: ICollection[] = [
         id: '13',
         sectionId: '2',
         date: new Date('2019-10-01T12:00:00'),
-        name: '**Tech papers** worth reading',
+        name: '**Tech articles** worth reading',
         items: itemsByCollection['13'],
     },
     {

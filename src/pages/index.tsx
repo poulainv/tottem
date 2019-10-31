@@ -1,13 +1,13 @@
-import i18n from 'i18next'
-import { useTranslation, initReactI18next, Trans } from 'react-i18next'
 import { Box, Heading } from 'grommet'
 import { MailOption } from 'grommet-icons'
-import Link from 'next/link'
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import { NextSeo } from 'next-seo'
 import { useEffect } from 'react'
 import * as React from 'react'
 import ReactGA from 'react-ga'
+import { initReactI18next, Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
-import LanguageDetector from 'i18next-browser-languagedetector'
 import {
     LargeResponsiveArtwork,
     MobileArtwork,
@@ -20,7 +20,6 @@ import {
 } from '../components/ResponsiveStyledComponent'
 import Separator from '../components/Separator'
 import { accent500, accent900, brand500 } from '../constants/colors'
-import { NextSeo } from 'next-seo'
 
 const Header = styled(Heading)`
     font-size: 40px;

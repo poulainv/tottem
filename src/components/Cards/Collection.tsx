@@ -1,4 +1,4 @@
-import { Box, Button, Markdown, Text } from 'grommet'
+import { Box, Button, Markdown, Text, Anchor } from 'grommet'
 import React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
@@ -71,10 +71,13 @@ const Collection: React.FC<ICollection> = props => {
                     <Link
                         href="/[profile]/collection/[collectionId]"
                         as={`/${router.query.profile}/collection/${props.id}`}
+                        passHref
                     >
-                        <CollectionTitle>
-                            <Markdown>{props.name}</Markdown>
-                        </CollectionTitle>
+                        <Anchor>
+                            <CollectionTitle>
+                                <Markdown>{props.name}</Markdown>
+                            </CollectionTitle>
+                        </Anchor>
                     </Link>
                 </Box>
                 <MediumAndUp>{props.items.length > 4 && seeMore}</MediumAndUp>

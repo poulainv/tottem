@@ -1,7 +1,7 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import { Item, imageShapes } from '../../types'
+import { imageShapes, Item } from '../../types'
 import Card, { CardSize } from '../Cards/Card'
 
 const ScrollableBox = styled(Box)`

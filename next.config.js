@@ -1,5 +1,8 @@
 // to expose ENV variables to the client side
-exports.default = {
+module.exports = {
+    webpack: (config, { dev }) => {
+        return config
+    },
     env: {
         ENV: process.env.ENV,
     },

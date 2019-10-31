@@ -14,7 +14,7 @@ const Label = styled.div`
     padding: 0px 8px 0px 8px;
     font-weight: 500;
     font-size: 12px;
-    line-height: 200%;
+    line-height: 170%;
     position: absolute;
     right: -90px;
     top: -16px;

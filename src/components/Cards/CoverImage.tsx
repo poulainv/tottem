@@ -5,7 +5,7 @@ import { CardSize } from './Card'
 import { ImageShapeType } from '../../types'
 
 interface CoverProps {
-    imageUrl: string
+    imageUrl: string | undefined
     placeholderColor: string
     placeholderPicto: string
     imageShape?: ImageShapeType
@@ -33,10 +33,14 @@ const CoverImage: React.FC<CoverProps> = props => {
             width="full"
             overflow="hidden"
             border={{ color: 'light-3', size: '0.5px' }}
-            background={props.imageUrl ? 'none' : props.placeholderColor}
+            background={props.placeholderColor}
         >
             {props.imageUrl ? (
-                <Image src={props.imageUrl} fit="cover" />
+                <Image
+                    fallback={props.placeholderPicto}
+                    src={props.imageUrl}
+                    fit="cover"
+                />
             ) : (
                 <Image
                     src={props.placeholderPicto}
