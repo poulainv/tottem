@@ -60,6 +60,7 @@ const Collection: React.FC<ICollection> = props => {
             direction="column"
             margin={{ vertical: 'medium' }}
             background="white"
+            id={props.id}
         >
             <Box
                 direction="row"

@@ -14,10 +14,6 @@ const logger = createLogger({
     defaultMeta: { service: 'tottem-api' },
 })
 
-//
-// If we're not in production then **ALSO** log to the `console`
-// with the colorized simple format.
-//
 if (process.env.NODE_ENV !== 'production') {
     logger.add(
         new transports.Console({
