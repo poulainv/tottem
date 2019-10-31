@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import querystring from 'querystring'
 import URL from 'url'
+import logger from '../logging'
 
 const TINYYTREGEXP = /youtu\.be\/(?<youtubeId>[^\/:]{1,})(\/)?$/
 const GITHUBREGEXP = /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/)(?<username>[^\/:]+)(\/)(?<repos>[^\/:]+).*?$/
@@ -39,7 +40,7 @@ export function getGithubId(url: string) {
 }
 
 export function GithubApiFetch(url: string): Promise<string> {
-    console.log(`Fetch github api: ${url}`)
+    logger.debug(`Fetch github api: ${url}`)
     const matches = url.match(GITHUBREGEXP)
     if (
         matches !== undefined &&
@@ -77,7 +78,7 @@ export const getYoutubeId = (url: string) => {
 }
 
 export function YoutubeApiFetch(url: string): Promise<string> {
-    console.log(`Fetch youtube api: ${url}`)
+    logger.debug(`Fetch youtube api: ${url}`)
     const youtubeId = getYoutubeId(url)
     return fetch(
         `https://www.googleapis.com/youtube/v3/videos/?part=statistics,contentDetails,snippet&id=${youtubeId}&key=${process.env.YOUTUBE_API_KEY}`,

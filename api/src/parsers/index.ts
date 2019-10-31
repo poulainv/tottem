@@ -3,6 +3,7 @@ import cheerio from 'cheerio'
 import URL from 'url'
 import { IItem } from '../interfaces'
 import { GithubApiFetch, SimpleFetch, YoutubeApiFetch } from './fetchers'
+import logger from '../logging'
 
 /* -------- PARSERS DEFINITION --------  */
 function FnacParser(url: string, body: string): IItem {
@@ -195,13 +196,17 @@ const Parsers: Array<{
 
 export async function inferNewItemFromUrl(url: string): Promise<IItem> {
     const Parser = Parsers.find(x => x.regex.test(url)) || FallbackParser
-    console.log(`Use parser ${Parser.name}`)
+    logger.debug(`Use parser ${Parser.name} for ${url}`)
     try {
         const body = await Parser.fetch(url)
         const inferredItem = await Parser.parse(url, body)
         return trim(inferredItem)
     } catch (err) {
-        console.log(`Err with ${url} ${err}`)
+        if ('Only absolute URLs are supported' in err.message) {
+            logger.info(`Url skipped because not absolute ${url}`)
+        } else {
+            logger.error(`Err with ${url} ${err}`, err)
+        }
         throw Error(`Something went wrong when parsing ${url}`)
     }
 }
