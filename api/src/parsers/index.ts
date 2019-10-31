@@ -2,7 +2,7 @@ import { ItemType } from '@generated/photon'
 import cheerio from 'cheerio'
 import URL from 'url'
 import { IItem } from '../interfaces'
-import { GithubApiFetch, SimpleFetch } from './fetchers'
+import { GithubApiFetch, SimpleFetch, YoutubeApiFetch } from './fetchers'
 
 /* -------- PARSERS DEFINITION --------  */
 function FnacParser(url: string, body: string): IItem {
@@ -49,6 +49,24 @@ export function GithubApiParser(url: string, body: string): IItem {
             forksCount: json.forks_count,
             watchersCount: json.watchers_count,
             issuesCount: json.open_issues,
+        },
+    }
+}
+
+export function YoutubeApiParser(url: string, body: string): IItem {
+    const json = JSON.parse(body)
+    const item = json.items[0]
+    return {
+        title: item.snippet.title,
+        author: item.snippet.channelTitle,
+        productUrl: url,
+        description: item.snippet.description,
+        provider: 'youtube',
+        type: 'video' as ItemType,
+        imageUrl: item.snippet.thumbnails.high.url,
+        meta: {
+            viewCount: item.statistics.viewCount,
+            likeCount: item.statistics.likeCount,
         },
     }
 }
@@ -160,6 +178,18 @@ const Parsers: Array<{
         regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?github\.com(\/.{1,}){2,}?$/,
         parse: GithubApiParser,
         fetch: GithubApiFetch,
+    },
+    {
+        name: 'TinyYoutubeApi',
+        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?youtube\.com(\/.*)?$/,
+        parse: YoutubeApiParser,
+        fetch: YoutubeApiFetch,
+    },
+    {
+        name: 'YoutubeApi',
+        regex: /^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?youtu\.be(\/\w{1,}){1}?$/,
+        parse: YoutubeApiParser,
+        fetch: YoutubeApiFetch,
     },
 ]
 

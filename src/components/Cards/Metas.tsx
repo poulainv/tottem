@@ -22,3 +22,24 @@ export function GithubMetas(props: IGithubMetasProps) {
         </Box>
     )
 }
+
+export interface IYoutubeMetasProps {
+    viewCount: number
+}
+
+export function YoutubeMetas(props: IYoutubeMetasProps) {
+    return (
+        <Box direction="row" align="center">
+            <Image src="/pictograms/youtube.svg" />
+            <p
+                style={{
+                    lineHeight: '100%',
+                    marginLeft: '8px',
+                    fontSize: '14px',
+                }}
+            >
+                {Humanize.compactInteger(props.viewCount, 1)} views
+            </p>
+        </Box>
+    )
+}

@@ -1,12 +1,12 @@
 [
     {
-        "id": "11a17a2e-5647-4a64-83f6-98525bdd4ddf",
+        "id": "7cb0fce1-9678-4271-9e0f-25d3d7eb3b6d",
         "name": "📚 General Resources",
         "index": 1,
         "collections": [
             {
-                "id": "47652b20-ca24-4a0f-9366-ee56f834ba56",
-                "date": "2019-10-31T09:22:31.811Z",
+                "id": "dfb9a95d-d3ae-44f0-8a61-badc043d1eb9",
+                "date": "2019-10-31T11:19:56.829Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -187,13 +187,13 @@
         ]
     },
     {
-        "id": "5dd0a5ea-f76a-467c-98c5-6f3ef154c321",
+        "id": "540e92ca-dc1c-41ad-ad05-f0b8649e98a6",
         "name": "🔍 GraphQL Server Development",
         "index": 2,
         "collections": [
             {
-                "id": "975fafc1-4cf5-4bc0-a216-1b776f6f2425",
-                "date": "2019-10-31T09:22:31.566Z",
+                "id": "495c09e2-d6ab-45be-acf6-4b5b6ddc03b1",
+                "date": "2019-10-31T11:19:56.416Z",
                 "name": "GraphQL Yoga",
                 "items": [
                     {
@@ -237,8 +237,8 @@
                 ]
             },
             {
-                "id": "9aba7198-6147-4619-81cf-6f10dbce31ee",
-                "date": "2019-10-31T09:22:33.818Z",
+                "id": "1fa4a889-e3cd-43a5-af53-5234ef650376",
+                "date": "2019-10-31T11:19:59.472Z",
                 "name": "Server Deployment",
                 "items": [
                     {
@@ -283,8 +283,8 @@
                 ]
             },
             {
-                "id": "f493dc3c-835d-4e79-bbf3-4debb4b588f8",
-                "date": "2019-10-31T09:22:34.856Z",
+                "id": "b1902c22-cfec-4cd0-82b6-1f4aecb1ce17",
+                "date": "2019-10-31T11:20:01.382Z",
                 "name": "GraphQL Resolvers",
                 "items": [
                     {
@@ -327,9 +327,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -344,8 +344,8 @@
                 ]
             },
             {
-                "id": "02f8c272-1807-4c1a-9e65-8e4dd0189c31",
-                "date": "2019-10-31T09:22:31.430Z",
+                "id": "38e8b1ae-d0a7-432b-bbb1-6d3babeb2599",
+                "date": "2019-10-31T11:19:57.582Z",
                 "name": "GraphQL Bindings",
                 "items": [
                     {
@@ -357,9 +357,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -381,8 +381,8 @@
                 ]
             },
             {
-                "id": "736080e3-ff19-44a3-a3d6-c6876c7335ba",
-                "date": "2019-10-31T09:22:33.589Z",
+                "id": "352435d1-0ce4-4d2c-bfc0-759d7738136c",
+                "date": "2019-10-31T11:19:57.614Z",
                 "name": "Authentication",
                 "items": [
                     {
@@ -426,8 +426,8 @@
                 ]
             },
             {
-                "id": "0b3917bf-f36f-4fc5-99fb-2f9e111e7788",
-                "date": "2019-10-31T09:22:31.094Z",
+                "id": "c920ae9b-7604-4367-be34-b39195f73aaf",
+                "date": "2019-10-31T11:19:56.195Z",
                 "name": "Permissions",
                 "items": [
                     {
@@ -456,8 +456,8 @@
                 ]
             },
             {
-                "id": "59fed6b5-f3eb-4b61-9f2a-445ee30bf85d",
-                "date": "2019-10-31T09:22:30.733Z",
+                "id": "e549f2e7-ea43-47a6-a961-b4a20358fa65",
+                "date": "2019-10-31T11:19:55.656Z",
                 "name": "Subscriptions",
                 "items": [
                     {
@@ -478,8 +478,8 @@
                 ]
             },
             {
-                "id": "9deee138-bc30-4676-bbe2-d4a4b94689da",
-                "date": "2019-10-31T09:22:33.383Z",
+                "id": "f235be5b-9692-4e4d-821a-b6914cc39731",
+                "date": "2019-10-31T11:19:56.648Z",
                 "name": "File Handling",
                 "items": [
                     {
@@ -501,8 +501,8 @@
                 ]
             },
             {
-                "id": "80d76706-e514-4cd4-bcbb-6984154e0d93",
-                "date": "2019-10-31T09:22:30.665Z",
+                "id": "59f78c3a-50a9-4e99-aacf-d6a245a1b3b1",
+                "date": "2019-10-31T11:19:55.862Z",
                 "name": "Error Handling",
                 "items": [
                     {
@@ -516,8 +516,8 @@
                 ]
             },
             {
-                "id": "48774a64-cbaa-4616-8cf3-4dd782828fe8",
-                "date": "2019-10-31T09:22:33.136Z",
+                "id": "195079d9-f6c1-4bfd-a491-7e19572d2ad4",
+                "date": "2019-10-31T11:20:02.851Z",
                 "name": "Multi-tenancy",
                 "items": [
                     {
@@ -546,8 +546,8 @@
                 ]
             },
             {
-                "id": "fb1dfd97-2333-487f-a5aa-3c263c574df8",
-                "date": "2019-10-31T09:22:35.096Z",
+                "id": "eb214500-e450-483d-95dd-f36e426f47ce",
+                "date": "2019-10-31T11:20:01.442Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -667,9 +667,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -690,9 +690,9 @@
                         "type": "repository",
                         "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
                         "meta": {
-                            "starsCount": 425,
+                            "starsCount": 426,
                             "forksCount": 43,
-                            "watchersCount": 425,
+                            "watchersCount": 426,
                             "issuesCount": 49
                         }
                     },
@@ -839,13 +839,13 @@
         ]
     },
     {
-        "id": "3ac0c4b0-5aeb-4294-af16-739e9643ee65",
+        "id": "5c37a0fb-f4f7-4870-8070-36e85a2a574d",
         "name": "🔺 Prisma Server Deployment",
         "index": 3,
         "collections": [
             {
-                "id": "3ac0f052-f8d1-4c41-af3f-e5d220f69aba",
-                "date": "2019-10-31T09:22:31.603Z",
+                "id": "f463d171-3c30-4a13-b0f2-820b6606dc9f",
+                "date": "2019-10-31T11:19:56.560Z",
                 "name": "Basic",
                 "items": [
                     {
@@ -938,41 +938,47 @@
         ]
     },
     {
-        "id": "9de6e5e1-4842-4cf0-82e3-aeb68d4f0293",
+        "id": "69a71535-91f1-4aa1-96a9-accab5bfe619",
         "name": "🎥 Video tutorials",
         "index": 4,
         "collections": [
             {
-                "id": "8a5a944e-cf78-4557-ab05-342db354fc87",
-                "date": "2019-10-31T09:22:31.883Z",
+                "id": "788c67b9-3203-45b3-8c67-580c05d70e2a",
+                "date": "2019-10-31T11:19:56.032Z",
                 "name": "Basic",
                 "items": [
                     {
                         "title": "React Native and Prisma YouTube Tutorial Series",
-                        "description": "Auf YouTube findest du großartige Videos und erstklassige Musik. Außerdem kannst du eigene Inhalte hochladen und mit Freunden oder mit der ganzen Welt teilen.",
+                        "author": "Ben Awad",
                         "productUrl": "https://www.youtube.com/watch?v=nyE6shIRzxM&list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy",
-                        "type": "website",
-                        "imageUrl": "www.youtube.com/undefined"
+                        "description": "Introduction for a new project I'm starting. It's going to be an eCommerce app built with React Native and Prisma GraphQL.\n\nPlaylist: https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy\n\n----\nVideo Suggestions:\n\nTrello: https://trello.com/b/mErpLVj7/todo\nJoin the Trello board: https://trello.com/invite/b/mErpLVj7/99020cac2d3397287640d7d86cb3c09a/todo\n\n----\nFollow Me Online Here:\n\nFacebook: https://www.facebook.com/benawad97/\nGitHub: https://github.com/benawad\nTwitter: https://twitter.com/benawad97\nLinkedIn: https://www.linkedin.com/in/benawad/\nInstagram: http://instagram.com/benawad97\nPatreon: https://www.patreon.com/benawad\n----\nJoin the Discord: https://discord.gg/Vehs99V",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/nyE6shIRzxM/hqdefault.jpg",
+                        "meta": { "viewCount": "17126", "likeCount": "147" }
                     },
                     {
                         "title": "Build a ProductHunt GraphQL server with Prisma + GraphQL Yoga",
-                        "description": "Auf YouTube findest du großartige Videos und erstklassige Musik. Außerdem kannst du eigene Inhalte hochladen und mit Freunden oder mit der ganzen Welt teilen.",
+                        "author": "Jamie Barton",
                         "productUrl": "https://www.youtube.com/watch?v=-n30pzgnkW0&list=PLs2PzMqLzi7Xmx44xTLfOBCwCAxVgQvE*",
-                        "type": "website",
-                        "imageUrl": "www.youtube.com/undefined"
+                        "description": "In this video series we will create all that is required to build a website similar to ProductHunt.\n\nThere is one slight catch: Products can only be upvoted on the day of publish! Most voted product wins!\n\nDonations welcome: https://www.paypal.me/notrab",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/-n30pzgnkW0/hqdefault.jpg",
+                        "meta": { "viewCount": "4455", "likeCount": "66" }
                     }
                 ]
             }
         ]
     },
     {
-        "id": "fc7c69a6-0c6f-411f-8eb4-3e67a07017de",
+        "id": "a87b289d-7d0f-4ccd-b3d7-178f3c1aa57d",
         "name": ":family_man_woman_girl_boy: Community",
         "index": 5,
         "collections": [
             {
-                "id": "7be8b8af-56b7-4815-8873-b5bb135b6f56",
-                "date": "2019-10-31T09:22:31.702Z",
+                "id": "41ccfd64-b3c9-4b64-bce7-97a7e807a545",
+                "date": "2019-10-31T11:19:57.077Z",
                 "name": "Basic",
                 "items": [
                     {

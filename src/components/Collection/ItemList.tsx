@@ -5,7 +5,12 @@ import { imageShapes, Item } from '../../types'
 import { ElementAuthor, ElementTitle } from '../Typography'
 import CoverImage from '../Cards/CoverImage'
 import { colorPlaceholders } from '../../constants/colors'
-import { GithubMetas, IGithubMetasProps } from '../Cards/Metas'
+import {
+    GithubMetas,
+    IGithubMetasProps,
+    IYoutubeMetasProps,
+    YoutubeMetas,
+} from '../Cards/Metas'
 
 interface IItemListProps {
     items: Item[]
@@ -120,11 +125,18 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         <Box style={{ marginTop: '8px' }}>
                                             {item.provider &&
                                                 item.meta &&
-                                                item.provider === 'github' && (
+                                                (item.provider === 'github' ? (
                                                     <GithubMetas
                                                         {...(item.meta as IGithubMetasProps)}
                                                     />
-                                                )}
+                                                ) : item.provider ===
+                                                  'youtube' ? (
+                                                    <YoutubeMetas
+                                                        {...(item.meta as IYoutubeMetasProps)}
+                                                    />
+                                                ) : (
+                                                    <React.Fragment />
+                                                ))}
                                         </Box>
                                     </Box>
                                 </Box>
