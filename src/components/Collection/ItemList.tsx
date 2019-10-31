@@ -108,13 +108,16 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         </ImageBox>
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
-                                        <Box direction="row" align="center">
-                                            <ElementTitle
-                                                href={item.productUrl}
-                                                target="_blank"
-                                            >
-                                                {item.title}
-                                            </ElementTitle>
+                                        <ElementTitle
+                                            href={item.productUrl}
+                                            target="_blank"
+                                        >
+                                            {item.title}
+                                        </ElementTitle>
+                                        <ElementAuthor>
+                                            {item.author}
+                                        </ElementAuthor>
+                                        <Box style={{ marginTop: '8px' }}>
                                             {item.provider &&
                                                 item.meta &&
                                                 item.provider === 'github' && (
@@ -123,9 +126,6 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                                     />
                                                 )}
                                         </Box>
-                                        <ElementAuthor>
-                                            {item.author}
-                                        </ElementAuthor>
                                     </Box>
                                 </Box>
                                 <Pictogram>

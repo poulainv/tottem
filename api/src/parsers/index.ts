@@ -43,7 +43,7 @@ export function GithubApiParser(url: string, body: string): IItem {
         description: json.description,
         provider: 'github',
         type: 'repository' as ItemType,
-        imageUrl: undefined,
+        imageUrl: json.owner.avatar_url,
         meta: {
             starsCount: json.stargazers_count,
             forksCount: json.forks_count,

@@ -8,27 +8,8 @@ export interface IGithubMetasProps {
 
 export function GithubMetas(props: IGithubMetasProps) {
     return (
-        <Box
-            direction="row"
-            style={{
-                marginLeft: '6px',
-            }}
-        >
-            <p
-                style={{
-                    lineHeight: '100%',
-                    marginLeft: '8px',
-                    fontSize: '14px',
-                }}
-            >
-                •
-            </p>
-            <Image
-                src="/pictograms/github.svg"
-                style={{
-                    marginLeft: '8px',
-                }}
-            />
+        <Box direction="row" align="center">
+            <Image src="/pictograms/github.svg" />
             <p
                 style={{
                     lineHeight: '100%',
