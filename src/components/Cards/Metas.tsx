@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Image, Box } from 'grommet'
 import Humanize from 'humanize-plus'
+import { Item } from '../../types'
 
 export interface IGithubMetasProps {
     starsCount: number
@@ -42,4 +43,19 @@ export function YoutubeMetas(props: IYoutubeMetasProps) {
             </p>
         </Box>
     )
+}
+
+export interface IItemMetasProps {
+    item: Item
+}
+
+export function ItemMetas({ item }: IItemMetasProps) {
+    if (item.provider && item.meta) {
+        if (item.provider === 'github') {
+            return <GithubMetas {...(item.meta as IGithubMetasProps)} />
+        } else if (item.provider === 'youtube') {
+            return <YoutubeMetas {...(item.meta as IYoutubeMetasProps)} />
+        }
+    }
+    return <React.Fragment />
 }

@@ -10,6 +10,7 @@ import {
     IGithubMetasProps,
     IYoutubeMetasProps,
     YoutubeMetas,
+    ItemMetas,
 } from '../Cards/Metas'
 
 interface IItemListProps {
@@ -123,20 +124,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                             {item.author}
                                         </ElementAuthor>
                                         <Box style={{ marginTop: '8px' }}>
-                                            {item.provider &&
-                                                item.meta &&
-                                                (item.provider === 'github' ? (
-                                                    <GithubMetas
-                                                        {...(item.meta as IGithubMetasProps)}
-                                                    />
-                                                ) : item.provider ===
-                                                  'youtube' ? (
-                                                    <YoutubeMetas
-                                                        {...(item.meta as IYoutubeMetasProps)}
-                                                    />
-                                                ) : (
-                                                    <React.Fragment />
-                                                ))}
+                                            <ItemMetas item={item} />
                                         </Box>
                                     </Box>
                                 </Box>
