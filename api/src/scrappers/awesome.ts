@@ -14,6 +14,11 @@ export interface AwesomeItem {
     productUrl: string
 }
 
+const getIdempotentId: (seed: string) => string = seed =>
+    Buffer.from(seed)
+        .toString('base64')
+        .slice(0, 10)
+
 export async function getAwesome(
     $: CheerioStatic,
     sectionTag: string,
@@ -25,18 +30,19 @@ export async function getAwesome(
     const sections = await Promise.all(
         splitByTag($, sectionTag).map(async ({ current, children }, index) => {
             // Find different collections and group items inside
+            const sectionName = $(current).text()
             const collections: ICollection[] = await getCollections(
                 children,
                 collectionTag,
                 itemTag,
-                shouldCreateDefaultCollection
+                shouldCreateDefaultCollection,
+                sectionName
             )
 
             const collectionWithItems = collections.filter(x => x.items.length)
-
             return {
-                id: uuid(),
-                name: emoji.emojify($(current).text()),
+                id: getIdempotentId(sectionName),
+                name: emoji.emojify(sectionName),
                 index,
                 collections: collectionWithItems,
             }
@@ -50,21 +56,21 @@ async function getCollections(
     $: CheerioStatic,
     collectionTag: string,
     itemTag: string,
-    shouldCreateDefaultCollection: boolean
+    shouldCreateDefaultCollection: boolean,
+    fromSectionName: string
 ) {
     const collections: Array<Promise<ICollection>> = splitByTag(
         $,
         collectionTag
     ).map(async collection => {
+        const collectionName = $(collection.current)
+            .text()
+            .trim()
         const items = await getItems(collection.children, itemTag)
         return {
-            id: uuid(),
+            id: getIdempotentId(collectionName),
             date: new Date(),
-            name: emoji.emojify(
-                $(collection.current)
-                    .text()
-                    .trim()
-            ),
+            name: emoji.emojify(collectionName),
             items: items.filter(result => !(result instanceof Error)),
         }
     })
@@ -74,7 +80,8 @@ async function getCollections(
         const items = await getItems($, itemTag)
         collections.push(
             Promise.resolve({
-                id: uuid(),
+                // id section or collection name id changed. FIXME based on index?
+                id: getIdempotentId(fromSectionName + 'Basic'),
                 date: new Date(),
                 name: 'Basic',
                 items: items.filter(result => !(result instanceof Error)),
