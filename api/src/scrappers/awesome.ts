@@ -2,11 +2,11 @@ import cheerio from 'cheerio'
 import fs from 'fs'
 import MardownIt from 'markdown-it'
 import emoji from 'node-emoji'
-import uuid from 'uuid'
+import { ICollection, IItem, ISection } from '../interfaces'
+import logger from '../logging'
 import { inferNewItemFromUrl } from '../parsers'
-import { splitByTag, arrSum } from './utils'
-import { ISection, ICollection, IItem } from '../interfaces'
 import { SimpleFetch } from '../parsers/fetchers'
+import { arrSum, splitByTag } from './utils'
 
 export interface AwesomeItem {
     title: string
@@ -26,6 +26,9 @@ export async function getAwesome(
     itemTag: string,
     shouldCreateDefaultCollection: boolean = false
 ): Promise<ISection[]> {
+    logger.info(
+        `GetAwesome from ${sectionTag} section ${collectionTag} collection`
+    )
     // Find different section and group collections inside
     const sections = await Promise.all(
         splitByTag($, sectionTag).map(async ({ current, children }, index) => {
@@ -40,6 +43,9 @@ export async function getAwesome(
             )
 
             const collectionWithItems = collections.filter(x => x.items.length)
+            logger.info(
+                `Section found ${sectionName} with ${collectionWithItems.length} collections`
+            )
             return {
                 id: getIdempotentId(sectionName),
                 name: emoji.emojify(sectionName),
@@ -67,6 +73,9 @@ async function getCollections(
             .text()
             .trim()
         const items = await getItems(collection.children, itemTag)
+        logger.info(
+            `Collection found ${collectionName} with ${items.length} items`
+        )
         return {
             id: getIdempotentId(collectionName),
             date: new Date(),
@@ -77,6 +86,7 @@ async function getCollections(
 
     // Create default collection when items are directly in sections
     if (shouldCreateDefaultCollection) {
+        logger.debug(`Lookup in section for items without collection`)
         const items = await getItems($, itemTag)
         collections.push(
             Promise.resolve({
@@ -108,6 +118,7 @@ async function getItems($: CheerioStatic, tag: string): Promise<IItem[]> {
         const item = inferNewItemFromUrl(nativeContent.productUrl)
         items.push(mergeNativeAndFetchedInfos(item, nativeContent))
     })
+    logger.debug(`Items found: ${items.length} corresponding to ${tag}`)
     return Promise.all(items.map(p => p.catch(e => e)))
 }
 
@@ -125,21 +136,20 @@ export function getNativeContent(el: Cheerio) {
 }
 
 async function main() {
-    const md = MardownIt()
-    const githubMd = await SimpleFetch(
+    const awesomeUrl =
         'https://raw.githubusercontent.com/catalinmiron/awesome-prisma/master/readme.md'
-    )
+    const md = MardownIt()
+    const githubMd = await SimpleFetch(awesomeUrl)
     const awesomeHtml = md.render(githubMd)
     const $ = cheerio.load(awesomeHtml)
     const res = await getAwesome($, 'h2', 'h3', 'li a', true)
-    console.log(res)
     const json = JSON.stringify(res)
     fs.writeFile(
         '/Users/vincentpoulain/Development/quiet/src/data/awesome-prisma/generated-sections.json',
         json,
         'utf8',
         () =>
-            console.log(
+            logger.info(
                 `Generated ${res.length} sections with ${arrSum(
                     res.map(x => x.collections.length)
                 )} collections`
