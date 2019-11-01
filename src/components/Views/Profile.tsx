@@ -1,14 +1,14 @@
-import * as React from 'react'
-import ProfileDescription from './Nav'
-import { ICollection, UserProfile, ISection } from '../../types'
-import Section from './Section'
-import styled from 'styled-components'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
-import { Layout, PageBox } from './Layout'
 import { useRouter } from 'next/router'
-import { SectionMenu } from '../SectionMenu'
+import * as React from 'react'
+import styled from 'styled-components'
+import { ISection, UserProfile } from '../../types'
 import AppTableOfContents from '../AppTableOfContents'
+import { SectionMenu } from '../SectionMenu'
+import { Layout, PageBox } from './Layout'
+import ProfileDescription from './Nav'
+import Section from './Section'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;

@@ -1,10 +1,10 @@
+import { Box } from 'grommet'
 import { Grommet } from 'grommet/components/Grommet'
 import * as React from 'react'
-import Header from './Header'
-import { Box } from 'grommet'
-import { Footer } from './Footer'
-import theme from '../../theme'
 import styled from 'styled-components'
+import theme from '../../theme'
+import { Footer } from './Footer'
+import Header from './Header'
 
 export const PageBox = styled(Box)`
     margin-top: 72px;
