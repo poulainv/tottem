@@ -1,0 +1,67 @@
+import * as React from 'react'
+import ProfileDescription from './Nav'
+import { ICollection, UserProfile } from '../../types'
+import Section from './Section'
+import styled from 'styled-components'
+import { Box } from 'grommet'
+import { NextSeo } from 'next-seo'
+import { Layout } from './Layout'
+import { useRouter } from 'next/router'
+import { SectionMenu } from '../SectionMenu'
+
+const ContentBox = styled(Box)`
+    margin-top: 40px;
+    @media screen and (max-width: 812px) {
+        margin-top: 8px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+`
+
+export interface IProfilePageProps {
+    sections: Array<{ name: string; id: string; index: number }>
+    collections: ICollection[]
+    user: UserProfile
+}
+
+export default function ProfilePage(props: IProfilePageProps) {
+    const router = useRouter()
+
+    return (
+        <Layout>
+            <NextSeo
+                title={`${props.user.firstname} - Tottem`}
+                description={`${props.user.firstname} on Tottem - ${props.user.biography}`}
+                canonical={`https://tottem.app/${router.query.profile}`}
+                twitter={{
+                    site: '@TottemApp',
+                    cardType: 'summary',
+                }}
+                openGraph={{
+                    type: 'profile',
+                    profile: {
+                        username: props.user.slug,
+                    },
+                    description: `${props.user.firstname} on Tottem - ${props.user.biography}`,
+                    url: `https://tottem.app/${router.query.profile}`,
+                    site_name: 'Tottem',
+                    images: [
+                        {
+                            url: `https://tottem.app${props.user.pictureUrl}`,
+                        },
+                    ],
+                }}
+            />
+            <Box direction="row">
+                <Box>
+                    <ProfileDescription {...props.user} />
+                    <ContentBox pad={{ horizontal: 'large' }}>
+                        <SectionMenu sections={props.sections} />
+                        <Section collections={props.collections} />
+                    </ContentBox>
+                </Box>
+                {/* <AppTableOfContents collections={sections[1].collections} /> */}
+            </Box>
+        </Layout>
+    )
+}

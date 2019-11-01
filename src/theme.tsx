@@ -3,25 +3,6 @@ import { deepMerge } from 'grommet/utils'
 import { brand500 } from './constants/colors'
 
 const theme = deepMerge(grommet, {
-    tab: {
-        border: {
-            color: 'dark-2',
-            active: {
-                color: 'accent-1',
-            },
-        },
-    },
-    tabs: {
-        header: {
-            extend: {
-                'overflow-x': 'auto',
-                'flex-wrap': 'nowrap',
-                '::-webkit-scrollbar': {
-                    display: 'none',
-                },
-            },
-        },
-    },
     text: {
         medium: {
             size: '16px',
