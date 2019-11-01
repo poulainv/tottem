@@ -6,6 +6,8 @@ import { Layout } from '../components/Views/Layout'
 import ProfileDescription from '../components/Views/Nav'
 import ProfileContent from '../components/Views/ProfileContent'
 import { ISection, UserProfile } from '../types'
+import AppTableOfContents from '../components/AppTableOfContents'
+import { Box } from 'grommet'
 
 interface IProfileProps {
     userProfile: UserProfile
@@ -14,7 +16,7 @@ interface IProfileProps {
 
 const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
     const router = useRouter()
-
+    const [collections, setCollections] = React.useState([])
     return (
         <Layout>
             <NextSeo
@@ -40,8 +42,13 @@ const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
                     ],
                 }}
             />
-            <ProfileDescription {...userProfile} />
-            <ProfileContent sections={sections} username="vincent" />
+            <Box direction="row">
+                <Box>
+                    <ProfileDescription {...userProfile} />
+                    <ProfileContent sections={sections} username="vincent" />
+                </Box>
+                {/* <AppTableOfContents collections={sections[1].collections} /> */}
+            </Box>
         </Layout>
     )
 }
