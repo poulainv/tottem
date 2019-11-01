@@ -9,6 +9,7 @@ const throttle = require('lodash/throttle')
 
 interface IAppTableOfContentsProps {
     collections: ICollection[]
+    sectionId: string
 }
 
 const noop = () => {}
@@ -43,13 +44,17 @@ const TableIndex = styled.li`
     line-height: 160%;
     text-decoration: none;
     list-style: none;
-    padding: 4px 16px 2px 16px;
+    padding: 4px 16px 4px 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     border-left: 1px
         ${(props: ITableIndexProps) => (props.active ? brand900 : grey300)}
         solid;
+    :hover {
+        color: ${brand900};
+        padding-left: 18px;
+    }
 `
 
 const MenuHeader = styled.p`
@@ -60,14 +65,18 @@ const MenuHeader = styled.p`
     margin: 0px;
 `
 
-const StickyBox = styled(Box)`
+const StickyBox = styled.nav`
     top: 80px;
-    margin: 210px 0px 0px 0px;
+    margin: 120px 0px 0px 0px;
     width: 240px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     position: sticky;
     height: calc(100vh - 70px);
     overflow-y: auto;
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
 `
 
 const AppTableOfContents: React.FunctionComponent<
@@ -99,7 +108,7 @@ const AppTableOfContents: React.FunctionComponent<
             }
         }
         setActiveIndex(active)
-    }, [activeIndex])
+    }, [props.sectionId])
 
     useThrottledOnScroll(collections.length > 0 ? findActiveIndex : null, 200)
 

@@ -5,9 +5,10 @@ import Section from './Section'
 import styled from 'styled-components'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
-import { Layout } from './Layout'
+import { Layout, PageBox } from './Layout'
 import { useRouter } from 'next/router'
 import { SectionMenu } from '../SectionMenu'
+import AppTableOfContents from '../AppTableOfContents'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -32,6 +33,14 @@ export interface IProfilePageProps {
     activeSection: ISection
     user: UserProfile
 }
+export const Side = styled(Box)`
+    width: 240px;
+    height: 100%;
+    visibility: hidden;
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+`
 
 export default function ProfilePage(props: IProfilePageProps) {
     const router = useRouter()
@@ -61,18 +70,19 @@ export default function ProfilePage(props: IProfilePageProps) {
                     ],
                 }}
             />
-            <Box direction="row">
-                <Box>
-                    <ProfileDescription {...props.user} />
-                    <ContentBox pad={{ horizontal: 'large' }}>
-                        <SectionMenu sections={props.sections} />
-                        <Section
-                            collections={props.activeSection.collections}
-                        />
-                    </ContentBox>
-                </Box>
-                {/* <AppTableOfContents collections={sections[1].collections} /> */}
-            </Box>
+
+            <Side />
+            <PageBox>
+                <ProfileDescription {...props.user} />
+                <ContentBox pad={{ horizontal: 'large' }}>
+                    <SectionMenu sections={props.sections} />
+                    <Section collections={props.activeSection.collections} />
+                </ContentBox>
+            </PageBox>
+            <AppTableOfContents
+                collections={props.activeSection.collections}
+                sectionId={props.activeSection.id}
+            />
         </Layout>
     )
 }
