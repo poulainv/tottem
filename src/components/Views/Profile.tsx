@@ -18,8 +18,17 @@ const ContentBox = styled(Box)`
     }
 `
 
+export const getDefaultSection = (sections: ISection[]): ISection => {
+    const minimumIndex = Math.min(...sections.map(x => x.index))
+    const defaultSection = sections.find(x => x.index === minimumIndex)
+    if (defaultSection === undefined) {
+        throw Error('No default section')
+    }
+    return defaultSection
+}
+
 export interface IProfilePageProps {
-    sections: Array<{ name: string; id: string; index: number }>
+    sections: ISection[]
     activeSection: ISection
     user: UserProfile
 }
