@@ -32,7 +32,7 @@ export default class MyApp extends App {
                         ],
                     }}
                     languageAlternate={{
-                        hrefLang: 'fr_FR',
+                        hrefLang: 'fr-fr',
                         href: 'https://tottem.app',
                     }}
                     twitter={{
