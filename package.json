@@ -36,7 +36,7 @@
         "styled-components": "^4.4.0"
     },
     "scripts": {
-        "dev": "ENV=dev next",
+        "dev": "next",
         "build": "next build",
         "start": "next start",
         "analyze": "cross-env BUNDLE_ANALYZE=both next build",
@@ -68,6 +68,7 @@
         "babel-plugin-grommet": "^0.5.3",
         "babel-plugin-styled-components": "^1.10.6",
         "cross-env": "^6.0.3",
+        "dotenv": "^8.2.0",
         "eslint": "^6.5.1",
         "husky": "^3.0.7",
         "json-loader": "^0.5.7",
