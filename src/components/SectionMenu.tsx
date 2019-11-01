@@ -12,7 +12,7 @@ export interface ISectionMenuProps {
 export function SectionMenu(props: ISectionMenuProps) {
     const router = useRouter()
     const sectionId =
-        router.query.sectionId || getDefaultSection(props.sections).index
+        router.query.sectionId || getDefaultSection(props.sections).id
     const sortedSections = props.sections.sort((a, b) => a.index - b.index)
     return (
         <Menu>

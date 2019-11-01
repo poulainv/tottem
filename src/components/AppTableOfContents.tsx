@@ -2,13 +2,21 @@ import { Anchor, Box } from 'grommet'
 import * as React from 'react'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
-import { brand700, brand900, grey300, grey600 } from '../constants/colors'
+import {
+    brand700,
+    brand900,
+    grey300,
+    grey600,
+    grey800,
+    grey700,
+} from '../constants/colors'
 import { ICollection } from '../types'
 
 const throttle = require('lodash/throttle')
 
 interface IAppTableOfContentsProps {
     collections: ICollection[]
+    sectionId: string
 }
 
 const noop = () => {}
@@ -43,13 +51,17 @@ const TableIndex = styled.li`
     line-height: 160%;
     text-decoration: none;
     list-style: none;
-    padding: 4px 16px 2px 16px;
+    padding: 4px 16px 4px 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     border-left: 1px
         ${(props: ITableIndexProps) => (props.active ? brand900 : grey300)}
         solid;
+    :hover {
+        color: ${brand900};
+        padding-left: 18px;
+    }
 `
 
 const MenuHeader = styled.p`
@@ -60,14 +72,25 @@ const MenuHeader = styled.p`
     margin: 0px;
 `
 
-const StickyBox = styled(Box)`
+const StickyBox = styled.nav`
     top: 80px;
-    margin: 210px 0px 0px 0px;
+    margin: 120px 0px 0px 0px;
     width: 240px;
     flex-shrink: 0;
     position: sticky;
     height: calc(100vh - 70px);
     overflow-y: auto;
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+`
+const TableDate = styled.p`
+    font-size: 14px;
+    line-height: 180%;
+    color: ${grey700};
+    margin: 4px 0px 4px 0px;
+    padding: 0px;
 `
 
 const AppTableOfContents: React.FunctionComponent<
@@ -87,7 +110,6 @@ const AppTableOfContents: React.FunctionComponent<
             }
             const collection = collections[i]
             const node = document.getElementById(collection.id)
-
             if (
                 node &&
                 node.offsetTop <
@@ -99,27 +121,36 @@ const AppTableOfContents: React.FunctionComponent<
             }
         }
         setActiveIndex(active)
-    }, [activeIndex])
+    }, [props.sectionId])
 
     useThrottledOnScroll(collections.length > 0 ? findActiveIndex : null, 200)
-
+    let lastDate: string
     return (
         <StickyBox>
             <MenuHeader>Contenu</MenuHeader>
             <ul style={{ padding: '0px', marginTop: '8px' }}>
                 {collections.map((collection, index) => {
+                    let newDate = new Date(collection.date).toLocaleDateString(
+                        'fr-FR',
+                        { year: 'numeric' }
+                    )
+                    const hasDateChanged = newDate !== lastDate
+                    lastDate = newDate
                     return (
-                        <TableIndex
-                            key={collection.id}
-                            active={activeIndex === index}
-                        >
-                            <Anchor
-                                href={`#${collection.id}`}
-                                style={{ color: 'inherit' }}
+                        <React.Fragment key={collection.id}>
+                            {hasDateChanged && <TableDate>{newDate}</TableDate>}
+                            <TableIndex
+                                key={collection.id}
+                                active={activeIndex === index}
                             >
-                                {removeMd(collection.name)}
-                            </Anchor>
-                        </TableIndex>
+                                <Anchor
+                                    href={`#${collection.id}`}
+                                    style={{ color: 'inherit' }}
+                                >
+                                    {removeMd(collection.name)}
+                                </Anchor>
+                            </TableIndex>
+                        </React.Fragment>
                     )
                 })}
             </ul>
