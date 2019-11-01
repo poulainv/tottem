@@ -1,7 +1,7 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import ProfilePage, { IProfilePageProps } from '../components/Views/Profile'
-import { ISection, UserProfile } from '../types'
+import ProfilePage, { IProfilePageProps } from '../../components/Views/Profile'
+import { ISection, UserProfile } from '../../types'
 
 const Profile: NextPage<IProfilePageProps> = props => {
     return (
@@ -14,14 +14,16 @@ const Profile: NextPage<IProfilePageProps> = props => {
 interface Context extends NextPageContext {
     query: {
         profile: string
+        sectionId: string
     }
 }
 
 Profile.getInitialProps = async (context: Context) => {
     const profile: string = context.query.profile
-    const user: UserProfile = require(`./../data/${profile}/profile`).default
-    const sections = require(`../data/${profile}/sections`).default
-    const activeSection = sections.find((x: ISection) => x.index === 0)
+    const sectionId: string = context.query.sectionId
+    const user: UserProfile = require(`./../../data/${profile}/profile`).default
+    const sections = require(`../../data/${profile}/sections`).default
+    const activeSection = sections.find((x: ISection) => x.id === sectionId)
     return { user, sections, activeSection }
 }
 
