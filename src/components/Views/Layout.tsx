@@ -10,7 +10,7 @@ export const PageBox = styled(Box)`
     margin-top: 72px;
     position: relative;
     width: 1152px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     @media screen and (max-width: 600px) {
         margin-top: 24px;
     }

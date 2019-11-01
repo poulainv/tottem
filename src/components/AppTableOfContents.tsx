@@ -76,7 +76,7 @@ const StickyBox = styled.nav`
     top: 80px;
     margin: 120px 0px 0px 0px;
     width: 240px;
-    flex-shrink: 1;
+    flex-shrink: 0;
     position: sticky;
     height: calc(100vh - 70px);
     overflow-y: auto;

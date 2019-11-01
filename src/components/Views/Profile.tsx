@@ -36,6 +36,7 @@ export interface IProfilePageProps {
 export const Side = styled(Box)`
     width: 240px;
     height: 100%;
+    flex-shrink: 6;
     visibility: hidden;
     @media screen and (max-width: 1024px) {
         display: none;
