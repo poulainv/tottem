@@ -23,9 +23,8 @@ Profile.getInitialProps = async (context: Context) => {
     const sectionId: string = context.query.sectionId
     const user: UserProfile = require(`./../../data/${profile}/profile`).default
     const sections = require(`../../data/${profile}/sections`).default
-    const collections = sections.find((x: ISection) => x.id === sectionId)
-        .collections
-    return { user, sections, collections }
+    const activeSection = sections.find((x: ISection) => x.id === sectionId)
+    return { user, sections, activeSection }
 }
 
 export default Profile

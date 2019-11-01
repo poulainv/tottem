@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ProfileDescription from './Nav'
-import { ICollection, UserProfile } from '../../types'
+import { ICollection, UserProfile, ISection } from '../../types'
 import Section from './Section'
 import styled from 'styled-components'
 import { Box } from 'grommet'
@@ -20,7 +20,7 @@ const ContentBox = styled(Box)`
 
 export interface IProfilePageProps {
     sections: Array<{ name: string; id: string; index: number }>
-    collections: ICollection[]
+    activeSection: ISection
     user: UserProfile
 }
 
@@ -32,7 +32,7 @@ export default function ProfilePage(props: IProfilePageProps) {
             <NextSeo
                 title={`${props.user.firstname} - Tottem`}
                 description={`${props.user.firstname} on Tottem - ${props.user.biography}`}
-                canonical={`https://tottem.app/${router.query.profile}`}
+                canonical={`https://tottem.app/${router.query.profile}/${props.activeSection.id}`}
                 twitter={{
                     site: '@TottemApp',
                     cardType: 'summary',
@@ -57,7 +57,9 @@ export default function ProfilePage(props: IProfilePageProps) {
                     <ProfileDescription {...props.user} />
                     <ContentBox pad={{ horizontal: 'large' }}>
                         <SectionMenu sections={props.sections} />
-                        <Section collections={props.collections} />
+                        <Section
+                            collections={props.activeSection.collections}
+                        />
                     </ContentBox>
                 </Box>
                 {/* <AppTableOfContents collections={sections[1].collections} /> */}
