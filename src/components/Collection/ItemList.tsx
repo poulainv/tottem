@@ -83,6 +83,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                         >
                             <ItemBox
                                 direction="row"
+                                margin={{ bottom: 'small' }}
                                 width="100%"
                                 justify="between"
                                 square={imageShapes[item.type] !== 'rectangle'}
