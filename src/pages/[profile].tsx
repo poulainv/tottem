@@ -32,8 +32,8 @@ Profile.getInitialProps = async (context: Context) => {
         const sections = require(`../data/${profile}/sections`).default
         const activeSection = getDefaultSection(sections)
         return { data: { user, sections, activeSection } }
-    } catch {
-        console.log(`Profile not found ${profile}`) // Use proper logger
+    } catch (err) {
+        console.log(`Profile not found ${profile} ${err}`) // Use proper logger
         return { data: undefined }
     }
 }

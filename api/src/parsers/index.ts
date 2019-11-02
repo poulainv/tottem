@@ -115,6 +115,7 @@ const FallbackParser = {
             $('meta[name="description"]').attr('content') ||
             $('meta[property="og:description"]').attr('content')
         const author =
+            $('meta[name="author"]').attr('content') ||
             $('meta[name="twitter:creator"]').attr('content') ||
             $('meta[property="og:site_name"]').attr('content') ||
             $('meta[name="application-name"]').attr('content')
