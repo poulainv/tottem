@@ -44,7 +44,7 @@ export async function getAwesome(
             )
             return {
                 id: getUuid(sectionName),
-                name: emoji.emojify(sectionName),
+                name: emoji.emojify(sectionName, () => ''),
                 index,
                 collections: collectionWithItems,
             }
@@ -75,7 +75,7 @@ async function getCollections(
         return {
             id: getUuid(fromSectionName + collectionName),
             date: new Date(),
-            name: emoji.emojify(collectionName),
+            name: emoji.emojify(collectionName, () => ''),
             items: items.filter(result => !(result instanceof Error)),
         }
     })

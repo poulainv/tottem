@@ -1,3 +1,4 @@
+import emoji from 'node-emoji'
 import { ItemType } from '@generated/photon'
 import cheerio from 'cheerio'
 import URL from 'url'
@@ -122,10 +123,9 @@ const FallbackParser = {
 
         const imageUrl =
             $('meta[name="twitter:image:src"]').attr('content') ||
+            $('meta[name="twitter:image"]').attr('content') ||
             $('meta[property="og:image"]').attr('content') ||
-            `${URL.parse(url).host}/${$('link[rel="apple-touch-icon"]').attr(
-                'href'
-            )}`
+            withDomain(url, $('link[rel="apple-touch-icon"]').attr('href'))
         return {
             title: header,
             description,
@@ -135,6 +135,24 @@ const FallbackParser = {
             imageUrl,
         }
     },
+}
+
+const withDomain = (baseUrl: string, url: string) => {
+    if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) {
+        return url
+    } else {
+        return `${URL.parse(baseUrl).host}/${url}`
+    }
+}
+
+const emojify = (item: IItem) => {
+    return {
+        ...item,
+        title: item.title && emoji.emojify(item.title, () => ''),
+        author: item.author && emoji.emojify(item.author, () => ''),
+        description:
+            item.description && emoji.emojify(item.description, () => ''),
+    }
 }
 
 const trim = (item: IItem) => {
@@ -202,7 +220,7 @@ export async function inferNewItemFromUrl(url: string): Promise<IItem> {
     try {
         const body = await Parser.fetch(url)
         const inferredItem = await Parser.parse(url, body)
-        return trim(inferredItem)
+        return emojify(trim(inferredItem))
     } catch (err) {
         if ('Only absolute URLs are supported' in err.message) {
             logger.info(`Url skipped because not absolute ${url}`)
