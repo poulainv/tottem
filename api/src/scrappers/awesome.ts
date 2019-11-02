@@ -87,9 +87,9 @@ async function getCollections(
         collections.push(
             Promise.resolve({
                 // id section or collection name id changed. FIXME based on index?
-                id: getUuid(fromSectionName + 'Basic'),
+                id: getUuid(fromSectionName + 'General'),
                 date: new Date(),
-                name: 'Basic',
+                name: 'General',
                 items: items.filter(result => !(result instanceof Error)),
             })
         )

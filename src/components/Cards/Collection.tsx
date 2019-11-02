@@ -30,7 +30,7 @@ const CollectionCard = styled(Box)`
 `
 
 const Collection: React.FC<ICollection> = props => {
-    const [open, setOpen] = React.useState(false)
+    // const [false, setfalse] = React.useState(false)
 
     const trackExpand = () => {
         ReactGA.initialize('UA-149517534-1')
@@ -44,13 +44,9 @@ const Collection: React.FC<ICollection> = props => {
         <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
             <Button
                 style={{ fontSize: '14px', color: brand600 }}
-                label={
-                    open
-                        ? 'VOIR MOINS'
-                        : 'VOIR LES ' + props.items.length + ' ÉLÉMENTS'
-                }
+                label={props.items.length + ' ÉLÉMENTS'}
                 // tslint:disable-next-line: jsx-no-lambda
-                onClick={() => setOpen(!open)}
+                // onClick={() => setfalse(!false)}
             />
         </Box>
     )
@@ -62,29 +58,36 @@ const Collection: React.FC<ICollection> = props => {
             background="white"
             id={props.id}
         >
-            <Box
-                direction="row"
-                justify="between"
-                align="center"
-                border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
+            <Link
+                href="/[profile]/collection/[collectionId]"
+                as={`/${router.query.profile}/collection/${props.id}`}
+                passHref
             >
-                <Box responsive={false} margin={{ horizontal: 'medium' }}>
-                    <Link
-                        href="/[profile]/collection/[collectionId]"
-                        as={`/${router.query.profile}/collection/${props.id}`}
-                        passHref
+                <Anchor>
+                    <Box
+                        direction="row"
+                        justify="between"
+                        align="center"
+                        border={{
+                            side: 'bottom',
+                            color: 'light-3',
+                            size: '0.5px',
+                        }}
                     >
-                        <Anchor>
+                        <Box
+                            responsive={false}
+                            margin={{ horizontal: 'medium' }}
+                        >
                             <CollectionTitle>
                                 <Markdown>{props.name}</Markdown>
                             </CollectionTitle>
-                        </Anchor>
-                    </Link>
-                </Box>
-                <MediumAndUp>{props.items.length > 4 && seeMore}</MediumAndUp>
-            </Box>
+                        </Box>
+                        <MediumAndUp>{seeMore}</MediumAndUp>
+                    </Box>
+                </Anchor>
+            </Link>
             <Box margin={{ bottom: 'none' }}>
-                <ItemList items={props.items} expanded={open} />
+                <ItemList items={props.items} expanded={false} />
             </Box>
             {props.detail && (
                 <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
