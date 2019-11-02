@@ -32,19 +32,11 @@ const CollectionCard = styled(Box)`
 const Collection: React.FC<ICollection> = props => {
     // const [false, setfalse] = React.useState(false)
 
-    const trackExpand = () => {
-        ReactGA.initialize('UA-149517534-1')
-        ReactGA.event({
-            category: 'Collection',
-            action: 'Click on expand collection',
-        })
-    }
-
     const seeMore = (
-        <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
+        <Box margin={{ horizontal: 'medium' }}>
             <Button
                 style={{ fontSize: '14px', color: brand600 }}
-                label={props.items.length + ' ÉLÉMENTS'}
+                label={`${props.items.length} ÉLÉMENTS`}
                 // tslint:disable-next-line: jsx-no-lambda
                 // onClick={() => setfalse(!false)}
             />
