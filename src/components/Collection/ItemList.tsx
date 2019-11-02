@@ -2,7 +2,7 @@ import { Box, Image } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
 import { imageShapes, Item } from '../../types'
-import { ElementAuthor, ElementTitle } from '../Typography'
+import { ElementAuthor, ElementTitle, ElementDescription } from '../Typography'
 import CoverImage from '../Cards/CoverImage'
 import { colorPlaceholders } from '../../constants/colors'
 import {
@@ -125,6 +125,11 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         </ElementAuthor>
                                         <Box style={{ marginTop: '8px' }}>
                                             <ItemMetas item={item} />
+                                        </Box>
+                                        <Box style={{ marginTop: '8px' }}>
+                                            <ElementDescription>
+                                                {item.description}{' '}
+                                            </ElementDescription>
                                         </Box>
                                     </Box>
                                 </Box>

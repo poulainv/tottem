@@ -73,6 +73,20 @@ export const ElementAuthor = styled.p`
     }
 `
 
+export const ElementDescription = styled.p`
+    font-size: 14px;
+    margin: 0px 0px 0px 0px;
+    line-height: 21px;
+    word-break: break-all;
+    color: ${grey900};
+    overflow: hidden;
+
+    @media screen and (max-width: 600px) {
+        font-size: 14px;
+        line-height: 20px;
+    }
+`
+
 export const CollectionTitle = styled.h2`
     font-size: 16px;
     font-weight: 400;
