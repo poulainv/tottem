@@ -50,6 +50,7 @@ export function GithubApiParser(url: string, body: string): IItem {
             forksCount: json.forks_count,
             watchersCount: json.watchers_count,
             issuesCount: json.open_issues,
+            pushedAt: json.pushed_at,
         },
     }
 }

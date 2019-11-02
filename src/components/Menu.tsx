@@ -29,7 +29,7 @@ export const MenuItem = styled.li`
     font-weight: 500;
     font-size: 14px;
     color: ${(props: IMenuItemProps) => (props.active ? brand700 : grey600)};
-    padding: 4px 16px 4px 16px;
+    padding: 8px 16px 8px 16px;
     margin-left: 0px;
     border-bottom: 2px
         ${(props: IMenuItemProps) => (props.active ? brand900 : 'transparent')}
