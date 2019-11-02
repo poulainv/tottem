@@ -1,10 +1,18 @@
-import { Anchor, Box, ResponsiveContext } from 'grommet'
+import { Anchor, Box } from 'grommet'
 import Link from 'next/link'
-import React from 'react'
-import { Beta, Logo } from '../Logo'
-import { StyledButton } from '../Button'
 import { useRouter } from 'next/router'
+import React from 'react'
+import ReactGA from 'react-ga'
+import { StyledButton } from '../Button'
+import { Beta, Logo } from '../Logo'
 
+const trackTableOfContent = (name: string) => {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Engagement',
+        action: `Click on ${name}`,
+    })
+}
 const Header = () => {
     const router = useRouter()
     return (
@@ -39,14 +47,23 @@ const Header = () => {
                         href="https://vincentp791262.typeform.com/to/LOiv5v"
                         target="_blank"
                     >
-                        <StyledButton>Créer son profil</StyledButton>
+                        <StyledButton
+                            onClick={() => trackTableOfContent('New Profile')}
+                        >
+                            Créer son profil
+                        </StyledButton>
                     </Anchor>
                     <Anchor
                         href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
                         target="_blank"
                         style={{ marginLeft: '16px' }}
                     >
-                        <StyledButton primary>S'abonner</StyledButton>
+                        <StyledButton
+                            onClick={() => trackTableOfContent('Subscribe')}
+                            primary
+                        >
+                            S'abonner
+                        </StyledButton>
                     </Anchor>
                 </Box>
             </Box>
