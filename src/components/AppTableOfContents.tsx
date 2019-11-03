@@ -1,5 +1,6 @@
-import { Anchor, Box } from 'grommet'
+import { Anchor } from 'grommet'
 import * as React from 'react'
+import ReactGA from 'react-ga'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
 import {
@@ -7,7 +8,6 @@ import {
     brand900,
     grey300,
     grey600,
-    grey800,
     grey700,
 } from '../constants/colors'
 import { ICollection } from '../types'
@@ -93,6 +93,14 @@ const TableDate = styled.p`
     padding: 0px;
 `
 
+const trackTableOfContent = () => {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Table of Content',
+        action: 'Click on item',
+    })
+}
+
 const AppTableOfContents: React.FunctionComponent<
     IAppTableOfContentsProps
 > = props => {
@@ -130,10 +138,9 @@ const AppTableOfContents: React.FunctionComponent<
             <MenuHeader>Contenu</MenuHeader>
             <ul style={{ padding: '0px', marginTop: '8px' }}>
                 {collections.map((collection, index) => {
-                    let newDate = new Date(collection.date).toLocaleDateString(
-                        'fr-FR',
-                        { year: 'numeric' }
-                    )
+                    const newDate = new Date(
+                        collection.date
+                    ).toLocaleDateString('fr-FR', { year: 'numeric' })
                     const hasDateChanged = newDate !== lastDate
                     lastDate = newDate
                     return (
@@ -146,6 +153,7 @@ const AppTableOfContents: React.FunctionComponent<
                                 <Anchor
                                     href={`#${collection.id}`}
                                     style={{ color: 'inherit' }}
+                                    onClick={() => trackTableOfContent()}
                                 >
                                     {removeMd(collection.name)}
                                 </Anchor>

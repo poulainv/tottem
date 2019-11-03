@@ -1,0 +1,1404 @@
+[
+    {
+        "id": "7e833619-4a3b-53a1-bb92-e922f534aff9",
+        "name": "Awesome Next.js  ",
+        "index": 0,
+        "collections": [
+            {
+                "id": "47bce52f-eb12-5481-a85f-950907db3e27",
+                "date": "2019-11-02T18:59:38.293Z",
+                "name": "Community",
+                "items": [
+                    {
+                        "title": "Slack",
+                        "description": "Join our Community on Spectrum to ask questions and learn with others.",
+                        "productUrl": "https://zeit.chat",
+                        "type": "website",
+                        "imageUrl": "https://assets.zeit.co/image/upload/q_auto/front/zeit/twitter-card.png"
+                    },
+                    {
+                        "title": "GitHub",
+                        "author": "zeit/next.js",
+                        "productUrl": "https://github.com/zeit/next.js",
+                        "description": "The React Framework",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/14985020?v=4",
+                        "meta": {
+                            "starsCount": 42110,
+                            "forksCount": 5564,
+                            "watchersCount": 42110,
+                            "issuesCount": 300,
+                            "pushedAt": "2019-11-02T15:00:57Z"
+                        }
+                    },
+                    {
+                        "title": "Spectrum",
+                        "description": "Where communities live.",
+                        "author": "Spectrum",
+                        "productUrl": "https://spectrum.chat/next-js",
+                        "type": "website",
+                        "imageUrl": "https://spectrum.chat/img/apple-icon-144x144-precomposed.png"
+                    }
+                ]
+            },
+            {
+                "id": "304b11c9-c41c-5fbc-af06-15004e6883c0",
+                "date": "2019-11-02T18:59:38.818Z",
+                "name": "Essentials",
+                "items": [
+                    {
+                        "title": "Blog",
+                        "productUrl": "https://zeit.co/blog/next",
+                        "type": "website",
+                        "imageUrl": "https://assets.zeit.co/image/upload/q_auto/front/twitter-cards/next.png"
+                    },
+                    {
+                        "title": "Learn",
+                        "description": "Production grade React applications that scale. The world’s leading companies use Next.js to build server-rendered applications, static websites, and more.",
+                        "productUrl": "https://learnnextjs.com/",
+                        "type": "website",
+                        "imageUrl": "learnnextjs.com//static/favicon/apple-touch-icon.png"
+                    },
+                    {
+                        "title": "Zeit TV",
+                        "description": "Videos from our events and tech talks by our community",
+                        "productUrl": "https://zeit.co/tv",
+                        "type": "website",
+                        "imageUrl": "https://assets.zeit.co/image/upload/q_auto/front/twitter-cards/tv.png"
+                    }
+                ]
+            },
+            {
+                "id": "f6cb789b-6a1e-51b2-9bb6-e7e5b041a2e8",
+                "date": "2019-11-02T19:00:08.454Z",
+                "name": "Articles",
+                "items": [
+                    {
+                        "title": "Getting Started with Next.js — Setting Up Your App",
+                        "description": "Next.js is a framework/boilerplate/tool by Zeit that allows for a quick and relatively unopinionated way to create server-side rendered progressive web applications (PWA). Because it is…",
+                        "author": "James Ayres",
+                        "productUrl": "https://labs.redantler.com/getting-started-with-next-js-article-one-a1d9780ea9e0#.863nl4wnq",
+                        "type": "website",
+                        "imageUrl": "https://cdn-images-1.medium.com/fit/c/152/152/1*8I-HPL0bfoIzGied-dzOvA.png"
+                    },
+                    {
+                        "title": "Getting Started with Next.js — Bringing Data In",
+                        "description": "In the first article in this series, we talked about getting set up and organizing your Next.js app. In this article we are going to discuss integrating with an API to bring data into our system…",
+                        "author": "James Ayres",
+                        "productUrl": "https://labs.redantler.com/getting-started-with-next-js-bringing-data-in-bf40558698e2#.twjv5xk5w",
+                        "type": "website",
+                        "imageUrl": "https://cdn-images-1.medium.com/fit/c/152/152/1*8I-HPL0bfoIzGied-dzOvA.png"
+                    },
+                    {
+                        "title": "How to build a Next.js React Universal App",
+                        "author": "Tony Spiro",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/cosmicjs/how-to-build-a-next-js-react-universal-app-e610a0bc2124#.b8ayt9f39",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/903/0*1L4pB-fFZSuuni21.jpeg"
+                    },
+                    {
+                        "title": "Accept payments on your site with nextjs, stripe, and micro",
+                        "author": "@twnsndco",
+                        "productUrl": "https://hackernoon.com/accept-payments-on-your-site-with-nextjs-stripe-and-micro-371de95b22d5?source=activity---post_recommended",
+                        "type": "website",
+                        "imageUrl": "https://hackernoon.com/hn-images/1*Bd8Oyv43DHEpaqTHNDJswA.png"
+                    },
+                    {
+                        "title": "Next.js on Cloud Functions for Firebase with Firebase Hosting",
+                        "author": "James Hegedus",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@jthegedus/next-js-on-cloud-functions-for-firebase-with-firebase-hosting-7911465298f2",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/800/1*1z5FrAUIUr2rp_G2FQkNqg.png"
+                    },
+                    {
+                        "title": "Building a Blog With Next.js",
+                        "description": "Learn how to build a production ready, blazing fast, universal javascript & React blog with Next.js 3.X and styled-components in this quick tutorial.",
+                        "author": "Timber.io",
+                        "productUrl": "https://timber.io/blog/building-a-blog-with-next-js",
+                        "type": "website",
+                        "imageUrl": "/static/180x180.png"
+                    },
+                    {
+                        "title": "Build a Universal JavaScript App with Next.js and Redux",
+                        "description": "Это вторая статья о Server Side Rendering и изоморфных/универсальных приложениях на React. Первая под названием \"Упрощаем универсальное/изоморфное приложение на React + Router + Redux + Express\"...",
+                        "author": "Хабр",
+                        "productUrl": "https://habrahabr.ru/post/323588/",
+                        "type": "website",
+                        "imageUrl": "https://habr.com/share/post/323588/848f10144f78fba2b657777678a382d9/?v=1"
+                    },
+                    {
+                        "title": "5 (of the Many Reasons) to love Zeit's Next.js",
+                        "description": "Next.js has become incredibly popular by allowing users to build server-side apps with React. This post details a few of the amazing features provided by Next.js such as automatic code-splitting, route prefetching, and more.",
+                        "author": "Thomas Greco",
+                        "productUrl": "https://www.codementor.io/tgreco/5-of-the-many-things-to-love-about-zeit-s-next-js-bpszu99g1",
+                        "type": "website",
+                        "imageUrl": "https://cdn.filestackcontent.com/phT3AaGcQFGmPoIOy7pa"
+                    },
+                    {
+                        "title": "Next.js 5: Universal Webpack, CSS Imports, Plugins and Zones",
+                        "description": "Next.js 5 focuses on greater extensibility, composability for large applications and performance",
+                        "productUrl": "https://zeit.co/blog/next5",
+                        "type": "website",
+                        "imageUrl": "https://assets.zeit.co/image/upload/q_auto/front/blog/next5/twitter-card.png"
+                    },
+                    {
+                        "title": "Realtime data visualization using Next.js and Chart.js",
+                        "description": "This brief tutorial demonstrates how to build a web app with Next.js and Chart.js. The app receives user votes, presents the results as a graph, and updates the graph in realtime as more votes come in.",
+                        "author": "@pusher",
+                        "productUrl": "https://pusher.com/tutorials/realtime-data-visualization-nextjs",
+                        "type": "website",
+                        "imageUrl": "https://djmmlc8gcwtqv.cloudfront.net/imgs/tutorials/meta-pusher-tutorials-large.png"
+                    },
+                    {
+                        "title": "Build a chat app with sentiment analysis using Next.js",
+                        "description": "This brief tutorial shows you how to build a chat app with Next.js, featuring sentiment analysis that gauges and signals users' moods.",
+                        "author": "@pusher",
+                        "productUrl": "https://pusher.com/tutorials/chat-sentiment-analysis-nextjs",
+                        "type": "website",
+                        "imageUrl": "https://djmmlc8gcwtqv.cloudfront.net/imgs/tutorials/meta-pusher-tutorials-large.png"
+                    },
+                    {
+                        "title": "Build a realtime table with Next.js",
+                        "description": "This tutorial shows how to make a movie review website using Next.js, React Table and Pusher. New reviews appear in realtime.",
+                        "author": "@pusher",
+                        "productUrl": "https://pusher.com/tutorials/realtime-tables-nextjs",
+                        "type": "website",
+                        "imageUrl": "https://djmmlc8gcwtqv.cloudfront.net/imgs/tutorials/meta-pusher-tutorials-large.png"
+                    },
+                    {
+                        "title": "SSR blog with Next.js and Prismic.io",
+                        "description": "In this first post of a series, you will learn how to create a very simple server side rendered blog, powered by the Prismic.io a headless CMS. And the frontend will be powered by Next.js.",
+                        "productUrl": "https://www.garymeehan.ie/blog/server-side-rendered-blog-with-nextjs-and-prismic",
+                        "type": "website",
+                        "imageUrl": "https://gary-blog.cdn.prismic.io/gary-blog/e4a2f926a77c964669c8f16c327afa3d9106384b_og-next-prismic.jpg"
+                    },
+                    {
+                        "title": "SEO in Next.js and Prismic",
+                        "description": "We look at default SEO, page specific SEO, Open Graph tags and JSON-LD. Along with enriching these with Prismic.",
+                        "productUrl": "https://www.garymeehan.ie/blog/handling-seo-with-nextjs-and-prismic",
+                        "type": "website",
+                        "imageUrl": "https://gary-blog.cdn.prismic.io/gary-blog/1fe3140441bdb74f124254d5c614c4723bde28cb_og-next-prismic-seo.jpg"
+                    },
+                    {
+                        "title": "SEO in Next.js with next-seo",
+                        "description": "Brief introduction to next-seo a new plugin for making SEO easier in Next.js projects. In this post we walk through adding it to a Hello World app.",
+                        "productUrl": "https://www.garymeehan.ie/blog/seo-in-nextjs-with-next-seo",
+                        "type": "website",
+                        "imageUrl": "https://images.prismic.io/gary-blog/56086c2099f735005c3381224518d56223b8365e_og-next-seo.jpg?auto=compress,format"
+                    },
+                    {
+                        "title": "Next.js 7",
+                        "description": "After 26 canary releases and 3.4 million downloads, we are proud to introduce the production-ready Next.js 7",
+                        "productUrl": "https://nextjs.org/blog/next-7",
+                        "type": "website",
+                        "imageUrl": "nextjs.org//static/favicon/apple-touch-icon.png"
+                    },
+                    {
+                        "title": "Next.js E-commerce Tutorial: Quick Shopping Cart Integration",
+                        "description": "Learn how to quickly craft a killer e-commerce application with this Next.js tutorial. We used this popular React framework for a live online shop demo, check it out!",
+                        "author": "humans.txt",
+                        "productUrl": "https://snipcart.com/blog/next-js-ecommerce-tutorial",
+                        "type": "website",
+                        "imageUrl": "https://snipcart.com/media/204393/cartsm-og.jpg"
+                    },
+                    {
+                        "title": "Working with Ghost and Next.js",
+                        "description": "Power your server-side application with Ghost and build a completely custom front-end with the Next.js React framework!",
+                        "author": "@ghost",
+                        "productUrl": "https://ghost.org/docs/api/nextjs/",
+                        "type": "website",
+                        "imageUrl": "https://ghost.org/images/docs/api/admin-api-nextjs-diagram.png"
+                    },
+                    {
+                        "title": "Using Tailwind CSS with Next.js",
+                        "description": "How to install Tailwind CSS in a Next.js project.",
+                        "author": "StaticKit",
+                        "productUrl": "https://statickit.com/guides/next-js-tailwind",
+                        "type": "website",
+                        "imageUrl": "https://statickit.com/static/logo-inverted-300.png"
+                    }
+                ]
+            },
+            {
+                "id": "ac2bc645-6cba-557c-901e-c3dd52e0557f",
+                "date": "2019-11-02T18:59:39.180Z",
+                "name": "Boilerplates",
+                "items": [
+                    {
+                        "title": "Next & Now 2.0 Typescript template",
+                        "author": "alepacheco/landing-template",
+                        "productUrl": "https://github.com/alepacheco/landing-template",
+                        "description": "Landing page template with Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/8210939?v=4",
+                        "meta": {
+                            "starsCount": 3,
+                            "forksCount": 1,
+                            "watchersCount": 3,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-10-10T18:53:22Z"
+                        }
+                    },
+                    {
+                        "title": "NextJS in Firebase with Bootstrap",
+                        "author": "ananddayalan/nextjs-in-firebase-with-bootstrap",
+                        "productUrl": "https://github.com/ananddayalan/nextjs-in-firebase-with-bootstrap",
+                        "description": "Hosting NextJS app in Firebase with Cloud Functions.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/2037154?v=4",
+                        "meta": {
+                            "starsCount": 21,
+                            "forksCount": 8,
+                            "watchersCount": 21,
+                            "issuesCount": 1,
+                            "pushedAt": "2017-12-24T01:09:52Z"
+                        }
+                    },
+                    {
+                        "title": "Next Simple Starter",
+                        "author": "ooade/NextSimpleStarter",
+                        "productUrl": "https://github.com/ooade/NextSimpleStarter",
+                        "description": "⭐ Simple PWA boilerplate with Nextjs 9 + React Hooks",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/11811904?v=4",
+                        "meta": {
+                            "starsCount": 556,
+                            "forksCount": 114,
+                            "watchersCount": 556,
+                            "issuesCount": 2,
+                            "pushedAt": "2019-10-29T21:21:41Z"
+                        }
+                    },
+                    {
+                        "title": "NextJS Starter",
+                        "author": "iaincollins/nextjs-starter",
+                        "productUrl": "https://github.com/iaincollins/nextjs-starter",
+                        "description": "A starter project for Next.js with authentication",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/595695?v=4",
+                        "meta": {
+                            "starsCount": 1104,
+                            "forksCount": 214,
+                            "watchersCount": 1104,
+                            "issuesCount": 28,
+                            "pushedAt": "2019-01-21T03:15:49Z"
+                        }
+                    },
+                    {
+                        "title": "RAN!",
+                        "author": "Sly777/ran",
+                        "productUrl": "https://github.com/sly777/ran",
+                        "description": "⚡ RAN! React . GraphQL . Next.js Toolkit ⚡ - SEO-Ready, Production-Ready, SSR, Hot-Reload, CSS-in-JS, Caching, CLI commands and more...",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/694940?v=4",
+                        "meta": {
+                            "starsCount": 1894,
+                            "forksCount": 166,
+                            "watchersCount": 1894,
+                            "issuesCount": 69,
+                            "pushedAt": "2019-11-01T21:08:50Z"
+                        }
+                    },
+                    {
+                        "title": "Next Simple Blog",
+                        "author": "tscanlin/next-blog",
+                        "productUrl": "https://github.com/tscanlin/next-blog",
+                        "description": "Markdown based blog using next.js, supporting static export",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/5033032?v=4",
+                        "meta": {
+                            "starsCount": 437,
+                            "forksCount": 80,
+                            "watchersCount": 437,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-10-08T02:16:23Z"
+                        }
+                    },
+                    {
+                        "title": "Create-Next-App",
+                        "description": "The easiest way to create a React app with server-side rendering thanks to Next.js",
+                        "productUrl": "https://open.segment.com/create-next-app",
+                        "type": "website",
+                        "imageUrl": "https://open.segment.com/static/og-image.png"
+                    },
+                    {
+                        "title": "phox",
+                        "author": "herschel666/phox",
+                        "productUrl": "https://github.com/herschel666/phox",
+                        "description": "[discontinued] 🦊 Create a photo blog powered by Next.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/520258?v=4",
+                        "meta": {
+                            "starsCount": 15,
+                            "forksCount": 1,
+                            "watchersCount": 15,
+                            "issuesCount": 4,
+                            "pushedAt": "2019-07-28T09:06:39Z"
+                        }
+                    },
+                    {
+                        "title": "Next Express Bootstrap Boilerplate",
+                        "author": "MustansirZia/next-express-bootstrap-boilerplate",
+                        "productUrl": "https://github.com/MustansirZia/next-express-bootstrap-boilerplate",
+                        "description": "⚡ JavaScript boilerplate for a full stack app built using React.js, Next.js, Express.js, react-bootstrap, SCSS and full SSR with eslint.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/14149485?v=4",
+                        "meta": {
+                            "starsCount": 88,
+                            "forksCount": 15,
+                            "watchersCount": 88,
+                            "issuesCount": 4,
+                            "pushedAt": "2019-05-29T07:52:32Z"
+                        }
+                    },
+                    {
+                        "title": "Next Blog Firestore",
+                        "author": "suevalov/next-blog-firestore",
+                        "productUrl": "https://github.com/suevalov/next-blog-firestore",
+                        "description": "Example of blog built with React, Next.js, Firebase Firestore, Styled-Component, Mobx State Tree and other cool technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3672221?v=4",
+                        "meta": {
+                            "starsCount": 139,
+                            "forksCount": 28,
+                            "watchersCount": 139,
+                            "issuesCount": 3,
+                            "pushedAt": "2018-10-25T07:41:34Z"
+                        }
+                    },
+                    {
+                        "title": "Next Redux Starter",
+                        "author": "CodementorIO/nextjs-redux-starter",
+                        "productUrl": "https://github.com/CodementorIO/nextjs-redux-starter",
+                        "description": "Next.js + Redux + styled-components + Express = 😇",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/7525092?v=4",
+                        "meta": {
+                            "starsCount": 156,
+                            "forksCount": 29,
+                            "watchersCount": 156,
+                            "issuesCount": 4,
+                            "pushedAt": "2019-11-01T12:11:32Z"
+                        }
+                    },
+                    {
+                        "title": "NextJS Redux-Wrapper Material-UI",
+                        "author": "joaopaulomoraes/nextjs-with-redux-and-material-ui",
+                        "productUrl": "https://github.com/joaopaulomoraes/nextjs-with-redux-and-material-ui",
+                        "description": "A boilerplate NextJS with Redux and Material UI",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/16243531?v=4",
+                        "meta": {
+                            "starsCount": 36,
+                            "forksCount": 8,
+                            "watchersCount": 36,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-07-30T11:38:28Z"
+                        }
+                    },
+                    {
+                        "title": "Staart",
+                        "author": "nmaro/staart",
+                        "productUrl": "https://github.com/nmaro/staart",
+                        "description": "A starter library for node projects with user accounts.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/574453?v=4",
+                        "meta": {
+                            "starsCount": 287,
+                            "forksCount": 39,
+                            "watchersCount": 287,
+                            "issuesCount": 11,
+                            "pushedAt": "2019-03-19T14:24:09Z"
+                        }
+                    },
+                    {
+                        "title": "NextJS TypeScript Starter Kit",
+                        "author": "deptno/next.js-typescript-starter-kit",
+                        "productUrl": "https://github.com/deptno/next.js-typescript-starter-kit",
+                        "description": "🌳 Next@8.1, Styled-jsx, TypeScript, Jest, SEO",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/1223020?v=4",
+                        "meta": {
+                            "starsCount": 305,
+                            "forksCount": 41,
+                            "watchersCount": 305,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-04-24T19:36:42Z"
+                        }
+                    },
+                    {
+                        "title": "next-starter",
+                        "author": "YuriBrunetto/next-starter",
+                        "productUrl": "https://github.com/YuriBrunetto/next-starter",
+                        "description": "🚀 boilerplate for starting projects in next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/5321477?v=4",
+                        "meta": {
+                            "starsCount": 20,
+                            "forksCount": 2,
+                            "watchersCount": 20,
+                            "issuesCount": 0,
+                            "pushedAt": "2018-10-01T12:28:59Z"
+                        }
+                    },
+                    {
+                        "title": "Typescript Monorepo Next Example",
+                        "author": "deptno/typescript-monorepo-next-example",
+                        "productUrl": "https://github.com/deptno/typescript-monorepo-next-example",
+                        "description": "🙉🙉 TypeScript@3 monorepo example next.js version",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/1223020?v=4",
+                        "meta": {
+                            "starsCount": 19,
+                            "forksCount": 6,
+                            "watchersCount": 19,
+                            "issuesCount": 0,
+                            "pushedAt": "2018-08-15T06:19:32Z"
+                        }
+                    },
+                    {
+                        "title": "tomimick/tm-nextjs-starter",
+                        "author": "tomimick/tm-nextjs-starter",
+                        "productUrl": "https://github.com/tomimick/tm-nextjs-starter",
+                        "description": "React + Nextjs + MobX starter",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/1139183?v=4",
+                        "meta": {
+                            "starsCount": 32,
+                            "forksCount": 5,
+                            "watchersCount": 32,
+                            "issuesCount": 1,
+                            "pushedAt": "2018-09-29T14:23:49Z"
+                        }
+                    },
+                    {
+                        "title": "Nextron",
+                        "author": "saltyshiomix/nextron",
+                        "productUrl": "https://github.com/saltyshiomix/nextron",
+                        "description": "⚡ Electron + NEXT.js ⚡",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/5608079?v=4",
+                        "meta": {
+                            "starsCount": 319,
+                            "forksCount": 23,
+                            "watchersCount": 319,
+                            "issuesCount": 9,
+                            "pushedAt": "2019-10-26T00:15:27Z"
+                        }
+                    },
+                    {
+                        "title": "next-boilerplate",
+                        "author": "pankod/next-boilerplate",
+                        "productUrl": "https://github.com/pankod/next-boilerplate",
+                        "description": "A well-structured production ready Next.js boilerplate with Typescript, Redux, Jest, Enzyme, Express.js, Sass, Css, EnvConfig, Fetch, Reverse Proxy, Bundle Analyzer and Built-in Project CLI. https://pankod.github.io/next-boilerplate/",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/45683491?v=4",
+                        "meta": {
+                            "starsCount": 347,
+                            "forksCount": 53,
+                            "watchersCount": 347,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-09-27T09:30:47Z"
+                        }
+                    },
+                    {
+                        "title": "Oh My Fullstack",
+                        "author": "oh-my-c0de/oh-my-fullstack",
+                        "productUrl": "https://github.com/oh-my-c0de/oh-my-fullstack",
+                        "description": "🚀 Full stack web application skeleton (Next.js, Redux, RxJS, Immutable, Express)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/44289300?v=4",
+                        "meta": {
+                            "starsCount": 54,
+                            "forksCount": 8,
+                            "watchersCount": 54,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-01-10T17:58:25Z"
+                        }
+                    },
+                    {
+                        "title": "nextjs-mongodb-app",
+                        "author": "hoangvvo/nextjs-mongodb-app",
+                        "productUrl": "https://github.com/hoangvvo/nextjs-mongodb-app",
+                        "description": "Full-fledged app made with Next.JS and MongoDB",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/40987398?v=4",
+                        "meta": {
+                            "starsCount": 50,
+                            "forksCount": 7,
+                            "watchersCount": 50,
+                            "issuesCount": 9,
+                            "pushedAt": "2019-10-28T22:36:37Z"
+                        }
+                    },
+                    {
+                        "title": "react-next-boilerplate",
+                        "author": "react-next-boilerplate/react-next-boilerplate",
+                        "productUrl": "https://github.com/react-next-boilerplate/react-next-boilerplate",
+                        "description": "🚀 A basis for reducing the configuration of your projects with nextJS, best development practices and popular libraries in the developer community.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/47203832?v=4",
+                        "meta": {
+                            "starsCount": 7,
+                            "forksCount": 14,
+                            "watchersCount": 7,
+                            "issuesCount": 3,
+                            "pushedAt": "2019-10-23T17:36:28Z"
+                        }
+                    },
+                    {
+                        "title": "Apollo Next.js GraphQL starter",
+                        "author": "tomanagle/Apollo-Next.js-GraphQL-starter",
+                        "productUrl": "https://github.com/tomanagle/Apollo-Next.js-GraphQL-starter",
+                        "description": "Bootstrap a SSR React.js and GraphQL application with registration and authentication",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/8683577?v=4",
+                        "meta": {
+                            "starsCount": 9,
+                            "forksCount": 4,
+                            "watchersCount": 9,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-10-30T23:01:21Z"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "6a3ac560-7aab-5fef-b538-cec5b02d3098",
+                "date": "2019-11-02T18:59:38.176Z",
+                "name": "Extensions",
+                "items": [
+                    {
+                        "title": "Next Routes",
+                        "author": "fridays/next-routes",
+                        "productUrl": "https://github.com/fridays/next-routes",
+                        "description": "Universal dynamic routes for Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/12595490?v=4",
+                        "meta": {
+                            "starsCount": 1976,
+                            "forksCount": 199,
+                            "watchersCount": 1976,
+                            "issuesCount": 123,
+                            "pushedAt": "2019-11-01T19:09:55Z"
+                        }
+                    },
+                    {
+                        "title": "Next-Pkg",
+                        "author": "fmiras/next-pkg",
+                        "productUrl": "https://github.com/onready/next-pkg",
+                        "description": "Extended Next.js server with pkg support",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/14364153?v=4",
+                        "meta": {
+                            "starsCount": 43,
+                            "forksCount": 6,
+                            "watchersCount": 43,
+                            "issuesCount": 8,
+                            "pushedAt": "2019-08-27T20:04:46Z"
+                        }
+                    },
+                    {
+                        "title": "pkg",
+                        "author": "zeit/pkg",
+                        "productUrl": "https://github.com/zeit/pkg",
+                        "description": "Package your Node.js project into an executable",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/14985020?v=4",
+                        "meta": {
+                            "starsCount": 14667,
+                            "forksCount": 564,
+                            "watchersCount": 14667,
+                            "issuesCount": 437,
+                            "pushedAt": "2019-11-01T21:32:27Z"
+                        }
+                    },
+                    {
+                        "title": "Next Plugins",
+                        "author": "zeit/next-plugins",
+                        "productUrl": "https://github.com/zeit/next-plugins",
+                        "description": "Official Next.js plugins",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/14985020?v=4",
+                        "meta": {
+                            "starsCount": 1776,
+                            "forksCount": 290,
+                            "watchersCount": 1776,
+                            "issuesCount": 152,
+                            "pushedAt": "2019-10-27T08:44:40Z"
+                        }
+                    },
+                    {
+                        "title": "Next Plugin Graphql",
+                        "author": "lfades/next-plugin-graphql",
+                        "productUrl": "https://github.com/lfades/next-plugin-graphql",
+                        "description": "Next plugin for .graphql and .gql files using graphql-tag",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/4278345?v=4",
+                        "meta": {
+                            "starsCount": 31,
+                            "forksCount": 0,
+                            "watchersCount": 31,
+                            "issuesCount": 0,
+                            "pushedAt": "2018-10-28T17:01:30Z"
+                        }
+                    },
+                    {
+                        "title": "Next With Apollo",
+                        "author": "lfades/next-with-apollo",
+                        "productUrl": "https://github.com/lfades/next-with-apollo",
+                        "description": "Apollo HOC for Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/4278345?v=4",
+                        "meta": {
+                            "starsCount": 307,
+                            "forksCount": 27,
+                            "watchersCount": 307,
+                            "issuesCount": 9,
+                            "pushedAt": "2019-09-14T08:26:26Z"
+                        }
+                    },
+                    {
+                        "title": "Next SEO",
+                        "author": "garmeeh/next-seo",
+                        "productUrl": "https://github.com/garmeeh/next-seo",
+                        "description": "Next SEO is a plug in that makes managing your SEO easier in Next.js projects.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/13333582?v=4",
+                        "meta": {
+                            "starsCount": 627,
+                            "forksCount": 38,
+                            "watchersCount": 627,
+                            "issuesCount": 16,
+                            "pushedAt": "2019-11-02T13:23:51Z"
+                        }
+                    },
+                    {
+                        "title": "Next UserAgent",
+                        "author": "tokuda109/next-useragent",
+                        "productUrl": "https://github.com/tokuda109/next-useragent",
+                        "description": "next-useragent parses browser user-agent strings for next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/108762?v=4",
+                        "meta": {
+                            "starsCount": 7,
+                            "forksCount": 2,
+                            "watchersCount": 7,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-10-05T12:27:50Z"
+                        }
+                    },
+                    {
+                        "title": "Nextein",
+                        "author": "elmasse/nextein",
+                        "productUrl": "https://github.com/elmasse/nextein",
+                        "description": "A static site generator with markdown + react for Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/223235?v=4",
+                        "meta": {
+                            "starsCount": 710,
+                            "forksCount": 45,
+                            "watchersCount": 710,
+                            "issuesCount": 5,
+                            "pushedAt": "2019-11-02T08:59:08Z"
+                        }
+                    },
+                    {
+                        "title": "next-mdx-blog",
+                        "author": "hipstersmoothie/next-mdx-blog",
+                        "productUrl": "https://github.com/hipstersmoothie/next-mdx-blog",
+                        "description": "Easily add a blog to any next.js based project.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/1192452?v=4",
+                        "meta": {
+                            "starsCount": 37,
+                            "forksCount": 4,
+                            "watchersCount": 37,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-08-28T00:21:42Z"
+                        }
+                    },
+                    {
+                        "title": "Serverless Framework plugin for Next.js",
+                        "author": "danielcondemarin/serverless-next.js",
+                        "productUrl": "https://github.com/danielcondemarin/serverless-nextjs-plugin",
+                        "description": "⚡ Deploy your next apps using the serverless framework",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/1122442?v=4",
+                        "meta": {
+                            "starsCount": 353,
+                            "forksCount": 60,
+                            "watchersCount": 353,
+                            "issuesCount": 63,
+                            "pushedAt": "2019-10-29T17:05:53Z"
+                        }
+                    },
+                    {
+                        "title": "Terraform For Next.js",
+                        "author": "ematipico/terraform-nextjs-plugin",
+                        "productUrl": "https://github.com/ematipico/terraform-nextjs-plugin",
+                        "description": "A plugin to generate terraform configuration for Nextjs 8 and 9",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/602478?v=4",
+                        "meta": {
+                            "starsCount": 12,
+                            "forksCount": 0,
+                            "watchersCount": 12,
+                            "issuesCount": 8,
+                            "pushedAt": "2019-10-30T12:45:30Z"
+                        }
+                    },
+                    {
+                        "title": "next-session",
+                        "author": "hoangvvo/next-session",
+                        "productUrl": "https://github.com/hoangvvo/next-session",
+                        "description": "Simple promise-based session middleware for Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/40987398?v=4",
+                        "meta": {
+                            "starsCount": 12,
+                            "forksCount": 1,
+                            "watchersCount": 12,
+                            "issuesCount": 2,
+                            "pushedAt": "2019-10-27T15:29:47Z"
+                        }
+                    },
+                    {
+                        "title": "Next PurgeCSS",
+                        "author": "lucleray/next-purgecss",
+                        "productUrl": "https://github.com/lucleray/next-purgecss",
+                        "description": "nextjs + purgecss for faster websites",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/6616955?v=4",
+                        "meta": {
+                            "starsCount": 74,
+                            "forksCount": 4,
+                            "watchersCount": 74,
+                            "issuesCount": 3,
+                            "pushedAt": "2019-08-27T03:16:37Z"
+                        }
+                    },
+                    {
+                        "title": "Purgecss",
+                        "description": "",
+                        "productUrl": "https://www.purgecss.com/",
+                        "type": "website",
+                        "imageUrl": "https://app.gitbook.com/share/space/thumbnail/-L9BbSD-6xFHQd1Z7eJY.png"
+                    }
+                ]
+            },
+            {
+                "id": "71f39e43-301b-5b50-a9b1-0a98d7e93cca",
+                "date": "2019-11-02T18:59:38.828Z",
+                "name": "Apps",
+                "items": [
+                    {
+                        "title": "NextJS GOT",
+                        "author": "auth0-blog/nextjs-got",
+                        "productUrl": "https://github.com/auth0-blog/nextjs-got",
+                        "description": "A simple nextjs application that showcases Game of Thrones Characters",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/18200246?v=4",
+                        "meta": {
+                            "starsCount": 24,
+                            "forksCount": 10,
+                            "watchersCount": 24,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-12-21T23:34:43Z"
+                        }
+                    },
+                    {
+                        "title": "Next Episode",
+                        "author": "timneutkens/next-episode",
+                        "productUrl": "https://github.com/timneutkens/next-episode",
+                        "description": "Example next.js application",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/6324199?v=4",
+                        "meta": {
+                            "starsCount": 35,
+                            "forksCount": 2,
+                            "watchersCount": 35,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-01-11T18:33:06Z"
+                        }
+                    },
+                    {
+                        "title": "Relate",
+                        "author": "sedubois/relate",
+                        "productUrl": "https://github.com/RelateNow/relate",
+                        "description": "[ARCHIVED] experimenting React + GraphQL + Next.js web app on the theme of mindfulness",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/4217871?v=4",
+                        "meta": {
+                            "starsCount": 320,
+                            "forksCount": 24,
+                            "watchersCount": 320,
+                            "issuesCount": 1,
+                            "pushedAt": "2017-10-08T06:32:27Z"
+                        }
+                    },
+                    {
+                        "title": "Next News",
+                        "author": "zeit/now-examples",
+                        "productUrl": "https://github.com/now-examples/next-news",
+                        "description": "Examples of ZEIT Now projects you can deploy yourself",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/14985020?v=4",
+                        "meta": {
+                            "starsCount": 1829,
+                            "forksCount": 571,
+                            "watchersCount": 1829,
+                            "issuesCount": 25,
+                            "pushedAt": "2019-10-31T12:19:26Z"
+                        }
+                    },
+                    {
+                        "title": "Password",
+                        "author": "dotcypress/password",
+                        "productUrl": "https://github.com/dotcypress/password",
+                        "description": "🔐 One password, right way.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/1333916?v=4",
+                        "meta": {
+                            "starsCount": 100,
+                            "forksCount": 17,
+                            "watchersCount": 100,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-02-04T21:42:32Z"
+                        }
+                    },
+                    {
+                        "title": "Next Todos",
+                        "author": "lipp/next-todos",
+                        "productUrl": "https://github.com/lipp/next-todos",
+                        "description": "200 lines realtime todos app powered by next.js, preact, jet, redux and now",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/445883?v=4",
+                        "meta": {
+                            "starsCount": 111,
+                            "forksCount": 10,
+                            "watchersCount": 111,
+                            "issuesCount": 2,
+                            "pushedAt": "2017-06-21T09:48:36Z"
+                        }
+                    },
+                    {
+                        "title": "Hacker News",
+                        "author": "lipp/hackernews",
+                        "productUrl": "https://github.com/lipp/hackernews",
+                        "description": "100 lines of code Hackernews reader (with the help of next.js).",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/445883?v=4",
+                        "meta": {
+                            "starsCount": 38,
+                            "forksCount": 4,
+                            "watchersCount": 38,
+                            "issuesCount": 0,
+                            "pushedAt": "2016-11-28T08:00:46Z"
+                        }
+                    },
+                    {
+                        "title": "Jet Chat",
+                        "author": "lipp/jet-chat",
+                        "productUrl": "https://github.com/lipp/jet-chat",
+                        "description": "A jet and next.js powered chat demo.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/445883?v=4",
+                        "meta": {
+                            "starsCount": 6,
+                            "forksCount": 0,
+                            "watchersCount": 6,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-02-23T10:36:37Z"
+                        }
+                    },
+                    {
+                        "title": "Nextgram",
+                        "author": "arunoda/nextgram",
+                        "productUrl": "https://github.com/arunoda/nextgram",
+                        "description": "A sample Next.js app for showing off it's capabilities",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/50838?v=4",
+                        "meta": {
+                            "starsCount": 28,
+                            "forksCount": 4,
+                            "watchersCount": 28,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-07-15T22:45:40Z"
+                        }
+                    },
+                    {
+                        "title": "Rauchg Blog",
+                        "author": "rauchg/blog",
+                        "productUrl": "https://github.com/rauchg/blog",
+                        "description": null,
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/13041?v=4",
+                        "meta": {
+                            "starsCount": 362,
+                            "forksCount": 52,
+                            "watchersCount": 362,
+                            "issuesCount": 10,
+                            "pushedAt": "2019-11-02T15:51:03Z"
+                        }
+                    },
+                    {
+                        "title": "Next JPH",
+                        "author": "renatorib/next-jph",
+                        "productUrl": "https://github.com/renatorib/next-jph",
+                        "description": "📝 JsonPlaceholder sample app made with Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/3277185?v=4",
+                        "meta": {
+                            "starsCount": 29,
+                            "forksCount": 2,
+                            "watchersCount": 29,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-03-17T22:39:37Z"
+                        }
+                    },
+                    {
+                        "title": "Mailto",
+                        "author": "dawsbot/mailto",
+                        "productUrl": "https://github.com/dawsbot/mailto",
+                        "description": "💌⚡️ Template full emails in a mailto",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3408480?v=4",
+                        "meta": {
+                            "starsCount": 58,
+                            "forksCount": 8,
+                            "watchersCount": 58,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-11-01T20:12:28Z"
+                        }
+                    },
+                    {
+                        "title": "Plate",
+                        "author": "knipferrc/plate-app",
+                        "productUrl": "https://github.com/knipferrc/plate",
+                        "description": "🍛 What's on your Plate?",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/5757096?v=4",
+                        "meta": {
+                            "starsCount": 35,
+                            "forksCount": 7,
+                            "watchersCount": 35,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-11-01T15:06:58Z"
+                        }
+                    },
+                    {
+                        "title": "Dashboard",
+                        "author": "danielbayerlein/dashboard",
+                        "productUrl": "https://github.com/danielbayerlein/dashboard",
+                        "description": "📺 Create your own team dashboard with custom widgets. Built with Next.js, React, styled-components and polished.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/457834?v=4",
+                        "meta": {
+                            "starsCount": 785,
+                            "forksCount": 110,
+                            "watchersCount": 785,
+                            "issuesCount": 15,
+                            "pushedAt": "2019-10-31T12:40:29Z"
+                        }
+                    },
+                    {
+                        "title": "Snape",
+                        "author": "ritz078/snape",
+                        "productUrl": "https://github.com/ritz078/snape",
+                        "description": "🎯   An application to search, stream and download torrents.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/5389035?v=4",
+                        "meta": {
+                            "starsCount": 167,
+                            "forksCount": 36,
+                            "watchersCount": 167,
+                            "issuesCount": 6,
+                            "pushedAt": "2018-04-04T19:51:45Z"
+                        }
+                    },
+                    {
+                        "title": "Trello Resume",
+                        "author": "juliandavidmr/TrelloResume",
+                        "productUrl": "https://github.com/juliandavidmr/TrelloResume",
+                        "description": "Converts trello data into fast read information",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/4544102?v=4",
+                        "meta": {
+                            "starsCount": 9,
+                            "forksCount": 2,
+                            "watchersCount": 9,
+                            "issuesCount": 0,
+                            "pushedAt": "2017-07-24T01:26:17Z"
+                        }
+                    },
+                    {
+                        "title": "Server Authentication with JWT",
+                        "author": "estrada9166/server-authentication-next.js",
+                        "productUrl": "https://github.com/estrada9166/server-authentication-next.js",
+                        "description": null,
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/15656860?v=4",
+                        "meta": {
+                            "starsCount": 83,
+                            "forksCount": 10,
+                            "watchersCount": 83,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-10-24T22:31:08Z"
+                        }
+                    },
+                    {
+                        "title": "Alexander Kachkaev’s website",
+                        "description": "\\[[en.](https://en.kachkaev.ru)][kachkaev.ru](https://kachkaev.ru) source code: frontend microservice",
+                        "author": "GitLab",
+                        "productUrl": "https://gitlab.com/kachkaev/website-frontend/",
+                        "type": "website",
+                        "imageUrl": "https://assets.gitlab-static.net/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png"
+                    },
+                    {
+                        "title": "Cookie handler with server render",
+                        "author": "estrada9166/cookie-handler-next.js",
+                        "productUrl": "https://github.com/estrada9166/cookie-handler-next.js",
+                        "description": null,
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/15656860?v=4",
+                        "meta": {
+                            "starsCount": 17,
+                            "forksCount": 1,
+                            "watchersCount": 17,
+                            "issuesCount": 0,
+                            "pushedAt": "2018-01-26T01:57:08Z"
+                        }
+                    },
+                    {
+                        "title": "Gank",
+                        "author": "OrangeXC/gank",
+                        "productUrl": "https://github.com/OrangeXC/gank",
+                        "description": "🦅 Gank api base △ next.js (react&ssr)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/16081320?v=4",
+                        "meta": {
+                            "starsCount": 100,
+                            "forksCount": 14,
+                            "watchersCount": 100,
+                            "issuesCount": 0,
+                            "pushedAt": "2019-11-01T08:18:16Z"
+                        }
+                    },
+                    {
+                        "title": "Decoupled CMS example with GraphQL and Next.js",
+                        "author": "janit/decoupled-cms-nextjs-graphql",
+                        "productUrl": "https://github.com/janit/decoupled-cms-nextjs-graphql",
+                        "description": "A working example of a decoupled implementation using Next.js and GraphQL with the eZ Platform CMS",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/198965?v=4",
+                        "meta": {
+                            "starsCount": 25,
+                            "forksCount": 2,
+                            "watchersCount": 25,
+                            "issuesCount": 0,
+                            "pushedAt": "2018-12-21T08:56:12Z"
+                        }
+                    },
+                    {
+                        "title": "DS",
+                        "author": "divyenduz/ds",
+                        "productUrl": "https://github.com/divyenduz/ds",
+                        "description": "ds - personal site manager - powered by Prisma/Next.js",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/746482?v=4",
+                        "meta": {
+                            "starsCount": 14,
+                            "forksCount": 1,
+                            "watchersCount": 14,
+                            "issuesCount": 32,
+                            "pushedAt": "2019-11-02T18:48:48Z"
+                        }
+                    },
+                    {
+                        "title": "Mozilla VR Home",
+                        "description": "Virtual Reality for the free and open Web.",
+                        "author": "@mozilla",
+                        "productUrl": "https://vr.mozilla.org/",
+                        "type": "website",
+                        "imageUrl": "/static/bg-9cfca893540573359a714efaad647db3.png"
+                    },
+                    {
+                        "title": "Elton John's website",
+                        "description": "The official website of Elton John, featuring tour dates, stories, interviews, pictures, exclusive merch and more",
+                        "author": "Elton John",
+                        "productUrl": "https://www.eltonjohn.com",
+                        "type": "website",
+                        "imageUrl": "https://d3kbi7897jm3al.cloudfront.net/images/meta/facebook/home.jpg"
+                    },
+                    {
+                        "title": "IOTA's Data Market Place",
+                        "description": "IOTA makes it possible to securely store, sell, and access data streams.",
+                        "author": "Alexey Sobolev (IOTA Foundation)",
+                        "productUrl": "https://data.iota.org/",
+                        "type": "website",
+                        "imageUrl": "https://cdn-images-1.medium.com/max/2000/1*XOSduao7nmUZUpRmjt4zeg.jpeg"
+                    },
+                    {
+                        "title": "magicleap.com",
+                        "description": "Encounter the next era of computing. Magic Leap One is a spatial computer that lets you see and interact with digital content in the world around you.",
+                        "author": "Magic Leap",
+                        "productUrl": "https://www.magicleap.com/",
+                        "type": "website",
+                        "imageUrl": "https://www.magicleap.com/_next/images/6bb6a7f36d800beb41f6fd7edea6e21f.jpg"
+                    },
+                    {
+                        "title": "NPM.js Search Page",
+                        "productUrl": "https://www.npmjs.com/search",
+                        "type": "website",
+                        "imageUrl": "https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png"
+                    },
+                    {
+                        "title": "Urteile & Gesetze",
+                        "author": "neo-search/urteile-gesetze-web",
+                        "productUrl": "https://github.com/neo-search/urteile-gesetze-web",
+                        "description": "Web-Frontend des juristischen Informationssystems urteile-gesetze.de",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/31536786?v=4",
+                        "meta": {
+                            "starsCount": 12,
+                            "forksCount": 1,
+                            "watchersCount": 12,
+                            "issuesCount": 1,
+                            "pushedAt": "2019-04-15T05:53:52Z"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "222eedca-faa5-5ad1-81b6-0d7b5ea6825f",
+                "date": "2019-11-02T18:59:38.778Z",
+                "name": "Books",
+                "items": [
+                    {
+                        "title": "Hands On Next.js",
+                        "description": "A practical fullstack book on universal (server) rendering for React Apps",
+                        "productUrl": "https://www.honext.io/",
+                        "type": "website",
+                        "imageUrl": "https://res.cloudinary.com/christekh/image/upload/q_auto/v1524816970/Screen_Shot_2018-04-27_at_9.15.30_AM_ohe02s.png"
+                    },
+                    {
+                        "title": "Next.js Quick Start Guide",
+                        "description": "Create, build and deploy universal JavaScript applications using Next.js",
+                        "productUrl": "https://www.packtpub.com/web-development/nextjs-quick-start-guide",
+                        "type": "website",
+                        "imageUrl": "https://www.packtpub.com/media/catalog/product/cache/6b1c09900b407c50fce2db5e66ebc123/c/o/cover_9.png"
+                    }
+                ]
+            },
+            {
+                "id": "c36ae9a7-2163-54bb-9a39-5a80a2c9a73a",
+                "date": "2019-11-02T18:59:38.294Z",
+                "name": "Videos",
+                "items": [
+                    {
+                        "title": "Create your first ReactJS application with NextJS",
+                        "author": "Julian David",
+                        "productUrl": "https://www.youtube.com/watch?v=-7Ft5LxPeWs",
+                        "description": "Crea tu primera aplicación ReactJS con NextJS.\nAprende a instalar NextJS y a crear una pagina básica usando este framework de javascript para ReactJS.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/-7Ft5LxPeWs/hqdefault.jpg",
+                        "meta": { "viewCount": "1428", "likeCount": "11" }
+                    },
+                    {
+                        "title": "React Server Side Rendering with NextJS",
+                        "author": "Jamie Barton",
+                        "productUrl": "https://www.youtube.com/watch?v=JEBkh_vleTs&t",
+                        "description": "Let’s talk about Server Side Rendering, SEO, React and many more things Next.js tries to solve.\n\nFollow me on Twitter if you'd like to discuss NextJS: https://twitter.com/notrab ❤️\n\nFollow NextJS on GitHub: https://github.com/zeit/next.js",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/JEBkh_vleTs/hqdefault.jpg",
+                        "meta": { "viewCount": "6631", "likeCount": "85" }
+                    },
+                    {
+                        "title": "Guillermo Rauch - Next.js by Example",
+                        "author": "Nordic.js",
+                        "productUrl": "https://www.youtube.com/watch?v=DLGJfa3Xv-0",
+                        "description": "Guillermo Rauch gave this talk at Nordic.js 2017. Read more at http://nordicjs.com/.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/DLGJfa3Xv-0/hqdefault.jpg",
+                        "meta": { "viewCount": "9671", "likeCount": "191" }
+                    },
+                    {
+                        "title": "Guillermo Rauch - Next.js: Universal React Made Easy and Simple",
+                        "author": "Facebook Developers",
+                        "productUrl": "https://www.youtube.com/watch?v=evaMpdSiZKk",
+                        "description": "",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/evaMpdSiZKk/hqdefault.jpg",
+                        "meta": { "viewCount": "51653", "likeCount": "471" }
+                    },
+                    {
+                        "title": "Introduction to Next.js",
+                        "author": "Paul Halliday",
+                        "productUrl": "https://www.youtube.com/watch?v=Fnw3lNeH-XI",
+                        "description": "Introduction to NEXT.js\n\nIn this video, we take a look at the NEXT.js framework.\n\n\nPrefer written content or want a text version of the videos? Check out my blog: https://blog.paulhalliday.io\n\nWant to power up your development skills with interesting real world projects? Get Learn Ionic 3 From Scratch and support the platform: https://paulhalliday.io/p/learn-ionic-3-from-scratch\n\nSupercharge your Ionic projects with my Ionic Native course: https://paulhalliday.io/p/master-ionic-3-with-ionic-native-and-cordova-integrations\n\nPaulhalliday.io:\nLearn Ionic 3 From Scratch \nhttps://paulhalliday.io/p/learn-ionic-3-from-scratch/?product_id=357078&coupon_code=10-OFF\n\nMaster Ionic 3 with Ionic Native and Cordova Integrations\nhttps://www.udemy.com/master-ionic-3-with-ionic-native-and-cordova-integrations/?couponCode=IONICNATIVE\n\nMaster App Prototyping with Adobe Experience Design (XD) https://www.udemy.com/master-app-prototyping-with-adobe-experience-design-xd/?couponCode=PAULXD\n\nNativeScript with @ngrx:\nhttps://nativescripting.com/course/nativescript-with-@ngrx\n\nSupport the content with at least $1 for EXCLUSIVE early access to the next video(s), as well as other benefits! https://www.patreon.com/PaulHalliday \n\nYou can also support the content by keeping me caffeinated (much appreciated!): http://paypal.me/PWHSoftware\n\nThe extra epic content always comes via email first. Sign up so you're not left behind: http://eepurl.com/cBCqO9\n\nYou can also find me:\n\nhttps://www.facebook.com/PaulHalliday.io\nhttp://twitter.com/PWHSoftware\nhttp://linkedin.com/in/paulhal",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/Fnw3lNeH-XI/hqdefault.jpg",
+                        "meta": { "viewCount": "16628", "likeCount": "166" }
+                    },
+                    {
+                        "title": "Next.js in production",
+                        "author": "React London 2017",
+                        "productUrl": "https://www.youtube.com/watch?v=h6rETZH6Ym0",
+                        "description": "Next.js has generated a lot of hype in the short time that it’s been out (rightly so). It’s unveiling coincided with an initiative to rebuild Deliveroo's web application as a standalone app. Jasdeep will share his experiences using it so far, including some of the benefits & trade-offs.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/h6rETZH6Ym0/hqdefault.jpg",
+                        "meta": { "viewCount": "7299", "likeCount": "57" }
+                    },
+                    {
+                        "title": "Parameterized Routing with Next.js",
+                        "author": "freeCodeCamp.org",
+                        "productUrl": "https://www.youtube.com/watch?v=2cJya4h5ync",
+                        "description": "Next.js comes with routing built in, but gives the option to create your own. I am going to set up custom routing for blog post pages with ExpressJS.\n\nSee a professional front-end developer at work. Unscripted. Mistakes included.\n\nTest Site: https://test.catechetics.com\nRepo: https://github.com/fus-marcom/ci-react\n\nReact: https://facebook.github.io/react/\nNext.js: https://github.com/zeit/next.js/ \nMaterialize: http://materializecss.com/\n\nTwitter: https://twitter.com/JesseRWeigel\nYoutube: https://www.youtube.com/c/JesseWeigel29 \n\nCode Editor: https://atom.io/\nTerminal: https://www.iterm2.com/\nProject Management: https://trello.com\n\n-\n\nLearn to code for free and get a developer job: https://www.freecodecamp.com\n\nRead hundreds of articles on programming: https://medium.freecodecamp.com\n\nAnd subscribe for new videos on technology every day: https://youtube.com/subscription_center?add_user=freecodecamp",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/2cJya4h5ync/hqdefault.jpg",
+                        "meta": { "viewCount": "5711", "likeCount": "62" }
+                    },
+                    {
+                        "title": "JSHeroes 2017 | Guillermo Rauch - Static and Dynamic Next.js",
+                        "author": "JSHeroes",
+                        "productUrl": "https://www.youtube.com/watch?v=lLNJsuXB4CI",
+                        "description": "With Next.js, you can create React applications that automatically server-render, code-split and hot-reload, with no setup. \nThis talk will explore the two most powerful new features of Next.js: static exports and dynamic imports. These allow for the creation of high-performance advanced applications, examples of which we'll demonstrate live, on stage.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/lLNJsuXB4CI/hqdefault.jpg",
+                        "meta": { "viewCount": "2387", "likeCount": "36" }
+                    },
+                    {
+                        "title": "Programming the Universal Future with Next.js - Guillermo Rauch · JSConf China 2017",
+                        "author": "Wiredcraft",
+                        "productUrl": "https://www.youtube.com/watch?v=w9Or7B4kTRY",
+                        "description": "JSConf China 2017 organized by Wiredcraft - https://wiredcraft.com/.\n\nJSConf China is a two-day developer-driven, non-profit conference where both local and International JS community share the latest tools and techniques for the JavaScript language while hearing from notable figures within the community. \n\nWith a 5-year history, JSConf China is well-respected, with many developers looking forward to returning each year. For information on past programs, check out our JSConf China website or our YouTube channel. This year's JSConf was in Shanghai on 15-16 July.\n\n------------------------------\n\nWiredcraft is a full-service digital product agency. We provide a holistic approach to building digital products. Our services range from digital strategy consulting, product design, front-end and back-end development, and data marketing. We work with digital and innovation teams within some of the largest brands to help them accomplish the following:\n1. Omni Channel Adoption\n2. Digital Transformation\n3. China Digital Growth\n\nOur offices are located in Shanghai and Berlin.\n\nFollow Wiredcraft on\nWebsite: https://wiredcraft.com\nTwitter: https://twitter.com/wiredcraft\nLinkedIn: https://www.linkedin.com/company/wiredcraft\n\nThink we could work together? \nhttps://wiredcraft.com/hire-us",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/w9Or7B4kTRY/hqdefault.jpg",
+                        "meta": { "viewCount": "611", "likeCount": "6" }
+                    },
+                    {
+                        "title": "BPJS: Special - Introduction to Next.js",
+                        "author": "Tim Ermilov",
+                        "productUrl": "https://www.youtube.com/watch?v=4cfozXTyjWQ",
+                        "description": "This is special video in series \"Building products with javascript\".\n\nIn this video I do a quick introduction to Next.js framework.\n\nNext.js github page: https://github.com/zeit/next.js\n\nBPJS Project links:\nDiscord: https://discord.gg/hnKCXqQ\nFacebook: https://www.facebook.com/buildingproductswithjs/\nReddit: https://www.reddit.com/r/BuildingWithJS/\nProject sources: https://github.com/yamalight/bpjs-electron\n\nSocial media links:\nFollow me on Twitter: http://twitter.com/yamalight\nFollow me on Medium: https://medium.com/@yamalight\nFollow me on Github: http://github.com/yamalight\nFollow me on Twitch: https://www.twitch.tv/yamalight\nFollow me on Facebook: https://www.facebook.com/buildingproductswithjs",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/4cfozXTyjWQ/hqdefault.jpg",
+                        "meta": { "viewCount": "1702", "likeCount": "55" }
+                    },
+                    {
+                        "title": "Next for Next.js",
+                        "author": "ZEIT",
+                        "productUrl": "https://www.youtube.com/watch?v=ms2aOV06_qk",
+                        "description": "This talk will live demo some of the upcoming features, enhancements and performance improvements coming to Next.js.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/ms2aOV06_qk/hqdefault.jpg",
+                        "meta": { "viewCount": "2866", "likeCount": "65" }
+                    },
+                    {
+                        "title": "Data Management With Next.js and GraphQL",
+                        "author": "ZEIT",
+                        "productUrl": "https://www.youtube.com/watch?v=g_LA1quUIi8",
+                        "description": "You can read more about ZEIT's mission and products here: https://zeit.co",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/g_LA1quUIi8/hqdefault.jpg",
+                        "meta": { "viewCount": "3739", "likeCount": "47" }
+                    },
+                    {
+                        "title": "Next.js Register User",
+                        "author": "Ben Awad",
+                        "productUrl": "https://www.youtube.com/watch?v=oQ60Grn4RYQ",
+                        "description": "Learn how to create a register form in Next.js that makes a user. The form is powered by a GraphQL backend built with Node.js. Using the Apollo React Client, we can submit a mutation from Next.js to our server to create the user. \n\nStarter code:\nclient: https://github.com/benawad/hello-world-nextjs/tree/4_localstorage\nserver: https://github.com/benawad/graphql-express-template/tree/12_oauth_with_nextjs\n\nFinished code:\nclient: https://github.com/benawad/hello-world-nextjs/tree/5_register\nserver: https://github.com/benawad/graphql-express-template/tree/13_nextjs_register_user\n\nNodejs GraphQL Server videos: https://www.youtube.com/playlist?list=PLN3n1USn4xlnXfLBuSMFcYM5yei4oxdxB\n\nNext.js videos: https://www.youtube.com/playlist?list=PLN3n1USn4xllTjmWu82o_7ej5vNZlR8BH\n\nAnt Design: https://ant.design\n\n----\nVideo Suggestions:\n\nTrello: https://trello.com/b/mErpLVj7/todo\nJoin the Trello board: https://trello.com/invite/b/mErpLVj7/99020cac2d3397287640d7d86cb3c09a/todo\n\n----\nFollow Me Online Here:\n\nInstagram: http://instagram.com/benawad97\nTwitter: https://twitter.com/benawad97\nPatreon: https://www.patreon.com/benawad\n----\nJoin the Discord: https://discord.gg/Vehs99V",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/oQ60Grn4RYQ/hqdefault.jpg",
+                        "meta": { "viewCount": "4312", "likeCount": "27" }
+                    },
+                    {
+                        "title": "Next.js Crash Course - Server Side React",
+                        "author": "Traversy Media",
+                        "productUrl": "https://www.youtube.com/watch?v=IkOVe40Sy0U",
+                        "description": "In this video we will talk about Next.js which is a framework to render React on the server. We will look at setup and build a simple application that pulls Bitcoin pricing from an API and displays it in the app\n\nCODE:\nhttps://github.com/bradtraversy/bitzprice\n\n💖 BECOME A PATRON: Show support & get perks!\nhttp://www.patreon.com/traversymedia\n\nVISIT MY WEBISTE: Check Out My Udemy Courses\nhttp://www.traversymedia.com\n\nFOLLOW TRAVERSY MEDIA:\nhttp://www.facebook.com/traversymedia\nhttp://www.twitter.com/traversymedia\nhttp://www.instagram.com/traversymedia\nhttps://discord.gg/traversymedia",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/IkOVe40Sy0U/hqdefault.jpg",
+                        "meta": { "viewCount": "108402", "likeCount": "2713" }
+                    }
+                ]
+            }
+        ]
+    }
+]

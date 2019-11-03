@@ -44,7 +44,7 @@ export async function getAwesome(
             )
             return {
                 id: getUuid(sectionName),
-                name: emoji.emojify(sectionName),
+                name: emoji.emojify(sectionName, () => ''),
                 index,
                 collections: collectionWithItems,
             }
@@ -75,7 +75,7 @@ async function getCollections(
         return {
             id: getUuid(fromSectionName + collectionName),
             date: new Date(),
-            name: emoji.emojify(collectionName),
+            name: emoji.emojify(collectionName, () => ''),
             items: items.filter(result => !(result instanceof Error)),
         }
     })
@@ -87,9 +87,9 @@ async function getCollections(
         collections.push(
             Promise.resolve({
                 // id section or collection name id changed. FIXME based on index?
-                id: getUuid(fromSectionName + 'Basic'),
+                id: getUuid(fromSectionName + 'General'),
                 date: new Date(),
-                name: 'Basic',
+                name: 'General',
                 items: items.filter(result => !(result instanceof Error)),
             })
         )

@@ -7,7 +7,7 @@
             {
                 "id": "5cc3ef69-e71b-5e4b-8813-cf96173cfa3c",
                 "date": "2019-10-31T17:16:10.231Z",
-                "name": "Basic",
+                "name": "General",
                 "items": [
                     {
                         "title": "How to GraphQL",
@@ -548,7 +548,7 @@
             {
                 "id": "bfe2e8d6-c908-557e-922d-444c5340da79",
                 "date": "2019-10-31T17:16:12.406Z",
-                "name": "Basic",
+                "name": "General",
                 "items": [
                     {
                         "title": "GraphQL Yoga",
@@ -846,7 +846,7 @@
             {
                 "id": "e27611e6-a143-5922-a556-dfd335e02f05",
                 "date": "2019-10-31T17:16:10.087Z",
-                "name": "Basic",
+                "name": "General",
                 "items": [
                     {
                         "title": "Local (Docker)",
@@ -945,7 +945,7 @@
             {
                 "id": "9b849168-5da0-5a58-a179-e0d50f95189a",
                 "date": "2019-10-31T17:16:09.446Z",
-                "name": "Basic",
+                "name": "General",
                 "items": [
                     {
                         "title": "React Native and Prisma YouTube Tutorial Series",
@@ -979,7 +979,7 @@
             {
                 "id": "ac5e94f9-d5ee-5c55-9422-bcfbcb1ed393",
                 "date": "2019-10-31T17:16:10.184Z",
-                "name": "Basic",
+                "name": "General",
                 "items": [
                     {
                         "title": "GitHub",

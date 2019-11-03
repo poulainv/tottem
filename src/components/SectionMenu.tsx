@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Menu, MenuItem } from './Menu'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { getDefaultSection } from './Views/Profile'
+import * as React from 'react'
 import { ISection } from '../types'
+import { Menu, MenuItem } from './Menu'
+import { getDefaultSection } from './Views/Profile'
 
 export interface ISectionMenuProps {
     sections: ISection[]

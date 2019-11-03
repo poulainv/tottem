@@ -4,7 +4,7 @@ import React from 'react'
 import { ISocial } from '../types'
 
 const Social: React.FC<ISocial> = props => {
-    const pictoHeight = '15px'
+    const pictoHeight = '16px'
     return (
         <Box direction="row" height={pictoHeight} gap="medium" align="end">
             {props.mail && (
