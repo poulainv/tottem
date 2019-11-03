@@ -1,17 +1,11 @@
-import { Box, Image } from 'grommet'
+import { Box } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
-import { imageShapes, Item } from '../../types'
-import { ElementAuthor, ElementTitle, ElementDescription } from '../Typography'
-import CoverImage from '../Cards/CoverImage'
 import { colorPlaceholders } from '../../constants/colors'
-import {
-    GithubMetas,
-    IGithubMetasProps,
-    IYoutubeMetasProps,
-    YoutubeMetas,
-    ItemMetas,
-} from '../Cards/Metas'
+import { imageShapes, Item } from '../../types'
+import CoverImage from '../Cards/CoverImage'
+import { ItemMetas } from '../Cards/Metas'
+import { ElementAuthor, ElementDescription, ElementTitle } from '../Typography'
 
 interface IItemListProps {
     items: Item[]
@@ -19,9 +13,6 @@ interface IItemListProps {
 
 const ImageBox = styled(Box)`
     width: 160px;
-    border-radius: ${(props: { radius: string }) => props.radius};
-    border: solid 0.5px #ededed;
-
     @media screen and (max-width: 600px) {
         width: 120px;
     }
@@ -45,15 +36,6 @@ const CollectionCard = styled(Box)`
         border-radius: 0px;
         border-top: 1px #dddddd solid;
         border-bottom: 1px #dddddd solid;
-    }
-`
-
-const ItemBox = styled(Box)`
-    height: ${(props: { square: boolean }) =>
-        props.square ? '160px' : 'auto'};
-    @media screen and (max-width: 600px) {
-        height: ${(props: { square: boolean }) =>
-            props.square ? '120px' : 'auto'};
     }
 `
 
@@ -81,12 +63,11 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                             direction="row"
                             margin={{ bottom: 'large' }}
                         >
-                            <ItemBox
+                            <Box
                                 direction="row"
                                 margin={{ bottom: 'small' }}
                                 width="100%"
                                 justify="between"
-                                square={imageShapes[item.type] !== 'rectangle'}
                             >
                                 <Box direction="row">
                                     <a
@@ -94,14 +75,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         target="_blank"
                                         style={{ display: 'flex ' }}
                                     >
-                                        <ImageBox
-                                            radius={
-                                                imageShapes[item.type] ===
-                                                'circle'
-                                                    ? '50%'
-                                                    : '8px'
-                                            }
-                                        >
+                                        <ImageBox>
                                             <CoverImage
                                                 placeholderColor={
                                                     colorPlaceholders[item.type]
@@ -140,7 +114,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         height="16px"
                                     />
                                 </Pictogram>
-                            </ItemBox>
+                            </Box>
                         </Box>
                     )
                 })}

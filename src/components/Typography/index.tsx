@@ -76,13 +76,14 @@ export const ElementAuthor = styled.p`
 export const ElementDescription = styled.p`
     font-size: 14px;
     margin: 0px 0px 0px 0px;
-    line-height: 21px;
-    word-break: break-all;
+    line-height: 26px;
     color: ${grey900};
     overflow: hidden;
+    max-height: 104px;
 
     @media screen and (max-width: 600px) {
-        font-size: 14px;
+        max-height: 80px;
+        font-size: 13px;
         line-height: 20px;
     }
 `
