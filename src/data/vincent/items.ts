@@ -102,7 +102,7 @@ const items: Item[] = [
         author: 'Grandbrothers',
         imageUrl:
             'https://images-na.ssl-images-amazon.com/images/I/81GuW3d-FQL._SY355_.jpg',
-        title: 'All Melody',
+        title: 'Blood Flow',
         productUrl:
             'https://open.spotify.com/album/40NdyNNK6vu96QBK1y7ZCx?si=nkL-Ns-STo-BOyV1DUg_BQ',
     },

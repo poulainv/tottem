@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import theme from '../../theme'
 import { Footer } from './Footer'
 import Header from './Header'
+import ReactGA from 'react-ga'
 
 export const PageBox = styled(Box)`
     margin-top: 72px;
@@ -21,6 +22,12 @@ export interface ILayoutProps {
 }
 
 export function Layout(props: ILayoutProps) {
+    React.useEffect(() => {
+        ReactGA.initialize('UA-149517534-1', {
+            testMode: process.env.NODE_ENV === 'test',
+        })
+        ReactGA.pageview(window.location.pathname + window.location.search)
+    })
     return (
         <Grommet theme={theme}>
             <Box align="center" background="light-1">
