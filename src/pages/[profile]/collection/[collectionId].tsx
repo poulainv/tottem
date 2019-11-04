@@ -11,6 +11,7 @@ import { ICollection, ISection, UserProfile, Item } from '../../../types'
 import styled from 'styled-components'
 import { LinkPrevious } from 'grommet-icons'
 import Link from 'next/link'
+import { getAwesomeSections } from '../../../data/awesome/sections'
 
 const countBy = require('lodash.countby')
 const flatten = require('lodash.flatten')
@@ -110,9 +111,12 @@ Collection.getInitialProps = async (context: Context) => {
     // Fetch data
     const userProfile: UserProfile = require(`../../../data/${profile}/profile`)
         .default
-    const sections: ISection[] = require(`../../../data/${profile}/sections`)
-        .default
-
+    let sections: ISection[] = []
+    if (profile.includes('awesome')) {
+        sections = getAwesomeSections(profile)
+    } else {
+        sections = require(`../../../data/${profile}/sections`).default
+    }
     // flatMap only on node v12
     const collectionOpt: ICollection | undefined = flatten(
         sections.map(x => x.collections)

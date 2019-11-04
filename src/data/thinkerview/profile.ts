@@ -2,7 +2,6 @@ import { UserProfile } from '../../types'
 import sections from './sections'
 
 const profile: UserProfile = {
-    sections,
     firstname: 'Thinkerview',
     pictureUrl: '/images/profiles/thinkerview.jpg',
     biography: `ThinkerView est un laboratoire d'idées français indépendant. Il diffuse de longues entrevues sans montage, 

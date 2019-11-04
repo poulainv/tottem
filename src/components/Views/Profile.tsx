@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
-import { ISection, UserProfile } from '../../types'
+import { ISection, UserProfile, ISectionIndex } from '../../types'
 import AppTableOfContents from '../AppTableOfContents'
 import { SectionMenu } from '../SectionMenu'
 import { Layout, PageBox } from './Layout'
@@ -29,7 +29,7 @@ export const getDefaultSection = (sections: ISection[]): ISection => {
 }
 
 export interface IProfilePageProps {
-    sections: ISection[]
+    sectionsIndex: ISectionIndex[]
     activeSection: ISection
     user: UserProfile
 }
@@ -45,7 +45,6 @@ export const Side = styled(Box)`
 
 export default function ProfilePage(props: IProfilePageProps) {
     const router = useRouter()
-
     return (
         <Layout>
             <NextSeo
@@ -76,7 +75,10 @@ export default function ProfilePage(props: IProfilePageProps) {
             <PageBox>
                 <ProfileDescription {...props.user} />
                 <ContentBox pad={{ horizontal: 'large' }}>
-                    <SectionMenu sections={props.sections} />
+                    <SectionMenu
+                        sections={props.sectionsIndex}
+                        activeSectionId={props.activeSection.id}
+                    />
                     <Section collections={props.activeSection.collections} />
                 </ContentBox>
             </PageBox>

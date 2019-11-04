@@ -13,7 +13,6 @@ const profile: UserProfile = {
         linkedin: 'https://www.linkedin.com/in/vincentpoulain/',
         mail: 'vincent.poulain2@gmail.com',
     },
-    sections,
     slug: 'vincent',
 }
 
