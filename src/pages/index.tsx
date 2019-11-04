@@ -3,6 +3,7 @@ import { MailOption } from 'grommet-icons'
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { NextSeo } from 'next-seo'
+import { useEffect } from 'react'
 import * as React from 'react'
 import ReactGA from 'react-ga'
 import { initReactI18next, Trans, useTranslation } from 'react-i18next'
@@ -26,7 +27,7 @@ const Header = styled(Heading)`
     font-weight: 700;
     max-width: 550px;
     margin: 25px 0px 25px 0px;
-    font-family: 'Poiret One';
+    font-family: 'Poiret One', Arial, sans-serif;
     width: 100%;
 
     @media screen and (max-width: 812px) {
@@ -80,7 +81,7 @@ const LandingLeftPanel = styled(Box)`
     @media screen and (max-width: 812px) {
         height: 100%;
         align-items: center;
-        margin-top: 0px;
+        margin-top: 0;
     }
 `
 
@@ -147,6 +148,16 @@ i18n.use(initReactI18next)
     })
 
 const Landing: React.FC = props => {
+    useEffect(() => {
+        const redirectTo = localStorage.getItem('redirectTo')
+        if (redirectTo) {
+            // If user is logging in or out, we redirect him to the page he was on
+            // TODO for now redirectTo is only set when logging out, it needs to be there when logging in as well
+            window.location.href = redirectTo
+            localStorage.removeItem('redirectTo')
+        }
+    }, [])
+
     const { t } = useTranslation()
 
     const changeLanguage = (lng: string) => {

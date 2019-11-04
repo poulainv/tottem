@@ -1,10 +1,15 @@
 import { Anchor, Box } from 'grommet'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
+import { Auth0 } from '../../pages/_document'
 import { StyledButton } from '../Button'
 import { Beta, Logo } from '../Logo'
+
+const logout = () => {
+    Auth0.logout()
+}
 
 const trackTableOfContent = (name: string) => {
     ReactGA.initialize('UA-149517534-1')
@@ -15,6 +20,15 @@ const trackTableOfContent = (name: string) => {
 }
 const Header = () => {
     const router = useRouter()
+    const [isLoggedIn, setIsLoggedIn] = useState()
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        const lsLoggedIn = localStorage.getItem('isLoggedIn')
+        const lsUserDetails = localStorage.getItem('user_details')
+        setIsLoggedIn(lsLoggedIn ? JSON.parse(lsLoggedIn) : false)
+        setUserData(lsUserDetails ? JSON.parse(lsUserDetails) : null)
+    }, [])
     return (
         <Box
             background="white"
@@ -42,7 +56,9 @@ const Header = () => {
                         </Anchor>
                     </Link>
                 </Box>
-                <Box direction="row">
+                <Box direction="row" align="center" gap="small">
+                    {isLoggedIn &&
+                        `Hi ${userData.given_name || userData.nickname}!`}
                     <Anchor
                         href="https://vincentp791262.typeform.com/to/LOiv5v"
                         target="_blank"
@@ -56,7 +72,6 @@ const Header = () => {
                     <Anchor
                         href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
                         target="_blank"
-                        style={{ marginLeft: '16px' }}
                     >
                         <StyledButton
                             onClick={() => trackTableOfContent('Subscribe')}
@@ -65,6 +80,9 @@ const Header = () => {
                             S'abonner
                         </StyledButton>
                     </Anchor>
+                    {isLoggedIn && (
+                        <StyledButton onClick={logout}>Logout</StyledButton>
+                    )}
                 </Box>
             </Box>
         </Box>

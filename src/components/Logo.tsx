@@ -13,7 +13,7 @@ export const Logo = styled.h1`
     position: relative;
     font-size: 30px;
     color: black;
-    font-family: 'Poiret One';
+    font-family: 'Poiret One', Arial, sans-serif;
     font-weight: 700;
 
     :hover {
