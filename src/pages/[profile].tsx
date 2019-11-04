@@ -1,48 +1,20 @@
 import { NextPage, NextPageContext } from 'next'
-import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
 import * as React from 'react'
-import { Layout } from '../components/Views/Layout'
-import ProfileDescription from '../components/Views/Nav'
-import ProfileContent from '../components/Views/ProfileContent'
-import { ISection, UserProfile } from '../types'
+import ProfilePage, {
+    getDefaultSection,
+    IProfilePageProps,
+} from '../components/Views/Profile'
+import { UserProfile } from '../types'
+import Error from 'next/error'
 
-interface IProfileProps {
-    userProfile: UserProfile
-    sections: ISection[]
-}
-
-const Profile: NextPage<IProfileProps> = ({ userProfile, sections }) => {
-    const router = useRouter()
-
+const Profile: NextPage<{ data?: IProfilePageProps }> = ({ data }) => {
+    if (data === undefined) {
+        return <Error statusCode={404} />
+    }
     return (
-        <Layout>
-            <NextSeo
-                title={`${userProfile.firstname} - Tottem`}
-                description={`${userProfile.firstname} on Tottem - ${userProfile.biography}`}
-                canonical={`https://tottem.app/${router.query.profile}`}
-                twitter={{
-                    site: '@TottemApp',
-                    cardType: 'summary',
-                }}
-                openGraph={{
-                    type: 'profile',
-                    profile: {
-                        username: userProfile.slug,
-                    },
-                    description: `${userProfile.firstname} on Tottem - ${userProfile.biography}`,
-                    url: `https://tottem.app/${router.query.profile}`,
-                    site_name: 'Tottem',
-                    images: [
-                        {
-                            url: `https://tottem.app${userProfile.pictureUrl}`,
-                        },
-                    ],
-                }}
-            />
-            <ProfileDescription {...userProfile} />
-            <ProfileContent sections={sections} username="vincent" />
-        </Layout>
+        <React.Fragment>
+            <ProfilePage {...data} />
+        </React.Fragment>
     )
 }
 
@@ -54,10 +26,16 @@ interface Context extends NextPageContext {
 
 Profile.getInitialProps = async (context: Context) => {
     const profile: string = context.query.profile
-    const userProfile: UserProfile = require(`./../data/${profile}/profile`)
-        .default
-    const sections = require(`../data/${profile}/sections`).default
-    return { userProfile, sections }
+    try {
+        const user: UserProfile = require(`./../data/${profile}/profile`)
+            .default
+        const sections = require(`../data/${profile}/sections`).default
+        const activeSection = getDefaultSection(sections)
+        return { data: { user, sections, activeSection } }
+    } catch (err) {
+        console.log(`Profile not found ${profile} ${err}`) // Use proper logger
+        return { data: undefined }
+    }
 }
 
 export default Profile

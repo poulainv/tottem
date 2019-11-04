@@ -7,17 +7,13 @@ import logger from '../logging'
 import { inferNewItemFromUrl } from '../parsers'
 import { SimpleFetch } from '../parsers/fetchers'
 import { arrSum, splitByTag } from './utils'
+import getUuid from 'uuid-by-string'
 
 export interface AwesomeItem {
     title: string
     author?: string
     productUrl: string
 }
-
-const getIdempotentId: (seed: string) => string = seed =>
-    Buffer.from(seed)
-        .toString('base64')
-        .slice(0, 10)
 
 export async function getAwesome(
     $: CheerioStatic,
@@ -47,8 +43,8 @@ export async function getAwesome(
                 `Section found ${sectionName} with ${collectionWithItems.length} collections`
             )
             return {
-                id: getIdempotentId(sectionName),
-                name: emoji.emojify(sectionName),
+                id: getUuid(sectionName),
+                name: emoji.emojify(sectionName, () => ''),
                 index,
                 collections: collectionWithItems,
             }
@@ -77,9 +73,9 @@ async function getCollections(
             `Collection found ${collectionName} with ${items.length} items`
         )
         return {
-            id: getIdempotentId(collectionName),
+            id: getUuid(fromSectionName + collectionName),
             date: new Date(),
-            name: emoji.emojify(collectionName),
+            name: emoji.emojify(collectionName, () => ''),
             items: items.filter(result => !(result instanceof Error)),
         }
     })
@@ -91,9 +87,9 @@ async function getCollections(
         collections.push(
             Promise.resolve({
                 // id section or collection name id changed. FIXME based on index?
-                id: getIdempotentId(fromSectionName + 'Basic'),
+                id: getUuid(fromSectionName + 'General'),
                 date: new Date(),
-                name: 'Basic',
+                name: 'General',
                 items: items.filter(result => !(result instanceof Error)),
             })
         )

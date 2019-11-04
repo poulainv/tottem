@@ -164,6 +164,13 @@ const Landing: React.FC = props => {
         i18n.changeLanguage(lng)
     }
 
+    React.useEffect(() => {
+        ReactGA.initialize('UA-149517534-1', {
+            testMode: process.env.NODE_ENV === 'test',
+        })
+        ReactGA.pageview(window.location.pathname + window.location.search)
+    })
+
     return (
         <Box align="center" background="white">
             <NextSeo title="Tottem" />
