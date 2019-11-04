@@ -1,4 +1,4 @@
-import { Box, Button, Markdown, Text } from 'grommet'
+import { Box, Button, Markdown, Text, Anchor } from 'grommet'
 import React from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
@@ -30,27 +30,15 @@ const CollectionCard = styled(Box)`
 `
 
 const Collection: React.FC<ICollection> = props => {
-    const [open, setOpen] = React.useState(false)
-
-    const trackExpand = () => {
-        ReactGA.initialize('UA-149517534-1')
-        ReactGA.event({
-            category: 'Collection',
-            action: 'Click on expand collection',
-        })
-    }
+    // const [false, setfalse] = React.useState(false)
 
     const seeMore = (
-        <Box margin={{ horizontal: 'medium' }} onClick={trackExpand}>
+        <Box margin={{ horizontal: 'medium' }}>
             <Button
                 style={{ fontSize: '14px', color: brand600 }}
-                label={
-                    open
-                        ? 'VOIR MOINS'
-                        : 'VOIR LES ' + props.items.length + ' ÉLÉMENTS'
-                }
+                label={`${props.items.length} ÉLÉMENTS`}
                 // tslint:disable-next-line: jsx-no-lambda
-                onClick={() => setOpen(!open)}
+                // onClick={() => setfalse(!false)}
             />
         </Box>
     )
@@ -60,27 +48,38 @@ const Collection: React.FC<ICollection> = props => {
             direction="column"
             margin={{ vertical: 'medium' }}
             background="white"
+            id={props.id}
         >
-            <Box
-                direction="row"
-                justify="between"
-                align="center"
-                border={{ side: 'bottom', color: 'light-3', size: '0.5px' }}
+            <Link
+                href="/[profile]/collection/[collectionId]"
+                as={`/${router.query.profile}/collection/${props.id}`}
+                passHref
             >
-                <Box responsive={false} margin={{ horizontal: 'medium' }}>
-                    <Link
-                        href="/[profile]/collection/[collectionId]"
-                        as={`/${router.query.profile}/collection/${props.id}`}
+                <Anchor>
+                    <Box
+                        direction="row"
+                        justify="between"
+                        align="center"
+                        border={{
+                            side: 'bottom',
+                            color: 'light-3',
+                            size: '0.5px',
+                        }}
                     >
-                        <CollectionTitle>
-                            <Markdown>{props.name}</Markdown>
-                        </CollectionTitle>
-                    </Link>
-                </Box>
-                <MediumAndUp>{props.items.length > 4 && seeMore}</MediumAndUp>
-            </Box>
+                        <Box
+                            responsive={false}
+                            margin={{ horizontal: 'medium' }}
+                        >
+                            <CollectionTitle>
+                                <Markdown>{props.name}</Markdown>
+                            </CollectionTitle>
+                        </Box>
+                        <MediumAndUp>{seeMore}</MediumAndUp>
+                    </Box>
+                </Anchor>
+            </Link>
             <Box margin={{ bottom: 'none' }}>
-                <ItemList items={props.items} expanded={open} />
+                <ItemList items={props.items} expanded={false} />
             </Box>
             {props.detail && (
                 <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>

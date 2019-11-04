@@ -122,7 +122,7 @@ enum ItemType {
     album
     book
     movie
-    paper
+    article
     people
     podcast
     video

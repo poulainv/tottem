@@ -1,18 +1,18 @@
+import { Box } from 'grommet'
 import * as React from 'react'
-import { Box, Image } from 'grommet'
-import { Item, imageShapes } from '../../types'
 import styled from 'styled-components'
-import { ElementTitle, ElementAuthor } from '../Typography'
+import { colorPlaceholders } from '../../constants/colors'
+import { imageShapes, Item } from '../../types'
+import CoverImage from '../Cards/CoverImage'
+import { ItemMetas } from '../Cards/Metas'
+import { ElementAuthor, ElementDescription, ElementTitle } from '../Typography'
 
 interface IItemListProps {
     items: Item[]
 }
 
-const ItemImage = styled(Image)`
+const ImageBox = styled(Box)`
     width: 160px;
-    border-radius: ${(props: { radius: string }) => props.radius};
-    border: solid 0.5px #ededed;
-
     @media screen and (max-width: 600px) {
         width: 120px;
     }
@@ -39,15 +39,6 @@ const CollectionCard = styled(Box)`
     }
 `
 
-const ItemBox = styled(Box)`
-    height: ${(props: { square: boolean }) =>
-        props.square ? '160px' : 'auto'};
-    @media screen and (max-width: 600px) {
-        height: ${(props: { square: boolean }) =>
-            props.square ? '120px' : 'auto'};
-    }
-`
-
 const ContentBox = styled(Box)`
     margin: 40px 0px 40px 0px;
     padding: 0px 48px 0px 48px;
@@ -64,6 +55,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
         <ContentBox>
             <CollectionCard background="white" pad="large">
                 {props.items.map(item => {
+                    const picto = `/pictograms/${item.type}-white.svg`
                     return (
                         <Box
                             responsive={false}
@@ -71,11 +63,11 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                             direction="row"
                             margin={{ bottom: 'large' }}
                         >
-                            <ItemBox
+                            <Box
                                 direction="row"
+                                margin={{ bottom: 'small' }}
                                 width="100%"
                                 justify="between"
-                                square={imageShapes[item.type] !== 'rectangle'}
                             >
                                 <Box direction="row">
                                     <a
@@ -83,16 +75,18 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         target="_blank"
                                         style={{ display: 'flex ' }}
                                     >
-                                        <ItemImage
-                                            src={item.imageUrl}
-                                            fit="cover"
-                                            radius={
-                                                imageShapes[item.type] ===
-                                                'circle'
-                                                    ? '50%'
-                                                    : '4px'
-                                            }
-                                        />
+                                        <ImageBox>
+                                            <CoverImage
+                                                placeholderColor={
+                                                    colorPlaceholders[item.type]
+                                                }
+                                                placeholderPicto={picto}
+                                                imageUrl={item.imageUrl}
+                                                imageShape={
+                                                    imageShapes[item.type]
+                                                }
+                                            />
+                                        </ImageBox>
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
                                         <ElementTitle
@@ -104,6 +98,14 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         <ElementAuthor>
                                             {item.author}
                                         </ElementAuthor>
+                                        <Box style={{ marginTop: '8px' }}>
+                                            <ItemMetas item={item} />
+                                        </Box>
+                                        <Box style={{ marginTop: '8px' }}>
+                                            <ElementDescription>
+                                                {item.description}{' '}
+                                            </ElementDescription>
+                                        </Box>
                                     </Box>
                                 </Box>
                                 <Pictogram>
@@ -112,7 +114,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         height="16px"
                                     />
                                 </Pictogram>
-                            </ItemBox>
+                            </Box>
                         </Box>
                     )
                 })}

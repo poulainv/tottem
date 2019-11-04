@@ -6,7 +6,7 @@ import * as React from 'react'
 import removeMd from 'remove-markdown'
 import CollectionHeader from '../../../components/Collection/Header'
 import ItemList from '../../../components/Collection/ItemList'
-import { Layout } from '../../../components/Views/Layout'
+import { Layout, PageBox } from '../../../components/Views/Layout'
 import { ICollection, ISection, UserProfile, Item } from '../../../types'
 import styled from 'styled-components'
 import { LinkPrevious } from 'grommet-icons'
@@ -20,7 +20,8 @@ interface ICollectionProps {
     collection: ICollection
 }
 
-const BackButton = styled(Box)`
+const BackButton = styled.a`
+    display: flex;
     background-color: white;
     cursor: pointer;
     color: black;
@@ -48,43 +49,48 @@ const Collection: NextPage<ICollectionProps> = ({
         <Layout>
             <NextSeo
                 title={`${collectionName} - ${userProfile.firstname} - Tottem`}
-                description={`${collectionName} by ${userProfile.firstname}`}
+                description={`${collectionName} by ${userProfile.firstname} - Tottem`}
                 twitter={{
                     site: '@TottemApp',
                     cardType: 'summary',
                 }}
                 openGraph={{
-                    description: `${collectionName} by ${userProfile.firstname}`,
+                    description: `${collectionName} by ${userProfile.firstname} - Tottem`,
                     url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            url: `https://tottem.app/logo-dark.png`,
+                            url: `https://tottem.app${userProfile.pictureUrl}`,
                         },
                     ],
                 }}
             />
-
-            <Link href="/[profile]" as={`/${router.query.profile}`}>
-                <BackButton>
-                    <LinkPrevious
-                        color="#595959"
-                        style={{ margin: 'auto', display: 'block' }}
+            <PageBox>
+                <Link
+                    href="/[profile]"
+                    as={`/${router.query.profile}`}
+                    passHref
+                >
+                    <BackButton>
+                        <LinkPrevious
+                            color="#595959"
+                            style={{ margin: 'auto', display: 'block' }}
+                        />
+                    </BackButton>
+                </Link>
+                <Box width="xlarge">
+                    <CollectionHeader
+                        ownerName={userProfile.firstname}
+                        userImage={userProfile.pictureUrl}
+                        title={collectionName}
+                        subtitle={collection.detail || ' '}
+                        date={collection.date.toString()}
+                        ownerSlug={userProfile.slug}
+                        itemsTypeCount={itemsTypeCount}
                     />
-                </BackButton>
-            </Link>
-            <Box width="xlarge">
-                <CollectionHeader
-                    ownerName={userProfile.firstname}
-                    userImage={userProfile.pictureUrl}
-                    title={collectionName}
-                    subtitle={collection.detail || ' '}
-                    date={collection.date.toString()}
-                    ownerSlug={userProfile.slug}
-                    itemsTypeCount={itemsTypeCount}
-                />
-                <ItemList items={collection.items} />
-            </Box>
+                    <ItemList items={collection.items} />
+                </Box>
+            </PageBox>
         </Layout>
     )
 }
@@ -107,7 +113,7 @@ Collection.getInitialProps = async (context: Context) => {
     const sections: ISection[] = require(`../../../data/${profile}/sections`)
         .default
 
-    // flatMap only node 12
+    // flatMap only on node v12
     const collectionOpt: ICollection | undefined = flatten(
         sections.map(x => x.collections)
     ).find((x: ICollection) => x.id === collectionId)

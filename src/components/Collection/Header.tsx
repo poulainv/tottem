@@ -1,4 +1,4 @@
-import { Box, Markdown } from 'grommet'
+import { Box, Markdown, Anchor } from 'grommet'
 import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -43,12 +43,20 @@ const CollectionHeader: React.FunctionComponent<
                 justify="between"
             >
                 <Box direction="row">
-                    <Link href="/[profile]" as={`/${props.ownerSlug}`}>
-                        <Avatar src={props.userImage} />
+                    <Link href="/[profile]" as={`/${props.ownerSlug}`} passHref>
+                        <Anchor>
+                            <Avatar src={props.userImage} />
+                        </Anchor>
                     </Link>
                     <Box margin={{ horizontal: 'medium' }}>
-                        <Link href="/[profile]" as={`/${props.ownerSlug}`}>
-                            <Owner>{props.ownerName}</Owner>
+                        <Link
+                            href="/[profile]"
+                            as={`/${props.ownerSlug}`}
+                            passHref
+                        >
+                            <Anchor>
+                                <Owner>{props.ownerName}</Owner>
+                            </Anchor>
                         </Link>
                         <CreationDate>
                             {date.toLocaleDateString('fr-FR', options)}

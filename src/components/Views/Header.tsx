@@ -1,34 +1,34 @@
-import { Box, ResponsiveContext } from 'grommet'
+import { Anchor, Box } from 'grommet'
 import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
-import { brand100, brand900 } from '../../constants/colors'
-import { Logo, Beta } from '../Logo'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import ReactGA from 'react-ga'
+import { Auth0 } from '../../pages/_document'
+import { StyledButton } from '../Button'
+import { Beta, Logo } from '../Logo'
 
-const ButtonCTA = styled.a`
-    color: ${brand900};
-    border: 1px transparent solid;
-    background-color: ${brand100};
-    text-decoration: none;
-    border-radius: 3px;
-    padding: 3px 10px 3px 10px;
-    font-weight: 500;
-    margin: 0px;
-    height: fit-content;
-    width: fit-content;
-    font-size: 16px;
+const logout = () => {
+    Auth0.logout()
+}
 
-    :hover {
-        border: 1px ${brand900} solid;
-    }
-
-    @media screen and (max-width: 812px) {
-        font-size: 12px;
-    }
-`
-
+const trackTableOfContent = (name: string) => {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Engagement',
+        action: `Click on ${name}`,
+    })
+}
 const Header = () => {
-    const size = React.useContext(ResponsiveContext)
+    const router = useRouter()
+    const [isLoggedIn, setIsLoggedIn] = useState()
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        const lsLoggedIn = localStorage.getItem('isLoggedIn')
+        const lsUserDetails = localStorage.getItem('user_details')
+        setIsLoggedIn(lsLoggedIn ? JSON.parse(lsLoggedIn) : false)
+        setUserData(lsUserDetails ? JSON.parse(lsUserDetails) : null)
+    }, [])
     return (
         <Box
             background="white"
@@ -37,7 +37,6 @@ const Header = () => {
             width="full"
             align="center"
             justify="center"
-            pad={size === 'large' ? 'medium' : 'none'}
             border={{ color: 'light-4', size: '0.5px', side: 'bottom' }}
         >
             <Box
@@ -48,17 +47,42 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Link href="/">
-                        <Logo>
-                            Tottem
-                            <Beta>beta</Beta>
-                        </Logo>
+                    <Link href="/" passHref>
+                        <Anchor>
+                            <Logo>
+                                Tottem
+                                <Beta>beta</Beta>
+                            </Logo>
+                        </Anchor>
                     </Link>
                 </Box>
-                <Box>
-                    <ButtonCTA href="http://eepurl.com/gE44Sz" target="_blank">
-                        Recevoir les nouvelles collections
-                    </ButtonCTA>
+                <Box direction="row" align="center" gap="small">
+                    {isLoggedIn &&
+                        `Hi ${userData.given_name || userData.nickname}!`}
+                    <Anchor
+                        href="https://vincentp791262.typeform.com/to/LOiv5v"
+                        target="_blank"
+                    >
+                        <StyledButton
+                            onClick={() => trackTableOfContent('New Profile')}
+                        >
+                            Créer son profil
+                        </StyledButton>
+                    </Anchor>
+                    <Anchor
+                        href={`https://vincentp791262.typeform.com/to/bffF4t?profile=${router.query.profile}`}
+                        target="_blank"
+                    >
+                        <StyledButton
+                            onClick={() => trackTableOfContent('Subscribe')}
+                            primary
+                        >
+                            S'abonner
+                        </StyledButton>
+                    </Anchor>
+                    {isLoggedIn && (
+                        <StyledButton onClick={logout}>Logout</StyledButton>
+                    )}
                 </Box>
             </Box>
         </Box>
