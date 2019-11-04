@@ -1,5 +1,13 @@
 import cheerio from 'cheerio'
-import { getAwesome, getNativeContent } from '../src/scrappers/awesome'
+import {
+    getAwesome,
+    getNativeContent,
+    AwesomeItem,
+    mergeNativeAndFetchedInfos,
+    getOnlyText,
+} from '../src/scrappers/awesome'
+import { splitByTag } from '../src/scrappers/utils'
+import { IItem } from '../src/interfaces'
 
 const awesomeMarkdnow = `
 
@@ -141,9 +149,62 @@ describe('getItems should retrieve right item infos', () => {
         const $ = cheerio.load(html)
         const actual = getNativeContent($('li').first())
         const expected = {
-            title: '- First Title',
+            title: 'First Title',
             productUrl: 'https://www.howtographql-1.com/',
         }
         expect(actual).toEqual(expected)
+    })
+})
+
+describe('splitByTag should split HTML nodes by given tag', () => {
+    test('when tag is simple', () => {
+        const html = `<h1> <p>Foo</p> </h1> <h1> <p>Bar</p> </h1>`
+        const $ = cheerio.load(html)
+        const actual = splitByTag($, 'h1')
+        expect(actual).toHaveLength(2)
+        expect(actual[0].current.name).toEqual('h1')
+        expect(actual[1].current.name).toEqual('h1')
+    })
+
+    test('when tag is multiple', () => {
+        const html = `<h1> <p>Foo</p> </h1> <h2> <p>Bar</p> </h2>`
+        const $ = cheerio.load(html)
+        const actual = splitByTag($, 'h1, h2')
+        expect(actual).toHaveLength(2)
+        expect(actual[0].current.name).toEqual('h1')
+        expect(actual[1].current.name).toEqual('h2')
+    })
+})
+
+describe('mergeNativeAndFetchedInfos should merge item', () => {
+    test('with native content priority', async () => {
+        const native: AwesomeItem = {
+            title: 'foo',
+            author: 'bar',
+            productUrl: 'quz',
+        }
+        const inferredItem: Promise<IItem> = Promise.resolve({
+            title: '',
+            author: '',
+            type: 'website',
+            productUrl: '',
+        })
+        const actual = await mergeNativeAndFetchedInfos(inferredItem, native)
+        const expected = {
+            title: 'foo',
+            author: 'bar',
+            productUrl: 'quz',
+            type: 'website',
+        }
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getOnlyTest should remove other node html', () => {
+    test('nested nodes', async () => {
+        const html = `<h1> Foo <a>Bar</a> </h1>`
+        const $ = cheerio.load(html)
+        const actual = getOnlyText($('h1'))
+        expect(actual).toEqual('Foo')
     })
 })

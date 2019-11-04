@@ -2,12 +2,12 @@ import cheerio from 'cheerio'
 import fs from 'fs'
 import MardownIt from 'markdown-it'
 import emoji from 'node-emoji'
+import getUuid from 'uuid-by-string'
 import { ICollection, IItem, ISection } from '../interfaces'
 import logger from '../logging'
 import { inferNewItemFromUrl } from '../parsers'
 import { SimpleFetch } from '../parsers/fetchers'
 import { arrSum, splitByTag } from './utils'
-import getUuid from 'uuid-by-string'
 
 export interface AwesomeItem {
     title: string
@@ -29,7 +29,7 @@ export async function getAwesome(
     const sections = await Promise.all(
         splitByTag($, sectionTag).map(async ({ current, children }, index) => {
             // Find different collections and group items inside
-            const sectionName = $(current).text()
+            const sectionName = getOnlyText($(current))
             const collections: ICollection[] = await getCollections(
                 children,
                 collectionTag,
@@ -68,7 +68,9 @@ async function getCollections(
         const collectionName = $(collection.current)
             .text()
             .trim()
-        const items = await getItems(collection.children, itemTag)
+        const items = (await getItems(collection.children, itemTag)).filter(
+            result => !(result instanceof Error)
+        )
         logger.info(
             `Collection found ${collectionName} with ${items.length} items`
         )
@@ -76,7 +78,7 @@ async function getCollections(
             id: getUuid(fromSectionName + collectionName),
             date: new Date(),
             name: emoji.emojify(collectionName, () => ''),
-            items: items.filter(result => !(result instanceof Error)),
+            items,
         }
     })
 
@@ -97,7 +99,7 @@ async function getCollections(
     return Promise.all(collections)
 }
 
-async function mergeNativeAndFetchedInfos(
+export async function mergeNativeAndFetchedInfos(
     inferredInfo: Promise<IItem>,
     item: AwesomeItem
 ) {
@@ -115,33 +117,56 @@ async function getItems($: CheerioStatic, tag: string): Promise<IItem[]> {
         items.push(mergeNativeAndFetchedInfos(item, nativeContent))
     })
     logger.debug(`Items found: ${items.length} corresponding to ${tag}`)
-    return Promise.all(items.map(p => p.catch(e => e)))
+    return Promise.all(
+        items.map(p =>
+            p.catch(e => {
+                // logger.error(e)
+                return e
+            })
+        )
+    )
+}
+
+export function getOnlyText(el: Cheerio) {
+    return el
+        .clone()
+        .children()
+        .remove()
+        .end()
+        .text()
+        .replace('-', '')
+        .trim()
 }
 
 export function getNativeContent(el: Cheerio) {
     return {
         productUrl: el.children('a').attr('href') || el.attr('href'),
-        title: el
-            .clone()
-            .children()
-            .remove()
-            .end()
-            .text()
-            .trim(),
+        title: getOnlyText(el),
     }
 }
 
-async function main() {
-    const awesomeUrl =
-        'https://raw.githubusercontent.com/catalinmiron/awesome-prisma/master/readme.md'
+async function launchAwesome(
+    name: string,
+    url: string,
+    sectionTag: string,
+    collectionTag: string,
+    itemTag: string,
+    shouldCreateDefaultCollection: boolean
+) {
     const md = MardownIt()
-    const githubMd = await SimpleFetch(awesomeUrl)
+    const githubMd = await SimpleFetch(url)
     const awesomeHtml = md.render(githubMd)
     const $ = cheerio.load(awesomeHtml)
-    const res = await getAwesome($, 'h2', 'h3', 'li a', true)
+    const res = await getAwesome(
+        $,
+        sectionTag,
+        collectionTag,
+        itemTag,
+        shouldCreateDefaultCollection
+    )
     const json = JSON.stringify(res)
     fs.writeFile(
-        '/Users/vincentpoulain/Development/quiet/src/data/awesome-prisma/generated-sections.json',
+        `/Users/vincentpoulain/Development/quiet/src/data/${name}/generated-sections.json`,
         json,
         'utf8',
         () =>
@@ -153,4 +178,47 @@ async function main() {
     )
 }
 
-main()
+const launchPrisma = async () => {
+    await launchAwesome(
+        'awesome-prisma',
+        'https://raw.githubusercontent.com/catalinmiron/awesome-prisma/master/readme.md',
+        'h2',
+        'h3',
+        'li a',
+        true
+    )
+}
+
+const launchNextjs = async () => {
+    await launchAwesome(
+        'awesome-nextjs',
+        'https://raw.githubusercontent.com/catalinmiron/awesome-prisma/master/readme.md',
+        'h2',
+        'h3',
+        'li a',
+        true
+    )
+}
+const launchPython = async () => {
+    await launchAwesome(
+        'awesome-python',
+        'https://raw.githubusercontent.com/vinta/awesome-python/master/README.md',
+        'h1',
+        'h2',
+        'li a',
+        true
+    )
+}
+
+const launchCSS = async () => {
+    await launchAwesome(
+        'awesome-css-learning',
+        'https://raw.githubusercontent.com/micromata/awesome-css-learning/master/readme.md',
+        'h1',
+        'h2, h3',
+        'li',
+        false
+    )
+}
+
+launchCSS()
