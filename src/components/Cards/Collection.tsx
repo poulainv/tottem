@@ -12,8 +12,10 @@ import { CollectionTitle } from '../Typography'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
+    line-height: 28px;
     @media screen and (max-width: 600px) {
         font-size: 14px;
+        line-height: 24px;
     }
 `
 
@@ -51,8 +53,8 @@ const Collection: React.FC<ICollection> = props => {
             id={props.id}
         >
             <Link
-                href="/[profile]/collection/[collectionId]"
-                as={`/${router.query.profile}/collection/${props.id}`}
+                href="/[profile]/c/[collectionId]"
+                as={`/${router.query.profile}/c/${props.id}`}
                 passHref
             >
                 <Anchor>

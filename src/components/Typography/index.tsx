@@ -22,11 +22,11 @@ export const PageHeader = styled.h1`
 export const PageSubheader = styled.h3`
     font-weight: normal;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 28px;
 
     @media screen and (max-width: 812px) {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 22px;
     }
 `
 
