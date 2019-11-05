@@ -51,10 +51,37 @@ const items: Item[] = [
         title: 'Laurent Alexandre',
         productUrl: 'https://en.wikipedia.org/wiki/Laurent_Alexandre',
     },
+    {
+        collectionId: '12',
+        type: 'people',
+        author: 'Politician',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Paris_-_Salon_du_livre_de_Paris_2017_-_Luc_Ferry_-_005_%28cropped%29.jpg/220px-Paris_-_Salon_du_livre_de_Paris_2017_-_Luc_Ferry_-_005_%28cropped%29.jpg',
+        title: 'Luc Ferry',
+        productUrl: 'https://en.wikipedia.org/wiki/Luc_Ferry',
+    },
+    {
+        collectionId: '12',
+        type: 'people',
+        author: 'Journalist',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Natacha_Polony_Cannes_2015.jpg/220px-Natacha_Polony_Cannes_2015.jpg',
+        title: 'Natacha Polony',
+        productUrl: 'https://en.wikipedia.org/wiki/Natacha_Polony',
+    },
+    {
+        collectionId: '12',
+        type: 'people',
+        author: 'Politician',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Meeting_M%C3%A9lenchon_Toulouse_-_2017-04-16_-_Jean-Luc_M%C3%A9lenchon_-_41_%28cropped_2%29.jpg/220px-Meeting_M%C3%A9lenchon_Toulouse_-_2017-04-16_-_Jean-Luc_M%C3%A9lenchon_-_41_%28cropped_2%29.jpg',
+        title: 'Jean-Luc Mélanchon',
+        productUrl: 'https://en.wikipedia.org/wiki/Jean-Luc_M%C3%A9lenchon',
+    },
     // science
     {
         collectionId: '13',
-        type: 'paper',
+        type: 'article',
         author: 'Nature Machine Intelligence',
         imageUrl: '/images/articles/nature.jpg',
         title: 'Learnability can be undecidable',
@@ -62,11 +89,30 @@ const items: Item[] = [
     },
     {
         collectionId: '13',
-        type: 'paper',
+        type: 'article',
         author: 'Skymind',
         imageUrl: '/images/articles/skymind.jpg',
         title: 'Word2Vec',
         productUrl: 'https://skymind.ai/wiki/word2vec',
+    },
+    {
+        collectionId: '13',
+        type: 'video',
+        author: 'Boston Dynamics Robots',
+        imageUrl:
+            'https://yt3.ggpht.com/a/AGF-l78trMnj7H3C99PD4QUgxZYqUdc6OcrGPDM_Ow=s900-c-k-c0xffffffff-no-rj-mo',
+        title: 'New Robot Makes Soldiers Obsolete',
+        productUrl: 'https://www.youtube.com/watch?v=y3RIHnK0_NE',
+    },
+    {
+        collectionId: '13',
+        type: 'book',
+        author: 'Olivier Ezratty',
+        imageUrl:
+            'https://www.oezratty.net/wordpress/wp-content/WindowsLiveWriter/Lebook-pour-comprendre-linformatique-qua_127F5/Cover-Comprendre-Informatique-Quantique-Sept2018_thumb.jpg',
+        title: 'L’ebook pour comprendre l’informatique quantique',
+        productUrl:
+            'https://www.oezratty.net/wordpress/2018/ebook-pour-comprendre-informatique-quantique/',
     },
     // directors
     {
@@ -109,9 +155,46 @@ const items: Item[] = [
         title: 'Cedric Klapish',
         productUrl: 'https://www.imdb.com/name/nm0458251/',
     },
-    // movies
+    // Actress
     {
         collectionId: '22',
+        type: 'people',
+        author: '',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Marlene_Dietrich_in_No_Highway_%281951%29_%28Cropped%29.png/290px-Marlene_Dietrich_in_No_Highway_%281951%29_%28Cropped%29.png',
+        title: 'Marlene Dietrich',
+        productUrl: 'https://www.imdb.com/name/nm0000017/',
+    },
+    {
+        collectionId: '22',
+        type: 'people',
+        author: '',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Annie_Girardot_C%C3%A9sars.jpg/260px-Annie_Girardot_C%C3%A9sars.jpg',
+        title: 'Annie Girardot',
+        productUrl: 'https://www.imdb.com/name/nm0320760/',
+    },
+    {
+        collectionId: '22',
+        type: 'people',
+        author: '',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/D%C3%A9borah_Fran%C3%A7ois_at_the_2009_Deauville_American_Film_Festival-01.jpg/220px-D%C3%A9borah_Fran%C3%A7ois_at_the_2009_Deauville_American_Film_Festival-01.jpg',
+        title: 'Deborah François',
+        productUrl: 'https://www.imdb.com/name/nm1918862/',
+    },
+    {
+        collectionId: '22',
+        type: 'people',
+        author: '',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Ana%C3%AFs_Demoustier_Cabourg_2015.jpg/260px-Ana%C3%AFs_Demoustier_Cabourg_2015.jpg',
+        title: 'Anais Demoustier',
+        productUrl: 'https://www.imdb.com/name/nm1326732/',
+    },
+    // movies
+    {
+        collectionId: '23',
         type: 'movie',
         author: 'Pablo Berger',
         imageUrl: '/images/movies/blancanieves.jpg',
@@ -119,7 +202,7 @@ const items: Item[] = [
         title: 'Blancanieves',
     },
     {
-        collectionId: '22',
+        collectionId: '23',
         type: 'movie',
         author: 'Anne Fontaine',
         imageUrl: '/images/movies/innocentes.jpg',
@@ -127,7 +210,7 @@ const items: Item[] = [
         title: 'Les innocentes',
     },
     {
-        collectionId: '22',
+        collectionId: '23',
         type: 'movie',
         author: 'Blancanieves',
         imageUrl: '/images/movies/winter.jpg',
@@ -135,7 +218,7 @@ const items: Item[] = [
         title: "Winter's Bones",
     },
     {
-        collectionId: '22',
+        collectionId: '23',
         type: 'movie',
         author: 'Quentin Tarantino',
         imageUrl: '/images/movies/pulpfiction.jpg',
@@ -144,7 +227,7 @@ const items: Item[] = [
     },
     // TV series
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/americains.jpg',
@@ -152,7 +235,7 @@ const items: Item[] = [
         title: 'The Americans',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/breakingbad.jpg',
@@ -160,7 +243,7 @@ const items: Item[] = [
         title: 'Breaking bad',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/bureaulegendes.jpg',
@@ -168,7 +251,7 @@ const items: Item[] = [
         title: 'Le bureau des légendes',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/guyane.jpg',
@@ -176,7 +259,7 @@ const items: Item[] = [
         title: 'Guyane',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/got.jpg',
@@ -184,7 +267,7 @@ const items: Item[] = [
         title: 'Game of thrones',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/goodwife.jpg',
@@ -192,7 +275,7 @@ const items: Item[] = [
         title: 'The good wife',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/housecards.jpg',
@@ -200,7 +283,7 @@ const items: Item[] = [
         title: 'House of cards',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/baronnoir.jpg',
@@ -208,7 +291,7 @@ const items: Item[] = [
         title: 'Le baron noir',
     },
     {
-        collectionId: '23',
+        collectionId: '24',
         type: 'movie',
         author: '',
         imageUrl: '/images/movies/hippocrate.jpg',
@@ -295,6 +378,15 @@ const items: Item[] = [
         imageUrl: '/images/people/bussi.jpg',
         title: 'Michel Bussi',
         productUrl: 'https://en.wikipedia.org/wiki/Michel_Bussi',
+    },
+    {
+        collectionId: '32',
+        type: 'people',
+        author: '',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/commons/4/4c/Ken_Follett_official.jpg',
+        title: 'Ken Follet',
+        productUrl: 'https://en.wikipedia.org/wiki/Ken_Follet',
     },
     {
         collectionId: '33',
@@ -550,6 +642,35 @@ const items: Item[] = [
         imageUrl: '/images/albums/beatles.jpg',
         productUrl: 'https://open.spotify.com/album/1klALx0u4AavZNEvC4LrTL',
         title: 'The Beatles',
+    },
+    {
+        collectionId: '42',
+        type: 'album',
+        author: 'Cat Stevens',
+        imageUrl: 'https://p4.storage.canalblog.com/41/84/1258683/96320887.jpg',
+        productUrl:
+            'https://open.spotify.com/track/2H8hNUy47dRpvXdRlrfZ90?autoplay=true&v=T',
+        title: "My Lady D'Arbanville",
+    },
+    {
+        collectionId: '42',
+        type: 'album',
+        author: 'Joan Baez',
+        imageUrl:
+            'https://img.discogs.com/S3V-MM9cy_W_wswjDHB4dDatdCI=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3780715-1400840366-6427.jpeg.jpg',
+        productUrl:
+            'https://open.spotify.com/track/1ySCMS40nqONzJkrno1X1b?autoplay=true&v=T',
+        title: 'Joe Hill',
+    },
+    {
+        collectionId: '42',
+        type: 'album',
+        author: 'Paolo Conte',
+        imageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/41DEC6TiIzL.jpg',
+        productUrl:
+            'https://open.spotify.com/track/751bsmv3KNPrytbCUdzQJN?autoplay=true&v=T',
+        title: 'Via con me',
     },
 ]
 

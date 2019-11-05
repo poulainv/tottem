@@ -24,6 +24,7 @@ export const Menu = styled.ul`
 export const MenuItem = styled.li`
     text-decoration: none;
     line-height: 160%;
+    cursor: pointer;
     white-space: nowrap;
     transition: all 0.3s;
     font-weight: 500;
