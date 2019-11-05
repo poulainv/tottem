@@ -1,17 +1,17 @@
 import { Box } from 'grommet'
+import { LinkPrevious } from 'grommet-icons'
 import { NextPage, NextPageContext } from 'next'
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import removeMd from 'remove-markdown'
+import styled from 'styled-components'
 import CollectionHeader from '../../../components/Collection/Header'
 import ItemList from '../../../components/Collection/ItemList'
 import { Layout, PageBox } from '../../../components/Views/Layout'
-import { ICollection, ISection, UserProfile, Item } from '../../../types'
-import styled from 'styled-components'
-import { LinkPrevious } from 'grommet-icons'
-import Link from 'next/link'
 import { getAwesomeSections } from '../../../data/awesome/sections'
+import { ICollection, ISection, Item, UserProfile } from '../../../types'
 
 const countBy = require('lodash.countby')
 const flatten = require('lodash.flatten')
