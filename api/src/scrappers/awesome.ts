@@ -8,6 +8,7 @@ import logger from '../logging'
 import { inferNewItemFromUrl } from '../parsers'
 import { SimpleFetch } from '../parsers/fetchers'
 import { arrSum, splitByTag } from './utils'
+import slugify from 'slugify'
 
 export interface AwesomeItem {
     title: string

@@ -5,8 +5,7 @@
             "DATABASE_PROVIDER": "@database_provider",
             "DATABASE_URL": "@database_url",
             "AUTH0_DOMAIN": "@auth0_domain",
-            "AUTH0_CLIENTID": "@auth0_client_id",
-            "INIT_CWD": "api"
+            "AUTH0_CLIENTID": "@auth0_client_id"
         }
     },
     "env": {

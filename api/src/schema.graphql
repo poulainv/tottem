@@ -120,11 +120,12 @@ input ItemFilter {
 
 enum ItemType {
     album
+    article
     book
     movie
-    article
     people
     podcast
+    repository
     video
     website
 }
