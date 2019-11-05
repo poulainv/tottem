@@ -12,7 +12,7 @@ interface Context extends NextPageContext {
 export default class extends React.Component {
     static async getInitialProps(context: Context) {
         if (context.res) {
-            context.res.writeHead(302, {
+            context.res.writeHead(301, {
                 Location: `/${context.query.profile}`,
             })
             context.res.end()
