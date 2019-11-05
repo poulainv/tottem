@@ -57,7 +57,7 @@ const Collection: NextPage<ICollectionProps> = ({
                 }}
                 openGraph={{
                     description: `${collectionName} by ${userProfile.firstname} - Tottem`,
-                    url: `https://tottem.app/${router.query.profile}/c/${collection.id}`,
+                    url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
                     site_name: 'Tottem',
                     images: [
                         {
