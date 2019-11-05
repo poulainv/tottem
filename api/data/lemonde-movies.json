@@ -1,0 +1,587 @@
+[
+    {
+        "title": "Le Fleuve",
+        "author": "Jean Renoir",
+        "year": 1951,
+        "genre": "Drame"
+    },
+    {
+        "title": "Les Contes de la lune vague après la pluie",
+        "author": "Kenji Mizoguchi",
+        "year": 1953,
+        "genre": "drame"
+    },
+    {
+        "title": "Voyage à Tokyo",
+        "author": "Yasujiro Ozu",
+        "year": 1953,
+        "genre": "Drame sentimental"
+    },
+    {
+        "title": "Les Sept Samouraïs",
+        "author": "Kurosawa",
+        "year": 1954,
+        "genre": "Aventure, drame"
+    },
+    {
+        "title": "Ordet",
+        "author": "Carl Theodor Dreyer",
+        "year": 1955,
+        "genre": "Drame"
+    },
+    {
+        "title": "La Fureur de vivre",
+        "author": "Nicholas Ray",
+        "year": 1955,
+        "genre": "Drame"
+    },
+    {
+        "title": "Sueurs froides",
+        "author": "Hitchcock",
+        "year": 1958,
+        "genre": "Thriller, drame"
+    },
+    {
+        "title": "Mon Oncle",
+        "author": "Jacques Tati",
+        "year": 1958,
+        "genre": "Comédie"
+    },
+    {
+        "title": "Moi, un Noir",
+        "author": "Jean Rouch",
+        "year": 1959,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Les Quatre Cents Coups",
+        "author": "François Truffaut",
+        "year": 1959,
+        "genre": "Drame"
+    },
+    {
+        "title": "L’Avventura",
+        "author": "Michelangelo Antonioni",
+        "year": 1960,
+        "genre": "Drame"
+    },
+    {
+        "title": "Le Trou",
+        "author": "Jacques Becker",
+        "year": 1960,
+        "genre": "Drame"
+    },
+    {
+        "title": "A bout de souffle",
+        "author": "Jean-Luc Godard",
+        "year": 1960,
+        "genre": "Policier, drame, romance"
+    },
+    {
+        "title": "Huit et demi",
+        "author": "Federico Fellini",
+        "year": 1963,
+        "genre": "Drame, Fantastique"
+    },
+    {
+        "title": "Les Parapluies de Cherbourg",
+        "author": "Jacques Demy",
+        "year": 1964,
+        "genre": "Comédie musicale"
+    },
+    {
+        "title": "Les Poings dans les poches",
+        "author": "Marco Bellocchio",
+        "year": 1965,
+        "genre": "Drame"
+    },
+    {
+        "title": "Persona",
+        "author": "Bergman",
+        "year": 1966,
+        "genre": "Drame, thriller"
+    },
+    {
+        "title": "Blow-Up",
+        "author": "Michelangelo Antonioni",
+        "year": 1967,
+        "genre": "Drame"
+    },
+    {
+        "title": "Mouchette",
+        "author": "Robert Bresson",
+        "year": 1967,
+        "genre": "Drame"
+    },
+    {
+        "title": "Théorème",
+        "author": "Pier Paolo Pasolini",
+        "year": 1968,
+        "genre": "Drame"
+    },
+    {
+        "title": "Rosemary’s Baby",
+        "author": "Roman Polanski",
+        "year": 1968,
+        "genre": "Epouvante, drame, thriller"
+    },
+    { "title": "Kes", "author": "Ken Loach", "year": 1969, "genre": "Drame" },
+    {
+        "title": "Antonio Das Mortes",
+        "author": "Glauber Rocha",
+        "year": 1969,
+        "genre": "Drame, western"
+    },
+    {
+        "title": "Andrei Roublev",
+        "author": "Tarkovski",
+        "year": 1969,
+        "genre": "Drame, biopic"
+    },
+    {
+        "title": "Le Chagrin et la Pitié",
+        "author": "Marcel Ophuls",
+        "year": 1969,
+        "genre": "Documentaire"
+    },
+    {
+        "title": "Deep End",
+        "author": "Jerzy Skolimowski",
+        "year": 1970,
+        "genre": "Drame"
+    },
+    {
+        "title": "French Connection",
+        "author": "William Friedkin",
+        "year": 1971,
+        "genre": "Policier"
+    },
+    {
+        "title": "Orange mécanique",
+        "author": "Stanley Kubrick",
+        "year": 1971,
+        "genre": "Drame"
+    },
+    {
+        "title": "L’Argent de la vieille",
+        "author": "Luigi Comencini",
+        "year": 1972,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Touki-Bouki",
+        "author": "Djibril Diop Manbety",
+        "year": 1972,
+        "genre": "Drame"
+    },
+    {
+        "title": "La Gueule ouverte",
+        "author": "Maurice Pialat",
+        "year": 1974,
+        "genre": "Drame"
+    },
+    {
+        "title": "Mr Klein",
+        "author": "Joseph Losey",
+        "year": 1976,
+        "genre": "Drame"
+    },
+    {
+        "title": "Passe-montagne",
+        "author": "Jean-François Stévenin",
+        "year": 1978,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Doomed Love",
+        "author": "Manoel de Oliveira",
+        "year": 1978,
+        "genre": "Drame"
+    },
+    {
+        "title": "Manhattan",
+        "author": "Woody Allen",
+        "year": 1979,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Voyage au bout de l’enfer",
+        "author": "Michael Cimino",
+        "year": 1979,
+        "genre": "Drame, guerre"
+    },
+    {
+        "title": "Alien",
+        "author": "Ridley Scott",
+        "year": 1979,
+        "genre": "Science fiction, épouvante"
+    },
+    {
+        "title": "La Porte du paradis",
+        "author": "Michael Cimino",
+        "year": 1980,
+        "genre": "Drame, western, aventure"
+    },
+    {
+        "title": "Elephant Man",
+        "author": "David Lynch",
+        "year": 1981,
+        "genre": "Drame, biopic"
+    },
+    {
+        "title": "E.T. l’extraterrestre",
+        "author": "Steven Spielberg",
+        "year": 1982,
+        "genre": "Science fiction, aventure"
+    },
+    {
+        "title": "Fanny et Alexandre",
+        "author": "Bergan",
+        "year": 1983,
+        "genre": "Drame"
+    },
+    {
+        "title": "Mon ami Ivan Iapchine",
+        "author": "Guerman",
+        "year": 1984,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Un temps pour vivre, un temps pour mourir",
+        "author": "Hou Hsiao hsien",
+        "year": 1985,
+        "genre": "Drame"
+    },
+    {
+        "title": "Shoah",
+        "author": "Claude Lanzmann",
+        "year": 1985,
+        "genre": "Documentaire"
+    },
+    {
+        "title": "Maine Océan",
+        "author": "Jacques Rozier",
+        "year": 1986,
+        "genre": "Comédie"
+    },
+    {
+        "title": "L’Apiculteur",
+        "author": "Theo Angeloupoulos",
+        "year": 1987,
+        "genre": "Drame"
+    },
+    {
+        "title": "Smoking/no smoking",
+        "author": "Resnais",
+        "year": 1993,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "La Leçon de piano",
+        "author": "Jane Campion",
+        "year": 1993,
+        "genre": "Drame, romance"
+    },
+    {
+        "title": "Journal intime",
+        "author": "Nanni Moretti",
+        "year": 1994,
+        "genre": "Comédie dramatique, biopic"
+    },
+    {
+        "title": "La Comédie de Dieu",
+        "author": "Joao Cesar Monteiro",
+        "year": 1996,
+        "genre": "Comédie, drame"
+    },
+    {
+        "title": "Comment je me suis disputé... (ma vie sexuelle)",
+        "author": "Desplechin",
+        "year": 1996,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Xiao Wu, artisan pickpocket",
+        "author": "Jia Jang Ke",
+        "year": 1997,
+        "genre": "Drame"
+    },
+    {
+        "title": "En chair et en os",
+        "author": "Pedro Almodovar",
+        "year": 1997,
+        "genre": "Drame"
+    },
+    {
+        "title": "Hana-bi",
+        "author": "Takeshi Kitano",
+        "year": 1997,
+        "genre": "Drame"
+    },
+    {
+        "title": "Suzaku",
+        "author": "Naomi Kawase",
+        "year": 1997,
+        "genre": "Drame"
+    },
+    {
+        "title": "Le Goût de la cerise",
+        "author": "Kiarostami",
+        "year": 1997,
+        "genre": "Drame"
+    },
+    {
+        "title": "L’Humanité",
+        "author": "Bruno Dumont",
+        "year": 1999,
+        "genre": "Drame"
+    },
+    {
+        "title": "La Captive",
+        "author": "Chantal Akerman",
+        "year": 2000,
+        "genre": "Drame"
+    },
+    { "title": "Yi Yi", "author": "Yang", "year": 2000, "genre": "Drame" },
+    {
+        "title": "The Yards",
+        "author": "James Gray",
+        "year": 2000,
+        "genre": "Policier, drame, thriller"
+    },
+    {
+        "title": "Le Voyage de Chihiro",
+        "author": "Hayao Miyazaki",
+        "year": 2001,
+        "genre": "Animation, aventure"
+    },
+    {
+        "title": "A l’ouest des rails",
+        "author": "Wang Bing",
+        "year": 2003,
+        "genre": "Documentaire"
+    },
+    {
+        "title": "Sang et or",
+        "author": "Jafar Panahi",
+        "year": 2003,
+        "genre": "Drame"
+    },
+    {
+        "title": "Elephant",
+        "author": "Gus Van Sant",
+        "year": 2003,
+        "genre": "Drame"
+    },
+    {
+        "title": "Million Dollar Baby",
+        "author": "Clint Eastwood",
+        "year": 2005,
+        "genre": "Drame"
+    },
+    {
+        "title": "A History of Violence",
+        "author": "David Cronenberg",
+        "year": 2005,
+        "genre": "Thriller"
+    },
+    {
+        "title": "Les Amants réguliers",
+        "author": "Philippe Garrel",
+        "year": 2005,
+        "genre": "Drame, romance"
+    },
+    {
+        "title": "Lady Chatterley",
+        "author": "Pascale Ferran",
+        "year": 2006,
+        "genre": "Drame, romance"
+    },
+    {
+        "title": "Bled Number One",
+        "author": "Rabah Ameur-Zaïmeche",
+        "year": 2006,
+        "genre": "Drame"
+    },
+    {
+        "title": "4 mois, 3 semaines et 2 jours",
+        "author": "Cristian Mungiu",
+        "year": 2007,
+        "genre": "Drame"
+    },
+    {
+        "title": "Les Climats",
+        "author": "Nuri Bilge Ceylan",
+        "year": 2007,
+        "genre": "Drame"
+    },
+    {
+        "title": "No Country for Old Men",
+        "author": "et Joel Coen",
+        "year": 2007,
+        "genre": "Thriller, drame"
+    },
+    {
+        "title": "Wall. E",
+        "author": "Stanton",
+        "year": 2008,
+        "genre": "Animation, aventure"
+    },
+    { "title": "My Magic", "author": "Khoo", "year": 2008, "genre": "Drame" },
+    {
+        "title": "Vincere",
+        "author": "Marco Bellochchio",
+        "year": 2009,
+        "genre": "Drame, historique"
+    },
+    {
+        "title": "Un prophète",
+        "author": "Jacques Audiard",
+        "year": 2009,
+        "genre": "Policier, drame"
+    },
+    {
+        "title": "Ce cher mois d’août",
+        "author": "Miguel Gomes",
+        "year": 2009,
+        "genre": "Romance"
+    },
+    {
+        "title": "Démineurs",
+        "author": "Kathryn Bigelow",
+        "year": 2009,
+        "genre": "Guerre, action, drame"
+    },
+    {
+        "title": "Mystères de Lisbonne",
+        "author": "Raoul Ruiz",
+        "year": 2010,
+        "genre": "Drame, romance"
+    },
+    {
+        "title": "Shutter Island",
+        "author": "Martin Scorsese",
+        "year": 2010,
+        "genre": "Thriller"
+    },
+    {
+        "title": "Oncle Boonmee, celui qui se souvient de ses vies antérieures",
+        "author": "Weerasethakul",
+        "year": 2010,
+        "genre": "Comédie dramatique, fantaisie"
+    },
+    {
+        "title": "La BM du seigneur",
+        "author": "Jean-Charles Hue",
+        "year": 2011,
+        "genre": "Drame"
+    },
+    {
+        "title": "L’Apollonide",
+        "author": "Bertrand Bonello",
+        "year": 2011,
+        "genre": "Drame"
+    },
+    {
+        "title": "Melancholia",
+        "author": "Lars von Trier",
+        "year": 2011,
+        "genre": "Science fiction, drame"
+    },
+    {
+        "title": "Holy Motors",
+        "author": "Leos Carax",
+        "year": 2012,
+        "genre": "Drame, fantastique"
+    },
+    {
+        "title": "Saudade",
+        "author": "Katsuya Tomita",
+        "year": 2012,
+        "genre": "Comédie dramatique"
+    },
+    {
+        "title": "Amour",
+        "author": "Michael Haneke",
+        "year": 2012,
+        "genre": "Drame"
+    },
+    {
+        "title": "L’Inconnu du lac",
+        "author": "Guiraudie",
+        "year": 2013,
+        "genre": "Drame, policier"
+    },
+    {
+        "title": "Shokuzai",
+        "author": "Kiyoshi Kurosawa",
+        "year": 2013,
+        "genre": "Drame"
+    },
+    {
+        "title": "Tip top",
+        "author": "Serge Bozon",
+        "year": 2013,
+        "genre": "Comédie, policier"
+    },
+    {
+        "title": "Under the Skin",
+        "author": "Jonathan Glazer",
+        "year": 2014,
+        "genre": "Science fiction, thriller"
+    },
+    {
+        "title": "Eau argentée",
+        "author": "Mohammed et Wiam Simav Bedirxan",
+        "year": 2014,
+        "genre": "Documentaire"
+    },
+    {
+        "title": "Timbuktu",
+        "author": "Sissako",
+        "year": 2014,
+        "genre": "Drame"
+    },
+    {
+        "title": "Aquarius",
+        "author": "Kleber Mendonça Filho",
+        "year": 2016,
+        "genre": "Drame, thriller"
+    },
+    {
+        "title": "Manchester by the Sea",
+        "author": "Kenneth Lonergan",
+        "year": 2016,
+        "genre": "Drame"
+    },
+    {
+        "title": "Un jour dans la vie de Billy Lynn",
+        "author": "Lee",
+        "year": 2017,
+        "genre": "Drame"
+    },
+    {
+        "title": "Moonlight",
+        "author": "Barry Jenkins",
+        "year": 2017,
+        "genre": "Drame"
+    },
+    {
+        "title": "Phantom Thread",
+        "author": "Paul Thomas Anderson",
+        "year": 2018,
+        "genre": "Drame"
+    },
+    {
+        "title": "Mektoub my love",
+        "author": "Kechiche",
+        "year": 2018,
+        "genre": "Drame, romance"
+    },
+    {
+        "title": "High Life",
+        "author": "Claire Denis",
+        "year": 2018,
+        "genre": "Science fiction"
+    }
+]
