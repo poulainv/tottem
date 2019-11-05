@@ -53,8 +53,8 @@ const Collection: React.FC<ICollection> = props => {
             id={props.id}
         >
             <Link
-                href="/[profile]/collection/[collectionId]"
-                as={`/${router.query.profile}/collection/${props.id}`}
+                href="/[profile]/c/[collectionId]"
+                as={`/${router.query.profile}/c/${props.id}`}
                 passHref
             >
                 <Anchor>
