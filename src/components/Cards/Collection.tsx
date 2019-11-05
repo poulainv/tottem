@@ -12,8 +12,10 @@ import { CollectionTitle } from '../Typography'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
+    line-height: 28px;
     @media screen and (max-width: 600px) {
         font-size: 14px;
+        line-height: 24px;
     }
 `
 
