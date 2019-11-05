@@ -45,6 +45,31 @@ export function YoutubeMetas(props: IYoutubeMetasProps) {
     )
 }
 
+export interface IMovieDBMetasProps {
+    releaseDate: string
+    voteAverage: number
+}
+
+export function MovieDBMetas(props: IMovieDBMetasProps) {
+    return (
+        <Box direction="row" align="center">
+            <Image src="/pictograms/moviedb.svg" height="24px" />
+            <p
+                style={{
+                    lineHeight: '100%',
+                    marginLeft: '8px',
+                    fontSize: '14px',
+                }}
+            >
+                {new Date(props.releaseDate).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                })}{' '}
+                • {props.voteAverage} avg. score
+            </p>
+        </Box>
+    )
+}
+
 export interface IItemMetasProps {
     item: Item
 }
@@ -55,6 +80,8 @@ export function ItemMetas({ item }: IItemMetasProps) {
             return <GithubMetas {...(item.meta as IGithubMetasProps)} />
         } else if (item.provider === 'youtube') {
             return <YoutubeMetas {...(item.meta as IYoutubeMetasProps)} />
+        } else if (item.provider === 'moviedb') {
+            return <MovieDBMetas {...(item.meta as IMovieDBMetasProps)} />
         }
     }
     return <React.Fragment />

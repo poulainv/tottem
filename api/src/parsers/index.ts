@@ -125,7 +125,8 @@ const FallbackParser = {
             $('meta[name="twitter:image:src"]').attr('content') ||
             $('meta[name="twitter:image"]').attr('content') ||
             $('meta[property="og:image"]').attr('content') ||
-            withDomain(url, $('link[rel="apple-touch-icon"]').attr('href'))
+            ($('link[rel="apple-touch-icon"]').attr('href') &&
+                withDomain(url, $('link[rel="apple-touch-icon"]').attr('href')))
         return {
             title: header,
             description,
@@ -222,7 +223,7 @@ export async function inferNewItemFromUrl(url: string): Promise<IItem> {
         const inferredItem = await Parser.parse(url, body)
         return emojify(trim(inferredItem))
     } catch (err) {
-        if ('Only absolute URLs are supported' in err.message) {
+        if (err.message.includes('Only absolute URLs are supported')) {
             logger.info(`Url skipped because not absolute ${url}`)
         } else {
             logger.error(`Err with ${url} ${err}`, err)

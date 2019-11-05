@@ -1,5 +1,6 @@
 export interface ICollection {
     id: string
+    slug?: string
     name: string
     date: Date | string
     items: Item[]
@@ -12,6 +13,12 @@ export interface ISection {
     name: string
     index: number
     collections: ICollection[]
+}
+
+export interface ISectionIndex {
+    id: string
+    name: string
+    index: number
 }
 
 export interface Item {
@@ -53,7 +60,6 @@ export interface UserProfile {
     biography: string
     social?: ISocial
     label?: string
-    sections: ISection[]
 }
 
 export type ImageShapeType = 'rectangle' | 'square' | 'circle'
