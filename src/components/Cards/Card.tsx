@@ -18,13 +18,13 @@ export const CardSize = {
     small: {
         widthInNumber: smallWidth,
         width: smallWidth + 'px',
-        rectangleImageHeight: 1.5 * smallWidth + 'px',
+        rectangleImageHeight: 1.6 * smallWidth + 'px',
         squareImageHeight: smallWidth + 'px',
     },
     large: {
         widthInNumber: width,
         width: width + 'px',
-        rectangleImageHeight: 1.5 * width + 'px',
+        rectangleImageHeight: 1.6 * width + 'px',
         squareImageHeight: width + 'px',
     },
 }
