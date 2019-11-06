@@ -48,6 +48,7 @@ export const CreationDate = styled.p`
 export const ElementTitle = styled.a`
     font-weight: 500;
     font-size: 16px;
+    user-select: text;
     line-height: 28px;
     margin: 0px;
     cursor: pointer;
@@ -91,6 +92,7 @@ export const ElementDescription = styled.p`
 export const CollectionTitle = styled.h2`
     font-size: 16px;
     font-weight: 400;
+    user-select: text;
     cursor: pointer;
     color: ${grey900};
 

@@ -100,7 +100,8 @@ function SCParser(url: string, body: string): IItem {
             $('span[itemprop="creator"]').text() ||
             $('span[itemprop="director"]').text(),
         productUrl: url,
-        type: kind as ItemType,
+        type: kind as ItemType, // kind is not correctly typed
+        description: $('.pvi-productDetails-resume').text(),
         imageUrl: $('.lightview ').attr('href'),
     }
 }

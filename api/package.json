@@ -23,6 +23,7 @@
         "generate:nexus": "ts-node --transpile-only src/schema",
         "seed": "ts-node --transpile-only prisma/seed.ts",
         "awesome": "ts-node src/scrappers/awesome.ts",
+        "sc": "ts-node src/scrappers/sc.ts",
         "logging": "ts-node src/logging.ts"
     },
     "dependencies": {
