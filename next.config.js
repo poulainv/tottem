@@ -4,7 +4,9 @@ const webpack = require('webpack')
 // to expose ENV variables to the client side
 module.exports = {
     webpack: (config, { dev }) => {
-        config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+        config.plugins.push(
+            new webpack.EnvironmentPlugin(localEnv || { ENV: 'prod' })
+        )
         return config
     },
     env: {
