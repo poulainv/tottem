@@ -1,7 +1,5 @@
-import { Box, Button, Text } from 'grommet'
-import { Share } from 'grommet-icons'
+import { Box, Text } from 'grommet'
 import React from 'react'
-import ReactGA from 'react-ga'
 import Truncate from 'react-truncate'
 import styled from 'styled-components'
 import { Item } from '../../types'
@@ -29,27 +27,7 @@ interface CardInfoProps {
     hover: boolean
 }
 
-function trackOpenItem() {
-    ReactGA.initialize('UA-149517534-1')
-    ReactGA.event({
-        category: 'Item',
-        action: 'Open item',
-    })
-}
-
 const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
-    const optionButton = (
-        <Box direction="row">
-            <Button
-                style={{ padding: '0px 5px 0px 5px' }}
-                icon={<Share size="small" />}
-                href={props.item.productUrl}
-                onClick={trackOpenItem}
-                target="_blank"
-            />
-        </Box>
-    )
-
     return (
         <Box height="84px">
             <Box
@@ -67,7 +45,6 @@ const CardInfo: React.FC<CardInfoProps> = (props: CardInfoProps) => {
                         {props.item.author}
                     </StyledAuthor>
                 </Box>
-                {props.hover && props.item.productUrl && optionButton}
             </Box>
         </Box>
     )
