@@ -101,6 +101,7 @@ function SCParser(url: string, body: string): IItem {
             $('span[itemprop="director"]').text(),
         productUrl: url,
         type: kind as ItemType,
+        description: $('.pvi-productDetails-resume').text(),
         imageUrl: $('.lightview ').attr('href'),
     }
 }
