@@ -422,8 +422,8 @@ const items: Item[] = [
         type: 'book',
         author: 'Jacques Attali',
         imageUrl:
-            'https://images-na.ssl-images-amazon.com/images/I/41XIMdM%2BvpL._SX347_BO1,204,203,200_.jpg',
-        title: "Homo Deus, Une brève histoire de l'avenir",
+            'https://images-na.ssl-images-amazon.com/images/I/413Ra6wIhEL._SX313_BO1,204,203,200_.jpg',
+        title: "Une brève histoire de l'avenir",
         productUrl:
             'https://www.amazon.fr/Homo-Deus-brève-histoire-lavenir/dp/2226393870',
     },
