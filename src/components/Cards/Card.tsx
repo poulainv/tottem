@@ -1,10 +1,13 @@
 import { Box, Image, Stack } from 'grommet'
 import React, { useState } from 'react'
+import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import { brand600, colorPlaceholders } from '../../constants/colors'
 import { ImageShapeType, Item } from '../../types'
 import CardInfo from './CardInfo'
 import CoverImage from './CoverImage'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface CardProps {
     item: Item
@@ -36,8 +39,18 @@ const CardBox = styled(Box)`
     }
 `
 
+function trackOpenItem(title: string, profile: string) {
+    ReactGA.initialize('UA-149517534-1')
+    ReactGA.event({
+        category: 'Item',
+        action: 'Open item',
+        label: `${title} from ${profile}`,
+    })
+}
+
 const Card: React.FC<CardProps> = props => {
     const [isHover, setHover] = useState(false)
+    const router = useRouter()
     const picto = `/pictograms/${props.item.type}-white.svg`
     return (
         <Stack anchor="top-left">
@@ -49,12 +62,23 @@ const Card: React.FC<CardProps> = props => {
                 direction="column"
                 background="white"
             >
-                <CoverImage
-                    placeholderColor={colorPlaceholders[props.item.type]}
-                    placeholderPicto={picto}
-                    imageUrl={props.item.imageUrl}
-                    imageShape={props.imageShape}
-                />
+                <a
+                    href={props.item.productUrl}
+                    target="_blank"
+                    onClick={() =>
+                        trackOpenItem(
+                            props.item.title,
+                            router.query.profile.toString()
+                        )
+                    }
+                >
+                    <CoverImage
+                        placeholderColor={colorPlaceholders[props.item.type]}
+                        placeholderPicto={picto}
+                        imageUrl={props.item.imageUrl}
+                        imageShape={props.imageShape}
+                    />
+                </a>
                 <CardInfo item={props.item} hover={isHover} />
             </CardBox>
             {picto && (

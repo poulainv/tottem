@@ -97,7 +97,7 @@ const trackTableOfContent = () => {
     ReactGA.initialize('UA-149517534-1')
     ReactGA.event({
         category: 'Table of Content',
-        action: 'Click on item',
+        action: 'Click on content menu item',
     })
 }
 
