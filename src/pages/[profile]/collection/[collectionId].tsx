@@ -19,6 +19,7 @@ const flatten = require('lodash.flatten')
 interface ICollectionProps {
     userProfile: UserProfile
     collection: ICollection
+    sectionId: string
 }
 
 const BackButton = styled.a`
@@ -41,6 +42,7 @@ const BackButton = styled.a`
 const Collection: NextPage<ICollectionProps> = ({
     userProfile,
     collection,
+    sectionId,
 }) => {
     const router = useRouter()
     const collectionName = removeMd(collection.name)
@@ -68,8 +70,8 @@ const Collection: NextPage<ICollectionProps> = ({
             />
             <PageBox>
                 <Link
-                    href="/[profile]"
-                    as={`/${router.query.profile}`}
+                    href="/[profile]/[sectionId]"
+                    as={`/${router.query.profile}/${sectionId}`}
                     passHref
                 >
                     <BackButton>
@@ -117,17 +119,20 @@ Collection.getInitialProps = async (context: Context) => {
     } else {
         sections = require(`../../../data/${profile}/sections`).default
     }
-    // flatMap only on node v12
-    const collectionOpt: ICollection | undefined = flatten(
-        sections.map(x => x.collections)
-    ).find((x: ICollection) => x.id === collectionId)
-    let collection: ICollection
-    if (!collectionOpt) {
-        throw Error('Collection not found')
-    } else {
-        collection = collectionOpt
+
+    for (const sectionOpt of sections) {
+        const collectionOpt = sectionOpt.collections.find(
+            y => y.id === collectionId
+        )
+        if (collectionOpt && sectionOpt) {
+            return {
+                userProfile,
+                collection: collectionOpt,
+                sectionId: sectionOpt.id,
+            }
+        }
     }
-    return { userProfile, collection }
+    throw Error('Collection not found')
 }
 
 export default Collection
