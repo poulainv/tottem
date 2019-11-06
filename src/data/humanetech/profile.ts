@@ -1,5 +1,4 @@
 import { UserProfile } from '../../types'
-import sections from './sections'
 
 const profile: UserProfile = {
     firstname: 'Center for Humane Technology',

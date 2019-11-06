@@ -1,11 +1,10 @@
-import { MovieDBSearch } from '../parsers/searchers'
-import lemonde from '../../data/lemonde-movies.json'
-import pThrottle from 'p-throttle'
-import { IItem } from '../interfaces'
 import fs from 'fs'
-import logger from '../logging'
-import { elementType } from 'prop-types'
+// import lemonde from '../../data/lemonde-movies.json'
+import pThrottle from 'p-throttle'
 import { ItemType } from '../../../src/types'
+import { IItem } from '../interfaces'
+import logger from '../logging'
+import { MovieDBSearch } from '../parsers/searchers'
 
 interface Movie {
     title: string
@@ -15,7 +14,7 @@ interface Movie {
 }
 
 async function launchLemonde() {
-    const movies: Movie[] = lemonde
+    const movies: Movie[] = []
 
     const now = Date.now()
 
