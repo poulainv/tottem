@@ -12,7 +12,7 @@ export const collections: ICollection[] = [
         sectionId: '1',
         date: new Date('2019-10-01T12:00:00'),
         name:
-            "**Essais et biographies** qui revisitent l'entreprise et l'économie 🕴",
+            "**Essais et biographies** qui m'ont fait voir l'entreprise et l'économie autrement 🕴",
         items: itemsByCollection['11'],
     },
     {
@@ -22,15 +22,15 @@ export const collections: ICollection[] = [
         name:
             "Manipulation de masses, destruction de l'attention : ce qui m'a poussé à créer **Tottem** 🤯",
         items: itemsByCollection['16'],
-        detail: `Nombreuses références pour découvrir les effets collatéraux de l'utilisation massive des algorithmes de recommendations. Système de gratification aliénant, maximisation des clics et des vues en ignorant nos valeurs, crise du désir & manipulation de masse qui affecte nos démocraties...`,
+        detail: `Nombreuses références pour découvrir les effets collatéraux de l'utilisation massive des algorithmes de recommendations des plateformes de social media. Le système de gratification aliénie, afin d'optimiser le nombre de vues et de clics, en zappant complètement ce qui nous anime vraiment. Tristan Harris et Joe Edelman sont les penseurs et les contradicteurs principaux aux US qui se battent contre l'hégémonie attentionnel du système en place.`,
     },
-    {
-        id: '15',
-        sectionId: '1',
-        date: new Date('2019-10-01T12:00:00'),
-        name: '**Podcasts,** everyday',
-        items: itemsByCollection['15'],
-    },
+    // {
+    //     id: '15',
+    //     sectionId: '1',
+    //     date: new Date('2019-10-01T12:00:00'),
+    //     name: '**Podcasts,** everyday',
+    //     items: itemsByCollection['15'],
+    // },
     {
         id: '14',
         sectionId: '1',
