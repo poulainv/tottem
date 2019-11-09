@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
-import App from 'next/app'
 import { DefaultSeo } from 'next-seo'
+import App from 'next/app'
+import React, { Fragment } from 'react'
 
 export default class MyApp extends App {
     render() {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps, router } = this.props
         return (
             <Fragment>
                 <DefaultSeo
@@ -32,7 +32,7 @@ export default class MyApp extends App {
                         cardType: 'summary_large_image',
                     }}
                 />
-                <Component {...pageProps} />
+                <Component {...pageProps} key={router.route} />
             </Fragment>
         )
     }

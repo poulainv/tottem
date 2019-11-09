@@ -1,14 +1,14 @@
-import { Box, Button, Markdown, Text, Anchor } from 'grommet'
-import React from 'react'
-import ReactGA from 'react-ga'
-import styled from 'styled-components'
-import { ICollection } from '../../types'
-import { MediumAndUp } from '../ResponsiveStyledComponent'
-import ItemList from '../Views/ItemList'
-import { useRouter } from 'next/router'
+import { Anchor, Box, Button, Markdown, Text } from 'grommet'
 import Link from 'next/link'
-import { brand600 } from '../../constants/colors'
+import { useRouter } from 'next/router'
+import React, { Fragment } from 'react'
+import { List } from 'react-content-loader'
+import styled from 'styled-components'
+import { brand50, brand600 } from '../../constants/colors'
+import { MediumAndUp } from '../ResponsiveStyledComponent'
 import { CollectionTitle } from '../Typography'
+import ItemList from '../Views/ItemList'
+import { ICollection } from '../../fragments/profile'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
@@ -30,67 +30,87 @@ const CollectionCard = styled(Box)`
         border-bottom: 1px #dddddd solid;
     }
 `
-
-const Collection: React.FC<ICollection> = props => {
-    // const [false, setfalse] = React.useState(false)
-
-    const seeMore = (
-        <Box margin={{ horizontal: 'medium' }}>
-            <Button
-                style={{ fontSize: '14px', color: brand600 }}
-                label={`${props.items.length} ÉLÉMENTS`}
-                // tslint:disable-next-line: jsx-no-lambda
-                // onClick={() => setfalse(!false)}
-            />
-        </Box>
-    )
+const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
     const router = useRouter()
     return (
         <CollectionCard
             direction="column"
             margin={{ vertical: 'medium' }}
             background="white"
-            id={props.id}
         >
-            <Link
-                href="/[profile]/collection/[collectionId]"
-                as={`/${router.query.profile}/collection/${props.id}`}
-                passHref
-            >
-                <Anchor>
-                    <Box
-                        direction="row"
-                        justify="between"
-                        align="center"
-                        border={{
-                            side: 'bottom',
-                            color: 'light-3',
-                            size: '0.5px',
-                        }}
+            {data ? (
+                <Fragment>
+                    <Link
+                        href="/[profile]/collection/[collectionId]"
+                        as={`/${router.query.profile}/collection/${data.id}`}
+                        passHref
                     >
+                        <Anchor>
+                            <Box
+                                direction="row"
+                                justify="between"
+                                align="center"
+                                border={{
+                                    side: 'bottom',
+                                    color: 'light-3',
+                                    size: '0.5px',
+                                }}
+                                id={data.id}
+                            >
+                                <Box
+                                    responsive={false}
+                                    margin={{ horizontal: 'medium' }}
+                                >
+                                    <CollectionTitle>
+                                        <Markdown>{data.name}</Markdown>
+                                    </CollectionTitle>
+                                </Box>
+                                <MediumAndUp>
+                                    <Box margin={{ horizontal: 'medium' }}>
+                                        <Button
+                                            style={{
+                                                fontSize: '14px',
+                                                color: brand600,
+                                            }}
+                                            label={`DETAILS`}
+                                        />
+                                    </Box>
+                                </MediumAndUp>
+                            </Box>
+                        </Anchor>
+                    </Link>
+                    <Box margin={{ bottom: 'none' }}>
+                        <ItemList items={data.items} collectionId={data.id} />
+                    </Box>
+                    {data.detail && (
                         <Box
-                            responsive={false}
-                            margin={{ horizontal: 'medium' }}
+                            border={{
+                                side: 'top',
+                                color: 'light-3',
+                                size: '0.5px',
+                            }}
                         >
-                            <CollectionTitle>
-                                <Markdown>{props.name}</Markdown>
-                            </CollectionTitle>
+                            <Box
+                                margin={{
+                                    horizontal: 'medium',
+                                    vertical: 'medium',
+                                }}
+                            >
+                                <CollectionDetail>
+                                    <Markdown>{data.detail}</Markdown>
+                                </CollectionDetail>
+                            </Box>
                         </Box>
-                        <MediumAndUp>{seeMore}</MediumAndUp>
-                    </Box>
-                </Anchor>
-            </Link>
-            <Box margin={{ bottom: 'none' }}>
-                <ItemList items={props.items} expanded={false} />
-            </Box>
-            {props.detail && (
-                <Box border={{ side: 'top', color: 'light-3', size: '0.5px' }}>
-                    <Box margin={{ horizontal: 'medium', vertical: 'medium' }}>
-                        <CollectionDetail>
-                            <Markdown>{props.detail}</Markdown>
-                        </CollectionDetail>
-                    </Box>
-                </Box>
+                    )}
+                </Fragment>
+            ) : (
+                <List
+                    primaryColor={brand50}
+                    speed={5}
+                    height={100}
+                    width={600}
+                    style={{ padding: '48px' }}
+                />
             )}
         </CollectionCard>
     )

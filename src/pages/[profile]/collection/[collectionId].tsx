@@ -1,5 +1,8 @@
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import { LinkPrevious } from 'grommet-icons'
+import countBy from 'lodash.countby'
 import { NextPage, NextPageContext } from 'next'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
@@ -10,16 +13,18 @@ import styled from 'styled-components'
 import CollectionHeader from '../../../components/Collection/Header'
 import ItemList from '../../../components/Collection/ItemList'
 import { Layout, PageBox } from '../../../components/Views/Layout'
-import { getAwesomeSections } from '../../../data/awesome/sections'
-import { ICollection, ISection, Item, UserProfile } from '../../../types'
-
-const countBy = require('lodash.countby')
-const flatten = require('lodash.flatten')
+import { withApollo } from '../../../lib/apollo'
+import {
+    CollectionPageFragment,
+    Item,
+    User,
+    ICollection,
+} from '../../../fragments/collection'
+import { ItemType } from '../../../fragments/common'
 
 interface ICollectionProps {
-    userProfile: UserProfile
-    collection: ICollection
-    sectionId: string
+    profile: string
+    collectionId: string
 }
 
 const BackButton = styled.a`
@@ -38,32 +43,66 @@ const BackButton = styled.a`
         display: none;
     }
 `
+const collectionQuery = gql`
+    query getCollectionPage($slug: String, $collectionId: ID) {
+        user(where: { slug: $slug }) {
+            ...UserCollectionPage
+        }
+        collection(where: { id: $collectionId }) {
+            ...CollectionCollectionPage
+        }
+    }
+    ${CollectionPageFragment.collection}
+    ${CollectionPageFragment.user}
+`
 
-const Collection: NextPage<ICollectionProps> = ({
-    userProfile,
-    collection,
-    sectionId,
-}) => {
+interface CollectionQuery {
+    user: User
+    collection: ICollection
+}
+
+interface CollectionVars {
+    slug: string
+    collectionId: string
+}
+
+const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
     const router = useRouter()
+    const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
+        collectionQuery,
+        {
+            variables: {
+                slug: profile,
+                collectionId,
+            },
+        }
+    )
+
+    if (loading || data === undefined) {
+        return <div>Loading</div>
+    }
+
+    const { collection, user } = data
+
     const collectionName = removeMd(collection.name)
     const itemsTypeCount = countBy(collection.items, (x: Item) => x.type)
 
     return (
         <Layout>
             <NextSeo
-                title={`${collectionName} - ${userProfile.firstname} - Tottem`}
-                description={`${collectionName} by ${userProfile.firstname} - Tottem`}
+                title={`${collectionName} - ${user.firstname} - Tottem`}
+                description={`${collectionName} by ${user.firstname} - Tottem`}
                 twitter={{
                     site: '@TottemApp',
                     cardType: 'summary',
                 }}
                 openGraph={{
-                    description: `${collectionName} by ${userProfile.firstname} - Tottem`,
+                    description: `${collectionName} by ${user.firstname} - Tottem`,
                     url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
                     site_name: 'Tottem',
                     images: [
                         {
-                            url: `https://tottem.app${userProfile.pictureUrl}`,
+                            url: `https://tottem.app${user.pictureUrl}`,
                         },
                     ],
                 }}
@@ -71,7 +110,7 @@ const Collection: NextPage<ICollectionProps> = ({
             <PageBox>
                 <Link
                     href="/[profile]/[sectionId]"
-                    as={`/${router.query.profile}/${sectionId}`}
+                    as={`/${router.query.profile}/${collection.section.id}`}
                     passHref
                 >
                     <BackButton>
@@ -83,13 +122,15 @@ const Collection: NextPage<ICollectionProps> = ({
                 </Link>
                 <Box width="xlarge">
                     <CollectionHeader
-                        ownerName={userProfile.firstname}
-                        userImage={userProfile.pictureUrl}
+                        ownerName={user.firstname}
+                        userImage={user.pictureUrl}
                         title={collectionName}
                         subtitle={collection.detail || ' '}
                         date={collection.date.toString()}
-                        ownerSlug={userProfile.slug}
-                        itemsTypeCount={itemsTypeCount}
+                        ownerSlug={user.slug}
+                        itemsTypeCount={
+                            itemsTypeCount as { [type in ItemType]: number }
+                        }
                     />
                     <ItemList items={collection.items} />
                 </Box>
@@ -106,33 +147,9 @@ interface Context extends NextPageContext {
 }
 
 Collection.getInitialProps = async (context: Context) => {
-    // Get url query
     const profile: string = context.query.profile
     const collectionId: string = context.query.collectionId
-
-    // Fetch data
-    const userProfile: UserProfile = require(`../../../data/${profile}/profile`)
-        .default
-    let sections: ISection[] = []
-    if (profile.includes('awesome')) {
-        sections = getAwesomeSections(profile)
-    } else {
-        sections = require(`../../../data/${profile}/sections`).default
-    }
-
-    for (const sectionOpt of sections) {
-        const collectionOpt = sectionOpt.collections.find(
-            y => y.id === collectionId
-        )
-        if (collectionOpt && sectionOpt) {
-            return {
-                userProfile,
-                collection: collectionOpt,
-                sectionId: sectionOpt.id,
-            }
-        }
-    }
-    throw Error('Collection not found')
+    return { profile, collectionId }
 }
 
-export default Collection
+export default withApollo(Collection)

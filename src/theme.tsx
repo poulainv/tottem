@@ -51,6 +51,7 @@ const theme = deepMerge(grommet, {
         },
     },
     global: {
+        animation: { duration: '0.1s' },
         focus: {
             border: {
                 color: 'transparent',

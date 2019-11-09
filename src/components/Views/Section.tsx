@@ -1,13 +1,60 @@
-import React from 'react'
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 import { Box } from 'grommet'
-import { ICollection } from '../../types'
+import range from 'lodash.range'
+import React from 'react'
 import Collection from '../Cards/Collection'
+import { ProfilePageFragment, ICollection } from '../../fragments/profile'
 
 interface Props {
+    slug: string
+    sectionId?: string
+    index: number
+}
+
+export const getCollectionQuery = gql`
+    query getCollection($slug: String, $sectionId: String, $index: Int) {
+        collections(
+            where: {
+                section: {
+                    AND: {
+                        OR: [
+                            { id: { equals: $sectionId } }
+                            { index: { equals: $index } }
+                        ]
+                        owner: { slug: { equals: $slug } }
+                    }
+                }
+            }
+        ) {
+            ...CollectionProfilePage
+        }
+    }
+    ${ProfilePageFragment.collection}
+`
+
+interface CollectionQuery {
     collections: ICollection[]
 }
 
+interface CollectionVars {
+    slug: string
+    sectionId?: string
+    index: number
+}
+
 const Section: React.FC<Props> = props => {
+    const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
+        getCollectionQuery,
+        {
+            variables: {
+                slug: props.slug,
+                sectionId: props.sectionId,
+                index: props.index,
+            },
+        }
+    )
+
     return (
         <Box
             direction="column"
@@ -15,15 +62,23 @@ const Section: React.FC<Props> = props => {
             margin={{ top: 'xsmall' }}
             responsive={false}
         >
-            {props.collections
-                .sort(
-                    (a, b) =>
-                        new Date(b.date).getTime() - new Date(a.date).getTime()
-                )
-                .filter(x => x.items)
-                .map((collection: ICollection) => {
-                    return <Collection key={collection.name} {...collection} />
-                })}
+            {loading || data === undefined
+                ? range(4).map(x => <Collection key={x.toString()} />)
+                : data.collections
+                      .filter((x: ICollection) => x.items.length !== 0)
+                      .sort(
+                          (a: ICollection, b: ICollection) =>
+                              new Date(b.date).getTime() -
+                              new Date(a.date).getTime()
+                      )
+                      .map((collection: ICollection) => {
+                          return (
+                              <Collection
+                                  key={collection.name}
+                                  data={collection}
+                              />
+                          )
+                      })}
         </Box>
     )
 }

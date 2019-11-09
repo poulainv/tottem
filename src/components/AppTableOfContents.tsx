@@ -1,5 +1,8 @@
+import { useQuery } from '@apollo/react-hooks'
 import { Anchor } from 'grommet'
+import range from 'lodash.range'
 import * as React from 'react'
+import { BulletList } from 'react-content-loader'
 import ReactGA from 'react-ga'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
@@ -10,13 +13,14 @@ import {
     grey600,
     grey700,
 } from '../constants/colors'
-import { ICollection } from '../types'
-
-const throttle = require('lodash/throttle')
+import { getCollectionQuery } from './Views/Section'
+import throttle from 'lodash.throttle'
+import { ICollection } from '../fragments/profile'
 
 interface IAppTableOfContentsProps {
-    collections: ICollection[]
     sectionId: string
+    index: number
+    slug: string
 }
 
 const noop = () => {}
@@ -104,19 +108,34 @@ const trackTableOfContent = () => {
 const AppTableOfContents: React.FunctionComponent<
     IAppTableOfContentsProps
 > = props => {
-    const collections = props.collections.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    const { loading, error, data } = useQuery(getCollectionQuery, {
+        variables: {
+            slug: props.slug,
+            sectionId: props.sectionId,
+            index: props.index,
+        },
+    })
+    let collections: ICollection[] = []
+
+    if (loading || data.collections === undefined) {
+        collections = []
+    } else {
+        collections = data.collections
+    }
+    const sortedCollections = collections.sort(
+        (a: ICollection, b: ICollection) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
     )
     const [activeIndex, setActiveIndex] = React.useState(0)
     const findActiveIndex = React.useCallback(() => {
         let active = 0
         // Old fashon loop cause we want break feature + index!
-        for (let i = collections.length - 1; i >= 0; i -= 1) {
+        for (let i = sortedCollections.length - 1; i >= 0; i -= 1) {
             // No hash if we're near the top of the page
             if (document.documentElement.scrollTop < 200) {
                 break
             }
-            const collection = collections[i]
+            const collection = sortedCollections[i]
             const node = document.getElementById(collection.id)
             if (
                 node &&
@@ -133,34 +152,43 @@ const AppTableOfContents: React.FunctionComponent<
 
     useThrottledOnScroll(collections.length > 0 ? findActiveIndex : null, 200)
     let lastDate: string
+
     return (
         <StickyBox>
             <MenuHeader>Contenu</MenuHeader>
             <ul style={{ padding: '0px', marginTop: '8px' }}>
-                {collections.map((collection, index) => {
-                    const newDate = new Date(
-                        collection.date
-                    ).toLocaleDateString('fr-FR', { year: 'numeric' })
-                    const hasDateChanged = newDate !== lastDate
-                    lastDate = newDate
-                    return (
-                        <React.Fragment key={collection.id}>
-                            {hasDateChanged && <TableDate>{newDate}</TableDate>}
-                            <TableIndex
-                                key={collection.id}
-                                active={activeIndex === index}
-                            >
-                                <Anchor
-                                    href={`#${collection.id}`}
-                                    style={{ color: 'inherit' }}
-                                    onClick={() => trackTableOfContent()}
-                                >
-                                    {removeMd(collection.name)}
-                                </Anchor>
-                            </TableIndex>
-                        </React.Fragment>
-                    )
-                })}
+                {loading
+                    ? range(4).map(x => <BulletList key={x} height={40} />)
+                    : collections.map(
+                          (collection: ICollection, index: number) => {
+                              const newDate = new Date(
+                                  collection.date
+                              ).toLocaleDateString('fr-FR', { year: 'numeric' })
+                              const hasDateChanged = newDate !== lastDate
+                              lastDate = newDate
+                              return (
+                                  <React.Fragment key={collection.id}>
+                                      {hasDateChanged && (
+                                          <TableDate>{newDate}</TableDate>
+                                      )}
+                                      <TableIndex
+                                          key={collection.id}
+                                          active={activeIndex === index}
+                                      >
+                                          <Anchor
+                                              href={`#${collection.id}`}
+                                              style={{ color: 'inherit' }}
+                                              onClick={() =>
+                                                  trackTableOfContent()
+                                              }
+                                          >
+                                              {removeMd(collection.name)}
+                                          </Anchor>
+                                      </TableIndex>
+                                  </React.Fragment>
+                              )
+                          }
+                      )}
             </ul>
         </StickyBox>
     )

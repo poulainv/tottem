@@ -1,14 +1,16 @@
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
-import { ISection, UserProfile, ISectionIndex } from '../../types'
 import AppTableOfContents from '../AppTableOfContents'
 import { SectionMenu } from '../SectionMenu'
 import { Layout, PageBox } from './Layout'
 import ProfileDescription from './Nav'
 import Section from './Section'
+import { ProfilePageFragment, ISection } from '../../fragments/profile'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -29,9 +31,8 @@ export const getDefaultSection = (sections: ISection[]): ISection => {
 }
 
 export interface IProfilePageProps {
-    sectionsIndex: ISectionIndex[]
-    activeSection: ISection
-    user: UserProfile
+    activeSectionId?: string
+    profile: string
 }
 export const Side = styled(Box)`
     width: 240px;
@@ -42,50 +43,86 @@ export const Side = styled(Box)`
         display: none;
     }
 `
+export const UserContext = React.createContext({ slug: '' })
+
+const profileQuery = gql`
+    query getProfile($slug: String) {
+        user(where: { slug: $slug }) {
+            ...UserProfilePage
+        }
+        sections(where: { owner: { slug: { equals: $slug } } }) {
+            ...SectionProfilePage
+        }
+    }
+    ${ProfilePageFragment.user}
+    ${ProfilePageFragment.section}
+`
 
 export default function ProfilePage(props: IProfilePageProps) {
+    const { loading, error, data } = useQuery(profileQuery, {
+        variables: {
+            slug: props.profile,
+            sectionId: props.activeSectionId,
+            index: props.activeSectionId === undefined ? 0 : -1,
+        },
+    })
+
+    if (loading) {
+        return <div>Loading</div>
+    }
+    const { user, sections } = data
+    const activeSectionId =
+        props.activeSectionId || getDefaultSection(sections).id
     const router = useRouter()
     return (
-        <Layout>
-            <NextSeo
-                title={`${props.user.firstname} - Tottem`}
-                description={`${props.user.firstname} on Tottem - ${props.user.biography}`}
-                canonical={`https://tottem.app/${router.query.profile}/${props.activeSection.id}`}
-                twitter={{
-                    site: '@TottemApp',
-                    cardType: 'summary',
-                }}
-                openGraph={{
-                    type: 'profile',
-                    profile: {
-                        username: props.user.slug,
-                    },
-                    description: `${props.user.firstname} on Tottem - ${props.user.biography}`,
-                    url: `https://tottem.app/${router.query.profile}`,
-                    site_name: 'Tottem',
-                    images: [
-                        {
-                            url: `https://tottem.app${props.user.pictureUrl}`,
+        <UserContext.Provider value={{ slug: props.profile }}>
+            <Layout>
+                <NextSeo
+                    title={`${user.firstname} - Tottem`}
+                    description={`${user.firstname} on Tottem - ${user.biography}`}
+                    canonical={`https://tottem.app/${router.query.profile}/${activeSectionId}`}
+                    twitter={{
+                        site: '@TottemApp',
+                        cardType: 'summary',
+                    }}
+                    openGraph={{
+                        type: 'profile',
+                        profile: {
+                            username: user.slug,
                         },
-                    ],
-                }}
-            />
+                        description: `${user.firstname} on Tottem - ${user.biography}`,
+                        url: `https://tottem.app/${router.query.profile}`,
+                        site_name: 'Tottem',
+                        images: [
+                            {
+                                url: `https://tottem.app${user.pictureUrl}`,
+                            },
+                        ],
+                    }}
+                />
 
-            <Side />
-            <PageBox>
-                <ProfileDescription {...props.user} />
-                <ContentBox pad={{ horizontal: 'large' }}>
-                    <SectionMenu
-                        sections={props.sectionsIndex}
-                        activeSectionId={props.activeSection.id}
-                    />
-                    <Section collections={props.activeSection.collections} />
-                </ContentBox>
-            </PageBox>
-            <AppTableOfContents
-                collections={props.activeSection.collections}
-                sectionId={props.activeSection.id}
-            />
-        </Layout>
+                <Side />
+                <PageBox>
+                    <ProfileDescription {...user} />
+                    <ContentBox pad={{ horizontal: 'large' }}>
+                        <SectionMenu
+                            activeSectionId={activeSectionId}
+                            sections={sections}
+                        />
+                        <Section
+                            slug={props.profile}
+                            index={activeSectionId === undefined ? 0 : -1}
+                            key={activeSectionId}
+                            sectionId={activeSectionId}
+                        />
+                    </ContentBox>
+                </PageBox>
+                <AppTableOfContents
+                    slug={props.profile}
+                    index={activeSectionId === undefined ? 0 : -1}
+                    sectionId={activeSectionId}
+                />
+            </Layout>
+        </UserContext.Provider>
     )
 }

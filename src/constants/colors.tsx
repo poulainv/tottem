@@ -1,4 +1,4 @@
-import { ItemType } from '../types'
+import { ItemType } from '../fragments/common'
 
 export const grey50 = '#ffffff'
 export const grey100 = '#fafafa'

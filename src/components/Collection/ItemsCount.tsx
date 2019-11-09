@@ -1,7 +1,7 @@
 import { Box } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
-import { ItemType } from '../../types'
+import { ItemType } from '../../fragments/common'
 
 const Pictogram = styled.img`
     height: 24px;

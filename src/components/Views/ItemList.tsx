@@ -1,8 +1,9 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import { imageShapes, Item } from '../../types'
 import Card, { CardSize } from '../Cards/Card'
+import { Item } from '../../fragments/profile'
+import { imageShapes } from '../../fragments/common'
 
 const ScrollableBox = styled(Box)`
     ::-webkit-scrollbar {
@@ -17,7 +18,6 @@ const ScrollableBox = styled(Box)`
 
 export const ItemCardBox = styled(Box)`
     flex-basis: 25%;
-    display: ${(props: { show: boolean }) => (props.show ? 'flex' : 'none')};
     @media screen and (max-width: 812px) {
         margin-right: 45px;
         display: 'block';
@@ -26,7 +26,7 @@ export const ItemCardBox = styled(Box)`
     }
 `
 
-const ItemList: React.FC<{ items: Item[]; expanded: boolean }> = props => {
+const ItemList: React.FC<{ items: Item[]; collectionId: string }> = props => {
     return (
         <ScrollableBox
             responsive={false}
@@ -38,7 +38,6 @@ const ItemList: React.FC<{ items: Item[]; expanded: boolean }> = props => {
             {props.items.map((item: Item, index: number) => {
                 return (
                     <ItemCardBox
-                        show={props.expanded || index < 4}
                         align="center"
                         pad={{ top: 'large' }}
                         key={item.title.toString()}
@@ -48,7 +47,11 @@ const ItemList: React.FC<{ items: Item[]; expanded: boolean }> = props => {
                                 : undefined
                         }
                     >
-                        <Card item={item} imageShape={imageShapes[item.type]} />
+                        <Card
+                            item={item}
+                            imageShape={imageShapes[item.type]}
+                            collectionId={props.collectionId}
+                        />
                     </ItemCardBox>
                 )
             })}

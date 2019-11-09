@@ -3,8 +3,8 @@ import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
 import ItemsCount from './ItemsCount'
-import { ItemType } from '../../types'
 import { PageHeader, PageSubheader, CreationDate, Owner } from '../Typography'
+import { ItemType } from '../../fragments/common'
 
 const Avatar = styled.img`
     border-radius: 50%;

@@ -2,10 +2,11 @@ import { Box } from 'grommet'
 import * as React from 'react'
 import styled from 'styled-components'
 import { colorPlaceholders } from '../../constants/colors'
-import { imageShapes, Item } from '../../types'
 import CoverImage from '../Cards/CoverImage'
 import { ItemMetas } from '../Cards/Metas'
 import { ElementAuthor, ElementDescription, ElementTitle } from '../Typography'
+import { imageShapes } from '../../fragments/common'
+import { Item } from '../../fragments/collection'
 
 interface IItemListProps {
     items: Item[]
@@ -62,6 +63,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                             key={item.title}
                             direction="row"
                             margin={{ bottom: 'large' }}
+                            id={item.id}
                         >
                             <Box
                                 direction="row"
@@ -103,7 +105,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         </Box>
                                         <Box style={{ marginTop: '8px' }}>
                                             <ElementDescription>
-                                                {item.description}{' '}
+                                                {item.comment}{' '}
                                             </ElementDescription>
                                         </Box>
                                     </Box>

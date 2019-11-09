@@ -1,11 +1,11 @@
-import { Box, Stack } from 'grommet'
+import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import { UserProfile } from '../../types'
 import PictureProfile from '../PictureProfile'
 import { MediumAndUp, SmallAndDown } from '../ResponsiveStyledComponent'
 import Social from '../Social'
 import { PageHeader, PageSubheader } from '../Typography'
+import { UserProfile } from '../../fragments/profile'
 
 const Label = styled.div`
     color: #777777;
