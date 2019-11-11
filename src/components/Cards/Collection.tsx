@@ -42,7 +42,7 @@ const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
                 <Fragment>
                     <Link
                         href="/[profile]/collection/[collectionId]"
-                        as={`/${router.query.profile}/collection/${data.id}`}
+                        as={`/${router.query.profile}/collection/${data.slug}`}
                         passHref
                     >
                         <Anchor>
@@ -55,7 +55,7 @@ const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
                                     color: 'light-3',
                                     size: '0.5px',
                                 }}
-                                id={data.id}
+                                id={data.slug}
                             >
                                 <Box
                                     responsive={false}
@@ -80,7 +80,7 @@ const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
                         </Anchor>
                     </Link>
                     <Box margin={{ bottom: 'none' }}>
-                        <ItemList items={data.items} collectionId={data.id} />
+                        <ItemList items={data.items} collectionId={data.slug} />
                     </Box>
                     {data.detail && (
                         <Box

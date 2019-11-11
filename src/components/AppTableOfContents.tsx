@@ -136,7 +136,7 @@ const AppTableOfContents: React.FunctionComponent<
                 break
             }
             const collection = sortedCollections[i]
-            const node = document.getElementById(collection.id)
+            const node = document.getElementById(collection.slug)
             if (
                 node &&
                 node.offsetTop <
@@ -167,16 +167,16 @@ const AppTableOfContents: React.FunctionComponent<
                               const hasDateChanged = newDate !== lastDate
                               lastDate = newDate
                               return (
-                                  <React.Fragment key={collection.id}>
+                                  <React.Fragment key={collection.slug}>
                                       {hasDateChanged && (
                                           <TableDate>{newDate}</TableDate>
                                       )}
                                       <TableIndex
-                                          key={collection.id}
+                                          key={collection.slug}
                                           active={activeIndex === index}
                                       >
                                           <Anchor
-                                              href={`#${collection.id}`}
+                                              href={`#${collection.slug}`}
                                               style={{ color: 'inherit' }}
                                               onClick={() =>
                                                   trackTableOfContent()

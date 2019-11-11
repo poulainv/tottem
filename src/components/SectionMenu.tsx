@@ -19,12 +19,14 @@ export function SectionMenu(props: ISectionMenuProps) {
             {sortedSections.map(section => {
                 return (
                     <Link
-                        key={section.id}
+                        key={section.slug}
                         href="/[profile]/[sectionId]"
-                        as={`/${router.query.profile}/${section.id}`}
+                        as={`/${router.query.profile}/${section.slug}`}
                         passHref
                     >
-                        <MenuItem active={section.id === props.activeSectionId}>
+                        <MenuItem
+                            active={section.slug === props.activeSectionId}
+                        >
                             <a
                                 style={{
                                     color: 'inherit',

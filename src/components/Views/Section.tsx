@@ -19,7 +19,7 @@ export const getCollectionQuery = gql`
                 section: {
                     AND: {
                         OR: [
-                            { id: { equals: $sectionId } }
+                            { slug: { equals: $sectionId } }
                             { index: { equals: $index } }
                         ]
                         owner: { slug: { equals: $slug } }

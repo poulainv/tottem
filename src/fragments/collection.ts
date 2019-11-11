@@ -4,12 +4,11 @@ import { ItemType } from './common'
 export const CollectionPageFragment = {
     collection: gql`
         fragment CollectionCollectionPage on Collection {
-            id
             name
             date
             detail
             section {
-                id
+                slug
             }
             items {
                 id
@@ -31,7 +30,7 @@ export const CollectionPageFragment = {
     `,
     section: gql`
         fragment SectionCollectionPage on Section {
-            id
+            slug
         }
     `,
 }
@@ -43,12 +42,12 @@ export interface User {
 }
 
 export interface ICollection {
-    id: string
+    slug: string
     name: string
     date: Date | string
     items: Item[]
     detail?: string
-    section: { id: string }
+    section: { slug: string }
 }
 
 export interface Item {

@@ -44,11 +44,11 @@ const BackButton = styled.a`
     }
 `
 const collectionQuery = gql`
-    query getCollectionPage($slug: String, $collectionId: ID) {
+    query getCollectionPage($slug: String, $collectionId: String) {
         user(where: { slug: $slug }) {
             ...UserCollectionPage
         }
-        collection(where: { id: $collectionId }) {
+        collection(where: { slug: $collectionId }) {
             ...CollectionCollectionPage
         }
     }
@@ -67,7 +67,6 @@ interface CollectionVars {
 }
 
 const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
-    const router = useRouter()
     const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
         collectionQuery,
         {
@@ -98,7 +97,7 @@ const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
                 }}
                 openGraph={{
                     description: `${collectionName} by ${user.firstname} - Tottem`,
-                    url: `https://tottem.app/${router.query.profile}/collection/${collection.id}`,
+                    url: `https://tottem.app/${profile}/collection/${collection.slug}`,
                     site_name: 'Tottem',
                     images: [
                         {
@@ -110,7 +109,7 @@ const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
             <PageBox>
                 <Link
                     href="/[profile]/[sectionId]"
-                    as={`/${router.query.profile}/${collection.section.id}`}
+                    as={`/${profile}/${collection.section.slug}`}
                     passHref
                 >
                     <BackButton>

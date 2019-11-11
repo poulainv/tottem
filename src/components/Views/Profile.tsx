@@ -2,15 +2,14 @@ import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
+import { ISection, ProfilePageFragment } from '../../fragments/profile'
 import AppTableOfContents from '../AppTableOfContents'
 import { SectionMenu } from '../SectionMenu'
 import { Layout, PageBox } from './Layout'
 import ProfileDescription from './Nav'
 import Section from './Section'
-import { ProfilePageFragment, ISection } from '../../fragments/profile'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -72,15 +71,14 @@ export default function ProfilePage(props: IProfilePageProps) {
     }
     const { user, sections } = data
     const activeSectionId =
-        props.activeSectionId || getDefaultSection(sections).id
-    const router = useRouter()
+        props.activeSectionId || getDefaultSection(sections).slug
     return (
         <UserContext.Provider value={{ slug: props.profile }}>
             <Layout>
                 <NextSeo
                     title={`${user.firstname} - Tottem`}
                     description={`${user.firstname} on Tottem - ${user.biography}`}
-                    canonical={`https://tottem.app/${router.query.profile}/${activeSectionId}`}
+                    canonical={`https://tottem.app/${props.profile}/${activeSectionId}`}
                     twitter={{
                         site: '@TottemApp',
                         cardType: 'summary',
@@ -91,7 +89,7 @@ export default function ProfilePage(props: IProfilePageProps) {
                             username: user.slug,
                         },
                         description: `${user.firstname} on Tottem - ${user.biography}`,
-                        url: `https://tottem.app/${router.query.profile}`,
+                        url: `https://tottem.app/${props.profile}`,
                         site_name: 'Tottem',
                         images: [
                             {
