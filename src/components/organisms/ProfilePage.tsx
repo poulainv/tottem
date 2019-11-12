@@ -4,7 +4,11 @@ import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import styled from 'styled-components'
-import { ISection, ProfilePageFragment } from '../../fragments/profile'
+import {
+    ISection,
+    ProfilePageFragment,
+    UserProfile,
+} from '../../fragments/profile'
 import AppTableOfContents from '../molecules/AppTableOfContents'
 import { SectionMenu } from '../molecules/SectionMenu'
 import { Layout, PageBox } from '../templates/Layout'
@@ -43,6 +47,17 @@ export const Side = styled(Box)`
     }
 `
 
+interface ProfileQueryData {
+    user: UserProfile
+    sections: ISection[]
+}
+
+interface ProfileQueryVars {
+    slug: string
+    sectionId?: string
+    index: number
+}
+
 const profileQuery = gql`
     query getProfile($slug: String) {
         user(where: { slug: $slug }) {
@@ -57,18 +72,22 @@ const profileQuery = gql`
 `
 
 export default function ProfilePage(props: IProfilePageProps) {
-    const { loading, error, data } = useQuery(profileQuery, {
-        variables: {
-            slug: props.profile,
-            sectionId: props.activeSectionId,
-            index: props.activeSectionId === undefined ? 0 : -1,
-        },
-    })
+    const { loading, data } = useQuery<ProfileQueryData, ProfileQueryVars>(
+        profileQuery,
+        {
+            variables: {
+                slug: props.profile,
+                sectionId: props.activeSectionId,
+                index: props.activeSectionId === undefined ? 0 : -1,
+            },
+        }
+    )
 
-    if (loading) {
+    if (loading || data === undefined) {
         return <div>Loading</div>
     }
     const { user, sections } = data
+
     const activeSectionId =
         props.activeSectionId || getDefaultSection(sections).slug
     return (

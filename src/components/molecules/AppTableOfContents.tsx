@@ -108,7 +108,7 @@ const trackTableOfContent = () => {
 const AppTableOfContents: React.FunctionComponent<
     IAppTableOfContentsProps
 > = props => {
-    const { loading, error, data } = useQuery(getCollectionQuery, {
+    const { loading, data } = useQuery(getCollectionQuery, {
         variables: {
             slug: props.slug,
             sectionId: props.sectionId,

@@ -1,7 +1,7 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import Card, { CardSize } from '../molecules/Card'
+import Card, { CardSize } from './Card'
 import { Item } from '../../fragments/profile'
 import { imageShapes } from '../../fragments/common'
 

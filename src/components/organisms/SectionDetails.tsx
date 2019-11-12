@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import range from 'lodash.range'
 import React from 'react'
-import Collection, { CollectionPlaceHolder } from './CollectionCard'
+import Collection, { CollectionPlaceHolder } from '../molecules/CollectionCard'
 import { ProfilePageFragment, ICollection } from '../../fragments/profile'
 
 interface Props {

@@ -1,4 +1,5 @@
 import { Box, Image, Stack } from 'grommet'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import ReactGA from 'react-ga'
@@ -6,9 +7,8 @@ import styled from 'styled-components'
 import { brand600, colorPlaceholders } from '../../constants/colors'
 import { ImageShapeType } from '../../fragments/common'
 import { Item } from '../../fragments/profile'
-import CardInfo from './CardInfo'
 import CardImage from './CardImage'
-import Link from 'next/link'
+import CardInfo from './CardInfo'
 
 interface CardProps {
     item: Item
