@@ -4,6 +4,7 @@ import { ItemType } from './common'
 export const ProfilePageFragment = {
     collection: gql`
         fragment CollectionProfilePage on Collection {
+            id
             slug
             name
             date
@@ -20,6 +21,7 @@ export const ProfilePageFragment = {
     `,
     user: gql`
         fragment UserProfilePage on User {
+            id
             slug
             firstname
             pictureUrl
@@ -35,6 +37,7 @@ export const ProfilePageFragment = {
     `,
     section: gql`
         fragment SectionProfilePage on Section {
+            id
             slug
             name
             index
@@ -51,6 +54,7 @@ export interface ISocial {
 }
 
 export interface UserProfile {
+    id: string
     slug: string
     firstname: string
     pictureUrl: string
@@ -60,12 +64,14 @@ export interface UserProfile {
 }
 
 export interface ISection {
+    id: string
     slug: string
     name: string
     index: number
 }
 
 export interface ICollection {
+    id: string
     slug: string
     name: string
     date: Date | string

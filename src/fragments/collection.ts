@@ -4,6 +4,8 @@ import { ItemType } from './common'
 export const CollectionPageFragment = {
     collection: gql`
         fragment CollectionCollectionPage on Collection {
+            id
+            slug
             name
             date
             detail
@@ -18,30 +20,29 @@ export const CollectionPageFragment = {
                 title
                 author
                 type
+                meta
             }
         }
     `,
     user: gql`
         fragment UserCollectionPage on User {
+            id
             slug
             firstname
             pictureUrl
         }
     `,
-    section: gql`
-        fragment SectionCollectionPage on Section {
-            slug
-        }
-    `,
 }
 
 export interface User {
+    id: string
     slug: string
     firstname: string
     pictureUrl: string
 }
 
 export interface ICollection {
+    id: string
     slug: string
     name: string
     date: Date | string

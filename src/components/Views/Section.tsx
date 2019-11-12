@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import range from 'lodash.range'
 import React from 'react'
-import Collection from '../Cards/Collection'
+import Collection, { CollectionPlaceHolder } from '../Cards/Collection'
 import { ProfilePageFragment, ICollection } from '../../fragments/profile'
 
 interface Props {
@@ -63,7 +63,9 @@ const Section: React.FC<Props> = props => {
             responsive={false}
         >
             {loading || data === undefined
-                ? range(4).map(x => <Collection key={x.toString()} />)
+                ? range(4).map(x => (
+                      <CollectionPlaceHolder key={x.toString()} />
+                  ))
                 : data.collections
                       .filter((x: ICollection) => x.items.length !== 0)
                       .sort(

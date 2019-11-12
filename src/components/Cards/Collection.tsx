@@ -30,7 +30,26 @@ const CollectionCard = styled(Box)`
         border-bottom: 1px #dddddd solid;
     }
 `
-const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
+
+export const CollectionPlaceHolder: React.FC = () => {
+    return (
+        <CollectionCard
+            direction="column"
+            margin={{ vertical: 'medium' }}
+            background="white"
+        >
+            <List
+                primaryColor={brand50}
+                speed={5}
+                height={100}
+                width={600}
+                style={{ padding: '48px' }}
+            />
+        </CollectionCard>
+    )
+}
+
+const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
     const router = useRouter()
     return (
         <CollectionCard
@@ -38,80 +57,70 @@ const Collection: React.FC<{ data?: ICollection }> = ({ data }) => {
             margin={{ vertical: 'medium' }}
             background="white"
         >
-            {data ? (
-                <Fragment>
-                    <Link
-                        href="/[profile]/collection/[collectionId]"
-                        as={`/${router.query.profile}/collection/${data.slug}`}
-                        passHref
-                    >
-                        <Anchor>
-                            <Box
-                                direction="row"
-                                justify="between"
-                                align="center"
-                                border={{
-                                    side: 'bottom',
-                                    color: 'light-3',
-                                    size: '0.5px',
-                                }}
-                                id={data.slug}
-                            >
-                                <Box
-                                    responsive={false}
-                                    margin={{ horizontal: 'medium' }}
-                                >
-                                    <CollectionTitle>
-                                        <Markdown>{data.name}</Markdown>
-                                    </CollectionTitle>
-                                </Box>
-                                <MediumAndUp>
-                                    <Box margin={{ horizontal: 'medium' }}>
-                                        <Button
-                                            style={{
-                                                fontSize: '14px',
-                                                color: brand600,
-                                            }}
-                                            label={`DETAILS`}
-                                        />
-                                    </Box>
-                                </MediumAndUp>
-                            </Box>
-                        </Anchor>
-                    </Link>
-                    <Box margin={{ bottom: 'none' }}>
-                        <ItemList items={data.items} collectionId={data.slug} />
-                    </Box>
-                    {data.detail && (
+            <Fragment>
+                <Link
+                    href="/[profile]/collection/[collectionId]"
+                    as={`/${router.query.profile}/collection/${data.slug}`}
+                    passHref
+                >
+                    <Anchor>
                         <Box
+                            direction="row"
+                            justify="between"
+                            align="center"
                             border={{
-                                side: 'top',
+                                side: 'bottom',
                                 color: 'light-3',
                                 size: '0.5px',
                             }}
+                            id={data.slug}
                         >
                             <Box
-                                margin={{
-                                    horizontal: 'medium',
-                                    vertical: 'medium',
-                                }}
+                                responsive={false}
+                                margin={{ horizontal: 'medium' }}
                             >
-                                <CollectionDetail>
-                                    <Markdown>{data.detail}</Markdown>
-                                </CollectionDetail>
+                                <CollectionTitle>
+                                    <Markdown>{data.name}</Markdown>
+                                </CollectionTitle>
                             </Box>
+                            <MediumAndUp>
+                                <Box margin={{ horizontal: 'medium' }}>
+                                    <Button
+                                        style={{
+                                            fontSize: '14px',
+                                            color: brand600,
+                                        }}
+                                        label={`DETAILS`}
+                                    />
+                                </Box>
+                            </MediumAndUp>
                         </Box>
-                    )}
-                </Fragment>
-            ) : (
-                <List
-                    primaryColor={brand50}
-                    speed={5}
-                    height={100}
-                    width={600}
-                    style={{ padding: '48px' }}
-                />
-            )}
+                    </Anchor>
+                </Link>
+                <Box margin={{ bottom: 'none' }}>
+                    <ItemList items={data.items} collectionId={data.slug} />
+                </Box>
+                {data.detail && (
+                    <Box
+                        border={{
+                            side: 'top',
+                            color: 'light-3',
+                            size: '0.5px',
+                        }}
+                    >
+                        <Box
+                            margin={{
+                                horizontal: 'medium',
+                                vertical: 'medium',
+                            }}
+                        >
+                            <CollectionDetail>
+                                <Markdown>{data.detail}</Markdown>
+                            </CollectionDetail>
+                        </Box>
+                    </Box>
+                )}
+            </Fragment>
         </CollectionCard>
     )
 }

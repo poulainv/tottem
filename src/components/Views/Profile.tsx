@@ -42,7 +42,6 @@ export const Side = styled(Box)`
         display: none;
     }
 `
-export const UserContext = React.createContext({ slug: '' })
 
 const profileQuery = gql`
     query getProfile($slug: String) {
@@ -73,54 +72,52 @@ export default function ProfilePage(props: IProfilePageProps) {
     const activeSectionId =
         props.activeSectionId || getDefaultSection(sections).slug
     return (
-        <UserContext.Provider value={{ slug: props.profile }}>
-            <Layout>
-                <NextSeo
-                    title={`${user.firstname} - Tottem`}
-                    description={`${user.firstname} on Tottem - ${user.biography}`}
-                    canonical={`https://tottem.app/${props.profile}/${activeSectionId}`}
-                    twitter={{
-                        site: '@TottemApp',
-                        cardType: 'summary',
-                    }}
-                    openGraph={{
-                        type: 'profile',
-                        profile: {
-                            username: user.slug,
+        <Layout>
+            <NextSeo
+                title={`${user.firstname} - Tottem`}
+                description={`${user.firstname} on Tottem - ${user.biography}`}
+                canonical={`https://tottem.app/${props.profile}/${activeSectionId}`}
+                twitter={{
+                    site: '@TottemApp',
+                    cardType: 'summary',
+                }}
+                openGraph={{
+                    type: 'profile',
+                    profile: {
+                        username: user.slug,
+                    },
+                    description: `${user.firstname} on Tottem - ${user.biography}`,
+                    url: `https://tottem.app/${props.profile}`,
+                    site_name: 'Tottem',
+                    images: [
+                        {
+                            url: `https://tottem.app${user.pictureUrl}`,
                         },
-                        description: `${user.firstname} on Tottem - ${user.biography}`,
-                        url: `https://tottem.app/${props.profile}`,
-                        site_name: 'Tottem',
-                        images: [
-                            {
-                                url: `https://tottem.app${user.pictureUrl}`,
-                            },
-                        ],
-                    }}
-                />
+                    ],
+                }}
+            />
 
-                <Side />
-                <PageBox>
-                    <ProfileDescription {...user} />
-                    <ContentBox pad={{ horizontal: 'large' }}>
-                        <SectionMenu
-                            activeSectionId={activeSectionId}
-                            sections={sections}
-                        />
-                        <Section
-                            slug={props.profile}
-                            index={activeSectionId === undefined ? 0 : -1}
-                            key={activeSectionId}
-                            sectionId={activeSectionId}
-                        />
-                    </ContentBox>
-                </PageBox>
-                <AppTableOfContents
-                    slug={props.profile}
-                    index={activeSectionId === undefined ? 0 : -1}
-                    sectionId={activeSectionId}
-                />
-            </Layout>
-        </UserContext.Provider>
+            <Side />
+            <PageBox>
+                <ProfileDescription {...user} />
+                <ContentBox pad={{ horizontal: 'large' }}>
+                    <SectionMenu
+                        activeSectionId={activeSectionId}
+                        sections={sections}
+                    />
+                    <Section
+                        slug={props.profile}
+                        index={activeSectionId === undefined ? 0 : -1}
+                        key={activeSectionId}
+                        sectionId={activeSectionId}
+                    />
+                </ContentBox>
+            </PageBox>
+            <AppTableOfContents
+                slug={props.profile}
+                index={activeSectionId === undefined ? 0 : -1}
+                sectionId={activeSectionId}
+            />
+        </Layout>
     )
 }

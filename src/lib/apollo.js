@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import { InMemoryCache, defaultDataIdFromObject } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 
@@ -136,6 +136,26 @@ function createApolloClient(initialState = {}) {
             fetch,
         }),
         resolvers: {},
-        cache: new InMemoryCache().restore(initialState),
+        cache: new InMemoryCache({
+            cacheRedirects: {
+                Query: {
+                    // Allow query to get cache (partial)
+                    collection: (_, args, { getCacheKey }) => {
+                        return getCacheKey({
+                            __typename: 'Collection',
+                            slug: args.where.slug,
+                        })
+                    },
+                },
+            },
+            dataIdFromObject: object => {
+                switch (object.__typename) {
+                    case 'Collection':
+                        return object.slug
+                    default:
+                        return defaultDataIdFromObject(object) // fall back to default handling
+                }
+            },
+        }).restore(initialState),
     })
 }

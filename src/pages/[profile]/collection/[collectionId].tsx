@@ -6,21 +6,22 @@ import countBy from 'lodash.countby'
 import { NextPage, NextPageContext } from 'next'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import * as React from 'react'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
 import CollectionHeader from '../../../components/Collection/Header'
-import ItemList from '../../../components/Collection/ItemList'
+import ItemList, {
+    ItemListPlaceholder,
+} from '../../../components/Collection/ItemList'
 import { Layout, PageBox } from '../../../components/Views/Layout'
-import { withApollo } from '../../../lib/apollo'
 import {
     CollectionPageFragment,
+    ICollection,
     Item,
     User,
-    ICollection,
 } from '../../../fragments/collection'
 import { ItemType } from '../../../fragments/common'
+import { withApollo } from '../../../lib/apollo'
 
 interface ICollectionProps {
     profile: string
@@ -67,9 +68,12 @@ interface CollectionVars {
 }
 
 const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
-    const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
+    const isBrowser = typeof window !== 'undefined'
+    const { error, data } = useQuery<CollectionQuery, CollectionVars>(
         collectionQuery,
         {
+            ssr: true,
+            returnPartialData: isBrowser,
             variables: {
                 slug: profile,
                 collectionId,
@@ -77,12 +81,15 @@ const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
         }
     )
 
-    if (loading || data === undefined) {
+    if (
+        data === undefined ||
+        data.collection === undefined ||
+        data.user === undefined
+    ) {
         return <div>Loading</div>
     }
 
     const { collection, user } = data
-
     const collectionName = removeMd(collection.name)
     const itemsTypeCount = countBy(collection.items, (x: Item) => x.type)
 
@@ -107,18 +114,20 @@ const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
                 }}
             />
             <PageBox>
-                <Link
-                    href="/[profile]/[sectionId]"
-                    as={`/${profile}/${collection.section.slug}`}
-                    passHref
-                >
-                    <BackButton>
-                        <LinkPrevious
-                            color="#595959"
-                            style={{ margin: 'auto', display: 'block' }}
-                        />
-                    </BackButton>
-                </Link>
+                {collection.section && (
+                    <Link
+                        href="/[profile]/[sectionId]"
+                        as={`/${profile}/${collection.section.slug}`}
+                        passHref
+                    >
+                        <BackButton>
+                            <LinkPrevious
+                                color="#595959"
+                                style={{ margin: 'auto', display: 'block' }}
+                            />
+                        </BackButton>
+                    </Link>
+                )}
                 <Box width="xlarge">
                     <CollectionHeader
                         ownerName={user.firstname}
@@ -131,7 +140,11 @@ const Collection: NextPage<ICollectionProps> = ({ profile, collectionId }) => {
                             itemsTypeCount as { [type in ItemType]: number }
                         }
                     />
-                    <ItemList items={collection.items} />
+                    {collection.items === undefined ? (
+                        <ItemListPlaceholder />
+                    ) : (
+                        <ItemList items={collection.items} />
+                    )}
                 </Box>
             </PageBox>
         </Layout>

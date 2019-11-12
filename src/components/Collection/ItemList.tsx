@@ -7,6 +7,8 @@ import { ItemMetas } from '../Cards/Metas'
 import { ElementAuthor, ElementDescription, ElementTitle } from '../Typography'
 import { imageShapes } from '../../fragments/common'
 import { Item } from '../../fragments/collection'
+import { Facebook } from 'react-content-loader'
+import range from 'lodash.range'
 
 interface IItemListProps {
     items: Item[]
@@ -50,6 +52,25 @@ const ContentBox = styled(Box)`
         padding-left: 0px;
     }
 `
+
+export const ItemListPlaceholder: React.FunctionComponent = () => {
+    return (
+        <ContentBox>
+            <CollectionCard background="white" pad="large">
+                {range(4).map((i: number) => {
+                    return (
+                        <Facebook
+                            key={i}
+                            width={600}
+                            height={140}
+                            style={{ marginBottom: '48px' }}
+                        />
+                    )
+                })}
+            </CollectionCard>
+        </ContentBox>
+    )
+}
 
 const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (

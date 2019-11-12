@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/react-hooks'
 import { Anchor } from 'grommet'
 import range from 'lodash.range'
+import throttle from 'lodash.throttle'
 import * as React from 'react'
 import { BulletList } from 'react-content-loader'
 import ReactGA from 'react-ga'
@@ -13,9 +14,8 @@ import {
     grey600,
     grey700,
 } from '../constants/colors'
-import { getCollectionQuery } from './Views/Section'
-import throttle from 'lodash.throttle'
 import { ICollection } from '../fragments/profile'
+import { getCollectionQuery } from './Views/Section'
 
 interface IAppTableOfContentsProps {
     sectionId: string
