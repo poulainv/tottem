@@ -1,10 +1,15 @@
-import { Box, Markdown, Anchor } from 'grommet'
+import { Anchor, Box, Markdown } from 'grommet'
 import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
-import ItemsCount from './ItemsCount'
-import { PageHeader, PageSubheader, CreationDate, Owner } from '../Typography'
 import { ItemType } from '../../fragments/common'
+import {
+    CreationDate,
+    Owner,
+    PageHeader,
+    PageSubheader,
+} from '../atoms/Typographies'
+import ItemsCount from '../molecules/ItemsCount'
 
 const Avatar = styled.img`
     border-radius: 50%;

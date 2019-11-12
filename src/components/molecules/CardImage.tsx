@@ -24,7 +24,7 @@ const ImageBox = styled(Box)`
     }
 `
 
-const CoverImage: React.FC<CoverProps> = props => {
+const CardImage: React.FC<CoverProps> = props => {
     return (
         <ImageBox
             imageShape={props.imageShape}
@@ -58,4 +58,4 @@ const CoverImage: React.FC<CoverProps> = props => {
     )
 }
 
-export default CoverImage
+export default CardImage

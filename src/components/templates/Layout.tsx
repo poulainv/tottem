@@ -3,8 +3,8 @@ import { Grommet } from 'grommet/components/Grommet'
 import * as React from 'react'
 import styled from 'styled-components'
 import theme from '../../theme'
-import { Footer } from './Footer'
-import Header from './Header'
+import { PageFooter } from '../organisms/PageFooter'
+import Header from '../organisms/TopBar'
 import ReactGA from 'react-ga'
 
 export const PageBox = styled(Box)`
@@ -35,7 +35,7 @@ export function Layout(props: ILayoutProps) {
                 <Box direction="row" justify="center">
                     {props.children}
                 </Box>
-                <Footer />
+                <PageFooter />
             </Box>
         </Grommet>
     )

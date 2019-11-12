@@ -9,7 +9,7 @@ const FootItem = styled.a`
     font-size: 12px;
 `
 
-export function Footer(props: {}) {
+export function PageFooter(props: {}) {
     return (
         <Box pad={{ horizontal: 'large', vertical: 'medium' }}>
             <FootItem href="mailto:hello@tottem.app">Contact</FootItem>

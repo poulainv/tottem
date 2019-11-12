@@ -5,9 +5,9 @@ import React, { Fragment } from 'react'
 import { List } from 'react-content-loader'
 import styled from 'styled-components'
 import { brand50, brand600 } from '../../constants/colors'
-import { MediumAndUp } from '../ResponsiveStyledComponent'
-import { CollectionTitle } from '../Typography'
-import ItemList from '../Views/ItemList'
+import { MediumAndUp } from '../atoms/ResponsiveStyledComponent'
+import { CollectionTitle } from '../atoms/Typographies'
+import ItemList from './CollectionItemsPreview'
 import { ICollection } from '../../fragments/profile'
 
 const CollectionDetail = styled(Text)`

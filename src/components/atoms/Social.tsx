@@ -1,7 +1,7 @@
 import { Box, Button, Image } from 'grommet'
 import { Link, Youtube } from 'grommet-icons'
 import React from 'react'
-import { ISocial } from '../fragments/profile'
+import { ISocial } from '../../fragments/profile'
 
 const Social: React.FC<ISocial> = props => {
     const pictoHeight = '16px'

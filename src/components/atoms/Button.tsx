@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { brand300, brand400, brand600, brand900 } from '../constants/colors'
+import { brand300, brand400, brand600, brand900 } from '../../constants/colors'
 
 interface IButton {
     primary?: boolean

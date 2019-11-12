@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import range from 'lodash.range'
 import React from 'react'
-import Collection, { CollectionPlaceHolder } from '../Cards/Collection'
+import Collection, { CollectionPlaceHolder } from './CollectionCard'
 import { ProfilePageFragment, ICollection } from '../../fragments/profile'
 
 interface Props {
@@ -43,7 +43,7 @@ interface CollectionVars {
     index: number
 }
 
-const Section: React.FC<Props> = props => {
+const SectionDetails: React.FC<Props> = props => {
     const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
         getCollectionQuery,
         {
@@ -85,4 +85,4 @@ const Section: React.FC<Props> = props => {
     )
 }
 
-export default Section
+export default SectionDetails

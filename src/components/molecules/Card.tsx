@@ -7,7 +7,7 @@ import { brand600, colorPlaceholders } from '../../constants/colors'
 import { ImageShapeType } from '../../fragments/common'
 import { Item } from '../../fragments/profile'
 import CardInfo from './CardInfo'
-import CoverImage from './CoverImage'
+import CardImage from './CardImage'
 import Link from 'next/link'
 
 interface CardProps {
@@ -77,7 +77,7 @@ const Card: React.FC<CardProps> = props => {
                     //     )
                     // }
                     >
-                        <CoverImage
+                        <CardImage
                             placeholderColor={
                                 colorPlaceholders[props.item.type]
                             }

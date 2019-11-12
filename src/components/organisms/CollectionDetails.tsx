@@ -1,14 +1,18 @@
 import { Box } from 'grommet'
+import range from 'lodash.range'
 import * as React from 'react'
+import { Facebook } from 'react-content-loader'
 import styled from 'styled-components'
 import { colorPlaceholders } from '../../constants/colors'
-import CoverImage from '../Cards/CoverImage'
-import { ItemMetas } from '../Cards/Metas'
-import { ElementAuthor, ElementDescription, ElementTitle } from '../Typography'
-import { imageShapes } from '../../fragments/common'
 import { Item } from '../../fragments/collection'
-import { Facebook } from 'react-content-loader'
-import range from 'lodash.range'
+import { imageShapes } from '../../fragments/common'
+import {
+    ElementAuthor,
+    ElementDescription,
+    ElementTitle,
+} from '../atoms/Typographies'
+import CardImage from '../molecules/CardImage'
+import { ItemMetas } from '../molecules/ItemMetas'
 
 interface IItemListProps {
     items: Item[]
@@ -99,7 +103,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                         style={{ display: 'flex ' }}
                                     >
                                         <ImageBox>
-                                            <CoverImage
+                                            <CardImage
                                                 placeholderColor={
                                                     colorPlaceholders[item.type]
                                                 }

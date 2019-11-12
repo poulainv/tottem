@@ -1,4 +1,4 @@
-import { brand700, grey300, grey600, brand900 } from '../constants/colors'
+import { brand700, grey300, grey600, brand900 } from '../../constants/colors'
 import styled from 'styled-components'
 
 interface IMenuItemProps {

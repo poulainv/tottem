@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import { Menu, MenuItem } from './Menu'
-import { ISection } from '../fragments/profile'
+import { Menu, MenuItem } from '../atoms/Menu'
+import { ISection } from '../../fragments/profile'
 
 export interface ISectionMenuProps {
     sections: ISection[]

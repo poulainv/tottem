@@ -5,11 +5,11 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import styled from 'styled-components'
 import { ISection, ProfilePageFragment } from '../../fragments/profile'
-import AppTableOfContents from '../AppTableOfContents'
-import { SectionMenu } from '../SectionMenu'
-import { Layout, PageBox } from './Layout'
-import ProfileDescription from './Nav'
-import Section from './Section'
+import AppTableOfContents from '../molecules/AppTableOfContents'
+import { SectionMenu } from '../molecules/SectionMenu'
+import { Layout, PageBox } from '../templates/Layout'
+import ProfileHeader from './ProfileHeader'
+import SectionDetails from './SectionDetails'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -99,13 +99,13 @@ export default function ProfilePage(props: IProfilePageProps) {
 
             <Side />
             <PageBox>
-                <ProfileDescription {...user} />
+                <ProfileHeader {...user} />
                 <ContentBox pad={{ horizontal: 'large' }}>
                     <SectionMenu
                         activeSectionId={activeSectionId}
                         sections={sections}
                     />
-                    <Section
+                    <SectionDetails
                         slug={props.profile}
                         index={activeSectionId === undefined ? 0 : -1}
                         key={activeSectionId}

@@ -1,6 +1,8 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import ProfilePage, { IProfilePageProps } from '../components/Views/Profile'
+import ProfilePage, {
+    IProfilePageProps,
+} from '../components/organisms/ProfilePage'
 import { withApollo } from '../lib/apollo'
 
 const Profile: NextPage<IProfilePageProps> = ({ profile }) => {

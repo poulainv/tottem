@@ -1,10 +1,10 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import PictureProfile from '../PictureProfile'
-import { MediumAndUp, SmallAndDown } from '../ResponsiveStyledComponent'
-import Social from '../Social'
-import { PageHeader, PageSubheader } from '../Typography'
+import PictureProfile from '../atoms/PictureProfile'
+import { MediumAndUp, SmallAndDown } from '../atoms/ResponsiveStyledComponent'
+import Social from '../atoms/Social'
+import { PageHeader, PageSubheader } from '../atoms/Typographies'
 import { UserProfile } from '../../fragments/profile'
 
 const Label = styled.div`
@@ -27,7 +27,7 @@ const Label = styled.div`
     }
 `
 
-const ProfileDescription: React.FC<UserProfile> = props => {
+const ProfileHeader: React.FC<UserProfile> = props => {
     return (
         <Box pad={{ horizontal: 'large' }} width="full">
             <Box direction="row" justify="start" margin={{ bottom: 'small' }}>
@@ -64,4 +64,4 @@ const ProfileDescription: React.FC<UserProfile> = props => {
     )
 }
 
-export default ProfileDescription
+export default ProfileHeader

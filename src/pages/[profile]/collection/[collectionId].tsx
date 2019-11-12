@@ -9,11 +9,11 @@ import Link from 'next/link'
 import * as React from 'react'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
-import CollectionHeader from '../../../components/Collection/Header'
+import CollectionHeader from '../../../components/organisms/CollectionHeader'
 import ItemList, {
     ItemListPlaceholder,
-} from '../../../components/Collection/ItemList'
-import { Layout, PageBox } from '../../../components/Views/Layout'
+} from '../../../components/organisms/CollectionDetails'
+import { Layout, PageBox } from '../../../components/templates/Layout'
 import {
     CollectionPageFragment,
     ICollection,

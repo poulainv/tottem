@@ -13,9 +13,9 @@ import {
     grey300,
     grey600,
     grey700,
-} from '../constants/colors'
-import { ICollection } from '../fragments/profile'
-import { getCollectionQuery } from './Views/Section'
+} from '../../constants/colors'
+import { ICollection } from '../../fragments/profile'
+import { getCollectionQuery } from '../organisms/SectionDetails'
 
 interface IAppTableOfContentsProps {
     sectionId: string

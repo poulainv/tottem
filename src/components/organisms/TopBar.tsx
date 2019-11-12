@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import { Auth0 } from '../../pages/_document'
-import { StyledButton } from '../Button'
-import { Beta, Logo } from '../Logo'
+import { StyledButton } from '../atoms/Button'
+import { Beta, Logo } from '../atoms/Logo'
 
 const logout = () => {
     Auth0.logout()
