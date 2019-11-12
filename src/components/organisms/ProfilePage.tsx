@@ -14,6 +14,7 @@ import { SectionMenu } from '../molecules/SectionMenu'
 import { Layout, PageBox } from '../templates/Layout'
 import ProfileHeader from './ProfileHeader'
 import SectionDetails from './SectionDetails'
+import LoadingPage from './LoadingPage'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -84,7 +85,7 @@ export default function ProfilePage(props: IProfilePageProps) {
     )
 
     if (loading || data === undefined) {
-        return <div>Loading</div>
+        return <LoadingPage />
     }
     const { user, sections } = data
 
