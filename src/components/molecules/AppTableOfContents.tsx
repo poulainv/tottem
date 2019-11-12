@@ -105,9 +105,7 @@ const trackTableOfContent = () => {
     })
 }
 
-const AppTableOfContents: React.FunctionComponent<
-    IAppTableOfContentsProps
-> = props => {
+const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = props => {
     const { loading, data } = useQuery(getCollectionQuery, {
         variables: {
             slug: props.slug,
@@ -122,6 +120,7 @@ const AppTableOfContents: React.FunctionComponent<
     } else {
         collections = data.collections
     }
+
     const sortedCollections = collections.sort(
         (a: ICollection, b: ICollection) =>
             new Date(b.date).getTime() - new Date(a.date).getTime()
