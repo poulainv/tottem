@@ -1,6 +1,6 @@
 const domain =
-    process.env.ENV === 'production'
-        ? 'https://tottem.app'
+    process.env.NODE_ENV === 'production'
+        ? 'https://quiet-vincentpoulain.quiet.now.sh/' // FIXME
         : 'http://localhost:3000'
 
 export const AUTH_CONFIG = {

@@ -15,7 +15,7 @@ module.exports = withBundleAnalyzer({
     },
 
     env: {
-        ENV: process.env.ENV,
+        ENV: process.env.NODE_ENV,
         AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
         AUTH0_CLIENTID: process.env.AUTH0_CLIENTID,
         AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
