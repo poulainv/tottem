@@ -11,7 +11,8 @@
     "alias": ["apollo"],
     "env": {
         "DATABASE_PROVIDER": "@database_provider",
-        "DATABASE_URL": "@database_url"
+        "DATABASE_URL": "@database_url",
+        "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql"
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
