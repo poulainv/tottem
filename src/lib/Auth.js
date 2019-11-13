@@ -1,6 +1,6 @@
 import auth0 from 'auth0-js'
-import { AUTH_CONFIG } from './auth0-variables'
 import jwtDecode from 'jwt-decode'
+import { AUTH_CONFIG } from './auth0-variables'
 
 export default class Auth {
     accessToken
@@ -13,6 +13,7 @@ export default class Auth {
         redirectUri: AUTH_CONFIG.callbackUrl,
         responseType: 'token id_token',
         scope: 'openid profile email',
+        audience: AUTH_CONFIG.audience,
     })
 
     constructor() {
@@ -89,6 +90,7 @@ export default class Auth {
             'user_details',
             JSON.stringify(user_details.user_details)
         )
+        localStorage.setItem('token', authResult.accessToken)
 
         // Set the time that the access token will expire at
         let expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
@@ -123,6 +125,7 @@ export default class Auth {
         // Remove isLoggedIn flag from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('user_details')
+        localStorage.removeItem('token')
         localStorage.setItem('redirectTo', window.location.href)
 
         // log out of auth0

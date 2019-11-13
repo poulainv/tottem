@@ -1,10 +1,12 @@
-import React from 'react'
-import Head from 'next/head'
 import { ApolloProvider } from '@apollo/react-hooks'
+import { defaultDataIdFromObject, InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
-import { InMemoryCache, defaultDataIdFromObject } from 'apollo-cache-inmemory'
-import { HttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
+import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
+import Head from 'next/head'
+import React from 'react'
+import { Auth0 } from '../pages/_document'
 
 let apolloClient = null
 
@@ -123,18 +125,35 @@ function initApolloClient(initialState) {
     return apolloClient
 }
 
+const authLink = setContext((_, { headers }) => {
+    const isServer = typeof window === 'undefined'
+    // localStorage does not exist on server side
+    // FIXME use cookie session instead
+    // For now it means that SSR can not do authenticated request to API
+    const token = isServer ? '' : localStorage.getItem('token')
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `${token}` : '',
+        },
+    }
+})
+
 function createApolloClient(initialState = {}) {
     var graphqlUrl =
         process.env.NODE_ENV === 'production'
             ? 'https://tottem-api.herokuapp.com/graphql'
             : 'http://localhost:4000/graphql'
+
+    const httpLink = createHttpLink({
+        uri: graphqlUrl,
+        credentials: 'same-origin',
+        fetch,
+    })
+
     return new ApolloClient({
         ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
-        link: new HttpLink({
-            uri: graphqlUrl,
-            credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-            fetch,
-        }),
+        link: authLink.concat(httpLink),
         resolvers: {},
         cache: new InMemoryCache({
             cacheRedirects: {
