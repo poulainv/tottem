@@ -1,4 +1,3 @@
-import util from 'util'
 import auth0 from 'auth0-js'
 import jwtDecode from 'jwt-decode'
 

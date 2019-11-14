@@ -11,7 +11,7 @@ const Callback: React.FunctionComponent = props => {
                 window.location.href = redirectTo
                 localStorage.removeItem('redirectTo')
             } else {
-                window.location.replace('/vincent') // FIXME
+                window.location.replace('/')
             }
         })
     }, [])
