@@ -62,14 +62,6 @@ export default class Auth {
     handleAuthentication() {
         return new Promise(resolve => {
             this.auth0.parseHash((err, authResult) => {
-                console.log(
-                    util.inspect(
-                        authResult,
-                        false,
-                        null,
-                        true /* enable colors */
-                    )
-                )
                 var user_details = this.extractInfoFromHash()
                 if (
                     authResult &&

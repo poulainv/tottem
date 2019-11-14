@@ -152,7 +152,6 @@ const Landing: React.FC = props => {
         const redirectTo = localStorage.getItem('redirectTo')
         if (redirectTo) {
             // If user is logging in or out, we redirect him to the page he was on
-            // TODO for now redirectTo is only set when logging out, it needs to be there when logging in as well
             window.location.href = redirectTo
             localStorage.removeItem('redirectTo')
         }
