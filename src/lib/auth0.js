@@ -92,10 +92,12 @@ export default class Auth {
     setSession(authResult, user_details) {
         // Set isLoggedIn flag in localStorage
         localStorage.setItem('isLoggedIn', 'true')
-        localStorage.setItem(
-            'user_details',
-            JSON.stringify(user_details.user_details)
-        )
+        if (user_details !== undefined) {
+            localStorage.setItem(
+                'user_details',
+                JSON.stringify(user_details.user_details)
+            )
+        }
         localStorage.setItem('access_token', authResult.accessToken)
 
         // Set the time that the access token will expire at
@@ -109,16 +111,24 @@ export default class Auth {
     }
 
     renewSession() {
-        this.auth0.checkSession({}, (err, authResult) => {
-            if (authResult && authResult.accessToken && authResult.idToken) {
-                this.setSession(authResult)
-            } else if (err) {
-                this.logout()
-                console.log(err)
-                alert(
-                    `Could not get a new token (${err.error}: ${err.error_description}).`
-                )
-            }
+        return new Promise((resolve, reject) => {
+            this.auth0.checkSession({}, (err, authResult) => {
+                if (
+                    authResult &&
+                    authResult.accessToken &&
+                    authResult.idToken
+                ) {
+                    this.setSession(authResult)
+                    resolve(authResult.accessToken)
+                } else if (err) {
+                    this.logout()
+                    console.log(err)
+                    reject(undefined)
+                    // alert(
+                    //     `Could not get a new token (${err.error}: ${err.error_description}).`
+                    // )
+                }
+            })
         })
     }
 

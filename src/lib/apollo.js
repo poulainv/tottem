@@ -125,18 +125,38 @@ function initApolloClient(initialState) {
     return apolloClient
 }
 
+/*
+ * This function add authentication token into graphql request when
+ * requests have been made from client side.
+ * It also handles access token renewal when it has been expired
+ */
 const authLink = setContext((_, { headers }) => {
     const isServer = typeof window === 'undefined'
     // localStorage does not exist on server side
     // FIXME use cookie session instead
     // For now it means that SSR can not do authenticated request to API
-    const token = isServer ? '' : localStorage.getItem('access_token')
-    return {
-        headers: {
-            ...headers,
-            authorization: token ? `${token}` : '',
-        },
+    const shouldRenew = isServer ? false : !Auth0.isAuthenticated()
+
+    let promise
+    if (shouldRenew) {
+        // access token needs to be renew on client side
+        promise = Auth0.renewSession()
+    } else if (!isServer) {
+        // access token is still valid get it on client side
+        promise = Promise.resolve(localStorage.getItem('access_token'))
+    } else {
+        // server side no access token
+        promise = Promise.resolve('')
     }
+
+    return promise.then(token => {
+        return {
+            headers: {
+                ...headers,
+                authorization: token ? `${token}` : '',
+            },
+        }
+    })
 })
 
 function createApolloClient(initialState = {}) {
