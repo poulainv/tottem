@@ -5,14 +5,16 @@
             "DATABASE_PROVIDER": "@database_provider",
             "DATABASE_URL": "@database_url",
             "AUTH0_DOMAIN": "@auth0_domain",
-            "AUTH0_CLIENTID": "@auth0_client_id"
+            "AUTH0_CLIENTID": "@auth0_client_id",
+            "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
+            "AUTH0_CALLBACK": "https://quiet-vincentpoulain.quiet.now.sh/auth/callback",
+            "GRAPHQL_URL": "https://tottem-api.herokuapp.com/graphql"
         }
     },
     "alias": ["apollo"],
     "env": {
         "DATABASE_PROVIDER": "@database_provider",
-        "DATABASE_URL": "@database_url",
-        "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql"
+        "DATABASE_URL": "@database_url"
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },

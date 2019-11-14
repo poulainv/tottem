@@ -1,6 +1,13 @@
+import util from 'util'
 import auth0 from 'auth0-js'
 import jwtDecode from 'jwt-decode'
-import { AUTH_CONFIG } from './auth0-variables'
+
+const AUTH_CONFIG = {
+    domain: process.env.AUTH0_DOMAIN,
+    clientId: process.env.AUTH0_CLIENTID,
+    audience: process.env.AUTH0_AUDIENCE,
+    callbackUrl: process.env.AUTH0_CALLBACK,
+}
 
 export default class Auth {
     accessToken
@@ -55,6 +62,14 @@ export default class Auth {
     handleAuthentication() {
         return new Promise(resolve => {
             this.auth0.parseHash((err, authResult) => {
+                console.log(
+                    util.inspect(
+                        authResult,
+                        false,
+                        null,
+                        true /* enable colors */
+                    )
+                )
                 var user_details = this.extractInfoFromHash()
                 if (
                     authResult &&
@@ -90,7 +105,7 @@ export default class Auth {
             'user_details',
             JSON.stringify(user_details.user_details)
         )
-        localStorage.setItem('token', authResult.accessToken)
+        localStorage.setItem('access_token', authResult.accessToken)
 
         // Set the time that the access token will expire at
         let expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
@@ -125,7 +140,7 @@ export default class Auth {
         // Remove isLoggedIn flag from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('user_details')
-        localStorage.removeItem('token')
+        localStorage.removeItem('access_token')
         localStorage.setItem('redirectTo', window.location.href)
 
         // log out of auth0

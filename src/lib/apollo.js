@@ -130,7 +130,7 @@ const authLink = setContext((_, { headers }) => {
     // localStorage does not exist on server side
     // FIXME use cookie session instead
     // For now it means that SSR can not do authenticated request to API
-    const token = isServer ? '' : localStorage.getItem('token')
+    const token = isServer ? '' : localStorage.getItem('access_token')
     return {
         headers: {
             ...headers,
@@ -140,13 +140,8 @@ const authLink = setContext((_, { headers }) => {
 })
 
 function createApolloClient(initialState = {}) {
-    var graphqlUrl =
-        process.env.NODE_ENV === 'production'
-            ? 'https://tottem-api.herokuapp.com/graphql'
-            : 'http://localhost:4000/graphql'
-
     const httpLink = createHttpLink({
-        uri: graphqlUrl,
+        uri: process.env.GRAPHQL_URL,
         credentials: 'same-origin',
         fetch,
     })

@@ -19,5 +19,7 @@ module.exports = withBundleAnalyzer({
         AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
         AUTH0_CLIENTID: process.env.AUTH0_CLIENTID,
         AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
+        AUTH0_CALLBACK: process.env.AUTH0_CALLBACK,
+        GRAPHQL_URL: process.env.GRAPHQL_URL,
     },
 })
