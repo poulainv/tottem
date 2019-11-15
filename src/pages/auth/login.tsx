@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Auth0 } from '../_document'
 import { NextPage } from 'next'
-import LoadingPage from '../../components/organisms/LoadingPage'
+import LoadingPage from '../../scenes/LoadingPage'
 
 const Login: NextPage = () => {
     useEffect(() => {

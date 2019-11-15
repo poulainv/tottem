@@ -11,14 +11,14 @@ import styled from 'styled-components'
 import {
     LargeResponsiveArtwork,
     MobileArtwork,
-} from '../components/atoms/Illustration'
-import Logo from '../components/atoms/Logo'
+} from '../components/Illustration'
+import Logo from '../components/Logo'
 import {
     LargeAndUp,
     MediumAndUp,
     SmallAndDown,
-} from '../components/atoms/ResponsiveStyledComponent'
-import Separator from '../components/atoms/Separator'
+} from '../components/ResponsiveStyledComponent'
+import Separator from '../components/Separator'
 import { accent500, accent900, brand500 } from '../constants/colors'
 
 const Header = styled(Heading)`

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Auth0 } from '../_document'
-import LoadingPage from '../../components/organisms/LoadingPage'
+import LoadingPage from '../../scenes/LoadingPage'
 
 const Callback: React.FunctionComponent = props => {
     useEffect(() => {

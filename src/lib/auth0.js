@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js'
 import jwtDecode from 'jwt-decode'
+import util from 'util'
 
 const AUTH_CONFIG = {
     domain: process.env.AUTH0_DOMAIN,
@@ -61,7 +62,23 @@ export default class Auth {
     handleAuthentication() {
         return new Promise(resolve => {
             this.auth0.parseHash((err, authResult) => {
+                console.log(
+                    util.inspect(
+                        authResult,
+                        false,
+                        null,
+                        true /* enable colors */
+                    )
+                )
                 var user_details = this.extractInfoFromHash()
+                console.log(
+                    util.inspect(
+                        user_details,
+                        false,
+                        null,
+                        true /* enable colors */
+                    )
+                )
                 if (
                     authResult &&
                     authResult.accessToken &&
