@@ -51,15 +51,14 @@ const useItemForm = (collectionId?: string) => {
         }
     )
 
-    // Could happen because page is shared with new (non existing) collection
-    // But should not occured because input is disabled when collection still not created
-    if (collectionId === undefined) {
-        throw Error(
-            'Item try to be saved but collectionId is undefined. Is collection saved?'
-        )
-    }
-
     const onSubmit = handleSubmit(({ url }) => {
+        // Could happen because page is shared with new (non existing) collection
+        // But should not occured because input is disabled when collection still not created
+        if (collectionId === undefined) {
+            throw Error(
+                'Item try to be saved but collectionId is undefined. Is collection saved?'
+            )
+        }
         addItem({
             variables: {
                 url,

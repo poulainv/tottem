@@ -145,6 +145,9 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                         </Box>
                     )
                 })}
+                {props.items.length === 0 && (
+                    <p> Oops ! Pas d'éléments ajoutés 🤔 </p>
+                )}
             </CollectionCard>
         </ContentBox>
     )

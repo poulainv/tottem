@@ -4,11 +4,11 @@ import { Item } from '../../types'
 
 export default ({ collectionId }: { collectionId?: string }) => {
     if (collectionId === undefined) {
-        return <div> No items yep</div>
+        return <ItemList items={[]} />
     } else {
         const { data, loading } = useItems(collectionId)
         if (data === undefined || loading) {
-            return <div> Wait .... </div>
+            return <ItemList items={[]} />
         } else {
             const items = data.collection.items.sort(
                 (a: Item, b: Item) =>
