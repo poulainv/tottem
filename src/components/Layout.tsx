@@ -32,7 +32,11 @@ export function Layout(props: ILayoutProps) {
         <Grommet theme={theme}>
             <Box align="center" background="light-1">
                 <Header />
-                <Box direction="row" justify="center">
+                <Box
+                    direction="row"
+                    justify="center"
+                    style={{ minHeight: '85vh' }}
+                >
                     {props.children}
                 </Box>
                 <PageFooter />
