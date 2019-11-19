@@ -23,6 +23,7 @@ export const PageSubheader = styled.h3`
     font-weight: normal;
     font-size: 16px;
     line-height: 28px;
+    white-space: pre-line;
 
     @media screen and (max-width: 812px) {
         font-size: 14px;
