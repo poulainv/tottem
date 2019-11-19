@@ -27,5 +27,5 @@ export interface Item {
     productUrl: string
     type: ItemType
     provider?: string
-    meta?: object
+    meta?: string
 }

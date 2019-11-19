@@ -9,6 +9,7 @@ export const Fragments = {
             createdAt
             imageUrl
             comment
+            provider
             productUrl
             title
             author
@@ -32,6 +33,7 @@ export const Fragments = {
                 imageUrl
                 comment
                 productUrl
+                provider
                 title
                 author
                 type

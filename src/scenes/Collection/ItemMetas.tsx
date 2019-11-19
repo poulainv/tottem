@@ -76,12 +76,13 @@ export interface IItemMetasProps {
 
 export function ItemMetas({ item }: IItemMetasProps) {
     if (item.provider && item.meta) {
+        const meta = JSON.parse(item.meta)
         if (item.provider === 'github') {
-            return <GithubMetas {...(item.meta as IGithubMetasProps)} />
+            return <GithubMetas {...(meta as IGithubMetasProps)} />
         } else if (item.provider === 'youtube') {
-            return <YoutubeMetas {...(item.meta as IYoutubeMetasProps)} />
+            return <YoutubeMetas {...(meta as IYoutubeMetasProps)} />
         } else if (item.provider === 'moviedb') {
-            return <MovieDBMetas {...(item.meta as IMovieDBMetasProps)} />
+            return <MovieDBMetas {...(meta as IMovieDBMetasProps)} />
         }
     }
     return <React.Fragment />
