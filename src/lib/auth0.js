@@ -115,13 +115,15 @@ export default class Auth {
                 JSON.stringify(user_details.user_details)
             )
         }
-        localStorage.setItem('access_token', authResult.accessToken)
 
         // Set the time that the access token will expire at
         let expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
         this.accessToken = authResult.accessToken
         this.idToken = authResult.idToken
         this.expiresAt = expiresAt
+
+        localStorage.setItem('access_token', authResult.accessToken)
+        localStorage.setItem('expired_at', expiresAt)
 
         // navigate to the home route
         //history.replace('/home');
@@ -158,6 +160,7 @@ export default class Auth {
         // Remove isLoggedIn flag from localStorage
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('user_details')
+        localStorage.removeItem('expired_at')
         localStorage.removeItem('access_token')
         localStorage.setItem('redirectTo', window.location.href)
 
@@ -168,7 +171,7 @@ export default class Auth {
     isAuthenticated() {
         // Check whether the current time is past the
         // access token's expiry time
-        let expiresAt = this.expiresAt
+        let expiresAt = localStorage.getItem('expired_at')
         return new Date().getTime() < expiresAt
     }
 }

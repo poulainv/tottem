@@ -81,7 +81,7 @@ export default (props: Props) => {
                       .map((collection: ICollection) => {
                           return (
                               <Collection
-                                  key={collection.name}
+                                  key={collection.id}
                                   data={collection}
                               />
                           )
