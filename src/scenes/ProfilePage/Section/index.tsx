@@ -75,8 +75,8 @@ export default (props: Props) => {
                       .filter((x: ICollection) => x.items.length !== 0)
                       .sort(
                           (a: ICollection, b: ICollection) =>
-                              new Date(b.date).getTime() -
-                              new Date(a.date).getTime()
+                              new Date(b.createdAt).getTime() -
+                              new Date(a.createdAt).getTime()
                       )
                       .map((collection: ICollection) => {
                           return (

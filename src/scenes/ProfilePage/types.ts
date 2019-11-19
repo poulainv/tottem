@@ -29,7 +29,7 @@ export interface ICollection {
     id: string
     slug: string
     name: string
-    date: Date | string
+    createdAt: Date | string
     items: Item[]
     detail?: string
 }

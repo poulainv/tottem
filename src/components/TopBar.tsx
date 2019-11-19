@@ -41,7 +41,7 @@ const Header = () => {
                 justify="between"
             >
                 <Box>
-                    <Link href="/vincent" passHref>
+                    <Link href="/" passHref>
                         <Anchor>
                             <Logo>
                                 Tottem

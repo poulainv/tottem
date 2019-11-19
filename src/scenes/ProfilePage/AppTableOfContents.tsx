@@ -125,7 +125,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
 
     const sortedCollections = collections.sort(
         (a: ICollection, b: ICollection) =>
-            new Date(b.date).getTime() - new Date(a.date).getTime()
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
     const [activeIndex, setActiveIndex] = React.useState(0)
     const findActiveIndex = React.useCallback(() => {
@@ -163,7 +163,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                     : collections.map(
                           (collection: ICollection, index: number) => {
                               const newDate = new Date(
-                                  collection.date
+                                  collection.createdAt
                               ).toLocaleDateString('fr-FR', { year: 'numeric' })
                               const hasDateChanged = newDate !== lastDate
                               lastDate = newDate
