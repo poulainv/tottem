@@ -9,6 +9,7 @@ import { ApolloLink } from 'apollo-link'
 import React from 'react'
 import { Auth0 } from '../pages/_document'
 import { onError } from 'apollo-link-error'
+import { openNotification } from '../utils/errors'
 
 let apolloClient = null
 
@@ -164,8 +165,9 @@ const authLink = setContext((_, { headers }) => {
 const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors)
         graphQLErrors.forEach(({ message, locations, path }) =>
-            console.log(
-                `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+            openNotification(
+                message,
+                'Aïe ! Re-tentez le coup, sinon contactez-nous.'
             )
         )
     if (networkError) console.log(`[Network error]: ${networkError}`)

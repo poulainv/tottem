@@ -15,6 +15,8 @@ export const Logo = styled.h1`
     color: black;
     font-family: 'Poiret One', Arial, sans-serif;
     font-weight: 700;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 
     :hover {
         cursor: pointer;

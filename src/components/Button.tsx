@@ -21,6 +21,7 @@ export const StyledButton = styled.button`
     font-weight: 500;
     margin: 0px;
     font-size: 14px;
+    line-height: normal;
     width: fit-content;
 
     :focus {

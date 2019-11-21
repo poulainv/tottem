@@ -41,6 +41,8 @@ class MyDocument extends Document {
                         margin: 0,
                         WebkitFontSmoothing: 'antialiased',
                         MozOsxFontSmoothing: 'grayscale',
+                        fontFeatureSettings: 'normal !important',
+                        fontVariantNumeric: 'stacked-fractions !important',
                     }}
                 >
                     <Main />
