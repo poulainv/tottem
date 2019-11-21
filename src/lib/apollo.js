@@ -172,6 +172,7 @@ function createApolloClient(initialState = {}) {
         resolvers: {},
         cache: new InMemoryCache({
             cacheRedirects: {
+                // FIXME We do want composite keys that will be supported in Apollo Client V3
                 Query: {
                     // Allow query to get cache (partial)
                     collection: (_, args, { getCacheKey }) => {
@@ -185,7 +186,7 @@ function createApolloClient(initialState = {}) {
             dataIdFromObject: object => {
                 switch (object.__typename) {
                     case 'Collection':
-                        return object.slug
+                        return `Collection:${object.slug}`
                     default:
                         return defaultDataIdFromObject(object) // fall back to default handling
                 }

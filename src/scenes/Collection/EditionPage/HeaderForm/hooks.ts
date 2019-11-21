@@ -5,11 +5,16 @@ import slugify from 'slugify'
 import { newCollectionQuery, updateCollectionQuery } from './query'
 import { ICollection } from '../../types'
 import { useState, useCallback } from 'react'
+import getUuid from 'uuid-by-string'
 
 interface CollectionFormData {
     name: string
     detail: string
 }
+
+const getCollectionSlug = (name: string, stableId: string | undefined) =>
+    `${slugify(name.toLowerCase())}-${stableId &&
+        getUuid(stableId).slice(0, 4)}`
 
 const useCollectionForm = (
     initialCollection?: ICollection,
@@ -56,7 +61,7 @@ const useCollectionForm = (
                 variables: {
                     name,
                     detail,
-                    slug: slugify(name.toLowerCase()),
+                    slug: getCollectionSlug(name, sectionId),
                     sectionId,
                     ownerSlug: profile,
                 },
@@ -67,6 +72,7 @@ const useCollectionForm = (
                     name,
                     detail,
                     collectionId,
+                    slug: getCollectionSlug(name, collectionId),
                 },
             })
         }

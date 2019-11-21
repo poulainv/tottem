@@ -26,12 +26,13 @@ export const newCollectionQuery = gql`
 export const updateCollectionQuery = gql`
     mutation UpdateCollection(
         $collectionId: ID!
+        $slug: String!
         $name: String!
         $detail: String
     ) {
         collection: updateOneCollection(
             where: { id: $collectionId }
-            data: { name: $name, detail: $detail }
+            data: { name: $name, detail: $detail, slug: $slug }
         ) {
             id
             slug
