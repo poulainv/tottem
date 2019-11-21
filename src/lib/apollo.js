@@ -170,7 +170,11 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
                 'Aïe ! Re-tentez le coup, sinon contactez-nous.'
             )
         )
-    if (networkError) console.log(`[Network error]: ${networkError}`)
+    if (networkError)
+        openNotification(
+            'Toujours connecté ?',
+            'Aïe ! Re-tentez le coup, sinon contactez-nous.'
+        )
 })
 
 function createApolloClient(initialState = {}) {
