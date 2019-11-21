@@ -41,8 +41,8 @@ class MyDocument extends Document {
                         margin: 0,
                         WebkitFontSmoothing: 'antialiased',
                         MozOsxFontSmoothing: 'grayscale',
-                        fontFeatureSettings: 'normal !important',
-                        fontVariantNumeric: 'stacked-fractions !important',
+                        fontFamily:
+                            '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";',
                     }}
                 >
                     <Main />

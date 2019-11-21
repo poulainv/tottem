@@ -7,7 +7,6 @@ export const PageHeader = styled.h1`
     font-size: 28px;
     line-height: 56px;
     color: ${grey1000};
-    margin-block-end: 0.67em;
 
     @media screen and (min-width: 812px) {
         :first-line {
@@ -80,7 +79,7 @@ export const ElementDescription = styled.p`
     font-size: 14px;
     margin: 0px 0px 0px 0px;
     line-height: 26px;
-    color: ${grey900} !important;
+    color: ${grey900};
     overflow: hidden;
     max-height: 104px;
 
@@ -92,8 +91,6 @@ export const ElementDescription = styled.p`
 `
 
 export const CollectionTitle = styled.h2`
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;

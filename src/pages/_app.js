@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 
 // Due to this issue https://github.com/zeit/next.js/issues/6972
 // Antdesign style should be imported here instead of component files
-import 'antd/es/notification/style/css'
+import 'antd/es/notification/style/index.css'
 
 export default class MyApp extends App {
     render() {
