@@ -5,8 +5,10 @@ import { setContext } from 'apollo-link-context'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
+import { ApolloLink } from 'apollo-link'
 import React from 'react'
 import { Auth0 } from '../pages/_document'
+import { onError } from 'apollo-link-error'
 
 let apolloClient = null
 
@@ -159,6 +161,16 @@ const authLink = setContext((_, { headers }) => {
     })
 })
 
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+    if (graphQLErrors)
+        graphQLErrors.forEach(({ message, locations, path }) =>
+            console.log(
+                `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+            )
+        )
+    if (networkError) console.log(`[Network error]: ${networkError}`)
+})
+
 function createApolloClient(initialState = {}) {
     const httpLink = createHttpLink({
         uri: process.env.GRAPHQL_URL,
@@ -166,9 +178,11 @@ function createApolloClient(initialState = {}) {
         fetch,
     })
 
+    const links = ApolloLink.from([authLink, errorLink, httpLink])
+
     return new ApolloClient({
         ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
-        link: authLink.concat(httpLink),
+        link: links,
         resolvers: {},
         cache: new InMemoryCache({
             cacheRedirects: {

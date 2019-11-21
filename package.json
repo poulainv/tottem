@@ -23,6 +23,7 @@
         "apollo-cache-inmemory": "1.6.3",
         "apollo-client": "2.6.4",
         "apollo-link-context": "^1.0.19",
+        "apollo-link-error": "^1.1.12",
         "apollo-link-http": "1.5.15",
         "auth0-js": "^9.11.3",
         "babel-loader": "^7.1.5",
