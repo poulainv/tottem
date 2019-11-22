@@ -7,7 +7,7 @@ import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
 import { ApolloLink } from 'apollo-link'
 import React from 'react'
-import { Auth0 } from '../../pages/_document'
+import { auth0 } from '../../services/authentication'
 import { onError } from 'apollo-link-error'
 import { openNotification } from '../errors'
 
@@ -138,12 +138,12 @@ const authLink = setContext((_, { headers }) => {
     // localStorage does not exist on server side
     // FIXME use cookie session instead
     // For now it means that SSR can not do authenticated request to API
-    const shouldRenew = isServer ? false : !Auth0.isAuthenticated()
+    const shouldRenew = isServer ? false : !auth0.isAuthenticated()
 
     let promise
     if (shouldRenew) {
         // access token needs to be renew on client side
-        promise = Auth0.renewSession()
+        promise = auth0.renewSession()
     } else if (!isServer) {
         // access token is still valid get it on client side
         promise = Promise.resolve(localStorage.getItem('access_token'))

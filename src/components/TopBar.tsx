@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import ReactGA from 'react-ga'
-import { Auth0 } from '../pages/_document'
+import { auth0 } from '../services/authentication'
 import { useAuthUser, useLoggedIn } from '../services/authentication'
 import { StyledButton } from './Button'
 import { Beta, Logo } from './Logo'
 
 const logout = () => {
-    Auth0.logout()
+    auth0.logout()
 }
 
 const trackTableOfContent = (name: string) => {

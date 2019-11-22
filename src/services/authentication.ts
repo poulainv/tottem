@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import Auth from './lib/auth0'
+
+// Making the Auth0 methods available anywhere
+const auth0 = new Auth()
 
 interface AuthenticatedUser {
     id: string
@@ -39,4 +43,4 @@ const useAuthUser: () => AuthenticatedUser | undefined = () => {
     return userData
 }
 
-export { useLoggedIn, useAuthUser }
+export { useLoggedIn, useAuthUser, auth0 }
