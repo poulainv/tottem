@@ -1,14 +1,14 @@
 import { Box } from 'grommet'
 import React from 'react'
 import styled from 'styled-components'
-import PictureProfile from './PictureProfile'
 import {
     MediumAndUp,
     SmallAndDown,
 } from '../../components/ResponsiveStyledComponent'
-import Social from './Social'
 import { PageHeader, PageSubheader } from '../../components/Typographies'
-import { UserProfile } from './types'
+import { SocialFragment, UserBasicFragment } from '../../generated/types'
+import PictureProfile from './PictureProfile'
+import Social from './Social'
 
 const Label = styled.div`
     color: #777777;
@@ -30,7 +30,7 @@ const Label = styled.div`
     }
 `
 
-const Headers: React.FC<UserProfile> = props => {
+const Headers: React.FC<UserBasicFragment & SocialFragment> = props => {
     return (
         <Box pad={{ horizontal: 'large' }} width="full">
             <Box direction="row" justify="start" margin={{ bottom: 'small' }}>
@@ -49,7 +49,7 @@ const Headers: React.FC<UserProfile> = props => {
                                 {props.label && <Label>{props.label}</Label>}
                             </PageHeader>
                         </Box>
-                        <Social {...props.social} />
+                        <Social {...props} />
                     </Box>
                     <MediumAndUp>
                         <Box width="large" margin={{ bottom: 'none' }}>

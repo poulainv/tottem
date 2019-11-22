@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Card, { CardSize } from '../../../components/ItemCardPreview/Card'
 import { imageShapes } from '../../common'
-import { Item } from '../types'
+import { Item, ItemPreviewFragment } from '../../../generated/types'
 
 const ScrollableBox = styled(Box)`
     ::-webkit-scrollbar {
@@ -27,7 +27,7 @@ export const ItemCardBox = styled(Box)`
 `
 
 const ItemsPreview: React.FC<{
-    items: Item[]
+    items: ItemPreviewFragment[]
     collectionId: string
 }> = props => {
     return (
@@ -38,7 +38,7 @@ const ItemsPreview: React.FC<{
             justify="start"
             align="start"
         >
-            {props.items.map((item: Item, index: number) => {
+            {props.items.map((item, index) => {
                 return (
                     <ItemCardBox
                         align="center"

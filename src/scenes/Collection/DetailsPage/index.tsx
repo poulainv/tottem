@@ -10,11 +10,11 @@ import { StyledButton } from '../../../components/Button'
 import { Layout, PageBox } from '../../../components/Layout'
 import { ItemType } from '../../common'
 import { useAuthUser } from '../../../utils/authentication'
-import { Item } from '../types'
 import ItemList, { ItemListPlaceholder } from '../ItemList'
 import Headers from './CollectionHeader'
-import { useCollection } from './query'
+import { useCollection } from './hooks'
 import Loading from '../../LoadingPage'
+import { Item } from '../../../generated/types'
 
 const BackButton = styled.a`
     display: flex;
@@ -45,8 +45,9 @@ export default ({
 
     if (
         data === undefined ||
+        data.collection === null ||
         data.collection === undefined ||
-        data.user === undefined
+        data.user === null
     ) {
         return <Loading />
     }

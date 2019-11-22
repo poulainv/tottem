@@ -1,10 +1,10 @@
+import { Box } from 'grommet'
 import * as React from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import styled from 'styled-components'
 import { grey1000 } from '../../../../constants/colors'
-import { ICollection } from '../../types'
+import { CollectionBasicFragment } from '../../../../generated/types'
 import { useCollectionForm } from './hooks'
-import { Box } from 'grommet'
 
 const CollectionForm = styled.form`
     display: flex;
@@ -52,7 +52,7 @@ const CollectionDetailInput = styled(TextareaAutosize)`
 `
 
 export interface FormOptions {
-    initialCollection?: ICollection
+    initialCollection?: CollectionBasicFragment
     sectionId?: string
     profile?: string
     onChange?: () => void

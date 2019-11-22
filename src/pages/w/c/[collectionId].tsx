@@ -8,7 +8,7 @@ export default withApollo(() => {
     const router = useRouter()
     return (
         <CollectionEdition
-            initialCollectionId={router.query.collectionId.toString()}
+            initialCollectionId="ck38ogyv00000y69ez4wye9in" //{router.query.collectionId.toString()}
         />
     )
 })

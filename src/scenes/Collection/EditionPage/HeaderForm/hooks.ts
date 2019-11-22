@@ -1,11 +1,14 @@
-import { useMutation } from '@apollo/react-hooks'
 import debounce from 'lodash.debounce'
+import { useCallback, useState } from 'react'
 import useForm from 'react-hook-form'
 import slugify from 'slugify'
-import { newCollectionQuery, updateCollectionQuery } from './query'
-import { ICollection } from '../../types'
-import { useState, useCallback } from 'react'
 import getUuid from 'uuid-by-string'
+import {
+    useCreateCollectionMutation,
+    useUpdateCollectionMutation,
+    Collection,
+    CollectionBasicFragment,
+} from '../../../../generated/types'
 
 interface CollectionFormData {
     name: string
@@ -17,7 +20,7 @@ const getCollectionSlug = (name: string, stableId: string | undefined) =>
         getUuid(stableId).slice(0, 4)}`
 
 const useCollectionForm = (
-    initialCollection?: ICollection,
+    initialCollection?: CollectionBasicFragment,
     sectionId?: string,
     profile?: string,
     onSaved?: (collectionId: string) => void,
@@ -34,7 +37,7 @@ const useCollectionForm = (
         initialCollection && initialCollection.id
     )
 
-    const [addCollection] = useMutation(newCollectionQuery, {
+    const [addCollection] = useCreateCollectionMutation({
         onCompleted: (data: { collection: any }) => {
             if (onSaved !== undefined) {
                 onSaved(data.collection.id)
@@ -43,7 +46,7 @@ const useCollectionForm = (
         },
     })
 
-    const [updateCollection] = useMutation(updateCollectionQuery, {
+    const [updateCollection] = useUpdateCollectionMutation({
         onCompleted: (data: { collection: any }) => {
             if (onSaved !== undefined) {
                 onSaved(data.collection.id)
@@ -56,7 +59,11 @@ const useCollectionForm = (
         if (onSaving !== undefined) {
             onSaving()
         }
-        if (collectionId === undefined) {
+        if (
+            collectionId === undefined &&
+            profile !== undefined &&
+            sectionId !== undefined
+        ) {
             addCollection({
                 variables: {
                     name,
@@ -66,7 +73,7 @@ const useCollectionForm = (
                     ownerSlug: profile,
                 },
             })
-        } else {
+        } else if (collectionId !== undefined) {
             updateCollection({
                 variables: {
                     name,
@@ -82,7 +89,6 @@ const useCollectionForm = (
         debounce(submit, 1500, { maxWait: 5000 }),
         [collectionId]
     )
-
     return { onFormChange, register }
 }
 

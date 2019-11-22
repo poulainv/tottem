@@ -4,11 +4,14 @@ import { useRouter } from 'next/router'
 import React, { Fragment } from 'react'
 import { List } from 'react-content-loader'
 import styled from 'styled-components'
-import { brand50, brand600 } from '../../../constants/colors'
 import { MediumAndUp } from '../../../components/ResponsiveStyledComponent'
 import { CollectionTitle } from '../../../components/Typographies'
+import { brand50, brand600 } from '../../../constants/colors'
 import ItemsPreview from './ItemsPreview'
-import { ICollection } from '../types'
+import {
+    CollectionBasicFragment,
+    ItemPreviewFragment,
+} from '../../../generated/types'
 
 const CollectionDetail = styled(Text)`
     font-size: 16px;
@@ -49,7 +52,10 @@ export const CollectionPlaceHolder: React.FC = () => {
     )
 }
 
-const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
+const Collection: React.FC<{
+    collection: CollectionBasicFragment
+    items: ItemPreviewFragment[]
+}> = ({ collection, items }) => {
     const router = useRouter()
     return (
         <CollectionCard
@@ -60,7 +66,7 @@ const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
             <Fragment>
                 <Link
                     href="/[profile]/collection/[collectionId]"
-                    as={`/${router.query.profile}/collection/${data.slug}`}
+                    as={`/${router.query.profile}/collection/${collection.slug}`}
                     passHref
                 >
                     <Anchor>
@@ -73,14 +79,14 @@ const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
                                 color: 'light-3',
                                 size: '0.5px',
                             }}
-                            id={data.slug}
+                            id={collection.slug}
                         >
                             <Box
                                 responsive={false}
                                 margin={{ horizontal: 'medium' }}
                             >
                                 <CollectionTitle>
-                                    <Markdown>{data.name}</Markdown>
+                                    <Markdown>{collection.name}</Markdown>
                                 </CollectionTitle>
                             </Box>
                             <MediumAndUp>
@@ -98,9 +104,12 @@ const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
                     </Anchor>
                 </Link>
                 <Box margin={{ bottom: 'none' }}>
-                    <ItemsPreview items={data.items} collectionId={data.slug} />
+                    <ItemsPreview
+                        items={items}
+                        collectionId={collection.slug}
+                    />
                 </Box>
-                {data.detail && (
+                {collection.detail && (
                     <Box
                         border={{
                             side: 'top',
@@ -115,7 +124,7 @@ const Collection: React.FC<{ data: ICollection }> = ({ data }) => {
                             }}
                         >
                             <CollectionDetail>
-                                <Markdown>{data.detail}</Markdown>
+                                <Markdown>{collection.detail}</Markdown>
                             </CollectionDetail>
                         </Box>
                     </Box>

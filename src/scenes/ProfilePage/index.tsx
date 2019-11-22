@@ -1,20 +1,16 @@
-import { useQuery } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import styled from 'styled-components'
-
-import AppTableOfContents from './AppTableOfContents'
-import { SectionMenu } from './Section/SectionMenu'
-import ProfileActions from './Actions'
 import { Layout, PageBox } from '../../components/Layout'
+import { useGetProfileQuery, Section } from '../../generated/types'
+import { useAuthUser } from '../../utils/authentication'
+import LoadingPage from '../LoadingPage'
+import ProfileActions from './Actions'
+import AppTableOfContents from './AppTableOfContents'
 import ProfileHeader from './Headers'
 import SectionDetails from './Section'
-import LoadingPage from '../LoadingPage'
-import { useAuthUser } from '../../utils/authentication'
-import { ISection, UserProfile } from './types'
-import { ProfilePageFragment } from './queries'
+import { SectionMenu } from './Section/SectionMenu'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -25,7 +21,9 @@ const ContentBox = styled(Box)`
     }
 `
 
-export const getDefaultSection = (sections: ISection[]): ISection => {
+export const getDefaultSection = (
+    sections: Array<Pick<Section, 'id' | 'slug' | 'name' | 'index'>>
+) => {
     const minimumIndex = Math.min(...sections.map(x => x.index))
     const defaultSection = sections.find(x => x.index === minimumIndex)
     if (defaultSection === undefined) {
@@ -48,41 +46,12 @@ export const Side = styled(Box)`
     }
 `
 
-interface ProfileQueryData {
-    user: UserProfile
-    sections: ISection[]
-}
-
-interface ProfileQueryVars {
-    slug: string
-    sectionId?: string
-    index: number
-}
-
-const profileQuery = gql`
-    query getProfile($slug: String) {
-        user(where: { slug: $slug }) {
-            ...UserProfilePage
-        }
-        sections(where: { owner: { slug: { equals: $slug } } }) {
-            ...SectionProfilePage
-        }
-    }
-    ${ProfilePageFragment.user}
-    ${ProfilePageFragment.section}
-`
-
 export default (props: IProfilePageProps) => {
-    const { loading, data } = useQuery<ProfileQueryData, ProfileQueryVars>(
-        profileQuery,
-        {
-            variables: {
-                slug: props.profile,
-                sectionId: props.activeSectionSlug,
-                index: props.activeSectionSlug === undefined ? 0 : -1,
-            },
-        }
-    )
+    const { loading, data } = useGetProfileQuery({
+        variables: {
+            slug: props.profile,
+        },
+    })
 
     const authUser = useAuthUser()
 
@@ -91,6 +60,9 @@ export default (props: IProfilePageProps) => {
     }
     const { user, sections } = data
 
+    if (user === null || sections === null) {
+        return <LoadingPage />
+    }
     const activeSection =
         sections.find(x => x.slug === props.activeSectionSlug) ||
         getDefaultSection(sections)

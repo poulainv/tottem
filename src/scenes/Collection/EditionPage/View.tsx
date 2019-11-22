@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Layout, PageBox } from '../../../components/Layout'
+import { Collection, CollectionBasicFragment } from '../../../generated/types'
 import CollectionForm from './HeaderForm'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
-import { ICollection } from '../types'
 import Status from './Status'
 
 const View = ({
@@ -14,7 +14,7 @@ const View = ({
     profile,
 }: {
     onSaved?: (collectionId: string) => void
-    initialCollection?: ICollection
+    initialCollection?: CollectionBasicFragment
     sectionId?: string
     profile?: string
     collectionId?: string

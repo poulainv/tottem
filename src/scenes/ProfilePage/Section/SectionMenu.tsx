@@ -2,18 +2,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { Menu, MenuItem } from '../../../components/Menu'
-import { ISection } from '../types'
+import { Section } from '../../../generated/types'
 
 export interface ISectionMenuProps {
-    sections: ISection[]
+    sections: Array<Pick<Section, 'id' | 'slug' | 'name' | 'index'>>
     activeSectionSlug: string
 }
 
 export function SectionMenu(props: ISectionMenuProps) {
     const router = useRouter()
-    const sortedSections: ISection[] = props.sections.sort(
-        (a: ISection, b: ISection) => a.index - b.index
-    )
+    const sortedSections = props.sections.sort((a, b) => a.index - b.index)
     return (
         <Menu>
             {sortedSections.map(section => {

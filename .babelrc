@@ -8,6 +8,7 @@
                 "style": false
             }
         ],
+        ["import-graphql"],
         [
             "styled-components",
             { "ssr": true, "displayName": true, "preprocess": false }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Image, Box } from 'grommet'
 import Humanize from 'humanize-plus'
-import { Item } from './types'
+import { Item } from '../../generated/types'
 
 export interface IGithubMetasProps {
     starsCount: number

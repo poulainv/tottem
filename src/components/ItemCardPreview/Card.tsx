@@ -7,10 +7,10 @@ import { brand600, colorPlaceholders } from '../../constants/colors'
 import { ImageShapeType } from '../../scenes/common'
 import CardImage from './CardImage'
 import CardInfo from './CardInfo'
-import { Item } from '../../scenes/ProfilePage/types'
+import { ItemPreviewFragment } from '../../generated/types'
 
 interface CardProps {
-    item: Item
+    item: ItemPreviewFragment
     imageShape: ImageShapeType
     collectionId: string
 }

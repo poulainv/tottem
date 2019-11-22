@@ -14,8 +14,7 @@ import {
     grey600,
     grey700,
 } from '../../constants/colors'
-import { ICollection } from './types'
-import { getCollectionQuery } from './Section'
+import { useGetCollectionQuery, Collection } from '../../generated/types'
 
 interface IAppTableOfContentsProps {
     sectionSlug: string
@@ -106,25 +105,28 @@ const trackTableOfContent = () => {
 }
 
 const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = props => {
-    const { loading, data } = useQuery(getCollectionQuery, {
+    const { loading, data } = useGetCollectionQuery({
         variables: {
             profileSlug: props.profileSlug,
             sectionSlug: props.sectionSlug,
             sectionIndex: props.sectionIndex,
         },
     })
-    let collections: ICollection[] = []
+    let collections: Array<Pick<
+        Collection,
+        'id' | 'slug' | 'name' | 'createdAt' | 'detail'
+    >> = []
 
-    if (loading || data.collections === undefined) {
+    if (loading || data === undefined || data.collections === undefined) {
         collections = []
     } else {
         collections = data.collections.filter(
-            (x: ICollection) => x.items.length // TODO filter in query
+            x => x.items.length // TODO filter in query
         )
     }
 
     const sortedCollections = collections.sort(
-        (a: ICollection, b: ICollection) =>
+        (a, b) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
     const [activeIndex, setActiveIndex] = React.useState(0)
@@ -160,36 +162,32 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
             <ul style={{ padding: '0px', marginTop: '8px' }}>
                 {loading
                     ? range(4).map(x => <BulletList key={x} height={40} />)
-                    : collections.map(
-                          (collection: ICollection, index: number) => {
-                              const newDate = new Date(
-                                  collection.createdAt
-                              ).toLocaleDateString('fr-FR', { year: 'numeric' })
-                              const hasDateChanged = newDate !== lastDate
-                              lastDate = newDate
-                              return (
-                                  <React.Fragment key={collection.slug}>
-                                      {hasDateChanged && (
-                                          <TableDate>{newDate}</TableDate>
-                                      )}
-                                      <TableIndex
-                                          key={collection.slug}
-                                          active={activeIndex === index}
+                    : collections.map((collection, index) => {
+                          const newDate = new Date(
+                              collection.createdAt
+                          ).toLocaleDateString('fr-FR', { year: 'numeric' })
+                          const hasDateChanged = newDate !== lastDate
+                          lastDate = newDate
+                          return (
+                              <React.Fragment key={collection.slug}>
+                                  {hasDateChanged && (
+                                      <TableDate>{newDate}</TableDate>
+                                  )}
+                                  <TableIndex
+                                      key={collection.slug}
+                                      active={activeIndex === index}
+                                  >
+                                      <Anchor
+                                          href={`#${collection.slug}`}
+                                          style={{ color: 'inherit' }}
+                                          onClick={() => trackTableOfContent()}
                                       >
-                                          <Anchor
-                                              href={`#${collection.slug}`}
-                                              style={{ color: 'inherit' }}
-                                              onClick={() =>
-                                                  trackTableOfContent()
-                                              }
-                                          >
-                                              {removeMd(collection.name)}
-                                          </Anchor>
-                                      </TableIndex>
-                                  </React.Fragment>
-                              )
-                          }
-                      )}
+                                          {removeMd(collection.name)}
+                                      </Anchor>
+                                  </TableIndex>
+                              </React.Fragment>
+                          )
+                      })}
             </ul>
         </StickyBox>
     )

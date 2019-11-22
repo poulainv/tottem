@@ -1,7 +1,7 @@
 import * as React from 'react'
 import LoadingPage from '../../LoadingPage'
-import { useCollection } from '../queries'
 import View from './View'
+import { useGetCollectionIdQuery } from '../../../generated/types'
 
 export default ({
     initialCollectionId,
@@ -12,11 +12,21 @@ export default ({
     profile?: string
     sectionId?: string
 }) => {
-    const [collectionId, setCollectionId] = React.useState()
+    const [collectionId, setCollectionId] = React.useState<string>()
 
     if (initialCollectionId !== undefined) {
-        const { error, data } = useCollection(initialCollectionId)
-        if (data === undefined || data.collection === undefined) {
+        const { error, data } = useGetCollectionIdQuery({
+            variables: {
+                collectionId: initialCollectionId,
+            },
+            // pollInterval: 5000,
+        })
+
+        if (
+            data === undefined ||
+            data.collection === undefined ||
+            data.collection === null
+        ) {
             return <LoadingPage />
         }
         return (

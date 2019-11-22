@@ -1,17 +1,20 @@
 import ItemList from '../../ItemList'
-import { useItems } from './query'
-import { Item } from '../../types'
+import { useGetItemsQuery } from '../../../../generated/types'
 
 export default ({ collectionId }: { collectionId?: string }) => {
     if (collectionId === undefined) {
         return <ItemList items={[]} />
     } else {
-        const { data, loading } = useItems(collectionId)
-        if (data === undefined || loading) {
+        const { data, loading } = useGetItemsQuery({
+            variables: {
+                collectionId,
+            },
+        })
+        if (data === undefined || data.items === null || loading) {
             return <ItemList items={[]} />
         } else {
-            const items = data.collection.items.sort(
-                (a: Item, b: Item) =>
+            const items = data.items.sort(
+                (a, b) =>
                     new Date(b.createdAt).getTime() -
                     new Date(a.createdAt).getTime()
             )

@@ -1,12 +1,9 @@
-import { useMutation } from '@apollo/react-hooks'
 import useForm from 'react-hook-form'
-import { addItemByUrlQuery, QueryData, QueryVars } from './query'
-import { itemsQuery } from '../ItemList/query'
-import { Item } from '../../types'
-
-interface Query {
-    collection: { items: Item[] }
-}
+import {
+    GetItemsDocument,
+    GetItemsQuery,
+    useCreateItemMutation,
+} from '../../../../generated/types'
 
 interface ItemsFormData {
     url: string
@@ -14,42 +11,33 @@ interface ItemsFormData {
 
 const useItemForm = (collectionId?: string) => {
     const { register, handleSubmit, reset, errors } = useForm<ItemsFormData>()
-    const [addItem, { loading }] = useMutation<QueryData, QueryVars>(
-        addItemByUrlQuery,
-        {
-            update(cache, { data }) {
-                if (data === undefined || data === null) {
-                    throw Error(
-                        'Can not updated cache because no data returned'
-                    )
-                }
-                const cachedData = cache.readQuery<Query>({
-                    query: itemsQuery,
+
+    const [addItem, { loading }] = useCreateItemMutation({
+        update(cache, { data }) {
+            if (data === undefined || data === null) {
+                throw Error('Can not updated cache because no data returned')
+            }
+            const cachedData = cache.readQuery<GetItemsQuery>({
+                query: GetItemsDocument,
+                variables: {
+                    collectionId,
+                },
+            })
+
+            if (cachedData !== null && cachedData.items) {
+                cache.writeQuery({
+                    query: GetItemsDocument,
                     variables: {
                         collectionId,
                     },
+                    data: {
+                        items: cachedData.items.concat(data.items),
+                    },
                 })
-
-                if (cachedData && cachedData.collection.items) {
-                    cache.writeQuery({
-                        query: itemsQuery,
-                        variables: {
-                            collectionId,
-                        },
-                        data: {
-                            collection: {
-                                ...cachedData.collection,
-                                items: cachedData.collection.items.concat(
-                                    data.items
-                                ),
-                            },
-                        },
-                    })
-                }
-                reset()
-            },
-        }
-    )
+            }
+            reset()
+        },
+    })
 
     const onSubmit = handleSubmit(({ url }) => {
         // Could happen because page is shared with new (non existing) collection

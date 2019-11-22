@@ -1,11 +1,8 @@
-import { useQuery } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import range from 'lodash.range'
 import React from 'react'
+import { useGetCollectionQuery } from '../../../generated/types'
 import Collection, { CollectionPlaceHolder } from './CollectionCard'
-import { ICollection } from '../types'
-import { ProfilePageFragment } from '../queries'
 
 interface Props {
     profileSlug: string
@@ -13,52 +10,14 @@ interface Props {
     sectionIndex: number
 }
 
-export const getCollectionQuery = gql`
-    query getCollection(
-        $profileSlug: String
-        $sectionSlug: String
-        $sectionIndex: Int
-    ) {
-        collections(
-            where: {
-                section: {
-                    AND: {
-                        OR: [
-                            { slug: { equals: $sectionSlug } }
-                            { index: { equals: $sectionIndex } }
-                        ]
-                        owner: { slug: { equals: $profileSlug } }
-                    }
-                }
-            }
-        ) {
-            ...CollectionProfilePage
-        }
-    }
-    ${ProfilePageFragment.collection}
-`
-
-interface CollectionQuery {
-    collections: ICollection[]
-}
-
-interface CollectionVars {
-    profileSlug: string
-    sectionSlug?: string
-    sectionIndex: number
-}
-
 export default (props: Props) => {
-    const { loading, error, data } = useQuery<CollectionQuery, CollectionVars>(
-        getCollectionQuery,
-        {
-            variables: {
-                profileSlug: props.profileSlug,
-                sectionSlug: props.sectionSlug,
-                sectionIndex: props.sectionIndex,
-            },
-        }
-    )
+    const { loading, error, data } = useGetCollectionQuery({
+        variables: {
+            profileSlug: props.profileSlug,
+            sectionSlug: props.sectionSlug,
+            sectionIndex: props.sectionIndex,
+        },
+    })
 
     return (
         <Box
@@ -72,17 +31,18 @@ export default (props: Props) => {
                       <CollectionPlaceHolder key={x.toString()} />
                   ))
                 : data.collections
-                      .filter((x: ICollection) => x.items.length !== 0)
+                      .filter(x => x.items.length !== 0)
                       .sort(
-                          (a: ICollection, b: ICollection) =>
+                          (a, b) =>
                               new Date(b.createdAt).getTime() -
                               new Date(a.createdAt).getTime()
                       )
-                      .map((collection: ICollection) => {
+                      .map(collection => {
                           return (
                               <Collection
                                   key={collection.id}
-                                  data={collection}
+                                  collection={collection}
+                                  items={collection.items}
                               />
                           )
                       })}

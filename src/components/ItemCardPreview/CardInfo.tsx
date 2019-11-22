@@ -2,7 +2,7 @@ import { Box, Text } from 'grommet'
 import React from 'react'
 import Truncate from 'react-truncate'
 import styled from 'styled-components'
-import { Item } from '../../scenes/ProfilePage/types'
+import { Item, ItemPreviewFragment } from '../../generated/types'
 
 const StyledTitle = styled(Text)`
     font-weight: 500;
@@ -23,7 +23,7 @@ const StyledAuthor = styled(Text)`
 `
 
 interface CardInfoProps {
-    item: Item
+    item: ItemPreviewFragment
     hover: boolean
 }
 

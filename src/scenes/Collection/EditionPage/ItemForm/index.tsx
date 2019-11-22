@@ -9,6 +9,7 @@ import {
     red500,
 } from '../../../../constants/colors'
 import { useItemForm } from './hooks'
+
 const ItemForm = styled.form`
     display: flex;
     position: relative;
@@ -75,7 +76,7 @@ export default ({ collectionId }: { collectionId?: string }) => {
                             message: '🙏 Seules les URLs sont acceptées 🙏',
                         },
                     })}
-                    disabled={collectionId === undefined || loading === true}
+                    // disabled={collectionId === undefined || loading === true}
                 />
                 <StyledButton style={{ marginLeft: '16px' }} primary>
                     Ajouter

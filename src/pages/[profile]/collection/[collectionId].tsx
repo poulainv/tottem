@@ -12,6 +12,7 @@ const CollectionNextPage: NextPage<ICollectionProps> = ({
     profile,
     collectionId,
 }) => {
+    // return <div>Foo </div>
     return <CollectionDetails profile={profile} collectionId={collectionId} />
 }
 

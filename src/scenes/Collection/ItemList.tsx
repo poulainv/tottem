@@ -12,7 +12,7 @@ import {
 } from '../../components/Typographies'
 import CardImage from '../../components/ItemCardPreview/CardImage'
 import { ItemMetas } from './ItemMetas'
-import { Item } from './types'
+import { Item } from '../../generated/types'
 
 interface IItemListProps {
     items: Item[]
@@ -80,7 +80,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (
         <ContentBox>
             <CollectionCard background="white" pad="large">
-                {props.items.map(item => {
+                {props.items.map((item: Item) => {
                     const picto = `/pictograms/${item.type}-white.svg`
                     return (
                         <Box
@@ -98,7 +98,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                             >
                                 <Box direction="row">
                                     <a
-                                        href={item.productUrl}
+                                        href={item.productUrl || ''}
                                         target="_blank"
                                         style={{ display: 'flex ' }}
                                     >
@@ -117,7 +117,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
                                     </a>
                                     <Box margin={{ horizontal: 'large' }}>
                                         <ElementTitle
-                                            href={item.productUrl}
+                                            href={item.productUrl || ''}
                                             target="_blank"
                                         >
                                             {item.title}

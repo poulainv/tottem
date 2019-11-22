@@ -1,9 +1,9 @@
 import { Box, Button, Image } from 'grommet'
 import { Link, Youtube } from 'grommet-icons'
 import React from 'react'
-import { ISocial } from './types'
+import { SocialFragment } from '../../generated/types'
 
-const Social: React.FC<ISocial> = props => {
+const Social: React.FC<SocialFragment> = props => {
     const pictoHeight = '16px'
     return (
         <Box direction="row" height={pictoHeight} gap="medium" align="end">

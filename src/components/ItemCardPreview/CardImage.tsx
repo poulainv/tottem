@@ -5,7 +5,7 @@ import { CardSize } from './Card'
 import { ImageShapeType } from '../../scenes/common'
 
 interface CoverProps {
-    imageUrl: string | undefined
+    imageUrl: string | null | undefined
     placeholderColor: string
     placeholderPicto: string
     imageShape?: ImageShapeType
