@@ -1,0 +1,11 @@
+query getUserByAuth0Id($auth0Id: String!) {
+    user(where: { authUserId: $auth0Id }) {
+        ...UserBasic
+    }
+}
+
+query getUserBySlug($slug: String!) {
+    user(where: { slug: $slug }) {
+        ...UserBasic
+    }
+}
