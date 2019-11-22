@@ -807,10 +807,7 @@ export type GetCollectionPageQueryVariables = {
 export type GetCollectionPageQuery = { __typename?: 'Query' } & {
     user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
     collection: Maybe<
-        { __typename?: 'Collection' } & Pick<
-            Collection,
-            'id' | 'slug' | 'name' | 'createdAt' | 'detail'
-        > & {
+        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
                 section: { __typename?: 'Section' } & Pick<Section, 'slug'>
                 items: Array<
                     { __typename?: 'Item' } & Pick<
@@ -827,7 +824,7 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
                         | 'meta'
                     >
                 >
-            }
+            } & CollectionBasicFragment
     >
 }
 
@@ -896,10 +893,9 @@ export type GetCollectionQueryVariables = {
 
 export type GetCollectionQuery = { __typename?: 'Query' } & {
     collections: Array<
-        { __typename?: 'Collection' } & Pick<
-            Collection,
-            'id' | 'slug' | 'name' | 'createdAt' | 'detail'
-        > & { items: Array<{ __typename?: 'Item' } & ItemPreviewFragment> }
+        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
+                items: Array<{ __typename?: 'Item' } & ItemPreviewFragment>
+            } & CollectionBasicFragment
     >
 }
 
@@ -994,11 +990,8 @@ export const GetCollectionPageDocument = gql`
             ...UserBasic
         }
         collection(where: { slug: $collectionId }) {
-            id
-            slug
-            name
+            ...CollectionBasic
             createdAt
-            detail
             section {
                 slug
             }
@@ -1017,6 +1010,7 @@ export const GetCollectionPageDocument = gql`
         }
     }
     ${UserBasicFragmentDoc}
+    ${CollectionBasicFragmentDoc}
 `
 
 /**
@@ -1376,16 +1370,14 @@ export const GetCollectionDocument = gql`
                 }
             }
         ) {
-            id
-            slug
-            name
+            ...CollectionBasic
             createdAt
-            detail
             items(first: 4) {
                 ...ItemPreview
             }
         }
     }
+    ${CollectionBasicFragmentDoc}
     ${ItemPreviewFragmentDoc}
 `
 
