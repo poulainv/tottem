@@ -1,6 +1,6 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import { withApollo } from '../../../lib/apollo'
+import { withApollo } from '../../../services/lib/apollo'
 import CollectionDetails from '../../../scenes/Collection/DetailsPage'
 
 interface ICollectionProps {

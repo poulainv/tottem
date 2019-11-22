@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import ReactGA from 'react-ga'
 import { Auth0 } from '../pages/_document'
-import { useAuthUser, useLoggedIn } from '../utils/authentication'
+import { useAuthUser, useLoggedIn } from '../services/authentication'
 import { StyledButton } from './Button'
 import { Beta, Logo } from './Logo'
 

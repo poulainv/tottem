@@ -7,9 +7,9 @@ import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
 import { ApolloLink } from 'apollo-link'
 import React from 'react'
-import { Auth0 } from '../pages/_document'
+import { Auth0 } from '../../pages/_document'
 import { onError } from 'apollo-link-error'
-import { openNotification } from '../utils/errors'
+import { openNotification } from '../errors'
 
 let apolloClient = null
 
