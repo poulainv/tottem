@@ -1,9 +1,7 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import ProfilePage, {
-    IProfilePageProps,
-} from '../components/organisms/ProfilePage'
-import { withApollo } from '../lib/apollo'
+import ProfilePage, { IProfilePageProps } from '../scenes/ProfilePage'
+import { withApollo } from '../services/lib/apollo'
 
 const Profile: NextPage<IProfilePageProps> = ({ profile }) => {
     return (

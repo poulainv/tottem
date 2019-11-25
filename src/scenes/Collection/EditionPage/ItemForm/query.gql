@@ -1,0 +1,6 @@
+mutation CreateItem($url: String!, $collectionId: String!) {
+    items: createItem(collectionId: $collectionId, url: $url) {
+        ...ItemPreview
+        ...ItemDetail
+    }
+}

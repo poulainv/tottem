@@ -1,0 +1,8 @@
+query getCollectionId($collectionId: ID!) {
+    collection(where: { id: $collectionId }) {
+        id
+        slug
+        name
+        detail
+    }
+}

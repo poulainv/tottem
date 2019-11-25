@@ -1,0 +1,40 @@
+fragment ItemPreview on Item {
+    id
+    imageUrl
+    productUrl
+    title
+    author
+    type
+}
+
+fragment ItemDetail on Item {
+    createdAt
+    provider
+    meta
+    comment
+    description
+}
+
+fragment CollectionBasic on Collection {
+    id
+    slug
+    name
+    detail
+}
+
+fragment UserBasic on User {
+    id
+    slug
+    firstname
+    pictureUrl
+    biography
+    label
+}
+
+fragment Social on User {
+    mail
+    linkedin
+    youtube
+    website
+    github
+}

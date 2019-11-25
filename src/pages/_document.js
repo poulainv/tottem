@@ -4,7 +4,7 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Auth from '../lib/auth0'
+import Auth from '../services/lib/auth0'
 
 // Making the Auth0 methods available anywhere
 export const Auth0 = new Auth()
@@ -41,6 +41,8 @@ class MyDocument extends Document {
                         margin: 0,
                         WebkitFontSmoothing: 'antialiased',
                         MozOsxFontSmoothing: 'grayscale',
+                        fontFamily:
+                            '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
                     }}
                 >
                     <Main />

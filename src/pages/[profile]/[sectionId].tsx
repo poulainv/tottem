@@ -1,9 +1,7 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import ProfilePage, {
-    IProfilePageProps,
-} from '../../components/organisms/ProfilePage'
-import { withApollo } from '../../lib/apollo'
+import ProfilePage, { IProfilePageProps } from '../../scenes/ProfilePage'
+import { withApollo } from '../../services/lib/apollo'
 
 const Profile: NextPage<IProfilePageProps> = props => {
     return (
@@ -22,8 +20,8 @@ interface Context extends NextPageContext {
 
 Profile.getInitialProps = async (context: Context) => {
     const profile: string = context.query.profile
-    const activeSectionId: string = context.query.sectionId
-    return { profile, activeSectionId }
+    const activeSectionSlug: string = context.query.sectionId
+    return { profile, activeSectionSlug }
 }
 
 export default withApollo(Profile)
