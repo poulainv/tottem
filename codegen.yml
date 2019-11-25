@@ -1,5 +1,5 @@
 schema: http://localhost:4000/graphql
-documents: ./src/**/*.gql
+documents: ./src/**/*
 generates:
     ./src/generated/types.tsx:
         plugins:
@@ -12,3 +12,4 @@ generates:
             withComponent: false
             withMutationFn: false
             hooksImportFrom: '@apollo/react-hooks'
+            maybeValue: T | undefined

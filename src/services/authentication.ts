@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useGetUserByAuthIdQuery, UserBasicFragment } from '../generated/types'
 import Auth from './lib/auth0'
 
 // Making the Auth0 methods available anywhere
@@ -43,4 +44,12 @@ const useAuthUser: () => AuthenticatedUser | undefined = () => {
     return userData
 }
 
-export { useLoggedIn, useAuthUser, auth0 }
+const useUserProfile: () => UserBasicFragment | undefined = () => {
+    const authUser = useAuthUser()
+    const { data, loading, error } = useGetUserByAuthIdQuery({
+        variables: { authId: authUser ? authUser.id : 'foo' },
+    })
+    return data && data.user
+}
+
+export { useLoggedIn, useAuthUser, useUserProfile, auth0 }

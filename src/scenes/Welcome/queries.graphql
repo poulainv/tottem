@@ -1,0 +1,34 @@
+query getUserBySlug($slug: String!) {
+    user(where: { slug: $slug }) {
+        ...UserBasic
+    }
+}
+
+query getUserByAuthId($authId: String!) {
+    user(where: { authUserId: $authId }) {
+        ...UserBasic
+    }
+}
+
+mutation CreateUser(
+    $slug: String!
+    $authUserId: String!
+    $pictureUrl: String!
+    $biography: String!
+) {
+    user: createOneUser(
+        data: {
+            slug: $slug
+            authUserId: $authUserId
+            pictureUrl: $pictureUrl
+            firstname: $slug
+            biography: $biography
+        }
+    ) {
+        slug
+        authUserId
+        firstname
+        pictureUrl
+        biography
+    }
+}

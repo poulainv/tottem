@@ -1,84 +1,77 @@
-import { useApolloClient, useQuery } from '@apollo/react-hooks'
+import { useApolloClient } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo/lib'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import * as React from 'react'
+import useForm from 'react-hook-form'
 import styled from 'styled-components'
 import { Layout, PageBox } from '../../components/Layout'
+import { useCreateUserMutation } from '../../generated/types'
+import { useAuthUser } from '../../services/authentication'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
     @media screen and (max-width: 812px) {
         margin-top: 8px;
-        padding-right: 0px;
-        padding-left: 0px;
+        padding-right: 0;
+        padding-left: 0;
     }
 `
-// const IS_ONBOARDING_QUERY = gql`
-//     query IsOnboarding {
-//         isOnboarding @client
-//         isLoggedIn @client
-//     }
-// `
-// const CREATE_USER = gql`
-//     mutation CreateUser(
-//         $slug: String!
-//         $auth0Id: String!
-//         $pictureUrl: String
-//     ) {
-//         createOneUser(slug: $slug, auth0Id: $auth0Id, pictureUrl: $pictureUrl) {
-//             slug
-//             auth0Id
-//             firstname
-//             pictureUrl
-//             biography
-//         }
-//     }
-// `
 
-export default function WelcomePage() {
+interface SlugFormData {
+    slug: string
+}
+
+const useCheckSlugForm = () => {
+    const { register, handleSubmit, errors } = useForm<SlugFormData>()
+
+    const authUser = useAuthUser()
     const router = useRouter()
-    const apollo = useApolloClient()
-    // checking if the user is inside the onboarding process, if not we redirect him to the landpage
-    // const { loading, data } = useQuery(IS_ONBOARDING_QUERY)
-    const [userName, setUserName] = useState('')
+    const [createUser, { data, called }] = useCreateUserMutation()
 
-    const checkUsername = async () => {
-        // check if username exists
-        if (!userName.trim().length) {
+    const onSubmit = handleSubmit(({ slug }) => {
+        if (!authUser) {
             return
         }
-        //     const res = await apollo.query({
-        //         query: GET_USER_BY_SLUG,
-        //         variables: { slug: userName },
-        //     })
-        //     if (res.data.user) {
-        //         alert('User already exists, pick another one')
-        //     } else {
-        //         // create user in db with correct username and auth0id, then redirecit to its profile
-        //         await apollo.mutate({
-        //             mutation: CREATE_USER,
-        //             variables: {
-        //                 slug: userName,
-        //                 auth0Id: 'auth0|5dc840e6d6b74c0e726e51ed',
-        //                 pictureUrl:
-        //                     'https://s.gravatar.com/avatar/46b10304c5ed2c36ab9541d9f676794f?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fde.png',
-        //             },
-        //         })
-        //         router.push(`/${userName}`)
-        //     }
+        // create user
+        createUser({
+            variables: {
+                slug,
+                authUserId: authUser.id,
+                biography: '',
+                pictureUrl: authUser.picture,
+            },
+        })
+    })
+
+    if (called && data) {
+        // redirect user to their profile
+        router.push('/' + data.user.slug)
     }
 
-    // if (loading || data === undefined) {
-    //     return <LoadingPage />
-    // }
-    // if (!data.isOnboarding) {
-    //     // redirect user to the homepage
-    //     // router.push('/')
-    //     // return null
-    // }
+    return { register, onSubmit, errors }
+}
+
+export default function WelcomePage() {
+    const apollo = useApolloClient()
+    const { register, onSubmit } = useCheckSlugForm()
+
+    const check = async (slug: string) => {
+        const res = await apollo.query({
+            query: gql`
+                query getUserBySlugInline($slug: String!) {
+                    user(where: { slug: $slug }) {
+                        slug
+                        id
+                    }
+                }
+            `,
+            variables: { slug },
+        })
+        return res.data.user === null
+    }
+
     return (
         <Layout>
             <NextSeo
@@ -104,15 +97,16 @@ export default function WelcomePage() {
 
             <PageBox>
                 <ContentBox pad={{ horizontal: 'large' }}>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        value={'userName'}
-                        onChange={e => setUserName(e.target.value)}
-                    />
-                    <button onClick={() => checkUsername()}>
-                        Create account
-                    </button>
+                    <form onSubmit={onSubmit}>
+                        <input
+                            name="slug"
+                            ref={register({
+                                validate: async value => await check(value),
+                            })}
+                            type="text"
+                            placeholder="Username"
+                        />
+                    </form>
                 </ContentBox>
             </PageBox>
         </Layout>
