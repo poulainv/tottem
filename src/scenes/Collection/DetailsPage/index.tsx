@@ -15,6 +15,7 @@ import Headers from './CollectionHeader'
 import { useCollection } from './hooks'
 import Loading from '../../LoadingPage'
 import { Item } from '../../../generated/types'
+import LoadingPage from '../../LoadingPage'
 
 const BackButton = styled.a`
     display: flex;
@@ -47,6 +48,7 @@ export default ({
         data === undefined ||
         data.collection === null ||
         data.collection === undefined ||
+        data.user === undefined ||
         data.user === null
     ) {
         return <Loading />
