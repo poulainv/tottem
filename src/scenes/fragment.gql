@@ -13,6 +13,7 @@ fragment ItemDetail on Item {
     meta
     comment
     description
+    isArchived
 }
 
 fragment CollectionBasic on Collection {

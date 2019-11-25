@@ -1,0 +1,13 @@
+mutation deleteItem($id: ID!) {
+    updateOneItem(data: { isArchived: true }, where: { id: $id }) {
+        ...ItemPreview
+        ...ItemDetail
+    }
+}
+
+mutation undeleteItem($id: ID!) {
+    updateOneItem(data: { isArchived: false }, where: { id: $id }) {
+        ...ItemPreview
+        ...ItemDetail
+    }
+}

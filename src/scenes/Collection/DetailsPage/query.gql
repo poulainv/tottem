@@ -8,7 +8,7 @@ query getCollectionPage($slug: String, $collectionId: String) {
         section {
             slug
         }
-        items {
+        items(where: { isArchived: { equals: false } }) {
             id
             createdAt
             imageUrl

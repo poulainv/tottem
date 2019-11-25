@@ -15,7 +15,21 @@ import { ItemMetas } from './ItemMetas'
 import { Item } from '../../generated/types'
 
 interface IItemListProps {
-    items: Item[]
+    items: Array<
+        Pick<
+            Item,
+            | 'id'
+            | 'createdAt'
+            | 'imageUrl'
+            | 'comment'
+            | 'productUrl'
+            | 'provider'
+            | 'title'
+            | 'author'
+            | 'type'
+            | 'meta'
+        >
+    >
 }
 
 const ImageBox = styled(Box)`
@@ -80,7 +94,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (
         <ContentBox>
             <CollectionCard background="white" pad="large">
-                {props.items.map((item: Item) => {
+                {props.items.map(item => {
                     const picto = `/pictograms/${item.type}-white.svg`
                     return (
                         <Box
