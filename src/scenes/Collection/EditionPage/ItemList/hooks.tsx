@@ -38,6 +38,13 @@ const useDeleteItem = () => {
             variables: {
                 id,
             },
+            optimisticResponse: {
+                updateOneItem: {
+                    id,
+                    isArchived: true,
+                    __typename: 'Item',
+                },
+            },
         })
     }
     return handleDelete
