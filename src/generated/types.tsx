@@ -1005,7 +1005,7 @@ export type ChangePositionMutationVariables = {
 
 export type ChangePositionMutation = { __typename?: 'Mutation' } & {
     changeItemPosition: Array<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'title' | 'position'>
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'position'>
     >
 }
 
@@ -1496,7 +1496,6 @@ export const ChangePositionDocument = gql`
             collectionId: $collectionId
         ) {
             id
-            title
             position
         }
     }

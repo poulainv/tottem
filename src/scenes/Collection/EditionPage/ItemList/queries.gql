@@ -19,7 +19,6 @@ mutation changePosition($oldIndex: Int!, $newIndex: Int!, $collectionId: ID!) {
         collectionId: $collectionId
     ) {
         id
-        title
         position
     }
 }
