@@ -74,7 +74,6 @@
         "build": "next build",
         "start": "next start",
         "generate": "graphql-codegen",
-        "hello": "echo 'heelo'",
         "analyze": "cross-env ANALYZE=true BUNDLE_ANALYZE=both next build",
         "analyze:server": "cross-env ANALYZE=true BUNDLE_ANALYZE=server next build",
         "analyze:browser": "cross-env ANALYZE=true  BUNDLE_ANALYZE=browser next build"
@@ -117,6 +116,6 @@
         "tslint-react": "^4.1.0"
     },
     "engines": {
-        "node": "12.13.0"
+        "node": "12.13.1"
     }
 }

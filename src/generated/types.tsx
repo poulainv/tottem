@@ -450,6 +450,10 @@ export type Mutation = {
     updateOneItem?: Maybe<Item>
     createOneCollection: Collection
     updateOneCollection?: Maybe<Collection>
+    /**
+     * Mutation changing the position of an item from his $oldIndex to the $newIndex.
+     *             It takes *indexes* (not position) and return changed items with new position.
+     **/
     changeItemPosition: Array<Item>
     createItem: Item
 }
@@ -979,7 +983,7 @@ export type DeleteItemMutationVariables = {
 
 export type DeleteItemMutation = { __typename?: 'Mutation' } & {
     updateOneItem: Maybe<
-        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
     >
 }
 
@@ -989,7 +993,7 @@ export type UndeleteItemMutationVariables = {
 
 export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
     updateOneItem: Maybe<
-        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
     >
 }
 
@@ -1389,12 +1393,10 @@ export type CreateItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
 export const DeleteItemDocument = gql`
     mutation deleteItem($id: ID!) {
         updateOneItem(data: { isArchived: true }, where: { id: $id }) {
-            ...ItemPreview
-            ...ItemDetail
+            id
+            isArchived
         }
     }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
 `
 
 /**
@@ -1438,12 +1440,10 @@ export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
 export const UndeleteItemDocument = gql`
     mutation undeleteItem($id: ID!) {
         updateOneItem(data: { isArchived: false }, where: { id: $id }) {
-            ...ItemPreview
-            ...ItemDetail
+            id
+            isArchived
         }
     }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
 `
 
 /**
