@@ -17,6 +17,11 @@ export default ({ collectionId }: { collectionId?: string }) => {
         } else {
             const items = data.items
                 .filter(x => !x.isArchived)
+                .sort(
+                    (a, b) =>
+                        new Date(b.createdAt).getTime() -
+                        new Date(a.createdAt).getTime()
+                )
                 .sort((a, b) => a.position - b.position)
             return (
                 <ContentBox>

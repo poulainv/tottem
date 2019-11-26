@@ -6,7 +6,6 @@ import {
     resetServerContext,
 } from 'react-beautiful-dnd'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import styled from 'styled-components'
 import {
     ItemDetailFragment,
     ItemPreviewFragment,
@@ -25,7 +24,6 @@ const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
 }) => {
     resetServerContext()
     const { onDragEnd } = useItemDragnDrop({ items, collectionId })
-
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <TransitionGroup>

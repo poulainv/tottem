@@ -106,6 +106,7 @@ const EditableItem: React.FunctionComponent<{ item: Item; innerRef: any }> = ({
                             />
                         </Pictogram>
                         {isHover && (
+                            // tslint:disable-next-line: jsx-no-lambda
                             <StyledButton onClick={() => handleDelete(item.id)}>
                                 <Icon type="delete" />
                             </StyledButton>
@@ -117,4 +118,4 @@ const EditableItem: React.FunctionComponent<{ item: Item; innerRef: any }> = ({
     )
 }
 
-export default EditableItem
+export default React.memo(EditableItem)

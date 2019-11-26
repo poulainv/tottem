@@ -46,8 +46,8 @@ const useDeleteItem = () => {
 // This function is used to assign new item position after drag end
 // event. BE CARERUL be cause it's used in optimistic ui strategy
 // with Apollo. This implementation must be the same than the one
-// computed server-side on tottem-graphql
-
+// computed server-side on tottem-graphql. This method is unit-tested
+// on API repo
 function reAssignPosition<T extends { position: number }>(
     array: T[],
     startIndex: number,
@@ -84,7 +84,8 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
         if (result.destination.index === result.source.index) {
             return
         }
-        const optimisticreAssignPosition = reAssignPosition(
+
+        const optimisticReAssignPosition = reAssignPosition(
             items,
             result.source.index,
             result.destination.index
@@ -97,7 +98,7 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
                 newIndex: result.destination.index,
             },
             optimisticResponse: {
-                changeItemPosition: optimisticreAssignPosition.map(x => {
+                changeItemPosition: optimisticReAssignPosition.map(x => {
                     return {
                         id: x.id,
                         position: x.position,

@@ -15,7 +15,7 @@ const useItemForm = (collectionId?: string) => {
     const [addItem, { loading }] = useCreateItemMutation({
         update(cache, { data }) {
             if (data === undefined || data === null) {
-                throw Error('Can not updated cache because no data returned')
+                throw Error('Can not update cache because no data returned')
             }
             const cachedData = cache.readQuery<GetItemsQuery>({
                 query: GetItemsDocument,
