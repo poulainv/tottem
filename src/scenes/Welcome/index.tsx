@@ -1,5 +1,5 @@
 import { useApolloClient } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
+import { ApolloQueryResult } from 'apollo-client'
 import { Box } from 'grommet'
 import { NextSeo } from 'next-seo/lib'
 import { useRouter } from 'next/router'
@@ -7,7 +7,11 @@ import * as React from 'react'
 import useForm from 'react-hook-form'
 import styled from 'styled-components'
 import { Layout, PageBox } from '../../components/Layout'
-import { useCreateUserMutation } from '../../generated/types'
+import {
+    GetUserBySlugDocument,
+    useCreateUserMutation,
+    UserBasicFragment,
+} from '../../generated/types'
 import { useAuthUser } from '../../services/authentication'
 
 const ContentBox = styled(Box)`
@@ -53,20 +57,19 @@ const useCheckSlugForm = () => {
     return { register, onSubmit, errors }
 }
 
+interface UserBasicData {
+    user: UserBasicFragment
+}
+
 export default function WelcomePage() {
     const apollo = useApolloClient()
     const { register, onSubmit } = useCheckSlugForm()
 
     const check = async (slug: string) => {
-        const res = await apollo.query({
-            query: gql`
-                query getUserBySlugInline($slug: String!) {
-                    user(where: { slug: $slug }) {
-                        slug
-                        id
-                    }
-                }
-            `,
+        const res: ApolloQueryResult<UserBasicData> = await apollo.query<
+            UserBasicData
+        >({
+            query: GetUserBySlugDocument,
             variables: { slug },
         })
         return res.data.user === null

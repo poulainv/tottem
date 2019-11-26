@@ -937,14 +937,6 @@ export type GetProfileQuery = { __typename?: 'Query' } & {
     >
 }
 
-export type GetUserBySlugInlineQueryVariables = {
-    slug: Scalars['String']
-}
-
-export type GetUserBySlugInlineQuery = { __typename?: 'Query' } & {
-    user: Maybe<{ __typename?: 'User' } & Pick<User, 'slug' | 'id'>>
-}
-
 export type GetUserBySlugQueryVariables = {
     slug: Scalars['String']
 }
@@ -969,10 +961,7 @@ export type CreateUserMutationVariables = {
 }
 
 export type CreateUserMutation = { __typename?: 'Mutation' } & {
-    user: { __typename?: 'User' } & Pick<
-        User,
-        'slug' | 'authUserId' | 'firstname' | 'pictureUrl' | 'biography'
-    >
+    user: { __typename?: 'User' } & UserBasicFragment
 }
 
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
@@ -992,7 +981,13 @@ export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
 
 export type UserBasicFragment = { __typename?: 'User' } & Pick<
     User,
-    'id' | 'slug' | 'firstname' | 'pictureUrl' | 'biography' | 'label'
+    | 'id'
+    | 'slug'
+    | 'authUserId'
+    | 'firstname'
+    | 'pictureUrl'
+    | 'biography'
+    | 'label'
 >
 
 export type SocialFragment = { __typename?: 'User' } & Pick<
@@ -1031,6 +1026,7 @@ export const UserBasicFragmentDoc = gql`
     fragment UserBasic on User {
         id
         slug
+        authUserId
         firstname
         pictureUrl
         biography
@@ -1556,63 +1552,6 @@ export type GetProfileQueryResult = ApolloReactCommon.QueryResult<
     GetProfileQuery,
     GetProfileQueryVariables
 >
-export const GetUserBySlugInlineDocument = gql`
-    query getUserBySlugInline($slug: String!) {
-        user(where: { slug: $slug }) {
-            slug
-            id
-        }
-    }
-`
-
-/**
- * __useGetUserBySlugInlineQuery__
- *
- * To run a query within a React component, call `useGetUserBySlugInlineQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUserBySlugInlineQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetUserBySlugInlineQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useGetUserBySlugInlineQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetUserBySlugInlineQuery,
-        GetUserBySlugInlineQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetUserBySlugInlineQuery,
-        GetUserBySlugInlineQueryVariables
-    >(GetUserBySlugInlineDocument, baseOptions)
-}
-export function useGetUserBySlugInlineLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetUserBySlugInlineQuery,
-        GetUserBySlugInlineQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetUserBySlugInlineQuery,
-        GetUserBySlugInlineQueryVariables
-    >(GetUserBySlugInlineDocument, baseOptions)
-}
-export type GetUserBySlugInlineQueryHookResult = ReturnType<
-    typeof useGetUserBySlugInlineQuery
->
-export type GetUserBySlugInlineLazyQueryHookResult = ReturnType<
-    typeof useGetUserBySlugInlineLazyQuery
->
-export type GetUserBySlugInlineQueryResult = ApolloReactCommon.QueryResult<
-    GetUserBySlugInlineQuery,
-    GetUserBySlugInlineQueryVariables
->
 export const GetUserBySlugDocument = gql`
     query getUserBySlug($slug: String!) {
         user(where: { slug: $slug }) {
@@ -1743,13 +1682,10 @@ export const CreateUserDocument = gql`
                 biography: $biography
             }
         ) {
-            slug
-            authUserId
-            firstname
-            pictureUrl
-            biography
+            ...UserBasic
         }
     }
+    ${UserBasicFragmentDoc}
 `
 
 /**

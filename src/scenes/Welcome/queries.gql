@@ -25,10 +25,6 @@ mutation CreateUser(
             biography: $biography
         }
     ) {
-        slug
-        authUserId
-        firstname
-        pictureUrl
-        biography
+        ...UserBasic
     }
 }

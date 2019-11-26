@@ -25,6 +25,7 @@ fragment CollectionBasic on Collection {
 fragment UserBasic on User {
     id
     slug
+    authUserId
     firstname
     pictureUrl
     biography
