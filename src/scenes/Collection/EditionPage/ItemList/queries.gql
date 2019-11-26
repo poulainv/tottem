@@ -11,3 +11,15 @@ mutation undeleteItem($id: ID!) {
         ...ItemDetail
     }
 }
+
+mutation changePosition($oldIndex: Int!, $newIndex: Int!, $collectionId: ID!) {
+    changeItemPosition(
+        oldIndex: $oldIndex
+        newIndex: $newIndex
+        collectionId: $collectionId
+    ) {
+        id
+        title
+        position
+    }
+}

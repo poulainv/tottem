@@ -267,6 +267,7 @@ export type Item = {
     author?: Maybe<Scalars['String']>
     isArchived: Scalars['Boolean']
     title: Scalars['String']
+    position: Scalars['Int']
     imageUrl?: Maybe<Scalars['String']>
     productUrl?: Maybe<Scalars['String']>
     description?: Maybe<Scalars['String']>
@@ -287,6 +288,7 @@ export type ItemCreateWithoutCollectionInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title: Scalars['String']
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -309,6 +311,7 @@ export type ItemScalarWhereInput = {
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
     isArchived?: Maybe<BooleanFilter>
+    position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
     author?: Maybe<NullableStringFilter>
@@ -340,6 +343,7 @@ export type ItemUpdateInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -357,6 +361,7 @@ export type ItemUpdateManyDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -390,6 +395,7 @@ export type ItemUpdateWithoutCollectionDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -417,6 +423,7 @@ export type ItemWhereInput = {
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
     isArchived?: Maybe<BooleanFilter>
+    position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
     author?: Maybe<NullableStringFilter>
@@ -443,6 +450,7 @@ export type Mutation = {
     updateOneItem?: Maybe<Item>
     createOneCollection: Collection
     updateOneCollection?: Maybe<Collection>
+    changeItemPosition: Array<Item>
     createItem: Item
 }
 
@@ -466,6 +474,12 @@ export type MutationCreateOneCollectionArgs = {
 export type MutationUpdateOneCollectionArgs = {
     data: CollectionUpdateInput
     where: CollectionWhereUniqueInput
+}
+
+export type MutationChangeItemPositionArgs = {
+    collectionId: Scalars['ID']
+    oldIndex: Scalars['Int']
+    newIndex: Scalars['Int']
 }
 
 export type MutationCreateItemArgs = {
@@ -979,6 +993,18 @@ export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type ChangePositionMutationVariables = {
+    oldIndex: Scalars['Int']
+    newIndex: Scalars['Int']
+    collectionId: Scalars['ID']
+}
+
+export type ChangePositionMutation = { __typename?: 'Mutation' } & {
+    changeItemPosition: Array<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'title' | 'position'>
+    >
+}
+
 export type GetItemsQueryVariables = {
     collectionId: Scalars['String']
 }
@@ -1037,7 +1063,13 @@ export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
 
 export type ItemDetailFragment = { __typename?: 'Item' } & Pick<
     Item,
-    'createdAt' | 'provider' | 'meta' | 'comment' | 'description' | 'isArchived'
+    | 'createdAt'
+    | 'provider'
+    | 'meta'
+    | 'comment'
+    | 'description'
+    | 'isArchived'
+    | 'position'
 >
 
 export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
@@ -1073,6 +1105,7 @@ export const ItemDetailFragmentDoc = gql`
         comment
         description
         isArchived
+        position
     }
 `
 export const CollectionBasicFragmentDoc = gql`
@@ -1450,6 +1483,64 @@ export type UndeleteItemMutationResult = ApolloReactCommon.MutationResult<
 export type UndeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UndeleteItemMutation,
     UndeleteItemMutationVariables
+>
+export const ChangePositionDocument = gql`
+    mutation changePosition(
+        $oldIndex: Int!
+        $newIndex: Int!
+        $collectionId: ID!
+    ) {
+        changeItemPosition(
+            oldIndex: $oldIndex
+            newIndex: $newIndex
+            collectionId: $collectionId
+        ) {
+            id
+            title
+            position
+        }
+    }
+`
+
+/**
+ * __useChangePositionMutation__
+ *
+ * To run a mutation, you first call `useChangePositionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useChangePositionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [changePositionMutation, { data, loading, error }] = useChangePositionMutation({
+ *   variables: {
+ *      oldIndex: // value for 'oldIndex'
+ *      newIndex: // value for 'newIndex'
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useChangePositionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >(ChangePositionDocument, baseOptions)
+}
+export type ChangePositionMutationHookResult = ReturnType<
+    typeof useChangePositionMutation
+>
+export type ChangePositionMutationResult = ApolloReactCommon.MutationResult<
+    ChangePositionMutation
+>
+export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    ChangePositionMutation,
+    ChangePositionMutationVariables
 >
 export const GetItemsDocument = gql`
     query getItems($collectionId: String!) {
