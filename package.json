@@ -18,6 +18,7 @@
         "@types/markdown-it": "0.0.9",
         "@types/node": "12.7.4",
         "@types/react": "16.9.2",
+        "@types/react-beautiful-dnd": "^11.0.3",
         "@types/react-dom": "16.9.0",
         "@types/react-textarea-autosize": "^4.3.5",
         "@types/react-transition-group": "^4.2.3",
@@ -53,6 +54,7 @@
         "next-seo": "^2.1.2",
         "null-loader": "^3.0.0",
         "react": "^16.12.0",
+        "react-beautiful-dnd": "^12.1.1",
         "react-content-loader": "^4.3.2",
         "react-dom": "^16.12.0",
         "react-ga": "^2.7.0",
@@ -72,7 +74,6 @@
         "build": "next build",
         "start": "next start",
         "generate": "graphql-codegen",
-        "hello": "echo 'heelo'",
         "analyze": "cross-env ANALYZE=true BUNDLE_ANALYZE=both next build",
         "analyze:server": "cross-env ANALYZE=true BUNDLE_ANALYZE=server next build",
         "analyze:browser": "cross-env ANALYZE=true  BUNDLE_ANALYZE=browser next build"
@@ -113,5 +114,8 @@
         "tslint-eslint-rules": "^4.1.1",
         "tslint-plugin-prettier": "^2.0.1",
         "tslint-react": "^4.1.0"
+    },
+    "engines": {
+        "node": "12.13.1"
     }
 }

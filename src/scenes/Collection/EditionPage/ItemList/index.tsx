@@ -1,8 +1,7 @@
-import ItemList from '../../ItemList'
-import { useGetItemsQuery } from '../../../../generated/types'
 import { ContentBox } from '../../../../components/Layout'
-import EditableItem from './EditableItem'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { useGetItemsQuery } from '../../../../generated/types'
+import ItemList from '../../ItemList'
+import DraggableList from './DraggableList'
 
 export default ({ collectionId }: { collectionId?: string }) => {
     if (collectionId === undefined) {
@@ -23,19 +22,10 @@ export default ({ collectionId }: { collectionId?: string }) => {
                         new Date(b.createdAt).getTime() -
                         new Date(a.createdAt).getTime()
                 )
+                .sort((a, b) => a.position - b.position)
             return (
                 <ContentBox>
-                    <TransitionGroup>
-                        {items.map((item, index) => (
-                            <CSSTransition
-                                timeout={1000}
-                                classNames="fade"
-                                key={item.id}
-                            >
-                                <EditableItem key={index} item={item} />
-                            </CSSTransition>
-                        ))}
-                    </TransitionGroup>
+                    <DraggableList items={items} collectionId={collectionId} />
                 </ContentBox>
             )
         }

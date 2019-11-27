@@ -45,15 +45,23 @@ const CollectionCard = styled.div`
     }
 `
 
-const EditableItem: React.FunctionComponent<{ item: Item }> = ({ item }) => {
+const EditableItem: React.FunctionComponent<{ item: Item; innerRef: any }> = ({
+    item,
+    innerRef,
+    ...dragHandleProps
+}) => {
     const picto = `/pictograms/${item.type}-white.svg`
     const [isHover, setIsHover] = React.useState(false)
     const handleDelete = useDeleteItem()
 
     return (
         <CollectionCard
+            ref={innerRef}
+            // tslint:disable-next-line: jsx-no-lambda
             onMouseEnter={() => setIsHover(true)}
+            // tslint:disable-next-line: jsx-no-lambda
             onMouseLeave={() => setIsHover(false)}
+            {...dragHandleProps}
         >
             <Box responsive={false} direction="row" id={item.id}>
                 <Box direction="row" width="100%" justify="between">
@@ -98,6 +106,7 @@ const EditableItem: React.FunctionComponent<{ item: Item }> = ({ item }) => {
                             />
                         </Pictogram>
                         {isHover && (
+                            // tslint:disable-next-line: jsx-no-lambda
                             <StyledButton onClick={() => handleDelete(item.id)}>
                                 <Icon type="delete" />
                             </StyledButton>
@@ -109,4 +118,4 @@ const EditableItem: React.FunctionComponent<{ item: Item }> = ({ item }) => {
     )
 }
 
-export default EditableItem
+export default React.memo(EditableItem)
