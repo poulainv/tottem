@@ -27,7 +27,7 @@ const View = ({
     return (
         <Layout>
             <PageBox style={{ marginTop: '24px' }}>
-                <BackButton onClick={() => router.back()}>
+                <BackButton onClick={router.back}>
                     <LinkPrevious
                         color="#595959"
                         style={{ margin: 'auto', display: 'block' }}

@@ -19,6 +19,8 @@ query getCollectionPage($slug: String, $collectionId: String) {
             author
             type
             meta
+            position
+            isArchived
         }
     }
 }

@@ -937,6 +937,8 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
                         | 'author'
                         | 'type'
                         | 'meta'
+                        | 'position'
+                        | 'isArchived'
                     >
                 >
             } & CollectionBasicFragment
@@ -1062,18 +1064,19 @@ export type GetProfileQuery = { __typename?: 'Query' } & {
 
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     Item,
-    'id' | 'imageUrl' | 'productUrl' | 'title' | 'author' | 'type'
+    | 'id'
+    | 'imageUrl'
+    | 'title'
+    | 'author'
+    | 'type'
+    | 'isArchived'
+    | 'position'
+    | 'createdAt'
 >
 
 export type ItemDetailFragment = { __typename?: 'Item' } & Pick<
     Item,
-    | 'createdAt'
-    | 'provider'
-    | 'meta'
-    | 'comment'
-    | 'description'
-    | 'isArchived'
-    | 'position'
+    'productUrl' | 'provider' | 'meta' | 'comment' | 'description'
 >
 
 export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
@@ -1095,21 +1098,21 @@ export const ItemPreviewFragmentDoc = gql`
     fragment ItemPreview on Item {
         id
         imageUrl
-        productUrl
         title
         author
         type
+        isArchived
+        position
+        createdAt
     }
 `
 export const ItemDetailFragmentDoc = gql`
     fragment ItemDetail on Item {
-        createdAt
+        productUrl
         provider
         meta
         comment
         description
-        isArchived
-        position
     }
 `
 export const CollectionBasicFragmentDoc = gql`
@@ -1161,6 +1164,8 @@ export const GetCollectionPageDocument = gql`
                 author
                 type
                 meta
+                position
+                isArchived
             }
         }
     }

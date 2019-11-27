@@ -27,6 +27,8 @@ interface IItemListProps {
             | 'title'
             | 'author'
             | 'type'
+            | 'position'
+            | 'isArchived'
             | 'meta'
         >
     >
@@ -94,71 +96,81 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
     return (
         <ContentBox>
             <CollectionCard background="white" pad="large">
-                {props.items.map(item => {
-                    const picto = `/pictograms/${item.type}-white.svg`
-                    return (
-                        <Box
-                            responsive={false}
-                            key={item.id}
-                            direction="row"
-                            margin={{ bottom: 'large' }}
-                            id={item.id}
-                        >
+                {props.items
+                    .filter(x => !x.isArchived)
+                    .sort(
+                        (a, b) =>
+                            new Date(b.createdAt).getTime() -
+                            new Date(a.createdAt).getTime()
+                    )
+                    .sort((a, b) => a.position - b.position)
+                    .map(item => {
+                        const picto = `/pictograms/${item.type}-white.svg`
+                        return (
                             <Box
+                                responsive={false}
+                                key={item.id}
                                 direction="row"
-                                margin={{ bottom: 'small' }}
-                                width="100%"
-                                justify="between"
+                                margin={{ bottom: 'large' }}
+                                id={item.id}
                             >
-                                <Box direction="row">
-                                    <a
-                                        href={item.productUrl || ''}
-                                        target="_blank"
-                                        style={{ display: 'flex ' }}
-                                    >
-                                        <ImageBox>
-                                            <CardImage
-                                                placeholderColor={
-                                                    colorPlaceholders[item.type]
-                                                }
-                                                placeholderPicto={picto}
-                                                imageUrl={item.imageUrl}
-                                                imageShape={
-                                                    imageShapes[item.type]
-                                                }
-                                            />
-                                        </ImageBox>
-                                    </a>
-                                    <Box margin={{ horizontal: 'large' }}>
-                                        <ElementTitle
+                                <Box
+                                    direction="row"
+                                    margin={{ bottom: 'small' }}
+                                    width="100%"
+                                    justify="between"
+                                >
+                                    <Box direction="row">
+                                        <a
                                             href={item.productUrl || ''}
                                             target="_blank"
+                                            style={{ display: 'flex ' }}
                                         >
-                                            {item.title}
-                                        </ElementTitle>
-                                        <ElementAuthor>
-                                            {item.author}
-                                        </ElementAuthor>
-                                        <Box style={{ marginTop: '8px' }}>
-                                            <ItemMetas item={item} />
-                                        </Box>
-                                        <Box style={{ marginTop: '8px' }}>
-                                            <ElementDescription>
-                                                {item.comment}{' '}
-                                            </ElementDescription>
+                                            <ImageBox>
+                                                <CardImage
+                                                    placeholderColor={
+                                                        colorPlaceholders[
+                                                            item.type
+                                                        ]
+                                                    }
+                                                    placeholderPicto={picto}
+                                                    imageUrl={item.imageUrl}
+                                                    imageShape={
+                                                        imageShapes[item.type]
+                                                    }
+                                                />
+                                            </ImageBox>
+                                        </a>
+                                        <Box margin={{ horizontal: 'large' }}>
+                                            <ElementTitle
+                                                href={item.productUrl || ''}
+                                                target="_blank"
+                                            >
+                                                {item.title}
+                                            </ElementTitle>
+                                            <ElementAuthor>
+                                                {item.author}
+                                            </ElementAuthor>
+                                            <Box style={{ marginTop: '8px' }}>
+                                                <ItemMetas item={item} />
+                                            </Box>
+                                            <Box style={{ marginTop: '8px' }}>
+                                                <ElementDescription>
+                                                    {item.comment}{' '}
+                                                </ElementDescription>
+                                            </Box>
                                         </Box>
                                     </Box>
+                                    <Pictogram>
+                                        <img
+                                            src={`/pictograms/${item.type}-white.svg`}
+                                            height="16px"
+                                        />
+                                    </Pictogram>
                                 </Box>
-                                <Pictogram>
-                                    <img
-                                        src={`/pictograms/${item.type}-white.svg`}
-                                        height="16px"
-                                    />
-                                </Pictogram>
                             </Box>
-                        </Box>
-                    )
-                })}
+                        )
+                    })}
                 {props.items.length === 0 && (
                     <p> Oops ! Pas d'éléments ajoutés 🤔 </p>
                 )}
