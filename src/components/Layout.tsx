@@ -17,6 +17,17 @@ export const PageBox = styled(Box)`
     }
 `
 
+export const ContentBox = styled(Box)`
+    margin: 40px 0px 40px 0px;
+    padding: 0px 48px 0px 48px;
+    width: 100%;
+    @media screen and (max-width: 812px) {
+        margin-top: 24px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+`
+
 export interface ILayoutProps {
     children: React.ReactNode
 }

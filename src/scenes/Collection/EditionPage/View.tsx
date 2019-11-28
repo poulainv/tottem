@@ -5,6 +5,10 @@ import CollectionForm from './HeaderForm'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
 import Status from './Status'
+import { BackButton } from '../../../components/BackButton'
+import Link from 'next/link'
+import { LinkPrevious } from 'grommet-icons'
+import { useRouter } from 'next/router'
 
 const View = ({
     onSaved,
@@ -19,9 +23,16 @@ const View = ({
     profile?: string
     collectionId?: string
 }) => {
+    const router = useRouter()
     return (
         <Layout>
             <PageBox style={{ marginTop: '24px' }}>
+                <BackButton onClick={router.back}>
+                    <LinkPrevious
+                        color="#595959"
+                        style={{ margin: 'auto', display: 'block' }}
+                    />
+                </BackButton>
                 <Status onSaved={onSaved}>
                     {(
                         onSavedF: (collectionId: string) => void,

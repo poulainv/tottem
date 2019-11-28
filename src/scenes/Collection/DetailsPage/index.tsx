@@ -15,23 +15,7 @@ import Headers from './CollectionHeader'
 import { useCollection } from './hooks'
 import Loading from '../../LoadingPage'
 import { Item } from '../../../generated/types'
-
-const BackButton = styled.a`
-    display: flex;
-    background-color: white;
-    cursor: pointer;
-    color: black;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 0px;
-    left: -32px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    @media screen and (max-width: 600px) {
-        display: none;
-    }
-`
+import { BackButton } from '../../../components/BackButton'
 
 export default ({
     profile,
@@ -47,7 +31,8 @@ export default ({
         data === undefined ||
         data.collection === null ||
         data.collection === undefined ||
-        data.user === null
+        data.user === null ||
+        data.user === undefined
     ) {
         return <Loading />
     }

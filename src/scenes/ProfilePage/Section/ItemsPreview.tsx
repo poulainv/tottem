@@ -38,26 +38,34 @@ const ItemsPreview: React.FC<{
             justify="start"
             align="start"
         >
-            {props.items.map((item, index) => {
-                return (
-                    <ItemCardBox
-                        align="center"
-                        pad={{ top: 'large' }}
-                        key={item.id}
-                        animation={
-                            index >= 4
-                                ? { duration: 500, type: 'slideDown' }
-                                : undefined
-                        }
-                    >
-                        <Card
-                            item={item}
-                            imageShape={imageShapes[item.type]}
-                            collectionId={props.collectionId}
-                        />
-                    </ItemCardBox>
+            {props.items
+                .filter(x => !x.isArchived)
+                .sort(
+                    (a, b) =>
+                        new Date(b.createdAt).getTime() -
+                        new Date(a.createdAt).getTime()
                 )
-            })}
+                .sort((a, b) => a.position - b.position)
+                .map((item, index) => {
+                    return (
+                        <ItemCardBox
+                            align="center"
+                            pad={{ top: 'large' }}
+                            key={item.id}
+                            animation={
+                                index >= 4
+                                    ? { duration: 500, type: 'slideDown' }
+                                    : undefined
+                            }
+                        >
+                            <Card
+                                item={item}
+                                imageShape={imageShapes[item.type]}
+                                collectionId={props.collectionId}
+                            />
+                        </ItemCardBox>
+                    )
+                })}
         </ScrollableBox>
     )
 }

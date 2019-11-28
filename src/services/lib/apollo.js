@@ -1,15 +1,15 @@
 import { ApolloProvider } from '@apollo/react-hooks'
 import { defaultDataIdFromObject, InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
+import { ApolloLink } from 'apollo-link'
 import { setContext } from 'apollo-link-context'
+import { onError } from 'apollo-link-error'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
-import { ApolloLink } from 'apollo-link'
 import React from 'react'
 import { Auth0 } from '../../pages/_document'
-import { onError } from 'apollo-link-error'
-import { openNotification } from '../errors'
+import { handleGraphQLErrors } from '../errors'
 
 let apolloClient = null
 
@@ -165,20 +165,7 @@ const authLink = setContext((_, { headers }) => {
     })
 })
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors)
-        graphQLErrors.forEach(({ message, locations, path }) =>
-            openNotification(
-                message,
-                'Aïe ! Re-tentez le coup, sinon contactez-nous.'
-            )
-        )
-    if (networkError)
-        openNotification(
-            'Toujours connecté ?',
-            'Aïe ! Re-tentez le coup, sinon contactez-nous.'
-        )
-})
+const errorLink = onError(handleGraphQLErrors)
 
 function createApolloClient(initialState = {}) {
     const httpLink = createHttpLink({
