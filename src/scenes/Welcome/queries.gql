@@ -23,6 +23,9 @@ mutation CreateUser(
             pictureUrl: $pictureUrl
             firstname: $slug
             biography: $biography
+            sections: {
+                create: [{ slug: "section", name: "My first section" }]
+            }
         }
     ) {
         ...UserBasic

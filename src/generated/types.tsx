@@ -1680,6 +1680,7 @@ export const CreateUserDocument = gql`
                 pictureUrl: $pictureUrl
                 firstname: $slug
                 biography: $biography
+                sections: { create: [{ slug: "section", name: "default" }] }
             }
         ) {
             ...UserBasic

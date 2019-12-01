@@ -65,7 +65,7 @@ export default function WelcomePage() {
     const apollo = useApolloClient()
     const { register, onSubmit } = useCheckSlugForm()
 
-    const check = async (slug: string) => {
+    const checkIfSlugExists = async (slug: string) => {
         const res: ApolloQueryResult<UserBasicData> = await apollo.query<
             UserBasicData
         >({
@@ -104,7 +104,8 @@ export default function WelcomePage() {
                         <input
                             name="slug"
                             ref={register({
-                                validate: async value => await check(value),
+                                validate: async value =>
+                                    await checkIfSlugExists(value),
                             })}
                             type="text"
                             placeholder="Username"
