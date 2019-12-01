@@ -1,14 +1,16 @@
 fragment ItemPreview on Item {
     id
     imageUrl
-    productUrl
     title
     author
     type
+    isArchived
+    position
+    createdAt
 }
 
 fragment ItemDetail on Item {
-    createdAt
+    productUrl
     provider
     meta
     comment

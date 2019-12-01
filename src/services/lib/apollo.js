@@ -1,15 +1,15 @@
 import { ApolloProvider } from '@apollo/react-hooks'
 import { defaultDataIdFromObject, InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
+import { ApolloLink } from 'apollo-link'
 import { setContext } from 'apollo-link-context'
+import { onError } from 'apollo-link-error'
 import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
-import { ApolloLink } from 'apollo-link'
 import React from 'react'
-import { auth0 } from '../../services/authentication'
-import { onError } from 'apollo-link-error'
-import { openNotification } from '../errors'
+import { Auth0 } from '../../pages/_document'
+import { handleGraphQLErrors } from '../errors'
 
 let apolloClient = null
 
@@ -135,15 +135,18 @@ function initApolloClient(initialState) {
  */
 const authLink = setContext((_, { headers }) => {
     const isServer = typeof window === 'undefined'
+
     // localStorage does not exist on server side
     // FIXME use cookie session instead
     // For now it means that SSR can not do authenticated request to API
-    const shouldRenew = isServer ? false : !auth0.isAuthenticated()
+    const shouldRenew = isServer
+        ? false
+        : Auth0.isLoggedIn() && Auth0.isExpired()
 
     let promise
     if (shouldRenew) {
         // access token needs to be renew on client side
-        promise = auth0.renewSession()
+        promise = Auth0.renewSession()
     } else if (!isServer) {
         // access token is still valid get it on client side
         promise = Promise.resolve(localStorage.getItem('access_token'))
@@ -162,20 +165,7 @@ const authLink = setContext((_, { headers }) => {
     })
 })
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors)
-        graphQLErrors.forEach(({ message, locations, path }) =>
-            openNotification(
-                message,
-                'Aïe ! Re-tentez le coup, sinon contactez-nous.'
-            )
-        )
-    if (networkError)
-        openNotification(
-            'Toujours connecté ?',
-            'Aïe ! Re-tentez le coup, sinon contactez-nous.'
-        )
-})
+const errorLink = onError(handleGraphQLErrors)
 
 function createApolloClient(initialState = {}) {
     const httpLink = createHttpLink({

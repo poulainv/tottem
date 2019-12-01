@@ -26,12 +26,7 @@ const useCollectionForm = (
     onSaved?: (collectionId: string) => void,
     onSaving?: () => void
 ) => {
-    const { register, getValues } = useForm<CollectionFormData>({
-        defaultValues: {
-            name: initialCollection && initialCollection.name,
-            detail: initialCollection && (initialCollection.detail || ''),
-        },
-    })
+    const { register, getValues } = useForm<CollectionFormData>()
 
     const [collectionId, setCollectionId] = useState(
         initialCollection && initialCollection.id

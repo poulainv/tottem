@@ -152,6 +152,15 @@ export default class Auth {
         window.location.href = `https://${AUTH_CONFIG.domain}/v2/logout?returnTo=${window.location.origin}&client_id=${AUTH_CONFIG.clientId}`
     }
 
+    isExpired() {
+        let expiresAt = localStorage.getItem('expired_at')
+        return new Date().getTime() > expiresAt
+    }
+
+    isLoggedIn() {
+        return localStorage.getItem('isLoggedIn')
+    }
+
     isAuthenticated() {
         // Check whether the current time is past the
         // access token's expiry time

@@ -71,7 +71,7 @@ export function MovieDBMetas(props: IMovieDBMetasProps) {
 }
 
 export interface IItemMetasProps {
-    item: Item
+    item: Pick<Item, 'provider' | 'meta'>
 }
 
 export function ItemMetas({ item }: IItemMetasProps) {

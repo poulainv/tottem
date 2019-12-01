@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import * as ApolloReactCommon from '@apollo/react-common'
 import * as ApolloReactHooks from '@apollo/react-hooks'
-export type Maybe<T> = T | undefined
+export type Maybe<T> = T | null
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string
@@ -10,6 +10,11 @@ export type Scalars = {
     Int: number
     Float: number
     DateTime: any
+}
+
+export type BooleanFilter = {
+    equals?: Maybe<Scalars['Boolean']>
+    not?: Maybe<Scalars['Boolean']>
 }
 
 export type Collection = {
@@ -25,6 +30,7 @@ export type Collection = {
 }
 
 export type CollectionItemsArgs = {
+    where?: Maybe<CollectionItemsWhereInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
@@ -46,6 +52,16 @@ export type CollectionCreateInput = {
 export type CollectionCreateManyWithoutCollectionsInput = {
     create?: Maybe<Array<CollectionCreateWithoutSectionInput>>
     connect?: Maybe<Array<CollectionWhereUniqueInput>>
+}
+
+export type CollectionCreateWithoutItemsInput = {
+    id?: Maybe<Scalars['ID']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    slug: Scalars['String']
+    name: Scalars['String']
+    detail?: Maybe<Scalars['String']>
+    section: SectionCreateOneWithoutSectionInput
+    owner: UserCreateOneWithoutOwnerInput
 }
 
 export type CollectionCreateWithoutOwnerInput = {
@@ -72,6 +88,10 @@ export type CollectionFilter = {
     every?: Maybe<CollectionWhereInput>
     some?: Maybe<CollectionWhereInput>
     none?: Maybe<CollectionWhereInput>
+}
+
+export type CollectionItemsWhereInput = {
+    isArchived?: Maybe<BooleanFilter>
 }
 
 export type CollectionScalarWhereInput = {
@@ -134,6 +154,25 @@ export type CollectionUpdateManyWithWhereNestedInput = {
     data: CollectionUpdateManyDataInput
 }
 
+export type CollectionUpdateOneWithoutItemsInput = {
+    create?: Maybe<CollectionCreateWithoutItemsInput>
+    connect?: Maybe<CollectionWhereUniqueInput>
+    disconnect?: Maybe<Scalars['Boolean']>
+    delete?: Maybe<Scalars['Boolean']>
+    update?: Maybe<CollectionUpdateWithoutItemsDataInput>
+    upsert?: Maybe<CollectionUpsertWithoutItemsInput>
+}
+
+export type CollectionUpdateWithoutItemsDataInput = {
+    id?: Maybe<Scalars['ID']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    slug?: Maybe<Scalars['String']>
+    name?: Maybe<Scalars['String']>
+    detail?: Maybe<Scalars['String']>
+    section?: Maybe<SectionUpdateOneRequiredWithoutCollectionsInput>
+    owner?: Maybe<UserUpdateOneRequiredWithoutCollectionsInput>
+}
+
 export type CollectionUpdateWithoutOwnerDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -162,6 +201,11 @@ export type CollectionUpdateWithWhereUniqueWithoutOwnerInput = {
 export type CollectionUpdateWithWhereUniqueWithoutSectionInput = {
     where: CollectionWhereUniqueInput
     data: CollectionUpdateWithoutSectionDataInput
+}
+
+export type CollectionUpsertWithoutItemsInput = {
+    update: CollectionUpdateWithoutItemsDataInput
+    create: CollectionCreateWithoutItemsInput
 }
 
 export type CollectionUpsertWithWhereUniqueWithoutOwnerInput = {
@@ -221,7 +265,9 @@ export type Item = {
     __typename?: 'Item'
     id: Scalars['ID']
     author?: Maybe<Scalars['String']>
+    isArchived: Scalars['Boolean']
     title: Scalars['String']
+    position: Scalars['Int']
     imageUrl?: Maybe<Scalars['String']>
     productUrl?: Maybe<Scalars['String']>
     description?: Maybe<Scalars['String']>
@@ -241,6 +287,8 @@ export type ItemCreateWithoutCollectionInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title: Scalars['String']
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -262,6 +310,8 @@ export type ItemScalarWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
+    isArchived?: Maybe<BooleanFilter>
+    position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
     author?: Maybe<NullableStringFilter>
@@ -288,10 +338,30 @@ export enum ItemType {
     Website = 'website',
 }
 
+export type ItemUpdateInput = {
+    id?: Maybe<Scalars['ID']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
+    title?: Maybe<Scalars['String']>
+    provider?: Maybe<Scalars['String']>
+    author?: Maybe<Scalars['String']>
+    type?: Maybe<ItemType>
+    productUrl?: Maybe<Scalars['String']>
+    imageUrl?: Maybe<Scalars['String']>
+    description?: Maybe<Scalars['String']>
+    comment?: Maybe<Scalars['String']>
+    meta?: Maybe<Scalars['String']>
+    collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
+}
+
 export type ItemUpdateManyDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -324,6 +394,8 @@ export type ItemUpdateWithoutCollectionDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
     author?: Maybe<Scalars['String']>
@@ -350,6 +422,8 @@ export type ItemWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
+    isArchived?: Maybe<BooleanFilter>
+    position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
     author?: Maybe<NullableStringFilter>
@@ -373,8 +447,14 @@ export type Mutation = {
     __typename?: 'Mutation'
     createOneSection: Section
     createOneUser: User
+    updateOneItem?: Maybe<Item>
     createOneCollection: Collection
     updateOneCollection?: Maybe<Collection>
+    /**
+     * Mutation changing the position of an item from his $oldIndex to the $newIndex.
+     *             It takes *indexes* (not position) and return changed items with new position.
+     **/
+    changeItemPosition: Array<Item>
     createItem: Item
 }
 
@@ -386,6 +466,11 @@ export type MutationCreateOneUserArgs = {
     data: UserCreateInput
 }
 
+export type MutationUpdateOneItemArgs = {
+    data: ItemUpdateInput
+    where: ItemWhereUniqueInput
+}
+
 export type MutationCreateOneCollectionArgs = {
     data: CollectionCreateInput
 }
@@ -393,6 +478,12 @@ export type MutationCreateOneCollectionArgs = {
 export type MutationUpdateOneCollectionArgs = {
     data: CollectionUpdateInput
     where: CollectionWhereUniqueInput
+}
+
+export type MutationChangeItemPositionArgs = {
+    collectionId: Scalars['ID']
+    oldIndex: Scalars['Int']
+    newIndex: Scalars['Int']
 }
 
 export type MutationCreateItemArgs = {
@@ -479,6 +570,7 @@ export type QueryCollectionsWhereInput = {
 }
 
 export type QueryItemsWhereInput = {
+    isArchived?: Maybe<BooleanFilter>
     collection?: Maybe<CollectionWhereInput>
 }
 
@@ -660,7 +752,6 @@ export type User = {
     __typename?: 'User'
     id: Scalars['ID']
     slug: Scalars['String']
-    authUserId?: Maybe<Scalars['String']>
     biography: Scalars['String']
     pictureUrl: Scalars['String']
     label?: Maybe<Scalars['String']>
@@ -846,6 +937,8 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
                         | 'author'
                         | 'type'
                         | 'meta'
+                        | 'position'
+                        | 'isArchived'
                     >
                 >
             } & CollectionBasicFragment
@@ -884,6 +977,38 @@ export type CreateItemMutationVariables = {
 
 export type CreateItemMutation = { __typename?: 'Mutation' } & {
     items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+}
+
+export type DeleteItemMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type DeleteItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+    >
+}
+
+export type UndeleteItemMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+    >
+}
+
+export type ChangePositionMutationVariables = {
+    oldIndex: Scalars['Int']
+    newIndex: Scalars['Int']
+    collectionId: Scalars['ID']
+}
+
+export type ChangePositionMutation = { __typename?: 'Mutation' } & {
+    changeItemPosition: Array<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'position'>
+    >
 }
 
 export type GetItemsQueryVariables = {
@@ -937,41 +1062,21 @@ export type GetProfileQuery = { __typename?: 'Query' } & {
     >
 }
 
-export type GetUserBySlugQueryVariables = {
-    slug: Scalars['String']
-}
-
-export type GetUserBySlugQuery = { __typename?: 'Query' } & {
-    user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
-}
-
-export type GetUserByAuthIdQueryVariables = {
-    authId: Scalars['String']
-}
-
-export type GetUserByAuthIdQuery = { __typename?: 'Query' } & {
-    user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
-}
-
-export type CreateUserMutationVariables = {
-    slug: Scalars['String']
-    authUserId: Scalars['String']
-    pictureUrl: Scalars['String']
-    biography: Scalars['String']
-}
-
-export type CreateUserMutation = { __typename?: 'Mutation' } & {
-    user: { __typename?: 'User' } & UserBasicFragment
-}
-
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     Item,
-    'id' | 'imageUrl' | 'productUrl' | 'title' | 'author' | 'type'
+    | 'id'
+    | 'imageUrl'
+    | 'title'
+    | 'author'
+    | 'type'
+    | 'isArchived'
+    | 'position'
+    | 'createdAt'
 >
 
 export type ItemDetailFragment = { __typename?: 'Item' } & Pick<
     Item,
-    'createdAt' | 'provider' | 'meta' | 'comment' | 'description'
+    'productUrl' | 'provider' | 'meta' | 'comment' | 'description'
 >
 
 export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
@@ -981,13 +1086,7 @@ export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
 
 export type UserBasicFragment = { __typename?: 'User' } & Pick<
     User,
-    | 'id'
-    | 'slug'
-    | 'authUserId'
-    | 'firstname'
-    | 'pictureUrl'
-    | 'biography'
-    | 'label'
+    'id' | 'slug' | 'firstname' | 'pictureUrl' | 'biography' | 'label'
 >
 
 export type SocialFragment = { __typename?: 'User' } & Pick<
@@ -999,15 +1098,17 @@ export const ItemPreviewFragmentDoc = gql`
     fragment ItemPreview on Item {
         id
         imageUrl
-        productUrl
         title
         author
         type
+        isArchived
+        position
+        createdAt
     }
 `
 export const ItemDetailFragmentDoc = gql`
     fragment ItemDetail on Item {
-        createdAt
+        productUrl
         provider
         meta
         comment
@@ -1026,7 +1127,6 @@ export const UserBasicFragmentDoc = gql`
     fragment UserBasic on User {
         id
         slug
-        authUserId
         firstname
         pictureUrl
         biography
@@ -1053,7 +1153,7 @@ export const GetCollectionPageDocument = gql`
             section {
                 slug
             }
-            items {
+            items(where: { isArchived: { equals: false } }) {
                 id
                 createdAt
                 imageUrl
@@ -1064,6 +1164,8 @@ export const GetCollectionPageDocument = gql`
                 author
                 type
                 meta
+                position
+                isArchived
             }
         }
     }
@@ -1293,6 +1395,157 @@ export type CreateItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
     CreateItemMutation,
     CreateItemMutationVariables
 >
+export const DeleteItemDocument = gql`
+    mutation deleteItem($id: ID!) {
+        updateOneItem(data: { isArchived: true }, where: { id: $id }) {
+            id
+            isArchived
+        }
+    }
+`
+
+/**
+ * __useDeleteItemMutation__
+ *
+ * To run a mutation, you first call `useDeleteItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteItemMutation, { data, loading, error }] = useDeleteItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        DeleteItemMutation,
+        DeleteItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        DeleteItemMutation,
+        DeleteItemMutationVariables
+    >(DeleteItemDocument, baseOptions)
+}
+export type DeleteItemMutationHookResult = ReturnType<
+    typeof useDeleteItemMutation
+>
+export type DeleteItemMutationResult = ApolloReactCommon.MutationResult<
+    DeleteItemMutation
+>
+export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    DeleteItemMutation,
+    DeleteItemMutationVariables
+>
+export const UndeleteItemDocument = gql`
+    mutation undeleteItem($id: ID!) {
+        updateOneItem(data: { isArchived: false }, where: { id: $id }) {
+            id
+            isArchived
+        }
+    }
+`
+
+/**
+ * __useUndeleteItemMutation__
+ *
+ * To run a mutation, you first call `useUndeleteItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUndeleteItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [undeleteItemMutation, { data, loading, error }] = useUndeleteItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useUndeleteItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        UndeleteItemMutation,
+        UndeleteItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        UndeleteItemMutation,
+        UndeleteItemMutationVariables
+    >(UndeleteItemDocument, baseOptions)
+}
+export type UndeleteItemMutationHookResult = ReturnType<
+    typeof useUndeleteItemMutation
+>
+export type UndeleteItemMutationResult = ApolloReactCommon.MutationResult<
+    UndeleteItemMutation
+>
+export type UndeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    UndeleteItemMutation,
+    UndeleteItemMutationVariables
+>
+export const ChangePositionDocument = gql`
+    mutation changePosition(
+        $oldIndex: Int!
+        $newIndex: Int!
+        $collectionId: ID!
+    ) {
+        changeItemPosition(
+            oldIndex: $oldIndex
+            newIndex: $newIndex
+            collectionId: $collectionId
+        ) {
+            id
+            position
+        }
+    }
+`
+
+/**
+ * __useChangePositionMutation__
+ *
+ * To run a mutation, you first call `useChangePositionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useChangePositionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [changePositionMutation, { data, loading, error }] = useChangePositionMutation({
+ *   variables: {
+ *      oldIndex: // value for 'oldIndex'
+ *      newIndex: // value for 'newIndex'
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useChangePositionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >(ChangePositionDocument, baseOptions)
+}
+export type ChangePositionMutationHookResult = ReturnType<
+    typeof useChangePositionMutation
+>
+export type ChangePositionMutationResult = ApolloReactCommon.MutationResult<
+    ChangePositionMutation
+>
+export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    ChangePositionMutation,
+    ChangePositionMutationVariables
+>
 export const GetItemsDocument = gql`
     query getItems($collectionId: String!) {
         items(where: { collection: { id: { equals: $collectionId } } }) {
@@ -1430,7 +1683,7 @@ export const GetCollectionDocument = gql`
         ) {
             ...CollectionBasic
             createdAt
-            items(first: 4) {
+            items(first: 4, where: { isArchived: { equals: false } }) {
                 ...ItemPreview
             }
         }
@@ -1551,182 +1804,4 @@ export type GetProfileLazyQueryHookResult = ReturnType<
 export type GetProfileQueryResult = ApolloReactCommon.QueryResult<
     GetProfileQuery,
     GetProfileQueryVariables
->
-export const GetUserBySlugDocument = gql`
-    query getUserBySlug($slug: String!) {
-        user(where: { slug: $slug }) {
-            ...UserBasic
-        }
-    }
-    ${UserBasicFragmentDoc}
-`
-
-/**
- * __useGetUserBySlugQuery__
- *
- * To run a query within a React component, call `useGetUserBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUserBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetUserBySlugQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useGetUserBySlugQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetUserBySlugQuery,
-        GetUserBySlugQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetUserBySlugQuery,
-        GetUserBySlugQueryVariables
-    >(GetUserBySlugDocument, baseOptions)
-}
-export function useGetUserBySlugLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetUserBySlugQuery,
-        GetUserBySlugQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetUserBySlugQuery,
-        GetUserBySlugQueryVariables
-    >(GetUserBySlugDocument, baseOptions)
-}
-export type GetUserBySlugQueryHookResult = ReturnType<
-    typeof useGetUserBySlugQuery
->
-export type GetUserBySlugLazyQueryHookResult = ReturnType<
-    typeof useGetUserBySlugLazyQuery
->
-export type GetUserBySlugQueryResult = ApolloReactCommon.QueryResult<
-    GetUserBySlugQuery,
-    GetUserBySlugQueryVariables
->
-export const GetUserByAuthIdDocument = gql`
-    query getUserByAuthId($authId: String!) {
-        user(where: { authUserId: $authId }) {
-            ...UserBasic
-        }
-    }
-    ${UserBasicFragmentDoc}
-`
-
-/**
- * __useGetUserByAuthIdQuery__
- *
- * To run a query within a React component, call `useGetUserByAuthIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUserByAuthIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetUserByAuthIdQuery({
- *   variables: {
- *      authId: // value for 'authId'
- *   },
- * });
- */
-export function useGetUserByAuthIdQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetUserByAuthIdQuery,
-        GetUserByAuthIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetUserByAuthIdQuery,
-        GetUserByAuthIdQueryVariables
-    >(GetUserByAuthIdDocument, baseOptions)
-}
-export function useGetUserByAuthIdLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetUserByAuthIdQuery,
-        GetUserByAuthIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetUserByAuthIdQuery,
-        GetUserByAuthIdQueryVariables
-    >(GetUserByAuthIdDocument, baseOptions)
-}
-export type GetUserByAuthIdQueryHookResult = ReturnType<
-    typeof useGetUserByAuthIdQuery
->
-export type GetUserByAuthIdLazyQueryHookResult = ReturnType<
-    typeof useGetUserByAuthIdLazyQuery
->
-export type GetUserByAuthIdQueryResult = ApolloReactCommon.QueryResult<
-    GetUserByAuthIdQuery,
-    GetUserByAuthIdQueryVariables
->
-export const CreateUserDocument = gql`
-    mutation CreateUser(
-        $slug: String!
-        $authUserId: String!
-        $pictureUrl: String!
-        $biography: String!
-    ) {
-        user: createOneUser(
-            data: {
-                slug: $slug
-                authUserId: $authUserId
-                pictureUrl: $pictureUrl
-                firstname: $slug
-                biography: $biography
-                sections: { create: [{ slug: "section", name: "default" }] }
-            }
-        ) {
-            ...UserBasic
-        }
-    }
-    ${UserBasicFragmentDoc}
-`
-
-/**
- * __useCreateUserMutation__
- *
- * To run a mutation, you first call `useCreateUserMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateUserMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createUserMutation, { data, loading, error }] = useCreateUserMutation({
- *   variables: {
- *      slug: // value for 'slug'
- *      authUserId: // value for 'authUserId'
- *      pictureUrl: // value for 'pictureUrl'
- *      biography: // value for 'biography'
- *   },
- * });
- */
-export function useCreateUserMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateUserMutation,
-        CreateUserMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateUserMutation,
-        CreateUserMutationVariables
-    >(CreateUserDocument, baseOptions)
-}
-export type CreateUserMutationHookResult = ReturnType<
-    typeof useCreateUserMutation
->
-export type CreateUserMutationResult = ApolloReactCommon.MutationResult<
-    CreateUserMutation
->
-export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateUserMutation,
-    CreateUserMutationVariables
 >

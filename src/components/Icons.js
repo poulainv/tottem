@@ -9,3 +9,5 @@ export { default as CloseCircleOutline } from '@ant-design/icons/lib/outline/Clo
 export { default as CloseCircleFill } from '@ant-design/icons/lib/fill/CloseCircleFill'
 
 export { default as CloseCircleTwoTone } from '@ant-design/icons/lib/twotone/CloseCircleTwoTone'
+
+export { default as DeleteOutline } from '@ant-design/icons/lib/outline/DeleteOutline'

@@ -24,6 +24,7 @@ const CollectionNameInput = styled(TextareaAutosize)`
     font-weight: 600;
     font-size: 28px;
     line-height: 48px;
+    min-height: 48px;
     color: ${grey1000};
 
     @media screen and (max-width: 812px) {
@@ -43,6 +44,7 @@ const CollectionDetailInput = styled(TextareaAutosize)`
     font-weight: normal;
     font-size: 16px;
     line-height: 32px;
+    min-height: 62px; /* 2 rows of 32px */
     margin-top: 16px;
 
     @media screen and (max-width: 812px) {
@@ -75,12 +77,12 @@ export default ({
         onSaved,
         onSaving
     )
-
     return (
         <Box onChange={onChange} pad={{ horizontal: 'large' }}>
             <CollectionForm id="collection-form" onChange={onFormChange}>
                 <CollectionNameInput
                     name="name"
+                    defaultValue={initialCollection && initialCollection.name}
                     inputRef={register}
                     placeholder="Titre"
                     autoFocus={true}
@@ -88,6 +90,9 @@ export default ({
                 <CollectionDetailInput
                     name="detail"
                     minRows={2}
+                    defaultValue={
+                        initialCollection && (initialCollection.detail || '')
+                    }
                     inputRef={register}
                     placeholder="Quelques détails sur la nouvelle collection..."
                 />
