@@ -60,7 +60,7 @@ export default (props: IProfilePageProps) => {
     }
     const { user, sections } = data
 
-    if (user === null || sections === null) {
+    if (user === undefined || sections === undefined) {
         return <LoadingPage />
     }
     const activeSection =

@@ -31,8 +31,8 @@ export default ({
         data === undefined ||
         data.collection === null ||
         data.collection === undefined ||
-        data.user === null ||
-        data.user === undefined
+        data.user === undefined ||
+        data.user === null
     ) {
         return <Loading />
     }

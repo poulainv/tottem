@@ -12,3 +12,4 @@ generates:
             withComponent: false
             withMutationFn: false
             hooksImportFrom: '@apollo/react-hooks'
+            maybeValue: T | undefined

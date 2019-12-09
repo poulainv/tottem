@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import * as ApolloReactCommon from '@apollo/react-common'
 import * as ApolloReactHooks from '@apollo/react-hooks'
-export type Maybe<T> = T | null
+export type Maybe<T> = T | undefined
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string
@@ -752,6 +752,7 @@ export type User = {
     __typename?: 'User'
     id: Scalars['ID']
     slug: Scalars['String']
+    authUserId?: Maybe<Scalars['String']>
     biography: Scalars['String']
     pictureUrl: Scalars['String']
     label?: Maybe<Scalars['String']>
@@ -1062,6 +1063,33 @@ export type GetProfileQuery = { __typename?: 'Query' } & {
     >
 }
 
+export type GetUserBySlugQueryVariables = {
+    slug: Scalars['String']
+}
+
+export type GetUserBySlugQuery = { __typename?: 'Query' } & {
+    user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
+}
+
+export type GetUserByAuthIdQueryVariables = {
+    authId: Scalars['String']
+}
+
+export type GetUserByAuthIdQuery = { __typename?: 'Query' } & {
+    user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
+}
+
+export type CreateUserMutationVariables = {
+    slug: Scalars['String']
+    authUserId: Scalars['String']
+    pictureUrl: Scalars['String']
+    biography: Scalars['String']
+}
+
+export type CreateUserMutation = { __typename?: 'Mutation' } & {
+    user: { __typename?: 'User' } & UserBasicFragment
+}
+
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     Item,
     | 'id'
@@ -1086,7 +1114,13 @@ export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
 
 export type UserBasicFragment = { __typename?: 'User' } & Pick<
     User,
-    'id' | 'slug' | 'firstname' | 'pictureUrl' | 'biography' | 'label'
+    | 'id'
+    | 'slug'
+    | 'authUserId'
+    | 'firstname'
+    | 'pictureUrl'
+    | 'biography'
+    | 'label'
 >
 
 export type SocialFragment = { __typename?: 'User' } & Pick<
@@ -1127,6 +1161,7 @@ export const UserBasicFragmentDoc = gql`
     fragment UserBasic on User {
         id
         slug
+        authUserId
         firstname
         pictureUrl
         biography
@@ -1804,4 +1839,184 @@ export type GetProfileLazyQueryHookResult = ReturnType<
 export type GetProfileQueryResult = ApolloReactCommon.QueryResult<
     GetProfileQuery,
     GetProfileQueryVariables
+>
+export const GetUserBySlugDocument = gql`
+    query getUserBySlug($slug: String!) {
+        user(where: { slug: $slug }) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useGetUserBySlugQuery__
+ *
+ * To run a query within a React component, call `useGetUserBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useGetUserBySlugQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetUserBySlugQuery,
+        GetUserBySlugQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetUserBySlugQuery,
+        GetUserBySlugQueryVariables
+    >(GetUserBySlugDocument, baseOptions)
+}
+export function useGetUserBySlugLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetUserBySlugQuery,
+        GetUserBySlugQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetUserBySlugQuery,
+        GetUserBySlugQueryVariables
+    >(GetUserBySlugDocument, baseOptions)
+}
+export type GetUserBySlugQueryHookResult = ReturnType<
+    typeof useGetUserBySlugQuery
+>
+export type GetUserBySlugLazyQueryHookResult = ReturnType<
+    typeof useGetUserBySlugLazyQuery
+>
+export type GetUserBySlugQueryResult = ApolloReactCommon.QueryResult<
+    GetUserBySlugQuery,
+    GetUserBySlugQueryVariables
+>
+export const GetUserByAuthIdDocument = gql`
+    query getUserByAuthId($authId: String!) {
+        user(where: { authUserId: $authId }) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useGetUserByAuthIdQuery__
+ *
+ * To run a query within a React component, call `useGetUserByAuthIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserByAuthIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserByAuthIdQuery({
+ *   variables: {
+ *      authId: // value for 'authId'
+ *   },
+ * });
+ */
+export function useGetUserByAuthIdQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >(GetUserByAuthIdDocument, baseOptions)
+}
+export function useGetUserByAuthIdLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >(GetUserByAuthIdDocument, baseOptions)
+}
+export type GetUserByAuthIdQueryHookResult = ReturnType<
+    typeof useGetUserByAuthIdQuery
+>
+export type GetUserByAuthIdLazyQueryHookResult = ReturnType<
+    typeof useGetUserByAuthIdLazyQuery
+>
+export type GetUserByAuthIdQueryResult = ApolloReactCommon.QueryResult<
+    GetUserByAuthIdQuery,
+    GetUserByAuthIdQueryVariables
+>
+export const CreateUserDocument = gql`
+    mutation CreateUser(
+        $slug: String!
+        $authUserId: String!
+        $pictureUrl: String!
+        $biography: String!
+    ) {
+        user: createOneUser(
+            data: {
+                slug: $slug
+                authUserId: $authUserId
+                pictureUrl: $pictureUrl
+                firstname: $slug
+                biography: $biography
+                sections: {
+                    create: [{ slug: "section", name: "My first section" }]
+                }
+            }
+        ) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useCreateUserMutation__
+ *
+ * To run a mutation, you first call `useCreateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUserMutation, { data, loading, error }] = useCreateUserMutation({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      authUserId: // value for 'authUserId'
+ *      pictureUrl: // value for 'pictureUrl'
+ *      biography: // value for 'biography'
+ *   },
+ * });
+ */
+export function useCreateUserMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateUserMutation,
+        CreateUserMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateUserMutation,
+        CreateUserMutationVariables
+    >(CreateUserDocument, baseOptions)
+}
+export type CreateUserMutationHookResult = ReturnType<
+    typeof useCreateUserMutation
+>
+export type CreateUserMutationResult = ApolloReactCommon.MutationResult<
+    CreateUserMutation
+>
+export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateUserMutation,
+    CreateUserMutationVariables
 >

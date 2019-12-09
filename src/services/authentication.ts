@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useGetUserByAuthIdQuery, UserBasicFragment } from '../generated/types'
+import Auth from './lib/auth0'
+
+// Making the Auth0 methods available anywhere
+const auth0 = new Auth()
 
 interface AuthenticatedUser {
     id: string
@@ -39,4 +44,12 @@ const useAuthUser: () => AuthenticatedUser | undefined = () => {
     return userData
 }
 
-export { useLoggedIn, useAuthUser }
+const useUserProfile: () => UserBasicFragment | undefined = () => {
+    const authUser = useAuthUser()
+    const { data, loading, error } = useGetUserByAuthIdQuery({
+        variables: { authId: authUser ? authUser.id : 'foo' },
+    })
+    return data && data.user
+}
+
+export { useLoggedIn, useAuthUser, useUserProfile, auth0 }

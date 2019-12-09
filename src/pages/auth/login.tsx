@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Auth0 } from '../_document'
+import { auth0 } from '../../services/authentication'
 import { NextPage } from 'next'
 import LoadingPage from '../../scenes/LoadingPage'
 
@@ -13,7 +13,7 @@ const Login: NextPage = () => {
             : document.referrer
 
         localStorage.setItem('redirectTo', redirect)
-        Auth0.login()
+        auth0.login()
     }, [])
     return <LoadingPage />
 }

@@ -8,7 +8,7 @@ import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
 import React from 'react'
-import { Auth0 } from '../../pages/_document'
+import { auth0 } from '../authentication'
 import { handleGraphQLErrors } from '../errors'
 
 let apolloClient = null
@@ -141,12 +141,12 @@ const authLink = setContext((_, { headers }) => {
     // For now it means that SSR can not do authenticated request to API
     const shouldRenew = isServer
         ? false
-        : Auth0.isLoggedIn() && Auth0.isExpired()
+        : auth0.isLoggedIn() && auth0.isExpired()
 
     let promise
     if (shouldRenew) {
         // access token needs to be renew on client side
-        promise = Auth0.renewSession()
+        promise = auth0.renewSession()
     } else if (!isServer) {
         // access token is still valid get it on client side
         promise = Promise.resolve(localStorage.getItem('access_token'))

@@ -62,30 +62,14 @@ export default class Auth {
     handleAuthentication() {
         return new Promise(resolve => {
             this.auth0.parseHash((err, authResult) => {
-                console.log(
-                    util.inspect(
-                        authResult,
-                        false,
-                        null,
-                        true /* enable colors */
-                    )
-                )
                 var user_details = this.extractInfoFromHash()
-                console.log(
-                    util.inspect(
-                        user_details,
-                        false,
-                        null,
-                        true /* enable colors */
-                    )
-                )
                 if (
                     authResult &&
                     authResult.accessToken &&
                     authResult.idToken
                 ) {
                     this.setSession(authResult, user_details)
-                    resolve(true)
+                    resolve(user_details)
                 } else if (err) {
                     console.log(err)
                     alert(

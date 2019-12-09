@@ -4,10 +4,6 @@
 // ./pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Auth from '../services/lib/auth0'
-
-// Making the Auth0 methods available anywhere
-export const Auth0 = new Auth()
 
 class MyDocument extends Document {
     static async getInitialProps({ renderPage }) {
