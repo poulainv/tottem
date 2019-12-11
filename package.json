@@ -40,7 +40,6 @@
         "babel-loader": "^7.1.5",
         "babel-plugin-import": "^1.12.2",
         "babel-plugin-import-graphql": "^2.7.0",
-        "classnames": "^2.2.6",
         "graphql": "^14.5.8",
         "graphql-tag": "^2.10.1",
         "grommet": "^2.8.0",
