@@ -35,6 +35,7 @@ export const CardSize = {
 
 const CardBox = styled(Box)`
     width: ${CardSize.large.width};
+
     @media screen and (max-width: 812px) {
         width: ${CardSize.small.width};
     }
