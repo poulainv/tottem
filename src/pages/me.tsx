@@ -1,8 +1,17 @@
+import dynamic from 'next/dynamic'
 import * as React from 'react'
-import { withApollo } from '../services/lib/apollo'
-import MePage from '../scenes/Me'
 import '../index.css'
+import { withApollo } from '../services/lib/apollo'
 
-export default withApollo(() => {
-    return <MePage />
+const MePageNoSSR = dynamic(() => import('../scenes/Me'), {
+    ssr: false,
 })
+
+export default withApollo(
+    () => {
+        return <MePageNoSSR />
+    },
+    {
+        ssr: false,
+    }
+)

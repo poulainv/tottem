@@ -1,0 +1,11 @@
+query getSections($authUserId: String!) {
+    sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
+        id
+        title: name
+        collections {
+            id
+            slug
+            title: name
+        }
+    }
+}

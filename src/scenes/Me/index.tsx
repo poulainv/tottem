@@ -1,11 +1,19 @@
-import { Sidenav } from '../../components/Sidenav'
 import * as React from 'react'
+import { getAuthUser } from '../../services/authentication'
+import LoadingPage from '../LoadingPage'
+import Sidenav from './Sidenav'
 
 export default function MePage() {
+    const authUser = getAuthUser()
+
+    if (authUser === undefined) {
+        return <LoadingPage />
+    }
+
     return (
         <div className="flex h-screen text-sm">
-            <Sidenav />
-            <div className="flex-1" />
+            <Sidenav authUserId={authUser.id} />
+            <div className="flex-1 text-sm" />
         </div>
     )
 }

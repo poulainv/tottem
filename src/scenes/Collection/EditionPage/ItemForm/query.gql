@@ -1,5 +1,5 @@
 mutation CreateItem($url: String!, $collectionId: String!) {
-    items: createItem(collectionId: $collectionId, url: $url) {
+    items: createItemFromUrl(url: $url, collectionId: $collectionId) {
         ...ItemPreview
         ...ItemDetail
     }

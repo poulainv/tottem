@@ -13,7 +13,7 @@ const useDeleteItem = () => {
         onCompleted: ({ updateOneItem }) => {
             const key = `open${Date.now()}`
 
-            if (updateOneItem === null) {
+            if (updateOneItem === undefined) {
                 return undefined
             }
 

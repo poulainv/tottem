@@ -31,6 +31,7 @@ export type Collection = {
 
 export type CollectionItemsArgs = {
     where?: Maybe<CollectionItemsWhereInput>
+    orderBy?: Maybe<CollectionItemsOrderByInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
@@ -88,6 +89,10 @@ export type CollectionFilter = {
     every?: Maybe<CollectionWhereInput>
     some?: Maybe<CollectionWhereInput>
     none?: Maybe<CollectionWhereInput>
+}
+
+export type CollectionItemsOrderByInput = {
+    position?: Maybe<OrderByArg>
 }
 
 export type CollectionItemsWhereInput = {
@@ -455,7 +460,8 @@ export type Mutation = {
      *             It takes *indexes* (not position) and return changed items with new position.
      **/
     changeItemPosition: Array<Item>
-    createItem: Item
+    createItemFromSearch: Item
+    createItemFromUrl: Item
 }
 
 export type MutationCreateOneSectionArgs = {
@@ -486,7 +492,13 @@ export type MutationChangeItemPositionArgs = {
     newIndex: Scalars['Int']
 }
 
-export type MutationCreateItemArgs = {
+export type MutationCreateItemFromSearchArgs = {
+    id: Scalars['String']
+    kind: Scalars['String']
+    collectionId: Scalars['String']
+}
+
+export type MutationCreateItemFromUrlArgs = {
     url: Scalars['String']
     collectionId: Scalars['String']
 }
@@ -518,6 +530,7 @@ export type Query = {
     items: Array<Item>
     sections: Array<Section>
     collections: Array<Collection>
+    search: Array<SearchItem>
 }
 
 export type QueryUserArgs = {
@@ -534,6 +547,7 @@ export type QuerySectionArgs = {
 
 export type QueryItemsArgs = {
     where?: Maybe<QueryItemsWhereInput>
+    orderBy?: Maybe<QueryItemsOrderByInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
@@ -560,6 +574,11 @@ export type QueryCollectionsArgs = {
     last?: Maybe<Scalars['Int']>
 }
 
+export type QuerySearchArgs = {
+    q: Scalars['String']
+    kind: Scalars['String']
+}
+
 export type QueryCollectionsOrderByInput = {
     createdAt?: Maybe<OrderByArg>
 }
@@ -569,6 +588,10 @@ export type QueryCollectionsWhereInput = {
     owner?: Maybe<UserWhereInput>
 }
 
+export type QueryItemsOrderByInput = {
+    position?: Maybe<OrderByArg>
+}
+
 export type QueryItemsWhereInput = {
     isArchived?: Maybe<BooleanFilter>
     collection?: Maybe<CollectionWhereInput>
@@ -576,6 +599,14 @@ export type QueryItemsWhereInput = {
 
 export type QuerySectionsWhereInput = {
     owner?: Maybe<UserWhereInput>
+}
+
+export type SearchItem = {
+    __typename?: 'SearchItem'
+    id: Scalars['String']
+    title: Scalars['String']
+    author?: Maybe<Scalars['String']>
+    type: Scalars['String']
 }
 
 export type Section = {
@@ -1035,6 +1066,25 @@ export type GetCollectionIdQuery = { __typename?: 'Query' } & {
     >
 }
 
+export type GetSectionsQueryVariables = {
+    authUserId: Scalars['String']
+}
+
+export type GetSectionsQuery = { __typename?: 'Query' } & {
+    sections: Array<
+        { __typename?: 'Section' } & Pick<Section, 'id'> & {
+                title: Section['name']
+            } & {
+                collections: Array<
+                    { __typename?: 'Collection' } & Pick<
+                        Collection,
+                        'id' | 'slug'
+                    > & { title: Collection['name'] }
+                >
+            }
+    >
+}
+
 export type GetCollectionQueryVariables = {
     profileSlug?: Maybe<Scalars['String']>
     sectionSlug?: Maybe<Scalars['String']>
@@ -1382,7 +1432,7 @@ export type UpdateCollectionMutationOptions = ApolloReactCommon.BaseMutationOpti
 >
 export const CreateItemDocument = gql`
     mutation CreateItem($url: String!, $collectionId: String!) {
-        items: createItem(collectionId: $collectionId, url: $url) {
+        items: createItemFromUrl(url: $url, collectionId: $collectionId) {
             ...ItemPreview
             ...ItemDetail
         }
@@ -1696,6 +1746,66 @@ export type GetCollectionIdLazyQueryHookResult = ReturnType<
 export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionIdQuery,
     GetCollectionIdQueryVariables
+>
+export const GetSectionsDocument = gql`
+    query getSections($authUserId: String!) {
+        sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
+            id
+            title: name
+            collections {
+                id
+                slug
+                title: name
+            }
+        }
+    }
+`
+
+/**
+ * __useGetSectionsQuery__
+ *
+ * To run a query within a React component, call `useGetSectionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionsQuery({
+ *   variables: {
+ *      authUserId: // value for 'authUserId'
+ *   },
+ * });
+ */
+export function useGetSectionsQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetSectionsQuery,
+        GetSectionsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetSectionsQuery,
+        GetSectionsQueryVariables
+    >(GetSectionsDocument, baseOptions)
+}
+export function useGetSectionsLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetSectionsQuery,
+        GetSectionsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetSectionsQuery,
+        GetSectionsQueryVariables
+    >(GetSectionsDocument, baseOptions)
+}
+export type GetSectionsQueryHookResult = ReturnType<typeof useGetSectionsQuery>
+export type GetSectionsLazyQueryHookResult = ReturnType<
+    typeof useGetSectionsLazyQuery
+>
+export type GetSectionsQueryResult = ApolloReactCommon.QueryResult<
+    GetSectionsQuery,
+    GetSectionsQueryVariables
 >
 export const GetCollectionDocument = gql`
     query getCollection(
