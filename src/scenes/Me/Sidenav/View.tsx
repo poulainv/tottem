@@ -1,11 +1,11 @@
 import inboxIcon from '@iconify/icons-ic/baseline-inbox'
-import spaceIcon from '@iconify/icons-ic/baseline-layers'
 import profileIcon from '@iconify/icons-ic/baseline-person'
 import plusIcon from '@iconify/icons-ic/baseline-plus'
 import archiveIcon from '@iconify/icons-ic/outline-archive'
 import { InlineIcon } from '@iconify/react'
 import { ReactElement } from 'react'
 import { BulletList } from 'react-content-loader'
+import SectionGroup from './SectionGroup'
 
 interface ItemProps {
     title: string
@@ -100,29 +100,12 @@ const Sidenav: React.FC<SidenavProps> = ({ inboxCount, sections }) => {
                         <div className="flex-1 overflow-y-auto">
                             {sections.map(section => {
                                 return (
-                                    <div className="mb-3" key={section.id}>
-                                        <Item
-                                            title={section.title}
-                                            className="font-semibold"
-                                            icon={
-                                                <InlineIcon
-                                                    className="inline"
-                                                    color="#BFBFBF"
-                                                    icon={spaceIcon}
-                                                />
-                                            }
-                                        />
-                                        {section.collections.map(collection => {
-                                            return (
-                                                <div
-                                                    key={collection.id}
-                                                    className="px-6 py-1 rounded hover:bg-brand-200 cursor-pointer whitespace-no-wrap truncate mb-1 font-normal"
-                                                >
-                                                    {collection.title}
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
+                                    <SectionGroup
+                                        key={section.id}
+                                        {...section}
+                                        isExpanded={false}
+                                        isActive={false}
+                                    />
                                 )
                             })}
                         </div>

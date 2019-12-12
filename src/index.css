@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.transition-all {
+    transition: all 100ms ease-in-out;
+}
+
+.rotate-0deg {
+    transform: rotate(0deg) !important;
+}
+
+.rotate-90deg {
+    transform: rotate(90deg) !important;
+}
