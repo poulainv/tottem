@@ -2,10 +2,13 @@ import spaceIcon from '@iconify/icons-ic/baseline-layers'
 import arrowIcon from '@iconify/icons-ic/round-keyboard-arrow-right'
 import { InlineIcon } from '@iconify/react'
 import { useUpdateSectionExpandedMutation } from '../../../generated/types'
+import Link from 'next/link'
+import { MouseEvent } from 'react'
 
 interface SectionGroupProps {
     title: string
     id: string
+    currentHref: string
     isExpanded: boolean
     isActive: boolean
     collections: Array<{ title: string; id: string }>
@@ -15,14 +18,14 @@ export default ({
     title,
     id,
     isExpanded,
-    isActive,
+    currentHref,
     collections,
 }: SectionGroupProps) => {
     const bgBrand200 = `bg-brand-100`
 
     const [setExpanded] = useUpdateSectionExpandedMutation()
 
-    const handleExpand = () => {
+    const handleExpand = (e: MouseEvent) => {
         setExpanded({
             variables: { isExpanded: !isExpanded, sectionId: id },
             optimisticResponse: {
@@ -33,16 +36,16 @@ export default ({
                 },
             },
         })
+        e.preventDefault()
     }
-
+    const sectionHref = `/me/s/${id}`
     return (
         <div>
-            <div
-                className={`pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold ${
-                    isActive ? bgBrand200 : ''
-                }`}
-            >
-                <div className="flex justify-between items-center">
+            <Link href="/me/s/[sectionId]" as={sectionHref}>
+                <a
+                    className={`flex justify-between items-center pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold ${currentHref ===
+                        sectionHref && bgBrand200}`}
+                >
                     <div>
                         <span className="mr-1">
                             <InlineIcon
@@ -66,18 +69,25 @@ export default ({
                             icon={arrowIcon}
                         />
                     </div>
-                </div>
-            </div>
+                </a>
+            </Link>
 
             {isExpanded &&
                 collections.map(collection => {
+                    const collectionHref = `/me/c/${collection.id}`
                     return (
-                        <div
+                        <Link
                             key={collection.id}
-                            className="px-6 py-1 rounded hover:bg-brand-200 cursor-pointer whitespace-no-wrap truncate mb-1 font-normal"
+                            href="/me/c/[collectionId]"
+                            as={collectionHref}
                         >
-                            {collection.title}
-                        </div>
+                            <a
+                                className={`block px-6 py-1 rounded hover:${bgBrand200} cursor-pointer whitespace-no-wrap truncate mb-1 font-normal ${currentHref ===
+                                    collectionHref && bgBrand200}`}
+                            >
+                                {collection.title}
+                            </a>
+                        </Link>
                     )
                 })}
         </div>

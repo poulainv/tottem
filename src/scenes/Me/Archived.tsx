@@ -3,7 +3,7 @@ import { getAuthUser } from '../../services/authentication'
 import LoadingPage from '../LoadingPage'
 import Sidenav from './Sidenav'
 
-export default function MePage() {
+export default () => {
     const authUser = getAuthUser()
 
     if (authUser === undefined) {
@@ -13,7 +13,7 @@ export default function MePage() {
     return (
         <div className="flex h-screen text-sm">
             <Sidenav authUserId={authUser.id} />
-            <div className="flex-1 text-sm" />
+            <div className="flex-1 text-sm">Archived</div>
         </div>
     )
 }
