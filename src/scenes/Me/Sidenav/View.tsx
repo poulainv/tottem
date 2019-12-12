@@ -29,7 +29,7 @@ const Sidenav: React.FC<SidenavProps> = ({
 }) => {
     const bgBrand200 = `bg-brand-100`
     return (
-        <div className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
+        <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
@@ -119,7 +119,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <BulletList className="pl-2" />
                 )}
             </div>
-        </div>
+        </nav>
     )
 }
 

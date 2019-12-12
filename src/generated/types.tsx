@@ -993,7 +993,10 @@ export type UpdateCollectionMutationVariables = {
 
 export type UpdateCollectionMutation = { __typename?: 'Mutation' } & {
     collection: Maybe<
-        { __typename?: 'Collection' } & Pick<Collection, 'id' | 'slug'>
+        { __typename?: 'Collection' } & Pick<
+            Collection,
+            'id' | 'slug' | 'name' | 'detail'
+        >
     >
 }
 
@@ -1391,6 +1394,8 @@ export const UpdateCollectionDocument = gql`
         ) {
             id
             slug
+            name
+            detail
         }
     }
 `

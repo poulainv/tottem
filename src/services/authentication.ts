@@ -5,7 +5,7 @@ import Auth from './lib/auth0'
 // Making the Auth0 methods available anywhere
 const auth0 = new Auth()
 
-interface AuthenticatedUser {
+export interface AuthenticatedUser {
     id: string
     picture: string
     email: string

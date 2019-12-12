@@ -11,7 +11,7 @@ import {
 } from '../../../../components/Typographies'
 import { Item } from '../../../../generated/types'
 import { imageShapes } from '../../../common'
-import { ItemMetas } from '../../ItemMetas'
+import { ItemMetas } from '../../../Collection/ItemMetas'
 import { useDeleteItem } from './hooks'
 
 const ImageBox = styled(Box)`

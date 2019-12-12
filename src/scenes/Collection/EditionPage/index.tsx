@@ -1,6 +1,6 @@
 import * as React from 'react'
 import LoadingPage from '../../LoadingPage'
-import View from './View'
+import View from '../../Me/Collection/View'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 
 export default ({

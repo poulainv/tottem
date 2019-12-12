@@ -196,7 +196,8 @@ function createApolloClient(initialState = {}) {
             dataIdFromObject: object => {
                 switch (object.__typename) {
                     case 'Collection':
-                        return `Collection:${object.slug}`
+                        return `Collection:${object.slug &&
+                            object.slug.split('-').reverse()[0]}`
                     default:
                         return defaultDataIdFromObject(object) // fall back to default handling
                 }
