@@ -46,6 +46,7 @@ interface SidenavProps {
         | Array<{
               title: string
               id: string
+              isExpanded: boolean
               collections: Array<{ title: string; id: string }>
           }>
         | undefined
@@ -103,7 +104,7 @@ const Sidenav: React.FC<SidenavProps> = ({ inboxCount, sections }) => {
                                     <SectionGroup
                                         key={section.id}
                                         {...section}
-                                        isExpanded={false}
+                                        isExpanded={section.isExpanded}
                                         isActive={false}
                                     />
                                 )

@@ -1,11 +1,22 @@
 query getSections($authUserId: String!) {
     sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
         id
+        isExpanded
         title: name
         collections {
             id
             slug
             title: name
         }
+    }
+}
+
+mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: ID!) {
+    updateOneSection(
+        where: { id: $sectionId }
+        data: { isExpanded: $isExpanded }
+    ) {
+        id
+        isExpanded
     }
 }

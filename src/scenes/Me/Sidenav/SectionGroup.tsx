@@ -1,7 +1,7 @@
 import spaceIcon from '@iconify/icons-ic/baseline-layers'
 import arrowIcon from '@iconify/icons-ic/round-keyboard-arrow-right'
 import { InlineIcon } from '@iconify/react'
-import { useState } from 'react'
+import { useUpdateSectionExpandedMutation } from '../../../generated/types'
 
 interface SectionGroupProps {
     title: string
@@ -20,8 +20,20 @@ export default ({
 }: SectionGroupProps) => {
     const bgBrand200 = `bg-brand-100`
 
-    isExpanded = false
-    const [expanded, setExpanded] = useState(isExpanded)
+    const [setExpanded] = useUpdateSectionExpandedMutation()
+
+    const handleExpand = () => {
+        setExpanded({
+            variables: { isExpanded: !isExpanded, sectionId: id },
+            optimisticResponse: {
+                updateOneSection: {
+                    id,
+                    isExpanded: !isExpanded,
+                    __typename: 'Section',
+                },
+            },
+        })
+    }
 
     return (
         <div>
@@ -42,14 +54,14 @@ export default ({
                         <span className="text-gray-800">{title}</span>
                     </div>
                     <div
-                        onClick={() => setExpanded(!expanded)}
+                        onClick={handleExpand}
                         className="px-2 text-gray-600 hover:text-gray-800"
                     >
                         <InlineIcon
                             width={16}
                             height={16}
                             className={`inline transition-all ${
-                                expanded ? 'rotate-90deg' : 'rotate-0deg'
+                                isExpanded ? 'rotate-90deg' : 'rotate-0deg'
                             }`}
                             icon={arrowIcon}
                         />
@@ -57,7 +69,7 @@ export default ({
                 </div>
             </div>
 
-            {expanded &&
+            {isExpanded &&
                 collections.map(collection => {
                     return (
                         <div
