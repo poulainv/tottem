@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 interface FilterBadgesProps {
     items: Array<{ id: string; type: ItemType }>
+    onFilterChange: (filter: ItemType | 'All') => void
 }
 
 const commonBadgeClassNames =
@@ -15,12 +16,6 @@ const Badge: React.FC<{
     count?: number
     isActive: boolean
 }> = ({ type, count, isActive }) => {
-    const [hovered, setHovered] = useState(false)
-
-    const handleHover = (val: boolean) => {
-        setHovered(val)
-    }
-
     const Picto = require(`../../../../public/pictograms/${type}.svg`)
 
     return (
@@ -28,8 +23,6 @@ const Badge: React.FC<{
             className={`${commonBadgeClassNames} ${
                 isActive ? 'bg-blue-500 text-white' : 'text-gray-700'
             } hover:bg-brand-200 flex`}
-            onMouseOver={() => handleHover(true)}
-            onMouseOut={() => handleHover(false)}
         >
             <Picto height={14} width={14} className="mr-1 fill-current" />
             <div className="self-end text-xs mt-1">{count}</div>
@@ -37,8 +30,9 @@ const Badge: React.FC<{
     )
 }
 
-export default ({ items }: FilterBadgesProps) => {
-    const [active, setActive] = useState('movie')
+export default ({ items, onFilterChange }: FilterBadgesProps) => {
+    const [active, setActive] = useState<ItemType | 'All'>('All')
+
     const itemsTypeCount = countBy(
         items,
         (x: { id: string; type: ItemType }) => x.type
@@ -46,6 +40,7 @@ export default ({ items }: FilterBadgesProps) => {
 
     const handleBadgeClick = (type: ItemType | 'All') => {
         setActive(type)
+        onFilterChange(type)
     }
 
     return (

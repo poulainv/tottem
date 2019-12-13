@@ -14,7 +14,7 @@ interface Props {
 
 export default ({ dispatch, collectionId }: Props) => {
     const isBrowser = typeof window !== 'undefined'
-
+    const [selectedType, setSelectedType] = useState<ItemType | 'All'>('All')
     const { data } = useGetCollectionIdQuery({
         variables: { collectionId },
         returnPartialData: isBrowser,
@@ -24,6 +24,10 @@ export default ({ dispatch, collectionId }: Props) => {
     }
 
     const { collection } = data
+
+    const handleFilterChange = (filter: ItemType | 'All') => {
+        setSelectedType(filter)
+    }
 
     return (
         <Fragment>
