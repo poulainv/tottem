@@ -11,7 +11,13 @@ const SectionNoSSR = dynamic(() => import('../../../scenes/Me/Section'), {
 export default withApollo(
     () => {
         const router = useRouter()
-        return <SectionNoSSR sectionId={router.query.sectionId.toString()} />
+        return (
+            <SectionNoSSR
+                sectionId={
+                    router.query.sectionId && router.query.sectionId.toString()
+                }
+            />
+        )
     },
     {
         ssr: false,

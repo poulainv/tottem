@@ -13,7 +13,10 @@ export default withApollo(
         const router = useRouter()
         return (
             <CollectionNoSSR
-                collectionId={router.query.collectionId.toString()}
+                collectionId={
+                    router.query.collectionId &&
+                    router.query.collectionId.toString()
+                }
             />
         )
     },

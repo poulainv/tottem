@@ -2,10 +2,9 @@ import debounce from 'lodash.debounce'
 import { useCallback, useEffect } from 'react'
 import useForm from 'react-hook-form'
 import slugify from 'slugify'
-import getUuid from 'uuid-by-string'
 import {
-    useUpdateCollectionMutation,
     CollectionBasicFragment,
+    useUpdateCollectionMutation,
 } from '../../../../generated/types'
 
 interface CollectionFormData {
