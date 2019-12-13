@@ -34,7 +34,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
             <TextareaAutosize
                 onChange={onChange}
                 placeholder="Write additionnal description, if you want ..."
-                className="mt-1 resize-none focus:border-blue-400 outline-none"
+                className="mt-4 resize-none focus:border-blue-400 outline-none text-gray-700 leading-relaxed"
                 name="detail"
                 inputRef={register}
                 minRows={2}
