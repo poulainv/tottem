@@ -31,5 +31,7 @@ mutation UpdateCollection(
     ) {
         id
         slug
+        name
+        detail
     }
 }

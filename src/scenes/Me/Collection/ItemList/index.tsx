@@ -1,6 +1,6 @@
 import { ContentBox } from '../../../../components/Layout'
 import { useGetItemsQuery } from '../../../../generated/types'
-import ItemList from '../../ItemList'
+import ItemList from '../../../Collection/ItemList'
 import DraggableList from './DraggableList'
 
 export default ({ collectionId }: { collectionId?: string }) => {

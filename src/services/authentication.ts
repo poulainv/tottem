@@ -5,7 +5,7 @@ import Auth from './lib/auth0'
 // Making the Auth0 methods available anywhere
 const auth0 = new Auth()
 
-interface AuthenticatedUser {
+export interface AuthenticatedUser {
     id: string
     picture: string
     email: string
@@ -23,6 +23,23 @@ const useLoggedIn = () => {
         }
     }, [])
     return isLoggedIn
+}
+
+const getAuthUser: () => AuthenticatedUser | undefined = () => {
+    const lsUserDetails = localStorage.getItem('user_details')
+    if (lsUserDetails) {
+        const parsed = JSON.parse(lsUserDetails)
+        const authenticatedUser = {
+            picture: parsed.picture,
+            email: parsed.email,
+            name: parsed.given_name || parsed.nickname || parsed.email,
+            roles: parsed['https://tottem.app/user_authorization'].roles,
+            id: parsed.sub,
+        }
+        return authenticatedUser
+    } else {
+        auth0.login() // FIXME try this
+    }
 }
 
 const useAuthUser: () => AuthenticatedUser | undefined = () => {
@@ -52,4 +69,4 @@ const useUserProfile: () => UserBasicFragment | undefined = () => {
     return data && data.user
 }
 
-export { useLoggedIn, useAuthUser, useUserProfile, auth0 }
+export { useLoggedIn, useAuthUser, useUserProfile, auth0, getAuthUser }
