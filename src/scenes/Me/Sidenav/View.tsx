@@ -6,6 +6,7 @@ import archiveIcon from '@iconify/icons-ic/outline-archive'
 import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
+import { useState } from 'react'
 
 interface SidenavProps {
     currentHref: string
@@ -26,6 +27,11 @@ const Sidenav: React.FC<SidenavProps> = ({
     currentHref,
 }) => {
     const bgBrand200 = `bg-brand-100`
+    const [hovered, setHovered] = useState(false)
+
+    const handleHover = (val: boolean) => {
+        setHovered(val)
+    }
     return (
         <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
@@ -75,11 +81,13 @@ const Sidenav: React.FC<SidenavProps> = ({
                         <a
                             className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${currentHref ===
                                 '/me/archived' && bgBrand200}`}
+                            onMouseOver={() => handleHover(true)}
+                            onMouseOut={() => handleHover(false)}
                         >
                             <span className="mr-1">
                                 <InlineIcon
                                     className="inline"
-                                    color="#3F55C9"
+                                    color={hovered ? '#3F55C9' : '#A4FE4D'}
                                     icon={archiveIcon}
                                 />
                             </span>

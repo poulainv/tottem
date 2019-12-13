@@ -115,6 +115,7 @@
         "eslint": "^6.5.1",
         "husky": "^3.0.7",
         "json-loader": "^0.5.7",
+        "next-react-svg": "^1.1.0",
         "postcss-preset-env": "^6.7.0",
         "prettier": "^1.19.1",
         "pretty-quick": "^1.11.1",
