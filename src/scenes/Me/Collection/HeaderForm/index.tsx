@@ -19,7 +19,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
     return (
         <form
             id={`collection-form-${collection.id}`}
-            className="max-w-4xl mx-auto mt-2 flex flex-col"
+            className="flex flex-col"
             onChange={onFormChange}
         >
             <TextareaAutosize

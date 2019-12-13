@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import { StyledButton } from '../../../../components/Button'
-import Spinner from '../../../../components/Spinner'
+import { StyledButton } from '../../../components/Button'
+import Spinner from '../../../components/Spinner'
 import {
     brand700,
     grey1000,
     grey200,
     grey400,
     red500,
-} from '../../../../constants/colors'
+} from '../../../constants/colors'
 import { useItemForm } from './hooks'
 
 const ItemForm = styled.form`

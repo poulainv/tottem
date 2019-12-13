@@ -3,7 +3,7 @@ import {
     GetItemsDocument,
     GetItemsQuery,
     useCreateItemMutation,
-} from '../../../../generated/types'
+} from '../../../generated/types'
 
 interface ItemsFormData {
     url: string
