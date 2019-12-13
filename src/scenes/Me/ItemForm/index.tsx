@@ -5,7 +5,7 @@ import AddButton, { AddActions } from './AddButton'
 import { useItemForm } from './hooks'
 
 interface StateProps {
-    type: 'url' | 'search'
+    type: 'url' | 'search' | 'close'
     searchElement?: 'book' | 'movie'
     isShow: boolean
 }
@@ -15,8 +15,13 @@ const useAddItemReducer = () => {
         type: 'url',
         isShow: false,
     }
-    const reducer = (state: StateProps, action: AddActions): StateProps => {
+    const reducer = (
+        state: StateProps,
+        action: AddActions | 'close'
+    ): StateProps => {
         switch (action) {
+            case 'close':
+                return { ...state, isShow: false }
             case 'url':
                 return { ...state, isShow: true, type: 'url' }
             case 'search-book':
@@ -54,8 +59,8 @@ export default ({ collectionId }: { collectionId?: string }) => {
             <form
                 id="items-form"
                 onSubmit={onSubmit}
-                className={`flex flex-1 flex-row content-center transition-all ${
-                    state.isShow ? 'visible opacity-100' : 'invisible opacity-0'
+                className={`flex flex-1 flex-row content-center ${
+                    state.isShow ? 'visible' : 'invisible'
                 }`}
             >
                 <input
@@ -71,9 +76,18 @@ export default ({ collectionId }: { collectionId?: string }) => {
                         },
                     })}
                 />
-                <div className="ml-4">
+                <div className="ml-6">
                     <button className="px-4 py-2 bg-brand-600 h-8 rounded-sm text-white leading-none hover:bg-brand-400">
-                        Add
+                        Save
+                    </button>
+                </div>
+                <div className="ml-2">
+                    <button
+                        type="reset"
+                        onClick={() => dispatch('close')}
+                        className="px-4 py-2 border border-brand-600 text-brand-600 h-8 rounded-sm leading-none "
+                    >
+                        Cancel
                     </button>
                 </div>
             </form>
