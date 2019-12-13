@@ -77,7 +77,7 @@ export default ({ collectionId }: { collectionId?: string }) => {
                     })}
                 />
                 <div className="ml-6">
-                    <button className="px-4 py-2 bg-brand-600 h-8 rounded-sm text-white leading-none hover:bg-brand-400">
+                    <button className="px-4 py-2 bg-brand-600 h-8 font-medium rounded-sm text-white leading-none hover:bg-brand-400">
                         Save
                     </button>
                 </div>
@@ -85,7 +85,7 @@ export default ({ collectionId }: { collectionId?: string }) => {
                     <button
                         type="reset"
                         onClick={() => dispatch('close')}
-                        className="px-4 py-2 border border-brand-600 text-brand-600 h-8 rounded-sm leading-none "
+                        className="px-4 py-2 border border-brand-600 font-medium text-brand-600 h-8 rounded-sm leading-none "
                     >
                         Cancel
                     </button>
