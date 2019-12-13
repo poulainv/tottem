@@ -1,12 +1,11 @@
 import * as React from 'react'
+import TopBar from '../../../components/TopBar2'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 import { getAuthUser } from '../../../services/authentication'
 import LoadingPage from '../../LoadingPage'
 import Sidenav from '../Sidenav'
 import HeaderForm from './HeaderForm'
-import Status from './Status'
-import { InlineIcon } from '@iconify/react'
-import baselineSettings from '@iconify/icons-ic/outline-settings'
+import { useStatusMessage } from './Status'
 
 interface Props {
     collectionId: string
@@ -15,6 +14,8 @@ interface Props {
 export default ({ collectionId }: Props) => {
     const authUser = getAuthUser()
 
+    const [message, dispatch] = useStatusMessage()
+
     if (authUser === undefined) {
         return <LoadingPage />
     }
@@ -22,7 +23,6 @@ export default ({ collectionId }: Props) => {
     const { data, loading } = useGetCollectionIdQuery({
         variables: { collectionId },
     })
-
     if (!data || !data.collection || loading) {
         return <LoadingPage />
     }
@@ -33,34 +33,18 @@ export default ({ collectionId }: Props) => {
         <div className="flex h-screen text-sm ">
             <Sidenav authUserId={authUser.id} />
             <div className="flex flex-1 flex-col">
-                <div className="w-full px-2 h-8 flex justify-end items-center text-gray-700 leading-none">
-                    <img
-                        src={authUser.picture}
-                        alt="userAvatar"
-                        className="mx-1 h-4 rounded-full"
-                    />
-                    <p className="mx-1">Vincent</p>
-                    <p className="mx-1">|</p>
-                    <InlineIcon
-                        className="mx-1"
-                        height={14}
-                        width={14}
-                        icon={baselineSettings}
-                    />{' '}
-                </div>
+                <TopBar
+                    message={message}
+                    avatar={authUser.picture}
+                    username={authUser.name}
+                />
                 <main className="text-sm">
-                    <Status>
-                        {(
-                            onSavedF: (collectionId: string) => void,
-                            onSaving: () => void
-                        ) => (
-                            <HeaderForm
-                                collection={collection}
-                                onSaved={onSavedF}
-                                onSaving={onSaving}
-                            />
-                        )}
-                    </Status>
+                    <HeaderForm
+                        collection={collection}
+                        onChange={() => dispatch('CHANGED')}
+                        onSaved={() => dispatch('SAVED')}
+                        onSaving={() => dispatch('SAVING')}
+                    />
                 </main>
             </div>
         </div>

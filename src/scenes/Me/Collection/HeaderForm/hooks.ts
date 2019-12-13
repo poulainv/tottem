@@ -17,7 +17,7 @@ const getCollectionSlug = (name: string, stableId: string) =>
 
 const useCollectionForm = (
     collection: CollectionBasicFragment,
-    onSaved?: (collectionId: string) => void,
+    onSaved?: () => void,
     onSaving?: () => void
 ) => {
     const { register, getValues, setValue } = useForm<CollectionFormData>()
@@ -25,7 +25,7 @@ const useCollectionForm = (
     const [updateCollection] = useUpdateCollectionMutation({
         onCompleted: (data: { collection: any }) => {
             if (onSaved !== undefined) {
-                onSaved(data.collection.id)
+                onSaved()
             }
         },
     })
