@@ -3,10 +3,10 @@ import TopBar from '../../../components/TopBar2'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 import { getAuthUser } from '../../../services/authentication'
 import LoadingPage from '../../LoadingPage'
+import ItemForm from '../ItemForm'
 import Sidenav from '../Sidenav'
 import HeaderForm from './HeaderForm'
 import { useStatusMessage } from './Status'
-import AddButton from '../ItemForm/AddButton'
 
 interface Props {
     collectionId: string
@@ -49,12 +49,8 @@ export default ({ collectionId }: Props) => {
                         // tslint:disable-next-line: jsx-no-lambda
                         onSaving={() => dispatch('SAVING')}
                     />
-                    <div className="bg-teal-200 h-8 relative mt-8">
-                        <div className="absolute bottom-0 -left-4">
-                            <AddButton />
-                        </div>
-                    </div>
-                    <div className="bg-green-200">hello</div>
+                    <ItemForm collectionId={collection.id} />
+                    <div className="mt-5">Hello</div>
                 </main>
             </div>
         </div>
