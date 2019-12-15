@@ -6,7 +6,6 @@ import archiveIcon from '@iconify/icons-ic/outline-archive'
 import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
-import { useState } from 'react'
 
 interface SidenavProps {
     currentHref: string
