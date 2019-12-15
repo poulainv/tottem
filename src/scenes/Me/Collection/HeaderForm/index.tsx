@@ -6,11 +6,11 @@ import { useCollectionForm } from './hooks'
 interface Props {
     collection: CollectionBasicFragment
     onChange?: () => void
-    onSaved?: (collectionId: string) => void
+    onSaved?: () => void
     onSaving?: () => void
 }
 
-export default ({ collection, onSaved, onSaving }: Props) => {
+export default ({ collection, onSaved, onSaving, onChange }: Props) => {
     const { onFormChange, register } = useCollectionForm(
         collection,
         onSaved,
@@ -23,6 +23,7 @@ export default ({ collection, onSaved, onSaving }: Props) => {
             onChange={onFormChange}
         >
             <TextareaAutosize
+                onChange={onChange}
                 type="text"
                 placeholder="Title"
                 minRows={2}
@@ -31,6 +32,7 @@ export default ({ collection, onSaved, onSaving }: Props) => {
                 inputRef={register}
             />
             <TextareaAutosize
+                onChange={onChange}
                 placeholder="Write additionnal description, if you want ..."
                 className="mt-1 resize-none focus:border-blue-400 outline-none"
                 name="detail"

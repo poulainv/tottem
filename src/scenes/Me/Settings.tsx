@@ -16,7 +16,7 @@ export default () => {
             <Sidenav authUserId={authUser.id} />
             <div className="flex flex-1 flex-col">
                 <TopBar avatar={authUser.picture} username={authUser.name} />
-                <div className="flex-1 text-sm">Inbox</div>
+                <div className="flex-1 text-sm">Settings</div>
             </div>
         </div>
     )
