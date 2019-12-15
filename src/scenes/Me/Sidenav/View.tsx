@@ -87,7 +87,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                             <span className="mr-1">
                                 <InlineIcon
                                     className="inline"
-                                    color={hovered ? '#3F55C9' : '#A4FE4D'}
+                                    color={'#BFBFBF'}
                                     icon={archiveIcon}
                                 />
                             </span>
