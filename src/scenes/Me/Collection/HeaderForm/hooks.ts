@@ -23,17 +23,12 @@ const useCollectionForm = (
     const { register, getValues, setValue } = useForm<CollectionFormData>()
 
     const [updateCollection] = useUpdateCollectionMutation({
-        onCompleted: (data: { collection: any }) => {
+        onCompleted: (_: { collection: any }) => {
             if (onSaved !== undefined) {
                 onSaved()
             }
         },
     })
-
-    useEffect(() => {
-        setValue('name', collection.name)
-        setValue('detail', collection.detail || '')
-    }, [collection.id])
 
     const submit = () => {
         const { name, detail } = getValues()
@@ -51,10 +46,20 @@ const useCollectionForm = (
         })
     }
 
-    const onFormChange = useCallback(
-        debounce(submit, 1500, { maxWait: 5000 }),
-        [collection.id]
-    )
+    const debouncedSave = debounce(submit, 1500, { maxWait: 5000 })
+    const onFormChange = useCallback(debouncedSave, [collection.id])
+
+    useEffect(() => {
+        setValue('name', collection.name)
+        setValue('detail', collection.detail || '')
+        return () => {
+            // Prevent submit method to be called after page changes
+            debouncedSave.cancel()
+            // Save before unmount
+            submit()
+        }
+    }, [collection.id])
+
     return { onFormChange, register }
 }
 
