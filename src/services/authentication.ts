@@ -61,7 +61,6 @@ const getUserAuth = (isServer: boolean, cookie?: string) => {
         const userString = localStorage.getItem('user_details')
         const userDetails: Auth0UserDetails | null =
             userString && JSON.parse(userString)
-        console.log(userDetails)
         return userDetails ? getAuthUser(userDetails) : undefined
     }
 }

@@ -31,6 +31,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                 className="text-2xl resize-none outline-none"
                 name="name"
                 inputRef={register}
+                defaultValue={collection.name}
             />
             <TextareaAutosize
                 onChange={onChange}
@@ -39,6 +40,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                 name="detail"
                 inputRef={register}
                 minRows={2}
+                defaultValue={collection.detail}
             />
         </form>
     )
