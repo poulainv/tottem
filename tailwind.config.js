@@ -1,5 +1,9 @@
 module.exports = {
+    important: true,
     theme: {
+        inset: {
+            '-4': '-3rem',
+        },
         extend: {
             colors: {
                 brand: {

@@ -1,13 +1,11 @@
 import inboxIcon from '@iconify/icons-ic/baseline-inbox'
 import profileIcon from '@iconify/icons-ic/baseline-person'
 import plusIcon from '@iconify/icons-ic/baseline-plus'
-import archiveIcon from '@iconify/icons-ic/outline-archive'
 import { InlineIcon } from '@iconify/react'
-import { ReactElement } from 'react'
+import archiveIcon from '@iconify/icons-ic/outline-archive'
+import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 interface SidenavProps {
     currentHref: string
