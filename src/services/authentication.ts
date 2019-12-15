@@ -65,44 +65,6 @@ const getUserAuth = (isServer: boolean, cookie?: string) => {
     }
 }
 
-// const getTokenForBrowser = () => {
-//     const accessToken: string | null = localStorage.getItem('access_token')
-//     const userString = localStorage.getItem('user_details')
-//     const userDetails: Auth0UserDetails | null =
-//         userString && JSON.parse(userString)
-//     return { accessToken, userDetails }
-// }
-
-// const getTokenForServer = (cookie: string) => {
-//     const cookies = cookie.split(';')
-//     const idToken = cookies // FIXME mayme a better way
-//         .find((c: string) => c.trim().startsWith('id_token='))
-//         ?.split('=')[1]
-//     const accessToken = cookies
-//         .find((c: string) => c.trim().startsWith('access_token='))
-//         ?.split('=')[1]
-
-//     const userDetails: Auth0UserDetails | undefined =
-//         idToken !== undefined ? jwtDecode(idToken) : undefined
-
-//     return {
-//         accessToken,
-//         userDetails,
-//     }
-// }
-
-// const useLoggedIn = () => {
-//     const [isLoggedIn, setIsLoggedIn] = useState(false)
-//     useEffect(() => {
-//         const lsLoggedIn = Cookie.get('isLoggedIn')
-//         if (lsLoggedIn) {
-//             const parsed: boolean = JSON.parse(lsLoggedIn)
-//             setIsLoggedIn(parsed)
-//         }
-//     }, [])
-//     return isLoggedIn
-// }
-
 const getAuthUser: (
     parsed: Auth0UserDetails
 ) => AuthenticatedUser | undefined = parsed => {
