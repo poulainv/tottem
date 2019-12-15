@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useForm from 'react-hook-form'
 import slugify from 'slugify'
 import {
@@ -56,7 +56,7 @@ const useCollectionForm = (
             // Prevent submit method to be called after page changes
             debouncedSave.cancel()
             // Save before unmount
-            submit()
+            // submit()
         }
     }, [collection.id])
 

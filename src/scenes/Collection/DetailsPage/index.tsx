@@ -5,11 +5,9 @@ import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import * as React from 'react'
 import removeMd from 'remove-markdown'
-import styled from 'styled-components'
 import { StyledButton } from '../../../components/Button'
 import { Layout, PageBox } from '../../../components/Layout'
 import { ItemType } from '../../common'
-import { useAuthUser } from '../../../services/authentication'
 import ItemList, { ItemListPlaceholder } from '../ItemList'
 import Headers from './CollectionHeader'
 import { useCollection } from './hooks'
@@ -24,7 +22,6 @@ export default ({
     profile: string
     collectionId: string
 }) => {
-    const userAuth = useAuthUser()
     const { data } = useCollection(profile, collectionId)
 
     if (
@@ -88,7 +85,7 @@ export default ({
                             itemsTypeCount as { [type in ItemType]: number }
                         }
                     />
-                    {userAuth && (
+                    {false && (
                         <Box
                             pad={{ horizontal: 'large', top: 'small' }}
                             direction="row"

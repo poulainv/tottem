@@ -8,7 +8,7 @@ import { createHttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
 import React from 'react'
-import { auth0 } from '../authentication'
+import { auth0, getAccessToken } from '../authentication'
 import { handleGraphQLErrors } from '../errors'
 
 let apolloClient = null
@@ -49,7 +49,10 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
 
             // Initialize ApolloClient, add it to the ctx object so
             // we can use it in `PageComponent.getInitialProp`.
-            const apolloClient = (ctx.apolloClient = initApolloClient())
+            const apolloClient = (ctx.apolloClient = initApolloClient(
+                {},
+                ctx.req?.headers?.cookie
+            ))
 
             // Run wrapped getInitialProps methods
             let pageProps = {}
@@ -113,11 +116,11 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
  * Creates or reuses apollo client in the browser.
  * @param  {Object} initialState
  */
-function initApolloClient(initialState) {
+function initApolloClient(initialState, cookie = '') {
     // Make sure to create a new client for every server-side request so that data
     // isn't shared between connections (which would be bad)
     if (typeof window === 'undefined') {
-        return createApolloClient(initialState)
+        return createApolloClient(initialState, cookie)
     }
 
     // Reuse client on the client-side
@@ -133,48 +136,47 @@ function initApolloClient(initialState) {
  * requests have been made from client side.
  * It also handles access token renewal when it has been expired
  */
-const authLink = setContext((_, { headers }) => {
-    const isServer = typeof window === 'undefined'
+const authLinkFromCookie = cookie =>
+    setContext((_, { headers }) => {
+        const isServer = typeof window === 'undefined'
 
-    // localStorage does not exist on server side
-    // FIXME use cookie session instead
-    // For now it means that SSR can not do authenticated request to API
-    const shouldRenew = isServer
-        ? false
-        : auth0.isLoggedIn() && auth0.isExpired()
+        const shouldRenew = isServer
+            ? false
+            : auth0.isLoggedIn() && auth0.isExpired()
 
-    let promise
-    if (shouldRenew) {
-        // access token needs to be renew on client side
-        promise = auth0.renewSession()
-    } else if (!isServer) {
-        // access token is still valid get it on client side
-        promise = Promise.resolve(localStorage.getItem('access_token'))
-    } else {
-        // server side no access token
-        promise = Promise.resolve('')
-    }
-
-    return promise.then(token => {
-        return {
-            headers: {
-                ...headers,
-                authorization: token ? `${token}` : '',
-            },
+        let promise
+        if (shouldRenew) {
+            // access token needs to be renew on client side
+            promise = auth0.renewSession()
+        } else {
+            const accessToken = getAccessToken(isServer, cookie)
+            promise = Promise.resolve(accessToken)
         }
+
+        return promise.then(token => {
+            return {
+                headers: {
+                    ...headers,
+                    authorization: token ? `${token}` : '',
+                },
+            }
+        })
     })
-})
 
 const errorLink = onError(handleGraphQLErrors)
 
-function createApolloClient(initialState = {}) {
+function createApolloClient(initialState = {}, cookie = '') {
     const httpLink = createHttpLink({
         uri: process.env.GRAPHQL_URL,
         credentials: 'same-origin',
         fetch,
     })
 
-    const links = ApolloLink.from([authLink, errorLink, httpLink])
+    const links = ApolloLink.from([
+        authLinkFromCookie(cookie),
+        errorLink,
+        httpLink,
+    ])
 
     return new ApolloClient({
         ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)

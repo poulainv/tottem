@@ -42,7 +42,6 @@ export function Layout(props: ILayoutProps) {
     return (
         <Grommet theme={theme}>
             <Box align="center" background="light-1">
-                <Header />
                 <Box
                     direction="row"
                     justify="center"

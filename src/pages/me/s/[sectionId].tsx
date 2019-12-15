@@ -1,25 +1,37 @@
-import dynamic from 'next/dynamic'
-import * as React from 'react'
-import '../../../index.css'
-import { withApollo } from '../../../services/lib/apollo'
+import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
+import * as React from 'react'
+import LoadingPage from '../../../scenes/LoadingPage'
+import Section from '../../../scenes/Me/Section'
+import {
+    AuthenticatedUser,
+    getUserAuth,
+} from '../../../services/authentication'
+import { withApollo } from '../../../services/lib/apollo'
+import '../../../index.css'
 
-const SectionNoSSR = dynamic(() => import('../../../scenes/Me/Section'), {
-    ssr: false,
-})
+const SectionPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
+    loggedInUser,
+}) => {
+    const router = useRouter()
+    return loggedInUser ? (
+        <Section
+            loggedInUser={loggedInUser}
+            sectionId={
+                router.query.sectionId && router.query.sectionId.toString()
+            }
+        />
+    ) : (
+        <LoadingPage />
+    )
+}
 
-export default withApollo(
-    () => {
-        const router = useRouter()
-        return (
-            <SectionNoSSR
-                sectionId={
-                    router.query.sectionId && router.query.sectionId.toString()
-                }
-            />
-        )
-    },
-    {
-        ssr: false,
+SectionPage.getInitialProps = async (ctx: NextPageContext) => {
+    const cookie = ctx.req?.headers?.cookie
+    const isServer = typeof window === 'undefined'
+    return {
+        loggedInUser: getUserAuth(isServer, cookie),
     }
-)
+}
+
+export default withApollo(SectionPage)

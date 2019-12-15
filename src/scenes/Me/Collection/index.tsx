@@ -1,7 +1,7 @@
 import * as React from 'react'
 import TopBar from '../../../components/TopBar2'
 import { useGetCollectionIdQuery } from '../../../generated/types'
-import { getAuthUser } from '../../../services/authentication'
+import { AuthenticatedUser } from '../../../services/authentication'
 import LoadingPage from '../../LoadingPage'
 import ItemForm from '../ItemForm'
 import Sidenav from '../Sidenav'
@@ -10,16 +10,11 @@ import { useStatusMessage } from './Status'
 
 interface Props {
     collectionId: string
+    loggedInUser: AuthenticatedUser
 }
 
-export default ({ collectionId }: Props) => {
-    const authUser = getAuthUser()
-
+export default ({ loggedInUser, collectionId }: Props) => {
     const [message, dispatch] = useStatusMessage()
-
-    if (authUser === undefined) {
-        return <LoadingPage />
-    }
 
     const { data, loading } = useGetCollectionIdQuery({
         variables: { collectionId },
@@ -32,12 +27,12 @@ export default ({ collectionId }: Props) => {
 
     return (
         <div className="flex h-screen text-sm ">
-            <Sidenav authUserId={authUser.id} />
+            <Sidenav authUserId={loggedInUser.id} />
             <div className="flex flex-1 flex-col">
                 <TopBar
                     message={message}
-                    avatar={authUser.picture}
-                    username={authUser.name}
+                    avatar={loggedInUser.picture}
+                    username={loggedInUser.name}
                 />
                 <main className="text-sm w-full max-w-4xl mx-auto mt-2">
                     <HeaderForm

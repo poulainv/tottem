@@ -1,25 +1,22 @@
 import * as React from 'react'
-import { getAuthUser } from '../../services/authentication'
-import LoadingPage from '../LoadingPage'
-import Sidenav from './Sidenav'
 import TopBar from '../../components/TopBar2'
+import { AuthenticatedUser } from '../../services/authentication'
+import Sidenav from './Sidenav'
 
 interface SectionPageProps {
     sectionId: string
+    loggedInUser: AuthenticatedUser
 }
 
-export default ({ sectionId }: SectionPageProps) => {
-    const authUser = getAuthUser()
-
-    if (authUser === undefined) {
-        return <LoadingPage />
-    }
-
+export default ({ loggedInUser, sectionId }: SectionPageProps) => {
     return (
         <div className="flex h-screen text-sm">
-            <Sidenav authUserId={authUser.id} />
+            <Sidenav authUserId={loggedInUser.id} />
             <div className="flex flex-1 flex-col">
-                <TopBar avatar={authUser.picture} username={authUser.name} />
+                <TopBar
+                    avatar={loggedInUser.picture}
+                    username={loggedInUser.name}
+                />
                 <div className="flex-1 text-sm">Section {sectionId}</div>
             </div>
         </div>

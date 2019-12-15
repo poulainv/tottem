@@ -3,8 +3,7 @@ import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import styled from 'styled-components'
 import { Layout, PageBox } from '../../components/Layout'
-import { useGetProfileQuery, Section } from '../../generated/types'
-import { useAuthUser } from '../../services/authentication'
+import { Section, useGetProfileQuery } from '../../generated/types'
 import LoadingPage from '../LoadingPage'
 import ProfileActions from './Actions'
 import AppTableOfContents from './AppTableOfContents'
@@ -53,7 +52,7 @@ export default (props: IProfilePageProps) => {
         },
     })
 
-    const authUser = useAuthUser()
+    const authUser = undefined //useAuthUser()
 
     if (loading || data === undefined || data === null) {
         return <LoadingPage />

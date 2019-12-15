@@ -16,6 +16,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
         onSaved,
         onSaving
     )
+
     return (
         <form
             id={`collection-form-${collection.id}`}

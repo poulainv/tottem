@@ -1,6 +1,6 @@
 import auth0 from 'auth0-js'
 import jwtDecode from 'jwt-decode'
-import util from 'util'
+import Cookie from 'js-cookie'
 
 const AUTH_CONFIG = {
     domain: process.env.AUTH0_DOMAIN,
@@ -105,6 +105,10 @@ export default class Auth {
         this.accessToken = authResult.accessToken
         this.idToken = authResult.idToken
         this.expiresAt = expiresAt
+
+        // For SSR reasons
+        Cookie.set('id_token', authResult.idToken)
+        Cookie.set('access_token', authResult.accessToken)
 
         localStorage.setItem('access_token', authResult.accessToken)
         localStorage.setItem('expired_at', expiresAt)
