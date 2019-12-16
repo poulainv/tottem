@@ -1000,6 +1000,35 @@ export type UpdateCollectionMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type GetCollectionIdQueryVariables = {
+    collectionId: Scalars['ID']
+}
+
+export type GetCollectionIdQuery = { __typename?: 'Query' } & {
+    collection: Maybe<
+        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
+                items: Array<
+                    { __typename?: 'Item' } & Pick<
+                        Item,
+                        | 'id'
+                        | 'createdAt'
+                        | 'imageUrl'
+                        | 'comment'
+                        | 'productUrl'
+                        | 'provider'
+                        | 'title'
+                        | 'author'
+                        | 'type'
+                        | 'meta'
+                        | 'position'
+                        | 'isArchived'
+                        | 'description'
+                    >
+                >
+            } & CollectionBasicFragment
+    >
+}
+
 export type CreateItemMutationVariables = {
     url: Scalars['String']
     collectionId: Scalars['String']
@@ -1048,19 +1077,6 @@ export type GetItemsQueryVariables = {
 export type GetItemsQuery = { __typename?: 'Query' } & {
     items: Array<
         { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-    >
-}
-
-export type GetCollectionIdQueryVariables = {
-    collectionId: Scalars['ID']
-}
-
-export type GetCollectionIdQuery = { __typename?: 'Query' } & {
-    collection: Maybe<
-        { __typename?: 'Collection' } & Pick<
-            Collection,
-            'id' | 'slug' | 'name' | 'detail'
-        >
     >
 }
 
@@ -1441,6 +1457,79 @@ export type UpdateCollectionMutationOptions = ApolloReactCommon.BaseMutationOpti
     UpdateCollectionMutation,
     UpdateCollectionMutationVariables
 >
+export const GetCollectionIdDocument = gql`
+    query getCollectionId($collectionId: ID!) {
+        collection(where: { id: $collectionId }) {
+            ...CollectionBasic
+            createdAt
+            items(where: { isArchived: { equals: false } }) {
+                id
+                createdAt
+                imageUrl
+                comment
+                productUrl
+                provider
+                title
+                author
+                type
+                meta
+                position
+                isArchived
+                description
+            }
+        }
+    }
+    ${CollectionBasicFragmentDoc}
+`
+
+/**
+ * __useGetCollectionIdQuery__
+ *
+ * To run a query within a React component, call `useGetCollectionIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCollectionIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCollectionIdQuery({
+ *   variables: {
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useGetCollectionIdQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetCollectionIdQuery,
+        GetCollectionIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetCollectionIdQuery,
+        GetCollectionIdQueryVariables
+    >(GetCollectionIdDocument, baseOptions)
+}
+export function useGetCollectionIdLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetCollectionIdQuery,
+        GetCollectionIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetCollectionIdQuery,
+        GetCollectionIdQueryVariables
+    >(GetCollectionIdDocument, baseOptions)
+}
+export type GetCollectionIdQueryHookResult = ReturnType<
+    typeof useGetCollectionIdQuery
+>
+export type GetCollectionIdLazyQueryHookResult = ReturnType<
+    typeof useGetCollectionIdLazyQuery
+>
+export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
+    GetCollectionIdQuery,
+    GetCollectionIdQueryVariables
+>
 export const CreateItemDocument = gql`
     mutation CreateItem($url: String!, $collectionId: String!) {
         items: createItem(url: $url, collectionId: $collectionId) {
@@ -1698,65 +1787,6 @@ export type GetItemsLazyQueryHookResult = ReturnType<
 export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
     GetItemsQuery,
     GetItemsQueryVariables
->
-export const GetCollectionIdDocument = gql`
-    query getCollectionId($collectionId: ID!) {
-        collection(where: { id: $collectionId }) {
-            id
-            slug
-            name
-            detail
-        }
-    }
-`
-
-/**
- * __useGetCollectionIdQuery__
- *
- * To run a query within a React component, call `useGetCollectionIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCollectionIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetCollectionIdQuery({
- *   variables: {
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useGetCollectionIdQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >(GetCollectionIdDocument, baseOptions)
-}
-export function useGetCollectionIdLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >(GetCollectionIdDocument, baseOptions)
-}
-export type GetCollectionIdQueryHookResult = ReturnType<
-    typeof useGetCollectionIdQuery
->
-export type GetCollectionIdLazyQueryHookResult = ReturnType<
-    typeof useGetCollectionIdLazyQuery
->
-export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
-    GetCollectionIdQuery,
-    GetCollectionIdQueryVariables
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {

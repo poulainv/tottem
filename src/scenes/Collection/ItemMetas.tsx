@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Image, Box } from 'grommet'
 import Humanize from 'humanize-plus'
 import { Item } from '../../generated/types'
 
@@ -9,18 +8,12 @@ export interface IGithubMetasProps {
 
 export function GithubMetas(props: IGithubMetasProps) {
     return (
-        <Box direction="row" align="center">
-            <Image src="/pictograms/github.svg" />
-            <p
-                style={{
-                    lineHeight: '100%',
-                    marginLeft: '8px',
-                    fontSize: '14px',
-                }}
-            >
+        <div className="flex flex-row items-center">
+            <img className="h-4" src="/pictograms/github.svg" />
+            <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.starsCount, 1)} stars
-            </p>
-        </Box>
+            </div>
+        </div>
     )
 }
 
@@ -30,18 +23,12 @@ export interface IYoutubeMetasProps {
 
 export function YoutubeMetas(props: IYoutubeMetasProps) {
     return (
-        <Box direction="row" align="center">
-            <Image src="/pictograms/youtube.svg" />
-            <p
-                style={{
-                    lineHeight: '100%',
-                    marginLeft: '8px',
-                    fontSize: '14px',
-                }}
-            >
+        <div className="flex flex-row items-center">
+            <img className="h-4" src="/pictograms/youtube.svg" />
+            <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.viewCount, 1)} views
-            </p>
-        </Box>
+            </div>
+        </div>
     )
 }
 
@@ -52,21 +39,15 @@ export interface IMovieDBMetasProps {
 
 export function MovieDBMetas(props: IMovieDBMetasProps) {
     return (
-        <Box direction="row" align="center">
-            <Image src="/pictograms/moviedb.svg" height="24px" />
-            <p
-                style={{
-                    lineHeight: '100%',
-                    marginLeft: '8px',
-                    fontSize: '14px',
-                }}
-            >
+        <div className="flex flex-row items-center">
+            <img className="h-4" src="/pictograms/moviedb.svg" height="24px" />
+            <div className="leading-none text-gray-800 px-2">
                 {new Date(props.releaseDate).toLocaleDateString('fr-FR', {
                     year: 'numeric',
                 })}{' '}
                 • {props.voteAverage} avg. score
-            </p>
-        </Box>
+            </div>
+        </div>
     )
 }
 

@@ -7,6 +7,7 @@ import ItemForm from '../ItemForm'
 import Sidenav from '../Sidenav'
 import HeaderForm from './HeaderForm'
 import { useStatusMessage } from './Status'
+import ItemCard from '../ItemCard'
 
 interface Props {
     collectionId: string
@@ -44,8 +45,18 @@ export default ({ loggedInUser, collectionId }: Props) => {
                         // tslint:disable-next-line: jsx-no-lambda
                         onSaving={() => dispatch('SAVING')}
                     />
-                    <ItemForm collectionId={collection.id} />
-                    <div className="mt-5">Hello</div>
+                    <div className="mt-8">
+                        <ItemForm collectionId={collection.id} />
+                    </div>
+                    <div className="mt-5">
+                        {collection.items.map(item => {
+                            return (
+                                <div className="mt-4 first::mt-2">
+                                    <ItemCard item={item} />
+                                </div>
+                            )
+                        })}
+                    </div>
                 </main>
             </div>
         </div>
