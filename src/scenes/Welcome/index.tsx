@@ -12,7 +12,7 @@ import {
     useCreateUserMutation,
     UserBasicFragment,
 } from '../../generated/types'
-import { useAuthUser } from '../../services/authentication'
+import { getUserAuth } from '../../services/authentication'
 
 const ContentBox = styled(Box)`
     margin-top: 40px;
@@ -30,7 +30,7 @@ interface SlugFormData {
 const useCheckSlugForm = () => {
     const { register, handleSubmit, errors } = useForm<SlugFormData>()
 
-    const authUser = useAuthUser()
+    const authUser = getUserAuth(false)
     const router = useRouter()
     const [createUser, { data, called }] = useCreateUserMutation()
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import ReactGA from 'react-ga'
 import { auth0 } from '../services/authentication'
-import { useAuthUser, useLoggedIn } from '../services/authentication'
+import { getUserAuth, useLoggedIn } from '../services/authentication'
 import { StyledButton } from './Button'
 import { Beta, Logo } from './Logo'
 
@@ -21,7 +21,7 @@ const trackTableOfContent = (name: string) => {
 }
 const Header = () => {
     const router = useRouter()
-    const userData = useAuthUser()
+    const userData = getUserAuth(false)
     const isLoggedIn = useLoggedIn()
     return (
         <Box
