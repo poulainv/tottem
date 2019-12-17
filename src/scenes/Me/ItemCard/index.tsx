@@ -22,7 +22,7 @@ const ItemCard: React.FunctionComponent<IItemCardProps> = ({ item }) => {
                                 className="h-4"
                                 src={`/pictograms/${item.type}.svg`}
                             />
-                            <div className="font-semibold text-gray-900 px-2 leading-none truncate ">
+                            <div className="font-medium text-gray-900 px-2 leading-none truncate ">
                                 {item.title}
                             </div>
                         </div>
@@ -41,7 +41,7 @@ const ItemCard: React.FunctionComponent<IItemCardProps> = ({ item }) => {
             <textarea
                 className="p-4 whitespace-pre-line resize-none w-1/2"
                 placeholder="Add your note..."
-                value={item.comment}
+                value={item.comment === null ? '' : item.comment}
             />
         </div>
     )

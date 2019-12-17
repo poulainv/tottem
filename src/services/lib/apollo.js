@@ -190,7 +190,7 @@ function createApolloClient(initialState = {}, cookie = '') {
                     collection: (_, args, { getCacheKey }) => {
                         return getCacheKey({
                             __typename: 'Collection',
-                            slug: args.where.slug,
+                            slug: args.where.id,
                         })
                     },
                 },

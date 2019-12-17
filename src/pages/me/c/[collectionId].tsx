@@ -1,29 +1,31 @@
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import LoadingPage from '../../../scenes/LoadingPage'
+import '../../../index.css'
 import Collection from '../../../scenes/Me/Collection'
+import Layout from '../../../scenes/Me/Layout'
 import {
     AuthenticatedUser,
     getUserAuth,
 } from '../../../services/authentication'
 import { withApollo } from '../../../services/lib/apollo'
-import '../../../index.css'
 
 const CollectionPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
     const router = useRouter()
-    return loggedInUser ? (
-        <Collection
-            loggedInUser={loggedInUser}
-            collectionId={
-                router.query.collectionId &&
-                router.query.collectionId.toString()
-            }
-        />
-    ) : (
-        <LoadingPage />
+    return (
+        <Layout loggedInUser={loggedInUser}>
+            {dispatch => (
+                <Collection
+                    dispatch={dispatch}
+                    collectionId={
+                        router.query.collectionId &&
+                        router.query.collectionId.toString()
+                    }
+                />
+            )}
+        </Layout>
     )
 }
 
