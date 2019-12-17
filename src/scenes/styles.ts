@@ -9,7 +9,7 @@ export const GlobalCustomStyle = createGlobalStyle`
     .fade-enter.fade-enter-active {
         opacity: 1;
         overflow: hidden;
-        transition: all 300ms ease-in-out;
+        transition: all 250ms ease-in-out;
     }
 
     .fade-exit {
@@ -20,7 +20,7 @@ export const GlobalCustomStyle = createGlobalStyle`
 
     .fade-exit.fade-exit-active {
         opacity: 0.1;
-        transition: all 300ms ease-in-out;
+        transition: all 250ms ease-in-out;
         
     }
 `

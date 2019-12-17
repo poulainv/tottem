@@ -12,6 +12,7 @@ import {
 } from '../../../generated/types'
 import DraggableItem from './DraggableItem'
 import { useItemDragnDrop } from './hooks'
+import { ModificationTrackActions } from '../../common'
 
 interface IDraggableListProps {
     collectionId: string
@@ -19,10 +20,14 @@ interface IDraggableListProps {
     className?: string
 }
 
-const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
+const DraggableList: React.FunctionComponent<IDraggableListProps &
+    ModificationTrackActions> = ({
     items,
     className,
     collectionId,
+    onChange,
+    onSaved,
+    onSaving,
 }) => {
     resetServerContext()
     const { onDragEnd } = useItemDragnDrop({ items, collectionId })
@@ -39,7 +44,7 @@ const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
                             <TransitionGroup>
                                 {items.map((item, index) => (
                                     <CSSTransition
-                                        timeout={{ exit: 200, appear: 200 }}
+                                        timeout={{ exit: 200, enter: 200 }}
                                         classNames="fade"
                                         key={item.id}
                                     >
@@ -57,6 +62,9 @@ const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
                                                     {...draggable.draggableProps}
                                                     {...draggable.dragHandleProps}
                                                     item={item}
+                                                    onChange={onChange}
+                                                    onSaved={onSaved}
+                                                    onSaving={onSaving}
                                                 />
                                             )}
                                         </Draggable>

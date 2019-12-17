@@ -78,4 +78,4 @@ const getAuthUser: (
     return authenticatedUser
 }
 
-export { auth0, getAuthUser, getAccessToken, getUserAuth }
+export { auth0, getAccessToken, getUserAuth }

@@ -5,6 +5,13 @@ mutation deleteItem($id: ID!) {
     }
 }
 
+mutation saveCommentItem($id: ID!, $comment: String!) {
+    updateOneItem(data: { comment: $comment }, where: { id: $id }) {
+        id
+        comment
+    }
+}
+
 mutation undeleteItem($id: ID!) {
     updateOneItem(data: { isArchived: false }, where: { id: $id }) {
         id
@@ -20,5 +27,12 @@ mutation changePosition($oldIndex: Int!, $newIndex: Int!, $collectionId: ID!) {
     ) {
         id
         position
+    }
+}
+
+query getItems($collectionId: String!) {
+    items(where: { collection: { id: { equals: $collectionId } } }) {
+        ...ItemPreview
+        ...ItemDetail
     }
 }

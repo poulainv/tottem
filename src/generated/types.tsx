@@ -1048,6 +1048,15 @@ export type DeleteItemMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type SaveCommentItemMutationVariables = {
+    id: Scalars['ID']
+    comment: Scalars['String']
+}
+
+export type SaveCommentItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id' | 'comment'>>
+}
+
 export type UndeleteItemMutationVariables = {
     id: Scalars['ID']
 }
@@ -1626,6 +1635,54 @@ export type DeleteItemMutationResult = ApolloReactCommon.MutationResult<
 export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
     DeleteItemMutation,
     DeleteItemMutationVariables
+>
+export const SaveCommentItemDocument = gql`
+    mutation saveCommentItem($id: ID!, $comment: String!) {
+        updateOneItem(data: { comment: $comment }, where: { id: $id }) {
+            id
+            comment
+        }
+    }
+`
+
+/**
+ * __useSaveCommentItemMutation__
+ *
+ * To run a mutation, you first call `useSaveCommentItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSaveCommentItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [saveCommentItemMutation, { data, loading, error }] = useSaveCommentItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      comment: // value for 'comment'
+ *   },
+ * });
+ */
+export function useSaveCommentItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        SaveCommentItemMutation,
+        SaveCommentItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        SaveCommentItemMutation,
+        SaveCommentItemMutationVariables
+    >(SaveCommentItemDocument, baseOptions)
+}
+export type SaveCommentItemMutationHookResult = ReturnType<
+    typeof useSaveCommentItemMutation
+>
+export type SaveCommentItemMutationResult = ApolloReactCommon.MutationResult<
+    SaveCommentItemMutation
+>
+export type SaveCommentItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    SaveCommentItemMutation,
+    SaveCommentItemMutationVariables
 >
 export const UndeleteItemDocument = gql`
     mutation undeleteItem($id: ID!) {

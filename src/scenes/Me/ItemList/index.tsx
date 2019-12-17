@@ -1,6 +1,6 @@
 import range from 'lodash.range'
 import { useGetItemsQuery } from '../../../generated/types'
-import { ItemType } from '../../common'
+import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from './DraggableList'
 import { Facebook } from 'react-content-loader'
 
@@ -8,11 +8,14 @@ export default ({
     collectionId,
     className,
     filterTypes,
+    onChange,
+    onSaved,
+    onSaving,
 }: {
     collectionId: string
     className?: string
     filterTypes: ItemType[]
-}) => {
+} & ModificationTrackActions) => {
     const { data, loading } = useGetItemsQuery({
         variables: {
             collectionId,
@@ -22,7 +25,7 @@ export default ({
         return (
             <div>
                 {range(4).map((i: number) => {
-                    return <Facebook key={1} width={600} height={140} />
+                    return <Facebook key={i} width={600} height={140} />
                 })}
             </div>
         )
@@ -43,6 +46,9 @@ export default ({
                 items={items}
                 collectionId={collectionId}
                 className={className}
+                onChange={onChange}
+                onSaved={onSaved}
+                onSaving={onSaving}
             />
         )
     }

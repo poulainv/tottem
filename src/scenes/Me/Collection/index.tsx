@@ -30,15 +30,12 @@ export default ({ dispatch, collectionId }: Props) => {
         <Fragment>
             <HeaderForm
                 collection={collection}
-                // tslint:disable-next-line: jsx-no-lambda
                 onChange={() => dispatch('CHANGED')}
-                // tslint:disable-next-line: jsx-no-lambda
                 onSaved={() => dispatch('SAVED')}
-                // tslint:disable-next-line: jsx-no-lambda
                 onSaving={() => dispatch('SAVING')}
             />
             <FilterBadges
-                className="mt-4"
+                className="mt-8"
                 collectionId={collectionId}
                 onFilterChange={setSelectedTypes}
                 items={collection.items}
@@ -46,8 +43,11 @@ export default ({ dispatch, collectionId }: Props) => {
             <ItemForm collectionId={collection.id} className="mt-8" />
             <ItemList
                 collectionId={collection.id}
-                className="mt-5"
+                className="mt-8"
                 filterTypes={selectedTypes}
+                onChange={() => dispatch('CHANGED')}
+                onSaved={() => dispatch('SAVED')}
+                onSaving={() => dispatch('SAVING')}
             />
         </Fragment>
     )

@@ -22,3 +22,9 @@ export const imageShapes: { [type in ItemType]: ImageShapeType } = {
     video: 'square',
     website: 'square',
 }
+
+export interface ModificationTrackActions {
+    onChange?: () => void
+    onSaved?: () => void
+    onSaving?: () => void
+}

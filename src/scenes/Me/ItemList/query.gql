@@ -1,6 +1,0 @@
-query getItems($collectionId: String!) {
-    items(where: { collection: { id: { equals: $collectionId } } }) {
-        ...ItemPreview
-        ...ItemDetail
-    }
-}
