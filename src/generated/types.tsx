@@ -1080,26 +1080,6 @@ export type GetItemsQuery = { __typename?: 'Query' } & {
     >
 }
 
-<<<<<<< HEAD
-=======
-export type GetCollectionIdQueryVariables = {
-    collectionId: Scalars['ID']
-}
-
-export type GetCollectionIdQuery = { __typename?: 'Query' } & {
-    collection: Maybe<
-        { __typename?: 'Collection' } & Pick<
-            Collection,
-            'id' | 'slug' | 'name' | 'detail'
-        > & {
-                items: Array<
-                    { __typename?: 'Item' } & Pick<Item, 'id' | 'type'>
-                >
-            }
-    >
-}
-
->>>>>>> display basic filter badges with picto as components
 export type GetSectionsQueryVariables = {
     authUserId: Scalars['String']
 }
@@ -1808,72 +1788,6 @@ export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
     GetItemsQuery,
     GetItemsQueryVariables
 >
-<<<<<<< HEAD
-=======
-export const GetCollectionIdDocument = gql`
-    query getCollectionId($collectionId: ID!) {
-        collection(where: { id: $collectionId }) {
-            id
-            slug
-            name
-            detail
-            items {
-                id
-                type
-            }
-        }
-    }
-`
-
-/**
- * __useGetCollectionIdQuery__
- *
- * To run a query within a React component, call `useGetCollectionIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCollectionIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetCollectionIdQuery({
- *   variables: {
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useGetCollectionIdQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >(GetCollectionIdDocument, baseOptions)
-}
-export function useGetCollectionIdLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetCollectionIdQuery,
-        GetCollectionIdQueryVariables
-    >(GetCollectionIdDocument, baseOptions)
-}
-export type GetCollectionIdQueryHookResult = ReturnType<
-    typeof useGetCollectionIdQuery
->
-export type GetCollectionIdLazyQueryHookResult = ReturnType<
-    typeof useGetCollectionIdLazyQuery
->
-export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
-    GetCollectionIdQuery,
-    GetCollectionIdQueryVariables
->
->>>>>>> display basic filter badges with picto as components
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
         sections(where: { owner: { authUserId: { equals: $authUserId } } }) {

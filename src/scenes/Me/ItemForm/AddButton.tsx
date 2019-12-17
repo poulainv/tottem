@@ -10,6 +10,8 @@ interface IAddButtonProps {
 }
 
 const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
+    const Plus = require(`../../../../public/pictograms/plus.svg`)
+
     const menu = (
         <Menu className="bg-brand-800">
             <Menu.Item
@@ -40,8 +42,8 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
 
     return (
         <Dropdown overlay={menu} placement="bottomCenter">
-            <div className="h-8 w-8 rounded-full text-brand-700 border border-brand-700 hover:bg-brand-50 flex justify-center items-center">
-                <InlineIcon height={24} width={24} icon={plusIcon} />
+            <div className="h-8 w-8 rounded-full text-red-700 border border-brand-700 hover:bg-brand-50 flex justify-center items-center">
+                <Plus className="fill-current" />
             </div>
         </Dropdown>
     )
