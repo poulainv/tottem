@@ -1,5 +1,5 @@
-import { useReducer, useRef } from 'react'
-import styled from 'styled-components'
+import classNames from 'classnames'
+import { useReducer } from 'react'
 import Spinner from '../../../components/Spinner'
 import AddButton, { AddActions } from './AddButton'
 import { useItemForm } from './hooks'
@@ -44,11 +44,17 @@ const useAddItemReducer = () => {
     return useReducer(reducer, initialState)
 }
 
-export default ({ collectionId }: { collectionId?: string }) => {
+export default ({
+    collectionId,
+    className,
+}: {
+    collectionId?: string
+    className?: string
+}) => {
     const { register, onSubmit, loading, errors } = useItemForm(collectionId)
     const [state, dispatch] = useAddItemReducer()
     return (
-        <div className="relative h-8">
+        <div className={classNames('relative h-8', className)}>
             <div className="absolute bottom-0 -left-4">
                 {loading ? (
                     <Spinner size={32} />

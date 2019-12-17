@@ -1,13 +1,11 @@
-import range from 'lodash.range'
 import { Fragment, useState } from 'react'
-import { Facebook } from 'react-content-loader'
 import { useGetCollectionIdQuery } from '../../../generated/types'
-import LoadingPage from '../../LoadingPage'
-import ItemCard from '../ItemCard'
-import ItemForm from '../ItemForm'
-import HeaderForm from './HeaderForm'
 import { ItemType } from '../../common'
+import LoadingPage from '../../LoadingPage'
 import FilterBadges from '../FilterBadges'
+import ItemForm from '../ItemForm'
+import ItemList from '../ItemList'
+import HeaderForm from './HeaderForm'
 
 interface Props {
     collectionId: string
@@ -45,32 +43,12 @@ export default ({ dispatch, collectionId }: Props) => {
                 onFilterChange={setSelectedTypes}
                 items={collection.items}
             />
-            <div className="mt-8">
-                <ItemForm collectionId={collection.id} />
-            </div>
-            <div className="mt-5">
-                {collection.items
-                    ? collection.items
-                          .filter(i => {
-                              return (
-                                  !selectedTypes.length ||
-                                  selectedTypes.includes(i.type)
-                              )
-                          })
-                          .map(item => {
-                              return (
-                                  <div
-                                      key={item.id}
-                                      className="mt-4 first::mt-2"
-                                  >
-                                      <ItemCard item={item} />
-                                  </div>
-                              )
-                          })
-                    : range(4).map((i: number) => {
-                          return <Facebook key={i} width={600} height={140} />
-                      })}
-            </div>
+            <ItemForm collectionId={collection.id} className="mt-8" />
+            <ItemList
+                collectionId={collection.id}
+                className="mt-5"
+                filterTypes={selectedTypes}
+            />
         </Fragment>
     )
 }

@@ -10,16 +10,18 @@ import {
     ItemDetailFragment,
     ItemPreviewFragment,
 } from '../../../generated/types'
-import EditableItem from './EditableItem'
+import DraggableItem from './DraggableItem'
 import { useItemDragnDrop } from './hooks'
 
 interface IDraggableListProps {
     collectionId: string
     items: Array<ItemPreviewFragment & ItemDetailFragment>
+    className?: string
 }
 
 const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
     items,
+    className,
     collectionId,
 }) => {
     resetServerContext()
@@ -32,11 +34,12 @@ const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
                         <div
                             ref={provided.innerRef}
                             {...provided.droppableProps}
+                            className={className}
                         >
                             <TransitionGroup>
                                 {items.map((item, index) => (
                                     <CSSTransition
-                                        timeout={1000}
+                                        timeout={{ exit: 200, appear: 200 }}
                                         classNames="fade"
                                         key={item.id}
                                     >
@@ -45,8 +48,9 @@ const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
                                             index={index}
                                         >
                                             {draggable => (
-                                                <EditableItem
+                                                <DraggableItem
                                                     key={item.id}
+                                                    className="mt-4 first::mt-2 cursor-auto"
                                                     innerRef={
                                                         draggable.innerRef
                                                     }
