@@ -15,7 +15,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
     username,
 }) => {
     return (
-        <div className="w-full px-2 h-8 flex justify-end items-center text-gray-600 leading-none">
+        <div className="w-full px-2 h-8 flex justify-end items-center text-gray-600 leading-none flex-shrink-0">
             <p className="mx-1">{message}</p>
             <img
                 src={avatar}
