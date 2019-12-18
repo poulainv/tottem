@@ -1,8 +1,6 @@
-import inboxIcon from '@iconify/icons-ic/baseline-inbox'
-import profileIcon from '@iconify/icons-ic/baseline-person'
-import plusIcon from '@iconify/icons-ic/baseline-plus'
-import { InlineIcon } from '@iconify/react'
-import archiveIcon from '@iconify/icons-ic/outline-archive'
+import InboxIcon from '../../../../public/pictograms/inbox.svg'
+import ArchivedIcon from '../../../../public/pictograms/archived.svg'
+import ProfileIcon from './profile.svg'
 import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
@@ -38,14 +36,15 @@ const Sidenav: React.FC<SidenavProps> = ({
                                 currentHref === '/' ? bgBrand200 : ''
                             }`}
                         >
-                            <span className="mr-1">
-                                <InlineIcon
-                                    className="inline"
-                                    color="#BFBFBF"
-                                    icon={profileIcon}
+                            <div className="flex items-center">
+                                <ProfileIcon
+                                    height={14}
+                                    width={14}
+                                    className="mr-1 fill-current"
+                                    style={{ color: '#595959' }}
                                 />
-                            </span>
-                            <span className="text-gray-800">Profile</span>
+                                <span className="text-gray-800">Profile</span>
+                            </div>
                         </a>
                     </Link>
                 </div>
@@ -58,32 +57,32 @@ const Sidenav: React.FC<SidenavProps> = ({
                             ].includes(currentHref) && bgBrand200}`}
                         >
                             <div className="flex justify-between items-center">
-                                <div>
-                                    <span className="mr-1">
-                                        <InlineIcon
-                                            className="inline"
-                                            color="#7DC8D4"
-                                            icon={inboxIcon}
-                                        />
-                                    </span>
+                                <div className="flex items-center">
+                                    <InboxIcon
+                                        height={14}
+                                        width={14}
+                                        className="mr-1 fill-current"
+                                        style={{ color: '#7DC8D4' }}
+                                    />
                                     <span className="text-gray-800">Inbox</span>
                                 </div>
-                                <div>{inboxCount}</div>
+                                <div className="text-gray-800">
+                                    {inboxCount}
+                                </div>
                             </div>
                         </a>
                     </Link>
                     <Link as="/me/archived" href="/me/archived">
                         <a
-                            className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${currentHref ===
+                            className={`flex items-center block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${currentHref ===
                                 '/me/archived' && bgBrand200}`}
                         >
-                            <span className="mr-1">
-                                <InlineIcon
-                                    className="inline"
-                                    color="#3F55C9"
-                                    icon={archiveIcon}
-                                />
-                            </span>
+                            <ArchivedIcon
+                                height={14}
+                                width={14}
+                                className="mr-1 fill-current"
+                                style={{ color: '#3F55C9' }}
+                            />
                             <span className="text-gray-800">Archived</span>
                         </a>
                     </Link>
@@ -107,11 +106,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                             })}
                         </div>
                         <button className="w-full px-2 py-1 flex justify-center bg-white hover:bg-brand-50 text-gray-700 rounded mt-2 border border-brand-500">
-                            <InlineIcon
-                                className="inline mr-1"
-                                icon={plusIcon}
-                            />
-                            New Area
+                            + New Area
                         </button>
                     </div>
                 ) : (

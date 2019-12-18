@@ -1,7 +1,6 @@
-import plusIcon from '@iconify/icons-ic/baseline-plus'
-import { InlineIcon } from '@iconify/react'
 import { Dropdown, Menu } from 'antd'
 import { Dispatch } from 'react'
+import Plus from '../../../../public/pictograms/plus.svg'
 
 export type AddActions = 'url' | 'search-book' | 'search-movie'
 
@@ -10,8 +9,6 @@ interface IAddButtonProps {
 }
 
 const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
-    const Plus = require(`../../../../public/pictograms/plus.svg`)
-
     const menu = (
         <Menu className="bg-brand-800">
             <Menu.Item

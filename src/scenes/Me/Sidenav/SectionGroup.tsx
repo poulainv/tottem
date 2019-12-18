@@ -1,6 +1,5 @@
-import spaceIcon from '@iconify/icons-ic/baseline-layers'
-import arrowIcon from '@iconify/icons-ic/round-keyboard-arrow-right'
-import { InlineIcon } from '@iconify/react'
+import SpaceIcon from '../../../../public/pictograms/space.svg'
+import ArrowIcon from './arrow.svg'
 import { useUpdateSectionExpandedMutation } from '../../../generated/types'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
@@ -46,12 +45,12 @@ export default ({
                     className={`flex justify-between items-center pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold ${currentHref ===
                         sectionHref && bgBrand200}`}
                 >
-                    <div>
-                        <span className="mr-1">
-                            <InlineIcon
-                                className="inline"
-                                color="#BFBFBF"
-                                icon={spaceIcon}
+                    <div className="flex flex-row items-center">
+                        <span className="mr-1 text-gray-300">
+                            <SpaceIcon
+                                className="inline fill-current"
+                                height={14}
+                                width={14}
                             />
                         </span>
                         <span className="text-gray-800">{title}</span>
@@ -60,13 +59,12 @@ export default ({
                         onClick={handleExpand}
                         className="px-2 text-gray-600 hover:text-gray-800"
                     >
-                        <InlineIcon
+                        <ArrowIcon
                             width={16}
                             height={16}
                             className={`inline transition-all ${
                                 isExpanded ? 'rotate-90deg' : 'rotate-0deg'
                             }`}
-                            icon={arrowIcon}
                         />
                     </div>
                 </a>

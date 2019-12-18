@@ -12,7 +12,7 @@ export default ({ loggedInUser }: { loggedInUser: AuthenticatedUser }) => {
                     avatar={loggedInUser.picture}
                     username={loggedInUser.name}
                 />
-                <div className="flex-1 text-sm">Archived</div>
+                <div className="flex-1 text-sm">Archived Bar</div>
             </div>
         </div>
     )

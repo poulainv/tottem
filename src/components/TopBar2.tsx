@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { InlineIcon } from '@iconify/react'
-import baselineSettings from '@iconify/icons-ic/outline-settings'
 import Link from 'next/link'
+import SettingsIcon from '../../public/pictograms/settings.svg'
 
 interface ITopBarProps {
     message?: string
@@ -26,10 +25,10 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
             <p className="mx-1 text-gray-400">|</p>
             <Link as="/me/settings" href="/me/settings">
                 <a className="mx-1">
-                    <InlineIcon
+                    <SettingsIcon
+                        className="text-gray-600"
                         height={14}
                         width={14}
-                        icon={baselineSettings}
                     />
                 </a>
             </Link>

@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Humanize from 'humanize-plus'
-import { Item } from '../../generated/types'
+import { Item } from '../../../generated/types'
+import Github from './github.svg'
+import MovieDB from './moviedb.svg'
+import Youtube from './youtube.svg'
 
 export interface IGithubMetasProps {
     starsCount: number
@@ -9,7 +12,7 @@ export interface IGithubMetasProps {
 export function GithubMetas(props: IGithubMetasProps) {
     return (
         <div className="flex flex-row items-center">
-            <img className="h-4" src="/pictograms/github.svg" />
+            <Github height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.starsCount, 1)} stars
             </div>
@@ -24,7 +27,7 @@ export interface IYoutubeMetasProps {
 export function YoutubeMetas(props: IYoutubeMetasProps) {
     return (
         <div className="flex flex-row items-center">
-            <img className="h-4" src="/pictograms/youtube.svg" />
+            <Youtube height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.viewCount, 1)} views
             </div>
@@ -40,7 +43,7 @@ export interface IMovieDBMetasProps {
 export function MovieDBMetas(props: IMovieDBMetasProps) {
     return (
         <div className="flex flex-row items-center">
-            <img className="h-4" src="/pictograms/moviedb.svg" height="24px" />
+            <MovieDB height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {new Date(props.releaseDate).toLocaleDateString('fr-FR', {
                     year: 'numeric',
