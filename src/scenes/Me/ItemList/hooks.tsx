@@ -47,7 +47,7 @@ const useDeleteItem = () => {
             },
         })
     }
-    return handleDelete
+    return { handleDelete }
 }
 
 // This function is used to assign new item position after drag end

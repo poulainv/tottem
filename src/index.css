@@ -13,3 +13,11 @@
 .rotate-90deg {
     transform: rotate(90deg) !important;
 }
+
+.ant-tooltip-inner {
+    @apply bg-gray-500;
+}
+
+.ant-tooltip-arrow::before {
+    @apply bg-gray-500;
+}

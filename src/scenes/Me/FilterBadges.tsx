@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { PictogramItems } from '../../components/PictogramItems'
 
 interface FilterBadgesProps {
-    items: Array<{ id: string; type: ItemType }>
+    items: Array<{ id: string; type: ItemType; isArchived: boolean }>
     onFilterChange: (filter: ItemType[]) => void
     collectionId: string
     className: string
@@ -39,6 +39,7 @@ export default ({
     collectionId,
     className,
 }: FilterBadgesProps) => {
+    const nonArchivedItems = items.filter(x => !x.isArchived)
     const reducer = (state: ItemType[], action: ItemType | 'ALL') => {
         switch (action) {
             case 'ALL':
@@ -55,7 +56,7 @@ export default ({
     const [filters, dispatch] = useReducer(reducer, [])
 
     const itemsTypeCount = countBy(
-        items,
+        nonArchivedItems,
         (x: { id: string; type: ItemType }) => x.type
     )
 

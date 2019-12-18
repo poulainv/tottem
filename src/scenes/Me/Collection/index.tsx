@@ -38,7 +38,7 @@ export default ({ dispatch, collectionId }: Props) => {
                 className="mt-8"
                 collectionId={collectionId}
                 onFilterChange={setSelectedTypes}
-                items={collection.items}
+                items={collection.items || []} // Items can be undefined cause partialData can be returned
             />
             <ItemForm collectionId={collection.id} className="mt-8" />
             <ItemList

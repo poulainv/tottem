@@ -8,6 +8,7 @@ import { GlobalCustomStyle } from '../scenes/styles'
 import 'antd/es/notification/style/index.css'
 import 'antd/es/dropdown/style/index.css'
 import 'antd/es/menu/style/index.css'
+import 'antd/es/tooltip/style/index.css'
 
 export default class MyApp extends App {
     render() {
