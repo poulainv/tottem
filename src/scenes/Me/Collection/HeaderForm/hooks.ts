@@ -60,7 +60,7 @@ const useCollectionForm = (
         }
     }, [collection.id])
 
-    return { onFormChange, register }
+    return { onFormChange, register, submit }
 }
 
 export { useCollectionForm }

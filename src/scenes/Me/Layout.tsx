@@ -18,7 +18,7 @@ export default ({ loggedInUser, children }: Props) => {
     const [message, dispatch] = useStatusMessage()
 
     return loggedInUser ? (
-        <div className="flex h-screen text-sm ">
+        <div className="flex h-screen text-sm">
             <Sidenav authUserId={loggedInUser.id} />
             <div className="flex flex-1 flex-col overflow-auto h-full">
                 <TopBar
@@ -26,7 +26,7 @@ export default ({ loggedInUser, children }: Props) => {
                     avatar={loggedInUser.picture}
                     username={loggedInUser.name}
                 />
-                <main className="text-sm w-full max-w-4xl mx-auto mt-2">
+                <main className="text-sm w-full max-w-4xl mx-auto mt-2 pb-16">
                     {children(dispatch)}
                 </main>
             </div>
