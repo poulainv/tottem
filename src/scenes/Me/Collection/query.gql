@@ -2,20 +2,5 @@ query getCollectionId($collectionId: ID!) {
     collection(where: { id: $collectionId }) {
         ...CollectionBasic
         createdAt
-        items(where: { isArchived: { equals: false } }) {
-            id
-            createdAt
-            imageUrl
-            comment
-            productUrl
-            provider
-            title
-            author
-            type
-            meta
-            position
-            isArchived
-            description
-        }
     }
 }

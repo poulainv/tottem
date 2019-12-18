@@ -4,9 +4,9 @@ import { useReducer, useEffect } from 'react'
 import classNames from 'classnames'
 import { PictogramItems } from '../../components/PictogramItems'
 import { Tooltip } from 'antd'
+import { useGetItemsQuery } from '../../generated/types'
 
 interface FilterBadgesProps {
-    items: Array<{ id: string; type: ItemType; isArchived: boolean }>
     onFilterChange: (filter: ItemType[]) => void
     collectionId: string
     className: string
@@ -34,13 +34,16 @@ const Badge: React.FC<{
     )
 }
 
-export default ({
-    items,
-    onFilterChange,
-    collectionId,
-    className,
-}: FilterBadgesProps) => {
-    const nonArchivedItems = items.filter(x => !x.isArchived)
+const useItems = (
+    collectionId: string,
+    onFilterChange: (filter: ItemType[]) => void
+) => {
+    const { data } = useGetItemsQuery({
+        variables: {
+            collectionId,
+        },
+    })
+    const nonArchivedItems = data?.items?.filter(x => !x.isArchived)
     const reducer = (state: ItemType[], action: ItemType | 'ALL') => {
         switch (action) {
             case 'ALL':
@@ -66,6 +69,19 @@ export default ({
             dispatch('ALL') // FIXME by storing filters
         }
     }, [collectionId])
+
+    return { itemsTypeCount, filters, dispatch }
+}
+
+export default ({
+    onFilterChange,
+    collectionId,
+    className,
+}: FilterBadgesProps) => {
+    const { itemsTypeCount, filters, dispatch } = useItems(
+        collectionId,
+        onFilterChange
+    )
 
     return (
         <div className={classNames('flex text-xs', className)}>
