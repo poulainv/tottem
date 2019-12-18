@@ -14,6 +14,7 @@
     transform: rotate(90deg) !important;
 }
 
+/* Tooltip custom */
 .ant-tooltip-inner {
     @apply bg-gray-500;
     @apply py-1;
@@ -21,4 +22,12 @@
 
 .ant-tooltip-arrow::before {
     @apply bg-gray-500;
+}
+
+/* Autocomplete custom */
+.ant-select-dropdown-menu-item:hover:not(.ant-select-dropdown-menu-item-disabled) {
+    @apply bg-gray-200;
+}
+.ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {
+    @apply bg-gray-200;
 }
