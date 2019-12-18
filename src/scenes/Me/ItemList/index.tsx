@@ -23,7 +23,7 @@ export default ({
     })
     if (data === undefined || data.items === null || loading) {
         return (
-            <div>
+            <div className={className}>
                 {range(4).map((i: number) => {
                     return <Facebook key={i} width={600} height={140} />
                 })}

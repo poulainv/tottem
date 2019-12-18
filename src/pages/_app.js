@@ -9,6 +9,7 @@ import 'antd/es/notification/style/index.css'
 import 'antd/es/dropdown/style/index.css'
 import 'antd/es/menu/style/index.css'
 import 'antd/es/tooltip/style/index.css'
+import 'antd/es/auto-complete/style/css'
 
 export default class MyApp extends App {
     render() {

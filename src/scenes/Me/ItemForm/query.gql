@@ -1,6 +1,30 @@
-mutation CreateItem($url: String!, $collectionId: String!) {
-    items: createItem(url: $url, collectionId: $collectionId) {
+mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
+    items: createItemFromUrl(collectionId: $collectionId, url: $url) {
         ...ItemPreview
         ...ItemDetail
+    }
+}
+
+mutation CreateItemFromSearch(
+    $id: String!
+    $kind: String!
+    $collectionId: String!
+) {
+    items: createItemFromSearch(
+        collectionId: $collectionId
+        id: $id
+        kind: $kind
+    ) {
+        ...ItemPreview
+        ...ItemDetail
+    }
+}
+
+query SearchItem($query: String!, $kind: String!) {
+    search(q: $query, kind: $kind) {
+        id
+        title
+        author
+        type
     }
 }

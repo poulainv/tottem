@@ -1,18 +1,31 @@
+import { useState } from 'react'
 import useForm from 'react-hook-form'
 import {
     GetItemsDocument,
     GetItemsQuery,
-    useCreateItemMutation,
+    SearchItem,
+    useCreateItemFromSearchMutation,
+    useCreateItemFromUrlMutation,
+    useSearchItemLazyQuery,
 } from '../../../generated/types'
 
 interface ItemsFormData {
     url: string
 }
 
-const useItemForm = (collectionId?: string) => {
+const useItemUrlForm = (
+    collectionId: string,
+    onStart?: () => void,
+    onCompleted?: () => void
+) => {
     const { register, handleSubmit, reset, errors } = useForm<ItemsFormData>()
 
-    const [addItem, { loading }] = useCreateItemMutation({
+    const [addItem, { loading }] = useCreateItemFromUrlMutation({
+        onCompleted: _ => {
+            if (onCompleted !== undefined) {
+                onCompleted()
+            }
+        },
         update(cache, { data }) {
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
@@ -40,12 +53,8 @@ const useItemForm = (collectionId?: string) => {
     })
 
     const onSubmit = handleSubmit(({ url }) => {
-        // Could happen because page is shared with new (non existing) collection
-        // But should not occured because input is disabled when collection still not created
-        if (collectionId === undefined) {
-            throw Error(
-                'Item try to be saved but collectionId is undefined. Is collection saved?'
-            )
+        if (onStart !== undefined) {
+            onStart()
         }
         addItem({
             variables: {
@@ -58,4 +67,85 @@ const useItemForm = (collectionId?: string) => {
     return { register, onSubmit, loading, errors }
 }
 
-export { useItemForm }
+interface ItemsFormSearchData {
+    title: string
+}
+
+const useItemFormSearch = (
+    searchItemType: string,
+    collectionId: string,
+    onStart?: () => void,
+    onCompleted?: () => void
+) => {
+    const { register, handleSubmit, reset, errors } = useForm<
+        ItemsFormSearchData
+    >()
+
+    const [dataSource, setDataSource] = useState<SearchItem[]>()
+    const [search] = useSearchItemLazyQuery({
+        onCompleted: data => {
+            setDataSource(data.search)
+        },
+    })
+
+    const onChange = (q: string) => {
+        search({ variables: { query: q, kind: searchItemType } })
+    }
+
+    const [addItem, { loading }] = useCreateItemFromSearchMutation({
+        onCompleted: _ => {
+            if (onCompleted !== undefined) {
+                onCompleted()
+            }
+        },
+        update(cache, { data }) {
+            if (data === undefined || data === null) {
+                throw Error('Can not update cache because no data returned')
+            }
+            const cachedData = cache.readQuery<GetItemsQuery>({
+                query: GetItemsDocument,
+                variables: {
+                    collectionId,
+                },
+            })
+
+            if (cachedData !== null && cachedData.items) {
+                cache.writeQuery({
+                    query: GetItemsDocument,
+                    variables: {
+                        collectionId,
+                    },
+                    data: {
+                        items: cachedData.items.concat(data.items),
+                    },
+                })
+            }
+            reset()
+        },
+    })
+
+    const onSubmit = handleSubmit(({ title }) => {
+        if (dataSource === undefined) {
+            throw Error('Datasource undefined')
+        }
+        if (onStart !== undefined) {
+            onStart()
+        }
+        const value = dataSource.find(x => x.title === title)
+        if (value === undefined) {
+            throw Error('Unable to find the value')
+        }
+
+        addItem({
+            variables: {
+                id: value.id,
+                kind: searchItemType,
+                collectionId,
+            },
+        })
+    })
+
+    return { register, onSubmit, loading, errors, dataSource, onChange }
+}
+
+export { useItemUrlForm, useItemFormSearch }

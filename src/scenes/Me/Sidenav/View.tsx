@@ -66,7 +66,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                                     />
                                     <span className="text-gray-800">Inbox</span>
                                 </div>
-                                <div className="text-gray-800">
+                                <div className="text-gray-600">
                                     {inboxCount}
                                 </div>
                             </div>
