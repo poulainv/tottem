@@ -20,10 +20,10 @@ const Badge: React.FC<{
     return (
         <div
             className={classNames(
-                'mr-1 rounded-full border border-transparent hover:border-brand-300 flex py-1 px-2 cursor-pointer leading-none',
+                'mr-1 rounded-full border border-transparent flex py-1 px-2 cursor-pointer leading-none',
                 {
-                    'bg-brand-300 text-white': isActive,
-                    'text-gray-700': !isActive,
+                    'bg-brand-300 text-white hover:bg-brand-300': isActive,
+                    'text-gray-700 hover:border-gray-500': !isActive,
                 }
             )}
         >
