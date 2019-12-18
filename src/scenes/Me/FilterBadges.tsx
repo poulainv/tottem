@@ -50,7 +50,7 @@ const useItems = (
                 state = []
                 break
             default:
-                state = [action]
+                state = state.includes(action) ? [] : [action]
         }
         onFilterChange(state)
 
