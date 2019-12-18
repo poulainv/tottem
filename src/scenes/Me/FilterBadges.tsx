@@ -3,6 +3,7 @@ import countBy from 'lodash.countby'
 import { useReducer, useEffect } from 'react'
 import classNames from 'classnames'
 import { PictogramItems } from '../../components/PictogramItems'
+import { Tooltip } from 'antd'
 
 interface FilterBadgesProps {
     items: Array<{ id: string; type: ItemType; isArchived: boolean }>
@@ -78,11 +79,19 @@ export default ({
             </div>
             {Object.entries(itemsTypeCount).map(([type, count]) => (
                 <div key={type} onClick={() => dispatch(type as ItemType)}>
-                    <Badge
-                        type={type as ItemType}
-                        count={count}
-                        isActive={filters.includes(type as ItemType)}
-                    />
+                    <Tooltip
+                        title={type}
+                        mouseEnterDelay={0.8}
+                        mouseLeaveDelay={0}
+                    >
+                        <span>
+                            <Badge
+                                type={type as ItemType}
+                                count={count}
+                                isActive={filters.includes(type as ItemType)}
+                            />
+                        </span>
+                    </Tooltip>
                 </div>
             ))}
         </div>

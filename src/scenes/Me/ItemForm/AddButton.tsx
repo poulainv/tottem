@@ -10,10 +10,10 @@ interface IAddButtonProps {
 
 const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
     const menu = (
-        <Menu className="bg-brand-800">
+        <Menu className="bg-gray-700 font-semibold">
             <Menu.Item
                 key="0"
-                className="hover:bg-brand-600 text-white"
+                className="hover:bg-brand-600 text-white font-medium"
                 onClick={() => onSelect('url')}
             >
                 Add from link
@@ -21,7 +21,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             <Menu.Divider />
             <Menu.Item
                 key="1"
-                className="hover:bg-brand-600 text-white"
+                className="hover:bg-brand-600 text-white font-medium"
                 onClick={() => onSelect('search-movie')}
             >
                 Search movie
@@ -29,7 +29,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             <Menu.Divider />
             <Menu.Item
                 key="2"
-                className="hover:bg-brand-600 text-white"
+                className="hover:bg-brand-600 text-white font-medium"
                 onClick={() => onSelect('search-book')}
             >
                 Search book
@@ -39,7 +39,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
 
     return (
         <Dropdown overlay={menu} placement="bottomCenter">
-            <div className="h-8 w-8 rounded-full text-red-700 border border-brand-700 hover:bg-brand-50 flex justify-center items-center">
+            <div className="h-8 w-8 rounded-full text-red-700 border hover:border-brand-700 flex justify-center items-center">
                 <Plus className="fill-current" />
             </div>
         </Dropdown>

@@ -16,6 +16,7 @@
 
 .ant-tooltip-inner {
     @apply bg-gray-500;
+    @apply py-1;
 }
 
 .ant-tooltip-arrow::before {
