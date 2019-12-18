@@ -14,6 +14,11 @@
     transform: rotate(90deg) !important;
 }
 
+/* Remove antd global style */
+a:hover {
+    color: inherit !important;
+}
+
 /* Tooltip custom */
 .ant-tooltip-inner {
     @apply bg-gray-500;
