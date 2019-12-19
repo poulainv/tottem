@@ -1,6 +1,7 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
 import '../../index.css'
+import Layout from '../../scenes/Me/Layout'
 import LoadingPage from '../../scenes/LoadingPage'
 import Archived from '../../scenes/Me/Archived'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
@@ -9,11 +10,7 @@ import { withApollo } from '../../services/lib/apollo'
 const ArchivedPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
-    return loggedInUser ? (
-        <Archived loggedInUser={loggedInUser} />
-    ) : (
-        <LoadingPage />
-    )
+    return <Layout loggedInUser={loggedInUser}>{_ => <Archived />}</Layout>
 }
 
 ArchivedPage.getInitialProps = async (ctx: NextPageContext) => {

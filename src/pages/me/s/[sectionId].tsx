@@ -1,28 +1,30 @@
 import { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import LoadingPage from '../../../scenes/LoadingPage'
+import '../../../index.css'
 import Section from '../../../scenes/Me/Section'
+import Layout from '../../../scenes/Me/Layout'
 import {
     AuthenticatedUser,
     getUserAuth,
 } from '../../../services/authentication'
 import { withApollo } from '../../../services/lib/apollo'
-import '../../../index.css'
 
 const SectionPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
     const router = useRouter()
-    return loggedInUser ? (
-        <Section
-            loggedInUser={loggedInUser}
-            sectionId={
-                router.query.sectionId && router.query.sectionId.toString()
-            }
-        />
-    ) : (
-        <LoadingPage />
+    return (
+        <Layout loggedInUser={loggedInUser}>
+            {_ => (
+                <Section
+                    sectionId={
+                        router.query.sectionId &&
+                        router.query.sectionId.toString()
+                    }
+                />
+            )}
+        </Layout>
     )
 }
 

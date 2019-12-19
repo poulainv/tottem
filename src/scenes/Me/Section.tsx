@@ -1,23 +1,18 @@
 import * as React from 'react'
-import TopBar from '../../components/TopBar2'
-import { AuthenticatedUser } from '../../services/authentication'
-import Sidenav from './Sidenav'
+import SpaceIcon from '../../../public/pictograms/space.svg'
 
 interface SectionPageProps {
     sectionId: string
-    loggedInUser: AuthenticatedUser
 }
 
-export default ({ loggedInUser, sectionId }: SectionPageProps) => {
+export default ({ sectionId }: SectionPageProps) => {
     return (
-        <div className="flex h-screen text-sm">
-            <Sidenav authUserId={loggedInUser.id} />
-            <div className="flex flex-1 flex-col">
-                <TopBar
-                    avatar={loggedInUser.picture}
-                    username={loggedInUser.name}
-                />
-                <div className="flex-1 text-sm">Section {sectionId}</div>
+        <div>
+            <div className="flex flex-row items-center">
+                <SpaceIcon height={24} width={24} />
+                <h1 className="text-2xl ml-2 text-gray-900 leading-none">
+                    Space
+                </h1>
             </div>
         </div>
     )
