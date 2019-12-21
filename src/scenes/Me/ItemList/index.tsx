@@ -1,8 +1,7 @@
-import range from 'lodash.range'
 import { useGetItemsQuery } from '../../../generated/types'
 import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from './DraggableList'
-import { Facebook } from 'react-content-loader'
+import Skeleton from './Skeleton'
 
 export default ({
     collectionId,
@@ -22,13 +21,7 @@ export default ({
         },
     })
     if (data === undefined || data.items === null || loading) {
-        return (
-            <div className={className}>
-                {range(4).map((i: number) => {
-                    return <Facebook key={i} width={600} height={140} />
-                })}
-            </div>
-        )
+        return <Skeleton rowCount={6} />
     } else {
         const items = data.items
             .filter(x => !x.isArchived)

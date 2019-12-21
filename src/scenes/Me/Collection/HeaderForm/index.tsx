@@ -49,7 +49,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                     onBlur={submit}
                 />
             </form>
-            <Options className="-pl-2" />
+            <Options className="-pl-2" collectionId={collection.id} />
         </div>
     )
 }

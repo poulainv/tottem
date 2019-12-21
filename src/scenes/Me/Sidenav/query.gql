@@ -3,9 +3,10 @@ query getSections($authUserId: String!) {
         id
         isExpanded
         title: name
-        collections {
+        collections(where: { isDeleted: { equals: false } }) {
             id
             slug
+            isDeleted
             title: name
         }
     }

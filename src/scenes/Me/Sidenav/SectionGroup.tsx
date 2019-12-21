@@ -10,7 +10,7 @@ interface SectionGroupProps {
     currentHref: string
     isExpanded: boolean
     isActive: boolean
-    collections: Array<{ title: string; id: string }>
+    collections: Array<{ title: string; id: string; isDeleted: boolean }>
 }
 
 export default ({
@@ -71,23 +71,25 @@ export default ({
             </Link>
 
             {isExpanded &&
-                collections.map(collection => {
-                    const collectionHref = `/me/c/${collection.id}`
-                    return (
-                        <Link
-                            key={collection.id}
-                            href="/me/c/[collectionId]"
-                            as={collectionHref}
-                        >
-                            <a
-                                className={`block px-6 py-1 rounded hover:${bgBrand200} cursor-pointer whitespace-no-wrap truncate mb-1 font-normal ${currentHref ===
-                                    collectionHref && bgBrand200}`}
+                collections
+                    .filter(x => !x.isDeleted)
+                    .map(collection => {
+                        const collectionHref = `/me/c/${collection.id}`
+                        return (
+                            <Link
+                                key={collection.id}
+                                href="/me/c/[collectionId]"
+                                as={collectionHref}
                             >
-                                {collection.title}
-                            </a>
-                        </Link>
-                    )
-                })}
+                                <a
+                                    className={`block px-6 py-1 rounded hover:${bgBrand200} cursor-pointer whitespace-no-wrap truncate mb-1 font-normal ${currentHref ===
+                                        collectionHref && bgBrand200}`}
+                                >
+                                    {collection.title}
+                                </a>
+                            </Link>
+                        )
+                    })}
         </div>
     )
 }

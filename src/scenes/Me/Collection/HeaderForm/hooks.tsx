@@ -5,7 +5,12 @@ import slugify from 'slugify'
 import {
     CollectionBasicFragment,
     useUpdateCollectionMutation,
+    useDeleteCollectionMutation,
+    useUnDeleteCollectionMutation,
 } from '../../../../generated/types'
+import { notification } from 'antd'
+import { StyledButton } from '../../../../components/Button'
+import { useRouter } from 'next/router'
 
 interface CollectionFormData {
     name: string
@@ -63,4 +68,44 @@ const useCollectionForm = (
     return { onFormChange, register, submit }
 }
 
-export { useCollectionForm }
+const useDeleteCollection = () => {
+    const router = useRouter()
+    const [deleteCollection] = useDeleteCollectionMutation({
+        onCompleted: ({ updateOneCollection }) => {
+            const key = `open${Date.now()}`
+
+            if (updateOneCollection === undefined) {
+                return undefined
+            }
+
+            const handleUndelete = () => {
+                undeleteCollection({
+                    variables: { id: updateOneCollection.id },
+                })
+                notification.close(key)
+            }
+
+            notification.success({
+                key,
+                message: 'Collection deleted',
+                btn: <StyledButton onClick={handleUndelete}>Undo</StyledButton>,
+                placement: 'bottomRight',
+                duration: 6,
+            })
+
+            router.push('/me')
+        },
+    })
+    const [undeleteCollection] = useUnDeleteCollectionMutation()
+
+    const handleDelete = (id: string) => {
+        deleteCollection({
+            variables: {
+                id,
+            },
+        })
+    }
+    return { handleDelete }
+}
+
+export { useCollectionForm, useDeleteCollection }

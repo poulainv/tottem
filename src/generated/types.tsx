@@ -23,6 +23,7 @@ export type Collection = {
     slug: Scalars['String']
     name: Scalars['String']
     createdAt: Scalars['DateTime']
+    isDeleted: Scalars['Boolean']
     detail?: Maybe<Scalars['String']>
     items: Array<Item>
     owner: User
@@ -44,6 +45,7 @@ export type CollectionCreateInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name: Scalars['String']
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemCreateManyWithoutItemsInput>
     section: SectionCreateOneWithoutSectionInput
@@ -60,6 +62,7 @@ export type CollectionCreateWithoutItemsInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name: Scalars['String']
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     section: SectionCreateOneWithoutSectionInput
     owner: UserCreateOneWithoutOwnerInput
@@ -70,6 +73,7 @@ export type CollectionCreateWithoutOwnerInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name: Scalars['String']
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemCreateManyWithoutItemsInput>
     section: SectionCreateOneWithoutSectionInput
@@ -80,6 +84,7 @@ export type CollectionCreateWithoutSectionInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name: Scalars['String']
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemCreateManyWithoutItemsInput>
     owner: UserCreateOneWithoutOwnerInput
@@ -104,6 +109,7 @@ export type CollectionScalarWhereInput = {
     createdAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
     name?: Maybe<StringFilter>
+    isDeleted?: Maybe<BooleanFilter>
     detail?: Maybe<NullableStringFilter>
     items?: Maybe<ItemFilter>
     AND?: Maybe<Array<CollectionScalarWhereInput>>
@@ -116,6 +122,7 @@ export type CollectionUpdateInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemUpdateManyWithoutCollectionInput>
     section?: Maybe<SectionUpdateOneRequiredWithoutCollectionsInput>
@@ -127,6 +134,7 @@ export type CollectionUpdateManyDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
 }
 
@@ -173,6 +181,7 @@ export type CollectionUpdateWithoutItemsDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     section?: Maybe<SectionUpdateOneRequiredWithoutCollectionsInput>
     owner?: Maybe<UserUpdateOneRequiredWithoutCollectionsInput>
@@ -183,6 +192,7 @@ export type CollectionUpdateWithoutOwnerDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemUpdateManyWithoutCollectionInput>
     section?: Maybe<SectionUpdateOneRequiredWithoutCollectionsInput>
@@ -193,6 +203,7 @@ export type CollectionUpdateWithoutSectionDataInput = {
     createdAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemUpdateManyWithoutCollectionInput>
     owner?: Maybe<UserUpdateOneRequiredWithoutCollectionsInput>
@@ -230,6 +241,7 @@ export type CollectionWhereInput = {
     createdAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
     name?: Maybe<StringFilter>
+    isDeleted?: Maybe<BooleanFilter>
     detail?: Maybe<NullableStringFilter>
     items?: Maybe<ItemFilter>
     AND?: Maybe<Array<CollectionWhereInput>>
@@ -590,6 +602,7 @@ export type QueryCollectionsOrderByInput = {
 }
 
 export type QueryCollectionsWhereInput = {
+    isDeleted?: Maybe<BooleanFilter>
     section?: Maybe<SectionWhereInput>
     owner?: Maybe<UserWhereInput>
 }
@@ -626,11 +639,16 @@ export type Section = {
 }
 
 export type SectionCollectionsArgs = {
+    where?: Maybe<SectionCollectionsWhereInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
+}
+
+export type SectionCollectionsWhereInput = {
+    isDeleted?: Maybe<BooleanFilter>
 }
 
 export type SectionCreateInput = {
@@ -1037,26 +1055,34 @@ export type GetCollectionIdQueryVariables = {
 
 export type GetCollectionIdQuery = { __typename?: 'Query' } & {
     collection: Maybe<
-        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
-                items: Array<
-                    { __typename?: 'Item' } & Pick<
-                        Item,
-                        | 'id'
-                        | 'createdAt'
-                        | 'imageUrl'
-                        | 'comment'
-                        | 'productUrl'
-                        | 'provider'
-                        | 'title'
-                        | 'author'
-                        | 'type'
-                        | 'meta'
-                        | 'position'
-                        | 'isArchived'
-                        | 'description'
-                    >
-                >
-            } & CollectionBasicFragment
+        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> &
+            CollectionBasicFragment
+    >
+}
+
+export type DeleteCollectionMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type DeleteCollectionMutation = { __typename?: 'Mutation' } & {
+    updateOneCollection: Maybe<
+        { __typename?: 'Collection' } & Pick<
+            Collection,
+            'id' | 'slug' | 'isDeleted'
+        >
+    >
+}
+
+export type UnDeleteCollectionMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
+    updateOneCollection: Maybe<
+        { __typename?: 'Collection' } & Pick<
+            Collection,
+            'id' | 'slug' | 'isDeleted'
+        >
     >
 }
 
@@ -1156,7 +1182,7 @@ export type GetSectionsQuery = { __typename?: 'Query' } & {
                 collections: Array<
                     { __typename?: 'Collection' } & Pick<
                         Collection,
-                        'id' | 'slug'
+                        'id' | 'slug' | 'isDeleted'
                     > & { title: Collection['name'] }
                 >
             }
@@ -1526,21 +1552,6 @@ export const GetCollectionIdDocument = gql`
         collection(where: { id: $collectionId }) {
             ...CollectionBasic
             createdAt
-            items(where: { isArchived: { equals: false } }) {
-                id
-                createdAt
-                imageUrl
-                comment
-                productUrl
-                provider
-                title
-                author
-                type
-                meta
-                position
-                isArchived
-                description
-            }
         }
     }
     ${CollectionBasicFragmentDoc}
@@ -1593,6 +1604,102 @@ export type GetCollectionIdLazyQueryHookResult = ReturnType<
 export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionIdQuery,
     GetCollectionIdQueryVariables
+>
+export const DeleteCollectionDocument = gql`
+    mutation deleteCollection($id: ID!) {
+        updateOneCollection(data: { isDeleted: true }, where: { id: $id }) {
+            id
+            slug
+            isDeleted
+        }
+    }
+`
+
+/**
+ * __useDeleteCollectionMutation__
+ *
+ * To run a mutation, you first call `useDeleteCollectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteCollectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteCollectionMutation, { data, loading, error }] = useDeleteCollectionMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteCollectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        DeleteCollectionMutation,
+        DeleteCollectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        DeleteCollectionMutation,
+        DeleteCollectionMutationVariables
+    >(DeleteCollectionDocument, baseOptions)
+}
+export type DeleteCollectionMutationHookResult = ReturnType<
+    typeof useDeleteCollectionMutation
+>
+export type DeleteCollectionMutationResult = ApolloReactCommon.MutationResult<
+    DeleteCollectionMutation
+>
+export type DeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    DeleteCollectionMutation,
+    DeleteCollectionMutationVariables
+>
+export const UnDeleteCollectionDocument = gql`
+    mutation unDeleteCollection($id: ID!) {
+        updateOneCollection(data: { isDeleted: false }, where: { id: $id }) {
+            id
+            slug
+            isDeleted
+        }
+    }
+`
+
+/**
+ * __useUnDeleteCollectionMutation__
+ *
+ * To run a mutation, you first call `useUnDeleteCollectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUnDeleteCollectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [unDeleteCollectionMutation, { data, loading, error }] = useUnDeleteCollectionMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useUnDeleteCollectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        UnDeleteCollectionMutation,
+        UnDeleteCollectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        UnDeleteCollectionMutation,
+        UnDeleteCollectionMutationVariables
+    >(UnDeleteCollectionDocument, baseOptions)
+}
+export type UnDeleteCollectionMutationHookResult = ReturnType<
+    typeof useUnDeleteCollectionMutation
+>
+export type UnDeleteCollectionMutationResult = ApolloReactCommon.MutationResult<
+    UnDeleteCollectionMutation
+>
+export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    UnDeleteCollectionMutation,
+    UnDeleteCollectionMutationVariables
 >
 export const CreateItemFromUrlDocument = gql`
     mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
@@ -2023,9 +2130,10 @@ export const GetSectionsDocument = gql`
             id
             isExpanded
             title: name
-            collections {
+            collections(where: { isDeleted: { equals: false } }) {
                 id
                 slug
+                isDeleted
                 title: name
             }
         }

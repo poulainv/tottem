@@ -1,19 +1,15 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
 import '../index.css'
-import LoadingPage from '../scenes/LoadingPage'
 import Inbox from '../scenes/Me/Inbox'
 import { AuthenticatedUser, getUserAuth } from '../services/authentication'
 import { withApollo } from '../services/lib/apollo'
+import Layout from '../scenes/Me/Layout'
 
 const InboxPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
-    return loggedInUser ? (
-        <Inbox loggedInUser={loggedInUser} />
-    ) : (
-        <LoadingPage />
-    )
+    return <Layout loggedInUser={loggedInUser}>{_ => <Inbox />}</Layout>
 }
 
 InboxPage.getInitialProps = async (ctx: NextPageContext) => {

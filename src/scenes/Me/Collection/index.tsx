@@ -6,6 +6,7 @@ import FilterBadges from '../FilterBadges'
 import ItemForm from '../ItemForm'
 import ItemList from '../ItemList'
 import HeaderForm from './HeaderForm'
+import Skeleton from '../ItemList/Skeleton'
 
 interface Props {
     collectionId: string
@@ -40,14 +41,18 @@ export default ({ dispatch, collectionId }: Props) => {
                 onFilterChange={setSelectedTypes}
             />
             <ItemForm collectionId={collection.id} className="mt-8" />
-            <ItemList
-                collectionId={collection.id}
-                className="mt-8"
-                filterTypes={selectedTypes}
-                onChange={() => dispatch('CHANGED')}
-                onSaved={() => dispatch('SAVED')}
-                onSaving={() => dispatch('SAVING')}
-            />
+            {collection.id === undefined ? (
+                <Skeleton />
+            ) : (
+                <ItemList
+                    collectionId={collection.id}
+                    className="mt-8"
+                    filterTypes={selectedTypes}
+                    onChange={() => dispatch('CHANGED')}
+                    onSaved={() => dispatch('SAVED')}
+                    onSaving={() => dispatch('SAVING')}
+                />
+            )}
         </Fragment>
     )
 }

@@ -4,3 +4,19 @@ query getCollectionId($collectionId: ID!) {
         createdAt
     }
 }
+
+mutation deleteCollection($id: ID!) {
+    updateOneCollection(data: { isDeleted: true }, where: { id: $id }) {
+        id
+        slug
+        isDeleted
+    }
+}
+
+mutation unDeleteCollection($id: ID!) {
+    updateOneCollection(data: { isDeleted: false }, where: { id: $id }) {
+        id
+        slug
+        isDeleted
+    }
+}

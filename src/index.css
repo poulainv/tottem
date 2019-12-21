@@ -36,3 +36,12 @@ a:hover {
 .ant-select-dropdown-menu-item-active:not(.ant-select-dropdown-menu-item-disabled) {
     @apply bg-gray-200;
 }
+
+/* Dropdown custom  */
+.ant-dropdown-menu {
+    @apply p-1;
+}
+
+.ant-dropdown-menu-item {
+    @apply rounded-sm;
+}

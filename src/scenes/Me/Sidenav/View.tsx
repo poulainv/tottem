@@ -13,7 +13,11 @@ interface SidenavProps {
               title: string
               id: string
               isExpanded: boolean
-              collections: Array<{ title: string; id: string }>
+              collections: Array<{
+                  title: string
+                  id: string
+                  isDeleted: boolean
+              }>
           }>
         | undefined
 }
