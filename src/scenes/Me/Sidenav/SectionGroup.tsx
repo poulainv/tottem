@@ -58,7 +58,9 @@ export default ({
                             />
                         </span>
                         <span className="text-gray-800">
-                            {title === null ? 'New Space' : title}
+                            {title === null || title === ''
+                                ? 'New Space'
+                                : title}
                         </span>
                     </div>
                     <div
