@@ -1,5 +1,10 @@
 query getSections($authUserId: String!) {
-    sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
+    sections(
+        where: {
+            isDeleted: { equals: false }
+            owner: { authUserId: { equals: $authUserId } }
+        }
+    ) {
         id
         isExpanded
         title: name

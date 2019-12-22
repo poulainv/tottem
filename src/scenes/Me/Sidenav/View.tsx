@@ -13,11 +13,11 @@ interface SidenavProps {
     inboxCount: number | undefined
     sections:
         | Array<{
-              title: string
+              title?: string
               id: string
               isExpanded: boolean
               collections: Array<{
-                  title: string
+                  title?: string
                   id: string
                   isDeleted: boolean
               }>

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useReducer } from 'react'
 import Spinner from '../../../components/Spinner'
-import AddButton, { AddActions } from './AddButton'
+import AddButton, { AddActions } from './AddButtonItem'
 import FormSearch from './FormSearch'
 import FormURL from './FormURL'
 

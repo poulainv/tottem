@@ -10,6 +10,9 @@ mutation deleteCollection($id: ID!) {
         id
         slug
         isDeleted
+        section {
+            id
+        }
     }
 }
 

@@ -1,29 +1,31 @@
 import { Dropdown, Menu } from 'antd'
-import OptionIcon from '../../../../../public/pictograms/options.svg'
-import DeleteIcon from '../../../../../public/pictograms/delete.svg'
+import OptionIcon from '../../../../public/pictograms/options.svg'
+import DeleteIcon from '../../../../public/pictograms/delete.svg'
 import classNames from 'classnames'
-import { useDeleteCollection } from './hooks'
+import { useDeleteSection } from './hooks'
 
 interface IOptionsProps {
     className?: string
-    collectionId: string
+    sectionId: string
+    collectionCount: number
 }
 
 const Options: React.FunctionComponent<IOptionsProps> = ({
     className,
-    collectionId,
+    sectionId,
+    collectionCount,
 }) => {
-    const { handleDelete } = useDeleteCollection()
+    const { handleDeleteSection } = useDeleteSection(sectionId, collectionCount)
 
     const menu = (
         <Menu className="bg-gray-700 font-semibold">
             <Menu.Item
                 key="0"
-                onClick={() => handleDelete(collectionId)}
+                onClick={handleDeleteSection}
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
             >
                 <DeleteIcon className="inline fill-current mr-2" />
-                Delete Collection
+                Delete Section
             </Menu.Item>
         </Menu>
     )
@@ -32,7 +34,7 @@ const Options: React.FunctionComponent<IOptionsProps> = ({
         <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
             <div
                 className={classNames(
-                    'mt-2 cursor-pointer w-6 rounded h-8 flex justify-center items-center hover:bg-gray-100',
+                    'cursor-pointer w-6 rounded h-8 flex justify-center items-center hover:bg-gray-100',
                     className
                 )}
             >

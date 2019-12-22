@@ -6,7 +6,7 @@ import { MouseEvent } from 'react'
 import classNames from 'classnames'
 
 interface SectionGroupProps {
-    title: string
+    title?: string
     id: string
     currentHref: string
     isExpanded: boolean

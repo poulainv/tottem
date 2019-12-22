@@ -13,6 +13,14 @@ query getSection($sectionId: ID!) {
     }
 }
 
+mutation deleteSection($sectionId: ID!) {
+    updateOneSection(data: { isDeleted: true }, where: { id: $sectionId }) {
+        id
+        slug
+        title: name
+    }
+}
+
 mutation updateSection($sectionId: ID!, $title: String) {
     updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
         id

@@ -89,13 +89,16 @@ const useDeleteCollection = () => {
 
             notification.success({
                 key,
-                message: 'Collection deleted',
+                message: 'Collection deleted, redirection...',
                 btn: <StyledButton onClick={handleUndelete}>Undo</StyledButton>,
                 placement: 'bottomRight',
-                duration: 6,
+                duration: 4,
             })
 
-            router.push('/me')
+            // Not ideal
+            setTimeout(() => {
+                router.replace(`/me/s/${updateOneCollection.section.id}`)
+            }, 4500)
         },
     })
     const [undeleteCollection] = useUnDeleteCollectionMutation()

@@ -601,6 +601,7 @@ export type QueryItemsWhereInput = {
 }
 
 export type QuerySectionsWhereInput = {
+    isDeleted?: Maybe<BooleanFilter>
     owner?: Maybe<UserWhereInput>
 }
 
@@ -653,6 +654,7 @@ export type SectionCreateWithoutCollectionsInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     owner: UserCreateOneWithoutOwnerInput
 }
 
@@ -664,6 +666,7 @@ export type SectionCreateWithoutOwnerInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
 }
 
@@ -682,6 +685,7 @@ export type SectionScalarWhereInput = {
     index?: Maybe<IntFilter>
     collections?: Maybe<CollectionFilter>
     isExpanded?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
     AND?: Maybe<Array<SectionScalarWhereInput>>
     OR?: Maybe<Array<SectionScalarWhereInput>>
     NOT?: Maybe<Array<SectionScalarWhereInput>>
@@ -695,6 +699,7 @@ export type SectionUpdateInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     collections?: Maybe<CollectionUpdateManyWithoutSectionInput>
     owner?: Maybe<UserUpdateOneRequiredWithoutSectionsInput>
 }
@@ -707,6 +712,7 @@ export type SectionUpdateManyDataInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
 }
 
 export type SectionUpdateManyWithoutOwnerInput = {
@@ -741,6 +747,7 @@ export type SectionUpdateWithoutCollectionsDataInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     owner?: Maybe<UserUpdateOneRequiredWithoutSectionsInput>
 }
 
@@ -752,6 +759,7 @@ export type SectionUpdateWithoutOwnerDataInput = {
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     collections?: Maybe<CollectionUpdateManyWithoutSectionInput>
 }
 
@@ -780,6 +788,7 @@ export type SectionWhereInput = {
     index?: Maybe<IntFilter>
     collections?: Maybe<CollectionFilter>
     isExpanded?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
     AND?: Maybe<Array<SectionWhereInput>>
     OR?: Maybe<Array<SectionWhereInput>>
     NOT?: Maybe<Array<SectionWhereInput>>
@@ -1038,7 +1047,7 @@ export type DeleteCollectionMutation = { __typename?: 'Mutation' } & {
         { __typename?: 'Collection' } & Pick<
             Collection,
             'id' | 'slug' | 'isDeleted'
-        >
+        > & { section: { __typename?: 'Section' } & Pick<Section, 'id'> }
     >
 }
 
@@ -1154,6 +1163,18 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
                         'id' | 'slug' | 'isDeleted'
                     > & { title: Collection['name'] }
                 >
+            }
+    >
+}
+
+export type DeleteSectionMutationVariables = {
+    sectionId: Scalars['ID']
+}
+
+export type DeleteSectionMutation = { __typename?: 'Mutation' } & {
+    updateOneSection: Maybe<
+        { __typename?: 'Section' } & Pick<Section, 'id' | 'slug'> & {
+                title: Section['name']
             }
     >
 }
@@ -1567,6 +1588,9 @@ export const DeleteCollectionDocument = gql`
             id
             slug
             isDeleted
+            section {
+                id
+            }
         }
     }
 `
@@ -2143,6 +2167,54 @@ export type GetSectionQueryResult = ApolloReactCommon.QueryResult<
     GetSectionQuery,
     GetSectionQueryVariables
 >
+export const DeleteSectionDocument = gql`
+    mutation deleteSection($sectionId: ID!) {
+        updateOneSection(data: { isDeleted: true }, where: { id: $sectionId }) {
+            id
+            slug
+            title: name
+        }
+    }
+`
+
+/**
+ * __useDeleteSectionMutation__
+ *
+ * To run a mutation, you first call `useDeleteSectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteSectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteSectionMutation, { data, loading, error }] = useDeleteSectionMutation({
+ *   variables: {
+ *      sectionId: // value for 'sectionId'
+ *   },
+ * });
+ */
+export function useDeleteSectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        DeleteSectionMutation,
+        DeleteSectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        DeleteSectionMutation,
+        DeleteSectionMutationVariables
+    >(DeleteSectionDocument, baseOptions)
+}
+export type DeleteSectionMutationHookResult = ReturnType<
+    typeof useDeleteSectionMutation
+>
+export type DeleteSectionMutationResult = ApolloReactCommon.MutationResult<
+    DeleteSectionMutation
+>
+export type DeleteSectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    DeleteSectionMutation,
+    DeleteSectionMutationVariables
+>
 export const UpdateSectionDocument = gql`
     mutation updateSection($sectionId: ID!, $title: String) {
         updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
@@ -2243,7 +2315,12 @@ export type CreateEmptyCollectionMutationOptions = ApolloReactCommon.BaseMutatio
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
-        sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
+        sections(
+            where: {
+                isDeleted: { equals: false }
+                owner: { authUserId: { equals: $authUserId } }
+            }
+        ) {
             id
             isExpanded
             title: name

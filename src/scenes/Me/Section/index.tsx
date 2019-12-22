@@ -1,9 +1,8 @@
 import * as React from 'react'
-import SpaceIcon from '../../../../public/pictograms/space.svg'
-import classNames from 'classnames'
 import { useGetSectionQuery } from '../../../generated/types'
 import HeaderForm from './HeaderForm'
-import Item from 'antd/lib/list/Item'
+import Options from './Options'
+import NewCollectionBtn from './NewCollectionBtn'
 
 interface SectionPageProps {
     sectionId: string
@@ -17,9 +16,23 @@ export default ({ sectionId }: SectionPageProps) => {
         return <div>Foo</div>
     }
     const { section } = data
+
     return (
-        <div className="flex flex-row">
-            <HeaderForm sectionId={section.id} title={section.title} />
+        <div className="flex flex-row justify-between">
+            <HeaderForm
+                className="w-full"
+                sectionId={section.id}
+                title={section.title}
+            />
+            <div className="flex flex-row items-center">
+                <Options
+                    collectionCount={
+                        section.collections.filter(x => !x.isDeleted).length
+                    }
+                    sectionId={section.id}
+                />
+                <NewCollectionBtn sectionId={section.id} className="ml-4" />
+            </div>
         </div>
     )
 }
