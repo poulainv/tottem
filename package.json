@@ -82,6 +82,7 @@
         "build": "next build",
         "start": "next start",
         "generate": "graphql-codegen",
+        "lint": "tslint --project tsconfig.json -c tslint.json",
         "analyze": "cross-env ANALYZE=true BUNDLE_ANALYZE=both next build",
         "analyze:server": "cross-env ANALYZE=true BUNDLE_ANALYZE=server next build",
         "analyze:browser": "cross-env ANALYZE=true  BUNDLE_ANALYZE=browser next build"

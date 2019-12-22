@@ -12,5 +12,12 @@
         "ordered-imports": false,
         "jsx-no-lambda": false
     },
-    "rulesDirectory": ["tslint-plugin-prettier"]
+    "rulesDirectory": ["tslint-plugin-prettier"],
+    "linterOptions": {
+        "exclude": [
+            "node_modules/**/*.ts",
+            "dist/**/*.ts",
+            "src/generated/**/*.tsx"
+        ]
+    }
 }
