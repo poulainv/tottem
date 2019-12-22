@@ -32,6 +32,12 @@ const Sidenav: React.FC<SidenavProps> = ({
 }) => {
     const bgBrand200 = `bg-brand-100`
 
+    const router = useRouter()
+    const [createSection] = useCreateSectionMutation({
+        onCompleted: data => {
+            router.push(`/me/s/${data.createEmptySection.id}`)
+        },
+    })
     return (
         <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
@@ -120,8 +126,11 @@ const Sidenav: React.FC<SidenavProps> = ({
                                 )
                             })}
                         </div>
-                        <button className="w-full px-2 py-1 flex justify-center bg-white hover:bg-brand-50 text-gray-700 rounded mt-2 border border-brand-500">
-                            + New Area
+                        <button
+                            onClick={() => createSection()}
+                            className="w-full px-2 py-1 flex justify-center bg-white hover:bg-brand-50 text-gray-700 rounded mt-2 border border-brand-500"
+                        >
+                            + New Space
                         </button>
                     </div>
                 ) : (

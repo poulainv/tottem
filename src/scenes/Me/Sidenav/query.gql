@@ -12,6 +12,15 @@ query getSections($authUserId: String!) {
     }
 }
 
+mutation createSection {
+    createEmptySection {
+        id
+        slug
+        title: name
+        index
+    }
+}
+
 mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: ID!) {
     updateOneSection(
         where: { id: $sectionId }

@@ -1,0 +1,23 @@
+query getSection($sectionId: ID!) {
+    section(where: { id: $sectionId }) {
+        id
+        title: name
+        index
+        slug
+        collections {
+            id
+            slug
+            isDeleted
+            title: name
+        }
+    }
+}
+
+mutation updateSection($sectionId: ID!, $title: String) {
+    updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
+        id
+        slug
+        index
+        title: name
+    }
+}
