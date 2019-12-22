@@ -17,6 +17,7 @@ interface CollectionFormData {
     detail: string
 }
 
+// FIXME to migrate on backend side
 const getCollectionSlug = (name: string, stableId: string) =>
     `${slugify(name.toLowerCase())}-${stableId}`
 
@@ -28,7 +29,7 @@ const useCollectionForm = (
     const { register, getValues, setValue } = useForm<CollectionFormData>()
 
     const [updateCollection] = useUpdateCollectionMutation({
-        onCompleted: (_: { collection: any }) => {
+        onCompleted: () => {
             if (onSaved !== undefined) {
                 onSaved()
             }

@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { getAuthUser, AuthenticatedUser } from '../../services/authentication'
-import LoadingPage from '../LoadingPage'
-import Sidenav from './Sidenav'
 import TopBar from '../../components/TopBar2'
+import { AuthenticatedUser } from '../../services/authentication'
+import Sidenav from './Sidenav'
 
 export default ({ loggedInUser }: { loggedInUser: AuthenticatedUser }) => {
     return (

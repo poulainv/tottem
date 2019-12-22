@@ -3,6 +3,7 @@ import ArrowIcon from './arrow.svg'
 import { useUpdateSectionExpandedMutation } from '../../../generated/types'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
+import classNames from 'classnames'
 
 interface SectionGroupProps {
     title: string
@@ -42,18 +43,23 @@ export default ({
         <div>
             <Link href="/me/s/[sectionId]" as={sectionHref}>
                 <a
-                    className={`flex justify-between items-center pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold ${currentHref ===
-                        sectionHref && bgBrand200}`}
+                    className={classNames(
+                        `flex justify-between items-center pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold`,
+                        { bgBrand200: currentHref === sectionHref }
+                    )}
                 >
                     <div className="flex flex-row items-center">
-                        <span className="mr-1 text-gray-300">
+                        <span className="mr-1">
                             <SpaceIcon
+                                style={{ color: '#BFBFBF' }}
                                 className="inline fill-current"
                                 height={14}
                                 width={14}
                             />
                         </span>
-                        <span className="text-gray-800">{title}</span>
+                        <span className="text-gray-800">
+                            {title === null ? 'New Space' : title}
+                        </span>
                     </div>
                     <div
                         onClick={handleExpand}

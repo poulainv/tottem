@@ -4,6 +4,9 @@ import ProfileIcon from './profile.svg'
 import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
+import classNames from 'classnames'
+import { useCreateSectionMutation } from '../../../generated/types'
+import { useRouter } from 'next/router'
 
 interface SidenavProps {
     currentHref: string
@@ -55,10 +58,14 @@ const Sidenav: React.FC<SidenavProps> = ({
                 <div className="mb-6">
                     <Link as="/me/inbox" href="/me/inbox">
                         <a
-                            className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${[
-                                '/me/inbox',
-                                '/me',
-                            ].includes(currentHref) && bgBrand200}`}
+                            className={classNames(
+                                `block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
+                                {
+                                    bgBrand200: ['/me/inbox', '/me'].includes(
+                                        currentHref
+                                    ),
+                                }
+                            )}
                         >
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center">
@@ -78,8 +85,12 @@ const Sidenav: React.FC<SidenavProps> = ({
                     </Link>
                     <Link as="/me/archived" href="/me/archived">
                         <a
-                            className={`flex items-center block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${currentHref ===
-                                '/me/archived' && bgBrand200}`}
+                            className={classNames(
+                                `flex items-center block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
+                                {
+                                    bgBrand200: currentHref === '/me/archived',
+                                }
+                            )}
                         >
                             <ArchivedIcon
                                 height={14}
