@@ -38,6 +38,7 @@ const useCollectionForm = (
 
     const submit = () => {
         const { name, detail } = getValues()
+
         if (onSaving !== undefined) {
             onSaving()
         }
@@ -56,7 +57,7 @@ const useCollectionForm = (
     const onFormChange = useCallback(debouncedSave, [collection.id])
 
     useEffect(() => {
-        setValue('name', collection.name)
+        setValue('name', collection.name || '')
         setValue('detail', collection.detail || '')
         return () => {
             // Prevent submit method to be called after page changes

@@ -11,7 +11,7 @@ interface SectionGroupProps {
     currentHref: string
     isExpanded: boolean
     isActive: boolean
-    collections: Array<{ title: string; id: string; isDeleted: boolean }>
+    collections: Array<{ title?: string; id: string; isDeleted: boolean }>
 }
 
 export default ({
@@ -49,14 +49,12 @@ export default ({
                     )}
                 >
                     <div className="flex flex-row items-center">
-                        <span className="mr-1">
-                            <SpaceIcon
-                                style={{ color: '#BFBFBF' }}
-                                className="inline fill-current"
-                                height={14}
-                                width={14}
-                            />
-                        </span>
+                        <SpaceIcon
+                            style={{ color: '#BFBFBF' }}
+                            className="inline fill-current mr-1"
+                            height={14}
+                            width={14}
+                        />
                         <span className="text-gray-800">
                             {title === null || title === ''
                                 ? 'New Space'
@@ -93,7 +91,10 @@ export default ({
                                     className={`block px-6 py-1 rounded hover:${bgBrand200} cursor-pointer whitespace-no-wrap truncate mb-1 font-normal ${currentHref ===
                                         collectionHref && bgBrand200}`}
                                 >
-                                    {collection.title}
+                                    {collection.title === null ||
+                                    collection.title === ''
+                                        ? 'New Collection'
+                                        : collection.title}
                                 </a>
                             </Link>
                         )

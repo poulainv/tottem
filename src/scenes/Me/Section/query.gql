@@ -21,3 +21,11 @@ mutation updateSection($sectionId: ID!, $title: String) {
         title: name
     }
 }
+
+mutation CreateEmptyCollection($sectionId: ID!) {
+    collection: createEmptyCollection(sectionId: $sectionId) {
+        id
+        slug
+        name
+    }
+}

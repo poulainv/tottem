@@ -3,13 +3,17 @@ import { useCallback, useEffect } from 'react'
 import useForm from 'react-hook-form'
 import { useUpdateSectionMutation } from '../../../generated/types'
 
+interface FormData {
+    title: string
+}
+
 const useSectionForm = (
     sectionId: string,
     defaultTitle?: string,
     onSaved?: () => void,
     onSaving?: () => void
 ) => {
-    const { register, getValues, setValue } = useForm<{ title: string }>()
+    const { register, getValues, setValue, handleSubmit } = useForm<FormData>()
 
     const [updateSection] = useUpdateSectionMutation({
         onCompleted: () => {
@@ -19,8 +23,8 @@ const useSectionForm = (
         },
     })
 
-    const submit = () => {
-        const { title } = getValues()
+    const submit = (data: FormData) => {
+        const { title } = data
         if (onSaving !== undefined) {
             onSaving()
         }
@@ -33,7 +37,11 @@ const useSectionForm = (
         })
     }
 
-    const debouncedSave = debounce(submit, 1000, { maxWait: 4000 })
+    const autoSave = () => {
+        submit(getValues())
+    }
+
+    const debouncedSave = debounce(autoSave, 1000, { maxWait: 4000 })
     const onFormChange = useCallback(debouncedSave, [sectionId])
 
     useEffect(() => {
@@ -46,7 +54,7 @@ const useSectionForm = (
         }
     }, [sectionId])
 
-    return { onFormChange, register, submit }
+    return { onFormChange, register, handleSubmit: handleSubmit(submit) }
 }
 
 export { useSectionForm }

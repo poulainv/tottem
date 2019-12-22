@@ -1,6 +1,6 @@
 import { ItemType } from '../common'
 import countBy from 'lodash.countby'
-import { useReducer, useEffect } from 'react'
+import { useReducer, useEffect, Fragment } from 'react'
 import classNames from 'classnames'
 import { PictogramItems } from '../../components/PictogramItems'
 import { Tooltip } from 'antd'
@@ -83,6 +83,10 @@ export default ({
         onFilterChange
     )
 
+    if (Object.keys(itemsTypeCount).length === 0) {
+        return <Fragment />
+    }
+
     return (
         <div className={classNames('flex text-xs', className)}>
             <div
@@ -103,7 +107,7 @@ export default ({
                         <span>
                             <Badge
                                 type={type as ItemType}
-                                count={count}
+                                count={count} // FIXME
                                 isActive={filters.includes(type as ItemType)}
                             />
                         </span>

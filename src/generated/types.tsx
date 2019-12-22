@@ -21,7 +21,7 @@ export type Collection = {
     __typename?: 'Collection'
     id: Scalars['ID']
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     createdAt: Scalars['DateTime']
     isDeleted: Scalars['Boolean']
     detail?: Maybe<Scalars['String']>
@@ -40,18 +40,6 @@ export type CollectionItemsArgs = {
     last?: Maybe<Scalars['Int']>
 }
 
-export type CollectionCreateInput = {
-    id?: Maybe<Scalars['ID']>
-    createdAt?: Maybe<Scalars['DateTime']>
-    slug: Scalars['String']
-    name: Scalars['String']
-    isDeleted?: Maybe<Scalars['Boolean']>
-    detail?: Maybe<Scalars['String']>
-    items?: Maybe<ItemCreateManyWithoutItemsInput>
-    section: SectionCreateOneWithoutSectionInput
-    owner: UserCreateOneWithoutOwnerInput
-}
-
 export type CollectionCreateManyWithoutCollectionsInput = {
     create?: Maybe<Array<CollectionCreateWithoutSectionInput>>
     connect?: Maybe<Array<CollectionWhereUniqueInput>>
@@ -61,7 +49,7 @@ export type CollectionCreateWithoutItemsInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     section: SectionCreateOneWithoutSectionInput
@@ -72,7 +60,7 @@ export type CollectionCreateWithoutOwnerInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemCreateManyWithoutItemsInput>
@@ -83,7 +71,7 @@ export type CollectionCreateWithoutSectionInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
     items?: Maybe<ItemCreateManyWithoutItemsInput>
@@ -108,7 +96,7 @@ export type CollectionScalarWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
-    name?: Maybe<StringFilter>
+    name?: Maybe<NullableStringFilter>
     isDeleted?: Maybe<BooleanFilter>
     detail?: Maybe<NullableStringFilter>
     items?: Maybe<ItemFilter>
@@ -240,7 +228,7 @@ export type CollectionWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
-    name?: Maybe<StringFilter>
+    name?: Maybe<NullableStringFilter>
     isDeleted?: Maybe<BooleanFilter>
     detail?: Maybe<NullableStringFilter>
     items?: Maybe<ItemFilter>
@@ -465,8 +453,8 @@ export type Mutation = {
     updateOneSection?: Maybe<Section>
     createOneUser: User
     updateOneItem?: Maybe<Item>
-    createOneCollection: Collection
     updateOneCollection?: Maybe<Collection>
+    createEmptyCollection: Collection
     createEmptySection: Section
     /**
      * Mutation changing the position of an item from his $oldIndex to the $newIndex.
@@ -491,13 +479,13 @@ export type MutationUpdateOneItemArgs = {
     where: ItemWhereUniqueInput
 }
 
-export type MutationCreateOneCollectionArgs = {
-    data: CollectionCreateInput
-}
-
 export type MutationUpdateOneCollectionArgs = {
     data: CollectionUpdateInput
     where: CollectionWhereUniqueInput
+}
+
+export type MutationCreateEmptyCollectionArgs = {
+    sectionId: Scalars['ID']
 }
 
 export type MutationChangeItemPositionArgs = {
@@ -1014,22 +1002,10 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
     >
 }
 
-export type CreateCollectionMutationVariables = {
-    name: Scalars['String']
-    detail?: Maybe<Scalars['String']>
-    slug: Scalars['String']
-    ownerSlug: Scalars['String']
-    sectionId: Scalars['ID']
-}
-
-export type CreateCollectionMutation = { __typename?: 'Mutation' } & {
-    collection: { __typename?: 'Collection' } & Pick<Collection, 'id' | 'slug'>
-}
-
 export type UpdateCollectionMutationVariables = {
     collectionId: Scalars['ID']
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     detail?: Maybe<Scalars['String']>
 }
 
@@ -1192,6 +1168,17 @@ export type UpdateSectionMutation = { __typename?: 'Mutation' } & {
         { __typename?: 'Section' } & Pick<Section, 'id' | 'slug' | 'index'> & {
                 title: Section['name']
             }
+    >
+}
+
+export type CreateEmptyCollectionMutationVariables = {
+    sectionId: Scalars['ID']
+}
+
+export type CreateEmptyCollectionMutation = { __typename?: 'Mutation' } & {
+    collection: { __typename?: 'Collection' } & Pick<
+        Collection,
+        'id' | 'slug' | 'name'
     >
 }
 
@@ -1456,76 +1443,11 @@ export type GetCollectionPageQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionPageQuery,
     GetCollectionPageQueryVariables
 >
-export const CreateCollectionDocument = gql`
-    mutation CreateCollection(
-        $name: String!
-        $detail: String
-        $slug: String!
-        $ownerSlug: String!
-        $sectionId: ID!
-    ) {
-        collection: createOneCollection(
-            data: {
-                slug: $slug
-                name: $name
-                detail: $detail
-                section: { connect: { id: $sectionId } }
-                owner: { connect: { slug: $ownerSlug } }
-            }
-        ) {
-            id
-            slug
-        }
-    }
-`
-
-/**
- * __useCreateCollectionMutation__
- *
- * To run a mutation, you first call `useCreateCollectionMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateCollectionMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createCollectionMutation, { data, loading, error }] = useCreateCollectionMutation({
- *   variables: {
- *      name: // value for 'name'
- *      detail: // value for 'detail'
- *      slug: // value for 'slug'
- *      ownerSlug: // value for 'ownerSlug'
- *      sectionId: // value for 'sectionId'
- *   },
- * });
- */
-export function useCreateCollectionMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateCollectionMutation,
-        CreateCollectionMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateCollectionMutation,
-        CreateCollectionMutationVariables
-    >(CreateCollectionDocument, baseOptions)
-}
-export type CreateCollectionMutationHookResult = ReturnType<
-    typeof useCreateCollectionMutation
->
-export type CreateCollectionMutationResult = ApolloReactCommon.MutationResult<
-    CreateCollectionMutation
->
-export type CreateCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateCollectionMutation,
-    CreateCollectionMutationVariables
->
 export const UpdateCollectionDocument = gql`
     mutation UpdateCollection(
         $collectionId: ID!
         $slug: String!
-        $name: String!
+        $name: String
         $detail: String
     ) {
         collection: updateOneCollection(
@@ -2270,6 +2192,54 @@ export type UpdateSectionMutationResult = ApolloReactCommon.MutationResult<
 export type UpdateSectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UpdateSectionMutation,
     UpdateSectionMutationVariables
+>
+export const CreateEmptyCollectionDocument = gql`
+    mutation CreateEmptyCollection($sectionId: ID!) {
+        collection: createEmptyCollection(sectionId: $sectionId) {
+            id
+            slug
+            name
+        }
+    }
+`
+
+/**
+ * __useCreateEmptyCollectionMutation__
+ *
+ * To run a mutation, you first call `useCreateEmptyCollectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateEmptyCollectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createEmptyCollectionMutation, { data, loading, error }] = useCreateEmptyCollectionMutation({
+ *   variables: {
+ *      sectionId: // value for 'sectionId'
+ *   },
+ * });
+ */
+export function useCreateEmptyCollectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateEmptyCollectionMutation,
+        CreateEmptyCollectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateEmptyCollectionMutation,
+        CreateEmptyCollectionMutationVariables
+    >(CreateEmptyCollectionDocument, baseOptions)
+}
+export type CreateEmptyCollectionMutationHookResult = ReturnType<
+    typeof useCreateEmptyCollectionMutation
+>
+export type CreateEmptyCollectionMutationResult = ApolloReactCommon.MutationResult<
+    CreateEmptyCollectionMutation
+>
+export type CreateEmptyCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateEmptyCollectionMutation,
+    CreateEmptyCollectionMutationVariables
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
