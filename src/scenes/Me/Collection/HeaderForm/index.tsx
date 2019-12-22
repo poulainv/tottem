@@ -27,9 +27,10 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
             >
                 <div className="flex flex-row w-full">
                     <TextareaAutosize
+                        autoFocus
                         onChange={onChange}
                         type="text"
-                        placeholder="Title"
+                        placeholder="New collection title"
                         minRows={1}
                         className="text-2xl resize-none outline-none text-gray-900 w-full"
                         name="name"

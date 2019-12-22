@@ -38,6 +38,7 @@ const Sidenav: React.FC<SidenavProps> = ({
             router.push(`/me/s/${data.createEmptySection.id}`)
         },
     })
+
     return (
         <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />

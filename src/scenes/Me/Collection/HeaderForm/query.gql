@@ -1,28 +1,7 @@
-mutation CreateCollection(
-    $name: String!
-    $detail: String
-    $slug: String!
-    $ownerSlug: String!
-    $sectionId: ID!
-) {
-    collection: createOneCollection(
-        data: {
-            slug: $slug
-            name: $name
-            detail: $detail
-            section: { connect: { id: $sectionId } }
-            owner: { connect: { slug: $ownerSlug } }
-        }
-    ) {
-        id
-        slug
-    }
-}
-
 mutation UpdateCollection(
     $collectionId: ID!
     $slug: String!
-    $name: String!
+    $name: String
     $detail: String
 ) {
     collection: updateOneCollection(
