@@ -462,12 +462,12 @@ export type ItemWhereUniqueInput = {
 
 export type Mutation = {
     __typename?: 'Mutation'
-    createOneSection: Section
     updateOneSection?: Maybe<Section>
     createOneUser: User
     updateOneItem?: Maybe<Item>
     createOneCollection: Collection
     updateOneCollection?: Maybe<Collection>
+    createEmptySection: Section
     /**
      * Mutation changing the position of an item from his $oldIndex to the $newIndex.
      *             It takes *indexes* (not position) and return changed items with new position.
@@ -475,10 +475,6 @@ export type Mutation = {
     changeItemPosition: Array<Item>
     createItemFromSearch: Item
     createItemFromUrl: Item
-}
-
-export type MutationCreateOneSectionArgs = {
-    data: SectionCreateInput
 }
 
 export type MutationUpdateOneSectionArgs = {
@@ -633,7 +629,7 @@ export type Section = {
     id: Scalars['ID']
     slug: Scalars['String']
     index: Scalars['Int']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     collections: Array<Collection>
     isExpanded: Scalars['Boolean']
 }
@@ -651,17 +647,6 @@ export type SectionCollectionsWhereInput = {
     isDeleted?: Maybe<BooleanFilter>
 }
 
-export type SectionCreateInput = {
-    id?: Maybe<Scalars['ID']>
-    createdAt?: Maybe<Scalars['DateTime']>
-    slug: Scalars['String']
-    name: Scalars['String']
-    index?: Maybe<Scalars['Int']>
-    isExpanded?: Maybe<Scalars['Boolean']>
-    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
-    owner: UserCreateOneWithoutOwnerInput
-}
-
 export type SectionCreateManyWithoutSectionsInput = {
     create?: Maybe<Array<SectionCreateWithoutOwnerInput>>
     connect?: Maybe<Array<SectionWhereUniqueInput>>
@@ -675,8 +660,9 @@ export type SectionCreateOneWithoutSectionInput = {
 export type SectionCreateWithoutCollectionsInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
     owner: UserCreateOneWithoutOwnerInput
@@ -685,8 +671,9 @@ export type SectionCreateWithoutCollectionsInput = {
 export type SectionCreateWithoutOwnerInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
-    name: Scalars['String']
+    name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
@@ -701,8 +688,9 @@ export type SectionFilter = {
 export type SectionScalarWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
+    updatedAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
-    name?: Maybe<StringFilter>
+    name?: Maybe<NullableStringFilter>
     index?: Maybe<IntFilter>
     collections?: Maybe<CollectionFilter>
     isExpanded?: Maybe<BooleanFilter>
@@ -714,6 +702,7 @@ export type SectionScalarWhereInput = {
 export type SectionUpdateInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
@@ -725,6 +714,7 @@ export type SectionUpdateInput = {
 export type SectionUpdateManyDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
@@ -758,6 +748,7 @@ export type SectionUpdateOneRequiredWithoutCollectionsInput = {
 export type SectionUpdateWithoutCollectionsDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
@@ -768,6 +759,7 @@ export type SectionUpdateWithoutCollectionsDataInput = {
 export type SectionUpdateWithoutOwnerDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     index?: Maybe<Scalars['Int']>
@@ -794,8 +786,9 @@ export type SectionUpsertWithWhereUniqueWithoutOwnerInput = {
 export type SectionWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
+    updatedAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
-    name?: Maybe<StringFilter>
+    name?: Maybe<NullableStringFilter>
     index?: Maybe<IntFilter>
     collections?: Maybe<CollectionFilter>
     isExpanded?: Maybe<BooleanFilter>
@@ -1170,6 +1163,38 @@ export type GetItemsQuery = { __typename?: 'Query' } & {
     >
 }
 
+export type GetSectionQueryVariables = {
+    sectionId: Scalars['ID']
+}
+
+export type GetSectionQuery = { __typename?: 'Query' } & {
+    section: Maybe<
+        { __typename?: 'Section' } & Pick<Section, 'id' | 'index' | 'slug'> & {
+                title: Section['name']
+            } & {
+                collections: Array<
+                    { __typename?: 'Collection' } & Pick<
+                        Collection,
+                        'id' | 'slug' | 'isDeleted'
+                    > & { title: Collection['name'] }
+                >
+            }
+    >
+}
+
+export type UpdateSectionMutationVariables = {
+    sectionId: Scalars['ID']
+    title?: Maybe<Scalars['String']>
+}
+
+export type UpdateSectionMutation = { __typename?: 'Mutation' } & {
+    updateOneSection: Maybe<
+        { __typename?: 'Section' } & Pick<Section, 'id' | 'slug' | 'index'> & {
+                title: Section['name']
+            }
+    >
+}
+
 export type GetSectionsQueryVariables = {
     authUserId: Scalars['String']
 }
@@ -1187,6 +1212,15 @@ export type GetSectionsQuery = { __typename?: 'Query' } & {
                 >
             }
     >
+}
+
+export type CreateSectionMutationVariables = {}
+
+export type CreateSectionMutation = { __typename?: 'Mutation' } & {
+    createEmptySection: { __typename?: 'Section' } & Pick<
+        Section,
+        'id' | 'slug' | 'index'
+    > & { title: Section['name'] }
 }
 
 export type UpdateSectionExpandedMutationVariables = {
@@ -2124,6 +2158,119 @@ export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
     GetItemsQuery,
     GetItemsQueryVariables
 >
+export const GetSectionDocument = gql`
+    query getSection($sectionId: ID!) {
+        section(where: { id: $sectionId }) {
+            id
+            title: name
+            index
+            slug
+            collections {
+                id
+                slug
+                isDeleted
+                title: name
+            }
+        }
+    }
+`
+
+/**
+ * __useGetSectionQuery__
+ *
+ * To run a query within a React component, call `useGetSectionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSectionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSectionQuery({
+ *   variables: {
+ *      sectionId: // value for 'sectionId'
+ *   },
+ * });
+ */
+export function useGetSectionQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetSectionQuery,
+        GetSectionQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<GetSectionQuery, GetSectionQueryVariables>(
+        GetSectionDocument,
+        baseOptions
+    )
+}
+export function useGetSectionLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetSectionQuery,
+        GetSectionQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetSectionQuery,
+        GetSectionQueryVariables
+    >(GetSectionDocument, baseOptions)
+}
+export type GetSectionQueryHookResult = ReturnType<typeof useGetSectionQuery>
+export type GetSectionLazyQueryHookResult = ReturnType<
+    typeof useGetSectionLazyQuery
+>
+export type GetSectionQueryResult = ApolloReactCommon.QueryResult<
+    GetSectionQuery,
+    GetSectionQueryVariables
+>
+export const UpdateSectionDocument = gql`
+    mutation updateSection($sectionId: ID!, $title: String) {
+        updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
+            id
+            slug
+            index
+            title: name
+        }
+    }
+`
+
+/**
+ * __useUpdateSectionMutation__
+ *
+ * To run a mutation, you first call `useUpdateSectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSectionMutation, { data, loading, error }] = useUpdateSectionMutation({
+ *   variables: {
+ *      sectionId: // value for 'sectionId'
+ *      title: // value for 'title'
+ *   },
+ * });
+ */
+export function useUpdateSectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        UpdateSectionMutation,
+        UpdateSectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        UpdateSectionMutation,
+        UpdateSectionMutationVariables
+    >(UpdateSectionDocument, baseOptions)
+}
+export type UpdateSectionMutationHookResult = ReturnType<
+    typeof useUpdateSectionMutation
+>
+export type UpdateSectionMutationResult = ApolloReactCommon.MutationResult<
+    UpdateSectionMutation
+>
+export type UpdateSectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    UpdateSectionMutation,
+    UpdateSectionMutationVariables
+>
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
         sections(where: { owner: { authUserId: { equals: $authUserId } } }) {
@@ -2185,6 +2332,54 @@ export type GetSectionsLazyQueryHookResult = ReturnType<
 export type GetSectionsQueryResult = ApolloReactCommon.QueryResult<
     GetSectionsQuery,
     GetSectionsQueryVariables
+>
+export const CreateSectionDocument = gql`
+    mutation createSection {
+        createEmptySection {
+            id
+            slug
+            title: name
+            index
+        }
+    }
+`
+
+/**
+ * __useCreateSectionMutation__
+ *
+ * To run a mutation, you first call `useCreateSectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSectionMutation, { data, loading, error }] = useCreateSectionMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCreateSectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateSectionMutation,
+        CreateSectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateSectionMutation,
+        CreateSectionMutationVariables
+    >(CreateSectionDocument, baseOptions)
+}
+export type CreateSectionMutationHookResult = ReturnType<
+    typeof useCreateSectionMutation
+>
+export type CreateSectionMutationResult = ApolloReactCommon.MutationResult<
+    CreateSectionMutation
+>
+export type CreateSectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateSectionMutation,
+    CreateSectionMutationVariables
 >
 export const UpdateSectionExpandedDocument = gql`
     mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: ID!) {
