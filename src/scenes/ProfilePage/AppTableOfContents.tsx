@@ -182,7 +182,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                                           style={{ color: 'inherit' }}
                                           onClick={() => trackTableOfContent()}
                                       >
-                                          {collection.name === null
+                                          {!collection.name
                                               ? 'New Collection'
                                               : removeMd(collection.name)}
                                       </Anchor>

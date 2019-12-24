@@ -35,7 +35,7 @@ export default ({
     }
 
     const { collection, user } = data
-    const collectionName = removeMd(collection.name)
+    const collectionName = removeMd(collection.name || '')
     const itemsTypeCount = countBy(collection.items, (x: Item) => x.type)
 
     return (
