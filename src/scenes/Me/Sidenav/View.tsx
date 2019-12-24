@@ -44,7 +44,7 @@ const Sidenav: React.FC<SidenavProps> = ({
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
-                    <Link as="/" href="/">
+                    <Link as="/me/profile" href="/me/profile">
                         <a
                             className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${
                                 currentHref === '/' ? bgBrand200 : ''
