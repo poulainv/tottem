@@ -1,7 +1,7 @@
 import * as React from 'react'
 import TopBar from '../../components/TopBar2'
 import { AuthenticatedUser } from '../../services/authentication'
-import { useStatusMessage } from './Collection/Status'
+import { useStatusMessage } from './Collection/status'
 import Sidenav from './Sidenav'
 import LoadingPage from '../LoadingPage'
 

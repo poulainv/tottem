@@ -30,7 +30,7 @@ const Sidenav: React.FC<SidenavProps> = ({
     sections,
     currentHref,
 }) => {
-    const bgBrand200 = `bg-brand-100`
+    const bgActiveLink = `bg-brand-100`
 
     const router = useRouter()
     const [createSection] = useCreateSectionMutation({
@@ -46,8 +46,10 @@ const Sidenav: React.FC<SidenavProps> = ({
                 <div className="mb-6">
                     <Link as="/me/profile" href="/me/profile">
                         <a
-                            className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${
-                                currentHref === '/' ? bgBrand200 : ''
+                            className={`block px-2 py-1 mb-1 rounded hover:${bgActiveLink} cursor-pointer ${
+                                currentHref === '/me/profile'
+                                    ? bgActiveLink
+                                    : ''
                             }`}
                         >
                             <div className="flex items-center">
@@ -66,12 +68,11 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <Link as="/me/inbox" href="/me/inbox">
                         <a
                             className={classNames(
-                                `block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
-                                {
-                                    bgBrand200: ['/me/inbox', '/me'].includes(
-                                        currentHref
-                                    ),
-                                }
+                                `block px-2 py-1 mb-1 rounded hover:${bgActiveLink} cursor-pointer ${
+                                    ['/me/inbox', '/me'].includes(currentHref)
+                                        ? bgActiveLink
+                                        : ''
+                                }`
                             )}
                         >
                             <div className="flex justify-between items-center">
@@ -93,10 +94,11 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <Link as="/me/archived" href="/me/archived">
                         <a
                             className={classNames(
-                                `flex items-center block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
-                                {
-                                    bgBrand200: currentHref === '/me/archived',
-                                }
+                                `flex items-center block px-2 py-1 mb-1 rounded hover:${bgActiveLink} cursor-pointer ${
+                                    currentHref === '/me/archived'
+                                        ? bgActiveLink
+                                        : ''
+                                }`
                             )}
                         >
                             <ArchivedIcon
