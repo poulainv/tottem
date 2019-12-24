@@ -14,7 +14,7 @@ export default ({
     return (
         <div className="flex h-screen text-sm">
             <Sidenav authUserId={loggedInUser.id} />
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 flex-col overflow-auto">
                 <TopBar
                     avatar={loggedInUser.picture}
                     username={loggedInUser.name}
