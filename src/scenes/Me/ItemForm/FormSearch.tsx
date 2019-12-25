@@ -69,9 +69,7 @@ export default ({
                     </button>
                 </div>
             </form>
-            <p className="text-red-700 mt-2">
-                {errors.url && errors.url.message}
-            </p>
+            <p className="text-red-700 mt-2">{errors.title?.message}</p>
         </Fragment>
     )
 }

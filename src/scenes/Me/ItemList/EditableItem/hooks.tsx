@@ -1,7 +1,7 @@
 import * as React from 'react'
 import debounce from 'lodash.debounce'
 import { useSaveCommentItemMutation } from '../../../../generated/types'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 const useItemCommentForm = (
     itemId: string,

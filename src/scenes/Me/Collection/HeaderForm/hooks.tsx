@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce'
 import { useCallback, useEffect } from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import slugify from 'slugify'
 import {
     CollectionBasicFragment,
