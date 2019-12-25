@@ -1,19 +1,15 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
 import '../../index.css'
-import LoadingPage from '../../scenes/LoadingPage'
 import Settings from '../../scenes/Me/Settings'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'
+import Layout from '../../scenes/Me/Layout'
 
 const SettingsPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
-    return loggedInUser ? (
-        <Settings loggedInUser={loggedInUser} />
-    ) : (
-        <LoadingPage />
-    )
+    return <Layout loggedInUser={loggedInUser}>{_ => <Settings />}</Layout>
 }
 
 SettingsPage.getInitialProps = async (ctx: NextPageContext) => {

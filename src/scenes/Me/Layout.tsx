@@ -11,10 +11,11 @@ export type DispatchableAction = (
 
 interface Props {
     loggedInUser?: AuthenticatedUser
+    fullWidth?: boolean
     children: (dispatch: DispatchableAction) => React.ReactNode
 }
 
-export default ({ loggedInUser, children }: Props) => {
+export default ({ loggedInUser, children, fullWidth: fullW }: Props) => {
     const [message, dispatch] = useStatusMessage()
 
     return loggedInUser ? (
@@ -26,7 +27,10 @@ export default ({ loggedInUser, children }: Props) => {
                     avatar={loggedInUser.picture}
                     username={loggedInUser.name}
                 />
-                <main className="text-sm w-full max-w-4xl mx-auto mt-2 pb-16">
+                <main
+                    className={`text-sm w-full ${fullW ||
+                        'max-w-4xl'} mx-auto mt-2 pb-16`}
+                >
                     {children(dispatch)}
                 </main>
             </div>

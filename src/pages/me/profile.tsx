@@ -6,6 +6,7 @@ import Profile from '../../scenes/Me/Profile'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'
 import { useGetUserByAuthIdQuery } from '../../generated/types'
+import Layout from '../../scenes/Me/Layout'
 
 const ProfilePage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
@@ -17,11 +18,15 @@ const ProfilePage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
         variables: { authId: loggedInUser.id },
     })
 
-    return data !== undefined && data.user && !loading ? (
-        <Profile loggedInUser={loggedInUser} slug={data.user.slug} />
-    ) : (
-        <LoadingPage />
-    )
+    if (!loading && data?.user !== undefined) {
+        const slug = data.user.slug
+        return (
+            <Layout loggedInUser={loggedInUser} fullWidth>
+                {_ => <Profile slug={slug} />}
+            </Layout>
+        )
+    }
+    return <LoadingPage />
 }
 
 ProfilePage.getInitialProps = async (ctx: NextPageContext) => {
