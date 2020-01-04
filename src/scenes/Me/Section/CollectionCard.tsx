@@ -11,7 +11,7 @@ export interface CollectionCardProps {
     collection: Pick<Collection, 'id' | 'slug' | 'isDeleted' | 'updatedAt'> & {
         title: Collection['name']
     } & {
-        items: Array<Pick<Item, 'imageUrl' | 'title' | 'type'>>
+        items: Array<Pick<Item, 'imageUrl' | 'title' | 'type' | 'isArchived'>>
     }
 }
 
@@ -52,29 +52,31 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                 </span>
             </div>
             <div className="flex flex-row mt-6">
-                {collection.items.map((item, index) => {
-                    const PlaceholderIcon = PictogramItems[item.type]
-                    return (
-                        <div
-                            key={index}
-                            className="ml-24 first:ml-0 flex flex-col w-2/12 flex-shrink-0 flex-grow-0"
-                        >
-                            {item.imageUrl ? (
-                                <img
-                                    className="rounded-lg border border-gray-200"
-                                    src={item.imageUrl}
-                                />
-                            ) : (
-                                <div className="rounded w-40 border-gray-200 bg-gray-200 h-48 flex justify-center items-center">
-                                    <PlaceholderIcon className="h-16 w-16 text-white fill-current" />
+                {collection.items
+                    .filter(x => !x.isArchived)
+                    .map((item, index) => {
+                        const PlaceholderIcon = PictogramItems[item.type]
+                        return (
+                            <div
+                                key={index}
+                                className="ml-24 first:ml-0 flex flex-col w-2/12 flex-shrink-0 flex-grow-0"
+                            >
+                                {item.imageUrl ? (
+                                    <img
+                                        className="rounded-lg border border-gray-200"
+                                        src={item.imageUrl}
+                                    />
+                                ) : (
+                                    <div className="rounded w-40 border-gray-200 bg-gray-200 h-48 flex justify-center items-center">
+                                        <PlaceholderIcon className="h-16 w-16 text-white fill-current" />
+                                    </div>
+                                )}
+                                <div className="text-gray-600 truncate mt-2 text-sm">
+                                    {item.title}
                                 </div>
-                            )}
-                            <div className="text-gray-600 truncate mt-2 text-sm">
-                                {item.title}
                             </div>
-                        </div>
-                    )
-                })}
+                        )
+                    })}
             </div>
         </div>
     )

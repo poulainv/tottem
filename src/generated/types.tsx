@@ -1176,7 +1176,7 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
                             items: Array<
                                 { __typename?: 'Item' } & Pick<
                                     Item,
-                                    'imageUrl' | 'title' | 'type'
+                                    'imageUrl' | 'isArchived' | 'title' | 'type'
                                 >
                             >
                             owner: { __typename?: 'User' } & Pick<
@@ -2139,8 +2139,9 @@ export const GetSectionDocument = gql`
                 updatedAt
                 isDeleted
                 title: name
-                items(first: 4) {
+                items(first: 4, where: { isArchived: { equals: false } }) {
                     imageUrl
+                    isArchived
                     title
                     type
                 }

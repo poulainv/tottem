@@ -10,8 +10,9 @@ query getSection($sectionId: ID!) {
             updatedAt
             isDeleted
             title: name
-            items(first: 4) {
+            items(first: 4, where: { isArchived: { equals: false } }) {
                 imageUrl
+                isArchived
                 title
                 type
             }
