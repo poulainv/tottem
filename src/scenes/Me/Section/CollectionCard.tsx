@@ -34,7 +34,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
             <div className="flex flex-row justify-between">
                 <Link href="/me/c/[collectionId]" as={`/me/c/${collection.id}`}>
                     <a className="text-gray-900 font-semibold hover:text-black">
-                        {collection.title}
+                        {collection.title || 'New Collection'}
                     </a>
                 </Link>
                 <Options
