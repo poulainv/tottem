@@ -1,15 +1,15 @@
 module.exports = {
     important: true,
     theme: {
-        minHeight: {
-            '8': '8em',
-            '9': '9em',
-            '10': '10em',
-        },
         inset: {
             '-4': '-3rem',
         },
         extend: {
+            minHeight: {
+                '8': '8em',
+                '9': '9em',
+                '10': '10em',
+            },
             colors: {
                 brand: {
                     50: '#eef5f3',
