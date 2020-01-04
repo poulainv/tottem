@@ -184,7 +184,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                                       >
                                           {collection.name === null
                                               ? 'New Collection'
-                                              : removeMd(collection.name)}
+                                              : removeMd(collection.name || '')}
                                       </Anchor>
                                   </TableIndex>
                               </React.Fragment>
