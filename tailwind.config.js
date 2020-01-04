@@ -1,6 +1,11 @@
 module.exports = {
     important: true,
     theme: {
+        minHeight: {
+            '8': '8em',
+            '9': '9em',
+            '10': '10em',
+        },
         inset: {
             '-4': '-3rem',
         },

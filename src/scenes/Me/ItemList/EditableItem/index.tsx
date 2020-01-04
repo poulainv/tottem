@@ -18,7 +18,7 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
     )
     const Pictogram = PictogramItems[item.type]
     return (
-        <div className="shadow rounded-sm flex flex-row flex-shrink-0 w-full">
+        <div className="shadow rounded-sm flex flex-row flex-shrink-0 w-full min-h-9">
             <div className="bg-gray-100 w-1/2 p-4 flex flex-col">
                 <div className="flex flex-row items-start">
                     <img
