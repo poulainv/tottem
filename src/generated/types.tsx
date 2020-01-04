@@ -46,6 +46,11 @@ export type CollectionCreateManyWithoutCollectionsInput = {
     connect?: Maybe<Array<CollectionWhereUniqueInput>>
 }
 
+export type CollectionCreateOneWithoutCollectionInput = {
+    create?: Maybe<CollectionCreateWithoutItemsInput>
+    connect?: Maybe<CollectionWhereUniqueInput>
+}
+
 export type CollectionCreateWithoutItemsInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -294,6 +299,11 @@ export type Item = {
     createdAt: Scalars['DateTime']
 }
 
+export type ItemCreateManyWithoutInboxedItemsInput = {
+    create?: Maybe<Array<ItemCreateWithoutUserInput>>
+    connect?: Maybe<Array<ItemWhereUniqueInput>>
+}
+
 export type ItemCreateManyWithoutItemsInput = {
     create?: Maybe<Array<ItemCreateWithoutCollectionInput>>
     connect?: Maybe<Array<ItemWhereUniqueInput>>
@@ -314,6 +324,25 @@ export type ItemCreateWithoutCollectionInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    user?: Maybe<UserCreateOneWithoutUserInput>
+}
+
+export type ItemCreateWithoutUserInput = {
+    id?: Maybe<Scalars['ID']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
+    title: Scalars['String']
+    provider?: Maybe<Scalars['String']>
+    author?: Maybe<Scalars['String']>
+    type: ItemType
+    productUrl?: Maybe<Scalars['String']>
+    imageUrl?: Maybe<Scalars['String']>
+    description?: Maybe<Scalars['String']>
+    comment?: Maybe<Scalars['String']>
+    meta?: Maybe<Scalars['String']>
+    collection?: Maybe<CollectionCreateOneWithoutCollectionInput>
 }
 
 export type ItemFilter = {
@@ -370,6 +399,7 @@ export type ItemUpdateInput = {
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
+    user?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
 
 export type ItemUpdateManyDataInput = {
@@ -401,6 +431,18 @@ export type ItemUpdateManyWithoutCollectionInput = {
     upsert?: Maybe<Array<ItemUpsertWithWhereUniqueWithoutCollectionInput>>
 }
 
+export type ItemUpdateManyWithoutUserInput = {
+    create?: Maybe<Array<ItemCreateWithoutUserInput>>
+    connect?: Maybe<Array<ItemWhereUniqueInput>>
+    set?: Maybe<Array<ItemWhereUniqueInput>>
+    disconnect?: Maybe<Array<ItemWhereUniqueInput>>
+    delete?: Maybe<Array<ItemWhereUniqueInput>>
+    update?: Maybe<Array<ItemUpdateWithWhereUniqueWithoutUserInput>>
+    updateMany?: Maybe<Array<ItemUpdateManyWithWhereNestedInput>>
+    deleteMany?: Maybe<Array<ItemScalarWhereInput>>
+    upsert?: Maybe<Array<ItemUpsertWithWhereUniqueWithoutUserInput>>
+}
+
 export type ItemUpdateManyWithWhereNestedInput = {
     where: ItemScalarWhereInput
     data: ItemUpdateManyDataInput
@@ -421,6 +463,25 @@ export type ItemUpdateWithoutCollectionDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    user?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
+}
+
+export type ItemUpdateWithoutUserDataInput = {
+    id?: Maybe<Scalars['ID']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
+    isArchived?: Maybe<Scalars['Boolean']>
+    position?: Maybe<Scalars['Int']>
+    title?: Maybe<Scalars['String']>
+    provider?: Maybe<Scalars['String']>
+    author?: Maybe<Scalars['String']>
+    type?: Maybe<ItemType>
+    productUrl?: Maybe<Scalars['String']>
+    imageUrl?: Maybe<Scalars['String']>
+    description?: Maybe<Scalars['String']>
+    comment?: Maybe<Scalars['String']>
+    meta?: Maybe<Scalars['String']>
+    collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
 }
 
 export type ItemUpdateWithWhereUniqueWithoutCollectionInput = {
@@ -428,10 +489,21 @@ export type ItemUpdateWithWhereUniqueWithoutCollectionInput = {
     data: ItemUpdateWithoutCollectionDataInput
 }
 
+export type ItemUpdateWithWhereUniqueWithoutUserInput = {
+    where: ItemWhereUniqueInput
+    data: ItemUpdateWithoutUserDataInput
+}
+
 export type ItemUpsertWithWhereUniqueWithoutCollectionInput = {
     where: ItemWhereUniqueInput
     update: ItemUpdateWithoutCollectionDataInput
     create: ItemCreateWithoutCollectionInput
+}
+
+export type ItemUpsertWithWhereUniqueWithoutUserInput = {
+    where: ItemWhereUniqueInput
+    update: ItemUpdateWithoutUserDataInput
+    create: ItemCreateWithoutUserInput
 }
 
 export type ItemWhereInput = {
@@ -453,6 +525,7 @@ export type ItemWhereInput = {
     OR?: Maybe<Array<ItemWhereInput>>
     NOT?: Maybe<Array<ItemWhereInput>>
     collection?: Maybe<CollectionWhereInput>
+    user?: Maybe<UserWhereInput>
 }
 
 export type ItemWhereUniqueInput = {
@@ -513,7 +586,8 @@ export type MutationCreateItemFromSearchArgs = {
 
 export type MutationCreateItemFromUrlArgs = {
     url: Scalars['String']
-    collectionId: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
 }
 
 export type NullableStringFilter = {
@@ -543,6 +617,7 @@ export type Query = {
     items: Array<Item>
     sections: Array<Section>
     collections: Array<Collection>
+    inbox: Array<Item>
     search: Array<SearchItem>
 }
 
@@ -864,11 +939,17 @@ export type UserCreateInput = {
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
     sections?: Maybe<SectionCreateManyWithoutSectionsInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
 }
 
 export type UserCreateOneWithoutOwnerInput = {
     create?: Maybe<UserCreateWithoutCollectionsInput>
+    connect?: Maybe<UserWhereUniqueInput>
+}
+
+export type UserCreateOneWithoutUserInput = {
+    create?: Maybe<UserCreateWithoutInboxedItemsInput>
     connect?: Maybe<UserWhereUniqueInput>
 }
 
@@ -887,6 +968,25 @@ export type UserCreateWithoutCollectionsInput = {
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
     sections?: Maybe<SectionCreateManyWithoutSectionsInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
+}
+
+export type UserCreateWithoutInboxedItemsInput = {
+    id?: Maybe<Scalars['ID']>
+    authUserId?: Maybe<Scalars['String']>
+    slug: Scalars['String']
+    createdAt?: Maybe<Scalars['DateTime']>
+    firstname: Scalars['String']
+    pictureUrl: Scalars['String']
+    biography: Scalars['String']
+    linkedin?: Maybe<Scalars['String']>
+    github?: Maybe<Scalars['String']>
+    mail?: Maybe<Scalars['String']>
+    youtube?: Maybe<Scalars['String']>
+    website?: Maybe<Scalars['String']>
+    label?: Maybe<Scalars['String']>
+    sections?: Maybe<SectionCreateManyWithoutSectionsInput>
+    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
 }
 
 export type UserCreateWithoutSectionsInput = {
@@ -903,6 +1003,7 @@ export type UserCreateWithoutSectionsInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
 }
 
@@ -920,6 +1021,15 @@ export type UserUpdateOneRequiredWithoutSectionsInput = {
     upsert?: Maybe<UserUpsertWithoutSectionsInput>
 }
 
+export type UserUpdateOneWithoutInboxedItemsInput = {
+    create?: Maybe<UserCreateWithoutInboxedItemsInput>
+    connect?: Maybe<UserWhereUniqueInput>
+    disconnect?: Maybe<Scalars['Boolean']>
+    delete?: Maybe<Scalars['Boolean']>
+    update?: Maybe<UserUpdateWithoutInboxedItemsDataInput>
+    upsert?: Maybe<UserUpsertWithoutInboxedItemsInput>
+}
+
 export type UserUpdateWithoutCollectionsDataInput = {
     id?: Maybe<Scalars['ID']>
     authUserId?: Maybe<Scalars['String']>
@@ -935,6 +1045,25 @@ export type UserUpdateWithoutCollectionsDataInput = {
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
     sections?: Maybe<SectionUpdateManyWithoutOwnerInput>
+    inboxedItems?: Maybe<ItemUpdateManyWithoutUserInput>
+}
+
+export type UserUpdateWithoutInboxedItemsDataInput = {
+    id?: Maybe<Scalars['ID']>
+    authUserId?: Maybe<Scalars['String']>
+    slug?: Maybe<Scalars['String']>
+    createdAt?: Maybe<Scalars['DateTime']>
+    firstname?: Maybe<Scalars['String']>
+    pictureUrl?: Maybe<Scalars['String']>
+    biography?: Maybe<Scalars['String']>
+    linkedin?: Maybe<Scalars['String']>
+    github?: Maybe<Scalars['String']>
+    mail?: Maybe<Scalars['String']>
+    youtube?: Maybe<Scalars['String']>
+    website?: Maybe<Scalars['String']>
+    label?: Maybe<Scalars['String']>
+    sections?: Maybe<SectionUpdateManyWithoutOwnerInput>
+    collections?: Maybe<CollectionUpdateManyWithoutOwnerInput>
 }
 
 export type UserUpdateWithoutSectionsDataInput = {
@@ -951,12 +1080,18 @@ export type UserUpdateWithoutSectionsDataInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
+    inboxedItems?: Maybe<ItemUpdateManyWithoutUserInput>
     collections?: Maybe<CollectionUpdateManyWithoutOwnerInput>
 }
 
 export type UserUpsertWithoutCollectionsInput = {
     update: UserUpdateWithoutCollectionsDataInput
     create: UserCreateWithoutCollectionsInput
+}
+
+export type UserUpsertWithoutInboxedItemsInput = {
+    update: UserUpdateWithoutInboxedItemsDataInput
+    create: UserCreateWithoutInboxedItemsInput
 }
 
 export type UserUpsertWithoutSectionsInput = {
@@ -979,6 +1114,7 @@ export type UserWhereInput = {
     website?: Maybe<NullableStringFilter>
     label?: Maybe<NullableStringFilter>
     sections?: Maybe<SectionFilter>
+    inboxedItems?: Maybe<ItemFilter>
     collections?: Maybe<CollectionFilter>
     AND?: Maybe<Array<UserWhereInput>>
     OR?: Maybe<Array<UserWhereInput>>
@@ -1072,6 +1208,14 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
             Collection,
             'id' | 'slug' | 'isDeleted'
         >
+    >
+}
+
+export type GetInboxQueryVariables = {}
+
+export type GetInboxQuery = { __typename?: 'Query' } & {
+    inbox: Array<
+        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
     >
 }
 
@@ -1702,6 +1846,62 @@ export type UnDeleteCollectionMutationResult = ApolloReactCommon.MutationResult<
 export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UnDeleteCollectionMutation,
     UnDeleteCollectionMutationVariables
+>
+export const GetInboxDocument = gql`
+    query getInbox {
+        inbox {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useGetInboxQuery__
+ *
+ * To run a query within a React component, call `useGetInboxQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetInboxQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetInboxQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetInboxQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetInboxQuery,
+        GetInboxQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<GetInboxQuery, GetInboxQueryVariables>(
+        GetInboxDocument,
+        baseOptions
+    )
+}
+export function useGetInboxLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetInboxQuery,
+        GetInboxQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<GetInboxQuery, GetInboxQueryVariables>(
+        GetInboxDocument,
+        baseOptions
+    )
+}
+export type GetInboxQueryHookResult = ReturnType<typeof useGetInboxQuery>
+export type GetInboxLazyQueryHookResult = ReturnType<
+    typeof useGetInboxLazyQuery
+>
+export type GetInboxQueryResult = ApolloReactCommon.QueryResult<
+    GetInboxQuery,
+    GetInboxQueryVariables
 >
 export const CreateItemFromUrlDocument = gql`
     mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
