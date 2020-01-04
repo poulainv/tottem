@@ -32,7 +32,7 @@ const Options: React.FunctionComponent<IOptionsProps> = ({
         <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
             <div
                 className={classNames(
-                    'mt-2 cursor-pointer w-6 rounded h-8 flex justify-center items-center hover:bg-gray-100',
+                    'cursor-pointer w-6 rounded h-8 flex justify-center items-center hover:bg-gray-100',
                     className
                 )}
             >

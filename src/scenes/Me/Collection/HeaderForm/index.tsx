@@ -38,6 +38,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                         defaultValue={collection.name}
                         onBlur={submit}
                     />
+                    <Options className="-pl-2" collectionId={collection.id} />
                 </div>
                 <TextareaAutosize
                     onChange={onChange}
@@ -50,7 +51,6 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                     onBlur={submit}
                 />
             </form>
-            <Options className="-pl-2" collectionId={collection.id} />
         </div>
     )
 }
