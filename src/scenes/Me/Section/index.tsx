@@ -25,13 +25,14 @@ export default ({ sectionId }: SectionPageProps) => {
                 title={section.title}
             />
             <div className="flex flex-row items-center">
+                <NewCollectionBtn sectionId={section.id} />
                 <Options
+                    className="ml-4"
                     collectionCount={
                         section.collections.filter(x => !x.isDeleted).length
                     }
                     sectionId={section.id}
                 />
-                <NewCollectionBtn sectionId={section.id} className="ml-4" />
             </div>
         </div>
     )
