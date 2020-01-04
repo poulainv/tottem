@@ -157,12 +157,15 @@ export default class Auth {
     }
 
     isExpired() {
-        let expiresAt = localStorage.getItem('expired_at')
+        const expiresAt = localStorage.getItem('expired_at')
         return new Date().getTime() > expiresAt
     }
 
     isLoggedIn() {
-        return localStorage.getItem('isLoggedIn')
+        const isLoggedIn = localStorage.getItem('isLoggedIn')
+        return isLoggedIn
+            ? JSON.parse(localStorage.getItem('isLoggedIn'))
+            : false
     }
 
     isAuthenticated() {
