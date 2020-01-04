@@ -27,7 +27,7 @@ export default ({ className, sectionId }: Props) => {
             <div
                 onClick={() => handleCreationCollection()}
                 className={classNames(
-                    'h-8 w-8 rounded-full text-red-700 border border-brand-700 flex justify-center items-center cursor-pointer',
+                    'h-8 w-8 text-brand-700 rounded-full border border-brand-700 hover:border-brand-900 hover:text-brand-900 flex justify-center items-center cursor-pointer',
                     className
                 )}
             >
