@@ -10,6 +10,7 @@ const DraggableItem: React.FunctionComponent<{
     item: Item
     innerRef: any
     className?: string
+    dndEnabled: boolean
 } & ModificationTrackActions> = ({
     item,
     innerRef,
@@ -17,6 +18,7 @@ const DraggableItem: React.FunctionComponent<{
     onChange,
     onSaved,
     onSaving,
+    dndEnabled,
     ...dragHandleProps
 }) => {
     const [isHover, setIsHover] = React.useState(false)
@@ -34,8 +36,8 @@ const DraggableItem: React.FunctionComponent<{
                         height={10}
                         width={10}
                         className={classNames('-ml-4', {
-                            invisible: !isHover,
-                            visible: isHover,
+                            invisible: !isHover || !dndEnabled,
+                            visible: isHover && dndEnabled,
                         })}
                     />
                 </div>

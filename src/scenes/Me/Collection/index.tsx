@@ -4,9 +4,9 @@ import { ItemType } from '../../common'
 import LoadingPage from '../../LoadingPage'
 import FilterBadges from '../FilterBadges'
 import ItemForm from '../ItemForm'
-import ItemList from '../ItemList'
+import ItemList from './ItemList'
 import HeaderForm from './HeaderForm'
-import Skeleton from '../ItemList/Skeleton'
+import Skeleton from '../ItemListView/Skeleton'
 
 interface Props {
     collectionId: string

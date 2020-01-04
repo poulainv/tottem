@@ -2,7 +2,8 @@ import * as React from 'react'
 import InboxIcon from '../../../../public/pictograms/inbox.svg'
 import { useGetInboxQuery } from '../../../generated/types'
 import FilterBadges from '../FilterBadges'
-import ItemList from '../ItemList'
+import ItemListView from '../ItemListView'
+import Skeleton from '../ItemListView/Skeleton'
 
 export default ({}) => {
     const { data, loading } = useGetInboxQuery()
@@ -23,16 +24,19 @@ export default ({}) => {
                 onFilterChange={setSelectedTypes}
             />
             <ItemForm collectionId={collection.id} className="mt-8" /> */}
-            {collection.id === undefined ? (
+            {data.inbox === undefined ? (
                 <Skeleton />
             ) : (
-                <ItemList
-                    collectionId={collection.id}
+                <ItemListView
+                    onDragEnd={() => 1}
+                    loading={loading}
+                    items={data.inbox}
                     className="mt-8"
-                    filterTypes={selectedTypes}
-                    onChange={() => dispatch('CHANGED')}
-                    onSaved={() => dispatch('SAVED')}
-                    onSaving={() => dispatch('SAVING')}
+                    filterTypes={[]}
+                    dndEnabled={false}
+                    // onChange={() => dispatch('CHANGED')}
+                    // onSaved={() => dispatch('SAVED')}
+                    // onSaving={() => dispatch('SAVING')}
                 />
             )}
         </div>

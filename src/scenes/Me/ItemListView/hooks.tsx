@@ -77,7 +77,7 @@ function reAssignPosition<T extends { position: number }>(
 
 interface DndHooksProps {
     collectionId: string
-    items: Array<ItemPreviewFragment & ItemDetailFragment>
+    items?: Array<ItemPreviewFragment & ItemDetailFragment>
 }
 
 const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
@@ -85,6 +85,10 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
 
     function onDragEnd(result: any) {
         if (!result.destination) {
+            return
+        }
+
+        if (items === undefined) {
             return
         }
 

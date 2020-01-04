@@ -10,27 +10,28 @@ import {
     ItemDetailFragment,
     ItemPreviewFragment,
 } from '../../../generated/types'
-import DraggableItem from './DraggableItem'
-import { useItemDragnDrop } from './hooks'
 import { ModificationTrackActions } from '../../common'
+import DraggableItem from './DraggableItem'
 
 interface IDraggableListProps {
     collectionId: string
     items: Array<ItemPreviewFragment & ItemDetailFragment>
     className?: string
+    dndEnabled?: boolean
+    onDragEnd: (result: any) => void
 }
 
 const DraggableList: React.FunctionComponent<IDraggableListProps &
     ModificationTrackActions> = ({
     items,
     className,
-    collectionId,
+    onDragEnd,
     onChange,
     onSaved,
     onSaving,
+    dndEnabled = true,
 }) => {
     resetServerContext()
-    const { onDragEnd } = useItemDragnDrop({ items, collectionId })
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <TransitionGroup>
@@ -49,11 +50,13 @@ const DraggableList: React.FunctionComponent<IDraggableListProps &
                                         key={item.id}
                                     >
                                         <Draggable
+                                            isDragDisabled={!dndEnabled}
                                             draggableId={item.id}
                                             index={index}
                                         >
                                             {draggable => (
                                                 <DraggableItem
+                                                    dndEnabled={dndEnabled}
                                                     key={item.id}
                                                     className="mt-4 first:mt-2 cursor-auto"
                                                     innerRef={

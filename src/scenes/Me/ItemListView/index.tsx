@@ -1,29 +1,42 @@
-import { useGetItemsQuery } from '../../../generated/types'
+import { useGetItemsQuery, Item } from '../../../generated/types'
 import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from './DraggableList'
 import Skeleton from './Skeleton'
 
 export default ({
-    collectionId,
+    items,
+    loading,
     className,
     filterTypes,
     onChange,
     onSaved,
     onSaving,
+    onDragEnd,
+    dndEnabled = true,
 }: {
-    collectionId: string
+    items?: Array<
+        Pick<
+            Item,
+            | 'title'
+            | 'id'
+            | 'imageUrl'
+            | 'author'
+            | 'type'
+            | 'isArchived'
+            | 'position'
+            | 'createdAt'
+        >
+    >
+    onDragEnd: (res: any) => void
+    loading: boolean
     className?: string
     filterTypes: ItemType[]
+    dndEnabled?: boolean
 } & ModificationTrackActions) => {
-    const { data, loading } = useGetItemsQuery({
-        variables: {
-            collectionId,
-        },
-    })
-    if (data === undefined || data.items === null || loading) {
+    if (items === undefined || loading) {
         return <Skeleton rowCount={6} />
     } else {
-        const items = data.items
+        const filteredItems = items
             .filter(x => !x.isArchived)
             .filter(i => {
                 return !filterTypes.length || filterTypes.includes(i.type)
@@ -36,12 +49,14 @@ export default ({
             .sort((a, b) => a.position - b.position)
         return (
             <DraggableList
-                items={items}
-                collectionId={collectionId}
+                items={filteredItems}
+                collectionId={'collectionId'}
                 className={className}
                 onChange={onChange}
                 onSaved={onSaved}
                 onSaving={onSaving}
+                onDragEnd={onDragEnd}
+                dndEnabled={dndEnabled}
             />
         )
     }
