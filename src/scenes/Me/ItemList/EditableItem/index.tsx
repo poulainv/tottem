@@ -56,7 +56,7 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
                     name={`itemComment`}
                     ref={register}
                     className="p-4 whitespace-pre-line resize-none w-full min-h-full outline-none focus:shadow-outline text-gray-900"
-                    placeholder="Add your note..."
+                    placeholder="Add quick note..."
                     defaultValue={item.comment === null ? '' : item.comment}
                     onChange={onFormChange}
                 />
