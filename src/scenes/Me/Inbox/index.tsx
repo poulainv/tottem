@@ -1,11 +1,13 @@
 import * as React from 'react'
 import InboxIcon from '../../../../public/pictograms/inbox.svg'
 import { useGetInboxQuery } from '../../../generated/types'
-import FilterBadges from '../FilterBadges'
 import ItemListView from '../ItemListView'
 import Skeleton from '../ItemListView/Skeleton'
+import FilterBadgesView from '../FilterBadgesView'
+import { ItemType } from '../../common'
 
 export default ({}) => {
+    const [selectedTypes, setSelectedTypes] = React.useState<ItemType[]>([])
     const { data, loading } = useGetInboxQuery()
     if (data === undefined || loading) {
         return <div>Coucou</div>
@@ -18,12 +20,13 @@ export default ({}) => {
                     Inbox
                 </h1>
             </div>
-            {/* <FilterBadges
-                className="mt-8"
-                collectionId={collectionId}
+            <FilterBadgesView
+                key={'inbox'}
+                items={data?.inbox}
                 onFilterChange={setSelectedTypes}
+                className="mt-8"
             />
-            <ItemForm collectionId={collection.id} className="mt-8" /> */}
+            {/* <ItemForm collectionId={collection.id} className="mt-8" /> */}
             {data.inbox === undefined ? (
                 <Skeleton />
             ) : (
@@ -32,7 +35,7 @@ export default ({}) => {
                     loading={loading}
                     items={data.inbox}
                     className="mt-8"
-                    filterTypes={[]}
+                    filterTypes={selectedTypes}
                     dndEnabled={false}
                     // onChange={() => dispatch('CHANGED')}
                     // onSaved={() => dispatch('SAVED')}

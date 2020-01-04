@@ -1,15 +1,16 @@
-import { ItemType } from '../common'
-import countBy from 'lodash.countby'
-import { useReducer, useEffect, Fragment } from 'react'
-import classNames from 'classnames'
-import { PictogramItems } from '../../components/PictogramItems'
 import { Tooltip } from 'antd'
-import { useGetItemsQuery } from '../../generated/types'
+import classNames from 'classnames'
+import countBy from 'lodash.countby'
+import { Fragment, useEffect, useReducer } from 'react'
+import { PictogramItems } from '../../components/PictogramItems'
+import { ItemDetailFragment, ItemPreviewFragment } from '../../generated/types'
+import { ItemType } from '../common'
 
 interface FilterBadgesProps {
+    key: string
     onFilterChange: (filter: ItemType[]) => void
-    collectionId: string
     className: string
+    items?: Array<ItemPreviewFragment & ItemDetailFragment>
 }
 
 const Badge: React.FC<{
@@ -34,16 +35,12 @@ const Badge: React.FC<{
     )
 }
 
-const useItems = (
-    collectionId: string,
-    onFilterChange: (filter: ItemType[]) => void
+const useFilters = (
+    key: string,
+    onFilterChange: (filter: ItemType[]) => void,
+    items?: Array<ItemPreviewFragment & ItemDetailFragment>
 ) => {
-    const { data } = useGetItemsQuery({
-        variables: {
-            collectionId,
-        },
-    })
-    const nonArchivedItems = data?.items?.filter(x => !x.isArchived)
+    const nonArchivedItems = items?.filter(x => !x.isArchived)
     const reducer = (state: ItemType[], action: ItemType | 'ALL') => {
         switch (action) {
             case 'ALL':
@@ -68,19 +65,21 @@ const useItems = (
         return () => {
             dispatch('ALL') // FIXME by storing filters
         }
-    }, [collectionId])
+    }, [key])
 
     return { itemsTypeCount, filters, dispatch }
 }
 
 export default ({
     onFilterChange,
-    collectionId,
+    key,
+    items,
     className,
 }: FilterBadgesProps) => {
-    const { itemsTypeCount, filters, dispatch } = useItems(
-        collectionId,
-        onFilterChange
+    const { itemsTypeCount, filters, dispatch } = useFilters(
+        key,
+        onFilterChange,
+        items
     )
 
     if (Object.keys(itemsTypeCount).length === 0) {
