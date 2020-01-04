@@ -7,8 +7,17 @@ query getSection($sectionId: ID!) {
         collections {
             id
             slug
+            updatedAt
             isDeleted
             title: name
+            items(first: 4) {
+                imageUrl
+                title
+                type
+            }
+            owner {
+                pictureUrl
+            }
         }
     }
 }

@@ -55,7 +55,7 @@ const DraggableList: React.FunctionComponent<IDraggableListProps &
                                             {draggable => (
                                                 <DraggableItem
                                                     key={item.id}
-                                                    className="mt-4 first::mt-2 cursor-auto"
+                                                    className="mt-4 first:mt-2 cursor-auto"
                                                     innerRef={
                                                         draggable.innerRef
                                                     }

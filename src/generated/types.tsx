@@ -23,6 +23,7 @@ export type Collection = {
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     createdAt: Scalars['DateTime']
+    updatedAt: Scalars['DateTime']
     isDeleted: Scalars['Boolean']
     detail?: Maybe<Scalars['String']>
     items: Array<Item>
@@ -48,6 +49,7 @@ export type CollectionCreateManyWithoutCollectionsInput = {
 export type CollectionCreateWithoutItemsInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -59,6 +61,7 @@ export type CollectionCreateWithoutItemsInput = {
 export type CollectionCreateWithoutOwnerInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -70,6 +73,7 @@ export type CollectionCreateWithoutOwnerInput = {
 export type CollectionCreateWithoutSectionInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -95,6 +99,7 @@ export type CollectionItemsWhereInput = {
 export type CollectionScalarWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
+    updatedAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
     name?: Maybe<NullableStringFilter>
     isDeleted?: Maybe<BooleanFilter>
@@ -108,6 +113,7 @@ export type CollectionScalarWhereInput = {
 export type CollectionUpdateInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -120,6 +126,7 @@ export type CollectionUpdateInput = {
 export type CollectionUpdateManyDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -167,6 +174,7 @@ export type CollectionUpdateOneWithoutItemsInput = {
 export type CollectionUpdateWithoutItemsDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -178,6 +186,7 @@ export type CollectionUpdateWithoutItemsDataInput = {
 export type CollectionUpdateWithoutOwnerDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -189,6 +198,7 @@ export type CollectionUpdateWithoutOwnerDataInput = {
 export type CollectionUpdateWithoutSectionDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -227,6 +237,7 @@ export type CollectionUpsertWithWhereUniqueWithoutSectionInput = {
 export type CollectionWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
+    updatedAt?: Maybe<DateTimeFilter>
     slug?: Maybe<StringFilter>
     name?: Maybe<NullableStringFilter>
     isDeleted?: Maybe<BooleanFilter>
@@ -1160,8 +1171,19 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
                 collections: Array<
                     { __typename?: 'Collection' } & Pick<
                         Collection,
-                        'id' | 'slug' | 'isDeleted'
-                    > & { title: Collection['name'] }
+                        'id' | 'slug' | 'updatedAt' | 'isDeleted'
+                    > & { title: Collection['name'] } & {
+                            items: Array<
+                                { __typename?: 'Item' } & Pick<
+                                    Item,
+                                    'imageUrl' | 'title' | 'type'
+                                >
+                            >
+                            owner: { __typename?: 'User' } & Pick<
+                                User,
+                                'pictureUrl'
+                            >
+                        }
                 >
             }
     >
@@ -2114,8 +2136,17 @@ export const GetSectionDocument = gql`
             collections {
                 id
                 slug
+                updatedAt
                 isDeleted
                 title: name
+                items(first: 4) {
+                    imageUrl
+                    title
+                    type
+                }
+                owner {
+                    pictureUrl
+                }
             }
         }
     }
