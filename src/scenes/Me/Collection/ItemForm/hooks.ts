@@ -7,7 +7,7 @@ import {
     useCreateItemFromSearchMutation,
     useCreateItemFromUrlMutation,
     useSearchItemLazyQuery,
-} from '../../../generated/types'
+} from '../../../../generated/types'
 
 interface ItemsFormData {
     url: string

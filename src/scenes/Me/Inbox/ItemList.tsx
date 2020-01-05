@@ -30,7 +30,7 @@ export default ({
     >
     className?: string
 } & ModificationTrackActions) => {
-    items
+    const filteredItems = items
         ?.filter(x => !x.isArchived)
         ?.filter(i => {
             return !filterTypes.length || filterTypes.includes(i.type)
@@ -42,13 +42,13 @@ export default ({
         )
         ?.sort((a, b) => a.position - b.position)
 
-    if (items === undefined || loading) {
+    if (filteredItems === undefined || loading) {
         return <Skeleton rowCount={6} />
     }
 
     return (
         <DraggableList
-            items={items}
+            items={filteredItems}
             className={className}
             onChange={onChange}
             onSaved={onSaved}

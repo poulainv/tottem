@@ -1,5 +1,13 @@
-mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
-    items: createItemFromUrl(collectionId: $collectionId, url: $url) {
+mutation CreateItemFromUrl(
+    $url: String!
+    $collectionId: String
+    $inbox: Boolean
+) {
+    items: createItemFromUrl(
+        collectionId: $collectionId
+        url: $url
+        inbox: $inbox
+    ) {
         ...ItemPreview
         ...ItemDetail
     }
@@ -8,12 +16,14 @@ mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
 mutation CreateItemFromSearch(
     $id: String!
     $kind: String!
-    $collectionId: String!
+    $collectionId: String
+    $inbox: Boolean
 ) {
     items: createItemFromSearch(
         collectionId: $collectionId
         id: $id
         kind: $kind
+        inbox: $inbox
     ) {
         ...ItemPreview
         ...ItemDetail

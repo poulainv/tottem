@@ -1,9 +1,5 @@
-import classNames from 'classnames'
 import { useReducer } from 'react'
-import Spinner from '../../../components/Spinner'
-import AddButton, { AddActions } from './AddButtonItem'
-import FormSearch from './FormSearch'
-import FormURL from './FormURL'
+import { AddActions } from '../../../components/AddButtonItem'
 
 interface StateProps {
     type: 'url' | 'search' | 'close'
@@ -12,7 +8,7 @@ interface StateProps {
     isLoading: boolean
 }
 
-const useAddItemReducer = () => {
+export const useAddItemReducer = () => {
     const initialState: StateProps = {
         type: 'search',
         searchElement: 'movie',
@@ -52,41 +48,4 @@ const useAddItemReducer = () => {
     }
 
     return useReducer(reducer, initialState)
-}
-
-export default ({
-    collectionId,
-    className,
-}: {
-    collectionId: string
-    className?: string
-}) => {
-    const [state, dispatch] = useAddItemReducer()
-
-    const FormItem =
-        state.type === 'url' ? (
-            <FormURL collectionId={collectionId} dispatch={dispatch} />
-        ) : (
-            (state.searchElement === 'book' ||
-                state.searchElement === 'movie') && (
-                <FormSearch
-                    collectionId={collectionId}
-                    searchType={state.searchElement}
-                    dispatch={dispatch}
-                />
-            )
-        )
-
-    return (
-        <div className={classNames('relative h-8', className)}>
-            <div className="absolute bottom-0 -left-4">
-                {state.isLoading ? (
-                    <Spinner size={32} />
-                ) : (
-                    <AddButton onSelect={dispatch} />
-                )}
-            </div>
-            {state.isShow && FormItem}
-        </div>
-    )
 }

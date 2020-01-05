@@ -1,26 +1,14 @@
-import { Fragment, Dispatch } from 'react'
-import { useItemUrlForm } from './hooks'
+import { Fragment } from 'react'
+import { useItemUrlForm } from '../Collection/ItemForm/hooks'
 
 export default ({
-    collectionId,
-    dispatch,
+    useForm,
+    onClose,
 }: {
-    collectionId: string
-    dispatch: Dispatch<
-        | 'url'
-        | 'search-book'
-        | 'search-movie'
-        | 'close'
-        | 'loading'
-        | 'completed'
-    >
+    useForm: ReturnType<typeof useItemUrlForm>
+    onClose: () => void
 }) => {
-    const { register, onSubmit, loading, errors } = useItemUrlForm(
-        collectionId,
-        () => dispatch('loading'),
-        () => dispatch('completed')
-    )
-
+    const { register, onSubmit, errors } = useForm
     return (
         <Fragment>
             <form
@@ -51,7 +39,7 @@ export default ({
                 <div className="ml-2">
                     <button
                         type="reset"
-                        onClick={() => dispatch('close')}
+                        onClick={onClose}
                         className="px-4 py-2 border border-brand-600 font-medium text-brand-600 h-8 rounded-sm leading-none "
                     >
                         Cancel

@@ -1,36 +1,17 @@
 import { AutoComplete } from 'antd'
 import { Fragment, Dispatch } from 'react'
-import { useItemFormSearch } from './hooks'
+import { useItemFormSearch } from '../Collection/ItemForm/hooks'
 
 export default ({
     searchType,
-    collectionId,
-    dispatch,
+    onClose,
+    useForm,
 }: {
-    searchType: 'book' | 'movie'
-    collectionId: string
-    dispatch: Dispatch<
-        | 'url'
-        | 'search-book'
-        | 'search-movie'
-        | 'close'
-        | 'loading'
-        | 'completed'
-    >
+    useForm: ReturnType<typeof useItemFormSearch>
+    searchType?: 'book' | 'movie'
+    onClose: () => void
 }) => {
-    const {
-        register,
-        onSubmit,
-        loading,
-        errors,
-        onChange,
-        dataSource,
-    } = useItemFormSearch(
-        searchType,
-        collectionId,
-        () => dispatch('loading'),
-        () => dispatch('completed')
-    )
+    const { register, onSubmit, errors, onChange, dataSource } = useForm
     return (
         <Fragment>
             <form
@@ -62,7 +43,7 @@ export default ({
                 <div className="ml-2">
                     <button
                         type="reset"
-                        onClick={() => dispatch('close')}
+                        onClick={onClose}
                         className="px-4 py-2 border border-brand-600 font-medium text-brand-600 h-8 rounded-sm leading-none "
                     >
                         Cancel

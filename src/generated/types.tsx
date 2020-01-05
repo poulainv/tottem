@@ -300,7 +300,7 @@ export type Item = {
 }
 
 export type ItemCreateManyWithoutInboxedItemsInput = {
-    create?: Maybe<Array<ItemCreateWithoutUserInput>>
+    create?: Maybe<Array<ItemCreateWithoutInboxOwnerInput>>
     connect?: Maybe<Array<ItemWhereUniqueInput>>
 }
 
@@ -324,10 +324,10 @@ export type ItemCreateWithoutCollectionInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    user?: Maybe<UserCreateOneWithoutUserInput>
+    inboxOwner?: Maybe<UserCreateOneWithoutInboxOwnerInput>
 }
 
-export type ItemCreateWithoutUserInput = {
+export type ItemCreateWithoutInboxOwnerInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
@@ -399,7 +399,7 @@ export type ItemUpdateInput = {
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
-    user?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
+    inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
 
 export type ItemUpdateManyDataInput = {
@@ -431,16 +431,16 @@ export type ItemUpdateManyWithoutCollectionInput = {
     upsert?: Maybe<Array<ItemUpsertWithWhereUniqueWithoutCollectionInput>>
 }
 
-export type ItemUpdateManyWithoutUserInput = {
-    create?: Maybe<Array<ItemCreateWithoutUserInput>>
+export type ItemUpdateManyWithoutInboxOwnerInput = {
+    create?: Maybe<Array<ItemCreateWithoutInboxOwnerInput>>
     connect?: Maybe<Array<ItemWhereUniqueInput>>
     set?: Maybe<Array<ItemWhereUniqueInput>>
     disconnect?: Maybe<Array<ItemWhereUniqueInput>>
     delete?: Maybe<Array<ItemWhereUniqueInput>>
-    update?: Maybe<Array<ItemUpdateWithWhereUniqueWithoutUserInput>>
+    update?: Maybe<Array<ItemUpdateWithWhereUniqueWithoutInboxOwnerInput>>
     updateMany?: Maybe<Array<ItemUpdateManyWithWhereNestedInput>>
     deleteMany?: Maybe<Array<ItemScalarWhereInput>>
-    upsert?: Maybe<Array<ItemUpsertWithWhereUniqueWithoutUserInput>>
+    upsert?: Maybe<Array<ItemUpsertWithWhereUniqueWithoutInboxOwnerInput>>
 }
 
 export type ItemUpdateManyWithWhereNestedInput = {
@@ -463,10 +463,10 @@ export type ItemUpdateWithoutCollectionDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    user?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
+    inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
 
-export type ItemUpdateWithoutUserDataInput = {
+export type ItemUpdateWithoutInboxOwnerDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
@@ -489,9 +489,9 @@ export type ItemUpdateWithWhereUniqueWithoutCollectionInput = {
     data: ItemUpdateWithoutCollectionDataInput
 }
 
-export type ItemUpdateWithWhereUniqueWithoutUserInput = {
+export type ItemUpdateWithWhereUniqueWithoutInboxOwnerInput = {
     where: ItemWhereUniqueInput
-    data: ItemUpdateWithoutUserDataInput
+    data: ItemUpdateWithoutInboxOwnerDataInput
 }
 
 export type ItemUpsertWithWhereUniqueWithoutCollectionInput = {
@@ -500,10 +500,10 @@ export type ItemUpsertWithWhereUniqueWithoutCollectionInput = {
     create: ItemCreateWithoutCollectionInput
 }
 
-export type ItemUpsertWithWhereUniqueWithoutUserInput = {
+export type ItemUpsertWithWhereUniqueWithoutInboxOwnerInput = {
     where: ItemWhereUniqueInput
-    update: ItemUpdateWithoutUserDataInput
-    create: ItemCreateWithoutUserInput
+    update: ItemUpdateWithoutInboxOwnerDataInput
+    create: ItemCreateWithoutInboxOwnerInput
 }
 
 export type ItemWhereInput = {
@@ -525,7 +525,7 @@ export type ItemWhereInput = {
     OR?: Maybe<Array<ItemWhereInput>>
     NOT?: Maybe<Array<ItemWhereInput>>
     collection?: Maybe<CollectionWhereInput>
-    user?: Maybe<UserWhereInput>
+    inboxOwner?: Maybe<UserWhereInput>
 }
 
 export type ItemWhereUniqueInput = {
@@ -581,7 +581,8 @@ export type MutationChangeItemPositionArgs = {
 export type MutationCreateItemFromSearchArgs = {
     id: Scalars['String']
     kind: Scalars['String']
-    collectionId: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
 }
 
 export type MutationCreateItemFromUrlArgs = {
@@ -939,17 +940,17 @@ export type UserCreateInput = {
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
     sections?: Maybe<SectionCreateManyWithoutSectionsInput>
-    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
+}
+
+export type UserCreateOneWithoutInboxOwnerInput = {
+    create?: Maybe<UserCreateWithoutInboxedItemsInput>
+    connect?: Maybe<UserWhereUniqueInput>
 }
 
 export type UserCreateOneWithoutOwnerInput = {
     create?: Maybe<UserCreateWithoutCollectionsInput>
-    connect?: Maybe<UserWhereUniqueInput>
-}
-
-export type UserCreateOneWithoutUserInput = {
-    create?: Maybe<UserCreateWithoutInboxedItemsInput>
     connect?: Maybe<UserWhereUniqueInput>
 }
 
@@ -1003,8 +1004,8 @@ export type UserCreateWithoutSectionsInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
     collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
 }
 
 export type UserUpdateOneRequiredWithoutCollectionsInput = {
@@ -1045,7 +1046,7 @@ export type UserUpdateWithoutCollectionsDataInput = {
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
     sections?: Maybe<SectionUpdateManyWithoutOwnerInput>
-    inboxedItems?: Maybe<ItemUpdateManyWithoutUserInput>
+    inboxedItems?: Maybe<ItemUpdateManyWithoutInboxOwnerInput>
 }
 
 export type UserUpdateWithoutInboxedItemsDataInput = {
@@ -1080,8 +1081,8 @@ export type UserUpdateWithoutSectionsDataInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    inboxedItems?: Maybe<ItemUpdateManyWithoutUserInput>
     collections?: Maybe<CollectionUpdateManyWithoutOwnerInput>
+    inboxedItems?: Maybe<ItemUpdateManyWithoutInboxOwnerInput>
 }
 
 export type UserUpsertWithoutCollectionsInput = {
@@ -1114,8 +1115,8 @@ export type UserWhereInput = {
     website?: Maybe<NullableStringFilter>
     label?: Maybe<NullableStringFilter>
     sections?: Maybe<SectionFilter>
-    inboxedItems?: Maybe<ItemFilter>
     collections?: Maybe<CollectionFilter>
+    inboxedItems?: Maybe<ItemFilter>
     AND?: Maybe<Array<UserWhereInput>>
     OR?: Maybe<Array<UserWhereInput>>
     NOT?: Maybe<Array<UserWhereInput>>
@@ -1155,6 +1156,41 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
                     >
                 >
             } & CollectionBasicFragment
+    >
+}
+
+export type CreateItemFromUrlMutationVariables = {
+    url: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
+}
+
+export type CreateItemFromUrlMutation = { __typename?: 'Mutation' } & {
+    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+}
+
+export type CreateItemFromSearchMutationVariables = {
+    id: Scalars['String']
+    kind: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
+}
+
+export type CreateItemFromSearchMutation = { __typename?: 'Mutation' } & {
+    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+}
+
+export type SearchItemQueryVariables = {
+    query: Scalars['String']
+    kind: Scalars['String']
+}
+
+export type SearchItemQuery = { __typename?: 'Query' } & {
+    search: Array<
+        { __typename?: 'SearchItem' } & Pick<
+            SearchItem,
+            'id' | 'title' | 'author' | 'type'
+        >
     >
 }
 
@@ -1211,47 +1247,6 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
     >
 }
 
-export type GetInboxQueryVariables = {}
-
-export type GetInboxQuery = { __typename?: 'Query' } & {
-    inbox: Array<
-        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-    >
-}
-
-export type CreateItemFromUrlMutationVariables = {
-    url: Scalars['String']
-    collectionId: Scalars['String']
-}
-
-export type CreateItemFromUrlMutation = { __typename?: 'Mutation' } & {
-    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-}
-
-export type CreateItemFromSearchMutationVariables = {
-    id: Scalars['String']
-    kind: Scalars['String']
-    collectionId: Scalars['String']
-}
-
-export type CreateItemFromSearchMutation = { __typename?: 'Mutation' } & {
-    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-}
-
-export type SearchItemQueryVariables = {
-    query: Scalars['String']
-    kind: Scalars['String']
-}
-
-export type SearchItemQuery = { __typename?: 'Query' } & {
-    search: Array<
-        { __typename?: 'SearchItem' } & Pick<
-            SearchItem,
-            'id' | 'title' | 'author' | 'type'
-        >
-    >
-}
-
 export type DeleteItemMutationVariables = {
     id: Scalars['ID']
 }
@@ -1299,6 +1294,14 @@ export type GetItemsQueryVariables = {
 
 export type GetItemsQuery = { __typename?: 'Query' } & {
     items: Array<
+        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+    >
+}
+
+export type GetInboxQueryVariables = {}
+
+export type GetInboxQuery = { __typename?: 'Query' } & {
+    inbox: Array<
         { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
     >
 }
@@ -1630,6 +1633,185 @@ export type GetCollectionPageQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionPageQuery,
     GetCollectionPageQueryVariables
 >
+export const CreateItemFromUrlDocument = gql`
+    mutation CreateItemFromUrl(
+        $url: String!
+        $collectionId: String
+        $inbox: Boolean
+    ) {
+        items: createItemFromUrl(
+            collectionId: $collectionId
+            url: $url
+            inbox: $inbox
+        ) {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useCreateItemFromUrlMutation__
+ *
+ * To run a mutation, you first call `useCreateItemFromUrlMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateItemFromUrlMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createItemFromUrlMutation, { data, loading, error }] = useCreateItemFromUrlMutation({
+ *   variables: {
+ *      url: // value for 'url'
+ *      collectionId: // value for 'collectionId'
+ *      inbox: // value for 'inbox'
+ *   },
+ * });
+ */
+export function useCreateItemFromUrlMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateItemFromUrlMutation,
+        CreateItemFromUrlMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateItemFromUrlMutation,
+        CreateItemFromUrlMutationVariables
+    >(CreateItemFromUrlDocument, baseOptions)
+}
+export type CreateItemFromUrlMutationHookResult = ReturnType<
+    typeof useCreateItemFromUrlMutation
+>
+export type CreateItemFromUrlMutationResult = ApolloReactCommon.MutationResult<
+    CreateItemFromUrlMutation
+>
+export type CreateItemFromUrlMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateItemFromUrlMutation,
+    CreateItemFromUrlMutationVariables
+>
+export const CreateItemFromSearchDocument = gql`
+    mutation CreateItemFromSearch(
+        $id: String!
+        $kind: String!
+        $collectionId: String
+        $inbox: Boolean
+    ) {
+        items: createItemFromSearch(
+            collectionId: $collectionId
+            id: $id
+            kind: $kind
+            inbox: $inbox
+        ) {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useCreateItemFromSearchMutation__
+ *
+ * To run a mutation, you first call `useCreateItemFromSearchMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateItemFromSearchMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createItemFromSearchMutation, { data, loading, error }] = useCreateItemFromSearchMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      kind: // value for 'kind'
+ *      collectionId: // value for 'collectionId'
+ *      inbox: // value for 'inbox'
+ *   },
+ * });
+ */
+export function useCreateItemFromSearchMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateItemFromSearchMutation,
+        CreateItemFromSearchMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateItemFromSearchMutation,
+        CreateItemFromSearchMutationVariables
+    >(CreateItemFromSearchDocument, baseOptions)
+}
+export type CreateItemFromSearchMutationHookResult = ReturnType<
+    typeof useCreateItemFromSearchMutation
+>
+export type CreateItemFromSearchMutationResult = ApolloReactCommon.MutationResult<
+    CreateItemFromSearchMutation
+>
+export type CreateItemFromSearchMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateItemFromSearchMutation,
+    CreateItemFromSearchMutationVariables
+>
+export const SearchItemDocument = gql`
+    query SearchItem($query: String!, $kind: String!) {
+        search(q: $query, kind: $kind) {
+            id
+            title
+            author
+            type
+        }
+    }
+`
+
+/**
+ * __useSearchItemQuery__
+ *
+ * To run a query within a React component, call `useSearchItemQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchItemQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchItemQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      kind: // value for 'kind'
+ *   },
+ * });
+ */
+export function useSearchItemQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<SearchItemQuery, SearchItemQueryVariables>(
+        SearchItemDocument,
+        baseOptions
+    )
+}
+export function useSearchItemLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >(SearchItemDocument, baseOptions)
+}
+export type SearchItemQueryHookResult = ReturnType<typeof useSearchItemQuery>
+export type SearchItemLazyQueryHookResult = ReturnType<
+    typeof useSearchItemLazyQuery
+>
+export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
+    SearchItemQuery,
+    SearchItemQueryVariables
+>
 export const UpdateCollectionDocument = gql`
     mutation UpdateCollection(
         $collectionId: ID!
@@ -1846,229 +2028,6 @@ export type UnDeleteCollectionMutationResult = ApolloReactCommon.MutationResult<
 export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UnDeleteCollectionMutation,
     UnDeleteCollectionMutationVariables
->
-export const GetInboxDocument = gql`
-    query getInbox {
-        inbox {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useGetInboxQuery__
- *
- * To run a query within a React component, call `useGetInboxQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetInboxQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetInboxQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetInboxQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetInboxQuery,
-        GetInboxQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<GetInboxQuery, GetInboxQueryVariables>(
-        GetInboxDocument,
-        baseOptions
-    )
-}
-export function useGetInboxLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetInboxQuery,
-        GetInboxQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<GetInboxQuery, GetInboxQueryVariables>(
-        GetInboxDocument,
-        baseOptions
-    )
-}
-export type GetInboxQueryHookResult = ReturnType<typeof useGetInboxQuery>
-export type GetInboxLazyQueryHookResult = ReturnType<
-    typeof useGetInboxLazyQuery
->
-export type GetInboxQueryResult = ApolloReactCommon.QueryResult<
-    GetInboxQuery,
-    GetInboxQueryVariables
->
-export const CreateItemFromUrlDocument = gql`
-    mutation CreateItemFromUrl($url: String!, $collectionId: String!) {
-        items: createItemFromUrl(collectionId: $collectionId, url: $url) {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useCreateItemFromUrlMutation__
- *
- * To run a mutation, you first call `useCreateItemFromUrlMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateItemFromUrlMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createItemFromUrlMutation, { data, loading, error }] = useCreateItemFromUrlMutation({
- *   variables: {
- *      url: // value for 'url'
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useCreateItemFromUrlMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateItemFromUrlMutation,
-        CreateItemFromUrlMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateItemFromUrlMutation,
-        CreateItemFromUrlMutationVariables
-    >(CreateItemFromUrlDocument, baseOptions)
-}
-export type CreateItemFromUrlMutationHookResult = ReturnType<
-    typeof useCreateItemFromUrlMutation
->
-export type CreateItemFromUrlMutationResult = ApolloReactCommon.MutationResult<
-    CreateItemFromUrlMutation
->
-export type CreateItemFromUrlMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateItemFromUrlMutation,
-    CreateItemFromUrlMutationVariables
->
-export const CreateItemFromSearchDocument = gql`
-    mutation CreateItemFromSearch(
-        $id: String!
-        $kind: String!
-        $collectionId: String!
-    ) {
-        items: createItemFromSearch(
-            collectionId: $collectionId
-            id: $id
-            kind: $kind
-        ) {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useCreateItemFromSearchMutation__
- *
- * To run a mutation, you first call `useCreateItemFromSearchMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateItemFromSearchMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createItemFromSearchMutation, { data, loading, error }] = useCreateItemFromSearchMutation({
- *   variables: {
- *      id: // value for 'id'
- *      kind: // value for 'kind'
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useCreateItemFromSearchMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateItemFromSearchMutation,
-        CreateItemFromSearchMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateItemFromSearchMutation,
-        CreateItemFromSearchMutationVariables
-    >(CreateItemFromSearchDocument, baseOptions)
-}
-export type CreateItemFromSearchMutationHookResult = ReturnType<
-    typeof useCreateItemFromSearchMutation
->
-export type CreateItemFromSearchMutationResult = ApolloReactCommon.MutationResult<
-    CreateItemFromSearchMutation
->
-export type CreateItemFromSearchMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateItemFromSearchMutation,
-    CreateItemFromSearchMutationVariables
->
-export const SearchItemDocument = gql`
-    query SearchItem($query: String!, $kind: String!) {
-        search(q: $query, kind: $kind) {
-            id
-            title
-            author
-            type
-        }
-    }
-`
-
-/**
- * __useSearchItemQuery__
- *
- * To run a query within a React component, call `useSearchItemQuery` and pass it any options that fit your needs.
- * When your component renders, `useSearchItemQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSearchItemQuery({
- *   variables: {
- *      query: // value for 'query'
- *      kind: // value for 'kind'
- *   },
- * });
- */
-export function useSearchItemQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<SearchItemQuery, SearchItemQueryVariables>(
-        SearchItemDocument,
-        baseOptions
-    )
-}
-export function useSearchItemLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >(SearchItemDocument, baseOptions)
-}
-export type SearchItemQueryHookResult = ReturnType<typeof useSearchItemQuery>
-export type SearchItemLazyQueryHookResult = ReturnType<
-    typeof useSearchItemLazyQuery
->
-export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
-    SearchItemQuery,
-    SearchItemQueryVariables
 >
 export const DeleteItemDocument = gql`
     mutation deleteItem($id: ID!) {
@@ -2325,6 +2284,62 @@ export type GetItemsLazyQueryHookResult = ReturnType<
 export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
     GetItemsQuery,
     GetItemsQueryVariables
+>
+export const GetInboxDocument = gql`
+    query getInbox {
+        inbox {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useGetInboxQuery__
+ *
+ * To run a query within a React component, call `useGetInboxQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetInboxQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetInboxQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetInboxQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetInboxQuery,
+        GetInboxQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<GetInboxQuery, GetInboxQueryVariables>(
+        GetInboxDocument,
+        baseOptions
+    )
+}
+export function useGetInboxLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetInboxQuery,
+        GetInboxQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<GetInboxQuery, GetInboxQueryVariables>(
+        GetInboxDocument,
+        baseOptions
+    )
+}
+export type GetInboxQueryHookResult = ReturnType<typeof useGetInboxQuery>
+export type GetInboxLazyQueryHookResult = ReturnType<
+    typeof useGetInboxLazyQuery
+>
+export type GetInboxQueryResult = ApolloReactCommon.QueryResult<
+    GetInboxQuery,
+    GetInboxQueryVariables
 >
 export const GetSectionDocument = gql`
     query getSection($sectionId: ID!) {

@@ -5,6 +5,7 @@ import ItemList from './ItemList'
 import Skeleton from '../DraggableList/Skeleton'
 import FilterBadgesView from '../FilterBadgesView'
 import { ItemType } from '../../common'
+import ItemForm from './ItemForm'
 
 interface InboxProps {
     dispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
@@ -30,7 +31,7 @@ export default ({ dispatch }: InboxProps) => {
                 onFilterChange={setSelectedTypes}
                 className="mt-8"
             />
-            {/* <ItemForm collectionId={collection.id} className="mt-8" /> */}
+            <ItemForm className="mt-8" />
             {data.inbox === undefined ? (
                 <Skeleton />
             ) : (

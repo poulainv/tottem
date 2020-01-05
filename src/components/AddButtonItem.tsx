@@ -1,9 +1,9 @@
 import { Dropdown, Menu } from 'antd'
 import { Dispatch } from 'react'
-import PlusIcon from '../../../../public/pictograms/plus.svg'
-import LinkIcon from '../../../../public/pictograms/link.svg'
-import BookIcon from '../../../components/PictogramItems/book.svg'
-import MovieIcon from '../../../components/PictogramItems/movie.svg'
+import PlusIcon from '../../public/pictograms/plus.svg'
+import LinkIcon from '../../public/pictograms/link.svg'
+import BookIcon from '../components/PictogramItems/book.svg'
+import MovieIcon from '../components/PictogramItems/movie.svg'
 
 export type AddActions = 'url' | 'search-book' | 'search-movie'
 
