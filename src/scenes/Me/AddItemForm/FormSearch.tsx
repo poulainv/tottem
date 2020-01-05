@@ -1,5 +1,5 @@
 import { AutoComplete } from 'antd'
-import { Fragment, Dispatch } from 'react'
+import { Fragment } from 'react'
 import { useItemFormSearch } from '../Collection/ItemForm/hooks'
 
 export default ({
@@ -50,9 +50,7 @@ export default ({
                     </button>
                 </div>
             </form>
-            <p className="text-red-700 mt-2">
-                {errors.url && errors.url.message}
-            </p>
+            <p className="text-red-700 mt-2">{errors.title?.message}</p>
         </Fragment>
     )
 }

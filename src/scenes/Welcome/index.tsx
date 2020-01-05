@@ -4,7 +4,7 @@ import { Box } from 'grommet'
 import { NextSeo } from 'next-seo/lib'
 import { useRouter } from 'next/router'
 import * as React from 'react'
-import useForm from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import { Layout, PageBox } from '../../components/Layout'
 import {
