@@ -17,17 +17,17 @@ interface IDraggableListProps {
     items: Array<ItemPreviewFragment & ItemDetailFragment>
     className?: string
     dndEnabled?: boolean
-    onDragEnd: (result: any) => void
+    onDragEnd?: (result: any) => void
 }
 
 const DraggableList: React.FunctionComponent<IDraggableListProps &
     ModificationTrackActions> = ({
     items,
     className,
-    onDragEnd,
     onChange,
     onSaved,
     onSaving,
+    onDragEnd = () => 1,
     dndEnabled = true,
 }) => {
     resetServerContext()

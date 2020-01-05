@@ -1,29 +1,36 @@
 import * as React from 'react'
-import { useGetItemsQuery } from '../../../generated/types'
+import { Item } from '../../../generated/types'
 import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from '../DraggableList'
-import { useItemDragnDrop } from '../DraggableList/hooks'
 import Skeleton from '../DraggableList/Skeleton'
 
 export default ({
-    collectionId,
+    items,
+    loading,
     className,
     filterTypes,
     onChange,
     onSaved,
     onSaving,
 }: {
-    collectionId: string
-    className?: string
+    loading: boolean
     filterTypes: ItemType[]
+    items?: Array<
+        Pick<
+            Item,
+            | 'title'
+            | 'id'
+            | 'imageUrl'
+            | 'author'
+            | 'type'
+            | 'isArchived'
+            | 'position'
+            | 'createdAt'
+        >
+    >
+    className?: string
 } & ModificationTrackActions) => {
-    const { data, loading } = useGetItemsQuery({
-        variables: {
-            collectionId,
-        },
-    })
-
-    const items = data?.items
+    items
         ?.filter(x => !x.isArchived)
         ?.filter(i => {
             return !filterTypes.length || filterTypes.includes(i.type)
@@ -34,8 +41,6 @@ export default ({
                 new Date(a.createdAt).getTime()
         )
         ?.sort((a, b) => a.position - b.position)
-
-    const { onDragEnd } = useItemDragnDrop({ items, collectionId })
 
     if (items === undefined || loading) {
         return <Skeleton rowCount={6} />
@@ -48,8 +53,7 @@ export default ({
             onChange={onChange}
             onSaved={onSaved}
             onSaving={onSaving}
-            onDragEnd={onDragEnd}
-            dndEnabled={true}
+            dndEnabled={false}
         />
     )
 }

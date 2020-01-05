@@ -1,8 +1,8 @@
 import * as React from 'react'
 import InboxIcon from '../../../../public/pictograms/inbox.svg'
 import { useGetInboxQuery } from '../../../generated/types'
-import ItemListView from '../ItemListView'
-import Skeleton from '../ItemListView/Skeleton'
+import ItemList from './ItemList'
+import Skeleton from '../DraggableList/Skeleton'
 import FilterBadgesView from '../FilterBadgesView'
 import { ItemType } from '../../common'
 
@@ -30,13 +30,11 @@ export default ({}) => {
             {data.inbox === undefined ? (
                 <Skeleton />
             ) : (
-                <ItemListView
-                    onDragEnd={() => 1}
+                <ItemList
                     loading={loading}
                     items={data.inbox}
                     className="mt-8"
                     filterTypes={selectedTypes}
-                    dndEnabled={false}
                     // onChange={() => dispatch('CHANGED')}
                     // onSaved={() => dispatch('SAVED')}
                     // onSaving={() => dispatch('SAVING')}

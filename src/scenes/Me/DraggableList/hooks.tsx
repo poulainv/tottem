@@ -96,8 +96,10 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
             return
         }
 
+        console.log(result.source.index)
+        console.log(result.destination.index)
         const optimisticReAssignPosition = reAssignPosition(
-            items,
+            items.filter(x => !x.isArchived),
             result.source.index,
             result.destination.index
         )
@@ -119,6 +121,19 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
                 }),
             },
         })
+
+        console.log(
+            optimisticReAssignPosition.map(x => {
+                return {
+                    id: x.id,
+                    position: x.position,
+                    title: x.title,
+                    __typename: 'Item',
+                }
+            })
+        )
+
+        return optimisticReAssignPosition
     }
 
     return { onDragEnd }
