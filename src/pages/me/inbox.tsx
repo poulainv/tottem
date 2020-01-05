@@ -9,7 +9,11 @@ import Layout from '../../scenes/Me/Layout'
 const InboxPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
-    return <Layout loggedInUser={loggedInUser}>{_ => <Inbox />}</Layout>
+    return (
+        <Layout loggedInUser={loggedInUser}>
+            {dispatch => <Inbox dispatch={dispatch} />}
+        </Layout>
+    )
 }
 
 InboxPage.getInitialProps = async (ctx: NextPageContext) => {

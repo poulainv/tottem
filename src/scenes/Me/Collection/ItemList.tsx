@@ -49,7 +49,7 @@ export default ({
             onSaved={onSaved}
             onSaving={onSaving}
             onDragEnd={onDragEnd}
-            dndEnabled={true}
+            dndEnabled={!filterTypes.length} // dnd is disabled when filters are selected
         />
     )
 }

@@ -6,7 +6,11 @@ import Skeleton from '../DraggableList/Skeleton'
 import FilterBadgesView from '../FilterBadgesView'
 import { ItemType } from '../../common'
 
-export default ({}) => {
+interface InboxProps {
+    dispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
+}
+
+export default ({ dispatch }: InboxProps) => {
     const [selectedTypes, setSelectedTypes] = React.useState<ItemType[]>([])
     const { data, loading } = useGetInboxQuery()
     if (data === undefined || loading) {
@@ -35,9 +39,9 @@ export default ({}) => {
                     items={data.inbox}
                     className="mt-8"
                     filterTypes={selectedTypes}
-                    // onChange={() => dispatch('CHANGED')}
-                    // onSaved={() => dispatch('SAVED')}
-                    // onSaving={() => dispatch('SAVING')}
+                    onChange={() => dispatch('CHANGED')}
+                    onSaved={() => dispatch('SAVED')}
+                    onSaving={() => dispatch('SAVING')}
                 />
             )}
         </div>
