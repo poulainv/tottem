@@ -21,7 +21,7 @@ export default ({
     })
     return (
         <FilterBadgesView
-            key={collectionId}
+            listId={collectionId}
             items={data?.items}
             onFilterChange={onFilterChange}
             className={className}

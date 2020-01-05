@@ -7,7 +7,7 @@ import { ItemDetailFragment, ItemPreviewFragment } from '../../generated/types'
 import { ItemType } from '../common'
 
 interface FilterBadgesProps {
-    key: string
+    listId: string
     onFilterChange: (filter: ItemType[]) => void
     className: string
     items?: Array<ItemPreviewFragment & ItemDetailFragment>
@@ -36,7 +36,7 @@ const Badge: React.FC<{
 }
 
 const useFilters = (
-    key: string,
+    listId: string,
     onFilterChange: (filter: ItemType[]) => void,
     items?: Array<ItemPreviewFragment & ItemDetailFragment>
 ) => {
@@ -65,19 +65,19 @@ const useFilters = (
         return () => {
             dispatch('ALL') // FIXME by storing filters
         }
-    }, [key])
+    }, [listId])
 
     return { itemsTypeCount, filters, dispatch }
 }
 
 export default ({
     onFilterChange,
-    key,
+    listId,
     items,
     className,
 }: FilterBadgesProps) => {
     const { itemsTypeCount, filters, dispatch } = useFilters(
-        key,
+        listId,
         onFilterChange,
         items
     )

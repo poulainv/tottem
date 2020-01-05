@@ -21,7 +21,7 @@ export default ({}) => {
                 </h1>
             </div>
             <FilterBadgesView
-                key={'inbox'}
+                listId={'inbox'}
                 items={data?.inbox}
                 onFilterChange={setSelectedTypes}
                 className="mt-8"
