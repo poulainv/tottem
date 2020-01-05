@@ -14,7 +14,6 @@ import { ModificationTrackActions } from '../../common'
 import DraggableItem from './DraggableItem'
 
 interface IDraggableListProps {
-    collectionId: string
     items: Array<ItemPreviewFragment & ItemDetailFragment>
     className?: string
     dndEnabled?: boolean

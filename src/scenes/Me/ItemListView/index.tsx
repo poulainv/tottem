@@ -50,7 +50,6 @@ export default ({
         return (
             <DraggableList
                 items={filteredItems}
-                collectionId={'collectionId'}
                 className={className}
                 onChange={onChange}
                 onSaved={onSaved}
