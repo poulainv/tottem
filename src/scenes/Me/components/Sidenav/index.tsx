@@ -9,6 +9,14 @@ export default ({ authUserId }: { authUserId: string }) => {
     })
     const { asPath } = useRouter()
     return (
-        <View sections={data?.sections} inboxCount={12} currentHref={asPath} />
+        <View
+            sections={data?.sections?.sort(
+                (a, b) =>
+                    new Date(a.createdAt).getTime() -
+                    new Date(b.createdAt).getTime()
+            )}
+            inboxCount={12}
+            currentHref={asPath}
+        />
     )
 }

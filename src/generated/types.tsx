@@ -540,10 +540,6 @@ export type Mutation = {
     updateOneCollection?: Maybe<Collection>
     createEmptyCollection: Collection
     createEmptySection: Section
-    /**
-     * Mutation changing the position of an item from his $oldIndex to the $newIndex.
-     *             It takes *indexes* (not position) and return changed items with new position.
-     **/
     changeItemPosition: Array<Item>
     createItemFromSearch: Item
     createItemFromUrl: Item
@@ -646,6 +642,7 @@ export type QueryItemsArgs = {
 
 export type QuerySectionsArgs = {
     where?: Maybe<QuerySectionsWhereInput>
+    orderBy?: Maybe<QuerySectionsOrderByInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
@@ -687,6 +684,10 @@ export type QueryItemsWhereInput = {
     collection?: Maybe<CollectionWhereInput>
 }
 
+export type QuerySectionsOrderByInput = {
+    createdAt?: Maybe<OrderByArg>
+}
+
 export type QuerySectionsWhereInput = {
     isDeleted?: Maybe<BooleanFilter>
     owner?: Maybe<UserWhereInput>
@@ -706,6 +707,7 @@ export type Section = {
     slug: Scalars['String']
     index: Scalars['Int']
     name?: Maybe<Scalars['String']>
+    createdAt: Scalars['DateTime']
     collections: Array<Collection>
     isExpanded: Scalars['Boolean']
 }
@@ -1159,41 +1161,6 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
     >
 }
 
-export type CreateItemFromUrlMutationVariables = {
-    url: Scalars['String']
-    collectionId?: Maybe<Scalars['String']>
-    inbox?: Maybe<Scalars['Boolean']>
-}
-
-export type CreateItemFromUrlMutation = { __typename?: 'Mutation' } & {
-    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-}
-
-export type CreateItemFromSearchMutationVariables = {
-    id: Scalars['String']
-    kind: Scalars['String']
-    collectionId?: Maybe<Scalars['String']>
-    inbox?: Maybe<Scalars['Boolean']>
-}
-
-export type CreateItemFromSearchMutation = { __typename?: 'Mutation' } & {
-    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
-}
-
-export type SearchItemQueryVariables = {
-    query: Scalars['String']
-    kind: Scalars['String']
-}
-
-export type SearchItemQuery = { __typename?: 'Query' } & {
-    search: Array<
-        { __typename?: 'SearchItem' } & Pick<
-            SearchItem,
-            'id' | 'title' | 'author' | 'type'
-        >
-    >
-}
-
 export type UpdateCollectionMutationVariables = {
     collectionId: Scalars['ID']
     slug: Scalars['String']
@@ -1244,57 +1211,6 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
             Collection,
             'id' | 'slug' | 'isDeleted'
         >
-    >
-}
-
-export type DeleteItemMutationVariables = {
-    id: Scalars['ID']
-}
-
-export type DeleteItemMutation = { __typename?: 'Mutation' } & {
-    updateOneItem: Maybe<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
-    >
-}
-
-export type SaveCommentItemMutationVariables = {
-    id: Scalars['ID']
-    comment: Scalars['String']
-}
-
-export type SaveCommentItemMutation = { __typename?: 'Mutation' } & {
-    updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id' | 'comment'>>
-}
-
-export type UndeleteItemMutationVariables = {
-    id: Scalars['ID']
-}
-
-export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
-    updateOneItem: Maybe<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
-    >
-}
-
-export type ChangePositionMutationVariables = {
-    oldIndex: Scalars['Int']
-    newIndex: Scalars['Int']
-    collectionId: Scalars['ID']
-}
-
-export type ChangePositionMutation = { __typename?: 'Mutation' } & {
-    changeItemPosition: Array<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'position'>
-    >
-}
-
-export type GetItemsQueryVariables = {
-    collectionId: Scalars['String']
-}
-
-export type GetItemsQuery = { __typename?: 'Query' } & {
-    items: Array<
-        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
     >
 }
 
@@ -1372,15 +1288,102 @@ export type CreateEmptyCollectionMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type CreateItemFromUrlMutationVariables = {
+    url: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
+}
+
+export type CreateItemFromUrlMutation = { __typename?: 'Mutation' } & {
+    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+}
+
+export type CreateItemFromSearchMutationVariables = {
+    id: Scalars['String']
+    kind: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
+    inbox?: Maybe<Scalars['Boolean']>
+}
+
+export type CreateItemFromSearchMutation = { __typename?: 'Mutation' } & {
+    items: { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+}
+
+export type SearchItemQueryVariables = {
+    query: Scalars['String']
+    kind: Scalars['String']
+}
+
+export type SearchItemQuery = { __typename?: 'Query' } & {
+    search: Array<
+        { __typename?: 'SearchItem' } & Pick<
+            SearchItem,
+            'id' | 'title' | 'author' | 'type'
+        >
+    >
+}
+
+export type DeleteItemMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type DeleteItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+    >
+}
+
+export type SaveCommentItemMutationVariables = {
+    id: Scalars['ID']
+    comment: Scalars['String']
+}
+
+export type SaveCommentItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id' | 'comment'>>
+}
+
+export type UndeleteItemMutationVariables = {
+    id: Scalars['ID']
+}
+
+export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
+    updateOneItem: Maybe<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+    >
+}
+
+export type ChangePositionMutationVariables = {
+    oldIndex: Scalars['Int']
+    newIndex: Scalars['Int']
+    collectionId: Scalars['ID']
+}
+
+export type ChangePositionMutation = { __typename?: 'Mutation' } & {
+    changeItemPosition: Array<
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'position'>
+    >
+}
+
+export type GetItemsQueryVariables = {
+    collectionId: Scalars['String']
+}
+
+export type GetItemsQuery = { __typename?: 'Query' } & {
+    items: Array<
+        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+    >
+}
+
 export type GetSectionsQueryVariables = {
     authUserId: Scalars['String']
 }
 
 export type GetSectionsQuery = { __typename?: 'Query' } & {
     sections: Array<
-        { __typename?: 'Section' } & Pick<Section, 'id' | 'isExpanded'> & {
-                title: Section['name']
-            } & {
+        { __typename?: 'Section' } & Pick<
+            Section,
+            'id' | 'createdAt' | 'isExpanded'
+        > & { title: Section['name'] } & {
                 collections: Array<
                     { __typename?: 'Collection' } & Pick<
                         Collection,
@@ -1633,185 +1636,6 @@ export type GetCollectionPageQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionPageQuery,
     GetCollectionPageQueryVariables
 >
-export const CreateItemFromUrlDocument = gql`
-    mutation CreateItemFromUrl(
-        $url: String!
-        $collectionId: String
-        $inbox: Boolean
-    ) {
-        items: createItemFromUrl(
-            collectionId: $collectionId
-            url: $url
-            inbox: $inbox
-        ) {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useCreateItemFromUrlMutation__
- *
- * To run a mutation, you first call `useCreateItemFromUrlMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateItemFromUrlMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createItemFromUrlMutation, { data, loading, error }] = useCreateItemFromUrlMutation({
- *   variables: {
- *      url: // value for 'url'
- *      collectionId: // value for 'collectionId'
- *      inbox: // value for 'inbox'
- *   },
- * });
- */
-export function useCreateItemFromUrlMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateItemFromUrlMutation,
-        CreateItemFromUrlMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateItemFromUrlMutation,
-        CreateItemFromUrlMutationVariables
-    >(CreateItemFromUrlDocument, baseOptions)
-}
-export type CreateItemFromUrlMutationHookResult = ReturnType<
-    typeof useCreateItemFromUrlMutation
->
-export type CreateItemFromUrlMutationResult = ApolloReactCommon.MutationResult<
-    CreateItemFromUrlMutation
->
-export type CreateItemFromUrlMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateItemFromUrlMutation,
-    CreateItemFromUrlMutationVariables
->
-export const CreateItemFromSearchDocument = gql`
-    mutation CreateItemFromSearch(
-        $id: String!
-        $kind: String!
-        $collectionId: String
-        $inbox: Boolean
-    ) {
-        items: createItemFromSearch(
-            collectionId: $collectionId
-            id: $id
-            kind: $kind
-            inbox: $inbox
-        ) {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useCreateItemFromSearchMutation__
- *
- * To run a mutation, you first call `useCreateItemFromSearchMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateItemFromSearchMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createItemFromSearchMutation, { data, loading, error }] = useCreateItemFromSearchMutation({
- *   variables: {
- *      id: // value for 'id'
- *      kind: // value for 'kind'
- *      collectionId: // value for 'collectionId'
- *      inbox: // value for 'inbox'
- *   },
- * });
- */
-export function useCreateItemFromSearchMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        CreateItemFromSearchMutation,
-        CreateItemFromSearchMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        CreateItemFromSearchMutation,
-        CreateItemFromSearchMutationVariables
-    >(CreateItemFromSearchDocument, baseOptions)
-}
-export type CreateItemFromSearchMutationHookResult = ReturnType<
-    typeof useCreateItemFromSearchMutation
->
-export type CreateItemFromSearchMutationResult = ApolloReactCommon.MutationResult<
-    CreateItemFromSearchMutation
->
-export type CreateItemFromSearchMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    CreateItemFromSearchMutation,
-    CreateItemFromSearchMutationVariables
->
-export const SearchItemDocument = gql`
-    query SearchItem($query: String!, $kind: String!) {
-        search(q: $query, kind: $kind) {
-            id
-            title
-            author
-            type
-        }
-    }
-`
-
-/**
- * __useSearchItemQuery__
- *
- * To run a query within a React component, call `useSearchItemQuery` and pass it any options that fit your needs.
- * When your component renders, `useSearchItemQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSearchItemQuery({
- *   variables: {
- *      query: // value for 'query'
- *      kind: // value for 'kind'
- *   },
- * });
- */
-export function useSearchItemQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<SearchItemQuery, SearchItemQueryVariables>(
-        SearchItemDocument,
-        baseOptions
-    )
-}
-export function useSearchItemLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        SearchItemQuery,
-        SearchItemQueryVariables
-    >(SearchItemDocument, baseOptions)
-}
-export type SearchItemQueryHookResult = ReturnType<typeof useSearchItemQuery>
-export type SearchItemLazyQueryHookResult = ReturnType<
-    typeof useSearchItemLazyQuery
->
-export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
-    SearchItemQuery,
-    SearchItemQueryVariables
->
 export const UpdateCollectionDocument = gql`
     mutation UpdateCollection(
         $collectionId: ID!
@@ -2028,262 +1852,6 @@ export type UnDeleteCollectionMutationResult = ApolloReactCommon.MutationResult<
 export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UnDeleteCollectionMutation,
     UnDeleteCollectionMutationVariables
->
-export const DeleteItemDocument = gql`
-    mutation deleteItem($id: ID!) {
-        updateOneItem(data: { isArchived: true }, where: { id: $id }) {
-            id
-            isArchived
-        }
-    }
-`
-
-/**
- * __useDeleteItemMutation__
- *
- * To run a mutation, you first call `useDeleteItemMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useDeleteItemMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [deleteItemMutation, { data, loading, error }] = useDeleteItemMutation({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useDeleteItemMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        DeleteItemMutation,
-        DeleteItemMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        DeleteItemMutation,
-        DeleteItemMutationVariables
-    >(DeleteItemDocument, baseOptions)
-}
-export type DeleteItemMutationHookResult = ReturnType<
-    typeof useDeleteItemMutation
->
-export type DeleteItemMutationResult = ApolloReactCommon.MutationResult<
-    DeleteItemMutation
->
-export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    DeleteItemMutation,
-    DeleteItemMutationVariables
->
-export const SaveCommentItemDocument = gql`
-    mutation saveCommentItem($id: ID!, $comment: String!) {
-        updateOneItem(data: { comment: $comment }, where: { id: $id }) {
-            id
-            comment
-        }
-    }
-`
-
-/**
- * __useSaveCommentItemMutation__
- *
- * To run a mutation, you first call `useSaveCommentItemMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useSaveCommentItemMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [saveCommentItemMutation, { data, loading, error }] = useSaveCommentItemMutation({
- *   variables: {
- *      id: // value for 'id'
- *      comment: // value for 'comment'
- *   },
- * });
- */
-export function useSaveCommentItemMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        SaveCommentItemMutation,
-        SaveCommentItemMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        SaveCommentItemMutation,
-        SaveCommentItemMutationVariables
-    >(SaveCommentItemDocument, baseOptions)
-}
-export type SaveCommentItemMutationHookResult = ReturnType<
-    typeof useSaveCommentItemMutation
->
-export type SaveCommentItemMutationResult = ApolloReactCommon.MutationResult<
-    SaveCommentItemMutation
->
-export type SaveCommentItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    SaveCommentItemMutation,
-    SaveCommentItemMutationVariables
->
-export const UndeleteItemDocument = gql`
-    mutation undeleteItem($id: ID!) {
-        updateOneItem(data: { isArchived: false }, where: { id: $id }) {
-            id
-            isArchived
-        }
-    }
-`
-
-/**
- * __useUndeleteItemMutation__
- *
- * To run a mutation, you first call `useUndeleteItemMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUndeleteItemMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [undeleteItemMutation, { data, loading, error }] = useUndeleteItemMutation({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useUndeleteItemMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        UndeleteItemMutation,
-        UndeleteItemMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        UndeleteItemMutation,
-        UndeleteItemMutationVariables
-    >(UndeleteItemDocument, baseOptions)
-}
-export type UndeleteItemMutationHookResult = ReturnType<
-    typeof useUndeleteItemMutation
->
-export type UndeleteItemMutationResult = ApolloReactCommon.MutationResult<
-    UndeleteItemMutation
->
-export type UndeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    UndeleteItemMutation,
-    UndeleteItemMutationVariables
->
-export const ChangePositionDocument = gql`
-    mutation changePosition(
-        $oldIndex: Int!
-        $newIndex: Int!
-        $collectionId: ID!
-    ) {
-        changeItemPosition(
-            oldIndex: $oldIndex
-            newIndex: $newIndex
-            collectionId: $collectionId
-        ) {
-            id
-            position
-        }
-    }
-`
-
-/**
- * __useChangePositionMutation__
- *
- * To run a mutation, you first call `useChangePositionMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useChangePositionMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [changePositionMutation, { data, loading, error }] = useChangePositionMutation({
- *   variables: {
- *      oldIndex: // value for 'oldIndex'
- *      newIndex: // value for 'newIndex'
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useChangePositionMutation(
-    baseOptions?: ApolloReactHooks.MutationHookOptions<
-        ChangePositionMutation,
-        ChangePositionMutationVariables
-    >
-) {
-    return ApolloReactHooks.useMutation<
-        ChangePositionMutation,
-        ChangePositionMutationVariables
-    >(ChangePositionDocument, baseOptions)
-}
-export type ChangePositionMutationHookResult = ReturnType<
-    typeof useChangePositionMutation
->
-export type ChangePositionMutationResult = ApolloReactCommon.MutationResult<
-    ChangePositionMutation
->
-export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOptions<
-    ChangePositionMutation,
-    ChangePositionMutationVariables
->
-export const GetItemsDocument = gql`
-    query getItems($collectionId: String!) {
-        items(where: { collection: { id: { equals: $collectionId } } }) {
-            ...ItemPreview
-            ...ItemDetail
-        }
-    }
-    ${ItemPreviewFragmentDoc}
-    ${ItemDetailFragmentDoc}
-`
-
-/**
- * __useGetItemsQuery__
- *
- * To run a query within a React component, call `useGetItemsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetItemsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetItemsQuery({
- *   variables: {
- *      collectionId: // value for 'collectionId'
- *   },
- * });
- */
-export function useGetItemsQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetItemsQuery,
-        GetItemsQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<GetItemsQuery, GetItemsQueryVariables>(
-        GetItemsDocument,
-        baseOptions
-    )
-}
-export function useGetItemsLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetItemsQuery,
-        GetItemsQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<GetItemsQuery, GetItemsQueryVariables>(
-        GetItemsDocument,
-        baseOptions
-    )
-}
-export type GetItemsQueryHookResult = ReturnType<typeof useGetItemsQuery>
-export type GetItemsLazyQueryHookResult = ReturnType<
-    typeof useGetItemsLazyQuery
->
-export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
-    GetItemsQuery,
-    GetItemsQueryVariables
 >
 export const GetInboxDocument = gql`
     query getInbox {
@@ -2560,6 +2128,441 @@ export type CreateEmptyCollectionMutationOptions = ApolloReactCommon.BaseMutatio
     CreateEmptyCollectionMutation,
     CreateEmptyCollectionMutationVariables
 >
+export const CreateItemFromUrlDocument = gql`
+    mutation CreateItemFromUrl(
+        $url: String!
+        $collectionId: String
+        $inbox: Boolean
+    ) {
+        items: createItemFromUrl(
+            collectionId: $collectionId
+            url: $url
+            inbox: $inbox
+        ) {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useCreateItemFromUrlMutation__
+ *
+ * To run a mutation, you first call `useCreateItemFromUrlMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateItemFromUrlMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createItemFromUrlMutation, { data, loading, error }] = useCreateItemFromUrlMutation({
+ *   variables: {
+ *      url: // value for 'url'
+ *      collectionId: // value for 'collectionId'
+ *      inbox: // value for 'inbox'
+ *   },
+ * });
+ */
+export function useCreateItemFromUrlMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateItemFromUrlMutation,
+        CreateItemFromUrlMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateItemFromUrlMutation,
+        CreateItemFromUrlMutationVariables
+    >(CreateItemFromUrlDocument, baseOptions)
+}
+export type CreateItemFromUrlMutationHookResult = ReturnType<
+    typeof useCreateItemFromUrlMutation
+>
+export type CreateItemFromUrlMutationResult = ApolloReactCommon.MutationResult<
+    CreateItemFromUrlMutation
+>
+export type CreateItemFromUrlMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateItemFromUrlMutation,
+    CreateItemFromUrlMutationVariables
+>
+export const CreateItemFromSearchDocument = gql`
+    mutation CreateItemFromSearch(
+        $id: String!
+        $kind: String!
+        $collectionId: String
+        $inbox: Boolean
+    ) {
+        items: createItemFromSearch(
+            collectionId: $collectionId
+            id: $id
+            kind: $kind
+            inbox: $inbox
+        ) {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useCreateItemFromSearchMutation__
+ *
+ * To run a mutation, you first call `useCreateItemFromSearchMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateItemFromSearchMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createItemFromSearchMutation, { data, loading, error }] = useCreateItemFromSearchMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      kind: // value for 'kind'
+ *      collectionId: // value for 'collectionId'
+ *      inbox: // value for 'inbox'
+ *   },
+ * });
+ */
+export function useCreateItemFromSearchMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateItemFromSearchMutation,
+        CreateItemFromSearchMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateItemFromSearchMutation,
+        CreateItemFromSearchMutationVariables
+    >(CreateItemFromSearchDocument, baseOptions)
+}
+export type CreateItemFromSearchMutationHookResult = ReturnType<
+    typeof useCreateItemFromSearchMutation
+>
+export type CreateItemFromSearchMutationResult = ApolloReactCommon.MutationResult<
+    CreateItemFromSearchMutation
+>
+export type CreateItemFromSearchMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateItemFromSearchMutation,
+    CreateItemFromSearchMutationVariables
+>
+export const SearchItemDocument = gql`
+    query SearchItem($query: String!, $kind: String!) {
+        search(q: $query, kind: $kind) {
+            id
+            title
+            author
+            type
+        }
+    }
+`
+
+/**
+ * __useSearchItemQuery__
+ *
+ * To run a query within a React component, call `useSearchItemQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchItemQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchItemQuery({
+ *   variables: {
+ *      query: // value for 'query'
+ *      kind: // value for 'kind'
+ *   },
+ * });
+ */
+export function useSearchItemQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<SearchItemQuery, SearchItemQueryVariables>(
+        SearchItemDocument,
+        baseOptions
+    )
+}
+export function useSearchItemLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        SearchItemQuery,
+        SearchItemQueryVariables
+    >(SearchItemDocument, baseOptions)
+}
+export type SearchItemQueryHookResult = ReturnType<typeof useSearchItemQuery>
+export type SearchItemLazyQueryHookResult = ReturnType<
+    typeof useSearchItemLazyQuery
+>
+export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
+    SearchItemQuery,
+    SearchItemQueryVariables
+>
+export const DeleteItemDocument = gql`
+    mutation deleteItem($id: ID!) {
+        updateOneItem(data: { isArchived: true }, where: { id: $id }) {
+            id
+            isArchived
+        }
+    }
+`
+
+/**
+ * __useDeleteItemMutation__
+ *
+ * To run a mutation, you first call `useDeleteItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteItemMutation, { data, loading, error }] = useDeleteItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        DeleteItemMutation,
+        DeleteItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        DeleteItemMutation,
+        DeleteItemMutationVariables
+    >(DeleteItemDocument, baseOptions)
+}
+export type DeleteItemMutationHookResult = ReturnType<
+    typeof useDeleteItemMutation
+>
+export type DeleteItemMutationResult = ApolloReactCommon.MutationResult<
+    DeleteItemMutation
+>
+export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    DeleteItemMutation,
+    DeleteItemMutationVariables
+>
+export const SaveCommentItemDocument = gql`
+    mutation saveCommentItem($id: ID!, $comment: String!) {
+        updateOneItem(data: { comment: $comment }, where: { id: $id }) {
+            id
+            comment
+        }
+    }
+`
+
+/**
+ * __useSaveCommentItemMutation__
+ *
+ * To run a mutation, you first call `useSaveCommentItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSaveCommentItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [saveCommentItemMutation, { data, loading, error }] = useSaveCommentItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      comment: // value for 'comment'
+ *   },
+ * });
+ */
+export function useSaveCommentItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        SaveCommentItemMutation,
+        SaveCommentItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        SaveCommentItemMutation,
+        SaveCommentItemMutationVariables
+    >(SaveCommentItemDocument, baseOptions)
+}
+export type SaveCommentItemMutationHookResult = ReturnType<
+    typeof useSaveCommentItemMutation
+>
+export type SaveCommentItemMutationResult = ApolloReactCommon.MutationResult<
+    SaveCommentItemMutation
+>
+export type SaveCommentItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    SaveCommentItemMutation,
+    SaveCommentItemMutationVariables
+>
+export const UndeleteItemDocument = gql`
+    mutation undeleteItem($id: ID!) {
+        updateOneItem(data: { isArchived: false }, where: { id: $id }) {
+            id
+            isArchived
+        }
+    }
+`
+
+/**
+ * __useUndeleteItemMutation__
+ *
+ * To run a mutation, you first call `useUndeleteItemMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUndeleteItemMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [undeleteItemMutation, { data, loading, error }] = useUndeleteItemMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useUndeleteItemMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        UndeleteItemMutation,
+        UndeleteItemMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        UndeleteItemMutation,
+        UndeleteItemMutationVariables
+    >(UndeleteItemDocument, baseOptions)
+}
+export type UndeleteItemMutationHookResult = ReturnType<
+    typeof useUndeleteItemMutation
+>
+export type UndeleteItemMutationResult = ApolloReactCommon.MutationResult<
+    UndeleteItemMutation
+>
+export type UndeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    UndeleteItemMutation,
+    UndeleteItemMutationVariables
+>
+export const ChangePositionDocument = gql`
+    mutation changePosition(
+        $oldIndex: Int!
+        $newIndex: Int!
+        $collectionId: ID!
+    ) {
+        changeItemPosition(
+            oldIndex: $oldIndex
+            newIndex: $newIndex
+            collectionId: $collectionId
+        ) {
+            id
+            position
+        }
+    }
+`
+
+/**
+ * __useChangePositionMutation__
+ *
+ * To run a mutation, you first call `useChangePositionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useChangePositionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [changePositionMutation, { data, loading, error }] = useChangePositionMutation({
+ *   variables: {
+ *      oldIndex: // value for 'oldIndex'
+ *      newIndex: // value for 'newIndex'
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useChangePositionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        ChangePositionMutation,
+        ChangePositionMutationVariables
+    >(ChangePositionDocument, baseOptions)
+}
+export type ChangePositionMutationHookResult = ReturnType<
+    typeof useChangePositionMutation
+>
+export type ChangePositionMutationResult = ApolloReactCommon.MutationResult<
+    ChangePositionMutation
+>
+export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    ChangePositionMutation,
+    ChangePositionMutationVariables
+>
+export const GetItemsDocument = gql`
+    query getItems($collectionId: String!) {
+        items(where: { collection: { id: { equals: $collectionId } } }) {
+            ...ItemPreview
+            ...ItemDetail
+        }
+    }
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useGetItemsQuery__
+ *
+ * To run a query within a React component, call `useGetItemsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetItemsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetItemsQuery({
+ *   variables: {
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useGetItemsQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetItemsQuery,
+        GetItemsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<GetItemsQuery, GetItemsQueryVariables>(
+        GetItemsDocument,
+        baseOptions
+    )
+}
+export function useGetItemsLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetItemsQuery,
+        GetItemsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<GetItemsQuery, GetItemsQueryVariables>(
+        GetItemsDocument,
+        baseOptions
+    )
+}
+export type GetItemsQueryHookResult = ReturnType<typeof useGetItemsQuery>
+export type GetItemsLazyQueryHookResult = ReturnType<
+    typeof useGetItemsLazyQuery
+>
+export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
+    GetItemsQuery,
+    GetItemsQueryVariables
+>
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
         sections(
@@ -2569,6 +2572,7 @@ export const GetSectionsDocument = gql`
             }
         ) {
             id
+            createdAt
             isExpanded
             title: name
             collections(where: { isDeleted: { equals: false } }) {
