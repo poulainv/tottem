@@ -3,7 +3,7 @@ import TopBar from '../../components/TopBar2'
 import { AuthenticatedUser } from '../../services/authentication'
 import { useStatusMessage } from './Collection/Status'
 import Sidenav from './Sidenav'
-import LoadingPage from '../LoadingPage'
+import NotAuthenticated from '../UtilsPage/NotAuthenticated'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'
@@ -32,6 +32,6 @@ export default ({ loggedInUser, children }: Props) => {
             </div>
         </div>
     ) : (
-        <LoadingPage />
+        <NotAuthenticated />
     )
 }

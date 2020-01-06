@@ -11,7 +11,7 @@ import { ItemType } from '../../common'
 import ItemList, { ItemListPlaceholder } from '../ItemList'
 import Headers from './CollectionHeader'
 import { useCollection } from './hooks'
-import Loading from '../../LoadingPage'
+import Loading from '../../UtilsPage/Loading'
 import { Item } from '../../../generated/types'
 import { BackButton } from '../../../components/BackButton'
 

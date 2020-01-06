@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
-import LoadingPage from '../../LoadingPage'
+import LoadingPage from '../../UtilsPage/Loading'
 import FilterBadges from './FilterBadges'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'

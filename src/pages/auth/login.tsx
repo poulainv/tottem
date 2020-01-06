@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { auth0 } from '../../services/authentication'
 import { NextPage } from 'next'
-import LoadingPage from '../../scenes/LoadingPage'
+import LoadingPage from '../../scenes/UtilsPage/Loading'
 
 const Login: NextPage = () => {
     useEffect(() => {

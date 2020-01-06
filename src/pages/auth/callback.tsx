@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import { useGetUserByAuthIdLazyQuery } from '../../generated/types'
 import { auth0 } from '../../services/authentication'
-import LoadingPage from '../../scenes/LoadingPage'
+import LoadingPage from '../../scenes/UtilsPage/Loading'
 import { withApollo } from '../../services/lib/apollo'
 
 const Callback: React.FunctionComponent = props => {

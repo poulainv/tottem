@@ -1,7 +1,7 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
 import '../../index.css'
-import LoadingPage from '../../scenes/LoadingPage'
+import LoadingPage from '../../scenes/UtilsPage/Loading'
 import Settings from '../../scenes/Me/Settings'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'
