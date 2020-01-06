@@ -21,8 +21,6 @@ export default ({
     currentHref,
     collections,
 }: SectionGroupProps) => {
-    const bgBrand200 = `bg-brand-100`
-
     const [setExpanded] = useUpdateSectionExpandedMutation()
 
     const handleExpand = (e: MouseEvent) => {
@@ -44,8 +42,8 @@ export default ({
             <Link href="/me/s/[sectionId]" as={sectionHref}>
                 <a
                     className={classNames(
-                        `flex justify-between items-center pl-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer font-semibold`,
-                        { bgBrand200: currentHref === sectionHref }
+                        `flex justify-between items-center pl-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer font-semibold`,
+                        { 'bg-brand-100': currentHref === sectionHref }
                     )}
                 >
                     <div className="flex flex-row items-center">
@@ -88,8 +86,13 @@ export default ({
                                 as={collectionHref}
                             >
                                 <a
-                                    className={`block px-6 py-1 rounded hover:${bgBrand200} cursor-pointer whitespace-no-wrap truncate mb-1 font-normal ${currentHref ===
-                                        collectionHref && bgBrand200}`}
+                                    className={classNames(
+                                        `block px-6 py-1 rounded hover:bg-brand-100 cursor-pointer whitespace-no-wrap truncate mb-1 font-normal`,
+                                        {
+                                            'bg-brand-100':
+                                                currentHref === collectionHref,
+                                        }
+                                    )}
                                 >
                                     {collection.title === null ||
                                     collection.title === ''
