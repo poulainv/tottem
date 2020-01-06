@@ -4,8 +4,8 @@ import {
     ItemPreviewFragment,
     ItemDetailFragment,
     useChangePositionMutation,
-} from '../../../generated/types'
-import { StyledButton } from '../../../components/Button'
+} from '../../../../generated/types'
+import { StyledButton } from '../../../../components/Button'
 import notification from 'antd/lib/notification'
 
 const useDeleteItem = () => {

@@ -4,7 +4,7 @@ import '../index.css'
 import Inbox from '../scenes/Me/Inbox'
 import { AuthenticatedUser, getUserAuth } from '../services/authentication'
 import { withApollo } from '../services/lib/apollo'
-import Layout from '../scenes/Me/Layout'
+import Layout from '../scenes/Me/components/Layout'
 
 const InboxPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,

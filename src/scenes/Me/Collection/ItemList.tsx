@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { useGetItemsQuery } from '../../../generated/types'
 import { ItemType, ModificationTrackActions } from '../../common'
-import DraggableList from '../DraggableList'
-import { useItemDragnDrop } from '../DraggableList/hooks'
-import Skeleton from '../DraggableList/Skeleton'
+import DraggableList from '../components/DraggableList'
+import { useItemDragnDrop } from '../components/DraggableList/hooks'
+import Skeleton from '../components/DraggableList/Skeleton'
 
 export default ({
     collectionId,

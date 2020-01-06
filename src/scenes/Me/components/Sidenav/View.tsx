@@ -1,11 +1,11 @@
-import InboxIcon from '../../../../public/pictograms/inbox.svg'
-import ArchivedIcon from '../../../../public/pictograms/archived.svg'
+import InboxIcon from '../../../../../public/pictograms/inbox.svg'
+import ArchivedIcon from '../../../../../public/pictograms/archived.svg'
 import ProfileIcon from './profile.svg'
 import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
 import classNames from 'classnames'
-import { useCreateSectionMutation } from '../../../generated/types'
+import { useCreateSectionMutation } from '../../../../generated/types'
 import { useRouter } from 'next/router'
 
 interface SidenavProps {

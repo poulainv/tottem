@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import '../../../index.css'
 import Section from '../../../scenes/Me/Section'
-import Layout from '../../../scenes/Me/Layout'
+import Layout from '../../../scenes/Me/components/Layout'
 import {
     AuthenticatedUser,
     getUserAuth,

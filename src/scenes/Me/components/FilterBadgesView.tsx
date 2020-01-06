@@ -2,9 +2,12 @@ import { Tooltip } from 'antd'
 import classNames from 'classnames'
 import countBy from 'lodash.countby'
 import { Fragment, useEffect, useReducer } from 'react'
-import { PictogramItems } from '../../components/PictogramItems'
-import { ItemDetailFragment, ItemPreviewFragment } from '../../generated/types'
-import { ItemType } from '../common'
+import { PictogramItems } from '../../../components/PictogramItems'
+import {
+    ItemDetailFragment,
+    ItemPreviewFragment,
+} from '../../../generated/types'
+import { ItemType } from '../../common'
 
 interface FilterBadgesProps {
     listId: string

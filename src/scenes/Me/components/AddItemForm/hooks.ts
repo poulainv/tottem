@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { AddActions } from '../../../components/AddButtonItem'
+import { AddActions } from '../../../../components/AddButtonItem'
 
 interface StateProps {
     type: 'url' | 'search' | 'close'

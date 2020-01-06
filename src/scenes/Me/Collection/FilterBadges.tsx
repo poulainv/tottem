@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useGetItemsQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
-import FilterBadgesView from '../FilterBadgesView'
+import FilterBadgesView from '../components/FilterBadgesView'
 
 interface FilterBadgesProps {
     collectionId: string

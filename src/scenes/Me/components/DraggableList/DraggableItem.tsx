@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Item } from '../../../generated/types'
+import { Item } from '../../../../generated/types'
 import classNames from 'classnames'
 import EditableItem from './EditableItem'
-import { ModificationTrackActions } from '../../common'
-import DragIcon from '../../../../public/pictograms/drag.svg'
+import { ModificationTrackActions } from '../../../common'
+import DragIcon from '../../../../../public/pictograms/drag.svg'
 import Options from './EditableItem/Options'
 
 const DraggableItem: React.FunctionComponent<{

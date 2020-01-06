@@ -1,5 +1,5 @@
 import View from './View'
-import { useGetSectionsQuery } from '../../../generated/types'
+import { useGetSectionsQuery } from '../../../../generated/types'
 import { useRouter } from 'next/router'
 
 export default ({ authUserId }: { authUserId: string }) => {

@@ -1,9 +1,9 @@
 import classNames from 'classnames'
-import FormSearch from '../../AddItemForm/FormSearch'
-import FormURL from '../../AddItemForm/FormURL'
-import { useAddItemReducer } from '../../AddItemForm/hooks'
+import FormSearch from '../../components/AddItemForm/FormSearch'
+import FormURL from '../../components/AddItemForm/FormURL'
+import { useAddItemReducer } from '../../components/AddItemForm/hooks'
 import { useItemFormSearch, useItemUrlForm } from './hooks'
-import AddItemForm from '../../AddItemForm'
+import AddItemForm from '../../components/AddItemForm'
 
 export default ({
     collectionId,

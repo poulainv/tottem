@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Item } from '../../../../generated/types'
-import { ItemMetas } from '../../../Collection/ItemMetas'
+import { Item } from '../../../../../generated/types'
+import { ItemMetas } from '../../../../Collection/ItemMetas'
 import { useItemCommentForm } from './hooks'
-import { ModificationTrackActions } from '../../../common'
-import { PictogramItems } from '../../../../components/PictogramItems'
+import { ModificationTrackActions } from '../../../../common'
+import { PictogramItems } from '../../../../../components/PictogramItems'
 
 interface IEditableItemProps {
     item: Item

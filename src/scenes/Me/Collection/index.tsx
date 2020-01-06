@@ -6,7 +6,7 @@ import FilterBadges from './FilterBadges'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
 import HeaderForm from './HeaderForm'
-import Skeleton from '../DraggableList/Skeleton'
+import Skeleton from '../components/DraggableList/Skeleton'
 
 interface Props {
     collectionId: string

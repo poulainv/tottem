@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import AddButton, { AddActions } from '../../../components/AddButtonItem'
-import Spinner from '../../../components/Spinner'
+import AddButton, { AddActions } from '../../../../components/AddButtonItem'
+import Spinner from '../../../../components/Spinner'
 import { Dispatch } from 'react'
 
 export default ({

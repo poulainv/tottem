@@ -9,8 +9,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import {
     ItemDetailFragment,
     ItemPreviewFragment,
-} from '../../../generated/types'
-import { ModificationTrackActions } from '../../common'
+} from '../../../../generated/types'
+import { ModificationTrackActions } from '../../../common'
 import DraggableItem from './DraggableItem'
 
 interface IDraggableListProps {

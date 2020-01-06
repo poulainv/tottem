@@ -1,6 +1,6 @@
-import SpaceIcon from '../../../../public/pictograms/space.svg'
+import SpaceIcon from '../../../../../public/pictograms/space.svg'
 import ArrowIcon from './arrow.svg'
-import { useUpdateSectionExpandedMutation } from '../../../generated/types'
+import { useUpdateSectionExpandedMutation } from '../../../../generated/types'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
 import classNames from 'classnames'

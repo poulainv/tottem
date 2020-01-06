@@ -1,9 +1,9 @@
 import * as React from 'react'
-import TopBar from '../../components/TopBar2'
-import { AuthenticatedUser } from '../../services/authentication'
-import { useStatusMessage } from './Collection/Status'
+import TopBar from '../../../components/TopBar2'
+import { AuthenticatedUser } from '../../../services/authentication'
+import { useStatusMessage } from '../Collection/Status'
 import Sidenav from './Sidenav'
-import NotAuthenticated from '../UtilsPage/NotAuthenticated'
+import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'

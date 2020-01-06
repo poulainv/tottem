@@ -1,6 +1,6 @@
 import { AutoComplete } from 'antd'
 import { Fragment } from 'react'
-import { useItemFormSearch } from '../Collection/ItemForm/hooks'
+import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
 
 export default ({
     searchType,
