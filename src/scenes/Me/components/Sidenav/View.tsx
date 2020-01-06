@@ -5,11 +5,17 @@ import Link from 'next/link'
 import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
 import classNames from 'classnames'
-import { useCreateSectionMutation } from '../../../../generated/types'
+import {
+    useCreateSectionMutation,
+    GetSectionQuery,
+    GetSectionsQuery,
+    GetSectionsDocument,
+} from '../../../../generated/types'
 import Router from 'next/router'
 
 interface SidenavProps {
     currentHref: string
+    authUserId: string
     inboxCount: number | undefined
     sections:
         | Array<{
@@ -29,6 +35,7 @@ const Sidenav: React.FC<SidenavProps> = ({
     inboxCount,
     sections,
     currentHref,
+    authUserId,
 }) => {
     const bgBrand200 = `bg-brand-100`
 
@@ -38,6 +45,32 @@ const Sidenav: React.FC<SidenavProps> = ({
                 '/me/s/[sectionId]',
                 `/me/s/${data.createEmptySection.id}`
             )
+        },
+        update(cache, { data }) {
+            if (data === undefined || data === null) {
+                throw Error('Can not update cache because no data returned')
+            }
+            const cachedData = cache.readQuery<GetSectionsQuery>({
+                query: GetSectionsDocument,
+                variables: {
+                    authUserId,
+                },
+            })
+
+            if (cachedData !== null && cachedData.sections) {
+                cache.writeQuery({
+                    variables: {
+                        authUserId,
+                    },
+                    query: GetSectionsDocument,
+                    data: {
+                        ...cachedData,
+                        sections: cachedData.sections.concat(
+                            data.createEmptySection
+                        ),
+                    },
+                })
+            }
         },
     })
 

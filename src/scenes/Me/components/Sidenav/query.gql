@@ -26,8 +26,16 @@ mutation createSection {
     createEmptySection {
         id
         slug
+        createdAt
         title: name
         index
+        isExpanded
+        collections(where: { isDeleted: { equals: false } }) {
+            id
+            slug
+            isDeleted
+            title: name
+        }
     }
 }
 

@@ -32,6 +32,7 @@ export default ({ authUserId }: { authUserId: string }) => {
     const { asPath } = useRouter()
     return (
         <View
+            authUserId={authUserId}
             sections={data?.sections?.sort(
                 (a, b) =>
                     new Date(a.createdAt).getTime() -

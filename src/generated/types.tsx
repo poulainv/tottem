@@ -260,11 +260,6 @@ export type CollectionWhereUniqueInput = {
     slug?: Maybe<Scalars['String']>
 }
 
-export type CountMetric = {
-    __typename?: 'CountMetric'
-    inboxCount: Scalars['String']
-}
-
 export type DateTimeFilter = {
     equals?: Maybe<Scalars['DateTime']>
     not?: Maybe<Scalars['DateTime']>
@@ -1417,8 +1412,15 @@ export type CreateSectionMutationVariables = {}
 export type CreateSectionMutation = { __typename?: 'Mutation' } & {
     createEmptySection: { __typename?: 'Section' } & Pick<
         Section,
-        'id' | 'slug' | 'index'
-    > & { title: Section['name'] }
+        'id' | 'slug' | 'createdAt' | 'index' | 'isExpanded'
+    > & { title: Section['name'] } & {
+            collections: Array<
+                { __typename?: 'Collection' } & Pick<
+                    Collection,
+                    'id' | 'slug' | 'isDeleted'
+                > & { title: Collection['name'] }
+            >
+        }
 }
 
 export type UpdateSectionExpandedMutationVariables = {
@@ -2660,8 +2662,16 @@ export const CreateSectionDocument = gql`
         createEmptySection {
             id
             slug
+            createdAt
             title: name
             index
+            isExpanded
+            collections(where: { isDeleted: { equals: false } }) {
+                id
+                slug
+                isDeleted
+                title: name
+            }
         }
     }
 `
