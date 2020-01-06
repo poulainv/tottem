@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { Collection, Item } from '../../../generated/types'
 import Options from '../Collection/HeaderForm/Options'
 import { PictogramItems } from '../../../components/PictogramItems'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 import Link from 'next/link'
 
 export interface CollectionCardProps {
@@ -52,32 +53,38 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                 </span>
             </div>
             <div className="flex flex-row mt-6">
-                {collection.items
-                    .filter(x => !x.isDeleted)
-                    .slice(0, 5)
-                    .map((item, index) => {
-                        const PlaceholderIcon = PictogramItems[item.type]
-                        return (
-                            <div
-                                key={index}
-                                className="ml-8 first:ml-0 flex flex-col w-1/6 flex-shrink-0 flex-grow-0"
-                            >
-                                {item.imageUrl ? (
-                                    <img
-                                        className="rounded-lg border border-gray-200"
-                                        src={item.imageUrl}
-                                    />
-                                ) : (
-                                    <div className="rounded w-40 border-gray-200 bg-gray-200 h-48 flex justify-center items-center">
-                                        <PlaceholderIcon className="h-16 w-16 text-white fill-current" />
+                {collection.items.length !== 0 ? (
+                    collection.items
+                        .filter(x => !x.isDeleted)
+                        .slice(0, 5)
+                        .map((item, index) => {
+                            const PlaceholderIcon = PictogramItems[item.type]
+                            return (
+                                <div
+                                    key={index}
+                                    className="ml-6 xl:ml-8 first:ml-0 flex flex-col w-1/6 flex-shrink-0 flex-grow-0"
+                                >
+                                    {item.imageUrl ? (
+                                        <img
+                                            className="rounded-lg border border-gray-200"
+                                            src={item.imageUrl}
+                                        />
+                                    ) : (
+                                        <div className="rounded w-40 border-gray-200 bg-gray-200 h-48 flex justify-center items-center">
+                                            <PlaceholderIcon className="h-16 w-16 text-white fill-current" />
+                                        </div>
+                                    )}
+                                    <div className="text-gray-600 truncate mt-2 text-sm">
+                                        {item.title}
                                     </div>
-                                )}
-                                <div className="text-gray-600 truncate mt-2 text-sm">
-                                    {item.title}
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })
+                ) : (
+                    <div className="mx-auto">
+                        <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
+                    </div>
+                )}
             </div>
         </div>
     )
