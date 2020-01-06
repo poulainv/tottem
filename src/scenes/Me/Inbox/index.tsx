@@ -27,7 +27,7 @@ export default ({ dispatch }: InboxProps) => {
             </div>
             <FilterBadgesView
                 listId={'inbox'}
-                items={data?.inbox}
+                items={data?.inbox?.items}
                 onFilterChange={setSelectedTypes}
                 className="mt-8"
             />
@@ -37,7 +37,7 @@ export default ({ dispatch }: InboxProps) => {
             ) : (
                 <ItemList
                     loading={loading}
-                    items={data.inbox}
+                    items={data.inbox.items}
                     className="mt-8"
                     filterTypes={selectedTypes}
                     onChange={() => dispatch('CHANGED')}

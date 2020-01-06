@@ -1,6 +1,8 @@
 query getInbox {
     inbox {
-        ...ItemPreview
-        ...ItemDetail
+        items {
+            ...ItemPreview
+            ...ItemDetail
+        }
     }
 }

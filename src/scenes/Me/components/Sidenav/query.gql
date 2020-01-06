@@ -1,4 +1,8 @@
 query getSections($authUserId: String!) {
+    inbox {
+        id
+        count
+    }
     sections(
         where: {
             isDeleted: { equals: false }

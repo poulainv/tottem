@@ -260,6 +260,11 @@ export type CollectionWhereUniqueInput = {
     slug?: Maybe<Scalars['String']>
 }
 
+export type CountMetric = {
+    __typename?: 'CountMetric'
+    inboxCount: Scalars['String']
+}
+
 export type DateTimeFilter = {
     equals?: Maybe<Scalars['DateTime']>
     not?: Maybe<Scalars['DateTime']>
@@ -269,6 +274,13 @@ export type DateTimeFilter = {
     lte?: Maybe<Scalars['DateTime']>
     gt?: Maybe<Scalars['DateTime']>
     gte?: Maybe<Scalars['DateTime']>
+}
+
+export type Inbox = {
+    __typename?: 'Inbox'
+    id: Scalars['String']
+    count: Scalars['Int']
+    items: Array<Item>
 }
 
 export type IntFilter = {
@@ -614,7 +626,7 @@ export type Query = {
     items: Array<Item>
     sections: Array<Section>
     collections: Array<Collection>
-    inbox: Array<Item>
+    inbox?: Maybe<Inbox>
     search: Array<SearchItem>
 }
 
@@ -1217,8 +1229,13 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
 export type GetInboxQueryVariables = {}
 
 export type GetInboxQuery = { __typename?: 'Query' } & {
-    inbox: Array<
-        { __typename?: 'Item' } & ItemPreviewFragment & ItemDetailFragment
+    inbox: Maybe<
+        { __typename?: 'Inbox' } & {
+            items: Array<
+                { __typename?: 'Item' } & ItemPreviewFragment &
+                    ItemDetailFragment
+            >
+        }
     >
 }
 
@@ -1379,6 +1396,7 @@ export type GetSectionsQueryVariables = {
 }
 
 export type GetSectionsQuery = { __typename?: 'Query' } & {
+    inbox: Maybe<{ __typename?: 'Inbox' } & Pick<Inbox, 'id' | 'count'>>
     sections: Array<
         { __typename?: 'Section' } & Pick<
             Section,
@@ -1856,8 +1874,10 @@ export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOp
 export const GetInboxDocument = gql`
     query getInbox {
         inbox {
-            ...ItemPreview
-            ...ItemDetail
+            items {
+                ...ItemPreview
+                ...ItemDetail
+            }
         }
     }
     ${ItemPreviewFragmentDoc}
@@ -2565,6 +2585,10 @@ export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
+        inbox {
+            id
+            count
+        }
         sections(
             where: {
                 isDeleted: { equals: false }

@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import {
-    GetItemsDocument,
+    GetInboxDocument,
+    GetInboxQuery,
     SearchItem,
     useCreateItemFromSearchMutation,
     useCreateItemFromUrlMutation,
     useSearchItemLazyQuery,
-    GetInboxDocument,
-    GetInboxQuery,
+    GetSectionDocument,
+    GetSectionQuery,
 } from '../../../../generated/types'
+import gql from 'graphql-tag'
+import { useInboxCount } from '../../components/Sidenav'
 
 interface ItemsFormData {
     url: string
@@ -16,6 +19,7 @@ interface ItemsFormData {
 
 const useItemUrlForm = (onStart?: () => void, onCompleted?: () => void) => {
     const { register, handleSubmit, reset, errors } = useForm<ItemsFormData>()
+    const { setInboxCount } = useInboxCount()
 
     const [addItem, { loading }] = useCreateItemFromUrlMutation({
         onCompleted: _ => {
@@ -27,17 +31,25 @@ const useItemUrlForm = (onStart?: () => void, onCompleted?: () => void) => {
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
             }
-            const cachedData = cache.readQuery<GetInboxQuery>({
+            const inboxCachedData = cache.readQuery<GetInboxQuery>({
                 query: GetInboxDocument,
             })
 
-            if (cachedData !== null && cachedData.inbox) {
+            if (inboxCachedData !== null && inboxCachedData.inbox) {
+                const newItems = inboxCachedData.inbox.items.concat([
+                    data.items,
+                ])
                 cache.writeQuery({
                     query: GetInboxDocument,
                     data: {
-                        inbox: cachedData.inbox.concat(data.items),
+                        inbox: {
+                            id: 'me',
+                            __typename: 'Inbox',
+                            items: newItems,
+                        },
                     },
                 })
+                setInboxCount(newItems.length)
             }
             reset()
         },
@@ -70,6 +82,7 @@ const useItemFormSearch = (
     const { register, handleSubmit, reset, errors } = useForm<
         ItemsFormSearchData
     >()
+    const { setInboxCount } = useInboxCount()
 
     const [dataSource, setDataSource] = useState<SearchItem[]>()
     const [search] = useSearchItemLazyQuery({
@@ -97,12 +110,18 @@ const useItemFormSearch = (
             })
 
             if (cachedData !== null && cachedData.inbox) {
+                const newItems = cachedData.inbox.items.concat(data.items)
                 cache.writeQuery({
                     query: GetInboxDocument,
                     data: {
-                        inbox: cachedData.inbox.concat(data.items),
+                        inbox: {
+                            id: 'me',
+                            __typename: 'Inbox',
+                            items: newItems,
+                        },
                     },
                 })
+                setInboxCount(newItems.length)
             }
             reset()
         },
