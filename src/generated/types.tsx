@@ -1922,7 +1922,7 @@ export const GetSectionDocument = gql`
                 updatedAt
                 isDeleted
                 title: name
-                items(first: 4, where: { isArchived: { equals: false } }) {
+                items(first: 5, where: { isArchived: { equals: false } }) {
                     imageUrl
                     isArchived
                     title

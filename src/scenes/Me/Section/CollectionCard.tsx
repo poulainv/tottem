@@ -54,12 +54,13 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
             <div className="flex flex-row mt-6">
                 {collection.items
                     .filter(x => !x.isArchived)
+                    .slice(0, 5)
                     .map((item, index) => {
                         const PlaceholderIcon = PictogramItems[item.type]
                         return (
                             <div
                                 key={index}
-                                className="ml-24 first:ml-0 flex flex-col w-2/12 flex-shrink-0 flex-grow-0"
+                                className="ml-8 first:ml-0 flex flex-col w-1/6 flex-shrink-0 flex-grow-0"
                             >
                                 {item.imageUrl ? (
                                     <img
