@@ -1225,12 +1225,12 @@ export type GetInboxQueryVariables = {}
 
 export type GetInboxQuery = { __typename?: 'Query' } & {
     inbox: Maybe<
-        { __typename?: 'Inbox' } & {
-            items: Array<
-                { __typename?: 'Item' } & ItemPreviewFragment &
-                    ItemDetailFragment
-            >
-        }
+        { __typename?: 'Inbox' } & Pick<Inbox, 'id'> & {
+                items: Array<
+                    { __typename?: 'Item' } & ItemPreviewFragment &
+                        ItemDetailFragment
+                >
+            }
     >
 }
 
@@ -1876,6 +1876,7 @@ export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOp
 export const GetInboxDocument = gql`
     query getInbox {
         inbox {
+            id
             items {
                 ...ItemPreview
                 ...ItemDetail

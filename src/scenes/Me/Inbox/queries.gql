@@ -1,5 +1,6 @@
 query getInbox {
     inbox {
+        id
         items {
             ...ItemPreview
             ...ItemDetail
