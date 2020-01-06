@@ -6,7 +6,7 @@ import { BulletList } from 'react-content-loader'
 import SectionGroup from './SectionGroup'
 import classNames from 'classnames'
 import { useCreateSectionMutation } from '../../../../generated/types'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 
 interface SidenavProps {
     currentHref: string
@@ -32,10 +32,12 @@ const Sidenav: React.FC<SidenavProps> = ({
 }) => {
     const bgBrand200 = `bg-brand-100`
 
-    const router = useRouter()
     const [createSection] = useCreateSectionMutation({
         onCompleted: data => {
-            router.push(`/me/s/${data.createEmptySection.id}`)
+            Router.push(
+                '/me/s/[sectionId]',
+                `/me/s/${data.createEmptySection.id}`
+            )
         },
     })
 

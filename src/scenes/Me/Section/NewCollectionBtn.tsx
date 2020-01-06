@@ -2,7 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import { Tooltip } from 'antd'
 import PlusIcon from '../../../../public/pictograms/plus.svg'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import { useCreateEmptyCollectionMutation } from '../../../generated/types'
 
 export interface Props {
@@ -11,11 +11,10 @@ export interface Props {
 }
 
 export default ({ className, sectionId }: Props) => {
-    const router = useRouter()
     const [createCollection] = useCreateEmptyCollectionMutation({
         variables: { sectionId },
         onCompleted: data => {
-            router.push(`/me/c/${data.collection.id}`)
+            Router.push('/me/c/[collectionId]', `/me/c/${data.collection.id}`)
         },
     })
 
