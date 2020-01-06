@@ -102,6 +102,7 @@ export default ({
             {Object.entries(itemsTypeCount).map(([type, count]) => (
                 <div key={type} onClick={() => dispatch(type as ItemType)}>
                     <Tooltip
+                        overlayClassName="capitalize"
                         title={type}
                         mouseEnterDelay={0.8}
                         mouseLeaveDelay={0}
