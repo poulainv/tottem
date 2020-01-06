@@ -24,7 +24,7 @@ export default ({
     })
 
     const items = data?.items
-        ?.filter(x => !x.isArchived)
+        ?.filter(x => !x.isDeleted)
         ?.filter(i => {
             return !filterTypes.length || filterTypes.includes(i.type)
         })

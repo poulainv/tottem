@@ -18,7 +18,7 @@ query getCollection(
     ) {
         ...CollectionBasic
         createdAt
-        items(first: 4, where: { isArchived: { equals: false } }) {
+        items(first: 4, where: { isDeleted: { equals: false } }) {
             ...ItemPreview
         }
     }

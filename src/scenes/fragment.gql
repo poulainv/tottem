@@ -4,7 +4,7 @@ fragment ItemPreview on Item {
     title
     author
     type
-    isArchived
+    isDeleted
     position
     createdAt
 }

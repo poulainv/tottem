@@ -28,7 +28,7 @@ interface IItemListProps {
             | 'author'
             | 'type'
             | 'position'
-            | 'isArchived'
+            | 'isDeleted'
             | 'meta'
         >
     >
@@ -97,7 +97,7 @@ const ItemList: React.FunctionComponent<IItemListProps> = props => {
         <ContentBox>
             <CollectionCard background="white" pad="large">
                 {props.items
-                    .filter(x => !x.isArchived)
+                    .filter(x => !x.isDeleted)
                     .sort(
                         (a, b) =>
                             new Date(b.createdAt).getTime() -

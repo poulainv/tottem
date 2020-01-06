@@ -11,7 +11,7 @@ export interface CollectionCardProps {
     collection: Pick<Collection, 'id' | 'slug' | 'isDeleted' | 'updatedAt'> & {
         title: Collection['name']
     } & {
-        items: Array<Pick<Item, 'imageUrl' | 'title' | 'type' | 'isArchived'>>
+        items: Array<Pick<Item, 'imageUrl' | 'title' | 'type' | 'isDeleted'>>
     }
 }
 
@@ -53,7 +53,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
             </div>
             <div className="flex flex-row mt-6">
                 {collection.items
-                    .filter(x => !x.isArchived)
+                    .filter(x => !x.isDeleted)
                     .slice(0, 5)
                     .map((item, index) => {
                         const PlaceholderIcon = PictogramItems[item.type]

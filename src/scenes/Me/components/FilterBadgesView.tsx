@@ -43,7 +43,7 @@ const useFilters = (
     onFilterChange: (filter: ItemType[]) => void,
     items?: Array<ItemPreviewFragment & ItemDetailFragment>
 ) => {
-    const nonArchivedItems = items?.filter(x => !x.isArchived)
+    const nonDeletedItems = items?.filter(x => !x.isDeleted)
     const reducer = (state: ItemType[], action: ItemType | 'ALL') => {
         switch (action) {
             case 'ALL':
@@ -60,7 +60,7 @@ const useFilters = (
     const [filters, dispatch] = useReducer(reducer, [])
 
     const itemsTypeCount = countBy(
-        nonArchivedItems,
+        nonDeletedItems,
         (x: { id: string; type: ItemType }) => x.type
     )
 

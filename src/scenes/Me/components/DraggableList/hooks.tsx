@@ -41,7 +41,7 @@ const useDeleteItem = () => {
             optimisticResponse: {
                 updateOneItem: {
                     id,
-                    isArchived: true,
+                    isDeleted: true,
                     __typename: 'Item',
                 },
             },
@@ -97,7 +97,7 @@ const useItemDragnDrop = ({ collectionId, items }: DndHooksProps) => {
         }
 
         const optimisticReAssignPosition = reAssignPosition(
-            items.filter(x => !x.isArchived),
+            items.filter(x => !x.isDeleted),
             result.source.index,
             result.destination.index
         )

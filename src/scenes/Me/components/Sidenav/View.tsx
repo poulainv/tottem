@@ -1,17 +1,12 @@
-import InboxIcon from '../../../../../public/pictograms/inbox.svg'
-import ArchivedIcon from '../../../../../public/pictograms/archived.svg'
-import ProfileIcon from './profile.svg'
-import Link from 'next/link'
-import { BulletList } from 'react-content-loader'
-import SectionGroup from './SectionGroup'
 import classNames from 'classnames'
-import {
-    useCreateSectionMutation,
-    GetSectionQuery,
-    GetSectionsQuery,
-    GetSectionsDocument,
-} from '../../../../generated/types'
+import Link from 'next/link'
 import Router from 'next/router'
+import { BulletList } from 'react-content-loader'
+import ArchivedIcon from '../../../../../public/pictograms/archived.svg'
+import InboxIcon from '../../../../../public/pictograms/inbox.svg'
+import { GetSectionsDocument, GetSectionsQuery, useCreateSectionMutation } from '../../../../generated/types'
+import ProfileIcon from './profile.svg'
+import SectionGroup from './SectionGroup'
 
 interface SidenavProps {
     currentHref: string

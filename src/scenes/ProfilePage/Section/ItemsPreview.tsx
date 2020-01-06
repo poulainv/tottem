@@ -39,7 +39,7 @@ const ItemsPreview: React.FC<{
             align="start"
         >
             {props.items
-                .filter(x => !x.isArchived)
+                .filter(x => !x.isDeleted)
                 .sort(
                     (a, b) =>
                         new Date(b.createdAt).getTime() -

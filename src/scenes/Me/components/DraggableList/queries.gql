@@ -1,7 +1,7 @@
 mutation deleteItem($id: ID!) {
-    updateOneItem(data: { isArchived: true }, where: { id: $id }) {
+    updateOneItem(data: { isDeleted: true }, where: { id: $id }) {
         id
-        isArchived
+        isDeleted
     }
 }
 
@@ -13,9 +13,9 @@ mutation saveCommentItem($id: ID!, $comment: String!) {
 }
 
 mutation undeleteItem($id: ID!) {
-    updateOneItem(data: { isArchived: false }, where: { id: $id }) {
+    updateOneItem(data: { isDeleted: false }, where: { id: $id }) {
         id
-        isArchived
+        isDeleted
     }
 }
 

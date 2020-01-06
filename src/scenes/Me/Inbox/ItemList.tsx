@@ -23,7 +23,7 @@ export default ({
             | 'imageUrl'
             | 'author'
             | 'type'
-            | 'isArchived'
+            | 'isDeleted'
             | 'position'
             | 'createdAt'
         >
@@ -31,7 +31,7 @@ export default ({
     className?: string
 } & ModificationTrackActions) => {
     const filteredItems = items
-        ?.filter(x => !x.isArchived)
+        ?.filter(x => !x.isDeleted)
         ?.filter(i => {
             return !filterTypes.length || filterTypes.includes(i.type)
         })

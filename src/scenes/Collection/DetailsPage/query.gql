@@ -8,7 +8,7 @@ query getCollectionPage($slug: String, $collectionId: String) {
         section {
             slug
         }
-        items(where: { isArchived: { equals: false } }) {
+        items(where: { isDeleted: { equals: false } }) {
             id
             createdAt
             imageUrl
@@ -20,7 +20,7 @@ query getCollectionPage($slug: String, $collectionId: String) {
             type
             meta
             position
-            isArchived
+            isDeleted
         }
     }
 }

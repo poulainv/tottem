@@ -98,7 +98,7 @@ export type CollectionItemsOrderByInput = {
 }
 
 export type CollectionItemsWhereInput = {
-    isArchived?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
 }
 
 export type CollectionScalarWhereInput = {
@@ -293,7 +293,7 @@ export type Item = {
     __typename?: 'Item'
     id: Scalars['ID']
     author?: Maybe<Scalars['String']>
-    isArchived: Scalars['Boolean']
+    isDeleted: Scalars['Boolean']
     title: Scalars['String']
     position: Scalars['Int']
     imageUrl?: Maybe<Scalars['String']>
@@ -320,7 +320,7 @@ export type ItemCreateWithoutCollectionInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title: Scalars['String']
     provider?: Maybe<Scalars['String']>
@@ -331,6 +331,7 @@ export type ItemCreateWithoutCollectionInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar: Scalars['String']
     inboxOwner?: Maybe<UserCreateOneWithoutInboxOwnerInput>
 }
 
@@ -338,7 +339,7 @@ export type ItemCreateWithoutInboxOwnerInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title: Scalars['String']
     provider?: Maybe<Scalars['String']>
@@ -349,6 +350,7 @@ export type ItemCreateWithoutInboxOwnerInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar: Scalars['String']
     collection?: Maybe<CollectionCreateOneWithoutCollectionInput>
 }
 
@@ -362,7 +364,7 @@ export type ItemScalarWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
-    isArchived?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
     position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
@@ -373,6 +375,7 @@ export type ItemScalarWhereInput = {
     description?: Maybe<NullableStringFilter>
     comment?: Maybe<NullableStringFilter>
     meta?: Maybe<NullableStringFilter>
+    bar?: Maybe<StringFilter>
     AND?: Maybe<Array<ItemScalarWhereInput>>
     OR?: Maybe<Array<ItemScalarWhereInput>>
     NOT?: Maybe<Array<ItemScalarWhereInput>>
@@ -394,7 +397,7 @@ export type ItemUpdateInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
@@ -405,6 +408,7 @@ export type ItemUpdateInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
     inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
@@ -413,7 +417,7 @@ export type ItemUpdateManyDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
@@ -424,6 +428,7 @@ export type ItemUpdateManyDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar?: Maybe<Scalars['String']>
 }
 
 export type ItemUpdateManyWithoutCollectionInput = {
@@ -459,7 +464,7 @@ export type ItemUpdateWithoutCollectionDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
@@ -470,6 +475,7 @@ export type ItemUpdateWithoutCollectionDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar?: Maybe<Scalars['String']>
     inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
 
@@ -477,7 +483,7 @@ export type ItemUpdateWithoutInboxOwnerDataInput = {
     id?: Maybe<Scalars['ID']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
-    isArchived?: Maybe<Scalars['Boolean']>
+    isDeleted?: Maybe<Scalars['Boolean']>
     position?: Maybe<Scalars['Int']>
     title?: Maybe<Scalars['String']>
     provider?: Maybe<Scalars['String']>
@@ -488,6 +494,7 @@ export type ItemUpdateWithoutInboxOwnerDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
+    bar?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
 }
 
@@ -517,7 +524,7 @@ export type ItemWhereInput = {
     id?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
     updatedAt?: Maybe<DateTimeFilter>
-    isArchived?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
     position?: Maybe<IntFilter>
     title?: Maybe<StringFilter>
     provider?: Maybe<NullableStringFilter>
@@ -528,6 +535,7 @@ export type ItemWhereInput = {
     description?: Maybe<NullableStringFilter>
     comment?: Maybe<NullableStringFilter>
     meta?: Maybe<NullableStringFilter>
+    bar?: Maybe<StringFilter>
     AND?: Maybe<Array<ItemWhereInput>>
     OR?: Maybe<Array<ItemWhereInput>>
     NOT?: Maybe<Array<ItemWhereInput>>
@@ -683,11 +691,12 @@ export type QueryCollectionsWhereInput = {
 }
 
 export type QueryItemsOrderByInput = {
+    createdAt?: Maybe<OrderByArg>
     position?: Maybe<OrderByArg>
 }
 
 export type QueryItemsWhereInput = {
-    isArchived?: Maybe<BooleanFilter>
+    isDeleted?: Maybe<BooleanFilter>
     collection?: Maybe<CollectionWhereInput>
 }
 
@@ -1161,7 +1170,7 @@ export type GetCollectionPageQuery = { __typename?: 'Query' } & {
                         | 'type'
                         | 'meta'
                         | 'position'
-                        | 'isArchived'
+                        | 'isDeleted'
                     >
                 >
             } & CollectionBasicFragment
@@ -1251,7 +1260,7 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
                             items: Array<
                                 { __typename?: 'Item' } & Pick<
                                     Item,
-                                    'imageUrl' | 'isArchived' | 'title' | 'type'
+                                    'imageUrl' | 'isDeleted' | 'title' | 'type'
                                 >
                             >
                             owner: { __typename?: 'User' } & Pick<
@@ -1341,7 +1350,7 @@ export type DeleteItemMutationVariables = {
 
 export type DeleteItemMutation = { __typename?: 'Mutation' } & {
     updateOneItem: Maybe<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isDeleted'>
     >
 }
 
@@ -1360,7 +1369,7 @@ export type UndeleteItemMutationVariables = {
 
 export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
     updateOneItem: Maybe<
-        { __typename?: 'Item' } & Pick<Item, 'id' | 'isArchived'>
+        { __typename?: 'Item' } & Pick<Item, 'id' | 'isDeleted'>
     >
 }
 
@@ -1496,7 +1505,7 @@ export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     | 'title'
     | 'author'
     | 'type'
-    | 'isArchived'
+    | 'isDeleted'
     | 'position'
     | 'createdAt'
 >
@@ -1534,7 +1543,7 @@ export const ItemPreviewFragmentDoc = gql`
         title
         author
         type
-        isArchived
+        isDeleted
         position
         createdAt
     }
@@ -1587,7 +1596,7 @@ export const GetCollectionPageDocument = gql`
             section {
                 slug
             }
-            items(where: { isArchived: { equals: false } }) {
+            items(where: { isDeleted: { equals: false } }) {
                 id
                 createdAt
                 imageUrl
@@ -1599,7 +1608,7 @@ export const GetCollectionPageDocument = gql`
                 type
                 meta
                 position
-                isArchived
+                isDeleted
             }
         }
     }
@@ -1945,9 +1954,9 @@ export const GetSectionDocument = gql`
                 updatedAt
                 isDeleted
                 title: name
-                items(first: 5, where: { isArchived: { equals: false } }) {
+                items(first: 5, where: { isDeleted: { equals: false } }) {
                     imageUrl
-                    isArchived
+                    isDeleted
                     title
                     type
                 }
@@ -2332,9 +2341,9 @@ export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
 >
 export const DeleteItemDocument = gql`
     mutation deleteItem($id: ID!) {
-        updateOneItem(data: { isArchived: true }, where: { id: $id }) {
+        updateOneItem(data: { isDeleted: true }, where: { id: $id }) {
             id
-            isArchived
+            isDeleted
         }
     }
 `
@@ -2427,9 +2436,9 @@ export type SaveCommentItemMutationOptions = ApolloReactCommon.BaseMutationOptio
 >
 export const UndeleteItemDocument = gql`
     mutation undeleteItem($id: ID!) {
-        updateOneItem(data: { isArchived: false }, where: { id: $id }) {
+        updateOneItem(data: { isDeleted: false }, where: { id: $id }) {
             id
-            isArchived
+            isDeleted
         }
     }
 `
@@ -2531,7 +2540,10 @@ export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOption
 >
 export const GetItemsDocument = gql`
     query getItems($collectionId: String!) {
-        items(where: { collection: { id: { equals: $collectionId } } }) {
+        items(
+            where: { collection: { id: { equals: $collectionId } } }
+            orderBy: { position: asc }
+        ) {
             ...ItemPreview
             ...ItemDetail
         }
@@ -2786,7 +2798,7 @@ export const GetCollectionDocument = gql`
         ) {
             ...CollectionBasic
             createdAt
-            items(first: 4, where: { isArchived: { equals: false } }) {
+            items(first: 4, where: { isDeleted: { equals: false } }) {
                 ...ItemPreview
             }
         }
