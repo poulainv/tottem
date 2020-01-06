@@ -45,7 +45,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
 
     return (
         <Dropdown overlay={menu} placement="bottomCenter">
-            <div className="h-8 w-8 text-brand-700 rounded-full border border-brand-700 hover:border-brand-900 hover:text-brand-900 flex justify-center items-center">
+            <div className="h-8 w-8 text-brand-700 rounded-full border border-brand-700 hover:border-brand-900 hover:text-brand-900 flex justify-center items-center cursor-pointer">
                 <PlusIcon className="fill-current" />
             </div>
         </Dropdown>
