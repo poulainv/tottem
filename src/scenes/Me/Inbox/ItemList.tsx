@@ -3,6 +3,7 @@ import { Item } from '../../../generated/types'
 import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from '../components/DraggableList'
 import Skeleton from '../components/DraggableList/Skeleton'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 export default ({
     items,
@@ -44,6 +45,15 @@ export default ({
 
     if (filteredItems === undefined || loading) {
         return <Skeleton rowCount={6} />
+    } else if (filteredItems.length === 0) {
+        return (
+            <div className="w-full mt-48 flex items-center justify-center">
+                <div className="flex flex-col items-center">
+                    <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
+                    <span className="text-gray-600 mt-2">Empty inbox!</span>
+                </div>
+            </div>
+        )
     }
 
     return (
