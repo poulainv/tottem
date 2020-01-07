@@ -3,6 +3,7 @@ import {
     useMoveItemFromCollectionToCollectionMutation,
 } from '../../../generated/types'
 
+// Specify behavior of move item button from Collection scene
 export const useMoveItemToCollection = (fromCollectionId: string) => (
     itemId: string
 ) => {
@@ -13,6 +14,7 @@ export const useMoveItemToCollection = (fromCollectionId: string) => (
                 itemId,
                 collectionId: toCollectionId,
             },
+            // Refresh collection in & out by refetching data
             refetchQueries: [
                 {
                     query: GetItemsDocument,

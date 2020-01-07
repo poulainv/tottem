@@ -3,9 +3,10 @@ import {
     GetItemsDocument,
     useMoveItemFromInboxToCollectionMutation,
 } from '../../../generated/types'
-import { defaultActions } from '../components/DraggableList/EditableItem/hooks'
+import { defaultItemActions } from '../components/DraggableList/EditableItem/hooks'
 import { useInboxCount } from '../components/Sidenav/hooks'
 
+// Specify behavior of move item button from Inbox scene
 const useMoveItemToCollection = (itemId: string) => {
     const [moveItem] = useMoveItemFromInboxToCollectionMutation()
     const { decrementInboxCount } = useInboxCount()
@@ -30,6 +31,6 @@ const useMoveItemToCollection = (itemId: string) => {
     return { handleMove }
 }
 
-export const InboxItemActions = Object.assign(defaultActions, {
+export const InboxItemActions = Object.assign(defaultItemActions, {
     useMoveItem: useMoveItemToCollection,
 })

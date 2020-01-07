@@ -11,7 +11,7 @@ export interface ItemActions {
     ) => { handleMove: (collectionId: string) => void }
 }
 
-export const defaultActions: ItemActions = {
+export const defaultItemActions: ItemActions = {
     useMoveItem: () => {
         return {
             handleMove: () => {
@@ -23,7 +23,7 @@ export const defaultActions: ItemActions = {
 }
 
 export const ItemActionsContext = React.createContext<ItemActions>(
-    defaultActions
+    defaultItemActions
 )
 
 // FIXME it should be part of ItemActions
