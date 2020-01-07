@@ -4,9 +4,14 @@ import Router from 'next/router'
 import { BulletList } from 'react-content-loader'
 import ArchivedIcon from '../../../../../public/pictograms/archived.svg'
 import InboxIcon from '../../../../../public/pictograms/inbox.svg'
-import { GetSectionsDocument, GetSectionsQuery, useCreateSectionMutation } from '../../../../generated/types'
+import {
+    GetSectionsDocument,
+    GetSectionsQuery,
+    useCreateSectionMutation,
+} from '../../../../generated/types'
 import ProfileIcon from './profile.svg'
 import SectionGroup from './SectionGroup'
+import { useSideNav } from './hooks'
 
 interface SidenavProps {
     currentHref: string
@@ -33,6 +38,7 @@ const Sidenav: React.FC<SidenavProps> = ({
     authUserId,
 }) => {
     const bgBrand200 = `bg-brand-100`
+    const { updateSections } = useSideNav(authUserId)
 
     const [createSection] = useCreateSectionMutation({
         onCompleted: data => {
@@ -41,32 +47,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                 `/me/s/${data.createEmptySection.id}`
             )
         },
-        update(cache, { data }) {
-            if (data === undefined || data === null) {
-                throw Error('Can not update cache because no data returned')
-            }
-            const cachedData = cache.readQuery<GetSectionsQuery>({
-                query: GetSectionsDocument,
-                variables: {
-                    authUserId,
-                },
-            })
-
-            if (cachedData !== null && cachedData.sections) {
-                cache.writeQuery({
-                    variables: {
-                        authUserId,
-                    },
-                    query: GetSectionsDocument,
-                    data: {
-                        ...cachedData,
-                        sections: cachedData.sections.concat(
-                            data.createEmptySection
-                        ),
-                    },
-                })
-            }
-        },
+        update: updateSections,
     })
 
     return (

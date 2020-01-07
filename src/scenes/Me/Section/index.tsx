@@ -8,9 +8,10 @@ import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 interface SectionPageProps {
     sectionId: string
+    authUserId: string
 }
 
-export default ({ sectionId }: SectionPageProps) => {
+export default ({ sectionId, authUserId }: SectionPageProps) => {
     const { data, loading } = useGetSectionQuery({
         variables: { sectionId },
     })
@@ -28,7 +29,10 @@ export default ({ sectionId }: SectionPageProps) => {
                     title={section.title}
                 />
                 <div className="flex flex-row items-center">
-                    <NewCollectionBtn sectionId={section.id} />
+                    <NewCollectionBtn
+                        sectionId={section.id}
+                        authUserId={authUserId}
+                    />
                     <Options
                         className="ml-4"
                         collectionCount={

@@ -7,11 +7,8 @@ import {
     useCreateItemFromSearchMutation,
     useCreateItemFromUrlMutation,
     useSearchItemLazyQuery,
-    GetSectionDocument,
-    GetSectionQuery,
 } from '../../../../generated/types'
-import gql from 'graphql-tag'
-import { useInboxCount } from '../../components/Sidenav'
+import { useInboxCount } from '../../components/Sidenav/hooks'
 
 interface ItemsFormData {
     url: string
@@ -49,7 +46,7 @@ const useItemUrlForm = (onStart?: () => void, onCompleted?: () => void) => {
                         },
                     },
                 })
-                setInboxCount(newItems.length)
+                setInboxCount(cache, newItems.length)
             }
             reset()
         },
@@ -121,7 +118,7 @@ const useItemFormSearch = (
                         },
                     },
                 })
-                setInboxCount(newItems.length)
+                setInboxCount(cache, newItems.length)
             }
             reset()
         },

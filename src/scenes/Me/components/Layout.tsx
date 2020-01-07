@@ -11,7 +11,10 @@ export type DispatchableAction = (
 
 interface Props {
     loggedInUser?: AuthenticatedUser
-    children: (dispatch: DispatchableAction) => React.ReactNode
+    children: (
+        dispatch: DispatchableAction,
+        authUserId: string
+    ) => React.ReactNode
 }
 
 export default ({ loggedInUser, children }: Props) => {
@@ -27,7 +30,7 @@ export default ({ loggedInUser, children }: Props) => {
                     username={loggedInUser.name}
                 />
                 <main className="text-sm w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto mt-2 pb-16">
-                    {children(dispatch)}
+                    {children(dispatch, loggedInUser.id)}
                 </main>
             </div>
         </div>

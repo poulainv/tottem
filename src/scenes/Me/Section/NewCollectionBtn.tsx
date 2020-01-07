@@ -3,19 +3,28 @@ import classNames from 'classnames'
 import { Tooltip } from 'antd'
 import PlusIcon from '../../../../public/pictograms/plus.svg'
 import Router from 'next/router'
-import { useCreateEmptyCollectionMutation } from '../../../generated/types'
+import {
+    useCreateEmptyCollectionMutation,
+    GetSectionsDocument,
+    GetSectionsQuery,
+} from '../../../generated/types'
+import { useSideNav } from '../components/Sidenav/hooks'
 
 export interface Props {
     className?: string
     sectionId: string
+    authUserId: string
 }
 
-export default ({ className, sectionId }: Props) => {
+export default ({ className, sectionId, authUserId }: Props) => {
     const [createCollection] = useCreateEmptyCollectionMutation({
         variables: { sectionId },
         onCompleted: data => {
             Router.push('/me/c/[collectionId]', `/me/c/${data.collection.id}`)
         },
+        refetchQueries: [
+            { query: GetSectionsDocument, variables: { authUserId } },
+        ],
     })
 
     const handleCreationCollection = () => {
