@@ -48,7 +48,21 @@ export const useInboxCount = () => {
         }
     }
 
-    return { setInboxCount, getInboxCount, decrementInboxCount }
+    const incrementInboxCount = (
+        proxy: Parameters<MutationUpdaterFn<CreateSectionMutation>>[0]
+    ) => {
+        const count = getInboxCount(proxy)
+        if (count !== undefined) {
+            setInboxCount(proxy, count + 1)
+        }
+    }
+
+    return {
+        setInboxCount,
+        getInboxCount,
+        decrementInboxCount,
+        incrementInboxCount,
+    }
 }
 
 export const useSideNav = (authUserId: string) => {
