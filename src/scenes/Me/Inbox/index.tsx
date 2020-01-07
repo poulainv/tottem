@@ -1,11 +1,13 @@
 import * as React from 'react'
 import InboxIcon from '../../../../public/pictograms/inbox.svg'
 import { useGetInboxQuery } from '../../../generated/types'
-import ItemList from './ItemList'
+import { ItemType } from '../../common'
+import { ItemActionsContext } from '../components/DraggableList/EditableItem/hooks'
 import Skeleton from '../components/DraggableList/Skeleton'
 import FilterBadgesView from '../components/FilterBadgesView'
-import { ItemType } from '../../common'
 import ItemForm from './ItemForm'
+import ItemList from './ItemList'
+import { InboxItemActions } from './hooks'
 
 interface InboxProps {
     dispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
@@ -35,15 +37,17 @@ export default ({ dispatch }: InboxProps) => {
             {data.inbox === undefined ? (
                 <Skeleton />
             ) : (
-                <ItemList
-                    loading={loading}
-                    items={data.inbox.items}
-                    className="mt-8"
-                    filterTypes={selectedTypes}
-                    onChange={() => dispatch('CHANGED')}
-                    onSaved={() => dispatch('SAVED')}
-                    onSaving={() => dispatch('SAVING')}
-                />
+                <ItemActionsContext.Provider value={InboxItemActions}>
+                    <ItemList
+                        loading={loading}
+                        items={data.inbox.items}
+                        className="mt-8"
+                        filterTypes={selectedTypes}
+                        onChange={() => dispatch('CHANGED')}
+                        onSaved={() => dispatch('SAVED')}
+                        onSaving={() => dispatch('SAVING')}
+                    />
+                </ItemActionsContext.Provider>
             )}
         </div>
     )

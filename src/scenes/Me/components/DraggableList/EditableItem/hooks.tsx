@@ -1,8 +1,32 @@
 import * as React from 'react'
 import debounce from 'lodash.debounce'
 import { useSaveCommentItemMutation } from '../../../../../generated/types'
+import { useDeleteItem } from '../hooks'
 import { useForm } from 'react-hook-form'
 
+export interface ItemActions {
+    useDeleteItem: typeof useDeleteItem
+    useMoveItem: (
+        itemId: string
+    ) => { handleMove: (collectionId: string) => void }
+}
+
+export const defaultActions: ItemActions = {
+    useMoveItem: () => {
+        return {
+            handleMove: () => {
+                throw new Error('useMoveItem should be provided')
+            },
+        }
+    },
+    useDeleteItem,
+}
+
+export const ItemActionsContext = React.createContext<ItemActions>(
+    defaultActions
+)
+
+// FIXME it should be part of ItemActions
 const useItemCommentForm = (
     itemId: string,
     onSaved?: () => void,

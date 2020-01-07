@@ -2,11 +2,17 @@ import { Fragment, useState } from 'react'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
 import LoadingPage from '../../UtilsPage/Loading'
+import {
+    defaultActions,
+    ItemActions,
+    ItemActionsContext,
+} from '../components/DraggableList/EditableItem/hooks'
+import Skeleton from '../components/DraggableList/Skeleton'
 import FilterBadges from './FilterBadges'
+import HeaderForm from './HeaderForm'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
-import HeaderForm from './HeaderForm'
-import Skeleton from '../components/DraggableList/Skeleton'
+import { useMoveItemToCollection } from './hooks'
 
 interface Props {
     collectionId: string
@@ -15,6 +21,10 @@ interface Props {
 
 export default ({ dispatch, collectionId }: Props) => {
     const isBrowser = typeof window !== 'undefined'
+
+    const itemsActions: ItemActions = Object.assign(defaultActions, {
+        useMoveItem: useMoveItemToCollection(collectionId),
+    })
 
     const [selectedTypes, setSelectedTypes] = useState<ItemType[]>([])
     const { data } = useGetCollectionIdQuery({
@@ -44,14 +54,16 @@ export default ({ dispatch, collectionId }: Props) => {
             {collection.id === undefined ? (
                 <Skeleton />
             ) : (
-                <ItemList
-                    collectionId={collection.id}
-                    className="mt-8"
-                    filterTypes={selectedTypes}
-                    onChange={() => dispatch('CHANGED')}
-                    onSaved={() => dispatch('SAVED')}
-                    onSaving={() => dispatch('SAVING')}
-                />
+                <ItemActionsContext.Provider value={itemsActions}>
+                    <ItemList
+                        collectionId={collection.id}
+                        className="mt-8"
+                        filterTypes={selectedTypes}
+                        onChange={() => dispatch('CHANGED')}
+                        onSaved={() => dispatch('SAVED')}
+                        onSaving={() => dispatch('SAVING')}
+                    />
+                </ItemActionsContext.Provider>
             )}
         </Fragment>
     )

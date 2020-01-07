@@ -23,3 +23,12 @@ mutation unDeleteCollection($id: ID!) {
         isDeleted
     }
 }
+
+mutation moveItemFromCollectionToCollection($itemId: ID!, $collectionId: ID!) {
+    updateOneItem(
+        data: { collection: { connect: { id: $collectionId } } }
+        where: { id: $itemId }
+    ) {
+        id
+    }
+}

@@ -1,10 +1,10 @@
+import { Tooltip } from 'antd'
+import classNames from 'classnames'
 import * as React from 'react'
 import ArchivedIcon from '../../../../../../public/pictograms/archived.svg'
-import MoveIcon from '../../../../../../public/pictograms/move.svg'
 import DeleteIcon from '../../../../../../public/pictograms/delete.svg'
-import classNames from 'classnames'
-import { useDeleteItem } from '../hooks'
-import { Tooltip } from 'antd'
+import MoveIcon from '../../../../../../public/pictograms/move.svg'
+import { ItemActionsContext } from './hooks'
 
 export interface IOptionsProps {
     className?: string
@@ -12,7 +12,9 @@ export interface IOptionsProps {
 }
 
 export default ({ className, itemId }: IOptionsProps) => {
+    const { useMoveItem, useDeleteItem } = React.useContext(ItemActionsContext)
     const { handleDelete } = useDeleteItem()
+    const { handleMove } = useMoveItem(itemId)
     return (
         <div
             className={classNames(
@@ -27,6 +29,7 @@ export default ({ className, itemId }: IOptionsProps) => {
                 mouseLeaveDelay={0}
             >
                 <MoveIcon
+                    onClick={() => handleMove('ck52skv650001d09e0prngnp8')}
                     height={14}
                     width={14}
                     className={classNames('mt-2 cursor-pointer ')}

@@ -331,7 +331,6 @@ export type ItemCreateWithoutCollectionInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar: Scalars['String']
     inboxOwner?: Maybe<UserCreateOneWithoutInboxOwnerInput>
 }
 
@@ -350,7 +349,6 @@ export type ItemCreateWithoutInboxOwnerInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar: Scalars['String']
     collection?: Maybe<CollectionCreateOneWithoutCollectionInput>
 }
 
@@ -375,7 +373,6 @@ export type ItemScalarWhereInput = {
     description?: Maybe<NullableStringFilter>
     comment?: Maybe<NullableStringFilter>
     meta?: Maybe<NullableStringFilter>
-    bar?: Maybe<StringFilter>
     AND?: Maybe<Array<ItemScalarWhereInput>>
     OR?: Maybe<Array<ItemScalarWhereInput>>
     NOT?: Maybe<Array<ItemScalarWhereInput>>
@@ -408,7 +405,6 @@ export type ItemUpdateInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
     inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
@@ -428,7 +424,6 @@ export type ItemUpdateManyDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar?: Maybe<Scalars['String']>
 }
 
 export type ItemUpdateManyWithoutCollectionInput = {
@@ -475,7 +470,6 @@ export type ItemUpdateWithoutCollectionDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar?: Maybe<Scalars['String']>
     inboxOwner?: Maybe<UserUpdateOneWithoutInboxedItemsInput>
 }
 
@@ -494,7 +488,6 @@ export type ItemUpdateWithoutInboxOwnerDataInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    bar?: Maybe<Scalars['String']>
     collection?: Maybe<CollectionUpdateOneWithoutItemsInput>
 }
 
@@ -535,7 +528,6 @@ export type ItemWhereInput = {
     description?: Maybe<NullableStringFilter>
     comment?: Maybe<NullableStringFilter>
     meta?: Maybe<NullableStringFilter>
-    bar?: Maybe<StringFilter>
     AND?: Maybe<Array<ItemWhereInput>>
     OR?: Maybe<Array<ItemWhereInput>>
     NOT?: Maybe<Array<ItemWhereInput>>
@@ -691,7 +683,6 @@ export type QueryCollectionsWhereInput = {
 }
 
 export type QueryItemsOrderByInput = {
-    createdAt?: Maybe<OrderByArg>
     position?: Maybe<OrderByArg>
 }
 
@@ -1230,6 +1221,15 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type MoveItemFromCollectionToCollectionMutationVariables = {
+    itemId: Scalars['ID']
+    collectionId: Scalars['ID']
+}
+
+export type MoveItemFromCollectionToCollectionMutation = {
+    __typename?: 'Mutation'
+} & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
+
 export type GetInboxQueryVariables = {}
 
 export type GetInboxQuery = { __typename?: 'Query' } & {
@@ -1242,6 +1242,15 @@ export type GetInboxQuery = { __typename?: 'Query' } & {
             }
     >
 }
+
+export type MoveItemFromInboxToCollectionMutationVariables = {
+    itemId: Scalars['ID']
+    collectionId: Scalars['ID']
+}
+
+export type MoveItemFromInboxToCollectionMutation = {
+    __typename?: 'Mutation'
+} & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
 
 export type GetSectionQueryVariables = {
     sectionId: Scalars['ID']
@@ -1882,6 +1891,59 @@ export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOp
     UnDeleteCollectionMutation,
     UnDeleteCollectionMutationVariables
 >
+export const MoveItemFromCollectionToCollectionDocument = gql`
+    mutation moveItemFromCollectionToCollection(
+        $itemId: ID!
+        $collectionId: ID!
+    ) {
+        updateOneItem(
+            data: { collection: { connect: { id: $collectionId } } }
+            where: { id: $itemId }
+        ) {
+            id
+        }
+    }
+`
+
+/**
+ * __useMoveItemFromCollectionToCollectionMutation__
+ *
+ * To run a mutation, you first call `useMoveItemFromCollectionToCollectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMoveItemFromCollectionToCollectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [moveItemFromCollectionToCollectionMutation, { data, loading, error }] = useMoveItemFromCollectionToCollectionMutation({
+ *   variables: {
+ *      itemId: // value for 'itemId'
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useMoveItemFromCollectionToCollectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        MoveItemFromCollectionToCollectionMutation,
+        MoveItemFromCollectionToCollectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        MoveItemFromCollectionToCollectionMutation,
+        MoveItemFromCollectionToCollectionMutationVariables
+    >(MoveItemFromCollectionToCollectionDocument, baseOptions)
+}
+export type MoveItemFromCollectionToCollectionMutationHookResult = ReturnType<
+    typeof useMoveItemFromCollectionToCollectionMutation
+>
+export type MoveItemFromCollectionToCollectionMutationResult = ApolloReactCommon.MutationResult<
+    MoveItemFromCollectionToCollectionMutation
+>
+export type MoveItemFromCollectionToCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    MoveItemFromCollectionToCollectionMutation,
+    MoveItemFromCollectionToCollectionMutationVariables
+>
 export const GetInboxDocument = gql`
     query getInbox {
         inbox {
@@ -1940,6 +2002,59 @@ export type GetInboxLazyQueryHookResult = ReturnType<
 export type GetInboxQueryResult = ApolloReactCommon.QueryResult<
     GetInboxQuery,
     GetInboxQueryVariables
+>
+export const MoveItemFromInboxToCollectionDocument = gql`
+    mutation moveItemFromInboxToCollection($itemId: ID!, $collectionId: ID!) {
+        updateOneItem(
+            data: {
+                collection: { connect: { id: $collectionId } }
+                inboxOwner: { disconnect: true }
+            }
+            where: { id: $itemId }
+        ) {
+            id
+        }
+    }
+`
+
+/**
+ * __useMoveItemFromInboxToCollectionMutation__
+ *
+ * To run a mutation, you first call `useMoveItemFromInboxToCollectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMoveItemFromInboxToCollectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [moveItemFromInboxToCollectionMutation, { data, loading, error }] = useMoveItemFromInboxToCollectionMutation({
+ *   variables: {
+ *      itemId: // value for 'itemId'
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useMoveItemFromInboxToCollectionMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        MoveItemFromInboxToCollectionMutation,
+        MoveItemFromInboxToCollectionMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        MoveItemFromInboxToCollectionMutation,
+        MoveItemFromInboxToCollectionMutationVariables
+    >(MoveItemFromInboxToCollectionDocument, baseOptions)
+}
+export type MoveItemFromInboxToCollectionMutationHookResult = ReturnType<
+    typeof useMoveItemFromInboxToCollectionMutation
+>
+export type MoveItemFromInboxToCollectionMutationResult = ApolloReactCommon.MutationResult<
+    MoveItemFromInboxToCollectionMutation
+>
+export type MoveItemFromInboxToCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    MoveItemFromInboxToCollectionMutation,
+    MoveItemFromInboxToCollectionMutationVariables
 >
 export const GetSectionDocument = gql`
     query getSection($sectionId: ID!) {
@@ -2540,10 +2655,7 @@ export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOption
 >
 export const GetItemsDocument = gql`
     query getItems($collectionId: String!) {
-        items(
-            where: { collection: { id: { equals: $collectionId } } }
-            orderBy: { position: asc }
-        ) {
+        items(where: { collection: { id: { equals: $collectionId } } }) {
             ...ItemPreview
             ...ItemDetail
         }

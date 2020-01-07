@@ -7,3 +7,15 @@ query getInbox {
         }
     }
 }
+
+mutation moveItemFromInboxToCollection($itemId: ID!, $collectionId: ID!) {
+    updateOneItem(
+        data: {
+            collection: { connect: { id: $collectionId } }
+            inboxOwner: { disconnect: true }
+        }
+        where: { id: $itemId }
+    ) {
+        id
+    }
+}

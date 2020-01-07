@@ -4,14 +4,10 @@ import Router from 'next/router'
 import { BulletList } from 'react-content-loader'
 import ArchivedIcon from '../../../../../public/pictograms/archived.svg'
 import InboxIcon from '../../../../../public/pictograms/inbox.svg'
-import {
-    GetSectionsDocument,
-    GetSectionsQuery,
-    useCreateSectionMutation,
-} from '../../../../generated/types'
+import { useCreateSectionMutation } from '../../../../generated/types'
+import { useSideNav } from './hooks'
 import ProfileIcon from './profile.svg'
 import SectionGroup from './SectionGroup'
-import { useSideNav } from './hooks'
 
 interface SidenavProps {
     currentHref: string
