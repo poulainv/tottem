@@ -24,7 +24,10 @@ interface Props {
 export default ({ dispatch, collectionId, authUserId }: Props) => {
     const isBrowser = typeof window !== 'undefined'
 
-    const [state, moveDispatch] = useMoveItemFromCollection(collectionId)
+    const [state, moveDispatch] = useMoveItemFromCollection(
+        collectionId,
+        authUserId
+    )
     const itemsActions: ItemActions = Object.assign(defaultItemActions, {
         triggerMoveItem: (itemId: string) =>
             moveDispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
@@ -44,6 +47,7 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
     return (
         <Fragment>
             <MoveModal
+                onCancel={() => moveDispatch({ type: 'CANCEL' })}
                 onDone={() => moveDispatch({ type: 'ITEM_MOVED' })}
                 isOpen={state.isOpen}
                 authUserId={authUserId}

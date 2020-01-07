@@ -1,7 +1,10 @@
 import { useReducer } from 'react'
 
+export type DestinationType = 'inbox' | 'collection'
+
 export interface ItemDestination {
-    type: 'inbox' | 'collection'
+    title: string
+    type: DestinationType
     destinationId: string
 }
 
@@ -26,6 +29,9 @@ export const useMoveItemModal = (
                 return {
                     isOpen: false,
                 }
+            case 'CANCEL': {
+                return { isOpen: false }
+            }
             case 'TRIGGER_ITEM_MOVE':
                 return {
                     ...state,

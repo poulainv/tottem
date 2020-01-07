@@ -31,6 +31,7 @@ export default ({ messageDispatch: dispatch, authUserId }: InboxProps) => {
     return (
         <div className="flex flex-col">
             <MoveModal
+                onCancel={() => moveDispatch({ type: 'CANCEL' })}
                 onDone={() => moveDispatch({ type: 'ITEM_MOVED' })}
                 isOpen={state.isOpen}
                 authUserId={authUserId}

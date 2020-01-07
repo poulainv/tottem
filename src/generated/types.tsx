@@ -1230,6 +1230,15 @@ export type MoveItemFromCollectionToCollectionMutation = {
     __typename?: 'Mutation'
 } & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
 
+export type MoveItemFromCollectionToInboxMutationVariables = {
+    itemId: Scalars['ID']
+    authUserId: Scalars['String']
+}
+
+export type MoveItemFromCollectionToInboxMutation = {
+    __typename?: 'Mutation'
+} & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
+
 export type GetInboxQueryVariables = {}
 
 export type GetInboxQuery = { __typename?: 'Query' } & {
@@ -1955,6 +1964,59 @@ export type MoveItemFromCollectionToCollectionMutationResult = ApolloReactCommon
 export type MoveItemFromCollectionToCollectionMutationOptions = ApolloReactCommon.BaseMutationOptions<
     MoveItemFromCollectionToCollectionMutation,
     MoveItemFromCollectionToCollectionMutationVariables
+>
+export const MoveItemFromCollectionToInboxDocument = gql`
+    mutation moveItemFromCollectionToInbox($itemId: ID!, $authUserId: String!) {
+        updateOneItem(
+            data: {
+                collection: { disconnect: true }
+                inboxOwner: { connect: { authUserId: $authUserId } }
+            }
+            where: { id: $itemId }
+        ) {
+            id
+        }
+    }
+`
+
+/**
+ * __useMoveItemFromCollectionToInboxMutation__
+ *
+ * To run a mutation, you first call `useMoveItemFromCollectionToInboxMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMoveItemFromCollectionToInboxMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [moveItemFromCollectionToInboxMutation, { data, loading, error }] = useMoveItemFromCollectionToInboxMutation({
+ *   variables: {
+ *      itemId: // value for 'itemId'
+ *      authUserId: // value for 'authUserId'
+ *   },
+ * });
+ */
+export function useMoveItemFromCollectionToInboxMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        MoveItemFromCollectionToInboxMutation,
+        MoveItemFromCollectionToInboxMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        MoveItemFromCollectionToInboxMutation,
+        MoveItemFromCollectionToInboxMutationVariables
+    >(MoveItemFromCollectionToInboxDocument, baseOptions)
+}
+export type MoveItemFromCollectionToInboxMutationHookResult = ReturnType<
+    typeof useMoveItemFromCollectionToInboxMutation
+>
+export type MoveItemFromCollectionToInboxMutationResult = ApolloReactCommon.MutationResult<
+    MoveItemFromCollectionToInboxMutation
+>
+export type MoveItemFromCollectionToInboxMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    MoveItemFromCollectionToInboxMutation,
+    MoveItemFromCollectionToInboxMutationVariables
 >
 export const GetInboxDocument = gql`
     query getInbox {

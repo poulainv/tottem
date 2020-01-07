@@ -6,6 +6,9 @@ import {
     useGetSectionsQuery,
 } from '../../../../generated/types'
 import { SelectValue } from 'antd/lib/select'
+import SpaceIcon from '../../../../../public/pictograms/space.svg'
+import InboxIcon from '../../../../../public/pictograms/inbox.svg'
+import { ItemDestination, DestinationType } from './hooks'
 
 const { Option } = AutoComplete
 
@@ -13,27 +16,37 @@ export interface Props {
     className?: string
     isOpen: boolean
     authUserId: string
-    onMoveItem?: (
-        itemId: string,
-        destination: {
-            type: 'inbox' | 'collection'
-            destinationId: string
-        }
-    ) => void
+    onCancel: () => void
+    onMoveItem?: (itemId: string, destination: ItemDestination) => void
     itemId?: string
     onDone: () => void
 }
 
-const renderOption = (item: { title: string; id: string }) => {
+const getIcon = (type: DestinationType) => {
+    switch (type) {
+        case 'inbox':
+            return <InboxIcon className="fill-current text-gray-500" />
+        case 'collection':
+            return <SpaceIcon className="fill-current text-gray-500" />
+    }
+}
+
+const renderOption = (item: ItemDestination) => {
+    const Icon = getIcon(item.type)
     return (
-        <Option key={item.id} label={item.title}>
-            <div className="global-search-item">
-                <span className="global-search-item-desc">
-                    Results {item.title}
-                </span>
+        <Option key={item.destinationId} label={item.title} className="py-3">
+            <div className="flex flex-row leading-none items-center">
+                <div className="flex-shrink-0">{Icon}</div>
+                <span className="truncate ml-2">{item.title}</span>
             </div>
         </Option>
     )
+}
+
+const inboxDestination: ItemDestination = {
+    type: 'inbox' as DestinationType,
+    destinationId: 'Me',
+    title: 'Inbox',
 }
 
 export default ({
@@ -43,51 +56,60 @@ export default ({
     itemId,
     isOpen,
     onDone,
+    onCancel,
 }: Props) => {
-    const [datasource, setDatasource] = React.useState<
-        Array<{ id: string; title: string }>
-    >([])
+    const [datasource, setDatasource] = React.useState<ItemDestination[]>([])
 
     const getCollections = (query: GetSectionsQuery) => {
         return query?.sections
             .flatMap(x => x.collections)
             .filter(x => x !== undefined)
             .map(x => {
-                return { id: x.id, title: x.title || 'New collection' }
+                return {
+                    destinationId: x.id,
+                    title: x.title || 'New collection',
+                    type: 'collection' as DestinationType,
+                }
             })
     }
 
     const { data, loading } = useGetSectionsQuery({
         variables: { authUserId },
         onCompleted(fetched) {
-            setDatasource(getCollections(fetched))
+            setDatasource([inboxDestination].concat(getCollections(fetched)))
         },
     })
+
     if (data === undefined || data?.sections === undefined || loading) {
         return <div> Loading ... </div>
     }
 
     const handleSearch = (value: string) => {
         setDatasource(
-            getCollections(data).filter(x =>
-                x.title.toLowerCase().includes(value.toLowerCase())
-            )
+            [inboxDestination]
+                .concat(getCollections(data))
+                .filter(x =>
+                    x.title.toLowerCase().includes(value.toLowerCase())
+                )
         )
     }
 
     const onSelect = (value: SelectValue) => {
         if (itemId === undefined || onMoveItem === undefined) {
-            throw new Error('Can not move item')
+            throw new Error(`Can not move item itemId ${itemId}`)
         }
-        onMoveItem(itemId, {
-            type: 'collection',
-            destinationId: value.toString(),
-        })
+        const destinationId = value.toString()
+        onMoveItem(
+            itemId,
+            datasource.filter(x => x.destinationId === destinationId)[0]
+        )
         onDone()
     }
 
     return (
         <ReactModal
+            shouldCloseOnEsc={true}
+            onRequestClose={onCancel}
             isOpen={isOpen}
             ariaHideApp={false} // FIXME
             style={{
@@ -95,7 +117,7 @@ export default ({
                     backgroundColor: 'transparent',
                 },
                 content: {
-                    width: '320px',
+                    width: '348px',
                     marginLeft: 'auto',
                     marginRight: 'auto',
                     left: '0',

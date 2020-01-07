@@ -15,6 +15,9 @@ export const useMoveItemFromInbox = () => {
     const { decrementInboxCount } = useInboxCount()
 
     const handleMove = (itemId: string, destination: ItemDestination) => {
+        if (destination.type === 'inbox') {
+            return
+        }
         moveItem({
             variables: {
                 itemId,

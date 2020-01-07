@@ -32,3 +32,15 @@ mutation moveItemFromCollectionToCollection($itemId: ID!, $collectionId: ID!) {
         id
     }
 }
+
+mutation moveItemFromCollectionToInbox($itemId: ID!, $authUserId: String!) {
+    updateOneItem(
+        data: {
+            collection: { disconnect: true }
+            inboxOwner: { connect: { authUserId: $authUserId } }
+        }
+        where: { id: $itemId }
+    ) {
+        id
+    }
+}
