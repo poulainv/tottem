@@ -1,0 +1,11 @@
+query getCollectionModal($authUserId: String!) {
+    collections(
+        where: {
+            isDeleted: { equals: false }
+            owner: { authUserId: { equals: $authUserId } }
+        }
+    ) {
+        id
+        title: name
+    }
+}
