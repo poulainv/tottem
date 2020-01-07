@@ -131,7 +131,7 @@ const useItemFormSearch = (
         if (onStart !== undefined) {
             onStart()
         }
-        const value = dataSource.find(x => x.title === title)
+        const value = dataSource.find(x => x.title === title) // FIXME not ideal in case of similar title
         if (value === undefined) {
             throw Error('Unable to find the value')
         }
