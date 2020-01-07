@@ -1404,6 +1404,18 @@ export type GetItemsQuery = { __typename?: 'Query' } & {
     >
 }
 
+export type GetCollectionModalQueryVariables = {
+    authUserId: Scalars['String']
+}
+
+export type GetCollectionModalQuery = { __typename?: 'Query' } & {
+    collections: Array<
+        { __typename?: 'Collection' } & Pick<Collection, 'id'> & {
+                title: Collection['name']
+            }
+    >
+}
+
 export type GetSectionsQueryVariables = {
     authUserId: Scalars['String']
 }
@@ -2709,6 +2721,68 @@ export type GetItemsLazyQueryHookResult = ReturnType<
 export type GetItemsQueryResult = ApolloReactCommon.QueryResult<
     GetItemsQuery,
     GetItemsQueryVariables
+>
+export const GetCollectionModalDocument = gql`
+    query getCollectionModal($authUserId: String!) {
+        collections(
+            where: {
+                isDeleted: { equals: false }
+                owner: { authUserId: { equals: $authUserId } }
+            }
+        ) {
+            id
+            title: name
+        }
+    }
+`
+
+/**
+ * __useGetCollectionModalQuery__
+ *
+ * To run a query within a React component, call `useGetCollectionModalQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCollectionModalQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCollectionModalQuery({
+ *   variables: {
+ *      authUserId: // value for 'authUserId'
+ *   },
+ * });
+ */
+export function useGetCollectionModalQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetCollectionModalQuery,
+        GetCollectionModalQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetCollectionModalQuery,
+        GetCollectionModalQueryVariables
+    >(GetCollectionModalDocument, baseOptions)
+}
+export function useGetCollectionModalLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetCollectionModalQuery,
+        GetCollectionModalQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetCollectionModalQuery,
+        GetCollectionModalQueryVariables
+    >(GetCollectionModalDocument, baseOptions)
+}
+export type GetCollectionModalQueryHookResult = ReturnType<
+    typeof useGetCollectionModalQuery
+>
+export type GetCollectionModalLazyQueryHookResult = ReturnType<
+    typeof useGetCollectionModalLazyQuery
+>
+export type GetCollectionModalQueryResult = ApolloReactCommon.QueryResult<
+    GetCollectionModalQuery,
+    GetCollectionModalQueryVariables
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {

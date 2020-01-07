@@ -6,18 +6,12 @@ import { useForm } from 'react-hook-form'
 
 export interface ItemActions {
     useDeleteItem: typeof useDeleteItem
-    useMoveItem: (
-        itemId: string
-    ) => { handleMove: (collectionId: string) => void }
+    triggerMoveItem: (itemId: string) => void
 }
 
 export const defaultItemActions: ItemActions = {
-    useMoveItem: () => {
-        return {
-            handleMove: () => {
-                throw new Error('useMoveItem should be provided')
-            },
-        }
+    triggerMoveItem: () => {
+        throw new Error('useMoveItem should be provided')
     },
     useDeleteItem,
 }

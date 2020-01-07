@@ -43,8 +43,9 @@ export const useInboxCount = () => {
         const count = getInboxCount(proxy)
         if (count !== undefined && count >= 1) {
             setInboxCount(proxy, count - 1)
+        } else {
+            throw new Error(`Count ${count} is not defined or = <1`)
         }
-        throw new Error(`Count ${count} is not defined or = <1`)
     }
 
     return { setInboxCount, getInboxCount, decrementInboxCount }

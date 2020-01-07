@@ -12,9 +12,10 @@ export interface IOptionsProps {
 }
 
 export default ({ className, itemId }: IOptionsProps) => {
-    const { useMoveItem, useDeleteItem } = React.useContext(ItemActionsContext)
+    const { triggerMoveItem, useDeleteItem } = React.useContext(
+        ItemActionsContext
+    )
     const { handleDelete } = useDeleteItem()
-    const { handleMove } = useMoveItem(itemId)
     return (
         <div
             className={classNames(
@@ -29,7 +30,7 @@ export default ({ className, itemId }: IOptionsProps) => {
                 mouseLeaveDelay={0}
             >
                 <MoveIcon
-                    onClick={() => handleMove('ck52skv650001d09e0prngnp8')}
+                    onClick={() => triggerMoveItem(itemId)}
                     height={14}
                     width={14}
                     className={classNames('mt-2 cursor-pointer ')}

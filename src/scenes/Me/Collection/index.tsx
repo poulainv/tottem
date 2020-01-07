@@ -3,7 +3,7 @@ import { useGetCollectionIdQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
 import LoadingPage from '../../UtilsPage/Loading'
 import {
-    defaultActions,
+    defaultItemActions,
     ItemActions,
     ItemActionsContext,
 } from '../components/DraggableList/EditableItem/hooks'
@@ -12,18 +12,22 @@ import FilterBadges from './FilterBadges'
 import HeaderForm from './HeaderForm'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
-import { useMoveItemToCollection } from './hooks'
+import { useMoveItemFromCollection } from './hooks'
+import MoveModal from '../components/MoveModal'
 
 interface Props {
     collectionId: string
+    authUserId: string
     dispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
 }
 
-export default ({ dispatch, collectionId }: Props) => {
+export default ({ dispatch, collectionId, authUserId }: Props) => {
     const isBrowser = typeof window !== 'undefined'
 
-    const itemsActions: ItemActions = Object.assign(defaultActions, {
-        useMoveItem: useMoveItemToCollection(collectionId),
+    const [state, moveDispatch] = useMoveItemFromCollection(collectionId)
+    const itemsActions: ItemActions = Object.assign(defaultItemActions, {
+        triggerMoveItem: (itemId: string) =>
+            moveDispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
     })
 
     const [selectedTypes, setSelectedTypes] = useState<ItemType[]>([])
@@ -39,6 +43,13 @@ export default ({ dispatch, collectionId }: Props) => {
 
     return (
         <Fragment>
+            <MoveModal
+                onDone={() => moveDispatch({ type: 'ITEM_MOVED' })}
+                isOpen={state.isOpen}
+                authUserId={authUserId}
+                onMoveItem={state.onMoveItem}
+                itemId={state.itemId}
+            />
             <HeaderForm
                 collection={collection}
                 onChange={() => dispatch('CHANGED')}
