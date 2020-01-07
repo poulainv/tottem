@@ -16,8 +16,9 @@ const CollectionPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     const router = useRouter()
     return (
         <Layout loggedInUser={loggedInUser}>
-            {dispatch => (
+            {(dispatch, authUserId) => (
                 <Collection
+                    authUserId={authUserId}
                     dispatch={dispatch}
                     collectionId={
                         router.query.collectionId &&
