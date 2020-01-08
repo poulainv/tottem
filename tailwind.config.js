@@ -1,10 +1,15 @@
 module.exports = {
     important: true,
     theme: {
-        inset: {
-            '-4': '-3rem',
-        },
         extend: {
+            spacing: {
+                full: '100%',
+                '4/3': '133%',
+                '3/2': '150%',
+            },
+            inset: {
+                '-4': '-3rem',
+            },
             minHeight: {
                 '8': '8em',
                 '9': '9em',

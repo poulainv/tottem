@@ -5,6 +5,7 @@ import Options from '../Collection/HeaderForm/Options'
 import { PictogramItems } from '../../../components/PictogramItems'
 import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 import Link from 'next/link'
+import { ItemType } from '../../common'
 
 export interface CollectionCardProps {
     className?: string
@@ -15,6 +16,8 @@ export interface CollectionCardProps {
         items: Array<Pick<Item, 'imageUrl' | 'title' | 'type' | 'isDeleted'>>
     }
 }
+
+const shouldBeCoverRatio = (type: ItemType) => ['book', 'movie'].includes(type)
 
 export default ({ className, avatar, collection }: CollectionCardProps) => {
     const updatedAt = new Date(collection.updatedAt).toLocaleDateString(
@@ -65,10 +68,34 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                                         className="ml-6 xl:ml-8 first:ml-0 flex flex-col w-1/6 flex-shrink-0 flex-grow-0"
                                     >
                                         {item.imageUrl ? (
-                                            <img
-                                                className="rounded-lg border border-gray-200"
-                                                src={item.imageUrl}
-                                            />
+                                            <div
+                                                className={classNames(
+                                                    'relative',
+                                                    {
+                                                        'pb-3/2': shouldBeCoverRatio(
+                                                            item.type
+                                                        ),
+                                                        'pb-full': !shouldBeCoverRatio(
+                                                            item.type
+                                                        ),
+                                                    }
+                                                )}
+                                            >
+                                                <img
+                                                    className={classNames(
+                                                        'absolute rounded-lg border border-gray-200 h-full w-full',
+                                                        {
+                                                            'object-fill': shouldBeCoverRatio(
+                                                                item.type
+                                                            ),
+                                                            'object-cover': !shouldBeCoverRatio(
+                                                                item.type
+                                                            ),
+                                                        }
+                                                    )}
+                                                    src={item.imageUrl}
+                                                />
+                                            </div>
                                         ) : (
                                             <div className="rounded w-40 border-gray-200 bg-gray-200 h-48 flex justify-center items-center">
                                                 <PlaceholderIcon className="h-16 w-16 text-white fill-current" />
