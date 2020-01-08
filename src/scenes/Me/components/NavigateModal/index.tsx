@@ -4,13 +4,14 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import { GlobalHotKeys } from 'react-hotkeys'
 import ReactModal from 'react-modal'
+import classNames from 'classnames'
 import InboxIcon from '../../../../../public/pictograms/inbox.svg'
 import SpaceIcon from '../../../../../public/pictograms/space.svg'
+import CollectionIcon from '../../../../../public/pictograms/collection.svg'
 import {
     GetSectionsQuery,
     useGetSectionsQuery,
 } from '../../../../generated/types'
-import { DestinationType, ItemDestination } from '../MoveModal/hooks'
 const { Option } = AutoComplete
 
 const keyMap = {
@@ -18,27 +19,37 @@ const keyMap = {
     CLOSE_NAVIGATE: 'Escape',
 }
 
-export interface Props {
-    authUserId: string
+interface PageType {
+    title: string
+    id?: string
+    type: 'inbox' | 'collection' | 'section'
 }
 
-const getIcon = (type: DestinationType) => {
+const getIcon = (type: 'inbox' | 'collection' | 'section') => {
     switch (type) {
         case 'inbox':
             return <InboxIcon className="fill-current text-gray-500" />
         case 'collection':
-            return <SpaceIcon className="fill-current text-gray-500" />
+            return <CollectionIcon className="fill-current text-gray-300" />
+        case 'section':
+            return <SpaceIcon className="fill-current text-gray-400" />
     }
 }
 
-const renderOption = (dest: ItemDestination) => {
+const renderOption = (dest: PageType) => {
     const Icon = getIcon(dest.type)
     return (
-        <Option key={dest.destinationId} label={dest.title} className="py-2">
+        <Option key={dest.id} label={dest.title} className="py-2">
             <div className="flex flex-row leading-none items-center justify-between">
                 <div className="flex flex-row flex-start leading-none items-center flex-shrink w-11/12">
                     <div className="flex-shrink-0">{Icon}</div>
-                    <span className="truncate ml-2 flex-shrink">
+                    <span
+                        className={classNames('truncate ml-2 flex-shrink', {
+                            'font-semibold':
+                                dest.type === 'inbox' ||
+                                dest.type === 'section',
+                        })}
+                    >
                         {dest.title}
                     </span>
                 </div>
@@ -47,31 +58,45 @@ const renderOption = (dest: ItemDestination) => {
     )
 }
 
-const inboxDestination: ItemDestination = {
-    type: 'inbox' as DestinationType,
-    destinationId: 'inbox',
+const inboxPage: PageType = {
+    type: 'inbox',
+    id: 'inbox',
     title: 'Inbox',
 }
 
-const getCollectionsFromQuery = (query: GetSectionsQuery) => {
-    return query?.sections
+const getInitialDatasource = (query: GetSectionsQuery) => {
+    const collections = query?.sections
         .flatMap(x => x.collections)
         .filter(x => x !== undefined)
         .map(x => {
             return {
-                destinationId: x.id,
+                id: x.id,
                 title: x.title || 'New collection',
-                type: 'collection' as DestinationType,
-            }
+                type: 'collection',
+            } as PageType
         })
+    const sections = query?.sections
+        .filter(x => x !== undefined)
+        .map(x => {
+            return {
+                id: x.id,
+                title: x.title || 'New space',
+                type: 'section',
+            } as PageType
+        })
+    const userPages = sections
+        .concat(collections)
+        .sort((a, b) => a.title.localeCompare(b.title)) // FIXME here!
+    return [inboxPage].concat(userPages)
 }
 
-const getInitialDatasource = (query: GetSectionsQuery) =>
-    [inboxDestination].concat(getCollectionsFromQuery(query))
+interface Props {
+    authUserId: string
+}
 
 export default ({ authUserId }: Props) => {
     const [isOpen, setIsOpen] = React.useState(false)
-    const [datasource, setDatasource] = React.useState<ItemDestination[]>([])
+    const [datasource, setDatasource] = React.useState<PageType[]>([])
     const { data, loading } = useGetSectionsQuery({
         variables: { authUserId },
     })
@@ -101,12 +126,12 @@ export default ({ authUserId }: Props) => {
     }
     const router = useRouter()
     const onSelect = (value: SelectValue) => {
-        const destinationId = value.toString()
-        const dest = datasource.filter(
-            x => x.destinationId === destinationId
-        )[0]
+        const id = value.toString()
+        const dest = datasource.filter(x => x.id === id)[0]
         if (dest.type === 'collection') {
-            router.push('/me/c/[collectionId]', `/me/c/${destinationId}`)
+            router.push('/me/c/[collectionId]', `/me/c/${id}`)
+        } else if (dest.type === 'section') {
+            router.push('/me/s/[sectionId]', `/me/s/${id}`)
         } else if (dest.type === 'inbox') {
             router.push('/me/inbox')
         } else {
