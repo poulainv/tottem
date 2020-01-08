@@ -30,8 +30,14 @@ export const useMoveItemModal = (
             | { type: 'TRIGGER_ITEM_MOVE'; itemId: string }
             | { type: 'ITEM_MOVED' }
             | { type: 'CANCEL' }
+            | { type: 'DEPART_CHANGED'; depart: ItemDepart }
     ) => {
         switch (action.type) {
+            case 'DEPART_CHANGED':
+                return {
+                    ...state,
+                    depart: action.depart,
+                }
             case 'ITEM_MOVED':
                 return {
                     ...state,

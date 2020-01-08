@@ -94,7 +94,6 @@ export default ({
     const { data, loading } = useGetSectionsQuery({
         variables: { authUserId },
     })
-
     React.useEffect(() => {
         if (data !== undefined) {
             setDatasource(getInitialDatasource(data))

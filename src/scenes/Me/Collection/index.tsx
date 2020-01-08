@@ -28,6 +28,7 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
         collectionId,
         authUserId
     )
+
     const itemsActions: ItemActions = Object.assign(defaultItemActions, {
         triggerMoveItem: (itemId: string) =>
             moveDispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),

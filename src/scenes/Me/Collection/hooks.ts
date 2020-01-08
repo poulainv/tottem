@@ -10,6 +10,7 @@ import {
     useMoveItemModal,
 } from '../components/MoveModal/hooks'
 import { useInboxCount } from '../components/Sidenav/hooks'
+import { useEffect } from 'react'
 
 // Specify behavior of move item button from Collection scene
 export const useMoveItemFromCollection = (
@@ -21,11 +22,6 @@ export const useMoveItemFromCollection = (
     ] = useMoveItemFromCollectionToCollectionMutation()
     const [moveItemToInbox] = useMoveItemFromCollectionToInboxMutation()
     const { incrementInboxCount } = useInboxCount()
-
-    const collectionDepart: ItemDepart = {
-        destinationId: fromCollectionId,
-        type: 'collection',
-    }
 
     const handleMove = (itemId: string, destination: ItemDestination) => {
         if (destination.type === 'inbox') {
@@ -74,5 +70,19 @@ export const useMoveItemFromCollection = (
             })
         }
     }
-    return useMoveItemModal(collectionDepart, handleMove)
+
+    const collectionDepart: ItemDepart = {
+        destinationId: fromCollectionId,
+        type: 'collection',
+    }
+
+    // FIXME returning array after destructing does not worl :/
+    const hook = useMoveItemModal(collectionDepart, handleMove)
+
+    useEffect(() => {
+        const [, dispatch] = hook
+        dispatch({ type: 'DEPART_CHANGED', depart: collectionDepart })
+    }, [fromCollectionId])
+
+    return hook
 }
