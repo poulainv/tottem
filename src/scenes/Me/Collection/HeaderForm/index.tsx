@@ -41,11 +41,11 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                 </div>
                 <TextareaAutosize
                     onChange={onChange}
-                    placeholder="Write additionnal description, if you want ..."
+                    placeholder="Notes"
                     className="mt-4 resize-none focus:border-blue-400 outline-none text-gray-700 leading-relaxed"
                     name="detail"
                     inputRef={register}
-                    minRows={2}
+                    minRows={1}
                     defaultValue={collection.detail}
                     onBlur={submit}
                 />
