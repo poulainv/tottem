@@ -5,6 +5,7 @@ import Options from './Options'
 import NewCollectionBtn from './NewCollectionBtn'
 import CollectionCard from './CollectionCard'
 import EmptyBox from '../../../../public/pictograms/empty-box.svg'
+import Loading from '../../UtilsPage/Loading'
 
 interface SectionPageProps {
     sectionId: string
@@ -16,7 +17,7 @@ export default ({ sectionId, authUserId }: SectionPageProps) => {
         variables: { sectionId },
     })
     if (data === undefined || data.section === undefined) {
-        return <div>Loading...</div>
+        return <Loading />
     }
     const { section } = data
     const collections = section.collections.filter(x => !x.isDeleted)
