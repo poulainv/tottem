@@ -2153,7 +2153,10 @@ export const GetSectionDocument = gql`
             title: name
             index
             slug
-            collections {
+            collections(
+                where: { isDeleted: { equals: false } }
+                orderBy: { createdAt: asc }
+            ) {
                 id
                 slug
                 updatedAt
