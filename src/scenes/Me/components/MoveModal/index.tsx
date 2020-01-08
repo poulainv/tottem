@@ -148,7 +148,7 @@ export default ({
                 },
             }}
         >
-            <div className="flex flex-col bg-gray-200 w-full rounded-lg p-2">
+            <div className="flex flex-col bg-gray-300 w-full rounded-lg p-3">
                 <AutoComplete
                     onSelect={onSelect}
                     onSearch={handleSearch}
