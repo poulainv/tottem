@@ -13,7 +13,10 @@ query getSections($authUserId: String!) {
         createdAt
         isExpanded
         title: name
-        collections(where: { isDeleted: { equals: false } }) {
+        collections(
+            where: { isDeleted: { equals: false } }
+            orderBy: { createdAt: asc }
+        ) {
             id
             slug
             isDeleted

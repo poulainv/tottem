@@ -721,11 +721,17 @@ export type Section = {
 
 export type SectionCollectionsArgs = {
     where?: Maybe<SectionCollectionsWhereInput>
+    orderBy?: Maybe<SectionCollectionsOrderByInput>
     skip?: Maybe<Scalars['Int']>
     after?: Maybe<Scalars['ID']>
     before?: Maybe<Scalars['ID']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
+}
+
+export type SectionCollectionsOrderByInput = {
+    createdAt?: Maybe<OrderByArg>
+    updatedAt?: Maybe<OrderByArg>
 }
 
 export type SectionCollectionsWhereInput = {
@@ -2872,7 +2878,10 @@ export const GetSectionsDocument = gql`
             createdAt
             isExpanded
             title: name
-            collections(where: { isDeleted: { equals: false } }) {
+            collections(
+                where: { isDeleted: { equals: false } }
+                orderBy: { createdAt: asc }
+            ) {
                 id
                 slug
                 isDeleted
