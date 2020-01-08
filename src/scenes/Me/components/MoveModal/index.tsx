@@ -43,7 +43,7 @@ const departEqualsDestination = (depart: ItemDepart, dest: ItemDestination) => {
 const renderOption = (dest: ItemDestination, depart: ItemDepart) => {
     const Icon = getIcon(dest.type)
     return (
-        <Option key={dest.destinationId} label={dest.title} className="py-3">
+        <Option key={dest.destinationId} label={dest.title} className="py-2">
             <div className="flex flex-row leading-none items-center justify-between">
                 <div className="flex flex-row flex-start leading-none items-center flex-shrink w-11/12">
                     <div className="flex-shrink-0">{Icon}</div>
@@ -153,7 +153,9 @@ export default ({
                     onSearch={handleSearch}
                     className="w-full flex-shrink"
                     dataSource={datasource.map(x => renderOption(x, depart))}
-                    open={true}
+                    autoFocus={true}
+                    defaultOpen={true}
+                    onDropdownVisibleChange={onCancel}
                     optionLabelProp="label"
                 >
                     <input
