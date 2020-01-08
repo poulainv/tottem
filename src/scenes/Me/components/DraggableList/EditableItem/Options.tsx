@@ -11,7 +11,7 @@ export interface IOptionsProps {
     itemId: string
 }
 
-export default ({ className, itemId }: IOptionsProps) => {
+export default React.memo(({ className, itemId }: IOptionsProps) => {
     const { triggerMoveItem, useDeleteItem } = React.useContext(
         ItemActionsContext
     )
@@ -63,4 +63,4 @@ export default ({ className, itemId }: IOptionsProps) => {
             </Tooltip>
         </div>
     )
-}
+})
