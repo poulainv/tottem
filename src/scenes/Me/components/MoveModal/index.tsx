@@ -48,6 +48,22 @@ const inboxDestination: ItemDestination = {
     title: 'Inbox',
 }
 
+const getCollectionsFromQuery = (query: GetSectionsQuery) => {
+    return query?.sections
+        .flatMap(x => x.collections)
+        .filter(x => x !== undefined)
+        .map(x => {
+            return {
+                destinationId: x.id,
+                title: x.title || 'New collection',
+                type: 'collection' as DestinationType,
+            }
+        })
+}
+
+const getInitialDatasource = (query: GetSectionsQuery) =>
+    [inboxDestination].concat(getCollectionsFromQuery(query))
+
 export default ({
     authUserId,
     onMoveItem,
@@ -57,27 +73,13 @@ export default ({
     onCancel,
 }: Props) => {
     const [datasource, setDatasource] = React.useState<ItemDestination[]>([])
-
     const { data, loading } = useGetSectionsQuery({
         variables: { authUserId },
     })
 
-    const getCollections = (query: GetSectionsQuery) => {
-        return query?.sections
-            .flatMap(x => x.collections)
-            .filter(x => x !== undefined)
-            .map(x => {
-                return {
-                    destinationId: x.id,
-                    title: x.title || 'New collection',
-                    type: 'collection' as DestinationType,
-                }
-            })
-    }
-
     React.useEffect(() => {
         if (data !== undefined) {
-            setDatasource([inboxDestination].concat(getCollections(data)))
+            setDatasource(getInitialDatasource(data))
         }
     }, [itemId])
 
@@ -87,11 +89,9 @@ export default ({
 
     const handleSearch = (value: string) => {
         setDatasource(
-            [inboxDestination]
-                .concat(getCollections(data))
-                .filter(x =>
-                    x.title.toLowerCase().includes(value.toLowerCase())
-                )
+            getInitialDatasource(data).filter(x =>
+                x.title.toLowerCase().includes(value.toLowerCase())
+            )
         )
     }
 
