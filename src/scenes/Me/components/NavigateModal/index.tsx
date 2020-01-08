@@ -117,6 +117,11 @@ export default ({ authUserId }: Props) => {
         return <div> Loading ... </div>
     }
 
+    const handleClose = () => {
+        setIsOpen(false)
+        setDatasource(getInitialDatasource(data))
+    }
+
     const handleSearch = (value: string) => {
         setDatasource(
             getInitialDatasource(data).filter(x =>
@@ -144,7 +149,7 @@ export default ({ authUserId }: Props) => {
             <GlobalHotKeys handlers={handlers} keyMap={keyMap} />
             <ReactModal
                 shouldCloseOnEsc={true}
-                onRequestClose={() => setIsOpen(false)}
+                onRequestClose={handleClose}
                 isOpen={isOpen}
                 ariaHideApp={false} // FIXME
                 style={{
@@ -171,7 +176,7 @@ export default ({ authUserId }: Props) => {
                         dataSource={datasource.map(x => renderOption(x))}
                         autoFocus={true}
                         defaultOpen={true}
-                        onDropdownVisibleChange={() => setIsOpen(false)}
+                        onDropdownVisibleChange={handleClose}
                         optionLabelProp="label"
                     >
                         <input
