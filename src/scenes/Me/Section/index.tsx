@@ -16,7 +16,7 @@ export default ({ sectionId, authUserId }: SectionPageProps) => {
         variables: { sectionId },
     })
     if (data === undefined || data.section === undefined) {
-        return <div>Foo</div>
+        return <div>Loading...</div>
     }
     const { section } = data
     const collections = section.collections.filter(x => !x.isDeleted)

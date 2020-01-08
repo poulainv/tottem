@@ -17,7 +17,6 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
         onSaved,
         onSaving
     )
-
     return (
         <div className="flex flex-row">
             <form
@@ -27,7 +26,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
             >
                 <div className="flex flex-row w-full">
                     <TextareaAutosize
-                        autoFocus
+                        autoFocus={!collection.name?.length} // autofocus only when collection unamed
                         onChange={onChange}
                         type="text"
                         placeholder="New collection title"

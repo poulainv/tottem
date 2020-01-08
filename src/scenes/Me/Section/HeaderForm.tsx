@@ -14,7 +14,6 @@ export default ({ sectionId, title, className }: IHeaderFormProps) => {
         sectionId,
         title
     )
-
     return (
         <form
             id={`section-form-${sectionId}`}
@@ -27,7 +26,7 @@ export default ({ sectionId, title, className }: IHeaderFormProps) => {
                 className="fill-current text-yellow-600"
             />
             <input
-                autoFocus
+                autoFocus={!title?.length} // autofocus only when section unamed
                 onChange={onFormChange}
                 type="text"
                 placeholder="New Space"
