@@ -4,6 +4,7 @@ import { AuthenticatedUser } from '../../../services/authentication'
 import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
 import { useStatusMessage } from '../Collection/Status'
 import Sidenav from './Sidenav'
+import NavigateModal from './NavigateModal'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'
@@ -23,6 +24,7 @@ export default ({ loggedInUser, children }: Props) => {
     return loggedInUser ? (
         <div className="flex h-screen text-sm">
             <Sidenav authUserId={loggedInUser.id} />
+            <NavigateModal authUserId={loggedInUser.id} />
             <div className="flex flex-1 flex-col overflow-auto h-full">
                 <TopBar
                     message={message}
