@@ -13,7 +13,6 @@ import { ItemDestination, DestinationType } from './hooks'
 const { Option } = AutoComplete
 
 export interface Props {
-    className?: string
     isOpen: boolean
     authUserId: string
     onCancel: () => void
@@ -50,7 +49,6 @@ const inboxDestination: ItemDestination = {
 }
 
 export default ({
-    className,
     authUserId,
     onMoveItem,
     itemId,
@@ -59,6 +57,10 @@ export default ({
     onCancel,
 }: Props) => {
     const [datasource, setDatasource] = React.useState<ItemDestination[]>([])
+
+    const { data, loading } = useGetSectionsQuery({
+        variables: { authUserId },
+    })
 
     const getCollections = (query: GetSectionsQuery) => {
         return query?.sections
@@ -73,12 +75,11 @@ export default ({
             })
     }
 
-    const { data, loading } = useGetSectionsQuery({
-        variables: { authUserId },
-        onCompleted(fetched) {
-            setDatasource([inboxDestination].concat(getCollections(fetched)))
-        },
-    })
+    React.useEffect(() => {
+        if (data !== undefined) {
+            setDatasource([inboxDestination].concat(getCollections(data)))
+        }
+    }, [itemId])
 
     if (data === undefined || data?.sections === undefined || loading) {
         return <div> Loading ... </div>
