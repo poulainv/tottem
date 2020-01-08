@@ -8,11 +8,13 @@ import {
 import { SelectValue } from 'antd/lib/select'
 import SpaceIcon from '../../../../../public/pictograms/space.svg'
 import InboxIcon from '../../../../../public/pictograms/inbox.svg'
-import { ItemDestination, DestinationType } from './hooks'
+import CheckIcon from '../../../../../public/pictograms/check.svg'
+import { ItemDestination, DestinationType, ItemDepart } from './hooks'
 
 const { Option } = AutoComplete
 
 export interface Props {
+    depart: ItemDepart
     isOpen: boolean
     authUserId: string
     onCancel: () => void
@@ -30,13 +32,28 @@ const getIcon = (type: DestinationType) => {
     }
 }
 
-const renderOption = (item: ItemDestination) => {
-    const Icon = getIcon(item.type)
+const departEqualsDestination = (depart: ItemDepart, dest: ItemDestination) => {
+    if (dest.type === 'collection') {
+        return dest.destinationId === depart.destinationId
+    } else {
+        return dest.type === depart.type
+    }
+}
+
+const renderOption = (dest: ItemDestination, depart: ItemDepart) => {
+    const Icon = getIcon(dest.type)
     return (
-        <Option key={item.destinationId} label={item.title} className="py-3">
-            <div className="flex flex-row leading-none items-center">
-                <div className="flex-shrink-0">{Icon}</div>
-                <span className="truncate ml-2">{item.title}</span>
+        <Option key={dest.destinationId} label={dest.title} className="py-3">
+            <div className="flex flex-row leading-none items-center justify-between">
+                <div className="flex flex-row flex-start leading-none items-center flex-shrink w-11/12">
+                    <div className="flex-shrink-0">{Icon}</div>
+                    <span className="truncate ml-2 flex-shrink">
+                        {dest.title}
+                    </span>
+                </div>
+                {departEqualsDestination(depart, dest) && (
+                    <CheckIcon className="text-brand-800 w-5 h-5" />
+                )}
             </div>
         </Option>
     )
@@ -65,6 +82,7 @@ const getInitialDatasource = (query: GetSectionsQuery) =>
     [inboxDestination].concat(getCollectionsFromQuery(query))
 
 export default ({
+    depart,
     authUserId,
     onMoveItem,
     itemId,
@@ -100,6 +118,7 @@ export default ({
             throw new Error(`Can not move item itemId ${itemId}`)
         }
         const destinationId = value.toString()
+
         onMoveItem(
             itemId,
             datasource.filter(x => x.destinationId === destinationId)[0]
@@ -134,7 +153,7 @@ export default ({
                     onSelect={onSelect}
                     onSearch={handleSearch}
                     className="w-full flex-shrink"
-                    dataSource={datasource.map(renderOption)}
+                    dataSource={datasource.map(x => renderOption(x, depart))}
                     open={true}
                     optionLabelProp="label"
                 >

@@ -8,12 +8,12 @@ import {
     ItemActionsContext,
 } from '../components/DraggableList/EditableItem/hooks'
 import Skeleton from '../components/DraggableList/Skeleton'
+import MoveModal from '../components/MoveModal'
 import FilterBadges from './FilterBadges'
 import HeaderForm from './HeaderForm'
+import { useMoveItemFromCollection } from './hooks'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
-import { useMoveItemFromCollection } from './hooks'
-import MoveModal from '../components/MoveModal'
 
 interface Props {
     collectionId: string
@@ -47,6 +47,7 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
     return (
         <Fragment>
             <MoveModal
+                depart={state.depart}
                 onCancel={() => moveDispatch({ type: 'CANCEL' })}
                 onDone={() => moveDispatch({ type: 'ITEM_MOVED' })}
                 isOpen={state.isOpen}

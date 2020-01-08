@@ -2,6 +2,11 @@ import { useReducer } from 'react'
 
 export type DestinationType = 'inbox' | 'collection'
 
+export interface ItemDepart {
+    type: DestinationType
+    destinationId: string
+}
+
 export interface ItemDestination {
     title: string
     type: DestinationType
@@ -11,10 +16,12 @@ export interface ItemDestination {
 export interface MoveModalState {
     isOpen: boolean
     itemId?: string
+    depart: ItemDepart
     onMoveItem?: (itemId: string, destination: ItemDestination) => void
 }
 
 export const useMoveItemModal = (
+    depart: ItemDepart,
     handleMove: (itemId: string, destination: ItemDestination) => void
 ) => {
     const reducer = (
@@ -27,10 +34,11 @@ export const useMoveItemModal = (
         switch (action.type) {
             case 'ITEM_MOVED':
                 return {
+                    ...state,
                     isOpen: false,
                 }
             case 'CANCEL': {
-                return { isOpen: false }
+                return { ...state, isOpen: false }
             }
             case 'TRIGGER_ITEM_MOVE':
                 return {
@@ -43,5 +51,5 @@ export const useMoveItemModal = (
                 return { ...state, isOpen: false }
         }
     }
-    return useReducer(reducer, { isOpen: false })
+    return useReducer(reducer, { isOpen: false, depart })
 }

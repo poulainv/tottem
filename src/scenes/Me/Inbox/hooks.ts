@@ -7,7 +7,13 @@ import { useInboxCount } from '../components/Sidenav/hooks'
 import {
     ItemDestination,
     useMoveItemModal,
+    ItemDepart,
 } from '../components/MoveModal/hooks'
+
+const inboxDepart: ItemDepart = {
+    destinationId: 'me',
+    type: 'inbox',
+}
 
 // Specify behavior of move item button from Inbox scene
 export const useMoveItemFromInbox = () => {
@@ -36,5 +42,5 @@ export const useMoveItemFromInbox = () => {
         })
     }
 
-    return useMoveItemModal(handleMove)
+    return useMoveItemModal(inboxDepart, handleMove)
 }

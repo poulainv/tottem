@@ -5,6 +5,7 @@ import {
     useMoveItemFromCollectionToInboxMutation,
 } from '../../../generated/types'
 import {
+    ItemDepart,
     ItemDestination,
     useMoveItemModal,
 } from '../components/MoveModal/hooks'
@@ -20,6 +21,12 @@ export const useMoveItemFromCollection = (
     ] = useMoveItemFromCollectionToCollectionMutation()
     const [moveItemToInbox] = useMoveItemFromCollectionToInboxMutation()
     const { incrementInboxCount } = useInboxCount()
+
+    const collectionDepart: ItemDepart = {
+        destinationId: fromCollectionId,
+        type: 'collection',
+    }
+
     const handleMove = (itemId: string, destination: ItemDestination) => {
         if (destination.type === 'inbox') {
             moveItemToInbox({
@@ -42,7 +49,10 @@ export const useMoveItemFromCollection = (
                 ],
             })
         }
-        if (destination.type === 'collection') {
+        if (
+            destination.type === 'collection' &&
+            destination.destinationId !== collectionDepart.destinationId
+        ) {
             moveItemToCollection({
                 variables: {
                     itemId,
@@ -64,5 +74,5 @@ export const useMoveItemFromCollection = (
             })
         }
     }
-    return useMoveItemModal(handleMove)
+    return useMoveItemModal(collectionDepart, handleMove)
 }
