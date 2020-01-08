@@ -4,19 +4,19 @@ import {
     CreateSectionMutation,
     GetSectionsDocument,
     GetSectionsQuery,
-    GetInboxDocument,
-    GetInboxQuery,
+    InboxCountItemFragment,
+    InboxCountItemFragmentDoc,
 } from '../../../../generated/types'
 
 export const useInboxCount = () => {
     const getInboxCount = (
         proxy: Parameters<MutationUpdaterFn<CreateSectionMutation>>[0]
     ) => {
-        const inboxCachedData = proxy.readQuery<GetInboxQuery>({
-            query: GetInboxDocument,
+        const inbox = proxy.readFragment<InboxCountItemFragment>({
+            id: 'Inbox:me',
+            fragment: InboxCountItemFragmentDoc,
         })
-
-        return inboxCachedData?.inbox?.items.length
+        return inbox?.count
     }
 
     const setInboxCount = (

@@ -41,3 +41,7 @@ fragment Social on User {
     website
     github
 }
+
+fragment InboxCountItem on Inbox {
+    count
+}

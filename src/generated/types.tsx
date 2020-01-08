@@ -1566,6 +1566,11 @@ export type SocialFragment = { __typename?: 'User' } & Pick<
     'mail' | 'linkedin' | 'youtube' | 'website' | 'github'
 >
 
+export type InboxCountItemFragment = { __typename?: 'Inbox' } & Pick<
+    Inbox,
+    'count'
+>
+
 export const ItemPreviewFragmentDoc = gql`
     fragment ItemPreview on Item {
         id
@@ -1613,6 +1618,11 @@ export const SocialFragmentDoc = gql`
         youtube
         website
         github
+    }
+`
+export const InboxCountItemFragmentDoc = gql`
+    fragment InboxCountItem on Inbox {
+        count
     }
 `
 export const GetCollectionPageDocument = gql`
