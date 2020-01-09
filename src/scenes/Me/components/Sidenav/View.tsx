@@ -33,7 +33,6 @@ const Sidenav: React.FC<SidenavProps> = ({
     currentHref,
     authUserId,
 }) => {
-    const bgBrand200 = `bg-brand-100`
     const { updateSections } = useSideNav(authUserId)
 
     const [createSection] = useCreateSectionMutation({
@@ -45,7 +44,6 @@ const Sidenav: React.FC<SidenavProps> = ({
         },
         update: updateSections,
     })
-
     return (
         <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
@@ -53,8 +51,8 @@ const Sidenav: React.FC<SidenavProps> = ({
                 <div className="mb-6">
                     <Link as="/" href="/">
                         <a
-                            className={`block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer ${
-                                currentHref === '/' ? bgBrand200 : ''
+                            className={`block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer ${
+                                currentHref === '/' ? 'bg-brand-100' : ''
                             }`}
                         >
                             <div className="flex items-center">
@@ -73,11 +71,12 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <Link as="/me/inbox" href="/me/inbox">
                         <a
                             className={classNames(
-                                `block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
+                                `block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer`,
                                 {
-                                    bgBrand200: ['/me/inbox', '/me'].includes(
-                                        currentHref
-                                    ),
+                                    'bg-brand-100': [
+                                        '/me/inbox',
+                                        '/me',
+                                    ].includes(currentHref),
                                 }
                             )}
                         >
@@ -100,9 +99,10 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <Link as="/me/archived" href="/me/archived">
                         <a
                             className={classNames(
-                                `flex items-center block px-2 py-1 mb-1 rounded hover:${bgBrand200} cursor-pointer`,
+                                `flex items-center block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer`,
                                 {
-                                    bgBrand200: currentHref === '/me/archived',
+                                    'bg-brand-100':
+                                        currentHref === '/me/archived',
                                 }
                             )}
                         >
