@@ -1,9 +1,14 @@
 import classNames from 'classnames'
 import FormSearch from '../../components/AddItemForm/FormSearch'
 import FormURL from '../../components/AddItemForm/FormURL'
-import { useAddItemReducer } from '../../components/AddItemForm/hooks'
+import {
+    useAddItemReducer,
+    useHotKeys,
+} from '../../components/AddItemForm/hooks'
 import { useItemFormSearch, useItemUrlForm } from './hooks'
 import AddItemForm from '../../components/AddItemForm'
+import { Fragment } from 'react'
+import { GlobalHotKeys } from 'react-hotkeys'
 
 export default ({
     collectionId,
@@ -26,6 +31,9 @@ export default ({
         () => dispatch('loading'),
         () => dispatch('completed')
     )
+
+    const { keyMap, handlers } = useHotKeys(dispatch)
+
     const FormItem =
         state.type === 'url' ? (
             <FormURL useForm={useFormURL} onClose={() => dispatch('close')} />
@@ -41,11 +49,14 @@ export default ({
         )
 
     return (
-        <AddItemForm
-            FormItem={FormItem}
-            dispatch={dispatch}
-            className={classNames('relative h-8', className)}
-            {...state}
-        />
+        <Fragment>
+            <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
+            <AddItemForm
+                FormItem={FormItem}
+                dispatch={dispatch}
+                className={classNames('relative h-8', className)}
+                {...state}
+            />
+        </Fragment>
     )
 }

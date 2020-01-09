@@ -1,17 +1,14 @@
 import classNames from 'classnames'
 import FormSearch from '../../components/AddItemForm/FormSearch'
 import FormURL from '../../components/AddItemForm/FormURL'
-import { useAddItemReducer } from '../../components/AddItemForm/hooks'
+import {
+    useAddItemReducer,
+    useHotKeys,
+} from '../../components/AddItemForm/hooks'
 import { useItemFormSearch, useItemUrlForm } from './hooks'
 import AddItemForm from '../../components/AddItemForm'
 import { Fragment } from 'react'
-import { GlobalHotKeys, ObserveKeys } from 'react-hotkeys'
-
-const keyMap = {
-    ADD_URL: 'Control+i',
-    SEARCH_BOOK: 'Control+b',
-    SEARCH_MOVIE: 'Control+m',
-}
+import { GlobalHotKeys } from 'react-hotkeys'
 
 export default ({ className }: { className?: string }) => {
     const [state, dispatch] = useAddItemReducer()
@@ -27,11 +24,7 @@ export default ({ className }: { className?: string }) => {
         () => dispatch('completed')
     )
 
-    const handlers = {
-        ADD_URL: () => dispatch('url'),
-        SEARCH_BOOK: () => dispatch('search-book'),
-        SEARCH_MOVIE: () => dispatch('search-movie'),
-    }
+    const { keyMap, handlers } = useHotKeys(dispatch)
 
     const FormItem =
         state.type === 'url' ? (
@@ -50,14 +43,12 @@ export default ({ className }: { className?: string }) => {
     return (
         <Fragment>
             <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
-            <ObserveKeys>
-                <AddItemForm
-                    FormItem={FormItem}
-                    dispatch={dispatch}
-                    className={classNames('relative h-8', className)}
-                    {...state}
-                />
-            </ObserveKeys>
+            <AddItemForm
+                FormItem={FormItem}
+                dispatch={dispatch}
+                className={classNames('relative h-8', className)}
+                {...state}
+            />
         </Fragment>
     )
 }

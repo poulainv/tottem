@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, Dispatch } from 'react'
 import { AddActions } from '../../../../components/AddButtonItem'
 
 interface StateProps {
@@ -6,6 +6,22 @@ interface StateProps {
     searchElement?: 'book' | 'movie'
     isShow: boolean
     isLoading: boolean
+}
+
+const keyMap = {
+    ADD_URL: 'Control+i',
+    SEARCH_BOOK: 'Control+b',
+    SEARCH_MOVIE: 'Control+m',
+}
+
+export const useHotKeys = (dispatch: Dispatch<AddActions>) => {
+    const handlers = {
+        ADD_URL: () => dispatch('url'),
+        SEARCH_BOOK: () => dispatch('search-book'),
+        SEARCH_MOVIE: () => dispatch('search-movie'),
+    }
+
+    return { keyMap, handlers }
 }
 
 export const useAddItemReducer = () => {
