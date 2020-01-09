@@ -1,7 +1,31 @@
-import { AutoComplete } from 'antd'
-import { Fragment } from 'react'
-import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
+import { AutoComplete, Select } from 'antd'
 import classNames from 'classnames'
+import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
+import { SearchItem } from '../../../../generated/types'
+
+const { Option } = Select
+
+const renderOption = (item: SearchItem) => {
+    return (
+        <Option key={item.id} label={item.title} className="py-2">
+            <div className="flex flex-row leading-none items-center justify-between">
+                <div className="flex flex-row flex-start leading-none items-center ">
+                    <span>{item.title}</span>
+                    {item.author && (
+                        <div>
+                            <span className="text-gray-500 text-sm mx-2">
+                                -
+                            </span>
+                            <span className="text-gray-500 text-sm">
+                                {item.author}
+                            </span>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </Option>
+    )
+}
 
 export default ({
     searchType,
@@ -27,10 +51,7 @@ export default ({
                 value={value}
                 className="w-full flex-shrink"
                 onSelect={onSelect}
-                dataSource={
-                    dataSource &&
-                    new Array(...new Set(dataSource.map(x => x.title)))
-                }
+                dataSource={dataSource?.map(renderOption)}
                 onSearch={onChange}
             >
                 <input

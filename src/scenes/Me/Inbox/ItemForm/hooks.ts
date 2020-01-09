@@ -129,7 +129,7 @@ const useItemFormSearch = (
             onStart()
         }
 
-        const found = dataSource.find(x => x.title === valueSelect) // FIXME not ideal in case of similar title
+        const found = dataSource.find(x => x.id === valueSelect)
         if (found === undefined) {
             throw Error('Unable to find the value')
         }
