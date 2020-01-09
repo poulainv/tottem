@@ -32,15 +32,7 @@ class MyDocument extends Document {
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap"
                 />
-                <body
-                    style={{
-                        margin: 0,
-                        WebkitFontSmoothing: 'antialiased',
-                        MozOsxFontSmoothing: 'grayscale',
-                        fontFamily:
-                            '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
-                    }}
-                >
+                <body>
                     <Main />
                     <NextScript />
                 </body>
