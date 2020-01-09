@@ -33,51 +33,54 @@ const DraggableList: React.FunctionComponent<IDraggableListProps &
     resetServerContext()
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <TransitionGroup>
-                <Droppable droppableId="list">
-                    {provided => (
-                        <div
-                            ref={provided.innerRef}
-                            {...provided.droppableProps}
-                            className={className}
-                        >
-                            <TransitionGroup>
-                                {items.map((item, index) => (
-                                    <CSSTransition
-                                        timeout={{ exit: 200, enter: 200 }}
-                                        classNames="fade"
-                                        key={item.id}
+            <Droppable droppableId="list">
+                {provided => (
+                    <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        className={className}
+                    >
+                        <TransitionGroup>
+                            {items.map((item, index) => (
+                                <CSSTransition
+                                    timeout={{ exit: 300, enter: 300 }}
+                                    // classNames={{
+                                    //     enter: 'opacity-0',
+                                    //     enterActive: 'transition-opacity opacity-1 duration-200 ease-in-out',
+                                    //     exit: 'opacity-1 overflow-hidden',
+                                    //     exitActive:
+                                    //         'transition-opacity opacity-0 duration-200 ease-in-out',
+                                    // }}
+                                    classNames="fade"
+                                    key={item.id}
+                                >
+                                    <Draggable
+                                        isDragDisabled={!dndEnabled}
+                                        draggableId={item.id}
+                                        index={index}
                                     >
-                                        <Draggable
-                                            isDragDisabled={!dndEnabled}
-                                            draggableId={item.id}
-                                            index={index}
-                                        >
-                                            {draggable => (
-                                                <DraggableItem
-                                                    dndEnabled={dndEnabled}
-                                                    key={item.id}
-                                                    className="mt-4 first:mt-2 cursor-auto"
-                                                    innerRef={
-                                                        draggable.innerRef
-                                                    }
-                                                    {...draggable.draggableProps}
-                                                    {...draggable.dragHandleProps}
-                                                    item={item}
-                                                    onChange={onChange}
-                                                    onSaved={onSaved}
-                                                    onSaving={onSaving}
-                                                />
-                                            )}
-                                        </Draggable>
-                                    </CSSTransition>
-                                ))}
-                            </TransitionGroup>
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
-            </TransitionGroup>
+                                        {draggable => (
+                                            <DraggableItem
+                                                dndEnabled={dndEnabled}
+                                                key={item.id}
+                                                className="mt-4 first:mt-2 cursor-auto"
+                                                innerRef={draggable.innerRef}
+                                                {...draggable.draggableProps}
+                                                {...draggable.dragHandleProps}
+                                                item={item}
+                                                onChange={onChange}
+                                                onSaved={onSaved}
+                                                onSaving={onSaving}
+                                            />
+                                        )}
+                                    </Draggable>
+                                </CSSTransition>
+                            ))}
+                        </TransitionGroup>
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
         </DragDropContext>
     )
 }

@@ -37,3 +37,25 @@ a:hover {
 .ant-dropdown-menu-item {
     @apply rounded-sm;
 }
+
+/* Transition */
+
+.fade-enter {
+    opacity: 0.1;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    overflow: hidden;
+    transition: all 250ms ease-in-out;
+}
+
+.fade-exit {
+    opacity: 1;
+    overflow: hidden;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.1;
+    transition: all 250ms;
+}
