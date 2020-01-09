@@ -11,7 +11,7 @@ interface StateProps {
 const keyMap = {
     ADD_URL: 'Control+i',
     SEARCH_BOOK: 'Control+b',
-    SEARCH_MOVIE: 'Control+m',
+    SEARCH_MOVIE: 'Control+f',
 }
 
 export const useHotKeys = (dispatch: Dispatch<AddActions>) => {

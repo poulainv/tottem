@@ -8,6 +8,7 @@ import {
     useCreateItemFromUrlMutation,
     useSearchItemLazyQuery,
 } from '../../../../generated/types'
+import { SelectValue } from 'antd/lib/select'
 
 interface ItemsFormData {
     url: string
@@ -67,28 +68,25 @@ const useItemUrlForm = (
     return { register, onSubmit, loading, errors }
 }
 
-interface ItemsFormSearchData {
-    title: string
-}
-
 const useItemFormSearch = (
     searchItemType: string,
     collectionId: string,
     onStart?: () => void,
     onCompleted?: () => void
 ) => {
-    const { register, handleSubmit, reset, errors } = useForm<
-        ItemsFormSearchData
-    >()
-
     const [dataSource, setDataSource] = useState<SearchItem[]>()
+    const [value, setValue] = useState<string>()
+
     const [search] = useSearchItemLazyQuery({
         onCompleted: data => {
-            setDataSource(data.search)
+            if (data?.search !== undefined) {
+                setDataSource(data.search)
+            }
         },
     })
 
     const onChange = (q: string) => {
+        setValue(q)
         search({ variables: { query: q, kind: searchItemType } })
     }
 
@@ -120,31 +118,40 @@ const useItemFormSearch = (
                     },
                 })
             }
-            reset()
         },
     })
 
-    const onSubmit = handleSubmit(({ title }) => {
+    const onSelect = (valueSelect: SelectValue) => {
         if (dataSource === undefined) {
             throw Error('Datasource undefined')
         }
         if (onStart !== undefined) {
             onStart()
         }
-        const value = dataSource.find(x => x.title === title) // FIXME not ideal in case of similar title
-        if (value === undefined) {
+
+        const found = dataSource.find(x => x.title === valueSelect) // FIXME not ideal in case of similar title
+        if (found === undefined) {
             throw Error('Unable to find the value')
         }
 
         addItem({
             variables: {
-                id: value.id,
+                id: found.id,
                 kind: searchItemType,
                 collectionId,
             },
         })
-    })
-    return { register, onSubmit, loading, errors, dataSource, onChange }
+        setDataSource([])
+        setValue('')
+    }
+
+    return {
+        value,
+        loading,
+        dataSource,
+        onChange,
+        onSelect,
+    }
 }
 
 export { useItemUrlForm, useItemFormSearch }

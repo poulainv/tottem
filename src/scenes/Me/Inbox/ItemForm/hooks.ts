@@ -9,6 +9,7 @@ import {
     useSearchItemLazyQuery,
 } from '../../../../generated/types'
 import { useInboxCount } from '../../components/Sidenav/hooks'
+import { SelectValue } from 'antd/lib/select'
 
 interface ItemsFormData {
     url: string
@@ -67,28 +68,25 @@ const useItemUrlForm = (onStart?: () => void, onCompleted?: () => void) => {
     return { register, onSubmit, loading, errors }
 }
 
-interface ItemsFormSearchData {
-    title: string
-}
-
 const useItemFormSearch = (
     searchItemType: string,
     onStart?: () => void,
     onCompleted?: () => void
 ) => {
-    const { register, handleSubmit, reset, errors } = useForm<
-        ItemsFormSearchData
-    >()
+    const [value, setValue] = useState<string>()
     const { setInboxCount } = useInboxCount()
 
     const [dataSource, setDataSource] = useState<SearchItem[]>()
     const [search] = useSearchItemLazyQuery({
         onCompleted: data => {
-            setDataSource(data.search)
+            if (data?.search !== undefined) {
+                setDataSource(data.search)
+            }
         },
     })
 
     const onChange = (q: string) => {
+        setValue(q)
         search({ variables: { query: q, kind: searchItemType } })
     }
 
@@ -120,32 +118,34 @@ const useItemFormSearch = (
                 })
                 setInboxCount(cache, newItems.length)
             }
-            reset()
         },
     })
 
-    const onSubmit = handleSubmit(({ title }) => {
+    const onSelect = (valueSelect: SelectValue) => {
         if (dataSource === undefined) {
             throw Error('Datasource undefined')
         }
         if (onStart !== undefined) {
             onStart()
         }
-        const value = dataSource.find(x => x.title === title)
-        if (value === undefined) {
+
+        const found = dataSource.find(x => x.title === valueSelect) // FIXME not ideal in case of similar title
+        if (found === undefined) {
             throw Error('Unable to find the value')
         }
 
         addItem({
             variables: {
-                id: value.id,
+                id: found.id,
                 kind: searchItemType,
                 inbox: true,
             },
         })
-    })
+        setDataSource([])
+        setValue('')
+    }
 
-    return { register, onSubmit, loading, errors, dataSource, onChange }
+    return { value, onSelect, loading, dataSource, onChange }
 }
 
 export { useItemUrlForm, useItemFormSearch }
