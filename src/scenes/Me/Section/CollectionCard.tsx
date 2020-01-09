@@ -42,7 +42,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                     </p>
                     <Options
                         collectionId={collection.id}
-                        className="text-gray-400 rotate-90deg"
+                        className="text-gray-400 transform rotate-90"
                     />
                 </div>
                 <div className="flex flex-row mt-2 items-center">

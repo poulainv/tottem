@@ -66,9 +66,13 @@ export default ({
                         <ArrowIcon
                             width={16}
                             height={16}
-                            className={`inline transition-all ${
-                                isExpanded ? 'rotate-90deg' : 'rotate-0deg'
-                            }`}
+                            className={classNames(
+                                'inline transition-all transform duration-100',
+                                {
+                                    'rotate-90': isExpanded,
+                                    'rotate-0': !isExpanded,
+                                }
+                            )}
                         />
                     </div>
                 </a>
