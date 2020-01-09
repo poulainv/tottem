@@ -108,9 +108,7 @@ export default ({ authUserId }: Props) => {
 
     const handlers = {
         OPEN_NAVIGATE: () => setIsOpen(!isOpen),
-        CLOSE_NAVIGATE: () => {
-            setIsOpen(false)
-        },
+        CLOSE_NAVIGATE: () => setIsOpen(false),
     }
 
     if (data === undefined || data?.sections === undefined || loading) {

@@ -23,7 +23,7 @@ export default ({
                 )}
             >
                 <input
-                    autoFocus={true}
+                    autoFocus
                     autoComplete="off"
                     className="shadow flex-1 rounded-sm px-4 h-8 focus:outline-none"
                     name="url"

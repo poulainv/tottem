@@ -26,6 +26,7 @@ export default ({
                 )}
             >
                 <AutoComplete
+                    autoFocus
                     className="w-full flex-shrink"
                     dataSource={
                         dataSource &&
