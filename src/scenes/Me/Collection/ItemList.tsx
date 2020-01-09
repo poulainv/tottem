@@ -38,7 +38,7 @@ export default ({
     const { onDragEnd } = useItemDragnDrop({ items, collectionId })
 
     if (items === undefined || loading) {
-        return <Skeleton rowCount={6} />
+        return <Skeleton className={className} rowCount={6} />
     }
 
     return (

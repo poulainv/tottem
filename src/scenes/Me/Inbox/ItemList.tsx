@@ -44,7 +44,7 @@ export default ({
         ?.sort((a, b) => a.position - b.position)
 
     if (filteredItems === undefined || loading) {
-        return <Skeleton rowCount={6} />
+        return <Skeleton className={className} rowCount={6} />
     } else if (filteredItems.length === 0) {
         return (
             <div className="w-full mt-48 flex items-center justify-center">
