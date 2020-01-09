@@ -1,12 +1,15 @@
 import { Fragment } from 'react'
 import { useItemUrlForm } from '../../Collection/ItemForm/hooks'
+import classNames from 'classnames'
 
 export default ({
     useForm,
     onClose,
+    className,
 }: {
     useForm: ReturnType<typeof useItemUrlForm>
     onClose: () => void
+    className?: string
 }) => {
     const { register, onSubmit, errors } = useForm
     return (
@@ -14,7 +17,10 @@ export default ({
             <form
                 id="items-form"
                 onSubmit={onSubmit}
-                className={`flex flex-1 flex-row content-center`}
+                className={classNames(
+                    'flex flex-1 flex-row content-center',
+                    className
+                )}
             >
                 <input
                     autoFocus={true}

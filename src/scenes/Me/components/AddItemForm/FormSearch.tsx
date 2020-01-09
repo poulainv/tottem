@@ -1,15 +1,18 @@
 import { AutoComplete } from 'antd'
 import { Fragment } from 'react'
 import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
+import classNames from 'classnames'
 
 export default ({
     searchType,
     onClose,
     useForm,
+    className,
 }: {
     useForm: ReturnType<typeof useItemFormSearch>
     searchType?: 'book' | 'movie'
     onClose: () => void
+    className?: string
 }) => {
     const { register, onSubmit, errors, onChange, dataSource } = useForm
     return (
@@ -17,7 +20,10 @@ export default ({
             <form
                 id="items-form"
                 onSubmit={onSubmit}
-                className={`flex flex-1 flex-row content-center`}
+                className={classNames(
+                    'flex flex-1 flex-row content-center',
+                    className
+                )}
             >
                 <AutoComplete
                     className="w-full flex-shrink"
