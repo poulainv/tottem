@@ -1,17 +1,19 @@
 import SpaceIcon from '../../../../../public/pictograms/space.svg'
+import PlusIcon from '../../../../../public/pictograms/plus.svg'
 import ArrowIcon from './arrow.svg'
 import { useUpdateSectionExpandedMutation } from '../../../../generated/types'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
 import classNames from 'classnames'
+import { useCreateEmptyCollection } from '../../Collection/hooks'
 
 interface SectionGroupProps {
     title?: string
     id: string
     currentHref: string
     isExpanded: boolean
-    isActive: boolean
     collections: Array<{ title?: string; id: string; isDeleted: boolean }>
+    authUserId: string
 }
 
 export default ({
@@ -20,7 +22,9 @@ export default ({
     isExpanded,
     currentHref,
     collections,
+    authUserId,
 }: SectionGroupProps) => {
+    const [createCollection] = useCreateEmptyCollection(id, authUserId)
     const [setExpanded] = useUpdateSectionExpandedMutation()
 
     const handleExpand = (e: MouseEvent) => {
@@ -42,7 +46,7 @@ export default ({
             <Link href="/me/s/[sectionId]" as={sectionHref}>
                 <a
                     className={classNames(
-                        `flex justify-between items-center pl-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer font-semibold`,
+                        `flex group justify-between items-center pl-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer font-semibold`,
                         { 'bg-brand-100': currentHref === sectionHref }
                     )}
                 >
@@ -59,21 +63,33 @@ export default ({
                                 : title}
                         </span>
                     </div>
-                    <div
-                        onClick={handleExpand}
-                        className="px-2 text-gray-600 hover:text-gray-800"
-                    >
-                        <ArrowIcon
-                            width={16}
-                            height={16}
-                            className={classNames(
-                                'inline transition-all transform duration-100',
-                                {
-                                    'rotate-90': isExpanded,
-                                    'rotate-0': !isExpanded,
-                                }
-                            )}
-                        />
+                    <div className="flex flex-row items-center">
+                        <div
+                            className="border border-gray-500 p-px invisible group-hover:visible rounded-sm hover:bg-brand-200 transition-all duration-100"
+                            onClick={() => createCollection()}
+                        >
+                            <PlusIcon
+                                width={10}
+                                height={10}
+                                className="fill-current text-gray-600 stroke-2 m-px"
+                            />
+                        </div>
+                        <div
+                            onClick={handleExpand}
+                            className="px-2 text-gray-600 hover:text-gray-800"
+                        >
+                            <ArrowIcon
+                                width={16}
+                                height={16}
+                                className={classNames(
+                                    'inline transition-all transform duration-100 rounded-sm hover:bg-brand-200',
+                                    {
+                                        'rotate-90': isExpanded,
+                                        'rotate-0': !isExpanded,
+                                    }
+                                )}
+                            />
+                        </div>
                     </div>
                 </a>
             </Link>

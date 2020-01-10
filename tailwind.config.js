@@ -32,6 +32,7 @@ module.exports = {
         },
     },
     variants: {
+        visibility: ['group-hover'],
         margin: ['responsive', 'first', 'hover', 'focus'],
     },
     plugins: [],

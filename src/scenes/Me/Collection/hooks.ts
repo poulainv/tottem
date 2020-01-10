@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import {
     GetInboxDocument,
     GetItemsDocument,
+    GetSectionsDocument,
+    useCreateEmptyCollectionMutation,
     useMoveItemFromCollectionToCollectionMutation,
     useMoveItemFromCollectionToInboxMutation,
 } from '../../../generated/types'
@@ -10,7 +14,22 @@ import {
     useMoveItemModal,
 } from '../components/MoveModal/hooks'
 import { useInboxCount } from '../components/Sidenav/hooks'
-import { useEffect } from 'react'
+
+export const useCreateEmptyCollection = (
+    sectionId: string,
+    authUserId: string
+) => {
+    const router = useRouter()
+    return useCreateEmptyCollectionMutation({
+        variables: { sectionId },
+        onCompleted: data => {
+            router.push('/me/c/[collectionId]', `/me/c/${data.collection.id}`)
+        },
+        refetchQueries: [
+            { query: GetSectionsDocument, variables: { authUserId } },
+        ],
+    })
+}
 
 // Specify behavior of move item button from Collection scene
 export const useMoveItemFromCollection = (

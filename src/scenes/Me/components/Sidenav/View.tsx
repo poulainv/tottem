@@ -129,7 +129,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                                         key={section.id}
                                         {...section}
                                         isExpanded={section.isExpanded}
-                                        isActive={false}
+                                        authUserId={authUserId}
                                     />
                                 )
                             })}

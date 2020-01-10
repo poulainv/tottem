@@ -1,14 +1,8 @@
-import * as React from 'react'
-import classNames from 'classnames'
 import { Tooltip } from 'antd'
+import classNames from 'classnames'
+import * as React from 'react'
 import PlusIcon from '../../../../public/pictograms/plus.svg'
-import Router from 'next/router'
-import {
-    useCreateEmptyCollectionMutation,
-    GetSectionsDocument,
-    GetSectionsQuery,
-} from '../../../generated/types'
-import { useSideNav } from '../components/Sidenav/hooks'
+import { useCreateEmptyCollection } from '../Collection/hooks'
 
 export interface Props {
     className?: string
@@ -17,29 +11,17 @@ export interface Props {
 }
 
 export default ({ className, sectionId, authUserId }: Props) => {
-    const [createCollection] = useCreateEmptyCollectionMutation({
-        variables: { sectionId },
-        onCompleted: data => {
-            Router.push('/me/c/[collectionId]', `/me/c/${data.collection.id}`)
-        },
-        refetchQueries: [
-            { query: GetSectionsDocument, variables: { authUserId } },
-        ],
-    })
-
-    const handleCreationCollection = () => {
-        createCollection()
-    }
+    const [createCollection] = useCreateEmptyCollection(sectionId, authUserId)
     return (
         <Tooltip title={'Create collection in this space'}>
             <div
-                onClick={() => handleCreationCollection()}
+                onClick={() => createCollection()}
                 className={classNames(
                     'h-8 w-8 text-brand-700 rounded-full border border-brand-700 hover:border-brand-900 hover:text-brand-900 flex justify-center items-center cursor-pointer',
                     className
                 )}
             >
-                <PlusIcon className="fill-current" />
+                <PlusIcon height={16} width={16} className="fill-current" />
             </div>
         </Tooltip>
     )
