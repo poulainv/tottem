@@ -3,7 +3,7 @@ import PlusIcon from '../../../../../public/pictograms/plus.svg'
 import ArrowIcon from './arrow.svg'
 import { useUpdateSectionExpandedMutation } from '../../../../generated/types'
 import Link from 'next/link'
-import { MouseEvent } from 'react'
+import { MouseEvent, Fragment } from 'react'
 import classNames from 'classnames'
 import { useCreateEmptyCollection } from '../../Collection/hooks'
 
@@ -42,7 +42,7 @@ export default ({
     }
     const sectionHref = `/me/s/${id}`
     return (
-        <div>
+        <Fragment>
             <Link href="/me/s/[sectionId]" as={sectionHref}>
                 <a
                     className={classNames(
@@ -50,20 +50,16 @@ export default ({
                         { 'bg-brand-100': currentHref === sectionHref }
                     )}
                 >
-                    <div className="flex flex-row items-center">
-                        <SpaceIcon
-                            style={{ color: '#BFBFBF' }}
-                            className="inline fill-current mr-1"
-                            height={14}
-                            width={14}
-                        />
-                        <span className="text-gray-800">
-                            {title === null || title === ''
-                                ? 'New Space'
-                                : title}
-                        </span>
-                    </div>
-                    <div className="flex flex-row items-center">
+                    <SpaceIcon
+                        style={{ color: '#BFBFBF' }}
+                        className="inline fill-current mr-1 flex-shrink-0"
+                        height={14}
+                        width={14}
+                    />
+                    <span className="block text-gray-800 truncate flex-shrink whitespace-no-wrap w-full">
+                        {title === null || title === '' ? 'New Space' : title}
+                    </span>
+                    <div className="flex flex-row items-center flex-shrink-0">
                         <div
                             className="border border-gray-500 p-px invisible group-hover:visible rounded-sm hover:bg-brand-200 transition-all duration-100"
                             onClick={() => createCollection()}
@@ -122,6 +118,6 @@ export default ({
                             </Link>
                         )
                     })}
-        </div>
+        </Fragment>
     )
 }

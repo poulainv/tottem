@@ -121,7 +121,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                 </div>
                 {sections ? (
                     <div className="flex flex-col flex-1 min-h-0">
-                        <div className="flex-1 overflow-y-auto">
+                        <div className="flex-1 overflow-y-auto w-full">
                             {sections.map(section => {
                                 return (
                                     <SectionGroup
