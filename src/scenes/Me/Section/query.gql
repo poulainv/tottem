@@ -13,11 +13,18 @@ query getSection($sectionId: ID!) {
             updatedAt
             isDeleted
             title: name
-            items(first: 5, where: { isDeleted: { equals: false } }) {
+            items(
+                first: 5
+                where: { isDeleted: { equals: false } }
+                orderBy: { position: asc }
+            ) {
+                id
                 imageUrl
                 isDeleted
                 title
                 type
+                position
+                createdAt
             }
             owner {
                 pictureUrl

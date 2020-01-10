@@ -94,6 +94,7 @@ export type CollectionFilter = {
 }
 
 export type CollectionItemsOrderByInput = {
+    createdAt?: Maybe<OrderByArg>
     position?: Maybe<OrderByArg>
 }
 
@@ -1284,7 +1285,13 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
                             items: Array<
                                 { __typename?: 'Item' } & Pick<
                                     Item,
-                                    'imageUrl' | 'isDeleted' | 'title' | 'type'
+                                    | 'id'
+                                    | 'imageUrl'
+                                    | 'isDeleted'
+                                    | 'title'
+                                    | 'type'
+                                    | 'position'
+                                    | 'createdAt'
                                 >
                             >
                             owner: { __typename?: 'User' } & Pick<
@@ -2162,11 +2169,18 @@ export const GetSectionDocument = gql`
                 updatedAt
                 isDeleted
                 title: name
-                items(first: 5, where: { isDeleted: { equals: false } }) {
+                items(
+                    first: 5
+                    where: { isDeleted: { equals: false } }
+                    orderBy: { position: asc }
+                ) {
+                    id
                     imageUrl
                     isDeleted
                     title
                     type
+                    position
+                    createdAt
                 }
                 owner {
                     pictureUrl

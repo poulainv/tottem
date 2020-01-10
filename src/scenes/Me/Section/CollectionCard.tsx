@@ -13,7 +13,17 @@ export interface CollectionCardProps {
     collection: Pick<Collection, 'id' | 'slug' | 'isDeleted' | 'updatedAt'> & {
         title: Collection['name']
     } & {
-        items: Array<Pick<Item, 'imageUrl' | 'title' | 'type' | 'isDeleted'>>
+        items: Array<
+            Pick<
+                Item,
+                | 'imageUrl'
+                | 'title'
+                | 'type'
+                | 'isDeleted'
+                | 'createdAt'
+                | 'position'
+            >
+        >
     }
 }
 
@@ -58,6 +68,12 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                     {collection.items.length !== 0 ? (
                         collection.items
                             .filter(x => !x.isDeleted)
+                            .sort(
+                                (a, b) =>
+                                    new Date(b.createdAt).getTime() -
+                                    new Date(a.createdAt).getTime()
+                            )
+                            .sort((a, b) => a.position - b.position)
                             .slice(0, 5)
                             .map((item, index) => {
                                 const PlaceholderIcon =
