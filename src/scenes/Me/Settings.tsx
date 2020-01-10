@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TopBar from '../../components/TopBar2'
+import TopBar from './components/TopBar'
 import { AuthenticatedUser } from '../../services/authentication'
 import Sidenav from './components/Sidenav'
 

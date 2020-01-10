@@ -1,13 +1,21 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import ProfilePage, { IProfilePageProps } from '../scenes/ProfilePage'
+import Profile from '../scenes/Profile'
 import { withApollo } from '../services/lib/apollo'
+import { getUserAuth, AuthenticatedUser } from '../services/authentication'
+import Layout from '../scenes/Profile/components/Layout'
+import '../index.css'
 
-const Profile: NextPage<IProfilePageProps> = ({ profile }) => {
+const ProfilePage: NextPage<{
+    loggedInUser?: AuthenticatedUser
+    profileSlug: string
+}> = ({ loggedInUser, profileSlug }) => {
     return (
-        <React.Fragment>
-            <ProfilePage profile={profile} />
-        </React.Fragment>
+        <Layout loggedInUser={loggedInUser}>
+            {authUserId => (
+                <Profile authUserId={authUserId} profile={profileSlug} />
+            )}
+        </Layout>
     )
 }
 
@@ -17,9 +25,14 @@ interface Context extends NextPageContext {
     }
 }
 
-Profile.getInitialProps = async (context: Context) => {
-    const profile: string = context.query.profile
-    return { profile }
+ProfilePage.getInitialProps = async (ctx: Context) => {
+    const cookie = ctx.req?.headers?.cookie
+    const isServer = typeof window === 'undefined'
+    const profileSlug: string = ctx.query.profile
+    return {
+        profileSlug,
+        loggedInUser: getUserAuth(isServer, cookie),
+    }
 }
 
-export default withApollo(Profile)
+export default withApollo(ProfilePage)

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TopBar from '../../../components/TopBar2'
+import TopBar from './TopBar'
 import { AuthenticatedUser } from '../../../services/authentication'
 import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
 import { useStatusMessage } from '../Collection/Status'
