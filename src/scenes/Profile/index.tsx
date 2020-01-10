@@ -1,18 +1,9 @@
-import { Box } from 'grommet'
-import { NextSeo } from 'next-seo'
 import * as React from 'react'
-import styled from 'styled-components'
 import { Section, useGetProfileQuery } from '../../generated/types'
 import LoadingPage from '../UtilsPage/Loading'
-
-const ContentBox = styled(Box)`
-    margin-top: 40px;
-    @media screen and (max-width: 812px) {
-        margin-top: 8px;
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-`
+import CollectionList from './components/CollectionList'
+import SectionsMenu from './components/SectionsMenu'
+import { Seo } from './components/Seo'
 
 export const getDefaultSection = (
     sections: Array<Pick<Section, 'id' | 'slug' | 'name' | 'index'>>
@@ -27,18 +18,9 @@ export const getDefaultSection = (
 
 export interface IProfilePageProps {
     authUserId?: string
-    activeSectionSlug?: string
+    activeSectionId?: string
     profile: string
 }
-export const Side = styled(Box)`
-    width: 240px;
-    height: 100%;
-    flex-shrink: 6;
-    visibility: hidden;
-    @media screen and (max-width: 1024px) {
-        display: none;
-    }
-`
 
 export default (props: IProfilePageProps) => {
     const { loading, data } = useGetProfileQuery({
@@ -47,43 +29,52 @@ export default (props: IProfilePageProps) => {
         },
     })
 
-    if (loading || data === undefined || data === null) {
+    if (loading || !data?.user || !data?.sections) {
         return <LoadingPage />
     }
-    const { user, sections } = data
 
-    if (user === undefined || sections === undefined) {
-        return <LoadingPage />
-    }
+    const { user, sections } = data
     const activeSection =
-        sections.find(x => x.slug === props.activeSectionSlug) ||
+        sections.find(x => x.id === props.activeSectionId) ||
         getDefaultSection(sections)
 
     return (
-        <div className="bg-green-300 h-full">
-            <NextSeo
-                title={`${user.firstname} - Tottem`}
-                description={`${user.firstname} on Tottem - ${user.biography}`}
-                canonical={`https://tottem.app/${props.profile}/${activeSection.slug}`}
-                twitter={{
-                    site: '@TottemApp',
-                    cardType: 'summary',
-                }}
-                openGraph={{
-                    type: 'profile',
-                    profile: {
-                        username: user.slug,
-                    },
-                    description: `${user.firstname} on Tottem - ${user.biography}`,
-                    url: `https://tottem.app/${props.profile}`,
-                    site_name: 'Tottem',
-                    images: [
-                        {
-                            url: `https://tottem.app${user.pictureUrl}`,
-                        },
-                    ],
-                }}
+        <div className="flex flex-col">
+            <Seo
+                profileSlug={props.profile}
+                firstname={user.firstname}
+                biography={user.biography}
+                avatar={user.pictureUrl}
+                sectionSlug={activeSection.slug}
             />
+            <div className="flex flex-col text-gray-900">
+                <div className="flex flex-row">
+                    <img
+                        src={user.pictureUrl}
+                        className="h-32 w-32 rounded-full border border-gray-200 object-cover"
+                        alt=""
+                    />
+                    <div className="flex flex-col ml-6 justify-evenly">
+                        <h1 className="text-2xl font-medium">
+                            {user.firstname}
+                        </h1>
+                        <p className="leading-relaxed text-gray-700">
+                            {user.biography}
+                        </p>
+                    </div>
+                </div>
+                <SectionsMenu
+                    className="mt-6"
+                    profileSlug={props.profile}
+                    activeSectionIndex={activeSection.index}
+                    sections={sections}
+                />
+                <CollectionList
+                    className="mt-8"
+                    profileSlug={props.profile}
+                    sectionId={activeSection.id}
+                />
+            </div>
         </div>
     )
 }

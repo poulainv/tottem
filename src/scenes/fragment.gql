@@ -1,3 +1,23 @@
+fragment SectionDetails on Section {
+    ...SectionBasic
+    collections(
+        where: { isDeleted: { equals: false } }
+        orderBy: { createdAt: asc }
+    ) {
+        ...CollectionBasic
+        items(
+            first: 5
+            where: { isDeleted: { equals: false } }
+            orderBy: { position: asc }
+        ) {
+            ...ItemPreview
+        }
+        owner {
+            pictureUrl
+        }
+    }
+}
+
 fragment ItemPreview on Item {
     id
     imageUrl
@@ -17,10 +37,19 @@ fragment ItemDetail on Item {
     description
 }
 
+fragment SectionBasic on Section {
+    id
+    title: name
+    index
+    slug
+}
+
 fragment CollectionBasic on Collection {
     id
     slug
-    name
+    updatedAt
+    isDeleted
+    title: name
     detail
 }
 

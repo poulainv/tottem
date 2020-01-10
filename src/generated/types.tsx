@@ -697,6 +697,7 @@ export type QuerySectionsOrderByInput = {
 }
 
 export type QuerySectionsWhereInput = {
+    index?: Maybe<IntFilter>
     isDeleted?: Maybe<BooleanFilter>
     owner?: Maybe<UserWhereInput>
 }
@@ -1273,35 +1274,7 @@ export type GetSectionQueryVariables = {
 }
 
 export type GetSectionQuery = { __typename?: 'Query' } & {
-    section: Maybe<
-        { __typename?: 'Section' } & Pick<Section, 'id' | 'index' | 'slug'> & {
-                title: Section['name']
-            } & {
-                collections: Array<
-                    { __typename?: 'Collection' } & Pick<
-                        Collection,
-                        'id' | 'slug' | 'updatedAt' | 'isDeleted'
-                    > & { title: Collection['name'] } & {
-                            items: Array<
-                                { __typename?: 'Item' } & Pick<
-                                    Item,
-                                    | 'id'
-                                    | 'imageUrl'
-                                    | 'isDeleted'
-                                    | 'title'
-                                    | 'type'
-                                    | 'position'
-                                    | 'createdAt'
-                                >
-                            >
-                            owner: { __typename?: 'User' } & Pick<
-                                User,
-                                'pictureUrl'
-                            >
-                        }
-                >
-            }
-    >
+    section: Maybe<{ __typename?: 'Section' } & SectionDetailsFragment>
 }
 
 export type DeleteSectionMutationVariables = {
@@ -1486,20 +1459,6 @@ export type UpdateSectionExpandedMutation = { __typename?: 'Mutation' } & {
     >
 }
 
-export type GetCollectionQueryVariables = {
-    profileSlug?: Maybe<Scalars['String']>
-    sectionSlug?: Maybe<Scalars['String']>
-    sectionIndex?: Maybe<Scalars['Int']>
-}
-
-export type GetCollectionQuery = { __typename?: 'Query' } & {
-    collections: Array<
-        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
-                items: Array<{ __typename?: 'Item' } & ItemPreviewFragment>
-            } & CollectionBasicFragment
-    >
-}
-
 export type GetProfileQueryVariables = {
     slug?: Maybe<Scalars['String']>
 }
@@ -1541,6 +1500,15 @@ export type CreateUserMutation = { __typename?: 'Mutation' } & {
     user: { __typename?: 'User' } & UserBasicFragment
 }
 
+export type SectionDetailsFragment = { __typename?: 'Section' } & {
+    collections: Array<
+        { __typename?: 'Collection' } & {
+            items: Array<{ __typename?: 'Item' } & ItemPreviewFragment>
+            owner: { __typename?: 'User' } & Pick<User, 'pictureUrl'>
+        } & CollectionBasicFragment
+    >
+} & SectionBasicFragment
+
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     Item,
     | 'id'
@@ -1558,10 +1526,15 @@ export type ItemDetailFragment = { __typename?: 'Item' } & Pick<
     'productUrl' | 'provider' | 'meta' | 'comment' | 'description'
 >
 
+export type SectionBasicFragment = { __typename?: 'Section' } & Pick<
+    Section,
+    'id' | 'index' | 'slug'
+> & { title: Section['name'] }
+
 export type CollectionBasicFragment = { __typename?: 'Collection' } & Pick<
     Collection,
-    'id' | 'slug' | 'name' | 'detail'
->
+    'id' | 'slug' | 'updatedAt' | 'isDeleted' | 'detail'
+> & { title: Collection['name'] }
 
 export type UserBasicFragment = { __typename?: 'User' } & Pick<
     User,
@@ -1584,6 +1557,24 @@ export type InboxCountItemFragment = { __typename?: 'Inbox' } & Pick<
     'count'
 >
 
+export const SectionBasicFragmentDoc = gql`
+    fragment SectionBasic on Section {
+        id
+        title: name
+        index
+        slug
+    }
+`
+export const CollectionBasicFragmentDoc = gql`
+    fragment CollectionBasic on Collection {
+        id
+        slug
+        updatedAt
+        isDeleted
+        title: name
+        detail
+    }
+`
 export const ItemPreviewFragmentDoc = gql`
     fragment ItemPreview on Item {
         id
@@ -1596,6 +1587,30 @@ export const ItemPreviewFragmentDoc = gql`
         createdAt
     }
 `
+export const SectionDetailsFragmentDoc = gql`
+    fragment SectionDetails on Section {
+        ...SectionBasic
+        collections(
+            where: { isDeleted: { equals: false } }
+            orderBy: { createdAt: asc }
+        ) {
+            ...CollectionBasic
+            items(
+                first: 5
+                where: { isDeleted: { equals: false } }
+                orderBy: { position: asc }
+            ) {
+                ...ItemPreview
+            }
+            owner {
+                pictureUrl
+            }
+        }
+    }
+    ${SectionBasicFragmentDoc}
+    ${CollectionBasicFragmentDoc}
+    ${ItemPreviewFragmentDoc}
+`
 export const ItemDetailFragmentDoc = gql`
     fragment ItemDetail on Item {
         productUrl
@@ -1603,14 +1618,6 @@ export const ItemDetailFragmentDoc = gql`
         meta
         comment
         description
-    }
-`
-export const CollectionBasicFragmentDoc = gql`
-    fragment CollectionBasic on Collection {
-        id
-        slug
-        name
-        detail
     }
 `
 export const UserBasicFragmentDoc = gql`
@@ -2156,38 +2163,10 @@ export type MoveItemFromInboxToCollectionMutationOptions = ApolloReactCommon.Bas
 export const GetSectionDocument = gql`
     query getSection($sectionId: ID!) {
         section(where: { id: $sectionId }) {
-            id
-            title: name
-            index
-            slug
-            collections(
-                where: { isDeleted: { equals: false } }
-                orderBy: { createdAt: asc }
-            ) {
-                id
-                slug
-                updatedAt
-                isDeleted
-                title: name
-                items(
-                    first: 5
-                    where: { isDeleted: { equals: false } }
-                    orderBy: { position: asc }
-                ) {
-                    id
-                    imageUrl
-                    isDeleted
-                    title
-                    type
-                    position
-                    createdAt
-                }
-                owner {
-                    pictureUrl
-                }
-            }
+            ...SectionDetails
         }
     }
+    ${SectionDetailsFragmentDoc}
 `
 
 /**
@@ -3060,86 +3039,6 @@ export type UpdateSectionExpandedMutationResult = ApolloReactCommon.MutationResu
 export type UpdateSectionExpandedMutationOptions = ApolloReactCommon.BaseMutationOptions<
     UpdateSectionExpandedMutation,
     UpdateSectionExpandedMutationVariables
->
-export const GetCollectionDocument = gql`
-    query getCollection(
-        $profileSlug: String
-        $sectionSlug: String
-        $sectionIndex: Int
-    ) {
-        collections(
-            where: {
-                section: {
-                    AND: {
-                        OR: [
-                            { slug: { equals: $sectionSlug } }
-                            { index: { equals: $sectionIndex } }
-                        ]
-                        owner: { slug: { equals: $profileSlug } }
-                    }
-                }
-            }
-        ) {
-            ...CollectionBasic
-            createdAt
-            items(first: 4, where: { isDeleted: { equals: false } }) {
-                ...ItemPreview
-            }
-        }
-    }
-    ${CollectionBasicFragmentDoc}
-    ${ItemPreviewFragmentDoc}
-`
-
-/**
- * __useGetCollectionQuery__
- *
- * To run a query within a React component, call `useGetCollectionQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCollectionQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetCollectionQuery({
- *   variables: {
- *      profileSlug: // value for 'profileSlug'
- *      sectionSlug: // value for 'sectionSlug'
- *      sectionIndex: // value for 'sectionIndex'
- *   },
- * });
- */
-export function useGetCollectionQuery(
-    baseOptions?: ApolloReactHooks.QueryHookOptions<
-        GetCollectionQuery,
-        GetCollectionQueryVariables
-    >
-) {
-    return ApolloReactHooks.useQuery<
-        GetCollectionQuery,
-        GetCollectionQueryVariables
-    >(GetCollectionDocument, baseOptions)
-}
-export function useGetCollectionLazyQuery(
-    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-        GetCollectionQuery,
-        GetCollectionQueryVariables
-    >
-) {
-    return ApolloReactHooks.useLazyQuery<
-        GetCollectionQuery,
-        GetCollectionQueryVariables
-    >(GetCollectionDocument, baseOptions)
-}
-export type GetCollectionQueryHookResult = ReturnType<
-    typeof useGetCollectionQuery
->
-export type GetCollectionLazyQueryHookResult = ReturnType<
-    typeof useGetCollectionLazyQuery
->
-export type GetCollectionQueryResult = ApolloReactCommon.QueryResult<
-    GetCollectionQuery,
-    GetCollectionQueryVariables
 >
 export const GetProfileDocument = gql`
     query getProfile($slug: String) {

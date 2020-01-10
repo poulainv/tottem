@@ -98,10 +98,6 @@ export default ({
         setDatasource(getInitialDatasource(data))
     }, [itemId])
 
-    if (data === undefined || data?.sections === undefined || loading) {
-        return <div> Loading ... </div>
-    }
-
     const handleSearch = (value: string) => {
         setDatasource(
             getInitialDatasource(data).filter(x =>

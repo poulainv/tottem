@@ -1,35 +1,6 @@
 query getSection($sectionId: ID!) {
     section(where: { id: $sectionId }) {
-        id
-        title: name
-        index
-        slug
-        collections(
-            where: { isDeleted: { equals: false } }
-            orderBy: { createdAt: asc }
-        ) {
-            id
-            slug
-            updatedAt
-            isDeleted
-            title: name
-            items(
-                first: 5
-                where: { isDeleted: { equals: false } }
-                orderBy: { position: asc }
-            ) {
-                id
-                imageUrl
-                isDeleted
-                title
-                type
-                position
-                createdAt
-            }
-            owner {
-                pictureUrl
-            }
-        }
+        ...SectionDetails
     }
 }
 

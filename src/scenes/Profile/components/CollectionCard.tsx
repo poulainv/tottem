@@ -4,12 +4,12 @@ import * as React from 'react'
 import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 import CoverImage from '../../../components/CoverImage'
 import { Collection, Item } from '../../../generated/types'
-import Options from '../Collection/HeaderForm/Options'
 
 export interface CollectionCardProps {
     className?: string
     avatar: string
-    collection: Pick<Collection, 'id' | 'isDeleted' | 'updatedAt'> & {
+    profileSlug: string
+    collection: Pick<Collection, 'id' | 'slug' | 'isDeleted' | 'updatedAt'> & {
         title: Collection['name']
     } & {
         items: Array<
@@ -26,7 +26,12 @@ export interface CollectionCardProps {
     }
 }
 
-export default ({ className, avatar, collection }: CollectionCardProps) => {
+export default ({
+    className,
+    avatar,
+    collection,
+    profileSlug,
+}: CollectionCardProps) => {
     const updatedAt = new Date(collection.updatedAt).toLocaleDateString(
         'fr-FR',
         {
@@ -36,7 +41,10 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
         }
     )
     return (
-        <Link href="/me/c/[collectionId]" as={`/me/c/${collection.id}`}>
+        <Link
+            href="/[profile]/c/[collectionId]"
+            as={`/${profileSlug}/c/${collection.slug}`}
+        >
             <a
                 className={classNames(
                     className,
@@ -47,12 +55,8 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                     <p className="text-gray-900 font-semibold hover:text-black">
                         {collection.title || 'New Collection'}
                     </p>
-                    <Options
-                        collectionId={collection.id}
-                        className="text-gray-400 transform rotate-90"
-                    />
                 </div>
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row items-center mt-2">
                     <img
                         className="rounded-full h-6 w-6 border border-gray-200"
                         src={avatar}
