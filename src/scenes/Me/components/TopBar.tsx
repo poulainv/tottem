@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import SettingsIcon from '../../public/pictograms/settings.svg'
+import SettingsIcon from '../../../../public/pictograms/settings.svg'
 
 interface ITopBarProps {
     message?: string
