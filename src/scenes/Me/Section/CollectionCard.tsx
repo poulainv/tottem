@@ -40,7 +40,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
             <a
                 className={classNames(
                     className,
-                    'w-full rounded shadow hover:shadow-md transition-all border border-gray-100 px-6 py-4 flex flex-col'
+                    'w-full rounded shadow hover:shadow-md transition-all border border-gray-100 hover:border-gray-300 px-6 py-4 flex flex-col'
                 )}
             >
                 <div className="flex flex-row justify-between">
@@ -52,7 +52,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                         className="text-gray-400 transform rotate-90"
                     />
                 </div>
-                <div className="flex flex-row mt-2 items-center">
+                <div className="flex flex-row items-center">
                     <img
                         className="rounded-full h-6 w-6 border border-gray-200"
                         src={avatar}
@@ -61,7 +61,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                         {updatedAt}
                     </span>
                 </div>
-                <div className="flex flex-row mt-6">
+                <div className="flex flex-row mt-4">
                     {collection.items.length !== 0 ? (
                         collection.items
                             .filter(x => !x.isDeleted)
@@ -86,7 +86,7 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                                 )
                             })
                     ) : (
-                        <div className="mx-auto">
+                        <div className="mx-auto mt-6 mb-8">
                             <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
                         </div>
                     )}
