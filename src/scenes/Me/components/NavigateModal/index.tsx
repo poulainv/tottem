@@ -14,7 +14,7 @@ import {
 } from '../../../../generated/types'
 const { Option } = AutoComplete
 
-const keyMap = {
+export const navigateKeyMap = {
     OPEN_NAVIGATE: 'cmd+k',
     CLOSE_NAVIGATE: 'Escape',
 }
@@ -144,7 +144,7 @@ export default ({ authUserId }: Props) => {
 
     return (
         <React.Fragment>
-            <GlobalHotKeys handlers={handlers} keyMap={keyMap} />
+            <GlobalHotKeys handlers={handlers} keyMap={navigateKeyMap} />
             <ReactModal
                 shouldCloseOnEsc={true}
                 onRequestClose={handleClose}

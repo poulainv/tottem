@@ -1,7 +1,7 @@
 import { AutoComplete, Select } from 'antd'
 import classNames from 'classnames'
-import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
 import { SearchItem } from '../../../../generated/types'
+import { useItemFormSearch } from '../../Collection/ItemForm/hooks'
 
 const { Option } = Select
 

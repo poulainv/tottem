@@ -8,7 +8,7 @@ interface StateProps {
     isLoading: boolean
 }
 
-const keyMap = {
+export const addItemKeyMap = {
     ADD_URL: 'Control+i',
     SEARCH_BOOK: 'Control+b',
     SEARCH_MOVIE: 'Control+f',
@@ -21,7 +21,7 @@ export const useHotKeys = (dispatch: Dispatch<AddActions>) => {
         SEARCH_MOVIE: () => dispatch('search-movie'),
     }
 
-    return { keyMap, handlers }
+    return { keyMap: addItemKeyMap, handlers }
 }
 
 export const useAddItemReducer = () => {
