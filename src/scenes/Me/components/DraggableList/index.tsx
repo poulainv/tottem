@@ -44,13 +44,6 @@ const DraggableList: React.FunctionComponent<IDraggableListProps &
                             {items.map((item, index) => (
                                 <CSSTransition
                                     timeout={{ exit: 300, enter: 300 }}
-                                    // classNames={{
-                                    //     enter: 'opacity-0',
-                                    //     enterActive: 'transition-opacity opacity-1 duration-200 ease-in-out',
-                                    //     exit: 'opacity-1 overflow-hidden',
-                                    //     exitActive:
-                                    //         'transition-opacity opacity-0 duration-200 ease-in-out',
-                                    // }}
                                     classNames="fade"
                                     key={item.id}
                                 >
