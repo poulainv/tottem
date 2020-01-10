@@ -50,7 +50,7 @@ const getUserAuth = (isServer: boolean, cookie?: string) => {
     if (isServer && cookie === undefined) {
         return undefined
     } else if (isServer) {
-        const idToken = cookie // FIXME mayme a better way
+        const idToken = cookie // FIXME should be a better way
             ?.split(';')
             .find((c: string) => c.trim().startsWith('id_token='))
             ?.split('=')[1]

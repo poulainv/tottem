@@ -49,7 +49,8 @@ const Sidenav: React.FC<SidenavProps> = ({
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
-                    <Link as="/" href="/">
+                    {/* TODO Add way to get profileSlug */}
+                    <Link as="/vincent" href="/[profile]">
                         <a
                             className={`block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer ${
                                 currentHref === '/' ? 'bg-brand-100' : ''
