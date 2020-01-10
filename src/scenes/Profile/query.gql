@@ -1,0 +1,12 @@
+query getProfile($slug: String) {
+    user(where: { slug: $slug }) {
+        ...UserBasic
+        ...Social
+    }
+    sections(where: { owner: { slug: { equals: $slug } } }) {
+        id
+        slug
+        name
+        index
+    }
+}
