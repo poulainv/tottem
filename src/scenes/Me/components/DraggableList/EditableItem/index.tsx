@@ -21,11 +21,13 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
         <div className="shadow rounded-sm flex flex-row flex-shrink-0 w-full min-h-9">
             <div className="bg-gray-100 w-1/2 p-4 flex flex-col">
                 <div className="flex flex-row items-start">
-                    <img
-                        className="object-contain w-24 rounded"
-                        src={item.imageUrl}
-                        alt=""
-                    />
+                    <a href={item.productUrl} target="_blank">
+                        <img
+                            className="object-contain w-24 rounded"
+                            src={item.imageUrl}
+                            alt=""
+                        />
+                    </a>
                     <div className="flex flex-col py-1 mx-4 w-64">
                         <div className="flex flex-row items-center">
                             <div className="text-gray-700">
@@ -35,9 +37,13 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
                                     width={14}
                                 />
                             </div>
-                            <div className="font-medium text-gray-900 px-2 leading-none truncate ">
+                            <a
+                                href={item.productUrl}
+                                target="_blank"
+                                className="font-medium text-gray-900 px-2 leading-none truncate "
+                            >
                                 {item.title}
-                            </div>
+                            </a>
                         </div>
                         <div className="text-gray-700 leading-none truncate mt-3">
                             {item.author}
