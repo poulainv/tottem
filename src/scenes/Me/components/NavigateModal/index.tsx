@@ -64,11 +64,11 @@ const inboxPage: PageType = {
     title: 'Inbox',
 }
 
-const getInitialDatasource = (query: GetSectionsQuery) => {
+const getInitialDatasource = (query?: GetSectionsQuery) => {
     const collections = query?.sections
-        .flatMap(x => x.collections)
-        .filter(x => x !== undefined)
-        .map(x => {
+        ?.flatMap(x => x.collections)
+        ?.filter(x => x !== undefined)
+        ?.map(x => {
             return {
                 id: x.id,
                 title: x.title || 'New collection',
@@ -76,8 +76,8 @@ const getInitialDatasource = (query: GetSectionsQuery) => {
             } as PageType
         })
     const sections = query?.sections
-        .filter(x => x !== undefined)
-        .map(x => {
+        ?.filter(x => x !== undefined)
+        ?.map(x => {
             return {
                 id: x.id,
                 title: x.title || 'New space',
@@ -85,9 +85,9 @@ const getInitialDatasource = (query: GetSectionsQuery) => {
             } as PageType
         })
     const userPages = sections
-        .concat(collections)
-        .sort((a, b) => a.title.localeCompare(b.title)) // FIXME here!
-    return [inboxPage].concat(userPages)
+        ?.concat(collections || [])
+        ?.sort((a, b) => a.title.localeCompare(b.title)) // FIXME here!
+    return [inboxPage].concat(userPages || [])
 }
 
 interface Props {
@@ -101,18 +101,12 @@ export default ({ authUserId }: Props) => {
         variables: { authUserId },
     })
     React.useEffect(() => {
-        if (data !== undefined) {
-            setDatasource(getInitialDatasource(data))
-        }
-    }, [])
+        setDatasource(getInitialDatasource(data))
+    }, [data?.sections]) // FIXME not sure about that
 
     const handlers = {
         OPEN_NAVIGATE: () => setIsOpen(!isOpen),
         CLOSE_NAVIGATE: () => setIsOpen(false),
-    }
-
-    if (data === undefined || data?.sections === undefined || loading) {
-        return <div> Loading ... </div>
     }
 
     const handleClose = () => {

@@ -65,11 +65,11 @@ const inboxDestination: ItemDestination = {
     title: 'Inbox',
 }
 
-const getCollectionsFromQuery = (query: GetSectionsQuery) => {
+const getCollectionsFromQuery = (query?: GetSectionsQuery) => {
     return query?.sections
-        .flatMap(x => x.collections)
-        .filter(x => x !== undefined)
-        .map(x => {
+        ?.flatMap(x => x.collections)
+        ?.filter(x => x !== undefined)
+        ?.map(x => {
             return {
                 destinationId: x.id,
                 title: x.title || 'New collection',
@@ -78,8 +78,8 @@ const getCollectionsFromQuery = (query: GetSectionsQuery) => {
         })
 }
 
-const getInitialDatasource = (query: GetSectionsQuery) =>
-    [inboxDestination].concat(getCollectionsFromQuery(query))
+const getInitialDatasource = (query?: GetSectionsQuery) =>
+    [inboxDestination].concat(getCollectionsFromQuery(query) || [])
 
 export default ({
     depart,
@@ -95,9 +95,7 @@ export default ({
         variables: { authUserId },
     })
     React.useEffect(() => {
-        if (data !== undefined) {
-            setDatasource(getInitialDatasource(data))
-        }
+        setDatasource(getInitialDatasource(data))
     }, [itemId])
 
     if (data === undefined || data?.sections === undefined || loading) {
