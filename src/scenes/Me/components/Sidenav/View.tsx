@@ -13,6 +13,7 @@ interface SidenavProps {
     currentHref: string
     authUserId: string
     inboxCount: number | undefined
+    currentUserSlug?: string
     sections:
         | Array<{
               title?: string
@@ -30,6 +31,7 @@ interface SidenavProps {
 const Sidenav: React.FC<SidenavProps> = ({
     inboxCount,
     sections,
+    currentUserSlug,
     currentHref,
     authUserId,
 }) => {
@@ -49,8 +51,7 @@ const Sidenav: React.FC<SidenavProps> = ({
             <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
-                    {/* TODO Add way to get profileSlug */}
-                    <Link as="/vincent" href="/[profile]">
+                    <Link as={`/${currentUserSlug}`} href="/[profile]">
                         <a
                             className={`block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer ${
                                 currentHref === '/' ? 'bg-brand-100' : ''

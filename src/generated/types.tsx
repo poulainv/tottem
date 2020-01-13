@@ -1338,7 +1338,7 @@ export type CheckUserSlugQueryVariables = {
 }
 
 export type CheckUserSlugQuery = { __typename?: 'Query' } & {
-    user: Maybe<{ __typename?: 'User' } & Pick<User, 'id'>>
+    user: Maybe<{ __typename?: 'User' } & Pick<User, 'id' | 'slug'>>
 }
 
 export type CreateItemFromUrlMutationVariables = {
@@ -1444,6 +1444,7 @@ export type GetSectionsQueryVariables = {
 }
 
 export type GetSectionsQuery = { __typename?: 'Query' } & {
+    user: Maybe<{ __typename?: 'User' } & Pick<User, 'id' | 'slug'>>
     inbox: Maybe<{ __typename?: 'Inbox' } & Pick<Inbox, 'id' | 'count'>>
     sections: Array<
         { __typename?: 'Section' } & Pick<
@@ -2431,6 +2432,7 @@ export const CheckUserSlugDocument = gql`
     query checkUserSlug($slug: String!) {
         user(where: { slug: $slug }) {
             id
+            slug
         }
     }
 `
@@ -2982,6 +2984,10 @@ export type GetCollectionModalQueryResult = ApolloReactCommon.QueryResult<
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {
+        user(where: { authUserId: $authUserId }) {
+            id
+            slug
+        }
         inbox {
             id
             count
