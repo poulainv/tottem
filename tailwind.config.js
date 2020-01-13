@@ -2,6 +2,9 @@ module.exports = {
     important: true,
     theme: {
         extend: {
+            maxWidth: {
+                xxs: '10rem',
+            },
             spacing: {
                 full: '100%',
                 '4/3': '133%',

@@ -1,5 +1,7 @@
 import * as React from 'react'
+import classNames from 'classnames'
 import Link from 'next/link'
+import { useGetBreadcrumbsQuery } from '../../../generated/types'
 
 interface ITopBarProps {
     avatar?: string
@@ -8,6 +10,7 @@ interface ITopBarProps {
 }
 
 const TopBar: React.FunctionComponent<ITopBarProps> = ({}) => {
+    const { data } = useGetBreadcrumbsQuery()
     return (
         <div className="w-full px-2 h-8 flex justify-between items-center text-gray-800 leading-none flex-shrink-0">
             <div className="flex items-center">
@@ -16,10 +19,30 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({}) => {
                         Edit profile
                     </a>
                 </Link>
-                <div className="text-gray-500 ml-4">
-                    <span>Vincent / </span>
-                    <span> Musique / </span>
-                    <span>Manipulation ...</span>
+                <div className="text-gray-500 ml-4 leading-none">
+                    {data?.breadcrumbs?.map((x, index) => {
+                        return (
+                            <span key={x.href} className="min-w-0">
+                                <Link key={x.href} as={x.as} href={x.href}>
+                                    <a className="inline-block truncate px-2 hover:text-gray-900 max-w-xxs">
+                                        {x.title}
+                                    </a>
+                                </Link>
+                                <span
+                                    className={classNames(
+                                        'my-2 align-top align-text-top',
+                                        {
+                                            hidden:
+                                                index >=
+                                                data?.breadcrumbs.length - 1,
+                                        }
+                                    )}
+                                >
+                                    /
+                                </span>
+                            </span>
+                        )
+                    })}
                 </div>
             </div>
             <div className="flex justify-end items-center text-gray-800 flex-shrink-0">

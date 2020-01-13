@@ -11,5 +11,10 @@ query getCollectionProfile($collectionId: ID!) {
             ...ItemPreview
             ...ItemDetail
         }
+        section {
+            id
+            name
+            slug
+        }
     }
 }

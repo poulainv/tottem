@@ -1,10 +1,14 @@
-import * as React from 'react'
-import { useGetCollectionProfileQuery } from '../../../generated/types'
+import { useEffect, useState } from 'react'
+import {
+    useGetCollectionProfileQuery,
+    GetCollectionProfileQuery,
+} from '../../../generated/types'
 import Loading from '../../UtilsPage/Loading'
 import DividerIcon from '../../../../public/pictograms/divider.svg'
 import FilterBadgesView from '../../Me/components/FilterBadgesView'
 import ItemCard from './components/ItemCard'
 import { ItemType } from '../../common'
+import { useApolloClient } from '@apollo/react-hooks'
 
 export interface ICollectionProps {
     authUserId?: string
@@ -12,17 +16,68 @@ export interface ICollectionProps {
     profileSlug: string
 }
 
+const useBreadcrumbs = (profileSlug: string) => {
+    const client = useApolloClient()
+
+    const setBreadcrumbs = ({ collection }: GetCollectionProfileQuery) => {
+        const section = collection?.section
+        const breadcrumbs = [
+            {
+                title: `@${profileSlug}`,
+                as: `/${profileSlug}`,
+                href: '/[profile]',
+                __typename: 'Breadcrumb',
+            },
+            {
+                title: section?.name || 'New Section',
+                as: `/${profileSlug}/${section?.slug}`,
+                href: '/[profile]/[sectionSlug]',
+                __typename: 'Breadcrumb',
+            },
+            {
+                title: collection?.title || 'New Collection',
+                as: `/${profileSlug}/c/${collection?.slug}`,
+                href: '/[profile]/c/[collectionSlug]',
+                __typename: 'Breadcrumb',
+            },
+        ]
+        client.writeData({
+            data: {
+                breadcrumbs,
+            },
+        })
+    }
+
+    const resetBreadcrumbs = () => {
+        client.writeData({
+            data: {
+                breadcrumbs: [],
+            },
+        })
+    }
+
+    return { resetBreadcrumbs, setBreadcrumbs }
+}
+
 export default function Collection({
     authUserId,
     collectionId,
     profileSlug,
 }: ICollectionProps) {
-    const [selectedTypes, setSelectedTypes] = React.useState<ItemType[]>([])
+    const [selectedTypes, setSelectedTypes] = useState<ItemType[]>([])
+    const { setBreadcrumbs, resetBreadcrumbs } = useBreadcrumbs(profileSlug)
     const { data, loading } = useGetCollectionProfileQuery({
         variables: {
             collectionId,
         },
+        onCompleted: setBreadcrumbs,
     })
+
+    useEffect(() => {
+        return () => {
+            resetBreadcrumbs()
+        }
+    }, [collectionId])
 
     if (loading || !data?.collection) {
         return <Loading />
@@ -53,7 +108,9 @@ export default function Collection({
 
     return (
         <div className="flex flex-col max-w-3xl mx-auto">
-            <div className="text-2xl text-gray-900"> {collection.title} </div>
+            <div className="text-2xl text-gray-900">
+                {collection.title || 'New Collection'}
+            </div>
             {collection.detail && (
                 <div className="mt-8 text-gray-700 leading-relaxed text-base font-light">
                     {collection.detail}
@@ -81,7 +138,7 @@ export default function Collection({
                     items={collection.items}
                 />
             </div>
-            <div className="mt-8">
+            <div className="mt-10">
                 {filteredItems.map(item => {
                     return (
                         <ItemCard
