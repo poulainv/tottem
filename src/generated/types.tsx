@@ -17,6 +17,13 @@ export type BooleanFilter = {
     not?: Maybe<Scalars['Boolean']>
 }
 
+export type Breadcrumb = {
+    __typename?: 'Breadcrumb'
+    title: Scalars['String']
+    href: Scalars['String']
+    as: Scalars['String']
+}
+
 export type Collection = {
     __typename?: 'Collection'
     id: Scalars['ID']
@@ -624,6 +631,7 @@ export type Query = {
     collections: Array<Collection>
     inbox?: Maybe<Inbox>
     search: Array<SearchItem>
+    breadcrumbs: Array<Breadcrumb>
 }
 
 export type QueryUserArgs = {
@@ -1459,6 +1467,29 @@ export type UpdateSectionExpandedMutation = { __typename?: 'Mutation' } & {
     >
 }
 
+export type GetCollectionProfileQueryVariables = {
+    collectionId: Scalars['ID']
+}
+
+export type GetCollectionProfileQuery = { __typename?: 'Query' } & {
+    collection: Maybe<
+        { __typename?: 'Collection' } & Pick<Collection, 'createdAt'> & {
+                owner: { __typename?: 'User' } & Pick<
+                    User,
+                    'pictureUrl' | 'firstname' | 'slug'
+                >
+                items: Array<
+                    { __typename?: 'Item' } & ItemPreviewFragment &
+                        ItemDetailFragment
+                >
+                section: { __typename?: 'Section' } & Pick<
+                    Section,
+                    'id' | 'name' | 'slug'
+                >
+            } & CollectionBasicFragment
+    >
+}
+
 export type GetProfileQueryVariables = {
     slug?: Maybe<Scalars['String']>
 }
@@ -1469,6 +1500,17 @@ export type GetProfileQuery = { __typename?: 'Query' } & {
         { __typename?: 'Section' } & Pick<
             Section,
             'id' | 'slug' | 'name' | 'index'
+        >
+    >
+}
+
+export type GetBreadcrumbsQueryVariables = {}
+
+export type GetBreadcrumbsQuery = { __typename?: 'Query' } & {
+    breadcrumbs: Array<
+        { __typename?: 'Breadcrumb' } & Pick<
+            Breadcrumb,
+            'title' | 'as' | 'href'
         >
     >
 }
@@ -3040,6 +3082,80 @@ export type UpdateSectionExpandedMutationOptions = ApolloReactCommon.BaseMutatio
     UpdateSectionExpandedMutation,
     UpdateSectionExpandedMutationVariables
 >
+export const GetCollectionProfileDocument = gql`
+    query getCollectionProfile($collectionId: ID!) {
+        collection(where: { id: $collectionId }) {
+            ...CollectionBasic
+            createdAt
+            owner {
+                pictureUrl
+                firstname
+                slug
+            }
+            items {
+                ...ItemPreview
+                ...ItemDetail
+            }
+            section {
+                id
+                name
+                slug
+            }
+        }
+    }
+    ${CollectionBasicFragmentDoc}
+    ${ItemPreviewFragmentDoc}
+    ${ItemDetailFragmentDoc}
+`
+
+/**
+ * __useGetCollectionProfileQuery__
+ *
+ * To run a query within a React component, call `useGetCollectionProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCollectionProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCollectionProfileQuery({
+ *   variables: {
+ *      collectionId: // value for 'collectionId'
+ *   },
+ * });
+ */
+export function useGetCollectionProfileQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetCollectionProfileQuery,
+        GetCollectionProfileQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetCollectionProfileQuery,
+        GetCollectionProfileQueryVariables
+    >(GetCollectionProfileDocument, baseOptions)
+}
+export function useGetCollectionProfileLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetCollectionProfileQuery,
+        GetCollectionProfileQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetCollectionProfileQuery,
+        GetCollectionProfileQueryVariables
+    >(GetCollectionProfileDocument, baseOptions)
+}
+export type GetCollectionProfileQueryHookResult = ReturnType<
+    typeof useGetCollectionProfileQuery
+>
+export type GetCollectionProfileLazyQueryHookResult = ReturnType<
+    typeof useGetCollectionProfileLazyQuery
+>
+export type GetCollectionProfileQueryResult = ApolloReactCommon.QueryResult<
+    GetCollectionProfileQuery,
+    GetCollectionProfileQueryVariables
+>
 export const GetProfileDocument = gql`
     query getProfile($slug: String) {
         user(where: { slug: $slug }) {
@@ -3102,6 +3218,63 @@ export type GetProfileLazyQueryHookResult = ReturnType<
 export type GetProfileQueryResult = ApolloReactCommon.QueryResult<
     GetProfileQuery,
     GetProfileQueryVariables
+>
+export const GetBreadcrumbsDocument = gql`
+    query getBreadcrumbs {
+        breadcrumbs @client {
+            title
+            as
+            href
+        }
+    }
+`
+
+/**
+ * __useGetBreadcrumbsQuery__
+ *
+ * To run a query within a React component, call `useGetBreadcrumbsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetBreadcrumbsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetBreadcrumbsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetBreadcrumbsQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetBreadcrumbsQuery,
+        GetBreadcrumbsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetBreadcrumbsQuery,
+        GetBreadcrumbsQueryVariables
+    >(GetBreadcrumbsDocument, baseOptions)
+}
+export function useGetBreadcrumbsLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetBreadcrumbsQuery,
+        GetBreadcrumbsQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetBreadcrumbsQuery,
+        GetBreadcrumbsQueryVariables
+    >(GetBreadcrumbsDocument, baseOptions)
+}
+export type GetBreadcrumbsQueryHookResult = ReturnType<
+    typeof useGetBreadcrumbsQuery
+>
+export type GetBreadcrumbsLazyQueryHookResult = ReturnType<
+    typeof useGetBreadcrumbsLazyQuery
+>
+export type GetBreadcrumbsQueryResult = ApolloReactCommon.QueryResult<
+    GetBreadcrumbsQuery,
+    GetBreadcrumbsQueryVariables
 >
 export const GetUserBySlugDocument = gql`
     query getUserBySlug($slug: String!) {

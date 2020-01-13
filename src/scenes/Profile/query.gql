@@ -10,3 +10,11 @@ query getProfile($slug: String) {
         index
     }
 }
+
+query getBreadcrumbs {
+    breadcrumbs @client {
+        title
+        as
+        href
+    }
+}

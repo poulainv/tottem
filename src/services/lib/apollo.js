@@ -10,6 +10,7 @@ import Head from 'next/head'
 import React from 'react'
 import { auth0, getAccessToken } from '../authentication'
 import { handleGraphQLErrors } from '../errors'
+import typeDefs from '../../localSchema.gql'
 
 let apolloClient = null
 
@@ -181,6 +182,7 @@ function createApolloClient(initialState = {}, cookie = '') {
     return new ApolloClient({
         ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
         link: links,
+        typeDefs: typeDefs,
         resolvers: {},
         cache: new InMemoryCache({
             cacheRedirects: {

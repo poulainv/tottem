@@ -1,0 +1,9 @@
+type Breadcrumb {
+    title: String!
+    href: String!
+    as: String!
+}
+
+extend type Query {
+    breadcrumbs: [Breadcrumb!]!
+}
