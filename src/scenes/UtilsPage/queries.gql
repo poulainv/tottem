@@ -1,0 +1,5 @@
+query getUserByAuthId($authId: String!) {
+    user(where: { authUserId: $authId }) {
+        ...UserBasic
+    }
+}

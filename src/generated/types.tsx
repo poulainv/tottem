@@ -1536,6 +1536,14 @@ export type GetBreadcrumbsQuery = { __typename?: 'Query' } & {
     >
 }
 
+export type GetUserByAuthIdQueryVariables = {
+    authId: Scalars['String']
+}
+
+export type GetUserByAuthIdQuery = { __typename?: 'Query' } & {
+    user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
+}
+
 export type SectionDetailsFragment = { __typename?: 'Section' } & {
     collections: Array<
         { __typename?: 'Collection' } & {
@@ -3361,4 +3369,61 @@ export type GetBreadcrumbsLazyQueryHookResult = ReturnType<
 export type GetBreadcrumbsQueryResult = ApolloReactCommon.QueryResult<
     GetBreadcrumbsQuery,
     GetBreadcrumbsQueryVariables
+>
+export const GetUserByAuthIdDocument = gql`
+    query getUserByAuthId($authId: String!) {
+        user(where: { authUserId: $authId }) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useGetUserByAuthIdQuery__
+ *
+ * To run a query within a React component, call `useGetUserByAuthIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserByAuthIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserByAuthIdQuery({
+ *   variables: {
+ *      authId: // value for 'authId'
+ *   },
+ * });
+ */
+export function useGetUserByAuthIdQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >(GetUserByAuthIdDocument, baseOptions)
+}
+export function useGetUserByAuthIdLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetUserByAuthIdQuery,
+        GetUserByAuthIdQueryVariables
+    >(GetUserByAuthIdDocument, baseOptions)
+}
+export type GetUserByAuthIdQueryHookResult = ReturnType<
+    typeof useGetUserByAuthIdQuery
+>
+export type GetUserByAuthIdLazyQueryHookResult = ReturnType<
+    typeof useGetUserByAuthIdLazyQuery
+>
+export type GetUserByAuthIdQueryResult = ApolloReactCommon.QueryResult<
+    GetUserByAuthIdQuery,
+    GetUserByAuthIdQueryVariables
 >
