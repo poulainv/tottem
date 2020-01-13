@@ -31,7 +31,7 @@ export default ({ loggedInUser, children }: Props) => {
                     avatar={loggedInUser.picture}
                     username={loggedInUser.name}
                 />
-                <main className="text-sm w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto mt-2 pb-16 h-full">
+                <main className="text-sm w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto mt-2 pb-16">
                     {children(dispatch, loggedInUser.id)}
                 </main>
             </div>
