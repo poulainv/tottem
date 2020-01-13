@@ -7,6 +7,10 @@
 }
 
 /* Remove antd global style */
+a {
+    color: inherit !important;
+}
+
 a:hover {
     color: inherit !important;
 }
