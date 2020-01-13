@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Humanize from 'humanize-plus'
-import { Item } from '../../../generated/types'
+import { Item } from '../../generated/types'
 import Github from './github.svg'
 import MovieDB from './moviedb.svg'
 import Youtube from './youtube.svg'

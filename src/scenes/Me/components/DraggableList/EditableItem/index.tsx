@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Item } from '../../../../../generated/types'
-import { ItemMetas } from '../../../../Collection/ItemMetas'
+import { ItemMetas } from '../../../../../components/ItemMetas'
 import { useItemCommentForm } from './hooks'
 import { ModificationTrackActions } from '../../../../common'
 import { PictogramItems } from '../../../../../components/PictogramItems'

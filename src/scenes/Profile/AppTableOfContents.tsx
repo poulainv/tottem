@@ -1,5 +1,3 @@
-import { useQuery } from '@apollo/react-hooks'
-import { Anchor } from 'grommet'
 import range from 'lodash.range'
 import throttle from 'lodash.throttle'
 import * as React from 'react'
@@ -7,19 +5,10 @@ import { BulletList } from 'react-content-loader'
 import ReactGA from 'react-ga'
 import removeMd from 'remove-markdown'
 import styled from 'styled-components'
-import {
-    brand700,
-    brand900,
-    grey300,
-    grey600,
-    grey700,
-} from '../../constants/colors'
-import { useGetCollectionQuery, Collection } from '../../generated/types'
+import { Collection, useGetSectionQuery } from '../../generated/types'
 
 interface IAppTableOfContentsProps {
-    sectionSlug: string
-    sectionIndex: number
-    profileSlug: string
+    sectionId: string
 }
 
 const noop = () => {}
@@ -69,7 +58,6 @@ const TableIndex = styled.li`
 
 const MenuHeader = styled.p`
     text-transform: uppercase;
-    color: ${grey600};
     font-size: 12px;
     font-weight: 700;
     margin: 0px;
@@ -91,7 +79,6 @@ const StickyBox = styled.nav`
 const TableDate = styled.p`
     font-size: 14px;
     line-height: 180%;
-    color: ${grey700};
     margin: 4px 0px 4px 0px;
     padding: 0px;
 `
@@ -105,11 +92,9 @@ const trackTableOfContent = () => {
 }
 
 const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = props => {
-    const { loading, data } = useGetCollectionQuery({
+    const { loading, data } = useGetSectionQuery({
         variables: {
-            profileSlug: props.profileSlug,
-            sectionSlug: props.sectionSlug,
-            sectionIndex: props.sectionIndex,
+            sectionId: props.sectionId,
         },
     })
     let collections: Array<Pick<
@@ -117,10 +102,14 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
         'id' | 'slug' | 'name' | 'createdAt' | 'detail'
     >> = []
 
-    if (loading || data === undefined || data.collections === undefined) {
+    if (
+        loading ||
+        data === undefined ||
+        data?.section?.collections === undefined
+    ) {
         collections = []
     } else {
-        collections = data.collections.filter(
+        collections = data?.section?.collections.filter(
             x => x.items.length // TODO filter in query
         )
     }
@@ -151,7 +140,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
             }
         }
         setActiveIndex(active)
-    }, [props.sectionSlug])
+    }, [props.sectionId])
 
     useThrottledOnScroll(collections.length > 0 ? findActiveIndex : null, 200)
     let lastDate: string
@@ -177,7 +166,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                                       key={collection.slug}
                                       active={activeIndex === index}
                                   >
-                                      <Anchor
+                                      <a
                                           href={`#${collection.slug}`}
                                           style={{ color: 'inherit' }}
                                           onClick={() => trackTableOfContent()}
@@ -185,7 +174,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                                           {!collection.name
                                               ? 'New Collection'
                                               : removeMd(collection.name || '')}
-                                      </Anchor>
+                                      </a>
                                   </TableIndex>
                               </React.Fragment>
                           )

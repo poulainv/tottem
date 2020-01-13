@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { Item } from '../../../../generated/types'
 import { PictogramItems } from '../../../../components/PictogramItems'
 import CoverImage from '../../../../components/CoverImage'
-import { ItemMetas } from '../../../Collection/ItemMetas'
+import { ItemMetas } from '../../../../components/ItemMetas'
 
 export interface ItemCardProps {
     className?: string
