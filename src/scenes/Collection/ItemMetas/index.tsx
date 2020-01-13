@@ -4,14 +4,21 @@ import { Item } from '../../../generated/types'
 import Github from './github.svg'
 import MovieDB from './moviedb.svg'
 import Youtube from './youtube.svg'
+import classnames from 'classnames'
 
 export interface IGithubMetasProps {
+    className?: string
     starsCount: number
 }
 
 export function GithubMetas(props: IGithubMetasProps) {
     return (
-        <div className="flex flex-row items-center">
+        <div
+            className={classnames(
+                props.className,
+                'flex flex-row items-center'
+            )}
+        >
             <Github height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.starsCount, 1)} stars
@@ -21,12 +28,18 @@ export function GithubMetas(props: IGithubMetasProps) {
 }
 
 export interface IYoutubeMetasProps {
+    className?: string
     viewCount: number
 }
 
 export function YoutubeMetas(props: IYoutubeMetasProps) {
     return (
-        <div className="flex flex-row items-center">
+        <div
+            className={classnames(
+                props.className,
+                'flex flex-row items-center'
+            )}
+        >
             <Youtube height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {Humanize.compactInteger(props.viewCount, 1)} views
@@ -36,13 +49,19 @@ export function YoutubeMetas(props: IYoutubeMetasProps) {
 }
 
 export interface IMovieDBMetasProps {
+    className?: string
     releaseDate: string
     voteAverage: number
 }
 
 export function MovieDBMetas(props: IMovieDBMetasProps) {
     return (
-        <div className="flex flex-row items-center">
+        <div
+            className={classnames(
+                props.className,
+                'flex flex-row items-center'
+            )}
+        >
             <MovieDB height={14} width={14} />
             <div className="leading-none text-gray-800 px-2">
                 {new Date(props.releaseDate).toLocaleDateString('fr-FR', {
@@ -55,18 +74,34 @@ export function MovieDBMetas(props: IMovieDBMetasProps) {
 }
 
 export interface IItemMetasProps {
+    className?: string
     item: Pick<Item, 'provider' | 'meta'>
 }
 
-export function ItemMetas({ item }: IItemMetasProps) {
+export function ItemMetas({ item, className }: IItemMetasProps) {
     if (item.provider && item.meta) {
         const meta = JSON.parse(item.meta)
         if (item.provider === 'github') {
-            return <GithubMetas {...(meta as IGithubMetasProps)} />
+            return (
+                <GithubMetas
+                    className={className}
+                    {...(meta as IGithubMetasProps)}
+                />
+            )
         } else if (item.provider === 'youtube') {
-            return <YoutubeMetas {...(meta as IYoutubeMetasProps)} />
+            return (
+                <YoutubeMetas
+                    className={className}
+                    {...(meta as IYoutubeMetasProps)}
+                />
+            )
         } else if (item.provider === 'moviedb') {
-            return <MovieDBMetas {...(meta as IMovieDBMetasProps)} />
+            return (
+                <MovieDBMetas
+                    className={className}
+                    {...(meta as IMovieDBMetasProps)}
+                />
+            )
         }
     }
     return <React.Fragment />

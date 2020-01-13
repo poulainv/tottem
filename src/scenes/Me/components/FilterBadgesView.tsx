@@ -12,7 +12,7 @@ import { ItemType } from '../../common'
 interface FilterBadgesProps {
     listId: string
     onFilterChange: (filter: ItemType[]) => void
-    className: string
+    className?: string
     items?: Array<ItemPreviewFragment & ItemDetailFragment>
 }
 
