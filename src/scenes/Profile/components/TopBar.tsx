@@ -9,7 +9,10 @@ interface ITopBarProps {
     authUserId?: string
 }
 
-const TopBar: React.FunctionComponent<ITopBarProps> = ({}) => {
+const TopBar: React.FunctionComponent<ITopBarProps> = ({
+    avatar,
+    username,
+}) => {
     const { data } = useGetBreadcrumbsQuery()
     return (
         <div className="w-full px-2 h-8 flex justify-between items-center text-gray-800 leading-none flex-shrink-0">
@@ -46,8 +49,13 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({}) => {
                 </div>
             </div>
             <div className="flex justify-end items-center text-gray-800 flex-shrink-0">
-                <p className="mx-1">Share</p>
-                <span className="text-gray-400">|</span>
+                <img
+                    src={avatar}
+                    alt="userAvatar"
+                    className="mx-1 h-5 rounded-full"
+                />
+                <p className="mx-1 capitalize text-gray-600">{username}</p>
+                <p className="mx-1 text-gray-400">|</p>
                 <img className="h-4 mx-1" src="/logo.svg" alt="Tottem logo" />
                 <p className="ml-1 mr-2 capitalize">Tottem</p>
             </div>
