@@ -26,7 +26,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
             >
                 <div className="flex flex-row w-full">
                     <TextareaAutosize
-                        autoFocus={!collection.name?.length} // autofocus only when collection unamed
+                        autoFocus={!collection.title?.length} // autofocus only when collection unamed
                         onChange={onChange}
                         type="text"
                         placeholder="New collection"
@@ -34,7 +34,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                         className="text-2xl resize-none outline-none text-gray-900 w-full"
                         name="name"
                         inputRef={register}
-                        defaultValue={collection.name}
+                        defaultValue={collection.title}
                         onBlur={submit}
                     />
                     <Options className="-pl-2" collectionId={collection.id} />
