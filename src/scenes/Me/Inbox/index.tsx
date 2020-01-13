@@ -12,7 +12,6 @@ import MoveModal from '../components/MoveModal'
 import { useMoveItemFromInbox } from './hooks'
 import ItemForm from './ItemForm'
 import ItemList from './ItemList'
-import { Button, StyledButton } from '../../../components/Button'
 
 interface InboxProps {
     authUserId: string

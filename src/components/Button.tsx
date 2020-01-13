@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 interface IButton {
     primary?: boolean
+    type?: string
     children: ReactNode
     onClick?: () => void
 }
