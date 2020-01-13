@@ -18,7 +18,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
         <div className="w-full px-2 h-8 flex justify-between items-center text-gray-800 leading-none flex-shrink-0">
             <div className="flex items-center">
                 <Link as="/me" href="/me">
-                    <a className="flex items-center h-6 text-brand-800 border border-brand-800 rounded px-2 text-xs hover:shadow hover:text-brand-800">
+                    <a className="flex items-center h-6 bg-white text-brand-800 border border-brand-800 rounded px-2 text-xs hover:shadow hover:text-brand-800">
                         Edit profile
                     </a>
                 </Link>

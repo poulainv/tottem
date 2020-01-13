@@ -48,11 +48,11 @@ export default ({
             <a
                 className={classNames(
                     className,
-                    'w-full rounded shadow hover:shadow-md transition-all border border-gray-100 hover:border-gray-300 px-6 py-4 flex flex-col'
+                    'w-full bg-white rounded shadow hover:shadow-md transition-all border border-transparent hover:border-gray-300 px-6 py-4 flex flex-col'
                 )}
             >
                 <div className="flex flex-row justify-between">
-                    <p className="text-gray-900 font-semibold hover:text-black text-base">
+                    <p className="text-gray-900 font-medium hover:text-black text-base">
                         {collection.title || 'New Collection'}
                     </p>
                 </div>
