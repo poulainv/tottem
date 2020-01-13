@@ -52,7 +52,7 @@ export default ({
                 )}
             >
                 <div className="flex flex-row justify-between">
-                    <p className="text-gray-900 font-semibold hover:text-black">
+                    <p className="text-gray-900 font-semibold hover:text-black text-base">
                         {collection.title || 'New Collection'}
                     </p>
                 </div>
