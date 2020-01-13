@@ -72,18 +72,12 @@ const useSectionForm = (
     const { register, getValues, setValue, handleSubmit } = useForm<FormData>()
 
     const [updateSection] = useUpdateSectionMutation({
-        onCompleted: () => {
-            if (onSaved !== undefined) {
-                onSaved()
-            }
-        },
+        onCompleted: () => onSaved?.(),
     })
 
     const submit = (data: FormData) => {
         const { title } = data
-        if (onSaving !== undefined) {
-            onSaving()
-        }
+        onSaving?.()
 
         updateSection({
             variables: {

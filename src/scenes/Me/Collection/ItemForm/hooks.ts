@@ -22,11 +22,7 @@ const useItemUrlForm = (
     const { register, handleSubmit, reset, errors } = useForm<ItemsFormData>()
 
     const [addItem, { loading }] = useCreateItemFromUrlMutation({
-        onCompleted: _ => {
-            if (onCompleted !== undefined) {
-                onCompleted()
-            }
-        },
+        onCompleted: _ => onCompleted?.(),
         update(cache, { data }) {
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
@@ -54,9 +50,7 @@ const useItemUrlForm = (
     })
 
     const onSubmit = handleSubmit(({ url }) => {
-        if (onStart !== undefined) {
-            onStart()
-        }
+        onStart?.()
         addItem({
             variables: {
                 url,
@@ -91,11 +85,7 @@ const useItemFormSearch = (
     }
 
     const [addItem, { loading }] = useCreateItemFromSearchMutation({
-        onCompleted: _ => {
-            if (onCompleted !== undefined) {
-                onCompleted()
-            }
-        },
+        onCompleted: _ => onCompleted?.(),
         update(cache, { data }) {
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
@@ -125,9 +115,7 @@ const useItemFormSearch = (
         if (dataSource === undefined) {
             throw Error('Datasource undefined')
         }
-        if (onStart !== undefined) {
-            onStart()
-        }
+        onStart?.()
 
         const found = dataSource.find(x => x.id === valueSelect)
         if (found === undefined) {

@@ -16,7 +16,7 @@ export default ({ sectionId, authUserId }: SectionPageProps) => {
     const { data, loading } = useGetSectionQuery({
         variables: { sectionId },
     })
-    if (data === undefined || data.section === undefined) {
+    if (data === undefined || data.section === undefined || loading) {
         return <Loading />
     }
     const { section } = data

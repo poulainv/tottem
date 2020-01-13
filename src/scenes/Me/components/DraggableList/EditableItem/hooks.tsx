@@ -27,11 +27,7 @@ const useItemCommentForm = (
     onSaving?: () => void
 ) => {
     const [saveComment] = useSaveCommentItemMutation({
-        onCompleted: () => {
-            if (onSaved) {
-                onSaved()
-            }
-        },
+        onCompleted: () => onSaved?.(),
     })
     const { register, getValues } = useForm<{ itemComment: string }>()
     React.useEffect(() => {
@@ -41,9 +37,7 @@ const useItemCommentForm = (
     }, [itemId])
     const submit = () => {
         const { itemComment } = getValues()
-        if (onSaving) {
-            onSaving()
-        }
+        onSaving?.()
         saveComment({ variables: { comment: itemComment, id: itemId } })
     }
     const debouncedSave = debounce(submit, 1500, { maxWait: 5000 })

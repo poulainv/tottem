@@ -30,19 +30,13 @@ const useCollectionForm = (
 
     const [updateCollection] = useUpdateCollectionMutation({
         onCompleted: () => {
-            if (onSaved !== undefined) {
-                onSaved()
-            }
+            onSaved?.()
         },
     })
 
     const submit = () => {
         const { name, detail } = getValues()
-
-        if (onSaving !== undefined) {
-            onSaving()
-        }
-
+        onSaving?.()
         updateCollection({
             variables: {
                 name,
@@ -57,7 +51,7 @@ const useCollectionForm = (
     const onFormChange = useCallback(debouncedSave, [collection.id])
 
     useEffect(() => {
-        setValue('name', collection.name || '')
+        setValue('name', collection.title || '')
         setValue('detail', collection.detail || '')
         return () => {
             // Prevent submit method to be called after page changes
