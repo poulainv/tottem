@@ -7,11 +7,11 @@ import gql from 'graphql-tag'
 export default ({ authUserId }: { authUserId: string }) => {
     const { data } = useGetSectionsQuery({
         variables: { authUserId },
-        // pollInterval: 2000,
     })
     const { asPath } = useRouter()
     return (
         <View
+            currentUserSlug={data?.user?.slug}
             authUserId={authUserId}
             sections={data?.sections?.sort(
                 (a, b) =>

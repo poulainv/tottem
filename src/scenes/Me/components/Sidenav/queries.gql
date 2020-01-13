@@ -1,4 +1,8 @@
 query getSections($authUserId: String!) {
+    user(where: { authUserId: $authUserId }) {
+        id
+        slug
+    }
     inbox {
         id
         count

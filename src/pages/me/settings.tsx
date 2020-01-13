@@ -5,14 +5,17 @@ import LoadingPage from '../../scenes/UtilsPage/Loading'
 import Settings from '../../scenes/Me/Settings'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'
+import Layout from '../../scenes/Me/components/Layout'
 
 const SettingsPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,
 }) => {
-    return loggedInUser ? (
-        <Settings loggedInUser={loggedInUser} />
-    ) : (
-        <LoadingPage />
+    return (
+        <Layout loggedInUser={loggedInUser}>
+            {(dispatch, authUserId) => (
+                <Settings messageDispatch={dispatch} authUserId={authUserId} />
+            )}
+        </Layout>
     )
 }
 
