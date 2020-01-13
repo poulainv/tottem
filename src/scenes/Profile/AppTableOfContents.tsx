@@ -3,7 +3,6 @@ import throttle from 'lodash.throttle'
 import * as React from 'react'
 import { BulletList } from 'react-content-loader'
 import ReactGA from 'react-ga'
-import removeMd from 'remove-markdown'
 import styled from 'styled-components'
 import { Collection, useGetSectionQuery } from '../../generated/types'
 
@@ -173,7 +172,7 @@ const AppTableOfContents: React.FunctionComponent<IAppTableOfContentsProps> = pr
                                       >
                                           {!collection.name
                                               ? 'New Collection'
-                                              : removeMd(collection.name || '')}
+                                              : collection.name}
                                       </a>
                                   </TableIndex>
                               </React.Fragment>
