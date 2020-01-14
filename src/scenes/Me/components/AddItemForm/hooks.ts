@@ -12,6 +12,7 @@ export const addItemKeyMap = {
     ADD_URL: 'Control+i',
     SEARCH_BOOK: 'Control+b',
     SEARCH_MOVIE: 'Control+f',
+    SEARCH_ALBUM: 'Control+a',
 }
 
 export const useHotKeys = (dispatch: Dispatch<AddActions>) => {
@@ -19,6 +20,7 @@ export const useHotKeys = (dispatch: Dispatch<AddActions>) => {
         ADD_URL: () => dispatch('url'),
         SEARCH_BOOK: () => dispatch('search-book'),
         SEARCH_MOVIE: () => dispatch('search-movie'),
+        SEARCH_ALBUM: () => dispatch('search-album'),
     }
 
     return { keyMap: addItemKeyMap, handlers }
