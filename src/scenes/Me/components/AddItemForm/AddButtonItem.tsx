@@ -1,11 +1,12 @@
 import { Dropdown, Menu } from 'antd'
 import { Dispatch } from 'react'
-import PlusIcon from '../../public/pictograms/plus.svg'
-import LinkIcon from '../../public/pictograms/link.svg'
-import BookIcon from '../components/PictogramItems/book.svg'
-import MovieIcon from '../components/PictogramItems/movie.svg'
+import PlusIcon from '../../../../../public/pictograms/plus.svg'
+import LinkIcon from '../../../../../public/pictograms/link.svg'
+import BookIcon from '../../../../components/PictogramItems/book.svg'
+import MovieIcon from '../../../../components/PictogramItems/movie.svg'
+import AlbumIcon from '../../../../components/PictogramItems/album.svg'
 
-export type AddActions = 'url' | 'search-book' | 'search-movie'
+export type AddActions = 'url' | 'search-book' | 'search-movie' | 'search-album'
 
 interface IAddButtonProps {
     onSelect: Dispatch<AddActions>
@@ -39,6 +40,15 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             >
                 <BookIcon className="inline fill-current mr-2" />
                 Search book
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item
+                key="3"
+                className="hover:bg-brand-600 text-white font-medium flex items-center"
+                onClick={() => onSelect('search-album')}
+            >
+                <AlbumIcon className="inline fill-current mr-2" />
+                Search album
             </Menu.Item>
         </Menu>
     )

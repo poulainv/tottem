@@ -1,9 +1,9 @@
 import { useReducer, Dispatch } from 'react'
-import { AddActions } from '../../../../components/AddButtonItem'
+import { AddActions } from './AddButtonItem'
 
 interface StateProps {
     type: 'url' | 'search' | 'close'
-    searchElement?: 'book' | 'movie'
+    searchElement?: 'book' | 'movie' | 'album'
     isShow: boolean
     isLoading: boolean
 }
@@ -57,6 +57,13 @@ export const useAddItemReducer = () => {
                     isLoading: false,
                     type: 'search',
                     searchElement: 'movie',
+                }
+            case 'search-album':
+                return {
+                    isShow: true,
+                    isLoading: false,
+                    type: 'search',
+                    searchElement: 'album',
                 }
             default:
                 throw Error()

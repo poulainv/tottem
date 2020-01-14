@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import AddButton, { AddActions } from '../../../../components/AddButtonItem'
+import AddButton, { AddActions } from './AddButtonItem'
 import Spinner from '../../../../components/Spinner'
 import { Dispatch } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'

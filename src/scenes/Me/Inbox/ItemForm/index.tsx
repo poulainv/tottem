@@ -31,6 +31,7 @@ export default ({ className }: { className?: string }) => {
             <FormURL useForm={useFormURL} onClose={() => dispatch('close')} />
         ) : (
             (state.searchElement === 'book' ||
+                state.searchElement === 'album' ||
                 state.searchElement === 'movie') && (
                 <FormSearch
                     useForm={useFormSearch}

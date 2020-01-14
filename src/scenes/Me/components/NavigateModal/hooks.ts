@@ -31,7 +31,7 @@ const getInitialPages = (query?: GetSectionsQuery) => {
         ?.map(x => {
             return {
                 id: x.id,
-                title: x.title || 'New collection',
+                title: x.title || 'New Collection',
                 type: 'collection',
             } as PageType
         })
@@ -40,7 +40,7 @@ const getInitialPages = (query?: GetSectionsQuery) => {
         ?.map(x => {
             return {
                 id: x.id,
-                title: x.title || 'New space',
+                title: x.title || 'New Space',
                 type: 'section',
             } as PageType
         })

@@ -34,7 +34,7 @@ export default ({
     className,
 }: {
     useForm: ReturnType<typeof useItemFormSearch>
-    searchType?: 'book' | 'movie'
+    searchType?: 'book' | 'movie' | 'album'
     onClose: () => void
     className?: string
 }) => {
