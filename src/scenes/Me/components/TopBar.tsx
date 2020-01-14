@@ -3,6 +3,7 @@ import Link from 'next/link'
 import SettingsIcon from '../../../../public/pictograms/settings.svg'
 import SearchIcon from '../../../../public/pictograms/search.svg'
 import { useNavigationModal } from './NavigateModal/hooks'
+import { Tooltip } from 'antd'
 
 interface ITopBarProps {
     message?: string
@@ -40,9 +41,15 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
             />
             <p className="mx-1 capitalize">{username}</p>
             <p className="mx-1 text-gray-400">|</p>
-            <div className="mx-1 cursor-pointer" onClick={trigger}>
-                <SearchIcon className="text-gray-600" height={14} width={14} />
-            </div>
+            <Tooltip title="Navigate anywhere (⌘ + k)" placement="bottomLeft">
+                <div className="mx-1 cursor-pointer" onClick={trigger}>
+                    <SearchIcon
+                        className="text-gray-600"
+                        height={14}
+                        width={14}
+                    />
+                </div>
+            </Tooltip>
             <Link as="/me/settings" href="/me/settings">
                 <a className="mx-1">
                     <SettingsIcon

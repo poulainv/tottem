@@ -17,12 +17,12 @@ a:hover {
 
 /* Tooltip custom */
 .ant-tooltip-inner {
-    @apply bg-gray-500;
+    @apply bg-gray-600;
     @apply py-1;
 }
 
 .ant-tooltip-arrow::before {
-    @apply bg-gray-500;
+    @apply bg-gray-600;
 }
 
 /* Autocomplete custom */
