@@ -28,10 +28,6 @@ class MyDocument extends Document {
                 />
                 <meta name="theme-color" content="#000000" />
                 <link rel="apple-touch-icon" href="" />
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap"
-                />
                 <body>
                     <Main />
                     <NextScript />
