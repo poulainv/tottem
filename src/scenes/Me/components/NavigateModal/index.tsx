@@ -1,29 +1,19 @@
 import { AutoComplete } from 'antd'
-import { SelectValue } from 'antd/lib/select'
-import { useRouter } from 'next/router'
-import * as React from 'react'
+import classNames from 'classnames'
+import { useState, useEffect, Fragment } from 'react'
 import { GlobalHotKeys } from 'react-hotkeys'
 import ReactModal from 'react-modal'
-import classNames from 'classnames'
+import CollectionIcon from '../../../../../public/pictograms/collection.svg'
 import InboxIcon from '../../../../../public/pictograms/inbox.svg'
 import SpaceIcon from '../../../../../public/pictograms/space.svg'
-import CollectionIcon from '../../../../../public/pictograms/collection.svg'
 import {
-    GetSectionsQuery,
-    useGetSectionsQuery,
-} from '../../../../generated/types'
+    PageType,
+    usePageNavigation,
+    useNavigationModal,
+    navigateKeyMap,
+} from './hooks'
+import { SelectValue } from 'antd/lib/select'
 const { Option } = AutoComplete
-
-export const navigateKeyMap = {
-    OPEN_NAVIGATE: 'cmd+k',
-    CLOSE_NAVIGATE: 'Escape',
-}
-
-interface PageType {
-    title: string
-    id?: string
-    type: 'inbox' | 'collection' | 'section'
-}
 
 const getIcon = (type: 'inbox' | 'collection' | 'section') => {
     switch (type) {
@@ -58,86 +48,38 @@ const renderOption = (dest: PageType) => {
     )
 }
 
-const inboxPage: PageType = {
-    type: 'inbox',
-    id: 'inbox',
-    title: 'Inbox',
-}
-
-const getInitialDatasource = (query?: GetSectionsQuery) => {
-    const collections = query?.sections
-        ?.flatMap(x => x.collections)
-        ?.filter(x => x !== undefined)
-        ?.map(x => {
-            return {
-                id: x.id,
-                title: x.title || 'New collection',
-                type: 'collection',
-            } as PageType
-        })
-    const sections = query?.sections
-        ?.filter(x => x !== undefined)
-        ?.map(x => {
-            return {
-                id: x.id,
-                title: x.title || 'New space',
-                type: 'section',
-            } as PageType
-        })
-    const userPages = sections
-        ?.concat(collections || [])
-        ?.sort((a, b) => a.title.localeCompare(b.title)) // FIXME here!
-    return [inboxPage].concat(userPages || [])
-}
-
 interface Props {
     authUserId: string
 }
 
 export default ({ authUserId }: Props) => {
-    const [isOpen, setIsOpen] = React.useState(false)
-    const [datasource, setDatasource] = React.useState<PageType[]>([])
-    const { data, loading } = useGetSectionsQuery({
-        variables: { authUserId },
-    })
-    React.useEffect(() => {
-        setDatasource(getInitialDatasource(data))
-    }, [data?.sections]) // FIXME not sure about that
+    const { pages, navigateTo } = usePageNavigation(authUserId)
+    const [datasource, setDatasource] = useState<PageType[]>(pages)
+    const { isOpen, onRequestClose, handlers } = useNavigationModal()
 
-    const handlers = {
-        OPEN_NAVIGATE: () => setIsOpen(!isOpen),
-        CLOSE_NAVIGATE: () => setIsOpen(false),
-    }
+    useEffect(() => {
+        setDatasource(pages)
+    }, [pages])
 
     const handleClose = () => {
-        setIsOpen(false)
-        setDatasource(getInitialDatasource(data))
+        setDatasource(pages)
+        onRequestClose()
     }
 
     const handleSearch = (value: string) => {
         setDatasource(
-            getInitialDatasource(data).filter(x =>
+            pages.filter(x =>
                 x.title.toLowerCase().includes(value.toLowerCase())
             )
         )
     }
-    const router = useRouter()
-    const onSelect = (value: SelectValue) => {
-        const id = value.toString()
-        const dest = datasource.filter(x => x.id === id)[0]
-        if (dest.type === 'collection') {
-            router.push('/me/c/[collectionId]', `/me/c/${id}`)
-        } else if (dest.type === 'section') {
-            router.push('/me/s/[sectionId]', `/me/s/${id}`)
-        } else if (dest.type === 'inbox') {
-            router.push('/me/inbox')
-        } else {
-            throw new Error(`Type ${dest.type} not implemented`)
-        }
+
+    const handleSelect = (v: SelectValue) => {
+        navigateTo(v.toString())
     }
 
     return (
-        <React.Fragment>
+        <Fragment>
             <GlobalHotKeys handlers={handlers} keyMap={navigateKeyMap} />
             <ReactModal
                 shouldCloseOnEsc={true}
@@ -162,7 +104,7 @@ export default ({ authUserId }: Props) => {
             >
                 <div className="flex flex-col bg-brand-400 w-full rounded-lg p-3">
                     <AutoComplete
-                        onSelect={onSelect}
+                        onSelect={handleSelect}
                         onSearch={handleSearch}
                         className="w-full flex-shrink"
                         dataSource={datasource.map(x => renderOption(x))}
@@ -180,6 +122,6 @@ export default ({ authUserId }: Props) => {
                     </AutoComplete>
                 </div>
             </ReactModal>
-        </React.Fragment>
+        </Fragment>
     )
 }

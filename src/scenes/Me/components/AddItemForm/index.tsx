@@ -4,7 +4,7 @@ import Spinner from '../../../../components/Spinner'
 import { Dispatch } from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { HotKeys, ObserveKeys } from 'react-hotkeys'
-import { navigateKeyMap } from '../NavigateModal'
+import { navigateKeyMap } from '../NavigateModal/hooks'
 import { addItemKeyMap } from './hooks'
 
 export default ({

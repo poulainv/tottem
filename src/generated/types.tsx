@@ -547,6 +547,11 @@ export type ItemWhereUniqueInput = {
     id?: Maybe<Scalars['ID']>
 }
 
+export type Modal = {
+    __typename?: 'Modal'
+    isNavigationOpen?: Maybe<Scalars['Boolean']>
+}
+
 export type Mutation = {
     __typename?: 'Mutation'
     updateOneSection?: Maybe<Section>
@@ -638,6 +643,7 @@ export type Query = {
     inbox?: Maybe<Inbox>
     search: Array<SearchItem>
     breadcrumbs: Array<Breadcrumb>
+    modal: Modal
 }
 
 export type QueryUserArgs = {
@@ -1437,6 +1443,12 @@ export type GetCollectionModalQuery = { __typename?: 'Query' } & {
                 title: Collection['name']
             }
     >
+}
+
+export type GetNavigationStateQueryVariables = {}
+
+export type GetNavigationStateQuery = { __typename?: 'Query' } & {
+    modal: { __typename?: 'Modal' } & Pick<Modal, 'isNavigationOpen'>
 }
 
 export type GetSectionsQueryVariables = {
@@ -2989,6 +3001,61 @@ export type GetCollectionModalLazyQueryHookResult = ReturnType<
 export type GetCollectionModalQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionModalQuery,
     GetCollectionModalQueryVariables
+>
+export const GetNavigationStateDocument = gql`
+    query getNavigationState {
+        modal @client {
+            isNavigationOpen
+        }
+    }
+`
+
+/**
+ * __useGetNavigationStateQuery__
+ *
+ * To run a query within a React component, call `useGetNavigationStateQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetNavigationStateQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetNavigationStateQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetNavigationStateQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetNavigationStateQuery,
+        GetNavigationStateQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetNavigationStateQuery,
+        GetNavigationStateQueryVariables
+    >(GetNavigationStateDocument, baseOptions)
+}
+export function useGetNavigationStateLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetNavigationStateQuery,
+        GetNavigationStateQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetNavigationStateQuery,
+        GetNavigationStateQueryVariables
+    >(GetNavigationStateDocument, baseOptions)
+}
+export type GetNavigationStateQueryHookResult = ReturnType<
+    typeof useGetNavigationStateQuery
+>
+export type GetNavigationStateLazyQueryHookResult = ReturnType<
+    typeof useGetNavigationStateLazyQuery
+>
+export type GetNavigationStateQueryResult = ApolloReactCommon.QueryResult<
+    GetNavigationStateQuery,
+    GetNavigationStateQueryVariables
 >
 export const GetSectionsDocument = gql`
     query getSections($authUserId: String!) {

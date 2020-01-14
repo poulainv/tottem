@@ -1,10 +1,12 @@
-import * as React from 'react'
+import { useState } from 'react'
 import TopBar from './TopBar'
 import { AuthenticatedUser } from '../../../services/authentication'
 import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
 import { useStatusMessage } from './TopBar'
 import Sidenav from './Sidenav'
 import NavigateModal from './NavigateModal'
+import { GlobalHotKeys } from 'react-hotkeys'
+import { useNavigationModal, navigateKeyMap } from './NavigateModal/hooks'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'
@@ -20,7 +22,6 @@ interface Props {
 
 export default ({ loggedInUser, children }: Props) => {
     const [message, dispatch] = useStatusMessage()
-
     return loggedInUser ? (
         <div className="flex h-screen text-sm">
             <Sidenav authUserId={loggedInUser.id} />

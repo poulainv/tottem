@@ -9,10 +9,7 @@ interface Props {
 
 export default ({ loggedInUser, children }: Props) => {
     return (
-        <div
-            className="flex h-screen text-sm"
-            style={{ backgroundColor: '#FAFAFA' }}
-        >
+        <div className="flex h-screen text-sm">
             <div className="flex flex-1 flex-col overflow-auto h-full">
                 <TopBar
                     avatar={loggedInUser?.picture}

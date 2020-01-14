@@ -17,7 +17,7 @@ export default ({ className, sectionId, authUserId }: Props) => {
             <div
                 onClick={() => createCollection()}
                 className={classNames(
-                    'h-8 w-8 text-brand-700 rounded-full border border-brand-700 hover:border-brand-900 hover:text-brand-900 flex justify-center items-center cursor-pointer',
+                    'h-8 w-8 text-gray-600 rounded-full border border-gray-600 hover:border-gray-900 hover:text-gray-900 flex justify-center items-center cursor-pointer',
                     className
                 )}
             >

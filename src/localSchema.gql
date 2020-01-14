@@ -4,6 +4,11 @@ type Breadcrumb {
     as: String!
 }
 
+type Modal {
+    isNavigationOpen: Boolean
+}
+
 extend type Query {
     breadcrumbs: [Breadcrumb!]!
+    modal: Modal!
 }

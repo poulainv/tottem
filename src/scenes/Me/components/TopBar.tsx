@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Link from 'next/link'
 import SettingsIcon from '../../../../public/pictograms/settings.svg'
+import SearchIcon from '../../../../public/pictograms/search.svg'
+import { useNavigationModal } from './NavigateModal/hooks'
 
 interface ITopBarProps {
     message?: string
@@ -27,6 +29,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
     avatar,
     username,
 }) => {
+    const { trigger } = useNavigationModal()
     return (
         <div className="w-full px-2 h-8 flex justify-end items-center text-gray-600 leading-none flex-shrink-0">
             <p className="mx-1">{message}</p>
@@ -37,6 +40,9 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
             />
             <p className="mx-1 capitalize">{username}</p>
             <p className="mx-1 text-gray-400">|</p>
+            <div className="mx-1 cursor-pointer" onClick={trigger}>
+                <SearchIcon className="text-gray-600" height={14} width={14} />
+            </div>
             <Link as="/me/settings" href="/me/settings">
                 <a className="mx-1">
                     <SettingsIcon
