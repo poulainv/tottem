@@ -47,8 +47,12 @@ const Sidenav: React.FC<SidenavProps> = ({
         update: updateSections,
     })
     return (
-        <nav className="leading-none font-medium w-64 p-4 bg-gray-100 text-gray-900 flex flex-col">
-            <img className="h-6 self-start" src="/logo.svg" alt="Tottem logo" />
+        <nav className="leading-none font-medium w-64 px-4 bg-gray-100 text-gray-900 flex flex-col">
+            <img
+                className="h-6 self-start mt-4"
+                src="/logo.svg"
+                alt="Tottem logo"
+            />
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
                     <Link as={`/${currentUserSlug}`} href="/[profile]">
@@ -121,8 +125,8 @@ const Sidenav: React.FC<SidenavProps> = ({
                 <div className="text-xs text-gray-700 px-2 overflow-hidden font-semibold mb-2">
                     SPACES
                 </div>
-                {sections ? (
-                    <div className="flex flex-col flex-1 min-h-0">
+                <div className="flex flex-col flex-1 min-h-0 justify-between">
+                    {sections ? (
                         <div className="flex-1 overflow-y-auto w-full">
                             {sections.map(section => {
                                 return (
@@ -136,16 +140,18 @@ const Sidenav: React.FC<SidenavProps> = ({
                                 )
                             })}
                         </div>
+                    ) : (
+                        <BulletList className="pl-2" />
+                    )}
+                    <div className="mt-2 border-t border-gray-300 py-2">
                         <button
                             onClick={() => createSection()}
-                            className="w-full px-2 py-1 flex justify-center bg-white hover:bg-brand-50 text-gray-700 rounded mt-2 border border-brand-500"
+                            className="w-full px-2 py-2 flex text-gray-700 hover:bg-brand-100 rounded"
                         >
                             + New Space
                         </button>
                     </div>
-                ) : (
-                    <BulletList className="pl-2" />
-                )}
+                </div>
             </div>
         </nav>
     )
