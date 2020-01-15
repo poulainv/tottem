@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import CollectionCard from './CollectionCard'
 import { useGetSectionQuery } from '../../../generated/types'
 import Loading from '../../UtilsPage/Loading'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 export interface CollectionListProps {
     className?: string
@@ -23,8 +24,8 @@ export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
 
     return (
         <div className={classNames(className)}>
-            {data?.section ? (
-                data?.section.collections.map(collection => {
+            {data?.section?.collections.length !== 0 ? (
+                data?.section?.collections.map(collection => {
                     return (
                         <CollectionCard
                             profileSlug={profileSlug}
@@ -36,10 +37,11 @@ export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
                     )
                 })
             ) : (
-                <div className="w-full mt-40 flex items-center justify-center">
+                <div className="w-full mt-48 flex items-center justify-center">
                     <div className="flex flex-col items-center">
-                        <span className="text-gray-600 mt-4">
-                            Let's your create first collection
+                        <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
+                        <span className="text-gray-600 mt-2">
+                            No collections
                         </span>
                     </div>
                 </div>
