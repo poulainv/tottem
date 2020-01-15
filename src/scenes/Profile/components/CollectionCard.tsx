@@ -48,7 +48,7 @@ export default ({
             <a
                 className={classNames(
                     className,
-                    'w-full bg-white rounded shadow hover:shadow-md transition-all border border-transparent hover:border-gray-300 px-6 py-4 flex flex-col'
+                    'w-full bg-white rounded shadow hover:shadow-lg transition-all border border-transparent border-gray-300 hover:border-gray-400 px-6 py-4 flex flex-col'
                 )}
             >
                 <div className="flex flex-row justify-between">
