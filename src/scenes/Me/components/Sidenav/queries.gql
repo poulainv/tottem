@@ -1,3 +1,7 @@
+# Explicit filtering on authUserId is not the best
+# Getting user info and only proper its sections should be done by default
+# Dont want to write custom resolver for that now and nexus prisma will support this
+# usecase https://github.com/prisma-labs/nexus-prisma/issues/501
 query getSections($authUserId: String!) {
     user(where: { authUserId: $authUserId }) {
         id

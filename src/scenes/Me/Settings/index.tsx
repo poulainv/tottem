@@ -138,7 +138,8 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
                         Left:{' '}
                         {300 -
                             (watch('biography')?.length ??
-                                data?.user?.biography?.length)}
+                                data?.user?.biography?.length ??
+                                0)}
                         /300 characters
                     </div>
                 </div>

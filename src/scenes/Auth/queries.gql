@@ -4,16 +4,11 @@ mutation createNewUser(
     $pictureUrl: String!
     $firstname: String!
 ) {
-    user: createOneUser(
-        data: {
-            slug: $slug
-            authUserId: $authUserId
-            pictureUrl: $pictureUrl
-            firstname: $firstname
-            sections: {
-                create: [{ slug: "section", name: "My first section" }]
-            }
-        }
+    user: createNewUser(
+        slug: $slug
+        authUserId: $authUserId
+        pictureUrl: $pictureUrl
+        firstname: $firstname
     ) {
         ...UserBasic
     }

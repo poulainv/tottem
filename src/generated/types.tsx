@@ -559,6 +559,7 @@ export type Mutation = {
     updateOneUser?: Maybe<User>
     updateOneItem?: Maybe<Item>
     updateOneCollection?: Maybe<Collection>
+    createNewUser: User
     createEmptyCollection: Collection
     createEmptySection: Section
     changeItemPosition: Array<Item>
@@ -588,6 +589,13 @@ export type MutationUpdateOneItemArgs = {
 export type MutationUpdateOneCollectionArgs = {
     data: CollectionUpdateInput
     where: CollectionWhereUniqueInput
+}
+
+export type MutationCreateNewUserArgs = {
+    slug: Scalars['String']
+    authUserId: Scalars['String']
+    pictureUrl: Scalars['String']
+    firstname: Scalars['String']
 }
 
 export type MutationCreateEmptyCollectionArgs = {
@@ -1728,16 +1736,11 @@ export const CreateNewUserDocument = gql`
         $pictureUrl: String!
         $firstname: String!
     ) {
-        user: createOneUser(
-            data: {
-                slug: $slug
-                authUserId: $authUserId
-                pictureUrl: $pictureUrl
-                firstname: $firstname
-                sections: {
-                    create: [{ slug: "section", name: "My first section" }]
-                }
-            }
+        user: createNewUser(
+            slug: $slug
+            authUserId: $authUserId
+            pictureUrl: $pictureUrl
+            firstname: $firstname
         ) {
             ...UserBasic
         }
