@@ -152,6 +152,9 @@ export default class Auth {
         localStorage.removeItem('access_token')
         localStorage.setItem('redirectTo', window.location.href)
 
+        Cookie.remove('id_token')
+        Cookie.remove('access_token')
+
         // log out of auth0
         window.location.href = `https://${AUTH_CONFIG.domain}/v2/logout?returnTo=${window.location.origin}&client_id=${AUTH_CONFIG.clientId}`
     }
