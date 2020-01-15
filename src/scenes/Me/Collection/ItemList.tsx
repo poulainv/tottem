@@ -4,6 +4,7 @@ import { ItemType, ModificationTrackActions } from '../../common'
 import DraggableList from '../components/DraggableList'
 import { useItemDragnDrop } from '../components/DraggableList/hooks'
 import Skeleton from '../components/DraggableList/Skeleton'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 export default ({
     collectionId,
@@ -39,6 +40,16 @@ export default ({
 
     if (items === undefined || loading) {
         return <Skeleton className={className} rowCount={6} />
+    }
+
+    if (!items.length) {
+        return (
+            <div className="w-full mt-48 flex items-center justify-center">
+                <div className="flex flex-col items-center">
+                    <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
+                </div>
+            </div>
+        )
     }
 
     return (

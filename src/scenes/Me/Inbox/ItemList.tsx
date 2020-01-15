@@ -50,7 +50,6 @@ export default ({
             <div className="w-full mt-48 flex items-center justify-center">
                 <div className="flex flex-col items-center">
                     <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
-                    <span className="text-gray-600 mt-2">Empty inbox!</span>
                 </div>
             </div>
         )
