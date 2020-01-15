@@ -54,7 +54,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
                     alt="userAvatar"
                     className="mx-1 h-5 rounded-full"
                 />
-                <p className="mx-1 capitalize text-gray-600">{username}</p>
+                <p className="mx-1 text-gray-600">{username}</p>
                 <p className="mx-1 text-gray-400">|</p>
                 <img className="h-4 mx-1" src="/logo.svg" alt="Tottem logo" />
                 <p className="ml-1 mr-2 capitalize">Tottem</p>

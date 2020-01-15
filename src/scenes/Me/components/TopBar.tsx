@@ -39,7 +39,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
                 alt="userAvatar"
                 className="mx-1 h-5 rounded-full"
             />
-            <p className="mx-1 capitalize">{username}</p>
+            <p className="mx-1">{username}</p>
             <p className="mx-1 text-gray-400">|</p>
             <Tooltip title="Navigate anywhere (⌘ + k)" placement="bottomLeft">
                 <div className="mx-1 cursor-pointer" onClick={trigger}>

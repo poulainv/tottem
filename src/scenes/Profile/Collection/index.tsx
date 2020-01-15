@@ -9,6 +9,7 @@ import FilterBadgesView from '../../Me/components/FilterBadgesView'
 import ItemCard from './components/ItemCard'
 import { ItemType } from '../../common'
 import { useApolloClient } from '@apollo/react-hooks'
+import Link from 'next/link'
 
 export interface ICollectionProps {
     authUserId?: string
@@ -123,9 +124,11 @@ export default function Collection({
                     alt="Author avatar"
                 />
                 <div className="ml-4 leading-none">
-                    <div className="text-gray-900 py-1">
-                        {collection.owner.firstname}
-                    </div>
+                    <Link as={`/${collection.owner.slug}`} href="/[profile]">
+                        <a className="text-gray-900 py-1">
+                            {collection.owner.firstname}
+                        </a>
+                    </Link>
                     <div className="text-gray-500 text-sm tracking-tight py-1">
                         {updatedAt}
                     </div>

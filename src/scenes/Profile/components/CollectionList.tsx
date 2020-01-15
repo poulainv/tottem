@@ -2,6 +2,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 import CollectionCard from './CollectionCard'
 import { useGetSectionQuery } from '../../../generated/types'
+import Loading from '../../UtilsPage/Loading'
 
 export interface CollectionListProps {
     className?: string
@@ -10,16 +11,20 @@ export interface CollectionListProps {
 }
 
 export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
-    const { error, data: section } = useGetSectionQuery({
+    const { error, data, loading } = useGetSectionQuery({
         variables: {
             sectionId,
         },
     })
 
+    if (loading) {
+        return <Loading />
+    }
+
     return (
         <div className={classNames(className)}>
-            {section?.section !== undefined ? (
-                section?.section.collections.map(collection => {
+            {data?.section ? (
+                data?.section.collections.map(collection => {
                     return (
                         <CollectionCard
                             profileSlug={profileSlug}

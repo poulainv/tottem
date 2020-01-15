@@ -25,6 +25,7 @@ figure,
 p,
 pre {
     margin: 0 !important;
+    font-weight: inherit !important;
 }
 
 a:hover {

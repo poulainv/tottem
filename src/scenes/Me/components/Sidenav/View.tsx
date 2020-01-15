@@ -146,7 +146,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                     <div className="mt-2 border-t border-gray-300 py-2">
                         <button
                             onClick={() => createSection()}
-                            className="w-full px-2 py-2 flex text-gray-700 hover:bg-brand-100 rounded"
+                            className="w-full px-2 py-2 flex text-gray-700 hover:bg-brand-100 rounded focus:outline-none"
                         >
                             + New Space
                         </button>
