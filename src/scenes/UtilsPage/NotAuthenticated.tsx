@@ -1,7 +1,12 @@
 import * as React from 'react'
-import Spinner from '../../components/Spinner'
+import Router from 'next/router'
 
-export default () => {
+export default ({ redirect = true }) => {
+    React.useEffect(() => {
+        if (redirect) {
+            Router.push('/auth/login')
+        }
+    }, [])
     return (
         <div className="flex flex-col justify-center items-center min-h-screen">
             User not authenticated.

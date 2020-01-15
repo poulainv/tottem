@@ -942,7 +942,7 @@ export type User = {
     id: Scalars['ID']
     slug: Scalars['String']
     authUserId?: Maybe<Scalars['String']>
-    biography: Scalars['String']
+    biography?: Maybe<Scalars['String']>
     pictureUrl: Scalars['String']
     label?: Maybe<Scalars['String']>
     firstname: Scalars['String']
@@ -967,9 +967,10 @@ export type UserCreateInput = {
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname: Scalars['String']
     pictureUrl: Scalars['String']
-    biography: Scalars['String']
+    biography?: Maybe<Scalars['String']>
     linkedin?: Maybe<Scalars['String']>
     github?: Maybe<Scalars['String']>
     mail?: Maybe<Scalars['String']>
@@ -996,9 +997,10 @@ export type UserCreateWithoutCollectionsInput = {
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname: Scalars['String']
     pictureUrl: Scalars['String']
-    biography: Scalars['String']
+    biography?: Maybe<Scalars['String']>
     linkedin?: Maybe<Scalars['String']>
     github?: Maybe<Scalars['String']>
     mail?: Maybe<Scalars['String']>
@@ -1014,9 +1016,10 @@ export type UserCreateWithoutInboxedItemsInput = {
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname: Scalars['String']
     pictureUrl: Scalars['String']
-    biography: Scalars['String']
+    biography?: Maybe<Scalars['String']>
     linkedin?: Maybe<Scalars['String']>
     github?: Maybe<Scalars['String']>
     mail?: Maybe<Scalars['String']>
@@ -1032,9 +1035,10 @@ export type UserCreateWithoutSectionsInput = {
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname: Scalars['String']
     pictureUrl: Scalars['String']
-    biography: Scalars['String']
+    biography?: Maybe<Scalars['String']>
     linkedin?: Maybe<Scalars['String']>
     github?: Maybe<Scalars['String']>
     mail?: Maybe<Scalars['String']>
@@ -1050,6 +1054,7 @@ export type UserUpdateInput = {
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname?: Maybe<Scalars['String']>
     pictureUrl?: Maybe<Scalars['String']>
     biography?: Maybe<Scalars['String']>
@@ -1092,6 +1097,7 @@ export type UserUpdateWithoutCollectionsDataInput = {
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname?: Maybe<Scalars['String']>
     pictureUrl?: Maybe<Scalars['String']>
     biography?: Maybe<Scalars['String']>
@@ -1110,6 +1116,7 @@ export type UserUpdateWithoutInboxedItemsDataInput = {
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname?: Maybe<Scalars['String']>
     pictureUrl?: Maybe<Scalars['String']>
     biography?: Maybe<Scalars['String']>
@@ -1128,6 +1135,7 @@ export type UserUpdateWithoutSectionsDataInput = {
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
+    updatedAt?: Maybe<Scalars['DateTime']>
     firstname?: Maybe<Scalars['String']>
     pictureUrl?: Maybe<Scalars['String']>
     biography?: Maybe<Scalars['String']>
@@ -1161,9 +1169,10 @@ export type UserWhereInput = {
     authUserId?: Maybe<NullableStringFilter>
     slug?: Maybe<StringFilter>
     createdAt?: Maybe<DateTimeFilter>
+    updatedAt?: Maybe<DateTimeFilter>
     firstname?: Maybe<StringFilter>
     pictureUrl?: Maybe<StringFilter>
-    biography?: Maybe<StringFilter>
+    biography?: Maybe<NullableStringFilter>
     linkedin?: Maybe<NullableStringFilter>
     github?: Maybe<NullableStringFilter>
     mail?: Maybe<NullableStringFilter>
@@ -1182,6 +1191,17 @@ export type UserWhereUniqueInput = {
     id?: Maybe<Scalars['ID']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
+}
+
+export type CreateNewUserMutationVariables = {
+    slug: Scalars['String']
+    authUserId: Scalars['String']
+    pictureUrl: Scalars['String']
+    firstname: Scalars['String']
+}
+
+export type CreateNewUserMutation = { __typename?: 'Mutation' } & {
+    user: { __typename?: 'User' } & UserBasicFragment
 }
 
 export type UpdateCollectionMutationVariables = {
@@ -1701,6 +1721,71 @@ export const InboxCountItemFragmentDoc = gql`
         count
     }
 `
+export const CreateNewUserDocument = gql`
+    mutation createNewUser(
+        $slug: String!
+        $authUserId: String!
+        $pictureUrl: String!
+        $firstname: String!
+    ) {
+        user: createOneUser(
+            data: {
+                slug: $slug
+                authUserId: $authUserId
+                pictureUrl: $pictureUrl
+                firstname: $firstname
+                sections: {
+                    create: [{ slug: "section", name: "My first section" }]
+                }
+            }
+        ) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useCreateNewUserMutation__
+ *
+ * To run a mutation, you first call `useCreateNewUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateNewUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createNewUserMutation, { data, loading, error }] = useCreateNewUserMutation({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      authUserId: // value for 'authUserId'
+ *      pictureUrl: // value for 'pictureUrl'
+ *      firstname: // value for 'firstname'
+ *   },
+ * });
+ */
+export function useCreateNewUserMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        CreateNewUserMutation,
+        CreateNewUserMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        CreateNewUserMutation,
+        CreateNewUserMutationVariables
+    >(CreateNewUserDocument, baseOptions)
+}
+export type CreateNewUserMutationHookResult = ReturnType<
+    typeof useCreateNewUserMutation
+>
+export type CreateNewUserMutationResult = ApolloReactCommon.MutationResult<
+    CreateNewUserMutation
+>
+export type CreateNewUserMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    CreateNewUserMutation,
+    CreateNewUserMutationVariables
+>
 export const UpdateCollectionDocument = gql`
     mutation UpdateCollection(
         $collectionId: ID!

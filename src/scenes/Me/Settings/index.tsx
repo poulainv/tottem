@@ -1,5 +1,6 @@
 import { useApolloClient } from '@apollo/react-hooks'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { StyledButton } from '../../../components/Button'
@@ -9,6 +10,7 @@ import {
     useGetSettingsQuery,
     useUpdateSettingsMutation,
 } from '../../../generated/types'
+import { auth0 } from '../../../services/authentication'
 import Loading from '../../UtilsPage/Loading'
 
 interface SettingsProps {
@@ -22,6 +24,7 @@ interface SettingsForm {
 }
 
 export default ({ authUserId, messageDispatch }: SettingsProps) => {
+    const router = useRouter()
     const client = useApolloClient()
     const { data, loading } = useGetSettingsQuery({
         variables: {
@@ -65,6 +68,11 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
                 biography,
             },
         })
+    }
+
+    const onLogout = () => {
+        auth0.logout()
+        router.push('/')
     }
 
     return (
@@ -134,7 +142,16 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
                         /300 characters
                     </div>
                 </div>
-                <StyledButton type="submit">Save</StyledButton>
+                <div className="flex justify-between mt-16">
+                    <StyledButton type="submit">Save</StyledButton>
+                    <StyledButton
+                        onClick={onLogout}
+                        primary={false}
+                        type="submit"
+                    >
+                        Logout
+                    </StyledButton>
+                </div>
             </form>
         </div>
     )

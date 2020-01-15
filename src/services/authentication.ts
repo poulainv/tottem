@@ -10,6 +10,7 @@ export interface HttpsTottemAppUserAuthorization {
 
 export interface Auth0UserDetails {
     'https://tottem.app/user_authorization': HttpsTottemAppUserAuthorization
+    given_name?: string
     nickname: string
     name: string
     picture: string

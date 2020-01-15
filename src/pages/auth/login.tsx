@@ -6,7 +6,6 @@ import LoadingPage from '../../scenes/UtilsPage/Loading'
 const Login: NextPage = () => {
     useEffect(() => {
         const urlSearch = new URLSearchParams(window.location.search)
-
         const relativePath: string | null = urlSearch.get('redirect')
         const redirect = relativePath
             ? `${window.location.origin}/${relativePath}`

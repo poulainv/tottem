@@ -1,12 +1,8 @@
-import { useState } from 'react'
-import TopBar from './TopBar'
 import { AuthenticatedUser } from '../../../services/authentication'
 import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
-import { useStatusMessage } from './TopBar'
-import Sidenav from './Sidenav'
 import NavigateModal from './NavigateModal'
-import { GlobalHotKeys } from 'react-hotkeys'
-import { useNavigationModal, navigateKeyMap } from './NavigateModal/hooks'
+import Sidenav from './Sidenav'
+import TopBar, { useStatusMessage } from './TopBar'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'

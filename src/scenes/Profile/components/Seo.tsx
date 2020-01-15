@@ -4,7 +4,7 @@ import * as React from 'react'
 export interface ISeoProps {
     profileSlug: string
     firstname: string
-    biography: string
+    biography?: string
     avatar: string
     sectionSlug: string
 }
