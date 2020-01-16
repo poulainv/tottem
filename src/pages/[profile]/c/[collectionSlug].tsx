@@ -6,7 +6,6 @@ import {
     AuthenticatedUser,
 } from '../../../services/authentication'
 import Layout from '../../../scenes/Profile/components/Layout'
-import '../../../index.css'
 import { NextPageContext, NextPage } from 'next'
 
 const ProfilePage: NextPage<{

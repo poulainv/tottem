@@ -1,6 +1,5 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import '../../index.css'
 import Layout from '../../scenes/Me/components/Layout'
 import Welcome from '../../scenes/Me/Welcome'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'

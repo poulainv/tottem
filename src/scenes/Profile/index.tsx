@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useEffect } from 'react'
 import { Section, useGetProfileQuery } from '../../generated/types'
 import LoadingPage from '../UtilsPage/Loading'
 import CollectionList from './components/CollectionList'
@@ -32,6 +32,8 @@ export default (props: IProfilePageProps) => {
     if (loading || !data?.user || !data?.sections) {
         return <LoadingPage />
     }
+
+    // useEffect()
 
     const { user, sections } = data
     const activeSection =

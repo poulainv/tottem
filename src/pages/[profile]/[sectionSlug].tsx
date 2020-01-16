@@ -3,7 +3,6 @@ import Profile from '../../scenes/Profile'
 import { withApollo } from '../../services/lib/apollo'
 import { getUserAuth, AuthenticatedUser } from '../../services/authentication'
 import Layout from '../../scenes/Profile/components/Layout'
-import '../../index.css'
 import { NextPageContext, NextPage } from 'next'
 
 const ProfilePage: NextPage<{

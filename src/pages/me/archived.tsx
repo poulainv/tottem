@@ -1,6 +1,5 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import '../../index.css'
 import Layout from '../../scenes/Me/components/Layout'
 import LoadingPage from '../../scenes/UtilsPage/Loading'
 import Archived from '../../scenes/Me/Archived'

@@ -1,8 +1,6 @@
-import { NextPage } from 'next'
-import * as React from 'react'
-import '../index.css'
-import { StyledButton } from '../components/Button'
 import Link from 'next/link'
+import * as React from 'react'
+import { StyledButton } from '../components/Button'
 
 export default () => {
     return (

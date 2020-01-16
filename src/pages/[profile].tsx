@@ -4,7 +4,6 @@ import Profile from '../scenes/Profile'
 import { withApollo } from '../services/lib/apollo'
 import { getUserAuth, AuthenticatedUser } from '../services/authentication'
 import Layout from '../scenes/Profile/components/Layout'
-import '../index.css'
 
 const ProfilePage: NextPage<{
     loggedInUser?: AuthenticatedUser

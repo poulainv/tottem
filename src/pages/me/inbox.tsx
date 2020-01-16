@@ -1,6 +1,5 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import '../../index.css'
 import Inbox from '../../scenes/Me/Inbox'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'

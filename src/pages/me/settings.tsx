@@ -1,11 +1,9 @@
 import { NextPage, NextPageContext } from 'next'
 import * as React from 'react'
-import '../../index.css'
-import LoadingPage from '../../scenes/UtilsPage/Loading'
+import Layout from '../../scenes/Me/components/Layout'
 import Settings from '../../scenes/Me/Settings'
 import { AuthenticatedUser, getUserAuth } from '../../services/authentication'
 import { withApollo } from '../../services/lib/apollo'
-import Layout from '../../scenes/Me/components/Layout'
 
 const SettingsPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     loggedInUser,

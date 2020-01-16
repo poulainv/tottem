@@ -6,32 +6,6 @@
     @apply bg-brand-300;
 }
 
-/* Remove antd global style FIXME to remove when https://github.com/zeit/next.js/pull/9836 released */
-a {
-    color: inherit !important;
-}
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-    margin: 0 !important;
-    font-weight: inherit !important;
-}
-
-a:hover {
-    color: inherit !important;
-}
-
 /* Tooltip custom */
 .ant-tooltip-inner {
     @apply bg-gray-600;
