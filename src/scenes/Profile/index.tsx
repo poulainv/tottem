@@ -43,7 +43,7 @@ export default (props: IProfilePageProps) => {
 
     return (
         <div className="bg-gray-100 border-t border-gray-200 min-h-screen">
-            <div className="w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto pb-16 flex flex-col pt-5">
+            <div className="xl:w-full max-w-2xl xl:max-w-4xl mx-2 xl:mx-auto pb-16 flex flex-col pt-5">
                 <Seo
                     profileSlug={props.profile}
                     firstname={user.firstname}
@@ -55,10 +55,10 @@ export default (props: IProfilePageProps) => {
                     <div className="flex">
                         <img
                             src={user.pictureUrl}
-                            className="h-32 w-32 rounded-full border-8 border-white object-cover flex-shrink-0"
+                            className="hidden xl:block h-32 w-32 rounded-full border-8 border-white object-cover flex-shrink-0"
                             alt=""
                         />
-                        <div className="flex flex-col ml-8 justify-between bg-white p-5 shadow w-full">
+                        <div className="flex flex-col ml-0 xl:ml-8 justify-between bg-white p-5 shadow w-full">
                             <h1 className="text-xl font-medium text-gray-900 leading-tight">
                                 {user.firstname}
                             </h1>
@@ -68,7 +68,7 @@ export default (props: IProfilePageProps) => {
                         </div>
                     </div>
                     <SectionsMenu
-                        className="mt-6"
+                        className="mt-6 w-full"
                         profileSlug={props.profile}
                         activeSectionIndex={activeSection.index}
                         sections={sections}

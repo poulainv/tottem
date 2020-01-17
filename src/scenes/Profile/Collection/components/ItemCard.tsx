@@ -43,7 +43,7 @@ export default ({ className, item }: ItemCardProps) => {
                     <div className="flex flex-row items-start">
                         <a
                             href={item.productUrl}
-                            className="w-16 xl:w-24 flex-shrink-0"
+                            className="w-20 xl:w-24 flex-shrink-0"
                             target="_blank"
                         >
                             <CoverImage item={item} />

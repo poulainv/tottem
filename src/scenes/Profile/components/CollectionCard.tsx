@@ -70,7 +70,7 @@ export default ({
                         {updatedAt}
                     </span>
                 </div>
-                <div className="flex flex-row mt-3">
+                <div className="flex mt-3 whitespace-no-wrap overflow-x-auto">
                     {collection.items.length !== 0 ? (
                         collection.items
                             .filter(x => !x.isDeleted)
@@ -86,7 +86,7 @@ export default ({
                                 return (
                                     <div
                                         key={index}
-                                        className="ml-6 xl:ml-6 first:ml-0 flex flex-col w-48 flex-shrink-0 flex-grow-0 rounded-lg py-4"
+                                        className="ml-6 xl:ml-6 first:ml-0 flex flex-col w-48 min-w-0 flex-shrink-0 flex-grow-0 rounded-lg py-4"
                                     >
                                         <div className="w-4/5 mx-auto">
                                             <CoverImage item={item} />

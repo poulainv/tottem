@@ -109,7 +109,7 @@ export default function Collection({
         ?.sort((a, b) => a.position - b.position)
 
     return (
-        <div className="flex flex-col max-w-3xl mx-auto pt-1 pb-16">
+        <div className="flex flex-col max-w-3xl  mx-2 xl:mx-auto pt-1 pb-16">
             <Seo
                 profileSlug={collection.owner.slug}
                 collectionName={collection.title}

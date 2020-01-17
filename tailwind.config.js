@@ -35,7 +35,10 @@ module.exports = {
         },
     },
     variants: {
-        visibility: ['group-hover'],
+        display: ['responsive'],
+        flex: ['responsive'],
+        flexDirection: ['responsive'],
+        visibility: ['group-hover', 'responsive'],
         margin: ['responsive', 'first', 'hover', 'focus'],
     },
     plugins: [],

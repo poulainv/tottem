@@ -17,7 +17,7 @@ export default ({
 }: SectionsMenuProps) => {
     return (
         <div className={classNames(className)}>
-            <ul className="flex w-full border-b border-gray-400 ">
+            <ul className="flex w-full border-b border-gray-400 overflow-x-auto">
                 {sections
                     ?.sort((a, b) => a.index - b.index)
                     .map((section, index) => {
@@ -25,7 +25,7 @@ export default ({
                             <li
                                 key={index}
                                 className={classNames(
-                                    'px-4 py-2 text-gray-700 text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
+                                    'px-4 py-2 text-gray-700 whitespace-no-wrap text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
                                     {
                                         'text-teal-800 border-teal-800':
                                             index === activeSectionIndex,
