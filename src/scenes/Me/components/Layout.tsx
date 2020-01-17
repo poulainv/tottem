@@ -21,7 +21,7 @@ export default ({ loggedInUser, children }: Props) => {
     const [message, dispatch] = useStatusMessage()
     useTracking()
     return loggedInUser ? (
-        <div className="flex h-screen text-sm">
+        <div className="flex h-screen text-sm font-sans">
             <Sidenav authUserId={loggedInUser.id} />
             <NavigateModal authUserId={loggedInUser.id} />
             <div className="flex flex-1 flex-col overflow-auto h-full">

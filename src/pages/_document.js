@@ -28,7 +28,7 @@ class MyDocument extends Document {
                 />
                 <meta name="theme-color" content="#000000" />
                 <link rel="apple-touch-icon" href="" />
-                <body className="antialiased">
+                <body className="antialiased font-sans leading-normal">
                     <Main />
                     <NextScript />
                 </body>
