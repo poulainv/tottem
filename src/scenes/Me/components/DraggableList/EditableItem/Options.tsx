@@ -45,7 +45,7 @@ export default React.memo(({ className, itemId }: IOptionsProps) => {
                 <ArchivedIcon
                     height={14}
                     width={14}
-                    className={classNames('mt-2 cursor-pointer ')}
+                    className={classNames('mt-2 cursor-not-allowed')}
                 />
             </Tooltip>
             <Tooltip

@@ -102,25 +102,24 @@ const Sidenav: React.FC<SidenavProps> = ({
                             </div>
                         </a>
                     </Link>
-                    <Link as="/me/archived" href="/me/archived">
-                        <a
-                            className={classNames(
-                                `flex items-center block px-2 py-1 mb-1 rounded hover:bg-brand-100 cursor-pointer`,
-                                {
-                                    'bg-brand-100':
-                                        currentHref === '/me/archived',
-                                }
-                            )}
-                        >
-                            <ArchivedIcon
-                                height={14}
-                                width={14}
-                                className="mr-1 fill-current"
-                                style={{ color: '#3F55C9' }}
-                            />
-                            <span className="text-gray-800">Archived</span>
-                        </a>
-                    </Link>
+                    {/* <Link as="/me/archived" href="/me/archived"> */}
+                    <p
+                        className={classNames(
+                            `flex items-center block px-2 py-1 mb-1 rounded cursor-not-allowed`,
+                            {
+                                'bg-brand-100': currentHref === '/me/archived',
+                            }
+                        )}
+                    >
+                        <ArchivedIcon
+                            height={14}
+                            width={14}
+                            className="mr-1 fill-current"
+                            style={{ color: '#3F55C9' }}
+                        />
+                        <span className="text-gray-600">Archived</span>
+                    </p>
+                    {/* </Link> */}
                 </div>
                 <div className="text-xs text-gray-700 px-2 overflow-hidden font-semibold mb-2">
                     SPACES

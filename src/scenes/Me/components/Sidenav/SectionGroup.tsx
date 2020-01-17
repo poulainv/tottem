@@ -56,7 +56,7 @@ export default ({
                         height={14}
                         width={14}
                     />
-                    <span className="block text-gray-800 truncate flex-shrink whitespace-no-wrap w-full">
+                    <span className="block text-gray-800 truncate flex-shrink w-full">
                         {title === null || title === '' ? 'New Space' : title}
                     </span>
                     <div className="flex flex-row items-center flex-shrink-0">

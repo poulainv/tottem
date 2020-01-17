@@ -55,7 +55,7 @@ export default (props: IProfilePageProps) => {
                             className="h-32 w-32 rounded-full border-8 border-white object-cover"
                             alt=""
                         />
-                        <div className="flex flex-col ml-8 justify-between bg-white p-5 shadow">
+                        <div className="flex flex-col ml-8 justify-between bg-white p-5 shadow w-full">
                             <h1 className="text-xl font-medium text-gray-900 leading-tight">
                                 {user.firstname}
                             </h1>
