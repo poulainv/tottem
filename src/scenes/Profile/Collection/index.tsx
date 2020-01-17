@@ -10,6 +10,7 @@ import ItemCard from './components/ItemCard'
 import { ItemType } from '../../common'
 import { useApolloClient } from '@apollo/react-hooks'
 import Link from 'next/link'
+import { Seo } from './components/Seo'
 
 export interface ICollectionProps {
     authUserId?: string
@@ -109,6 +110,12 @@ export default function Collection({
 
     return (
         <div className="flex flex-col max-w-3xl mx-auto pt-1 pb-16">
+            <Seo
+                profileSlug={collection.owner.slug}
+                collectionName={collection.title}
+                collectionSlug={collection.slug}
+                avatar={collection.owner.pictureUrl}
+            />
             <div className="text-2xl text-gray-900">
                 {collection.title || 'New Collection'}
             </div>
