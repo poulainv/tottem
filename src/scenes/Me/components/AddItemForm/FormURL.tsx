@@ -32,7 +32,7 @@ export default ({
                         required:
                             '🙏 HTTP ou HTTPS... mais au moins une URL 🙏',
                         pattern: {
-                            value: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i,
+                            value: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,7}(:[0-9]{1,5})?(\/.*)?$/i,
                             message: '🙏 Seules les URLs sont acceptées 🙏',
                         },
                     })}

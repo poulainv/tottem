@@ -82,7 +82,7 @@ export default ({ className, item }: ItemCardProps) => {
                 </div>
                 {item.comment && (
                     <div className="w-1/2 min-h-full flex-shrink-0">
-                        <p className="p-4 whitespace-pre-line resize-none w-full min-h-full outline-none focus:shadow-outline text-gray-900">
+                        <p className="p-4 text-sm whitespace-pre-line resize-none w-full min-h-full outline-none focus:shadow-outline text-gray-900">
                             {item.comment}
                         </p>
                     </div>

@@ -41,12 +41,12 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
                             <a
                                 href={item.productUrl}
                                 target="_blank"
-                                className="font-medium text-gray-900 px-2 leading-none truncate "
+                                className="font-medium text-gray-900 px-2 leading-tight truncate"
                             >
                                 {item.title}
                             </a>
                         </div>
-                        <div className="text-gray-700 leading-none truncate mt-3">
+                        <div className="text-gray-700 truncate mt-3">
                             {item.author}
                         </div>
                         <div className="text-gray-600 mt-4 w-64">

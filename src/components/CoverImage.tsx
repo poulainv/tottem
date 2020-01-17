@@ -23,8 +23,10 @@ export default ({ className, item }: CoverImageProps) => {
                 <img
                     className={classNames(
                         className,
-                        'absolute rounded-lg border border-gray-100 h-full w-full',
+                        'absolute border border-gray-100 h-full w-full',
                         {
+                            'rounded-lg': item.type !== 'people',
+                            'rounded-full': item.type === 'people',
                             'object-fill': shouldBeCoverRatio(item.type),
                             'object-cover': !shouldBeCoverRatio(item.type),
                         }
