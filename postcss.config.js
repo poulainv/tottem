@@ -8,6 +8,7 @@ module.exports = {
                 './src/scenes/**/*.{js,tsx}',
                 './src/components/**/*.{js,tsx}',
             ],
+            whitelistPatterns: [/^(ant)/],
             defaultExtractor: content =>
                 content.match(/[A-Za-z0-9-_:/]+/g) || [],
         },
