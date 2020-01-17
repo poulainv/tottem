@@ -55,7 +55,7 @@ export default (props: IProfilePageProps) => {
                     <div className="flex">
                         <img
                             src={user.pictureUrl}
-                            className="h-32 w-32 rounded-full border-8 border-white object-cover"
+                            className="h-32 w-32 rounded-full border-8 border-white object-cover flex-shrink-0"
                             alt=""
                         />
                         <div className="flex flex-col ml-8 justify-between bg-white p-5 shadow w-full">
