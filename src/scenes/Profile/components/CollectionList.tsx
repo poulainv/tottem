@@ -25,17 +25,23 @@ export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
     return (
         <div className={classNames(className)}>
             {data?.section?.collections.length !== 0 ? (
-                data?.section?.collections.map(collection => {
-                    return (
-                        <CollectionCard
-                            profileSlug={profileSlug}
-                            collection={collection}
-                            avatar={collection.owner.pictureUrl}
-                            key={collection.id}
-                            className="mt-8 first:mt-0"
-                        />
+                data?.section?.collections
+                    ?.sort(
+                        (a, b) =>
+                            new Date(a.updatedAt).getTime() -
+                            new Date(b.updatedAt).getTime()
                     )
-                })
+                    .map(collection => {
+                        return (
+                            <CollectionCard
+                                profileSlug={profileSlug}
+                                collection={collection}
+                                avatar={collection.owner.pictureUrl}
+                                key={collection.id}
+                                className="mt-8 first:mt-0"
+                            />
+                        )
+                    })
             ) : (
                 <div className="w-full mt-48 flex items-center justify-center">
                     <div className="flex flex-col items-center">
