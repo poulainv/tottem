@@ -28,8 +28,8 @@ export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
                 data?.section?.collections
                     ?.sort(
                         (a, b) =>
-                            new Date(a.updatedAt).getTime() -
-                            new Date(b.updatedAt).getTime()
+                            new Date(b.updatedAt).getTime() -
+                            new Date(a.updatedAt).getTime()
                     )
                     .map(collection => {
                         return (
