@@ -17,15 +17,15 @@ export default ({
 }: SectionsMenuProps) => {
     return (
         <div className={classNames(className)}>
-            <ul className="flex w-full border-b border-gray-300 ">
+            <ul className="flex w-full border-b border-gray-400 ">
                 {sections.map((section, index) => {
                     return (
                         <li
                             key={index}
                             className={classNames(
-                                'px-4 py-2 text-gray-700 transition-all duration-200 border-b-2 border-transparent hover:text-brand-800 hover:border-brand-800 cursor-pointer',
+                                'px-4 py-2 text-gray-700 text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
                                 {
-                                    'text-brand-800 border-brand-800':
+                                    'text-teal-800 border-teal-800':
                                         index === activeSectionIndex,
                                 }
                             )}

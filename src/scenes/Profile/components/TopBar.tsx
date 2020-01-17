@@ -15,14 +15,14 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
 }) => {
     const { data } = useGetBreadcrumbsQuery()
     return (
-        <div className="w-full px-2 h-8 flex justify-between items-center text-gray-800 leading-none flex-shrink-0">
+        <div className="w-full px-2 h-10 flex justify-between items-center text-gray-800 leading-none flex-shrink-0 bg-white">
             <div className="flex items-center">
                 <Link as="/me" href="/me">
-                    <a className="flex items-center h-6 bg-white text-brand-800 border border-brand-800 rounded px-2 text-xs hover:shadow hover:text-brand-800">
+                    <a className="flex items-center h-6 bg-white text-teal-700 border border-teal-700 rounded px-2 text-xs hover:shadow hover:text-teal-700">
                         Edit profile
                     </a>
                 </Link>
-                <div className="text-gray-500 ml-4 leading-none">
+                <div className="text-gray-500 ml-4 leading-none text-sm">
                     {data?.breadcrumbs?.map((x, index) => {
                         return (
                             <span key={x.href} className="min-w-0">
@@ -57,13 +57,13 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
                             className="mx-1 h-5 rounded-full"
                         />
 
-                        <p className="mx-1 text-gray-600">{username}</p>
+                        <p className="mx-1 text-gray-700 text-sm">{username}</p>
                         <p className="mx-1 text-gray-400">|</p>
                     </React.Fragment>
                 )}
                 <img className="h-4 mx-1" src="/logo.svg" alt="Tottem logo" />
                 <Link href="/" as="/">
-                    <a className="ml-1 mr-2 capitalize">Tottem</a>
+                    <a className="ml-1 mr-2 capitalize text-sm">Tottem</a>
                 </Link>
             </div>
         </div>

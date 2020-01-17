@@ -12,7 +12,7 @@ export interface CollectionListProps {
 }
 
 export default ({ className, sectionId, profileSlug }: CollectionListProps) => {
-    const { error, data, loading } = useGetSectionQuery({
+    const { data, loading } = useGetSectionQuery({
         variables: {
             sectionId,
         },

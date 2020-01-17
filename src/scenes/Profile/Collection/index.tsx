@@ -108,12 +108,12 @@ export default function Collection({
         ?.sort((a, b) => a.position - b.position)
 
     return (
-        <div className="flex flex-col max-w-3xl mx-auto">
+        <div className="flex flex-col max-w-3xl mx-auto pt-1 pb-16">
             <div className="text-2xl text-gray-900">
                 {collection.title || 'New Collection'}
             </div>
             {collection.detail && (
-                <div className="mt-8 text-gray-700 leading-relaxed text-base font-light">
+                <div className="mt-8 text-gray-700 leading-relaxed font-thin">
                     {collection.detail}
                 </div>
             )}
@@ -123,13 +123,13 @@ export default function Collection({
                     src={collection.owner.pictureUrl}
                     alt="Author avatar"
                 />
-                <div className="ml-4 leading-none">
+                <div className="flex flex-col ml-4 leading-none justify-around text-sm">
                     <Link as={`/${collection.owner.slug}`} href="/[profile]">
                         <a className="text-gray-900 py-1">
                             {collection.owner.firstname}
                         </a>
                     </Link>
-                    <div className="text-gray-500 text-sm tracking-tight py-1">
+                    <div className="text-gray-600 tracking-tight py-1">
                         {updatedAt}
                     </div>
                 </div>

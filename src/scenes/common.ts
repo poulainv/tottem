@@ -9,20 +9,6 @@ export type ItemType =
     | 'website'
     | 'podcast'
 
-export type ImageShapeType = 'rectangle' | 'square' | 'circle'
-
-export const imageShapes: { [type in ItemType]: ImageShapeType } = {
-    album: 'square',
-    book: 'rectangle',
-    movie: 'rectangle',
-    article: 'square',
-    people: 'circle',
-    repository: 'square',
-    podcast: 'square',
-    video: 'square',
-    website: 'square',
-}
-
 export interface ModificationTrackActions {
     onChange?: () => void
     onSaved?: () => void

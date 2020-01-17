@@ -33,49 +33,49 @@ export default (props: IProfilePageProps) => {
         return <LoadingPage />
     }
 
-    // useEffect()
-
     const { user, sections } = data
     const activeSection =
         sections.find(x => x.id === props.activeSectionId) ||
         getDefaultSection(sections)
 
     return (
-        <div className="flex flex-col">
-            <Seo
-                profileSlug={props.profile}
-                firstname={user.firstname}
-                biography={user.biography}
-                avatar={user.pictureUrl}
-                sectionSlug={activeSection.slug}
-            />
-            <div className="flex flex-col text-gray-900">
-                <div className="flex flex-row">
-                    <img
-                        src={user.pictureUrl}
-                        className="h-32 w-32 rounded-full border border-gray-200 object-cover"
-                        alt=""
-                    />
-                    <div className="flex flex-col ml-6 justify-evenly">
-                        <h1 className="text-2xl font-medium">
-                            {user.firstname}
-                        </h1>
-                        <p className="leading-relaxed text-gray-700">
-                            {user.biography}
-                        </p>
+        <div className="bg-gray-100 border-t border-gray-200">
+            <div className="w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto pb-16 flex flex-col pt-5">
+                <Seo
+                    profileSlug={props.profile}
+                    firstname={user.firstname}
+                    biography={user.biography}
+                    avatar={user.pictureUrl}
+                    sectionSlug={activeSection.slug}
+                />
+                <div className="flex flex-col text-gray-900">
+                    <div className="flex">
+                        <img
+                            src={user.pictureUrl}
+                            className="h-32 w-32 rounded-full border-8 border-white object-cover"
+                            alt=""
+                        />
+                        <div className="flex flex-col ml-8 justify-between bg-white p-5 shadow">
+                            <h1 className="text-xl font-medium text-gray-900 leading-tight">
+                                {user.firstname}
+                            </h1>
+                            <p className="text-gray-700 text-sm font-thin mt-3 leading-relaxed">
+                                {user.biography}
+                            </p>
+                        </div>
                     </div>
+                    <SectionsMenu
+                        className="mt-6"
+                        profileSlug={props.profile}
+                        activeSectionIndex={activeSection.index}
+                        sections={sections}
+                    />
+                    <CollectionList
+                        className="mt-8"
+                        profileSlug={props.profile}
+                        sectionId={activeSection.id}
+                    />
                 </div>
-                <SectionsMenu
-                    className="mt-6"
-                    profileSlug={props.profile}
-                    activeSectionIndex={activeSection.index}
-                    sections={sections}
-                />
-                <CollectionList
-                    className="mt-8"
-                    profileSlug={props.profile}
-                    sectionId={activeSection.id}
-                />
             </div>
         </div>
     )
