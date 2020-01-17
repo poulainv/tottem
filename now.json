@@ -8,7 +8,7 @@
             "AUTH0_CLIENTID": "@auth0_client_id",
             "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
             "AUTH0_CALLBACK": "https://beta.tottem.app/auth/callback",
-            "GRAPHQL_URL": "https://tottem-api.herokuapp.com/graphql"
+            "GRAPHQL_URL": "https://tottem-graphql.herokuapp.com/graphql"
         }
     },
     "alias": ["apollo"],

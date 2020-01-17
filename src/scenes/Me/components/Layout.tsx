@@ -3,6 +3,7 @@ import NotAuthenticated from '../../UtilsPage/NotAuthenticated'
 import NavigateModal from './NavigateModal'
 import Sidenav from './Sidenav'
 import TopBar, { useStatusMessage } from './TopBar'
+import { useTracking } from '../../common'
 
 export type DispatchableAction = (
     action: 'SAVED' | 'SAVING' | 'CHANGED'
@@ -18,6 +19,7 @@ interface Props {
 
 export default ({ loggedInUser, children }: Props) => {
     const [message, dispatch] = useStatusMessage()
+    useTracking()
     return loggedInUser ? (
         <div className="flex h-screen text-sm">
             <Sidenav authUserId={loggedInUser.id} />

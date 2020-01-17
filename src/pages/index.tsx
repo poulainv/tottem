@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import * as React from 'react'
 import { StyledButton } from '../components/Button'
+import { useTracking } from '../scenes/common'
 
 export default () => {
+    useTracking()
     return (
         <div style={{ backgroundColor: '#FFFFF9' }} className="h-screen w-full">
             <div className="flex flex-col max-w-4xl mx-auto pt-10 justify-between items-center h-full">
