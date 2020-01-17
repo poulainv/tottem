@@ -4,6 +4,7 @@ import LoadingPage from '../UtilsPage/Loading'
 import CollectionList from './components/CollectionList'
 import SectionsMenu from './components/SectionsMenu'
 import { Seo } from './components/Seo'
+import NotFound from '../UtilsPage/NotFound'
 
 export const getDefaultSection = (
     sections: Array<Pick<Section, 'id' | 'slug' | 'name' | 'index'>>
@@ -29,8 +30,10 @@ export default (props: IProfilePageProps) => {
         },
     })
 
-    if (loading || !data?.user || !data?.sections) {
+    if (loading) {
         return <LoadingPage />
+    } else if (!data?.user || !data?.sections) {
+        return <NotFound />
     }
 
     const { user, sections } = data
@@ -39,7 +42,7 @@ export default (props: IProfilePageProps) => {
         getDefaultSection(sections)
 
     return (
-        <div className="bg-gray-100 border-t border-gray-200">
+        <div className="bg-gray-100 border-t border-gray-200 min-h-screen">
             <div className="w-full max-w-2xl xl:max-w-4xl mx-16 xl:mx-auto pb-16 flex flex-col pt-5">
                 <Seo
                     profileSlug={props.profile}
