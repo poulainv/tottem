@@ -125,11 +125,15 @@ export default function Collection({
                 </div>
             )}
             <div className="flex mt-8 items-center">
-                <img
-                    className="h-12 w-12 rounded-full"
-                    src={collection.owner.pictureUrl}
-                    alt="Author avatar"
-                />
+                <Link as={`/${collection.owner.slug}`} href="/[profile]">
+                    <a>
+                        <img
+                            className="h-12 w-12 rounded-full"
+                            src={collection.owner.pictureUrl}
+                            alt="Author avatar"
+                        />
+                    </a>
+                </Link>
                 <div className="flex flex-col ml-4 leading-none justify-around text-sm">
                     <Link as={`/${collection.owner.slug}`} href="/[profile]">
                         <a className="text-gray-900 py-1">

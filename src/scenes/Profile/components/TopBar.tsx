@@ -52,16 +52,20 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
             </div>
             <div className="flex justify-end items-center text-gray-800 flex-shrink-0">
                 {username && (
-                    <React.Fragment>
-                        <img
-                            src={avatar}
-                            alt="userAvatar"
-                            className="mx-1 h-5 rounded-full"
-                        />
+                    <Link as="/me" href="/me">
+                        <a className="flex items-center flex-shrink-0">
+                            <img
+                                src={avatar}
+                                alt="userAvatar"
+                                className="mx-1 h-5 rounded-full"
+                            />
 
-                        <p className="mx-1 text-gray-700 text-sm">{username}</p>
-                        <p className="mx-1 text-gray-400">|</p>
-                    </React.Fragment>
+                            <p className="mx-1 text-gray-700 text-sm">
+                                {username}
+                            </p>
+                            <p className="mx-1 text-gray-400">|</p>
+                        </a>
+                    </Link>
                 )}
                 <img className="h-4 mx-1" src="/logo.svg" alt="Tottem logo" />
                 <Link href="/" as="/">
