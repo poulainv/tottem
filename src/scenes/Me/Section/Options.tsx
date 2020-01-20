@@ -25,7 +25,7 @@ const Options: React.FunctionComponent<IOptionsProps> = ({
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
             >
                 <DeleteIcon className="inline fill-current mr-2" />
-                Delete Section
+                Delete Space
             </Menu.Item>
         </Menu>
     )
