@@ -11,7 +11,7 @@ import { Fragment } from 'react'
 import { GlobalHotKeys } from 'react-hotkeys'
 
 export default ({ className }: { className?: string }) => {
-    const [state, dispatch] = useAddItemReducer()
+    const { state, dispatch } = useAddItemReducer('inbox')
 
     const useFormSearch = useItemFormSearch(
         state.searchElement || 'book',

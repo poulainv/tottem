@@ -17,7 +17,7 @@ export default ({
     collectionId: string
     className?: string
 }) => {
-    const [state, dispatch] = useAddItemReducer()
+    const { state, dispatch } = useAddItemReducer(collectionId)
 
     const useFormSearch = useItemFormSearch(
         state.searchElement || 'book',

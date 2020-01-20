@@ -1,4 +1,4 @@
-import { useReducer, Dispatch } from 'react'
+import { useReducer, Dispatch, useEffect } from 'react'
 import { AddActions } from './AddButtonItem'
 
 interface StateProps {
@@ -26,7 +26,7 @@ export const useHotKeys = (dispatch: Dispatch<AddActions>) => {
     return { keyMap: addItemKeyMap, handlers }
 }
 
-export const useAddItemReducer = () => {
+export const useAddItemReducer = (listId: string) => {
     const initialState: StateProps = {
         type: 'search',
         searchElement: 'movie',
@@ -34,18 +34,23 @@ export const useAddItemReducer = () => {
         isLoading: false,
     }
     const reducer = (
-        state: StateProps,
+        previousState: StateProps,
         action: AddActions | 'close' | 'loading' | 'completed'
     ): StateProps => {
         switch (action) {
             case 'loading':
-                return { ...state, isLoading: true }
+                return { ...previousState, isLoading: true }
             case 'completed':
-                return { ...state, isLoading: false }
+                return { ...previousState, isLoading: false }
             case 'close':
-                return { ...state, isShow: false, isLoading: false }
+                return { ...previousState, isShow: false, isLoading: false }
             case 'url':
-                return { ...state, isShow: true, type: 'url', isLoading: false }
+                return {
+                    ...previousState,
+                    isShow: true,
+                    type: 'url',
+                    isLoading: false,
+                }
             case 'search-book':
                 return {
                     isShow: true,
@@ -72,5 +77,13 @@ export const useAddItemReducer = () => {
         }
     }
 
-    return useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+        return () => {
+            dispatch('close')
+        }
+    }, [listId])
+
+    return { state, dispatch }
 }
