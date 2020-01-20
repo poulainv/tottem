@@ -3,7 +3,12 @@ query getProfile($slug: String) {
         ...UserBasic
         ...Social
     }
-    sections(where: { owner: { slug: { equals: $slug } } }) {
+    sections(
+        where: {
+            owner: { slug: { equals: $slug } }
+            isDeleted: { equals: false }
+        }
+    ) {
         id
         slug
         name

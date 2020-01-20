@@ -642,48 +642,20 @@ export enum OrderByArg {
 
 export type Query = {
     __typename?: 'Query'
-    user?: Maybe<User>
+    breadcrumbs: Array<Breadcrumb>
     collection?: Maybe<Collection>
-    section?: Maybe<Section>
-    items: Array<Item>
-    sections: Array<Section>
     collections: Array<Collection>
     inbox?: Maybe<Inbox>
-    search: Array<SearchItem>
-    breadcrumbs: Array<Breadcrumb>
+    items: Array<Item>
     modal: Modal
-}
-
-export type QueryUserArgs = {
-    where: UserWhereUniqueInput
+    search: Array<SearchItem>
+    section?: Maybe<Section>
+    sections: Array<Section>
+    user?: Maybe<User>
 }
 
 export type QueryCollectionArgs = {
     where: CollectionWhereUniqueInput
-}
-
-export type QuerySectionArgs = {
-    where: SectionWhereUniqueInput
-}
-
-export type QueryItemsArgs = {
-    where?: Maybe<QueryItemsWhereInput>
-    orderBy?: Maybe<QueryItemsOrderByInput>
-    skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
-    first?: Maybe<Scalars['Int']>
-    last?: Maybe<Scalars['Int']>
-}
-
-export type QuerySectionsArgs = {
-    where?: Maybe<QuerySectionsWhereInput>
-    orderBy?: Maybe<QuerySectionsOrderByInput>
-    skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
-    first?: Maybe<Scalars['Int']>
-    last?: Maybe<Scalars['Int']>
 }
 
 export type QueryCollectionsArgs = {
@@ -696,9 +668,37 @@ export type QueryCollectionsArgs = {
     last?: Maybe<Scalars['Int']>
 }
 
+export type QueryItemsArgs = {
+    where?: Maybe<QueryItemsWhereInput>
+    orderBy?: Maybe<QueryItemsOrderByInput>
+    skip?: Maybe<Scalars['Int']>
+    after?: Maybe<Scalars['ID']>
+    before?: Maybe<Scalars['ID']>
+    first?: Maybe<Scalars['Int']>
+    last?: Maybe<Scalars['Int']>
+}
+
 export type QuerySearchArgs = {
     q: Scalars['String']
     kind: Scalars['String']
+}
+
+export type QuerySectionArgs = {
+    where: SectionWhereUniqueInput
+}
+
+export type QuerySectionsArgs = {
+    where?: Maybe<QuerySectionsWhereInput>
+    orderBy?: Maybe<QuerySectionsOrderByInput>
+    skip?: Maybe<Scalars['Int']>
+    after?: Maybe<Scalars['ID']>
+    before?: Maybe<Scalars['ID']>
+    first?: Maybe<Scalars['Int']>
+    last?: Maybe<Scalars['Int']>
+}
+
+export type QueryUserArgs = {
+    where: UserWhereUniqueInput
 }
 
 export type QueryCollectionsOrderByInput = {
@@ -3411,7 +3411,12 @@ export const GetProfileDocument = gql`
             ...UserBasic
             ...Social
         }
-        sections(where: { owner: { slug: { equals: $slug } } }) {
+        sections(
+            where: {
+                owner: { slug: { equals: $slug } }
+                isDeleted: { equals: false }
+            }
+        ) {
             id
             slug
             name
