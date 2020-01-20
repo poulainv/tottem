@@ -62,7 +62,7 @@ export default (props: IProfilePageProps) => {
                             <h1 className="text-xl font-medium text-gray-900 leading-tight">
                                 {user.firstname}
                             </h1>
-                            <p className="text-gray-700 text-sm font-thin mt-3 leading-relaxed">
+                            <p className="text-gray-700 text-sm font-light mt-3 leading-relaxed">
                                 {user.biography}
                             </p>
                         </div>

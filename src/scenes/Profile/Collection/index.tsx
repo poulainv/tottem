@@ -120,7 +120,7 @@ export default function Collection({
                 {collection.title || 'New Collection'}
             </div>
             {collection.detail && (
-                <div className="mt-8 text-gray-700 leading-relaxed font-thin">
+                <div className="mt-8 text-gray-700 leading-relaxed font-light whitespace-pre-line">
                     {collection.detail}
                 </div>
             )}
