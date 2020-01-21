@@ -8,14 +8,14 @@ import { navigateKeyMap } from '../NavigateModal/hooks'
 import { addItemKeyMap } from './hooks'
 
 export default ({
+    children,
     isLoading,
     dispatch,
-    FormItem,
     isShow,
     className,
 }: {
+    children: React.ReactNode
     isLoading: boolean
-    FormItem: React.ReactNode
     isShow: boolean
     dispatch: Dispatch<AddActions>
     className?: string
@@ -49,7 +49,7 @@ export default ({
                         */}
                         <HotKeys keyMap={keyMap} className="w-full flex-shrink">
                             <ObserveKeys className="w-full">
-                                {FormItem}
+                                {children}
                             </ObserveKeys>
                         </HotKeys>
                     </CSSTransition>

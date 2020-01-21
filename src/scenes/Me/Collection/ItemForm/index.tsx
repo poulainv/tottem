@@ -34,30 +34,31 @@ export default ({
 
     const { keyMap, handlers } = useHotKeys(dispatch)
 
-    const FormItem =
-        state.type === 'url' ? (
-            <FormURL useForm={useFormURL} onClose={() => dispatch('close')} />
-        ) : (
-            (state.searchElement === 'book' ||
-                state.searchElement === 'album' ||
-                state.searchElement === 'movie') && (
-                <FormSearch
-                    useForm={useFormSearch}
-                    searchType={state.searchElement}
-                    onClose={() => dispatch('close')}
-                />
-            )
-        )
-
     return (
         <Fragment>
             <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
             <AddItemForm
-                FormItem={FormItem}
                 dispatch={dispatch}
                 className={classNames('relative h-8', className)}
                 {...state}
-            />
+            >
+                {state.type === 'url' ? (
+                    <FormURL
+                        useForm={useFormURL}
+                        onClose={() => dispatch('close')}
+                    />
+                ) : (
+                    (state.searchElement === 'book' ||
+                        state.searchElement === 'album' ||
+                        state.searchElement === 'movie') && (
+                        <FormSearch
+                            useForm={useFormSearch}
+                            searchType={state.searchElement}
+                            onClose={() => dispatch('close')}
+                        />
+                    )
+                )}
+            </AddItemForm>
         </Fragment>
     )
 }

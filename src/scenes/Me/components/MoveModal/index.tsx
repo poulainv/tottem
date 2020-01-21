@@ -91,7 +91,7 @@ export default ({
     onCancel,
 }: Props) => {
     const [datasource, setDatasource] = React.useState<ItemDestination[]>([])
-    const { data, loading } = useGetSectionsQuery({
+    const { data } = useGetSectionsQuery({
         variables: { authUserId },
     })
     React.useEffect(() => {
