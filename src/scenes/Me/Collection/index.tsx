@@ -2,11 +2,7 @@ import { Fragment, useState } from 'react'
 import { useGetCollectionIdQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
 import LoadingPage from '../../UtilsPage/Loading'
-import {
-    defaultItemActions,
-    ItemActions,
-    ItemActionsContext,
-} from '../components/DraggableList/EditableItem/hooks'
+import { ItemActionsContext } from '../components/DraggableList/EditableItem/hooks'
 import Skeleton from '../components/DraggableList/Skeleton'
 import MoveModal from '../components/MoveModal'
 import FilterBadges from './FilterBadges'
@@ -22,23 +18,18 @@ interface Props {
 }
 
 export default ({ dispatch, collectionId, authUserId }: Props) => {
-    const isBrowser = typeof window !== 'undefined'
-
-    const [state, moveDispatch] = useMoveItemFromCollection(
-        collectionId,
-        authUserId
-    )
-
-    const itemsActions: ItemActions = Object.assign(defaultItemActions, {
-        triggerMoveItem: (itemId: string) =>
-            moveDispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
-    })
+    const {
+        state,
+        dispatch: moveDispatch,
+        actions,
+    } = useMoveItemFromCollection(collectionId, authUserId)
 
     const [selectedTypes, setSelectedTypes] = useState<ItemType[]>([])
     const { data } = useGetCollectionIdQuery({
         variables: { collectionId },
-        returnPartialData: isBrowser,
+        returnPartialData: typeof window !== 'undefined', // return partial data only client side
     })
+
     if (!data || !data.collection) {
         return <LoadingPage />
     }
@@ -71,7 +62,7 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
             {collection.id === undefined ? (
                 <Skeleton />
             ) : (
-                <ItemActionsContext.Provider value={itemsActions}>
+                <ItemActionsContext.Provider value={actions}>
                     <ItemList
                         collectionId={collection.id}
                         className="mt-8"

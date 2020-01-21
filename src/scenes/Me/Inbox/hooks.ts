@@ -9,7 +9,10 @@ import {
     useMoveItemModal,
     ItemDepart,
 } from '../components/MoveModal/hooks'
-
+import {
+    defaultItemActions,
+    ItemActionsContext,
+} from '../components/DraggableList/EditableItem/hooks'
 const inboxDepart: ItemDepart = {
     destinationId: 'me',
     type: 'inbox',
@@ -42,5 +45,12 @@ export const useMoveItemFromInbox = () => {
         })
     }
 
-    return useMoveItemModal(inboxDepart, handleMove)
+    const [state, dispatch] = useMoveItemModal(inboxDepart, handleMove)
+
+    const actions = Object.assign(defaultItemActions, {
+        triggerMoveItem: (itemId: string) =>
+            dispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
+    })
+
+    return { state, dispatch, actions }
 }

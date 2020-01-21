@@ -14,6 +14,10 @@ import {
     useMoveItemModal,
 } from '../components/MoveModal/hooks'
 import { useInboxCount } from '../components/Sidenav/hooks'
+import {
+    ItemActions,
+    defaultItemActions,
+} from '../components/DraggableList/EditableItem/hooks'
 
 export const useCreateEmptyCollection = (
     sectionId: string,
@@ -96,12 +100,16 @@ export const useMoveItemFromCollection = (
     }
 
     // FIXME returning array after destructing does not worl :/
-    const hook = useMoveItemModal(collectionDepart, handleMove)
+    const [state, dispatch] = useMoveItemModal(collectionDepart, handleMove)
 
     useEffect(() => {
-        const [, dispatch] = hook
         dispatch({ type: 'DEPART_CHANGED', depart: collectionDepart })
     }, [fromCollectionId])
 
-    return hook
+    const actions: ItemActions = Object.assign(defaultItemActions, {
+        triggerMoveItem: (itemId: string) =>
+            dispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
+    })
+
+    return { state, dispatch, actions }
 }

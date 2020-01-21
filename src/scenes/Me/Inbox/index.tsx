@@ -7,7 +7,6 @@ import {
     ItemActionsContext,
 } from '../components/DraggableList/EditableItem/hooks'
 import FilterBadgesView from '../components/FilterBadgesView'
-// import { InboxItemActions } from './hooks'
 import MoveModal from '../components/MoveModal'
 import { useMoveItemFromInbox } from './hooks'
 import ItemForm from './ItemForm'
@@ -19,12 +18,7 @@ interface InboxProps {
 }
 
 export default ({ messageDispatch: dispatch, authUserId }: InboxProps) => {
-    const [state, moveDispatch] = useMoveItemFromInbox()
-    const InboxItemActions = Object.assign(defaultItemActions, {
-        triggerMoveItem: (itemId: string) =>
-            moveDispatch({ type: 'TRIGGER_ITEM_MOVE', itemId }),
-    })
-
+    const { state, dispatch: moveDispatch, actions } = useMoveItemFromInbox()
     const [selectedTypes, setSelectedTypes] = React.useState<ItemType[]>([])
     const { data, loading } = useGetInboxQuery()
 
@@ -52,7 +46,7 @@ export default ({ messageDispatch: dispatch, authUserId }: InboxProps) => {
                 className="mt-8"
             />
             <ItemForm className="mt-8" />
-            <ItemActionsContext.Provider value={InboxItemActions}>
+            <ItemActionsContext.Provider value={actions}>
                 <ItemList
                     loading={loading}
                     items={data?.inbox?.items}
