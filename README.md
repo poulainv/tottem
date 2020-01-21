@@ -1,4 +1,4 @@
-Tottem is an open source experimentation, it tries to combine personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
+Tottem is an open source experimentation, it aims combining personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
 
 <div align="center">
 
@@ -19,15 +19,17 @@ First goal: designing a product human centered allowing people to build and mana
 
 ### Why ?
 
-Social medial are now all stream based. More and more, humans — especially journalists, are loosing their ability to choose which content to promote and amplify. Instead, recommendation systems feed a unique & personnal narrative stream of content, that only consider clicks and views. Of course, what else they can do? [Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
+More and more, people — especially journalists, are loosing their ability to choose which content to promote & amplify. Consequently, what they will consume. Instead, automatic recommendation algorithms carefully choose the _best_ (sic!) content for you. Those deep learning algorithms create a unique & personnal narrative stream of content in your social feed... You said, _best_ ? So what ? Not really, it's just designed to maximize clicks and views. Of course, what else they can do?
 
-So, what if I want to explore a durable friend's books or articles recommendation? What if I want to really dig a specific subject?
+[Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
+
+So, what if I want to explore durable book or article recommendations from a friend? What if I want to really dig into a specific subject?
 
 ### How ?
 
-Tottem suggests to combine personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
+Tottem aims combining personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
 
-Tottem aims to provide the same high quality user experience that most of modern productivity tools provide. Managing your library should be easy and enjoyable. With great tool, great content and collection can be made and shared.
+Tottem aims to provide the same high quality user experience that most of modern productivity tools provide. Managing your library should be easy and enjoyable. With a great tool, great content could be made and shared.
 
 The basic workflow:
 
@@ -52,7 +54,7 @@ The second goal is about experimenting how to build a web software today. This d
 
 #### Technologies
 
-It's a full-stack Typescript with some code generation in order to have a type safe experience from end-to-end.
+It's a full-stack Typescript app with some code generation in order to have a type safe experience from end-to-end.
 
 Here is a list of main technologies used:
 
@@ -81,9 +83,11 @@ const items = (
     })
 ```
 
-**Nexus** provides a code-first graphql approach that allow you to _generate_ graphql schema (`schema.graphql` file) based on your resolvers and object definitions. Nexus is fully compliant with prisma and offered a nice [plugin](https://github.com/prisma-labs/nexus-prisma) to automatically declare resolvers based on your photon client.
+**Nexus** provides a code-first graphql approach that allows you to _generate_ graphql schema (`schema.graphql` file) based on your resolvers and object definitions. Nexus is fully compliant with prisma and offers a nice [plugin](https://github.com/prisma-labs/nexus-prisma) to automatically declare resolvers based on your photon client.
 
-**Codegen** [tool](https://graphql-code-generator.com/) is configured to parse all `.gql` front-end files containing graphl queries and mutation. With remote and local (from Apollo Client) graphql schemas allow **graphql-codegen** to generate all types and hooks (`types.ts`) we need to fetch and mutate data safely.
+**graphql-codegen** [tool](https://graphql-code-generator.com/) is configured to parse all `.gql` front-end files containing graphl queries and mutations. **graphql-codegen** uses remote and local (`localSchema.gql`) graphql schemas to generate every type and hook we need (putting them inside `types.ts`) so we can safely fetch and mutate data.
+
+> Note that when global state management is required, Apollo Client is used as much as possible.
 
 Example where typesafe hook `useGetItemsQuery` is generated allowing to fetch data via Apollo Client smoothly
 
@@ -97,7 +101,7 @@ const { data } = useGetItemsQuery({
 
 #### Repository structure — front-end
 
-Inspired by those [recommendation](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1), this is how the codebase is structured:
+Inspired by those [recommendations](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1), this is how the codebase is structured:
 
 ```sh
 tottem/
