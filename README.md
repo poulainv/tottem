@@ -19,7 +19,7 @@ First goal: designing a product human centered allowing people to build and mana
 
 ### Why ?
 
-More and more, people — especially journalists, are loosing their ability to choose which content to promote & amplify. Consequently, what they will consume. Instead, automatic recommendation algorithms carefully choose the _best_ (sic!) content for you. Those deep learning algorithms create a unique & personnal narrative stream of content in your social feed... You said, _best_ ? So what ? Not really, it's just designed to maximize clicks and views. Of course, what else they can do?
+More and more, people — especially journalists, are losing their ability to choose which content to promote & amplify. Consequently, what they will consume. Instead, automatic recommendation algorithms carefully choose the _best_ (sic!) content for you. Those deep learning algorithms create a unique & personal narrative stream of content in your social feed... You said, _best_ ? So what ? Not really, it's just designed to maximize clicks and views. Of course, what else they can do?
 
 [Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
 
@@ -147,7 +147,7 @@ npm install
 npm run dev
 ```
 
-Web app is avalaible on `http://localhost:3000` and graphql endpoint on `http://localhost:4000/graphql`
+Web app is available on `http://localhost:3000` and graphql endpoint on `http://localhost:4000/graphql`
 
 ### Contributors
 
