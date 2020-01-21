@@ -13,6 +13,18 @@ import 'antd/es/auto-complete/style/index.css'
 import '../index.css'
 
 export default class MyApp extends App {
+    componentDidMount() {
+        window.$crisp = []
+        window.CRISP_WEBSITE_ID = 'eb3965fc-bf93-41a8-9e33-ced5a67b5f43'
+        ;(function() {
+            var d = document
+            var s = d.createElement('script')
+            s.src = 'https://client.crisp.chat/l.js'
+            s.async = 1
+            d.getElementsByTagName('head')[0].appendChild(s)
+        })()
+    }
+
     render() {
         const { Component, pageProps, router } = this.props
         return (
