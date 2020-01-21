@@ -3,16 +3,13 @@ import {
     GetItemsDocument,
     useMoveItemFromInboxToCollectionMutation,
 } from '../../../generated/types'
-import { useInboxCount } from '../components/Sidenav/hooks'
+import { defaultItemActions } from '../components/DraggableList/EditableItem/hooks'
 import {
+    ItemDepart,
     ItemDestination,
     useMoveItemModal,
-    ItemDepart,
 } from '../components/MoveModal/hooks'
-import {
-    defaultItemActions,
-    ItemActionsContext,
-} from '../components/DraggableList/EditableItem/hooks'
+import { useInboxCount } from '../components/Sidenav/hooks'
 const inboxDepart: ItemDepart = {
     destinationId: 'me',
     type: 'inbox',

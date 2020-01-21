@@ -7,12 +7,14 @@ import {
 } from '../../../../generated/types'
 import { StyledButton } from '../../../../components/Button'
 import notification from 'antd/lib/notification'
+import { useInboxCount } from '../Sidenav/hooks'
 
 const useDeleteItem = () => {
+    const { decrementInboxCount, incrementInboxCount } = useInboxCount()
     const [deleteItem] = useDeleteItemMutation({
+        update: proxy => decrementInboxCount(proxy),
         onCompleted: ({ updateOneItem }) => {
             const key = `open${Date.now()}`
-
             if (updateOneItem === undefined) {
                 return undefined
             }
@@ -21,7 +23,6 @@ const useDeleteItem = () => {
                 undeleteItem({ variables: { id: updateOneItem.id } })
                 notification.close(key)
             }
-
             notification.success({
                 key,
                 message: 'Item deleted',
@@ -31,7 +32,9 @@ const useDeleteItem = () => {
             })
         },
     })
-    const [undeleteItem] = useUndeleteItemMutation()
+    const [undeleteItem] = useUndeleteItemMutation({
+        update: proxy => incrementInboxCount(proxy),
+    })
 
     const handleDelete = (id: string) => {
         deleteItem({
