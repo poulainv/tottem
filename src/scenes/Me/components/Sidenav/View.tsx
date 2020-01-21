@@ -48,11 +48,15 @@ const Sidenav: React.FC<SidenavProps> = ({
     })
     return (
         <nav className="leading-none font-medium w-64 px-4 bg-gray-100 text-gray-900 flex flex-col">
-            <img
-                className="h-6 self-start mt-4"
-                src="/logo.svg"
-                alt="Tottem logo"
-            />
+            <Link href="/" as="/">
+                <a>
+                    <img
+                        className="h-6 self-start mt-4"
+                        src="/logo.svg"
+                        alt="Tottem logo"
+                    />
+                </a>
+            </Link>
             <div className="mt-10 flex flex-col flex-1 min-h-0">
                 <div className="mb-6">
                     <Link as={`/${currentUserSlug}`} href="/[profile]">
