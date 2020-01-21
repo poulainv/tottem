@@ -60,7 +60,7 @@ export default (props: IProfilePageProps) => {
                         />
                         <div className="flex flex-col ml-0 xl:ml-8 justify-between bg-white p-5 shadow w-full">
                             <h1 className="text-xl font-medium text-gray-900 leading-tight">
-                                {user.firstname}
+                                {user.slug}
                             </h1>
                             <p className="text-gray-700 text-sm font-light mt-3 leading-relaxed">
                                 {user.biography}
