@@ -99,7 +99,8 @@ export const useMoveItemFromCollection = (
         type: 'collection',
     }
 
-    // FIXME returning array after destructing does not worl :/
+    // FIXME returning array after destructing does not work :/
+    // + modal + move logic should be disconnected
     const [state, dispatch] = useMoveItemModal(collectionDepart, handleMove)
 
     useEffect(() => {
