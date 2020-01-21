@@ -11,7 +11,6 @@
             "GRAPHQL_URL": "https://tottem-graphql.herokuapp.com/graphql"
         }
     },
-    "alias": ["apollo"],
     "env": {
         "DATABASE_PROVIDER": "@database_provider",
         "DATABASE_URL": "@database_url"
