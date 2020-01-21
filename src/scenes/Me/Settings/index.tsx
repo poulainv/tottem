@@ -1,6 +1,6 @@
 import { useApolloClient } from '@apollo/react-hooks'
 import classNames from 'classnames'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { StyledButton } from '../../../components/Button'
@@ -23,8 +23,12 @@ interface SettingsForm {
     biography: string
 }
 
+const onLogout = () => {
+    auth0.logout()
+    Router.push('/')
+}
+
 export default ({ authUserId, messageDispatch }: SettingsProps) => {
-    const router = useRouter()
     const client = useApolloClient()
     const { data, loading } = useGetSettingsQuery({
         variables: {
@@ -68,11 +72,6 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
                 biography,
             },
         })
-    }
-
-    const onLogout = () => {
-        auth0.logout()
-        router.push('/')
     }
 
     return (

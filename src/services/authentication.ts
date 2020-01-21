@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode'
 import Auth from './lib/auth0'
+import Router from 'next/router'
 
 // Making the Auth0 methods available anywhere
 const auth0 = new Auth()
@@ -77,6 +78,11 @@ const getAuthUser: (
         id: parsed.sub,
     }
     return authenticatedUser
+}
+
+export const onLogout = () => {
+    auth0.logout()
+    Router.push('/')
 }
 
 export { auth0, getAccessToken, getUserAuth }
