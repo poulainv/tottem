@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-    @apply bg-brand-300;
-}
-
 /* Tooltip custom */
 .ant-tooltip-inner {
     @apply bg-gray-600;
