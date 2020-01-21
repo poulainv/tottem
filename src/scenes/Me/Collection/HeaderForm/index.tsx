@@ -3,19 +3,18 @@ import TextareaAutosize from 'react-textarea-autosize'
 import { CollectionBasicFragment } from '../../../../generated/types'
 import { useCollectionForm } from './hooks'
 import Options from './Options'
+import { useStatusMessage } from '../../components/TopBar'
 
 interface Props {
     collection: CollectionBasicFragment
-    onChange?: () => void
-    onSaved?: () => void
-    onSaving?: () => void
 }
 
-export default ({ collection, onSaved, onSaving, onChange }: Props) => {
+export default ({ collection }: Props) => {
+    const { dispatch } = useStatusMessage()
     const { onFormChange, register, submit } = useCollectionForm(
         collection,
-        onSaved,
-        onSaving
+        () => dispatch('SAVED'),
+        () => dispatch('SAVING')
     )
     return (
         <div className="flex flex-row">
@@ -27,7 +26,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                 <div className="flex flex-row w-full">
                     <TextareaAutosize
                         autoFocus={!collection.title?.length} // autofocus only when collection unamed
-                        onChange={onChange}
+                        onChange={() => dispatch('CHANGED')}
                         type="text"
                         placeholder="New collection"
                         minRows={1}
@@ -40,7 +39,7 @@ export default ({ collection, onSaved, onSaving, onChange }: Props) => {
                     <Options className="-pl-2" collectionId={collection.id} />
                 </div>
                 <TextareaAutosize
-                    onChange={onChange}
+                    onChange={() => dispatch('CHANGED')}
                     placeholder="Notes"
                     className="mt-4 resize-none focus:border-blue-400 outline-none text-gray-700 leading-relaxed"
                     name="detail"

@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import {
-    useGetCollectionProfileQuery,
-    GetCollectionProfileQuery,
-} from '../../../generated/types'
-import Loading from '../../UtilsPage/Loading'
-import DividerIcon from '../../../../public/pictograms/divider.svg'
-import FilterBadgesView from '../../Me/components/FilterBadgesView'
-import ItemCard from './components/ItemCard'
-import { ItemType } from '../../common'
 import { useApolloClient } from '@apollo/react-hooks'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import DividerIcon from '../../../../public/pictograms/divider.svg'
+import {
+    GetCollectionProfileQuery,
+    useGetCollectionProfileQuery,
+} from '../../../generated/types'
+import { ItemType } from '../../common'
+import FilterBadgesView from '../../Me/components/FilterBadgesView'
+import Loading from '../../UtilsPage/Loading'
+import ItemCard from './components/ItemCard'
 import { Seo } from './components/Seo'
 
 export interface ICollectionProps {

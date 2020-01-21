@@ -4,36 +4,50 @@ import SettingsIcon from '../../../../public/pictograms/settings.svg'
 import SearchIcon from '../../../../public/pictograms/search.svg'
 import { useNavigationModal } from './NavigateModal/hooks'
 import { Tooltip } from 'antd'
+import { useGetStatusMessageQuery } from '../../../generated/types'
+import { useApolloClient } from '@apollo/react-hooks'
 
 interface ITopBarProps {
-    message?: string
     avatar: string
     username: string
 }
 
 export const useStatusMessage = () => {
-    const reducer = (_: string, action: 'SAVED' | 'SAVING' | 'CHANGED') => {
+    const client = useApolloClient()
+    const dispatch = (action: 'SAVED' | 'SAVING' | 'CHANGED') => {
         switch (action) {
             case 'SAVED':
-                return 'Saved!'
+                return client.writeData({
+                    data: {
+                        statusMessage: 'Saved!',
+                    },
+                })
             case 'SAVING':
-                return 'Saving...'
+                return client.writeData({
+                    data: {
+                        statusMessage: 'Saving...',
+                    },
+                })
             default:
-                return ''
+                return client.writeData({
+                    data: {
+                        statusMessage: null,
+                    },
+                })
         }
     }
-    return React.useReducer(reducer, '')
+    return { dispatch }
 }
 
 const TopBar: React.FunctionComponent<ITopBarProps> = ({
-    message,
     avatar,
     username,
 }) => {
     const { trigger } = useNavigationModal()
+    const { data } = useGetStatusMessageQuery()
     return (
         <div className="w-full px-2 h-8 flex justify-end items-center text-gray-600 leading-none flex-shrink-0">
-            <p className="mx-1">{message}</p>
+            <p className="mx-1">{data?.statusMessage}</p>
             <img
                 src={avatar}
                 alt="userAvatar"

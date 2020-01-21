@@ -1,18 +1,15 @@
 import * as React from 'react'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 import { Item } from '../../../generated/types'
-import { ItemType, ModificationTrackActions } from '../../common'
+import { ItemType } from '../../common'
 import DraggableList from '../components/DraggableList'
 import Skeleton from '../components/DraggableList/Skeleton'
-import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 export default ({
     items,
     loading,
     className,
     filterTypes,
-    onChange,
-    onSaved,
-    onSaving,
 }: {
     loading: boolean
     filterTypes: ItemType[]
@@ -30,7 +27,7 @@ export default ({
         >
     >
     className?: string
-} & ModificationTrackActions) => {
+}) => {
     const filteredItems = items
         ?.filter(x => !x.isDeleted)
         ?.filter(i => {
@@ -59,9 +56,6 @@ export default ({
         <DraggableList
             items={filteredItems}
             className={className}
-            onChange={onChange}
-            onSaved={onSaved}
-            onSaving={onSaving}
             dndEnabled={false}
         />
     )

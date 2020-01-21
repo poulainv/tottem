@@ -9,3 +9,7 @@ query getCollectionModal($authUserId: String!) {
         title: name
     }
 }
+
+query getStatusMessage {
+    statusMessage @client
+}

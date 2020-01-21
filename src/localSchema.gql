@@ -11,4 +11,5 @@ type Modal {
 extend type Query {
     breadcrumbs: [Breadcrumb!]!
     modal: Modal!
+    statusMessage: String
 }

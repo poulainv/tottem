@@ -651,6 +651,7 @@ export type Query = {
     search: Array<SearchItem>
     section?: Maybe<Section>
     sections: Array<Section>
+    statusMessage?: Maybe<Scalars['String']>
     user?: Maybe<User>
 }
 
@@ -1472,6 +1473,13 @@ export type GetCollectionModalQuery = { __typename?: 'Query' } & {
             }
     >
 }
+
+export type GetStatusMessageQueryVariables = {}
+
+export type GetStatusMessageQuery = { __typename?: 'Query' } & Pick<
+    Query,
+    'statusMessage'
+>
 
 export type GetNavigationStateQueryVariables = {}
 
@@ -3089,6 +3097,59 @@ export type GetCollectionModalLazyQueryHookResult = ReturnType<
 export type GetCollectionModalQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionModalQuery,
     GetCollectionModalQueryVariables
+>
+export const GetStatusMessageDocument = gql`
+    query getStatusMessage {
+        statusMessage @client
+    }
+`
+
+/**
+ * __useGetStatusMessageQuery__
+ *
+ * To run a query within a React component, call `useGetStatusMessageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetStatusMessageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetStatusMessageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetStatusMessageQuery(
+    baseOptions?: ApolloReactHooks.QueryHookOptions<
+        GetStatusMessageQuery,
+        GetStatusMessageQueryVariables
+    >
+) {
+    return ApolloReactHooks.useQuery<
+        GetStatusMessageQuery,
+        GetStatusMessageQueryVariables
+    >(GetStatusMessageDocument, baseOptions)
+}
+export function useGetStatusMessageLazyQuery(
+    baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+        GetStatusMessageQuery,
+        GetStatusMessageQueryVariables
+    >
+) {
+    return ApolloReactHooks.useLazyQuery<
+        GetStatusMessageQuery,
+        GetStatusMessageQueryVariables
+    >(GetStatusMessageDocument, baseOptions)
+}
+export type GetStatusMessageQueryHookResult = ReturnType<
+    typeof useGetStatusMessageQuery
+>
+export type GetStatusMessageLazyQueryHookResult = ReturnType<
+    typeof useGetStatusMessageLazyQuery
+>
+export type GetStatusMessageQueryResult = ApolloReactCommon.QueryResult<
+    GetStatusMessageQuery,
+    GetStatusMessageQueryVariables
 >
 export const GetNavigationStateDocument = gql`
     query getNavigationState {

@@ -12,12 +12,6 @@ export type ItemType =
     | 'website'
     | 'podcast'
 
-export interface ModificationTrackActions {
-    onChange?: () => void
-    onSaved?: () => void
-    onSaving?: () => void
-}
-
 export const useTracking = () => {
     useEffect(() => {
         initialize('UA-149517534-1', {

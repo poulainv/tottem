@@ -2,20 +2,22 @@ import * as React from 'react'
 import { Item } from '../../../../../generated/types'
 import { ItemMetas } from '../../../../../components/ItemMetas'
 import { useItemCommentForm } from './hooks'
-import { ModificationTrackActions } from '../../../../common'
 import { PictogramItems } from '../../../../../components/PictogramItems'
 import CoverImage from '../../../../../components/CoverImage'
+import { useStatusMessage } from '../../TopBar'
 
 interface IEditableItemProps {
     item: Item
 }
 
-const EditableItem: React.FunctionComponent<IEditableItemProps &
-    ModificationTrackActions> = ({ item, onChange, onSaved, onSaving }) => {
+const EditableItem: React.FunctionComponent<IEditableItemProps> = ({
+    item,
+}) => {
+    const { dispatch } = useStatusMessage()
     const { register, onChange: onFormChange } = useItemCommentForm(
         item.id,
-        onSaved,
-        onSaving
+        () => dispatch('SAVED'),
+        () => dispatch('SAVING')
     )
     const Pictogram = PictogramItems[item.type]
     return (
@@ -58,7 +60,10 @@ const EditableItem: React.FunctionComponent<IEditableItemProps &
                     {item.description}
                 </div>
             </div>
-            <form className="w-1/2 min-h-full" onChange={onChange}>
+            <form
+                className="w-1/2 min-h-full"
+                onChange={() => dispatch('CHANGED')}
+            >
                 <textarea
                     name={`itemComment`}
                     ref={register}

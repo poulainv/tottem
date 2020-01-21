@@ -1,23 +1,20 @@
 import * as React from 'react'
+import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 import { useGetItemsQuery } from '../../../generated/types'
-import { ItemType, ModificationTrackActions } from '../../common'
+import { ItemType } from '../../common'
 import DraggableList from '../components/DraggableList'
 import { useItemDragnDrop } from '../components/DraggableList/hooks'
 import Skeleton from '../components/DraggableList/Skeleton'
-import EmptyBox from '../../../../public/pictograms/empty-box.svg'
 
 export default ({
     collectionId,
     className,
     filterTypes,
-    onChange,
-    onSaved,
-    onSaving,
 }: {
     collectionId: string
     className?: string
     filterTypes: ItemType[]
-} & ModificationTrackActions) => {
+}) => {
     const { data, loading } = useGetItemsQuery({
         variables: {
             collectionId,
@@ -56,9 +53,6 @@ export default ({
         <DraggableList
             items={items}
             className={className}
-            onChange={onChange}
-            onSaved={onSaved}
-            onSaving={onSaving}
             onDragEnd={onDragEnd}
             dndEnabled={!filterTypes.length} // dnd is disabled when filters are selected
         />

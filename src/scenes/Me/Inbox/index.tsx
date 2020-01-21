@@ -2,10 +2,7 @@ import * as React from 'react'
 import InboxIcon from '../../../../public/pictograms/inbox.svg'
 import { useGetInboxQuery } from '../../../generated/types'
 import { ItemType } from '../../common'
-import {
-    defaultItemActions,
-    ItemActionsContext,
-} from '../components/DraggableList/EditableItem/hooks'
+import { ItemActionsContext } from '../components/DraggableList/EditableItem/hooks'
 import FilterBadgesView from '../components/FilterBadgesView'
 import MoveModal from '../components/MoveModal'
 import { useMoveItemFromInbox } from './hooks'
@@ -14,10 +11,9 @@ import ItemList from './ItemList'
 
 interface InboxProps {
     authUserId: string
-    messageDispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
 }
 
-export default ({ messageDispatch: dispatch, authUserId }: InboxProps) => {
+export default ({ authUserId }: InboxProps) => {
     const { state, dispatch: moveDispatch, actions } = useMoveItemFromInbox()
     const [selectedTypes, setSelectedTypes] = React.useState<ItemType[]>([])
     const { data, loading } = useGetInboxQuery()
@@ -52,9 +48,6 @@ export default ({ messageDispatch: dispatch, authUserId }: InboxProps) => {
                     items={data?.inbox?.items}
                     className="mt-8"
                     filterTypes={selectedTypes}
-                    onChange={() => dispatch('CHANGED')}
-                    onSaved={() => dispatch('SAVED')}
-                    onSaving={() => dispatch('SAVING')}
                 />
             </ItemActionsContext.Provider>
         </div>

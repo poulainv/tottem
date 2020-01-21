@@ -14,10 +14,9 @@ import ItemList from './ItemList'
 interface Props {
     collectionId: string
     authUserId: string
-    dispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
 }
 
-export default ({ dispatch, collectionId, authUserId }: Props) => {
+export default ({ collectionId, authUserId }: Props) => {
     const {
         state,
         dispatch: moveDispatch,
@@ -47,12 +46,7 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
                 onMoveItem={state.onMoveItem}
                 itemId={state.itemId}
             />
-            <HeaderForm
-                collection={collection}
-                onChange={() => dispatch('CHANGED')}
-                onSaved={() => dispatch('SAVED')}
-                onSaving={() => dispatch('SAVING')}
-            />
+            <HeaderForm collection={collection} />
             <FilterBadges
                 className="mt-8"
                 collectionId={collectionId}
@@ -67,9 +61,6 @@ export default ({ dispatch, collectionId, authUserId }: Props) => {
                         collectionId={collection.id}
                         className="mt-8"
                         filterTypes={selectedTypes}
-                        onChange={() => dispatch('CHANGED')}
-                        onSaved={() => dispatch('SAVED')}
-                        onSaving={() => dispatch('SAVING')}
                     />
                 </ItemActionsContext.Provider>
             )}

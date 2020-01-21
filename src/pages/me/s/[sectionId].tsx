@@ -15,7 +15,7 @@ const SectionPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
     const router = useRouter()
     return (
         <Layout loggedInUser={loggedInUser}>
-            {(_, authUserId) => (
+            {authUserId => (
                 <Section
                     authUserId={authUserId}
                     sectionId={

@@ -12,10 +12,10 @@ import {
 } from '../../../generated/types'
 import { auth0 } from '../../../services/authentication'
 import Loading from '../../UtilsPage/Loading'
+import { useStatusMessage } from '../components/TopBar'
 
 interface SettingsProps {
     authUserId: string
-    messageDispatch: (action: 'SAVED' | 'SAVING' | 'CHANGED') => void
 }
 
 interface SettingsForm {
@@ -28,8 +28,9 @@ const onLogout = () => {
     Router.push('/')
 }
 
-export default ({ authUserId, messageDispatch }: SettingsProps) => {
+export default ({ authUserId }: SettingsProps) => {
     const client = useApolloClient()
+    const { dispatch } = useStatusMessage()
     const { data, loading } = useGetSettingsQuery({
         variables: {
             authUserId,
@@ -37,7 +38,7 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
     })
 
     const [updateSettings] = useUpdateSettingsMutation({
-        onCompleted: () => messageDispatch('SAVED'),
+        onCompleted: () => dispatch('SAVED'),
     })
 
     const { register, handleSubmit, errors, watch } = useForm<SettingsForm>()
@@ -64,14 +65,14 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
     }
 
     const onSubmit = ({ slug, biography }: SettingsForm) => {
-        messageDispatch('SAVING')
-        updateSettings({
-            variables: {
-                slug,
-                authUserId,
-                biography,
-            },
-        })
+        dispatch('SAVING'),
+            updateSettings({
+                variables: {
+                    slug,
+                    authUserId,
+                    biography,
+                },
+            })
     }
 
     return (
@@ -80,7 +81,7 @@ export default ({ authUserId, messageDispatch }: SettingsProps) => {
             <form
                 className="max-w-xl mt-10"
                 onSubmit={handleSubmit(onSubmit)}
-                onChange={() => messageDispatch('CHANGED')}
+                onChange={() => dispatch('CHANGED')}
             >
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2">

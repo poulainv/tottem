@@ -1,9 +1,8 @@
-import * as React from 'react'
-import { Item } from '../../../../generated/types'
 import classNames from 'classnames'
-import EditableItem from './EditableItem'
-import { ModificationTrackActions } from '../../../common'
+import * as React from 'react'
 import DragIcon from '../../../../../public/pictograms/drag.svg'
+import { Item } from '../../../../generated/types'
+import EditableItem from './EditableItem'
 import Options from './EditableItem/Options'
 
 const DraggableItem: React.FunctionComponent<{
@@ -11,16 +10,7 @@ const DraggableItem: React.FunctionComponent<{
     innerRef: any
     className?: string
     dndEnabled: boolean
-} & ModificationTrackActions> = ({
-    item,
-    innerRef,
-    className,
-    onChange,
-    onSaved,
-    onSaving,
-    dndEnabled,
-    ...dragHandleProps
-}) => {
+}> = ({ item, innerRef, className, dndEnabled, ...dragHandleProps }) => {
     const [isHover, setIsHover] = React.useState(false)
     return (
         <div
@@ -41,12 +31,7 @@ const DraggableItem: React.FunctionComponent<{
                         })}
                     />
                 </div>
-                <EditableItem
-                    item={item}
-                    onChange={onChange}
-                    onSaved={onSaved}
-                    onSaving={onSaving}
-                />
+                <EditableItem item={item} />
             </div>
             <Options
                 itemId={item.id}

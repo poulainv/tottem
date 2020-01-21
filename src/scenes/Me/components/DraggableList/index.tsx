@@ -10,7 +10,6 @@ import {
     ItemDetailFragment,
     ItemPreviewFragment,
 } from '../../../../generated/types'
-import { ModificationTrackActions } from '../../../common'
 import DraggableItem from './DraggableItem'
 
 interface IDraggableListProps {
@@ -20,13 +19,9 @@ interface IDraggableListProps {
     onDragEnd?: (result: any) => void
 }
 
-const DraggableList: React.FunctionComponent<IDraggableListProps &
-    ModificationTrackActions> = ({
+const DraggableList: React.FunctionComponent<IDraggableListProps> = ({
     items,
     className,
-    onChange,
-    onSaved,
-    onSaving,
     onDragEnd = () => 1,
     dndEnabled = true,
 }) => {
@@ -61,9 +56,6 @@ const DraggableList: React.FunctionComponent<IDraggableListProps &
                                                 {...draggable.draggableProps}
                                                 {...draggable.dragHandleProps}
                                                 item={item}
-                                                onChange={onChange}
-                                                onSaved={onSaved}
-                                                onSaving={onSaving}
                                             />
                                         )}
                                     </Draggable>

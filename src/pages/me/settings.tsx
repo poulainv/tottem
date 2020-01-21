@@ -10,9 +10,7 @@ const SettingsPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
 }) => {
     return (
         <Layout loggedInUser={loggedInUser}>
-            {(dispatch, authUserId) => (
-                <Settings messageDispatch={dispatch} authUserId={authUserId} />
-            )}
+            {authUserId => <Settings authUserId={authUserId} />}
         </Layout>
     )
 }

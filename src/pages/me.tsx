@@ -10,9 +10,7 @@ const InboxPage: NextPage<{ loggedInUser?: AuthenticatedUser }> = ({
 }) => {
     return (
         <Layout loggedInUser={loggedInUser}>
-            {(dispatch, authUserId) => (
-                <Inbox messageDispatch={dispatch} authUserId={authUserId} />
-            )}
+            {authUserId => <Inbox authUserId={authUserId} />}
         </Layout>
     )
 }
