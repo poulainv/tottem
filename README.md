@@ -4,7 +4,7 @@ Tottem is an open source experimentation, it aims combining personal productivit
 
 [![Tottem](./public/logo.png)](https://beta.tottem.app)
 
-### Social content bookmark
+### Library management made social
 
 </div>
 
