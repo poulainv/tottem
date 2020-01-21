@@ -1,14 +1,27 @@
-Tottem is an experimentation about building a product. I have two considerations in mind: product and open-source technologies.
+Tottem is an open source experimentation, it tries to combine personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
+
+<div align="center">
+
+[![Tottem](./public/logo.png)](https://beta.tottem.app)
+
+### Social content bookmark
+
+</div>
+
+I have two considerations in mind:
+
+-   building a product based on ethic design
+-   experimenting open-source web technologies and share it
 
 ## Product
 
-First, imagine & design a product human centered allowing people to build and manage their online and public library. Just a tool to manage and gather the content we love, in order to share it with friends & community 😇
+First goal: designing a product human centered allowing people to build and manage their online and public library. Just a tool to manage and gather the content we love, in order to share it with friends & community 😇
 
 ### Why ?
 
-Social medial are now all stream based. More and more, humans — especially journalists, are loosing their ability to choose which content to promote and amplify. Instead, recommendation systems feed our personnal narrative content stream, that only consider clicks and views. What else they can do? [Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
+Social medial are now all stream based. More and more, humans — especially journalists, are loosing their ability to choose which content to promote and amplify. Instead, recommendation systems feed a unique & personnal narrative stream of content, that only consider clicks and views. Of course, what else they can do? [Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
 
-So, what if I want to explore a friend's books or articles recommendation? What if I want to really dig a specific subject?
+So, what if I want to explore a durable friend's books or articles recommendation? What if I want to really dig a specific subject?
 
 ### How ?
 
@@ -31,9 +44,9 @@ The basic workflow:
 
 [![Tottem](./public/screenshot-profile.png)](https://beta.tottem.app)
 
-## Technology
+## Tech
 
-The second goal is about experimenting how to build a web software today. This the documentation explains which technologies are used here and how they are organised.
+The second goal is about experimenting how to build a web software today. This documentation explains which technologies are used here and how they are organised.
 
 ### Codebase
 
@@ -82,7 +95,7 @@ const { data } = useGetItemsQuery({
     })
 ```
 
-#### Repository structure
+#### Repository structure — front-end
 
 Inspired by those [recommendation](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1), this is how the codebase is structured:
 
@@ -91,15 +104,46 @@ tottem/
 ├── src
 ├──── generated # contains generated code (types, hooks, ...)
 ├──── pages # static and dynamic routes declaration used by NextJS
+├──── components # shared generic component
 ├──── scenes # different parts of the application
 ├────── moduleName # Auth | Profile | Me ...
-├──────── components # shared components module each components can specify its own specific components, queries, ...
+├──────── components # module components. **Each** components can specify its own specific components, queries, ...
 ├──────── queries.gql # All data queries and mutation are written in gql files
 ├──────── hooks.ts # Most of the reusable logic is written in hooks
 ├──────── index.tsx # Main scene file
 ├──────── View.tsx # Sometime stateless component are isolated in View file for clarity or reusability
 └──── services # shared services as authentication, error management, ...
 ```
+
+#### Setup
+
+Locally PG instance is needed with some var env set. In `.env` for instance
+
+```sh
+AUTH0_LOCAL_ID='auth0|5dc8800986c8ba0e74d73654' # set local user id by passing auth0
+AUTH0_CALLBACK='http://localhost:3000/auth/callback'
+DATABASE_URL="postgresql://XXX@localhost:5432/XXX?sslaccept=accept_invalid_certs"
+GRAPHQL_URL='http://localhost:4000/graphql'
+DATABASE_PROVIDER="postgresql"
+```
+
+Then, two repositories are needed
+
+```sh
+git clone git@github.com:poulainv/tottem.git
+cd tottem
+npm install
+npm run dev
+```
+
+```sh
+git clone git@github.com:poulainv/tottem-graphql.git
+cd tottem-graphql
+npm install
+npm run dev
+```
+
+Web app is avalaible on `http://localhost:3000` and graphql endpoint on `http://localhost:4000/graphql`
 
 ### Contributors
 
