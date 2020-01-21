@@ -44,7 +44,7 @@ export default ({
     )
     return (
         <Link
-            href="/[profile]/c/[collectionId]"
+            href="/[profile]/c/[collectionSlug]"
             as={`/${profileSlug}/c/${collection.slug}`}
         >
             <a
