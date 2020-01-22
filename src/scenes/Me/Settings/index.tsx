@@ -19,6 +19,7 @@ interface SettingsProps {
 }
 
 interface SettingsForm {
+    firstname: string
     slug: string
     biography: string
 }
@@ -37,11 +38,13 @@ export default ({ authUserId }: SettingsProps) => {
         },
     })
 
-    const [updateSettings] = useUpdateSettingsMutation({
+    const [updateSettings, { loading: isSaving }] = useUpdateSettingsMutation({
         onCompleted: () => dispatch('SAVED'),
     })
 
-    const { register, handleSubmit, errors, watch } = useForm<SettingsForm>()
+    const { register, handleSubmit, errors, watch } = useForm<SettingsForm>({
+        mode: 'onBlur',
+    })
 
     if (loading) {
         return <Loading />
@@ -64,13 +67,14 @@ export default ({ authUserId }: SettingsProps) => {
         return !!res.data.user?.id
     }
 
-    const onSubmit = ({ slug, biography }: SettingsForm) => {
+    const onSubmit = ({ slug, biography, firstname }: SettingsForm) => {
         dispatch('SAVING'),
             updateSettings({
                 variables: {
                     slug,
                     authUserId,
                     biography,
+                    firstname,
                 },
             })
     }
@@ -85,10 +89,49 @@ export default ({ authUserId }: SettingsProps) => {
             >
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
+                        Name
+                    </label>
+                    <input
+                        ref={register({
+                            minLength: {
+                                value: 2,
+                                message: 'More than 2 characters required',
+                            },
+                            maxLength: {
+                                value: 25,
+                                message: 'Less than 25 characters required',
+                            },
+                            required: {
+                                value: true,
+                                message: 'Name is required',
+                            },
+                        })}
+                        autoComplete="off"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        name="firstname"
+                        type="text"
+                        defaultValue={data?.user?.firstname}
+                        placeholder="firstname"
+                    />
+
+                    <p className="text-gray-700 text-xs mt-1">
+                        Your name will be used and displayed around Tottem
+                    </p>
+                    <p className="text-red-600 mt-1">
+                        {errors?.firstname?.message}
+                    </p>
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
                         Username
                     </label>
                     <input
                         ref={register({
+                            pattern: {
+                                value: /^[a-zA-z0-9_.-]{3,20}$/,
+                                message:
+                                    'Username should have between 3 and 20  alphanumeric characters',
+                            },
                             required: {
                                 value: true,
                                 message: 'Username is required',
@@ -104,11 +147,23 @@ export default ({ authUserId }: SettingsProps) => {
                         placeholder="slug"
                     />
 
+                    <p className="text-gray-700 text-xs mt-1">
+                        Unique identifier used especially to generate URLs.
+                        Change only if necessary.
+                    </p>
+
                     {errors.slug?.type === 'required' && (
-                        <p className="text-red-600">{errors.slug.message}</p>
+                        <p className="text-red-600 mt-1">
+                            {errors.slug.message}
+                        </p>
+                    )}
+                    {errors.slug?.type === 'pattern' && (
+                        <p className="text-red-600 mt-1">
+                            {errors.slug.message}
+                        </p>
                     )}
                     {errors.slug?.type === 'validate' && (
-                        <p className="text-red-600">
+                        <p className="text-red-600 mt-1">
                             Sorry, this username is already taken
                         </p>
                     )}
@@ -130,7 +185,7 @@ export default ({ authUserId }: SettingsProps) => {
                         placeholder="Tell a bit about you"
                     />
                     <div
-                        className={classNames('text-right mt-2', {
+                        className={classNames('text-right mt-2 text-gray-800', {
                             'text-red-600 font-semibold':
                                 errors?.biography?.type === 'maxLength',
                         })}
@@ -144,7 +199,9 @@ export default ({ authUserId }: SettingsProps) => {
                     </div>
                 </div>
                 <div className="flex justify-between mt-16">
-                    <StyledButton type="submit">Save</StyledButton>
+                    <StyledButton type="submit">
+                        {isSaving ? 'Saving...' : 'Save'}
+                    </StyledButton>
                     <StyledButton
                         onClick={onLogout}
                         primary={false}

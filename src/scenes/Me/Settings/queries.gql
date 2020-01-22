@@ -8,9 +8,10 @@ mutation updateSettings(
     $authUserId: String!
     $slug: String!
     $biography: String!
+    $firstname: String!
 ) {
     updateOneUser(
-        data: { slug: $slug, biography: $biography }
+        data: { slug: $slug, biography: $biography, firstname: $firstname }
         where: { authUserId: $authUserId }
     ) {
         ...UserBasic

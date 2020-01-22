@@ -1362,6 +1362,7 @@ export type UpdateSettingsMutationVariables = {
     authUserId: Scalars['String']
     slug: Scalars['String']
     biography: Scalars['String']
+    firstname: Scalars['String']
 }
 
 export type UpdateSettingsMutation = { __typename?: 'Mutation' } & {
@@ -2493,9 +2494,10 @@ export const UpdateSettingsDocument = gql`
         $authUserId: String!
         $slug: String!
         $biography: String!
+        $firstname: String!
     ) {
         updateOneUser(
-            data: { slug: $slug, biography: $biography }
+            data: { slug: $slug, biography: $biography, firstname: $firstname }
             where: { authUserId: $authUserId }
         ) {
             ...UserBasic
@@ -2520,6 +2522,7 @@ export const UpdateSettingsDocument = gql`
  *      authUserId: // value for 'authUserId'
  *      slug: // value for 'slug'
  *      biography: // value for 'biography'
+ *      firstname: // value for 'firstname'
  *   },
  * });
  */
