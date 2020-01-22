@@ -13,6 +13,20 @@ I have two considerations in mind:
 -   building a product based on ethic design
 -   experimenting open-source web technologies and share it
 
+## Summary
+
+-   [Product](#product)
+    -   [Why ?](#why)
+    -   [How](#how)
+-   [Tech](#tech)
+    -   [Codebase](#codebase)
+        -   [Technologies](#technologies)
+        -   [How is it typesafe from end-to-end?](#how-is-it-typesafe-from-end-to-end)
+        -   [Repository structure — front-end](#repository-structure--front-end)
+        -   [Global state management](#global-state-management)
+        -   [Setup](#setup)
+    -   [Contributors](#contributors)
+
 ## Product
 
 First goal: designing a product human centered allowing people to build and manage their online and public library. Just a tool to manage and gather the content we love, in order to share it with friends & community 😇
@@ -52,7 +66,7 @@ The second goal is about experimenting how to build a web software today. This d
 
 ### Codebase
 
-#### Technologies
+#### Main technologies
 
 It's a full-stack Typescript app with some code generation in order to have a type safe experience from end-to-end.
 
@@ -64,40 +78,6 @@ Here is a list of main technologies used:
 -   📱 GraphQL, powered by Apollo tools
 -   👮‍♂️ Auth0 for authentication
 -   🚓 Prisma Framework to manage data model and database
-
-**How is it typesafe end-to-end?**
-
-**Prisma** provides a [library](https://github.com/prisma/photonjs) Photon that _generate_ a typesafe client to manipulate data depending on a unique schema declaration in `schema.prisma` file.
-
-Example where Photon is used to retrieve the not softly deleted items from specific collection :
-
-```
-const items = (
-    await ctx.photon.items.findMany({
-        where: {
-            collection: { id: collectionId },
-            isDeleted: false,
-        },
-        select: { id: true, position: true },
-        orderBy: { createdAt: 'desc' },
-    })
-```
-
-**Nexus** provides a code-first graphql approach that allows you to _generate_ graphql schema (`schema.graphql` file) based on your resolvers and object definitions. Nexus is fully compliant with prisma and offers a nice [plugin](https://github.com/prisma-labs/nexus-prisma) to automatically declare resolvers based on your photon client.
-
-**graphql-codegen** [tool](https://graphql-code-generator.com/) is configured to parse all `.gql` front-end files containing graphl queries and mutations. **graphql-codegen** uses remote and local (`localSchema.gql`) graphql schemas to generate every type and hook we need (putting them inside `types.ts`) so we can safely fetch and mutate data.
-
-> Note that when global state management is required, Apollo Client is used as much as possible.
-
-Example where typesafe hook `useGetItemsQuery` is generated allowing to fetch data via Apollo Client smoothly
-
-```
-const { data } = useGetItemsQuery({
-        variables: {
-            collectionId,
-        },
-    })
-```
 
 #### Repository structure — front-end
 
@@ -119,7 +99,106 @@ tottem/
 └──── services # shared services as authentication, error management, ...
 ```
 
-#### Setup
+#### How is it typesafe from end-to-end?
+
+-   **Prisma** provides a [library](https://github.com/prisma/photonjs) Photon that _generate_ a typesafe client to manipulate data depending on a unique schema declaration in `schema.prisma` file.
+
+Example where Photon is used to retrieve the not softly deleted items from specific collection :
+
+```
+const items = (
+    await ctx.photon.items.findMany({
+        where: {
+            collection: { id: collectionId },
+            isDeleted: false,
+        },
+        select: { id: true, position: true },
+        orderBy: { createdAt: 'desc' },
+    })
+```
+
+-   **Nexus** provides a code-first graphql approach that allows you to _generate_ graphql schema (`schema.graphql` file) based on your resolvers and object definitions. Nexus is fully compliant with prisma and offers a nice [plugin](https://github.com/prisma-labs/nexus-prisma) to automatically declare resolvers based on your photon client.
+
+-   **g is configured to generateraphqthis`gen** query [tool](https://graphql-code-generator.com/) is configured to parse all `.gql` front-end files containing graphl queries and mutations. **graphql-codegen** uses remote and local (`localSchema.gql`) graphql schemas to generate every type and hook we need (putting them inside `types.ts`) so we can safely fetch and mutate data.
+
+> Note that when global state management is required, Apollo Client is used as much as possible.
+
+Example where typesafe hook `useGetItemsQuery` is generated allowing to fetch data via Apollo Client smoothly
+
+```
+const { data } = useGetItemsQuery({
+        variables: {
+            collectionId,
+        },
+    })
+```
+
+🤯 No typo anymore, much less file & context switching with typescript.
+
+#### Global state management
+
+Most of the time, global state approach is used to avoid _props drilling_. Neither Redux or React Context API are used here. It has been implemented with Apollo Client. A local schema is defined in `localSchema.gql`
+
+```gql
+type Breadcrumb {
+    title: String!
+    href: String!
+}
+
+extend type Query {
+    breadcrumbs: [Breadcrumb!]!
+}
+```
+
+Then, we can define
+
+1. **Query** to read data from Apollo cache
+
+```graphql
+query getBreadcrumbs {
+    breadcrumbs @client {
+        title
+        href
+    }
+}
+```
+
+`codegraphql-code` is configured to generate this simple hook query, used in Profile/TopBar for instance:
+
+```typescript
+const { data } = useGetBreadcrumbsQuery()
+```
+
+2 **Custom hooks** to write data to cache with Apollo `client`
+
+```typescript
+const useBreadcrumbs = (profileSlug: string) => {
+    const client = useApolloClient()
+
+    const setBreadcrumbs = ({
+        collection,
+        breadcrumbs,
+    }: GetCollectionProfileQuery) => {
+        client.writeData({
+            data: {
+                breadcrumbs,
+            },
+        })
+    }
+
+    const resetBreadcrumbs = () => {
+        client.writeData({
+            data: {
+                breadcrumbs: [],
+            },
+        })
+    }
+
+    return { resetBreadcrumbs, setBreadcrumbs }
+}
+```
+
+### Setup
 
 Locally PG instance is needed with some var env set. In `.env` for instance
 
