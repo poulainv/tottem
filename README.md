@@ -73,12 +73,12 @@ It's a full-stack Typescript app with some code generation in order to have a ty
 
 Here is a list of main technologies used:
 
--   🚀 React
--   🥇 NextJS to provide fast SSR experience
--   😍 TailwindCSS
--   📱 GraphQL, powered by Apollo tools
--   👮‍♂️ Auth0 for authentication
--   🚓 Prisma Framework to manage data model and database
+-   🚀 [React](https://github.com/facebook/react)
+-   🥇 [NextJS](https://github.com/zeit/next.js) to provide fast SSR experience
+-   😍 [TailwindCSS](https://github.com/tailwindcss/tailwindcss)
+-   📱 GraphQL, powered by [Apollo tools](https://github.com/apollographql)
+-   👮‍♂️ [Auth0](https://auth0.com/) for authentication
+-   🚓 [Prisma Framework](https://github.com/prisma/prisma2) to manage data model and database
 
 #### Repository structure — front-end
 
