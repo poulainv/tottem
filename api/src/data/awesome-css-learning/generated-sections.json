@@ -1,0 +1,389 @@
+[
+    {
+        "id": "3c3cecab-515b-5c8b-b4ef-041a7ba51190",
+        "name": "Awesome CSS Learning",
+        "index": 0,
+        "collections": [
+            {
+                "id": "277025a2-e1be-5ec6-b567-dfe9c5348e18",
+                "date": "2019-11-04T13:50:13.852Z",
+                "name": "CSS References",
+                "items": [
+                    {
+                        "title": "An extensive CSS reference offering way more content than .",
+                        "description": "An extensive CSS reference with all the important CSS properties and info to learn CSS from the basics.",
+                        "author": "Team Codrops",
+                        "productUrl": "https://tympanus.net/codrops/css_reference/",
+                        "type": "website",
+                        "imageUrl": "https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2017/04/codrops_collage.jpg"
+                    },
+                    {
+                        "title": "Interactive browser support tables for CSS (and HTML5).",
+                        "productUrl": "https://caniuse.com",
+                        "type": "website",
+                        "imageUrl": "caniuse.com//img/favicon-128.png"
+                    }
+                ]
+            },
+            {
+                "id": "846d8162-0a76-56fe-acf5-f034e5298d0b",
+                "date": "2019-11-04T13:50:13.893Z",
+                "name": "CSS in a nutshell",
+                "items": [
+                    {
+                        "title": "This Screencast series will teach you the basics of CSS in about one hour.",
+                        "description": "This course contains 20 interactive tutorials and will teach you the basics of CSS in an hour. It's the perfect starting point for aspiring web developers and designers who want an easy way to learn CSS.",
+                        "author": "Scrimba",
+                        "productUrl": "https://scrimba.com/g/gintrotocss",
+                        "type": "website",
+                        "imageUrl": "https://scrimba.com/static/art/gintrotocss.png"
+                    }
+                ]
+            },
+            {
+                "id": "2df3df7a-770f-5a4f-bd60-cb30f0027114",
+                "date": "2019-11-04T13:50:13.777Z",
+                "name": "Fundamental concepts",
+                "items": [
+                    {
+                        "title": "This article explains what the cascade is and how this affects you.",
+                        "description": "This article explains what the cascade is, the order in which CSS declarations cascade, and how this affects you, the web developer.",
+                        "author": "@MozDevNet",
+                        "productUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade",
+                        "type": "website",
+                        "imageUrl": "https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png"
+                    },
+                    {
+                        "title": "Understanding specificity and inheritance is important to master CSS. This article will help.",
+                        "description": "CSS’ barrier to entry is extremely low, mainly due to the nature of its syntax. Being clear and easy to understand, the syntax makes sense even to the inexperienced Web designer. It's so simple, in fact, that you could style a simple CSS-based website within a few hours of learning it.",
+                        "author": "Smashing Magazine",
+                        "productUrl": "https://www.smashingmagazine.com/2010/04/css-specificity-and-inheritance/",
+                        "type": "website",
+                        "imageUrl": "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/80957ac4-7fde-4078-b0dd-9763645f25b8/css-tricks-illu-101.jpg"
+                    },
+                    {
+                        "title": "An article explaining the foundation of layout on the web.",
+                        "description": "That's most of what you need to understand about the box model. You may want to return to this lesson in the future if you ever find yourself confused about how big boxes are in your layout.",
+                        "author": "@MozDevNet",
+                        "productUrl": "https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model",
+                        "type": "website",
+                        "imageUrl": "https://developer.mozilla.org/static/img/opengraph-logo.72382e605ce3.png"
+                    },
+                    {
+                        "title": "Also have a look at the detailed information about the  property.",
+                        "description": "The box-sizing property can make building CSS layouts easier and a lot more intuitive. It's such a boon for developers that here at CSS-Tricks we observe",
+                        "author": "@mmosley",
+                        "productUrl": "https://css-tricks.com/box-sizing/",
+                        "type": "website",
+                        "imageUrl": "//css-tricks.com/wp-content/uploads/2010/09/widthbox.png"
+                    }
+                ]
+            },
+            {
+                "id": "6df33089-b9b9-5cc9-a32b-f1a8e84b846a",
+                "date": "2019-11-04T13:50:13.272Z",
+                "name": "CSS units",
+                "items": [
+                    {
+                        "title": "Overview covering absolute and relative units.",
+                        "description": "There are quite a few properties in CSS that take a length as a value. The box model properties are the obvious ones: width, height, margin, padding,",
+                        "author": "@chriscoyier",
+                        "productUrl": "https://css-tricks.com/the-lengths-of-css/",
+                        "type": "website",
+                        "imageUrl": "https://css-tricks.com/wp-content/uploads/2014/03/css-tricks-star.png"
+                    },
+                    {
+                        "title": "Imparts the basics and shows some nifty use-cases.",
+                        "description": "Viewport units have been around for several years now, with near-perfect support in the major browsers, but I keep finding new and exciting ways to use",
+                        "author": "@mirisuzanne",
+                        "productUrl": "https://css-tricks.com/fun-viewport-units/",
+                        "type": "website",
+                        "imageUrl": "https://css-tricks.com/wp-content/uploads/2017/04/pure-responsive-1024x442.gif"
+                    }
+                ]
+            },
+            {
+                "id": "2d9cc2e5-2a38-5d4f-a560-12e9e86ae5a2",
+                "date": "2019-11-04T13:50:13.866Z",
+                "name": "Selectors",
+                "items": [
+                    {
+                        "title": "An introducing to the very basic CSS selectors you need to know.",
+                        "description": "A CSS selector is the part of a CSS rule set that actually selects the content you want to style. Let's look at all the different kinds of selectors available, with a brief description of each.",
+                        "author": "@Adam__Roberts",
+                        "productUrl": "https://www.sitepoint.com/css-selectors/",
+                        "type": "website",
+                        "imageUrl": "https://www.sitepoint.com/wp-content/themes/sitepoint/assets/images/icon.html-css.png"
+                    },
+                    {
+                        "title": "Level up your knowledge. From attribute selectors to CSS3 pseudo classes.",
+                        "description": "CSS is **one of the most powerful tools** that is available to web designers (if not the most powerful). With it we can completely transform the look of a website in just a couple of minutes, and without even having to touch the markup. But despite the fact that we are all well aware of its usefulness, CSS selectors are still not used to their full potential and we sometimes have the tendency to litter our HTML with excessive and unnecessary classes and ids, divs and spans.",
+                        "author": "Smashing Magazine",
+                        "productUrl": "https://www.smashingmagazine.com/2009/08/taming-advanced-css-selectors/",
+                        "type": "website",
+                        "imageUrl": "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/cb86f3cb-359e-40b2-bd88-0f0ec5a7b1a5/redesign-the-web.png"
+                    },
+                    {
+                        "title": "Learn how to use CSS selectors with this fun little game.",
+                        "description": "A fun game to help you learn and practice CSS selectors.",
+                        "productUrl": "https://flukeout.github.io",
+                        "type": "website",
+                        "imageUrl": "https://flukeout.github.io/images/fb-share.jpg"
+                    }
+                ]
+            },
+            {
+                "id": "c10ad195-156a-56ab-9c6a-9638d764889b",
+                "date": "2019-11-04T13:50:14.318Z",
+                "name": "Custom properties (aka CSS variables)",
+                "items": [
+                    {
+                        "title": "A short introduction to CSS variables.",
+                        "description": "CSS variables, more accurately known as CSS custom properties, are landing in Chrome 49. They can be useful for reducing repetition in CSS, and also for powerful runtime effects like theme switching and potentially extending/polyfilling future CSS features.",
+                        "author": "Google Developers",
+                        "productUrl": "https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care",
+                        "type": "website",
+                        "imageUrl": "/web/images/social-webfu-16x9.png"
+                    },
+                    {
+                        "title": "Describes the advantages of locally scoped CSS variables.",
+                        "description": "Thoughts about front-end development and design. And probably other ramblings by Una Kravets.",
+                        "author": "@una",
+                        "productUrl": "https://una.im/local-css-vars/",
+                        "type": "website",
+                        "imageUrl": "https://una.im/images/social-cover.png"
+                    },
+                    {
+                        "title": "Patterns and anti-patterns for using CSS variables.",
+                        "description": "Custom Properties have the potential to change how we write and think about CSS.",
+                        "author": "@MikeRiethmuller",
+                        "productUrl": "https://www.madebymike.com.au/writing/using-css-variables/",
+                        "type": "website",
+                        "imageUrl": "https://madebymike.com.au/img/mug/mike.jpg"
+                    },
+                    {
+                        "title": "In depth article going beyond the basics of CSS Variables using real-world examples.",
+                        "description": "Most programming languages have support for variables. But sadly, CSS has lacked\nsupport for native variables from the very beginning.\n\nYou write CSS? Then no variables for you. Well, except if you were using a\npreprocessor like Sass.\n\nPreprocessors like Sass sell the use of variables as a big add-on. A reason to\ntry them. And you know what? It’s a pretty darn good reason.\n\nWell the web is moving fast. And I’m glad to report that CSS now finally\nsupports variables.\n\nWhile preprocessors support a",
+                        "author": "freeCodeCamp.org",
+                        "productUrl": "https://medium.freecodecamp.org/everything-you-need-to-know-about-css-variables-c74d922ea855",
+                        "type": "website",
+                        "imageUrl": "https://cdn-media-1.freecodecamp.org/images/1*Im5WsB6Y7CubjWRx9hH7Gg.png"
+                    },
+                    {
+                        "title": "Mindblowing talk about the possibilities of the combination of CSS variables and functional reactive programming in JavaScript.",
+                        "author": "JSConf",
+                        "productUrl": "https://www.youtube.com/watch?v=4IRPxCMAIfA",
+                        "description": "http://2017.cssconf.eu/speakers/david-khourshid.html\n\nAs user interfaces evolve and become more interactive, design requirements become more complex. By combining CSS variables with reactive programming in JS, we can now express animations, styles, layout, and more in ways never before possible with CSS. In this talk, we’ll explore what functional reactive programming is, why it is incredibly useful, and how we can leverage the power of CSS variables to push the limits of styling the web.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/4IRPxCMAIfA/hqdefault.jpg",
+                        "meta": { "viewCount": "5536" }
+                    }
+                ]
+            },
+            {
+                "id": "7020ef5d-5f47-58cb-8c2b-708224c4b3ef",
+                "date": "2019-11-04T13:50:13.642Z",
+                "name": "Layout",
+                "items": [
+                    {
+                        "title": "Learn about CSS layout techniques in 5 chapters.",
+                        "productUrl": "http://book.mixu.net/css",
+                        "type": "website"
+                    },
+                    {
+                        "title": "Introduction of a new layout system encompassing Flexbox, CSS Grid and the Box Alignment Module.",
+                        "author": "JSConf",
+                        "productUrl": "https://www.youtube.com/watch?v=hj355PRbwSQ",
+                        "description": "It is 2016. CSS is now 20 years old, and it has taken this long for us to get a true layout system designed for web pages and applications. A layout system, not based on hacking properties designed for something else entirely, but one that considers the reality of design for the web today. In this talk I’ll introduce this new layout system, a system encompassing Flexbox, CSS Grid Layout and the Box Alignment Module. I’ll explain how these standards get into browsers, and how you can start to take advantage of them sooner rather than later.\n\nRachel is a front and back-end web developer, author and speaker. Her books include the recent Get Ready for CSS Grid Layout and she is a regular contributor to a number of publications both on and offline. Rachel is co-founder of the CMS Perch, a Google Developer Expert and an Invited Expert to the CSS Working Group. She writes about business and technology on her own site at rachelandrew.co.uk.\n\nCSSConf.Asia - Capitol Theatre, Singapore - 24 November 2016.\n\nSource: https://2016.cssconf.asia/\nSlides: http://www.slideshare.net/rachelandrew/cssconfasia-laying-out-the-future\n\nLicense: For reuse of this video under a more permissive license please get in touch with us. The speakers retain the copyright for their performances.",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/hj355PRbwSQ/hqdefault.jpg",
+                        "meta": { "viewCount": "6237" }
+                    }
+                ]
+            },
+            {
+                "id": "c3135d2b-e8bc-557a-872b-93b2e779f372",
+                "date": "2019-11-04T13:50:13.704Z",
+                "name": "Classic layouting",
+                "items": [
+                    {
+                        "title": "In depth information about how to use (and clear) floats.",
+                        "description": "float explained on the Codrops CSS Reference",
+                        "author": "Team Codrops",
+                        "productUrl": "https://tympanus.net/codrops/css_reference/float/",
+                        "type": "website",
+                        "imageUrl": "https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/10/inline-image.png"
+                    },
+                    {
+                        "title": "A closer look at a few little-known things related to the CSS positioning layout method.",
+                        "description": "These days front-end developers can build complex page layouts by taking advantage of different CSS layout techniques. Some of those techniques have a long history (e.g. floats), while others (e.g.",
+                        "author": "George Martsoukos",
+                        "productUrl": "https://scotch.io/bar-talk/5-things-you-might-not-know-about-the-css-positioning-types",
+                        "type": "website",
+                        "imageUrl": "https://scotch-res.cloudinary.com/image/upload/w_auto,q_auto:good,f_auto/media/https://scotch.io/wp-content/uploads/2015/10/5-things-you-might-not-know-css-positioning1.png"
+                    },
+                    {
+                        "title": "Shows in which cases it makes sense to use the display property  for layouting.",
+                        "description": "An alternative to floats. It's a simple way to get divs side by side. Learn how to remove space between inline-block elements.",
+                        "author": "Steve McKinney",
+                        "productUrl": "https://iamsteve.me/blog/entry/inline_block",
+                        "type": "website",
+                        "imageUrl": "https://iamsteve.me/uploads/blog/inline-block-featured-image%402x.png"
+                    }
+                ]
+            },
+            {
+                "id": "f9f85832-70cb-50b7-8c5a-66c40a560138",
+                "date": "2019-11-04T13:50:15.033Z",
+                "name": "Flexbox",
+                "items": [
+                    {
+                        "title": "All you need to know about Flexbox on one page.",
+                        "description": "Our comprehensive guide to CSS flexbox layout. This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.",
+                        "author": "@chriscoyier",
+                        "productUrl": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+                        "type": "website",
+                        "imageUrl": "https://css-tricks.com/wp-content/uploads/2018/12/guide-flexbox.png"
+                    },
+                    {
+                        "title": "Play with Flexbox examples on CodePen.",
+                        "productUrl": "https://codepen.io/enxaneta/full/adLPwv",
+                        "type": "website"
+                    },
+                    {
+                        "title": "A tower defense game in the browser to learn about Flexbox with fun.",
+                        "description": "Your job is to stop the incoming enemies from getting past\n                   your defenses. Unlike other tower defense games, you must\n                   position your towers using CSS!",
+                        "productUrl": "http://www.flexboxdefense.com",
+                        "type": "website",
+                        "imageUrl": "http://www.flexboxdefense.com/images/gameboard-b58cd885d125374f5156eac2d6c3b62c.png"
+                    },
+                    {
+                        "title": "Learn all the basics of Flexbox with a fun game involving frogs and lily pads.",
+                        "description": "A game for learning CSS flexbox",
+                        "productUrl": "https://flexboxfroggy.com",
+                        "type": "website",
+                        "imageUrl": "http://flexboxfroggy.com/images/screenshot.png"
+                    },
+                    {
+                        "title": "Community-curated list of flexbox issues and cross-browser workarounds for them.",
+                        "author": "philipwalton/flexbugs",
+                        "productUrl": "https://github.com/philipwalton/flexbugs",
+                        "description": "A community-curated list of flexbox issues and cross-browser workarounds for them.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/326742?v=4",
+                        "meta": {
+                            "starsCount": 11520,
+                            "forksCount": 375,
+                            "watchersCount": 11520,
+                            "issuesCount": 80,
+                            "pushedAt": "2019-06-08T21:46:05Z"
+                        }
+                    },
+                    {
+                        "title": "A training course driven by a storyline where you use Flexbox and a crossbow to hunt zombies.",
+                        "description": "Master Flexbox layout: a game by geddski",
+                        "author": "@geddski",
+                        "productUrl": "https://flexboxzombies.com",
+                        "type": "website",
+                        "imageUrl": "https://gedd.ski/fbz/fbz-banner.jpg"
+                    }
+                ]
+            },
+            {
+                "id": "e21ea538-86f5-5f75-8d11-0ea713578930",
+                "date": "2019-11-04T13:50:13.992Z",
+                "name": "Grid",
+                "items": [
+                    {
+                        "title": "All you need to know about CSS Grid Layout on one page.",
+                        "description": "CSS Grid Layout is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can handle both columns and rows, unlike",
+                        "author": "@CSS",
+                        "productUrl": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+                        "type": "website",
+                        "imageUrl": "https://css-tricks.com/wp-content/uploads/2018/12/grid-guide.png"
+                    },
+                    {
+                        "title": "Besides examples of how to use Grid this site also has additional useful learning ressources.",
+                        "productUrl": "https://gridbyexample.com",
+                        "type": "website"
+                    },
+                    {
+                        "title": "Lovely game where you write CSS code to grow your carrot garden.",
+                        "description": "A game for learning CSS grid layout",
+                        "productUrl": "https://cssgridgarden.com",
+                        "type": "website",
+                        "imageUrl": "http://cssgridgarden.com/images/screenshot.png"
+                    },
+                    {
+                        "title": "Community-curated list of Grid interop issues and workarounds for them.",
+                        "author": "rachelandrew/gridbugs",
+                        "productUrl": "https://github.com/rachelandrew/gridbugs",
+                        "description": "A curated list of Grid interop issues",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/2764898?v=4",
+                        "meta": {
+                            "starsCount": 1018,
+                            "forksCount": 14,
+                            "watchersCount": 1018,
+                            "issuesCount": 36,
+                            "pushedAt": "2017-11-20T14:04:59Z"
+                        }
+                    },
+                    {
+                        "title": "Learn CSS grid layout by mastering an adventure game.",
+                        "description": "Completely learn CSS Grid once and for all by playing Grid Critters",
+                        "author": "@geddski",
+                        "productUrl": "https://www.gridcritters.com",
+                        "type": "website",
+                        "imageUrl": "https://gedd.ski/gc/gc-twitter-card.jpg"
+                    }
+                ]
+            },
+            {
+                "id": "5c816303-346f-59bd-bd71-11fd1e572f56",
+                "date": "2019-11-04T13:50:13.694Z",
+                "name": "Animation",
+                "items": [
+                    {
+                        "title": "An introduction to to CSS transitions and CSS (2D) transforms.",
+                        "description": "Learn to add simple animations and movement to your design with CSS transitions and transforms.",
+                        "author": "thoughtbot",
+                        "productUrl": "https://robots.thoughtbot.com/transitions-and-transforms",
+                        "type": "website",
+                        "imageUrl": "https://images.thoughtbot.com/blog-images/social-share-default.png"
+                    },
+                    {
+                        "title": "Also addressing advanced topics from chaining and events to hardware acceleration and animation functions.",
+                        "description": "CSS3 transitions bring simple and elegant animations to web applications, but there’s a lot more to the spec than first meets the eye. In this post I’m going to delve into some of the more complicated parts of CSS transitions, from chaining and... | Alex MacCaw | JavaScript programmer, O'Reilly author.",
+                        "author": "Alex MacCaw on Svbtle",
+                        "productUrl": "https://blog.alexmaccaw.com/css-transitions",
+                        "type": "website",
+                        "imageUrl": "https://svbtleusercontent.com/inline_maccman_24418277747802_raw.png"
+                    },
+                    {
+                        "title": "Multi page tutorial with examples like card flip and carousel effects.",
+                        "productUrl": "https://3dtransforms.desandro.com",
+                        "type": "website"
+                    },
+                    {
+                        "title": "Imparts the concepts of CSS animations with keyframes.",
+                        "description": "How to use CSS to animate content on the web.",
+                        "author": "thoughtbot",
+                        "productUrl": "https://robots.thoughtbot.com/css-animation-for-beginners",
+                        "type": "website",
+                        "imageUrl": "https://images.thoughtbot.com/blog+animations/animation-bounceIn.gif"
+                    },
+                    {
+                        "title": "Nice little page demonstrating which CSS properties are animatable.",
+                        "productUrl": "http://leaverou.github.io/animatable/",
+                        "type": "website"
+                    }
+                ]
+            }
+        ]
+    }
+]

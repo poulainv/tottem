@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "strict": true,
+        "lib": ["es2018", "dom"],
+        "esModuleInterop": true
+    }
+}

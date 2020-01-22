@@ -1,0 +1,1055 @@
+[
+    {
+        "id": "0567e818-2c86-528c-b853-a319a0a57d16",
+        "name": "📚 General Resources",
+        "index": 1,
+        "collections": [
+            {
+                "id": "5cc3ef69-e71b-5e4b-8813-cf96173cfa3c",
+                "date": "2019-10-31T17:16:10.231Z",
+                "name": "General",
+                "items": [
+                    {
+                        "title": "How to GraphQL",
+                        "description": "Fullstack GraphQL Tutorial to go from zero to production covering all basics and advanced concepts. Includes tutorials for Apollo, Relay, React and NodeJS.",
+                        "productUrl": "https://www.howtographql.com/",
+                        "type": "website",
+                        "imageUrl": "https://www.howtographql.com/social.png"
+                    },
+                    {
+                        "title": "Reference Example",
+                        "author": "prisma-labs/graphql-prisma-typescript",
+                        "productUrl": "https://github.com/graphcool/graphql-server-example",
+                        "description": "🏡  GraphQL server reference implementation (Airbnb clone) in Typescript using Prisma & graphql-yoga",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 680,
+                            "forksCount": 119,
+                            "watchersCount": 680,
+                            "issuesCount": 28
+                        }
+                    },
+                    {
+                        "title": "Example Collection",
+                        "author": "prisma/prisma-examples",
+                        "productUrl": "https://github.com/prisma/prisma-examples",
+                        "description": "💡 Examples of Prisma using different languages and technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 796,
+                            "forksCount": 190,
+                            "watchersCount": 796,
+                            "issuesCount": 32
+                        }
+                    },
+                    {
+                        "title": "GraphQL Boilerplates",
+                        "description": "Collection of production-ready GraphQL boilerplate projects - GraphQL Boilerplates",
+                        "author": "GitHub",
+                        "productUrl": "https://github.com/graphql-boilerplates/",
+                        "type": "website",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/18574799?s=280&v=4"
+                    },
+                    {
+                        "title": "Quickstart",
+                        "description": "Goals On this page, you will learn how to:  Install the Prisma CLI Set up Prisma with a sandboxed demo database Read and write data using the...",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/docs/get-started/01-setting-up-prisma-demo-server-JAVASCRIPT-a001/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Tutorials",
+                        "description": "Prisma is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "What is Prisma",
+                        "description": "Learn about Prisma's use cases, main benefits and how it fits into your stack.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/docs/understand-prisma/prisma-introduction-what-why-how-j9ff/#what-is-prisma",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Prisma Deep Dive Article",
+                        "description": "Cloud Native — GraphQL — Database API Layer",
+                        "productUrl": "https://divu.in/prisma-deep-dive-3162dea2820c",
+                        "type": "website",
+                        "imageUrl": "divu.in/undefined"
+                    },
+                    {
+                        "title": "Prisma Shop Example",
+                        "author": "KATT/shop",
+                        "productUrl": "https://github.com/KATT/shop",
+                        "description": "🛍🛒 Full-stack React/Prisma/TS/GraphQL E-Commerce Example",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/459267?v=4",
+                        "meta": {
+                            "starsCount": 289,
+                            "forksCount": 31,
+                            "watchersCount": 289,
+                            "issuesCount": 35
+                        }
+                    },
+                    {
+                        "title": "Boilerplate for a Fullstack GraphQL App with React & Prisma",
+                        "author": "alan345/naperg",
+                        "productUrl": "https://github.com/alan345/naperg",
+                        "description": "Fullstack Boilerplate GraphQL. Made with React & Prisma + authentication & roles + upload file + chat",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/15246526?v=4",
+                        "meta": {
+                            "starsCount": 569,
+                            "forksCount": 124,
+                            "watchersCount": 569,
+                            "issuesCount": 0
+                        }
+                    },
+                    {
+                        "title": "NestJS - Prisma - Apollo 2",
+                        "author": "awesome-graphql-space/server-nestjs",
+                        "productUrl": "https://github.com/awesome-graphql-space/server-nestjs",
+                        "description": "NestJS With Prisma",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/42722699?v=4",
+                        "meta": {
+                            "starsCount": 47,
+                            "forksCount": 9,
+                            "watchersCount": 47,
+                            "issuesCount": 5
+                        }
+                    },
+                    {
+                        "title": "Graphql Microservice Starter",
+                        "author": "berstend/graphql-microservice-starter",
+                        "productUrl": "https://github.com/berstend/graphql-microservice-starter",
+                        "description": "Nextgen backend stack using independent GraphQL services",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/1368633?v=4",
+                        "meta": {
+                            "starsCount": 11,
+                            "forksCount": 1,
+                            "watchersCount": 11,
+                            "issuesCount": 0
+                        }
+                    },
+                    {
+                        "title": "RAN-PRISMA : React . GraphQL . Next.js . Prisma Toolkit",
+                        "author": "mshameer/ran-with-prisma",
+                        "productUrl": "https://github.com/mshameer/ran-with-prisma",
+                        "description": "RAN with Prisma",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/16250683?v=4",
+                        "meta": {
+                            "starsCount": 7,
+                            "forksCount": 0,
+                            "watchersCount": 7,
+                            "issuesCount": 1
+                        }
+                    },
+                    {
+                        "title": "Prisma Docs Translated into Chinese",
+                        "description": "Prisma官方中文文档 | 面向未来的后端框架，自动构建Graphql API和数据库，可以使用多种语言开发，兼容RESTful风格",
+                        "productUrl": "https://prisma.1wire.com/",
+                        "type": "website",
+                        "imageUrl": "prisma.1wire.com//static/favicon/apple-touch-icon.png"
+                    },
+                    {
+                        "title": "Fullstack Boilerplate using React Apollo Prisma Typescript",
+                        "author": "DylanMerigaud/react-prisma-typescript-fullstack",
+                        "productUrl": "https://github.com/DylanMerigaud/react-prisma-typescript-fullstack",
+                        "description": "Full-Stack Webpack React Apollo NodeJS Express GraphQL Prisma Typescript Material-UI Formik Yup",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars1.githubusercontent.com/u/1936984?v=4",
+                        "meta": {
+                            "starsCount": 5,
+                            "forksCount": 0,
+                            "watchersCount": 5,
+                            "issuesCount": 7
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "c39d8bf8-7048-5be6-9c0d-0dbc99bac4bf",
+        "name": "🔍 GraphQL Server Development",
+        "index": 2,
+        "collections": [
+            {
+                "id": "3593503b-4555-534e-a0ca-415802647833",
+                "date": "2019-10-31T17:16:09.833Z",
+                "name": "GraphQL Yoga",
+                "items": [
+                    {
+                        "title": "GraphQL Yoga",
+                        "author": "prisma-labs/graphql-yoga",
+                        "productUrl": "https://github.com/prisma/graphql-yoga",
+                        "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
+                            "issuesCount": 28
+                        }
+                    },
+                    {
+                        "title": "Build a GraphQL Server with Prisma and graphql-yoga",
+                        "description": "Goals On this page, you will learn how to:  Use GraphQL Nexus for GraphQL server development Use the nexus-prisma plugin to connect Nexus with your database Use...",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/docs/get-started/03-build-graphql-servers-with-prisma-TYPESCRIPT-t201/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Collection of GraphQL Yoga Examples",
+                        "author": "prisma-labs/graphql-yoga",
+                        "productUrl": "https://github.com/prisma/graphql-yoga/tree/master/examples",
+                        "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
+                            "issuesCount": 28
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "19c9c0ea-8124-5151-a247-b41bc1169425",
+                "date": "2019-10-31T17:16:10.736Z",
+                "name": "Server Deployment",
+                "items": [
+                    {
+                        "title": "Deploying a GraphQL Server with Apex Up",
+                        "description": "Learn how to deploy your GraphQL server with Apex Up.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-a-graphql-server-with-apex-up-cs05/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Deploying GraphQL Servers with Zeit Now",
+                        "description": "Learn how to deploy your GraphQL server with Zeit Now.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-a-graphql-server-with-zeit-now-cs04/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Apex Up and GraphQL Yoga Example",
+                        "author": "maxdarque/up-graphql-yoga-server-example",
+                        "productUrl": "https://github.com/maxdarque/up-graphql-yoga-server-example",
+                        "description": "Tutorial on how  deploy your graphql-yoga server on AWS Lambda with Apex Up",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
+                        "meta": {
+                            "starsCount": 45,
+                            "forksCount": 3,
+                            "watchersCount": 45,
+                            "issuesCount": 0
+                        }
+                    },
+                    {
+                        "title": "Prisma Horizontal Scaling",
+                        "description": "If you’re reading this, you probably heard about Prisma. If not, you will find some references about it at the end of this article. Assuming that you are now familiar with Prisma and are eager to…",
+                        "author": "@emmenko",
+                        "productUrl": "https://techblog.commercetools.com/prisma-horizontal-scaling-a-practical-guide-3a05833d4fc3",
+                        "type": "website",
+                        "imageUrl": "https://miro.medium.com/max/1200/0*7rp_KZIgMFyirYh_"
+                    }
+                ]
+            },
+            {
+                "id": "80dd18e2-af49-5588-b16b-93b97a94f174",
+                "date": "2019-10-31T17:16:11.797Z",
+                "name": "GraphQL Resolvers",
+                "items": [
+                    {
+                        "title": "Demystifying the  argument in GraphQL Resolvers",
+                        "description": "Structure and Implementation of GraphQL Servers (Part III)",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/blog/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a/",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/blog/posts/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers.png"
+                    },
+                    {
+                        "title": "Different use cases for the  argument",
+                        "description": "I have a model defined in my GraphCool backend: \ntype Team {\n  id: ID! @unique\n  name: String\n  memberships: [Membership!]! @relation(name: &quot;MembershipOnTeam&quot;)\n}\n\ntype Membership {\n  id: ID! @unique\n  team: Team @relatio&hellip;",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.prisma.io/forum/t/querying-specific-fields-in-db-from-local-service-with-prisma/2075/4",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/static/favicon.png"
+                    },
+                    {
+                        "title": "Collection of common scenarios",
+                        "author": "graphql-boilerplates/node-graphql-server",
+                        "productUrl": "https://github.com/graphql-boilerplates/node-graphql-server/issues/35",
+                        "description": "Boilerplate code for scalable, production-ready GraphQL servers",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/18574799?v=4",
+                        "meta": {
+                            "starsCount": 661,
+                            "forksCount": 110,
+                            "watchersCount": 661,
+                            "issuesCount": 35
+                        }
+                    },
+                    {
+                        "title": "Subscription Resolver Examples",
+                        "author": "prisma-labs/prisma-binding",
+                        "productUrl": "https://github.com/prisma/prisma-binding/issues/78",
+                        "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 427,
+                            "forksCount": 43,
+                            "watchersCount": 427,
+                            "issuesCount": 49
+                        }
+                    },
+                    {
+                        "title": "GraphQL Mutation Arguments Validation with Yup using graphql-middleware",
+                        "author": "Jonathan Cardoso",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@jonathancardoso/graphql-mutation-arguments-validation-with-yup-using-graphql-middleware-645822fb748",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*gREOEEM39RWzrvbkwsq2AQ.png"
+                    }
+                ]
+            },
+            {
+                "id": "daa04830-78c1-5077-aeec-0024dd6b4366",
+                "date": "2019-10-31T17:16:10.210Z",
+                "name": "GraphQL Bindings",
+                "items": [
+                    {
+                        "title": "Prisma Binding",
+                        "author": "prisma-labs/prisma-binding",
+                        "productUrl": "https://github.com/prisma/prisma-binding",
+                        "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 427,
+                            "forksCount": 43,
+                            "watchersCount": 427,
+                            "issuesCount": 49
+                        }
+                    },
+                    {
+                        "title": "GraphQL Binding",
+                        "author": "dotansimha/graphql-binding",
+                        "productUrl": "https://github.com/graphql-binding/graphql-binding",
+                        "description": "Auto-generated SDK for your GraphQL API (supports schema stitching & codegen)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/3680083?v=4",
+                        "meta": {
+                            "starsCount": 332,
+                            "forksCount": 53,
+                            "watchersCount": 332,
+                            "issuesCount": 64
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "8bb4cd29-dec2-510b-9f8f-8cc46db2e0ba",
+                "date": "2019-10-31T17:16:10.546Z",
+                "name": "Authentication",
+                "items": [
+                    {
+                        "title": "Email & Password Authentication Example",
+                        "author": "prisma/prisma-examples",
+                        "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-auth",
+                        "description": "💡 Examples of Prisma using different languages and technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 796,
+                            "forksCount": 190,
+                            "watchersCount": 796,
+                            "issuesCount": 32
+                        }
+                    },
+                    {
+                        "title": "Authentication with GitHub OAuth2",
+                        "author": "Matic Zavadlal",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-example-series-authentication-282f274b8343",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*bSBSdi_Z2FUSadPxnNadJg.png"
+                    },
+                    {
+                        "title": "Facebook Authentication Example",
+                        "author": "harrisrobin/prisma-facebook-auth-example",
+                        "productUrl": "https://github.com/harrisrobin/prisma-facebook-auth-example",
+                        "description": "Example repo demonstrating how to authenticate a user with facebook in Prisma.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3880008?v=4",
+                        "meta": {
+                            "starsCount": 18,
+                            "forksCount": 2,
+                            "watchersCount": 18,
+                            "issuesCount": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "b91f7331-0f09-5ff9-bde0-4c33b24c520c",
+                "date": "2019-10-31T17:16:09.862Z",
+                "name": "Permissions",
+                "items": [
+                    {
+                        "title": "GraphQL Directive Permissions",
+                        "description": "Directive permissions are a declarative way of implementing authorization rules in GraphQL servers. In this article, our guest author Dennis Walsh explains how to use them in order to protect your data.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/blog/graphql-directive-permissions-authorization-made-easy-54c076b5368e/",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/blog/posts/graphql-directive-permissions-authorization-made-easy.png"
+                    },
+                    {
+                        "title": "GraphQL Shield",
+                        "author": "maticzav/graphql-shield",
+                        "productUrl": "https://github.com/maticzav/graphql-shield",
+                        "description": "🛡 A GraphQL tool to ease the creation of permission layer.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/3924224?v=4",
+                        "meta": {
+                            "starsCount": 1854,
+                            "forksCount": 80,
+                            "watchersCount": 1854,
+                            "issuesCount": 26
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "f60d1e8d-566c-5a68-a7ba-76e56f836e56",
+                "date": "2019-10-31T17:16:09.837Z",
+                "name": "Subscriptions",
+                "items": [
+                    {
+                        "title": "Subscriptions Example",
+                        "author": "prisma/prisma-examples",
+                        "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-subscriptions",
+                        "description": "💡 Examples of Prisma using different languages and technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 796,
+                            "forksCount": 190,
+                            "watchersCount": 796,
+                            "issuesCount": 32
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "44fe8e20-ecff-5a18-b123-e976e4607f57",
+                "date": "2019-10-31T17:16:12.227Z",
+                "name": "File Handling",
+                "items": [
+                    {
+                        "title": "File Handling with AWS S3, Prisma & graphql-yoga",
+                        "description": "Hey everybody. If anyone is interested in a GraphQL example that lets you delegate file handling to the server and simply send files through mutations on client-side, check out my tutorial here: https://manticarodrigo.co&hellip;",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.prisma.io/forum/t/graphql-file-handling-with-aws-s3-prisma-graphql-yoga/2779",
+                        "type": "website",
+                        "imageUrl": "https://imgur.com/ZUVFCyK.png"
+                    },
+                    {
+                        "title": "Handling files with Amazon S3 and Prisma",
+                        "author": "Matic Zavadlal",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-examples-series-file-api-3b16b4b8785f",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*Nu5cjfpF-9-zMdETqtgspg.png"
+                    }
+                ]
+            },
+            {
+                "id": "d3ece5e5-3de1-5a20-b927-d9287d7958eb",
+                "date": "2019-10-31T17:16:09.305Z",
+                "name": "Error Handling",
+                "items": [
+                    {
+                        "title": "Handling Errors in GraphQL",
+                        "description": "My approach of handling errors in GraphQL",
+                        "author": "@binarycereals",
+                        "productUrl": "https://dev.to/andre/handling-errors-in-graphql--2ea3",
+                        "type": "website",
+                        "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--Pz7ZO8jU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/6jgqjjqy0y6esaeg2ygv.png"
+                    }
+                ]
+            },
+            {
+                "id": "a91dd644-6c3c-5862-948a-cd62a25bc850",
+                "date": "2019-10-31T17:16:12.005Z",
+                "name": "Multi-tenancy",
+                "items": [
+                    {
+                        "title": "Building a multi-tenant application with Prisma",
+                        "description": "Let’s make an analogy in which your application is a building, and each group of users is given an apartment. All these tenants are thus sharing the same walls, electricity and water network, waste…",
+                        "author": "Medium",
+                        "productUrl": "https://medium.zenika.com/building-a-multi-tenant-application-with-prisma-11bf890304d6",
+                        "type": "website",
+                        "imageUrl": "https://miro.medium.com/max/1200/0*uyIJbgoRWJkCabhv"
+                    },
+                    {
+                        "title": "prisma-multi-tenant",
+                        "author": "Errorname/prisma-multi-tenant",
+                        "productUrl": "https://github.com/Errorname/prisma-multi-tenant",
+                        "description": "🧭 Use Prisma as a multi-tenant provider with Apollo Server or Yoga",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/6669733?v=4",
+                        "meta": {
+                            "starsCount": 24,
+                            "forksCount": 0,
+                            "watchersCount": 24,
+                            "issuesCount": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "bfe2e8d6-c908-557e-922d-444c5340da79",
+                "date": "2019-10-31T17:16:12.406Z",
+                "name": "General",
+                "items": [
+                    {
+                        "title": "GraphQL Yoga",
+                        "author": "prisma-labs/graphql-yoga",
+                        "productUrl": "https://github.com/prisma/graphql-yoga",
+                        "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
+                            "issuesCount": 28
+                        }
+                    },
+                    {
+                        "title": "Build a GraphQL Server with Prisma and graphql-yoga",
+                        "description": "Goals On this page, you will learn how to:  Use GraphQL Nexus for GraphQL server development Use the nexus-prisma plugin to connect Nexus with your database Use...",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/docs/get-started/03-build-graphql-servers-with-prisma-TYPESCRIPT-t201/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Collection of GraphQL Yoga Examples",
+                        "author": "prisma-labs/graphql-yoga",
+                        "productUrl": "https://github.com/prisma/graphql-yoga/tree/master/examples",
+                        "description": "🧘 Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 5011,
+                            "forksCount": 325,
+                            "watchersCount": 5011,
+                            "issuesCount": 28
+                        }
+                    },
+                    {
+                        "title": "Deploying a GraphQL Server with Apex Up",
+                        "description": "Learn how to deploy your GraphQL server with Apex Up.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-a-graphql-server-with-apex-up-cs05/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Deploying GraphQL Servers with Zeit Now",
+                        "description": "Learn how to deploy your GraphQL server with Zeit Now.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-a-graphql-server-with-zeit-now-cs04/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Apex Up and GraphQL Yoga Example",
+                        "author": "maxdarque/up-graphql-yoga-server-example",
+                        "productUrl": "https://github.com/maxdarque/up-graphql-yoga-server-example",
+                        "description": "Tutorial on how  deploy your graphql-yoga server on AWS Lambda with Apex Up",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
+                        "meta": {
+                            "starsCount": 45,
+                            "forksCount": 3,
+                            "watchersCount": 45,
+                            "issuesCount": 0
+                        }
+                    },
+                    {
+                        "title": "Prisma Horizontal Scaling",
+                        "description": "If you’re reading this, you probably heard about Prisma. If not, you will find some references about it at the end of this article. Assuming that you are now familiar with Prisma and are eager to…",
+                        "author": "@emmenko",
+                        "productUrl": "https://techblog.commercetools.com/prisma-horizontal-scaling-a-practical-guide-3a05833d4fc3",
+                        "type": "website",
+                        "imageUrl": "https://miro.medium.com/max/1200/0*7rp_KZIgMFyirYh_"
+                    },
+                    {
+                        "title": "Demystifying the  argument in GraphQL Resolvers",
+                        "description": "Structure and Implementation of GraphQL Servers (Part III)",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/blog/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a/",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/blog/posts/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers.png"
+                    },
+                    {
+                        "title": "Different use cases for the  argument",
+                        "description": "I have a model defined in my GraphCool backend: \ntype Team {\n  id: ID! @unique\n  name: String\n  memberships: [Membership!]! @relation(name: &quot;MembershipOnTeam&quot;)\n}\n\ntype Membership {\n  id: ID! @unique\n  team: Team @relatio&hellip;",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.prisma.io/forum/t/querying-specific-fields-in-db-from-local-service-with-prisma/2075/4",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/static/favicon.png"
+                    },
+                    {
+                        "title": "Collection of common scenarios",
+                        "author": "graphql-boilerplates/node-graphql-server",
+                        "productUrl": "https://github.com/graphql-boilerplates/node-graphql-server/issues/35",
+                        "description": "Boilerplate code for scalable, production-ready GraphQL servers",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/18574799?v=4",
+                        "meta": {
+                            "starsCount": 661,
+                            "forksCount": 110,
+                            "watchersCount": 661,
+                            "issuesCount": 35
+                        }
+                    },
+                    {
+                        "title": "Subscription Resolver Examples",
+                        "author": "prisma-labs/prisma-binding",
+                        "productUrl": "https://github.com/prisma/prisma-binding/issues/78",
+                        "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 427,
+                            "forksCount": 43,
+                            "watchersCount": 427,
+                            "issuesCount": 49
+                        }
+                    },
+                    {
+                        "title": "GraphQL Mutation Arguments Validation with Yup using graphql-middleware",
+                        "author": "Jonathan Cardoso",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@jonathancardoso/graphql-mutation-arguments-validation-with-yup-using-graphql-middleware-645822fb748",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*gREOEEM39RWzrvbkwsq2AQ.png"
+                    },
+                    {
+                        "title": "Prisma Binding",
+                        "author": "prisma-labs/prisma-binding",
+                        "productUrl": "https://github.com/prisma/prisma-binding",
+                        "description": "GraphQL Binding for Prisma (using GraphQL schema delegation)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/55085183?v=4",
+                        "meta": {
+                            "starsCount": 427,
+                            "forksCount": 43,
+                            "watchersCount": 427,
+                            "issuesCount": 49
+                        }
+                    },
+                    {
+                        "title": "GraphQL Binding",
+                        "author": "dotansimha/graphql-binding",
+                        "productUrl": "https://github.com/graphql-binding/graphql-binding",
+                        "description": "Auto-generated SDK for your GraphQL API (supports schema stitching & codegen)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/3680083?v=4",
+                        "meta": {
+                            "starsCount": 332,
+                            "forksCount": 53,
+                            "watchersCount": 332,
+                            "issuesCount": 64
+                        }
+                    },
+                    {
+                        "title": "Email & Password Authentication Example",
+                        "author": "prisma/prisma-examples",
+                        "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-auth",
+                        "description": "💡 Examples of Prisma using different languages and technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 796,
+                            "forksCount": 190,
+                            "watchersCount": 796,
+                            "issuesCount": 32
+                        }
+                    },
+                    {
+                        "title": "Authentication with GitHub OAuth2",
+                        "author": "Matic Zavadlal",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-example-series-authentication-282f274b8343",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*bSBSdi_Z2FUSadPxnNadJg.png"
+                    },
+                    {
+                        "title": "Facebook Authentication Example",
+                        "author": "harrisrobin/prisma-facebook-auth-example",
+                        "productUrl": "https://github.com/harrisrobin/prisma-facebook-auth-example",
+                        "description": "Example repo demonstrating how to authenticate a user with facebook in Prisma.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars3.githubusercontent.com/u/3880008?v=4",
+                        "meta": {
+                            "starsCount": 18,
+                            "forksCount": 2,
+                            "watchersCount": 18,
+                            "issuesCount": 1
+                        }
+                    },
+                    {
+                        "title": "GraphQL Directive Permissions",
+                        "description": "Directive permissions are a declarative way of implementing authorization rules in GraphQL servers. In this article, our guest author Dennis Walsh explains how to use them in order to protect your data.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/blog/graphql-directive-permissions-authorization-made-easy-54c076b5368e/",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/blog/posts/graphql-directive-permissions-authorization-made-easy.png"
+                    },
+                    {
+                        "title": "GraphQL Shield",
+                        "author": "maticzav/graphql-shield",
+                        "productUrl": "https://github.com/maticzav/graphql-shield",
+                        "description": "🛡 A GraphQL tool to ease the creation of permission layer.",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/3924224?v=4",
+                        "meta": {
+                            "starsCount": 1854,
+                            "forksCount": 80,
+                            "watchersCount": 1854,
+                            "issuesCount": 26
+                        }
+                    },
+                    {
+                        "title": "Subscriptions Example",
+                        "author": "prisma/prisma-examples",
+                        "productUrl": "https://github.com/prisma/prisma-examples/tree/master/node/graphql-subscriptions",
+                        "description": "💡 Examples of Prisma using different languages and technologies",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 796,
+                            "forksCount": 190,
+                            "watchersCount": 796,
+                            "issuesCount": 32
+                        }
+                    },
+                    {
+                        "title": "File Handling with AWS S3, Prisma & graphql-yoga",
+                        "description": "Hey everybody. If anyone is interested in a GraphQL example that lets you delegate file handling to the server and simply send files through mutations on client-side, check out my tutorial here: https://manticarodrigo.co&hellip;",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.prisma.io/forum/t/graphql-file-handling-with-aws-s3-prisma-graphql-yoga/2779",
+                        "type": "website",
+                        "imageUrl": "https://imgur.com/ZUVFCyK.png"
+                    },
+                    {
+                        "title": "Handling files with Amazon S3 and Prisma",
+                        "author": "Matic Zavadlal",
+                        "provider": "medium",
+                        "productUrl": "https://medium.com/@maticzavadlal/graphcool-1-0-examples-series-file-api-3b16b4b8785f",
+                        "type": "article",
+                        "imageUrl": "https://miro.medium.com/max/1200/1*Nu5cjfpF-9-zMdETqtgspg.png"
+                    },
+                    {
+                        "title": "Handling Errors in GraphQL",
+                        "description": "My approach of handling errors in GraphQL",
+                        "author": "@binarycereals",
+                        "productUrl": "https://dev.to/andre/handling-errors-in-graphql--2ea3",
+                        "type": "website",
+                        "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--Pz7ZO8jU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/6jgqjjqy0y6esaeg2ygv.png"
+                    },
+                    {
+                        "title": "Building a multi-tenant application with Prisma",
+                        "description": "Let’s make an analogy in which your application is a building, and each group of users is given an apartment. All these tenants are thus sharing the same walls, electricity and water network, waste…",
+                        "author": "Medium",
+                        "productUrl": "https://medium.zenika.com/building-a-multi-tenant-application-with-prisma-11bf890304d6",
+                        "type": "website",
+                        "imageUrl": "https://miro.medium.com/max/1200/0*uyIJbgoRWJkCabhv"
+                    },
+                    {
+                        "title": "prisma-multi-tenant",
+                        "author": "Errorname/prisma-multi-tenant",
+                        "productUrl": "https://github.com/Errorname/prisma-multi-tenant",
+                        "description": "🧭 Use Prisma as a multi-tenant provider with Apollo Server or Yoga",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars2.githubusercontent.com/u/6669733?v=4",
+                        "meta": {
+                            "starsCount": 24,
+                            "forksCount": 0,
+                            "watchersCount": 24,
+                            "issuesCount": 1
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "4966bb0e-6e5a-586c-ba81-86f401bfc2f1",
+        "name": "🔺 Prisma Server Deployment",
+        "index": 3,
+        "collections": [
+            {
+                "id": "e27611e6-a143-5922-a556-dfd335e02f05",
+                "date": "2019-10-31T17:16:10.087Z",
+                "name": "General",
+                "items": [
+                    {
+                        "title": "Local (Docker)",
+                        "author": "Prisma",
+                        "productUrl": "https://www.prismagraphql.com/docs/tutorials/cluster-deployment/local-(docker)-meemaesh3k",
+                        "type": "website",
+                        "imageUrl": "www.prismagraphql.com//docs/apple-touch-icon.png"
+                    },
+                    {
+                        "title": "Digital Ocean (Docker Machine)",
+                        "description": "Learn how to deploy Prisma to DigitalOcean using Docker Machine.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-prisma-to-digitalocean-with-docker-machine-ct06",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Digital Ocean (manual)",
+                        "description": "Learn how to deploy your Prisma database service to DigitalOcean manually.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-prisma-to-digitalocean-ct12/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Prisma Docker",
+                        "author": "maxdarque/prisma-docker",
+                        "productUrl": "https://github.com/maxdarque/prisma-docker",
+                        "description": "[Unmaintained] - The goal is to connect a Prisma docker instance to a AWS RDS MySQL database",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/28513029?v=4",
+                        "meta": {
+                            "starsCount": 33,
+                            "forksCount": 2,
+                            "watchersCount": 33,
+                            "issuesCount": 2
+                        }
+                    },
+                    {
+                        "title": "Prisma Docker Compose",
+                        "author": "akoenig/prisma-docker-compose",
+                        "productUrl": "https://github.com/akoenig/prisma-docker-compose/",
+                        "description": "Demonstrates how to start a Prisma cluster (MySQL + Prisma) via Docker Compose",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/224910?v=4",
+                        "meta": {
+                            "starsCount": 16,
+                            "forksCount": 3,
+                            "watchersCount": 16,
+                            "issuesCount": 0
+                        }
+                    },
+                    {
+                        "title": "Kubernetes",
+                        "description": "Learn how to deploy Prisma to Kubernetes.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-prisma-to-kubernetes-ct13/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Deployment to AWS EC2",
+                        "description": "So I went on this journey mainly to minimize costs as AWS is free for 1 year. I have mostly succeeded and I want to share what I did. \n\nThe absolutely best place to start is this article: https://www.prismagraphql.com/do&hellip;",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.graph.cool/forum/t/deployment-of-prisma-to-aws-ec2/2880?u=nilan",
+                        "type": "website",
+                        "imageUrl": "https://user-images.githubusercontent.com/1096340/37587424-96192b2e-2b5f-11e8-9eb5-a5768bc1090d.png"
+                    },
+                    {
+                        "title": "Serverless Template",
+                        "description": "This is an early stage project template for using Prisma with the Serverless Framework. It’s written in TypeScript and compiled with Babel 7 &amp; Webpack 4.",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.graph.cool/forum/t/minimal-serverless-prisma-project-template/2827?u=nilan",
+                        "type": "website",
+                        "imageUrl": "https://assets-cdn.github.com/favicon.ico"
+                    },
+                    {
+                        "title": "AWS Fargate",
+                        "description": "Learn how to deploy Prisma servers to AWS Fargate.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials/deploy-prisma-to-aws-fargate-ct14/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8f320cae-50bf-5e61-8192-d220fa7d321b",
+        "name": "🎥 Video tutorials",
+        "index": 4,
+        "collections": [
+            {
+                "id": "9b849168-5da0-5a58-a179-e0d50f95189a",
+                "date": "2019-10-31T17:16:09.446Z",
+                "name": "General",
+                "items": [
+                    {
+                        "title": "React Native and Prisma YouTube Tutorial Series",
+                        "author": "Ben Awad",
+                        "productUrl": "https://www.youtube.com/watch?v=nyE6shIRzxM&list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy",
+                        "description": "Introduction for a new project I'm starting. It's going to be an eCommerce app built with React Native and Prisma GraphQL.\n\nPlaylist: https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy\n\n----\nVideo Suggestions:\n\nTrello: https://trello.com/b/mErpLVj7/todo\nJoin the Trello board: https://trello.com/invite/b/mErpLVj7/99020cac2d3397287640d7d86cb3c09a/todo\n\n----\nFollow Me Online Here:\n\nFacebook: https://www.facebook.com/benawad97/\nGitHub: https://github.com/benawad\nTwitter: https://twitter.com/benawad97\nLinkedIn: https://www.linkedin.com/in/benawad/\nInstagram: http://instagram.com/benawad97\nPatreon: https://www.patreon.com/benawad\n----\nJoin the Discord: https://discord.gg/Vehs99V",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/nyE6shIRzxM/hqdefault.jpg",
+                        "meta": { "viewCount": "17133", "likeCount": "147" }
+                    },
+                    {
+                        "title": "Build a ProductHunt GraphQL server with Prisma + GraphQL Yoga",
+                        "author": "Jamie Barton",
+                        "productUrl": "https://www.youtube.com/watch?v=-n30pzgnkW0&list=PLs2PzMqLzi7Xmx44xTLfOBCwCAxVgQvE*",
+                        "description": "In this video series we will create all that is required to build a website similar to ProductHunt.\n\nThere is one slight catch: Products can only be upvoted on the day of publish! Most voted product wins!\n\nDonations welcome: https://www.paypal.me/notrab",
+                        "provider": "youtube",
+                        "type": "video",
+                        "imageUrl": "https://i.ytimg.com/vi/-n30pzgnkW0/hqdefault.jpg",
+                        "meta": { "viewCount": "4456", "likeCount": "66" }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "e01367a9-7c7f-522f-89ef-eedf3ef5cce8",
+        "name": ":family_man_woman_girl_boy: Community",
+        "index": 5,
+        "collections": [
+            {
+                "id": "ac5e94f9-d5ee-5c55-9422-bcfbcb1ed393",
+                "date": "2019-10-31T17:16:10.184Z",
+                "name": "General",
+                "items": [
+                    {
+                        "title": "GitHub",
+                        "author": "prisma/prisma",
+                        "productUrl": "https://github.com/prisma/prisma",
+                        "description": "💾 Database Tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
+                        "provider": "github",
+                        "type": "repository",
+                        "imageUrl": "https://avatars0.githubusercontent.com/u/17219288?v=4",
+                        "meta": {
+                            "starsCount": 15996,
+                            "forksCount": 911,
+                            "watchersCount": 15996,
+                            "issuesCount": 628
+                        }
+                    },
+                    {
+                        "title": "Website",
+                        "description": "Prisma replaces traditional ORMs and can be used to build GraphQL servers, REST APIs, microservices & more.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io",
+                        "type": "website",
+                        "imageUrl": "https://www.prisma.io/og-image.png"
+                    },
+                    {
+                        "title": "Docs",
+                        "description": "Prisma is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/docs/",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Tutorials",
+                        "description": "Prisma is a performant open-source GraphQL ORM-like layer doing the heavy lifting in your GraphQL server.",
+                        "author": "@prisma",
+                        "productUrl": "https://www.prisma.io/tutorials",
+                        "type": "website",
+                        "imageUrl": "https://prisma-docs-v2.netlify.com/static/meta.png"
+                    },
+                    {
+                        "title": "Blog",
+                        "author": "Prisma",
+                        "productUrl": "https://www.prisma.io/blog/",
+                        "type": "website",
+                        "imageUrl": "www.prisma.io//blog/apple-touch-icon.png"
+                    },
+                    {
+                        "title": "Forum",
+                        "description": "Ask questions about Prisma, GraphQL and related technologies.",
+                        "author": "Prisma Forum",
+                        "productUrl": "https://www.prisma.io/forum/",
+                        "type": "website",
+                        "imageUrl": "https://imgur.com/ZUVFCyK.png"
+                    },
+                    {
+                        "title": "Slack",
+                        "productUrl": "https://slack.prisma.io/",
+                        "type": "website",
+                        "imageUrl": "slack.prisma.io/undefined"
+                    },
+                    {
+                        "title": "Twitter",
+                        "description": "Die neuesten Tweets von Prisma (@prisma). Prisma makes databases easy ⚡️ Get started on: https://t.co/VjcuEoGTzp 🥳 We're Hiring: https://t.co/4oFWkc3LhY 👩🏾‍💻. San Francisco & Berlin",
+                        "productUrl": "https://twitter.com/prisma",
+                        "type": "website",
+                        "imageUrl": "twitter.com/https://abs.twimg.com/icons/apple-touch-icon-192x192.png"
+                    }
+                ]
+            }
+        ]
+    }
+]

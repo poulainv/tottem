@@ -1,0 +1,1307 @@
+[
+    {
+        "name": "Films",
+        "index": 0,
+        "id": "film-1",
+        "collections": [
+            {
+                "id": "1-chefs-doeuvre-cinema-lemonde-films",
+                "name": "Les 100 chefs-d’œuvre du cinéma d'après les critiques du « Monde » depuis 1944",
+                "detail": "Paru [en 2018 ici](https://www.lemonde.fr/cinema/article/2018/12/22/les-100-chefs-d-uvre-du-cinema-qui-ont-le-plus-enthousiasme-les-critiques-du-monde-depuis-1944_5401412_3476.html), un article propose de se replonger dans les films du siècle qui ont marqué les critiques du journal. J'ai découvert de pépites! _Plongée dans sept décennies d’archives du « Monde », à la découverte de 100 films qui, à leur sortie, ont été défendus avec ardeur par le journal. Retrouvez également les critiques publiées à l’époque._",
+                "date": "2019-11-05T13:28:39.820Z",
+                "items": [
+                    {
+                        "title": "Le Fleuve Aux Grandes Eaux",
+                        "author": "Jean Renoir",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/90823",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/irR2B8Iaue5BPGhVHVI7BVGeIOW.jpg",
+                        "meta": {
+                            "releaseDate": "1994-09-27",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les contes de la lune vague après la pluie",
+                        "author": "Kenji Mizoguchi",
+                        "description": "Dans la région d'Omi, sur les bords du lac Biwa, un potier, Genjuro, vit pauvrement, sous la menace des hordes de l'armée Shibata. Ce soir-là, la fournée a été bonne ; il décide d'aller à la ville, en compagnie de son beau-frère, Tobei, vendre le produit de son artisanat. Miyagi, son épouse, restée seule avec son fils, doit faire face aux mercenaires : elle est tuée d'un coup de lance, mais l'enfant est indemne. Pendant ce temps, les hommes tirent un bon prix des poteries. Tobei va pouvoir réaliser son rêve : acheter une coûteuse armure de samouraï, au désespoir de sa femme, Ohama, qui tente de le raisonner et le perd dans la foule. Tandis qu'il joue les foudres de guerre, elle tombe entre les mains de soudards. Quant à Genjuro, il est la proie d'un autre maléfice... (overview by ichbinronan)",
+                        "productUrl": "https://www.themoviedb.org/movie/14696",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/yf44YyLHRsNIRE2WYB4oR9xaaIb.jpg",
+                        "meta": {
+                            "releaseDate": "1953-03-26",
+                            "voteAverage": 8.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Voyage à Tokyo",
+                        "author": "Yasujiro Ozu",
+                        "description": "Un couple de personnes âgées rend visite à leurs enfants à Tokyo. D'abord reçus avec les égards qui leur sont dûs, ils deviennent bientôt dérangeants dans leur vie quotidienne.",
+                        "productUrl": "https://www.themoviedb.org/movie/18148",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/zYifzFnaNYTITg94saRRD8O6agv.jpg",
+                        "meta": {
+                            "releaseDate": "1953-11-03",
+                            "voteAverage": 8.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les sept samouraïs",
+                        "author": "Kurosawa",
+                        "description": "Au XVIè siècle, au Japon, des paysans décident d'embaucher des samouraïs pour protéger leur village, et en trouvent sept. Ces hommes organisent la défense du village contre quarante brigands.",
+                        "productUrl": "https://www.themoviedb.org/movie/346",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/itaaGjeYL5ZzufV8BOxkTYQxx4K.jpg",
+                        "meta": {
+                            "releaseDate": "1955-11-29",
+                            "voteAverage": 8.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Ordet",
+                        "author": "Carl Theodor Dreyer",
+                        "description": "En 1930, dans un village danois. Morten Borgen, un fermier veuf, riche et luthérien, exploite ses terres avec l'aide de ses trois fils. L'aîné, Mikkel, est marié et père de deux fillettes. Sa femme Inger est sur le point d'accoucher. Johannes, le second, est un illuminé qui se prend pour le Christ et bat la campagne en prophétisant. Anders, le plus jeune, est amoureux d'Anne, la fille de Peter, le tailleur, qui s'oppose à leur union pour des raisons de dissensions religieuses. Inger meurt en couches, mettant au monde un enfant mort-né. Johannes, qui avait prévu le drame, disparaît dans la campagne...",
+                        "productUrl": "https://www.themoviedb.org/movie/48035",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/eMTfW1SAVrjckS6GgbjVaHXPPsa.jpg",
+                        "meta": {
+                            "releaseDate": "1955-12-28",
+                            "voteAverage": 8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La fureur de vivre",
+                        "author": "Nicholas Ray",
+                        "description": "Jim Stark est le petit nouveau au lycée. Un jeune homme accablé de problèmes familiaux et brimé par ses camarades mais qui n'aspire qu'à se faire une place parmi ses camarades. Entraîné malgré lui dans un défi de vitesse face à Buzz, chef d'un groupe un peu rebelle, ce dernier y perdra la vie. Suite à ce drame, Jim est entraîné dans une spirale de violence.",
+                        "productUrl": "https://www.themoviedb.org/movie/221",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/emKMNZu8XogQupkNBtJJlaLlr8R.jpg",
+                        "meta": {
+                            "releaseDate": "1956-03-28",
+                            "voteAverage": 7.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Sueurs froides",
+                        "author": "Hitchcock",
+                        "description": "Scottie est sujet au vertige, ce qui lui porte préjudice dans son métier de policier. Rendu responsable de la mort d'un de ses collègues, il décide de quitter la police. Une ancienne relation le contacte afin qu'il suive sa femme, possédée selon lui par l'esprit de son aïeule. Scottie s'éprend de la jeune femme et se trouve ballotté par des événements qu'il ne peut contrôler.",
+                        "productUrl": "https://www.themoviedb.org/movie/426",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/hkhbbSQdsV3U0HtuPugHfx2wOi9.jpg",
+                        "meta": {
+                            "releaseDate": "1958-12-12",
+                            "voteAverage": 8.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mon oncle",
+                        "author": "Jacques Tati",
+                        "description": "Monsieur Arpel est féru de modernisme. Directeur d'une fabrique de tuyaux en plastique, il a doté sa maison de tous les perfectionnements techniques possibles à ce jour. Pourtant, cette maison pourvue de robots est loin d'apporter une atmosphère détendue à son fils, Gérard, 10 ans. Le beau-frère de monsieur Arpel, monsieur Hulot, fantasque et bohême, occupe un modeste deux pièces dans un quartier populaire. Il invite de temps à autre son jeune neveu, dressé à l'ordre rigoureux qui règne chez lui, à découvrir son domaine de fantaisie et de liberté. Sa soeur, maintenant madame Arpel, espère secrètement qu'il épousera sa voisine, mais c'est compter sans l'esprit discrètement récalcitrant et frondeur de Hulot, résolument épris de liberté...",
+                        "productUrl": "https://www.themoviedb.org/movie/427",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/wQtzX9roASn4yWSvoAhtu5FEUoe.jpg",
+                        "meta": {
+                            "releaseDate": "1958-05-10",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Moi, un noir",
+                        "author": "Jean Rouch",
+                        "description": "La vie et les espoirs de quelques dockers dans le bidonville d'Abidjan.",
+                        "productUrl": "https://www.themoviedb.org/movie/64299",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/ZUPP0uQYFtnXWBd6ET57ALKNGj.jpg",
+                        "meta": {
+                            "releaseDate": "1958-01-01",
+                            "voteAverage": 7.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les quatre cents coups",
+                        "author": "François Truffaut",
+                        "description": "Antoine a une adolescence turbulente. Il ment à ses parents indifférents à son sort, vole, fugue. Son seul réconfort, il fait les quatre cents coups avec son ami René. Un jour, la police s'en mêle.",
+                        "productUrl": "https://www.themoviedb.org/movie/147",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/vkS1tqTb0PICUSzTKueqS6ZPXWG.jpg",
+                        "meta": {
+                            "releaseDate": "1959-06-03",
+                            "voteAverage": 8.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'Avventura",
+                        "author": "Michelangelo Antonioni",
+                        "description": "Suite à sa disparition sur une île, Sandro part à la recherche de sa fiancée, aidé de Claudia, dont il finira par s'éprendre...",
+                        "productUrl": "https://www.themoviedb.org/movie/5165",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/iZiCEFFTYopQUFB4UMNxJiF6cfl.jpg",
+                        "meta": {
+                            "releaseDate": "1960-05-15",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Le Trou",
+                        "author": "Jacques Becker",
+                        "description": "Accusé de tentative de meurtre sur la personne de sa femme, Claude Gaspard est enfermé à la prison de la Santé. Ses quatre compagnons de cellule lui font part de leur désir d'évasion et creusent, avec une énergie farouche, un tunnel qui les mènera à la liberté. Leur plan aboutira-t-il ?",
+                        "productUrl": "https://www.themoviedb.org/movie/29259",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/rWDORouwdGyPB8GzpOELyfKnZ7k.jpg",
+                        "meta": {
+                            "releaseDate": "1960-03-18",
+                            "voteAverage": 8.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "À bout de souffle",
+                        "author": "Jean-Luc Godard",
+                        "description": "L'itinéraire d'un jeune délinquant qui, après avoir volé une voiture et tué un policier, est traqué par la police...",
+                        "productUrl": "https://www.themoviedb.org/movie/269",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/uaIx2QpRA9Vu3mK57rTrwoLjkNb.jpg",
+                        "meta": {
+                            "releaseDate": "1960-03-16",
+                            "voteAverage": 7.8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Huit et demi",
+                        "author": "Federico Fellini",
+                        "description": "Un cinéaste dépressif fuit le monde du cinéma et se réfugie dans un univers peuplé de fantasmes.",
+                        "productUrl": "https://www.themoviedb.org/movie/422",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/9Wm0Ze3N8hpB8cSL3jPkR2bR8p6.jpg",
+                        "meta": {
+                            "releaseDate": "1963-05-28",
+                            "voteAverage": 8.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les parapluies de Cherbourg",
+                        "author": "Jacques Demy",
+                        "description": "Cherbourg, au mois de novembre 1957. Geneviève et sa mère tiennent un magasin de parapluies. La jeune fille est amoureuse de Guy, un jeune garagiste, au grand dam de sa maman qui préfèrerait la voir épouser Roland Cassard, un riche diamantaire. Appelé sous les drapeaux, Guy s'apprête à partir pour l'Algérie. La veille de son départ, Geneviève se donne à lui et lui jure de l'attendre. Mais les mois passent et les lettres du jeune soldat se font de plus en plus rares. Enceinte, désoeuvrée, pressée par sa mère, Geneviève consent finalement, la mort dans l'âme, à épouser Roland. Dix-huit mois après son départ, Guy revient à Cherbourg, blessé à la jambe...",
+                        "productUrl": "https://www.themoviedb.org/movie/5967",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/a81tFYW7eAZiOZDWuqf7njlU58T.jpg",
+                        "meta": {
+                            "releaseDate": "1964-02-19",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les Poings dans les poches",
+                        "author": "Marco Bellocchio",
+                        "description": "Horreur dans la famille. Une famille renfermée sur elle-même, où fermentent les maladies héréditaires, les amours coupables, les haines hypocrites : une mère aveugle, littéralement et symboliquement ; une déliquescence fin de race, sombrant dans l'épilepsie et l'idiotie congénitale ; un jeune homme amoureux de sa soeur, assassinant sa mère et son frère : tels sont le cadre, le climat, le fil dramatique de ces Poings dans les poches.",
+                        "productUrl": "https://www.themoviedb.org/movie/46591",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/9cJM9axEpdh1dCmk5zy90D1iS31.jpg",
+                        "meta": {
+                            "releaseDate": "1966-02-20",
+                            "voteAverage": 8.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Persona",
+                        "author": "Bergman",
+                        "description": "Elizabeth Vogler, célèbre actrice au théâtre, s'interrompt brusquement au milieu d'une tirade de la pièce Électre. Elle ne parlera plus. D'abord soignée dans une clinique, son médecin l'envoie se reposer au bord de la mer en compagnie d'Alma, une jeune infirmière.  Les deux femmes se lient d’amitié. Le silence permanent d'Elizabeth conduit Alma à parler et à se confier. La découverte d’une lettre dans laquelle Elizabeth divulgue cette confession à son médecin provoque alors une crise relationnelle profonde.",
+                        "productUrl": "https://www.themoviedb.org/movie/797",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/bjPo1GDN1DaXcg8ecSzwLTLdbbv.jpg",
+                        "meta": {
+                            "releaseDate": "1966-12-21",
+                            "voteAverage": 8.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Blow-Up",
+                        "author": "Michelangelo Antonioni",
+                        "description": "Dans un parc de Londres, un jeune photographe surprend ce qu'il croit être un couple d'amoureux. Il découvre sur la pellicule une main tenant un revolver et un corps allongé dans les buisssons...",
+                        "productUrl": "https://www.themoviedb.org/movie/1052",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/n9TON33PJvKRvbh74yS0x2CFSUH.jpg",
+                        "meta": {
+                            "releaseDate": "1966-12-18",
+                            "voteAverage": 7.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mouchette",
+                        "author": "Robert Bresson",
+                        "description": "Mouchette, au seuil de l'adolescence, vit dans une campagne miserable. Elle est temoin d'une dispuste entre le garde-champetre et un braconnier.",
+                        "productUrl": "https://www.themoviedb.org/movie/1561",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/gkfFm5qV7bPXcDoK5gDyomPdlSd.jpg",
+                        "meta": {
+                            "releaseDate": "1967-03-28",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Théorème",
+                        "author": "Pier Paolo Pasolini",
+                        "description": "Un jeune homme d'une étrange beauté s'introduit dans une famille bourgeoise. Le père, la mère, le fils et la fille succombent à son charme. Son départ impromptu ébranle tous les membres de la famille...",
+                        "productUrl": "https://www.themoviedb.org/movie/5335",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/bDxSBJKTv5e0wWM4lKCD23LHpKw.jpg",
+                        "meta": {
+                            "releaseDate": "1969-01-25",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Rosemary's Baby",
+                        "author": "Roman Polanski",
+                        "description": "Malgré les conseils de leur vieil ami Hutch, Guy Woodhouse et sa jeune femme, enceinte, s'installent dans un immeuble new-yorkais vétuste, considéré par leur ami comme une demeure maléfique. Aussitôt, leurs voisins, Minnie et Roman Castevet, vieux couple d'Europe centrale, imposent leur amitié et leurs services. Si Guy accepte facilement ce voisinage, Rosemary s'en inquiète...",
+                        "productUrl": "https://www.themoviedb.org/movie/805",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/eUC2S7Ju1ioa4uBThp6IoyzUaTA.jpg",
+                        "meta": {
+                            "releaseDate": "1968-10-30",
+                            "voteAverage": 7.8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Kes",
+                        "author": "Ken Loach",
+                        "description": "Billy Casper vit dans une petite ville minière du nord-est de l'Angleterre, à Barnsley, dans le Yorkshire. Il a une douzaine d'années et l'univers dans lequel il vit ne correspond pas à son attente. Sa mère ne s'occupe guère de lui son frère aîné Jude, le traite en souffre-douleur. Quelques petits travaux avant l'heure d'ouverture de l'école et de menus larcins lui procurent un peu d'argent de poche. A l'école, Billy est distrait, indiscipliné, entouré de camarades et de professeurs plus hostiles qu'amicaux.. Un jour, Billy déniche un jeune rapace; il vole alors dans une librairie un traité de fauconnerie et entreprend de dresser l'oiseau. Il se donne tout entier à cette tâche et lorsqu'un professeur, attentif, lui demande d'exposer à la classe l'art de dresser un faucon, Billy réussit à intéresser tous ses camarades...Mais le gamin a détourné une petite somme d'argent que son frère lui avait confiée pour jouer aux courses : Jude se vengera en tuant l'oiseau, le seul ami de l'enfant.",
+                        "productUrl": "https://www.themoviedb.org/movie/13384",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/k6jOGVfMLWGMSYpbheUajhbPMxV.jpg",
+                        "meta": {
+                            "releaseDate": "1970-04-03",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Antonio Das Mortes",
+                        "author": "Glauber Rocha",
+                        "description": "Antonio Das Mortes est un ancien tueur de Cangaceiros. Le colonel Horacio, riche propriétaire terrien, le convoque pour se débarrasser de Coirana, un pauvre agitateur qui se prend pour un grand Cangaceiro... Coirana dirige un groupe de paysans mystiques en compagnie d'un noir nostalgique de l'Afrique et d'une \"Sainte\" locale.  Antonio arrive au village et provoque en duel Coirana. La foule chante et danse en  entourant les deux hommes engagés dans une lutte à mort. D'un coup de  machette, Antonio blesse grièvement son adversaire.  Cependant, il ne savoure guère sa  victoire. Il boit tristement tandis que l'instituteur du village le nargue. Lorsque  le colonel Horacio fait appel aux jaguncos, cruels tueurs à gages, afin de  massacrer les beatos, Antonio comprend que la justice devrait être du côté  des déshérités et change de camp...",
+                        "productUrl": "https://www.themoviedb.org/movie/74349",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/2VT6YQPMUTcvitn27f4GgufIbG0.jpg",
+                        "meta": {
+                            "releaseDate": "1969-05-20",
+                            "voteAverage": 6.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Andreï Roublev",
+                        "author": "Tarkovski",
+                        "description": "A travers la turbulente période du XV siècle en Russie, la vie et l'oeuvre d'Andreiv Rublev, le grand peintre d'icônes, tentant de prouver que l'art est a l'avant-garde de toute transformation.",
+                        "productUrl": "https://www.themoviedb.org/movie/895",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/4FqMTjsUCvQ7u4EQyQjCeQRftce.jpg",
+                        "meta": {
+                            "releaseDate": "1966-12-16",
+                            "voteAverage": 8.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Le chagrin et la pitié",
+                        "author": "Marcel Ophuls",
+                        "description": "En partant de l'étude du cas de Clermont-Ferrand, le film dresse la chronique de la vie d'une ville de province entre 1940 et 1944. Le film élargit son propos factuel à toute l'Auvergne, mais comporte aussi des témoignages de personnalités ayant joué un rôle important pendant la guerre (militaires, hommes d'État, témoins-clés) ou ayant participé activement à celle-ci, pas forcément à Clermont-Ferrand ni même en Auvergne. Le film est constitué d'entretiens et d'images d'actualité de l'époque. Celles-ci, présentées sans aucun commentaire, ont été réalisées sous le contrôle de la propagande du gouvernement de Vichy sauf pour l'avant-dernière d'entre elles : interview  de Maurice Chevalier, s'exprimant en anglais, à destination du public américain, évoquant les accusations portées contre lui de collaboration avec les Allemands, suivie d'images de la Libération rythmée par une chanson joyeuse du célèbre fantaisiste, ce qui laisse à la fin le spectateur dans une situation de malaise.",
+                        "productUrl": "https://www.themoviedb.org/movie/42611",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/ww1FwEDnRrbVU83wT7iPPJNpMMm.jpg",
+                        "meta": {
+                            "releaseDate": "1969-09-18",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Deep End",
+                        "author": "Jerzy Skolimowski",
+                        "description": "Mike vient de sortir du college et trouve un emploi dans un etablissement de bains londonien. Susan, son homologue feminin, arrondit ses fins de mois en proposant ses charmes a la clientele masculine. Amoureux jaloux de la jeune femme, Mike devient encombrant.",
+                        "productUrl": "https://www.themoviedb.org/movie/59408",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/u2XDRPzpTdCwlo0Zu4maEdj68Ia.jpg",
+                        "meta": {
+                            "releaseDate": "1971-12-15",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "French Connection",
+                        "author": "William Friedkin",
+                        "description": "Jimmy Doyle et Buddy Russo forment la meilleure équipe de la brigade des stupéfiants de New York. Une de leurs enquêtes les mène à une filière française, dont l'un des relais serait une boutique de confiserie à Brooklyn...",
+                        "productUrl": "https://www.themoviedb.org/movie/1051",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/i6mwttpXw4bizCUuvuMtqL0D2Rn.jpg",
+                        "meta": {
+                            "releaseDate": "1972-01-14",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Il était une fois... Orange Mécanique",
+                        "author": "Stanley Kubrick",
+                        "description": "Stanley Kubrick tourne Orange mécanique en 1971. Sur fond de délinquance juvénile, le film dénonce les techniques de conditionnement mental utilisées pour redresser les déviances. Censé se dérouler dans un futur proche, il est très ancré dans la fin des années soixante, marquée par la contestation anti-autoritaire des institutions et la montée de l'insécurité urbaine. Orange mécanique reste l'œuvre choc d'un visionnaire.",
+                        "productUrl": "https://www.themoviedb.org/movie/333275",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/4l4IMOfY7GKd7rFno26uPBiXr1X.jpg",
+                        "meta": {
+                            "releaseDate": "2012-12-01",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'Argent de la vieille",
+                        "author": "Luigi Comencini",
+                        "description": "Une vieille milliardaire américaine sillonne le monde au gré de sa fantaisie et, dans chaque pays, elle se plaît à affronter les gens des bidonvilles dans de grandes parties de cartes pour prouver qu'elle est riche parce qu'elle est plus astucieuse. En quelque sorte, sa fortune serait méritée. Son jeu préféré est la scopa, jeu de mémoire et de réflexion. Mais la donne est faussée, précisément parce qu'elle est très riche. Comme il s'agit d'un jeu d'argent et qu'à chaque fois elle double la mise, elle est certaine au final de pouvoir poursuivre indéfiniment, et donc de gagner de manière écrasante. Peppino et Antonia sont ses adversaires, mais également serviteurs, amis, dans une interminable partie à épisodes où tout un bidonville de Rome se cotise pour défier la vieille. Avec de multiples retournements de situation, les rapports amour-amitié entre la vieille et les deux pauvres, le film, loin d'être manichéen, livre une analyse très fine des rapports sociaux, affectifs et économiques.",
+                        "productUrl": "https://www.themoviedb.org/movie/56341",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/r8IN1njHyx8PAJCkWFMSEcEn9IX.jpg",
+                        "meta": {
+                            "releaseDate": "1972-10-08",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Touki-Bouki",
+                        "author": "Djibril Diop Manbety",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/77771",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/nASIUa45Ugh0Z1dW4BLiM1FIGoK.jpg",
+                        "meta": {
+                            "releaseDate": "1973-07-01",
+                            "voteAverage": 7.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La gueule ouverte",
+                        "author": "Maurice Pialat",
+                        "description": "La lente agonie d'une femme atteinte d'un cancer, assistée de son mari et de son fils.",
+                        "productUrl": "https://www.themoviedb.org/movie/93672",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/1cuafEpyLS7RvE2f2KUYPKiK8dl.jpg",
+                        "meta": {
+                            "releaseDate": "1974-05-08",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mr. Klein",
+                        "author": "Joseph Losey",
+                        "description": "Pendant l'occupation allemande à Paris, Robert Klein, un Alsacien qui rachète des œuvres d'art à bas prix, reçoit, réexpédié, à son nom, le journal Les Informations juives qui n'est délivré que sur abonnement. Il découvre bientôt qu'un homonyme juif utilise son nom, et décide alors de remonter la piste qui le mènera à cet inconnu.",
+                        "productUrl": "https://www.themoviedb.org/movie/58925",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/7nrQxtiRjbJYnWpAhDsGieoaDfT.jpg",
+                        "meta": {
+                            "releaseDate": "1976-10-27",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Le passe-montagne",
+                        "author": "Jean-François Stévenin",
+                        "description": "Georges tombe en panne dans le Jura et va faire réparer sa voiture chez Serge, un garagiste qui travaille dans un hameau isolé. Les deux hommes se lient bientôt d'amitié...",
+                        "productUrl": "https://www.themoviedb.org/movie/134235",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/l8P3BKQrHGbceWW3eKhRj2XsLhY.jpg",
+                        "meta": {
+                            "releaseDate": "1978-11-08",
+                            "voteAverage": 5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Doomed Love",
+                        "author": "Manoel de Oliveira",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/364956",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/7SnBRwCKM7lhxIPLVg4NXfzTOVm.jpg",
+                        "meta": {
+                            "releaseDate": "1983-10-23",
+                            "voteAverage": 0
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Manhattan",
+                        "author": "Woody Allen",
+                        "description": "Isaac Davis est un auteur de sketches comiques new-yorkais de 42 ans que son épouse Jil vient de quitter. Celle-ci vit maintenant avec une autre femme, Connie, et écrit un livre sur son ancienne vie conjugale. Isaac, quant à lui, entretient avec une collégienne de 17 ans, Tracy, une liaison dont il lui rappelle le caractère éphémère. Il l'abandonne bientôt pour se mettre en ménage avec Mary Wilke, la maîtresse de Yale Pollack, son meilleur ami.",
+                        "productUrl": "https://www.themoviedb.org/movie/696",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/As4g0bORr4HmcKrv09SHtNYVH6l.jpg",
+                        "meta": {
+                            "releaseDate": "1979-12-05",
+                            "voteAverage": 7.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Voyage au bout de l'enfer",
+                        "author": "Michael Cimino",
+                        "description": "Trois jeunes Américains, amateurs de la chasse aux daims, partent combattre au Vietnam. Seuls certains reviendront de cette tragique épreuve. Second film de Michael Cimino qui marque une étape essentielle dans l’évolution du cinéma américain.",
+                        "productUrl": "https://www.themoviedb.org/movie/11778",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/84KF7urhDVxJFmw1B2fXdofudBb.jpg",
+                        "meta": {
+                            "releaseDate": "1979-03-07",
+                            "voteAverage": 8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Alien, le huitième passager",
+                        "author": "Ridley Scott",
+                        "description": "En 2122. Le Nostromo, vaisseau de commerce, fait route vers la Terre avec à son bord un équipage de sept personnes en hibernation et une cargaison de minerais. Il interrompt soudain sa course suite à la réception d'un mystérieux message provenant d'une planète inexplorée. Réveillé par l'ordinateur de bord, l'équipage se rend sur place et découvre les restes d'un gigantesque vaisseau extraterrestre dont le seul passager semble être mort dans d'étranges circonstances...",
+                        "productUrl": "https://www.themoviedb.org/movie/348",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/l8CES84JndFlNfBNMxdLRYaLvI6.jpg",
+                        "meta": {
+                            "releaseDate": "1979-09-12",
+                            "voteAverage": 8.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La Porte du paradis",
+                        "author": "Michael Cimino",
+                        "description": "Deux anciens élèves de Harvard se retrouvent en 1890 dans le Wyoming. Averill est shérif fédéral tandis que Billy Irvine, rongé par l'alcool, est membre d'une association de gros éleveurs en lutte contre les petits immigrants venus pour la plupart d'Europe centrale. Averill s'oppose à l'intervention de l'association sur le district et tente de convaincre son amie Ella, une prostituée d'origine française, de quitter le pays.",
+                        "productUrl": "https://www.themoviedb.org/movie/10935",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/jFxQEb2tP09px5OewgG903Vq7Gd.jpg",
+                        "meta": {
+                            "releaseDate": "1980-11-19",
+                            "voteAverage": 6.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Elephant Man",
+                        "author": "David Lynch",
+                        "description": "Londres, 1884. Le chirurgien Frederick Treves découvre un homme complètement défiguré et difforme, devenu une attraction de foire. John Merrick, \" le monstre \", doit son nom de Elephant Man au terrible accident que subit sa mère. Alors enceinte de quelques mois, elle est renversée par un éléphant. Impressionné par de telles difformités, le Dr. Treves achète Merrick, l'arrachant ainsi à la violence de son propriétaire, et à l'humiliation quotidienne d'être mis en spectacle. Le chirurgien pense alors que \" le monstre \" est un idiot congénital. Il découvre rapidement en Merrick un homme meurtri, intelligent et doté d'une grande sensibilité.",
+                        "productUrl": "https://www.themoviedb.org/movie/1955",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/dBKZvDbzP8klxYayflI27UAyuzf.jpg",
+                        "meta": {
+                            "releaseDate": "1981-04-08",
+                            "voteAverage": 8.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "E.T. l'extra-terrestre",
+                        "author": "Steven Spielberg",
+                        "description": "Une soucoupe volante atterrit en pleine nuit près de Los Angeles. Quelques extraterrestres, envoyés sur Terre en mission d'exploration botanique, sortent de l'engin, mais un des leurs s'aventure au-delà de la clairière où se trouve la navette. Celui-ci se dirige alors vers la ville. C'est sa première découverte de la civilisation humaine. Bientôt traquée par des militaires et abandonnée par les siens, cette petite créature apeurée se nommant E.T. se réfugie dans une résidence de banlieue.Elliot, un garçon de dix ans, le découvre et lui construit un abri dans son armoire. Rapprochés par un échange télépathique, les deux êtres ne tardent pas à devenir amis. Aidé par sa sœur Gertie et son frère aîné Michael, Elliot va alors tenter de garder la présence d'E.T. secrète.",
+                        "productUrl": "https://www.themoviedb.org/movie/601",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/rwtR1dL6MtHud7qDL4sXjcYAomD.jpg",
+                        "meta": {
+                            "releaseDate": "1982-12-01",
+                            "voteAverage": 7.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Fanny et Alexandre",
+                        "author": "Bergan",
+                        "description": "En Suède, au début du XXe siècle. Helena Ekdahl, propriétaire du théâtre d'Uppsala, a invité sa famille et ses amis pour de somptueuses festivités de Noël. Ses trois fils sont présents, Oscar, comédien médiocre, Gustav Adolf, éternel coureur de jupons, et Carl, un professeur alcoolique. Parmi les petits-enfants qui prennent joyeusement part à la fête, Fanny et Alexandre. Au cours d'une répétition, leur père, Oscar, est victime d'une hémorragie cérébrale. Sa mort soudaine jette la consternation dans la famille Ekdahl. L'évêque Edvard Vergerus célèbre les funérailles. Il séduit Emilie, la jeune veuve, et bientôt l'épouse, au grand effroi des enfants, qui redoutent son puritanisme obsessionnel...",
+                        "productUrl": "https://www.themoviedb.org/movie/5961",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/iZgB0aqwbu416YejavHw9Tkx6I6.jpg",
+                        "meta": {
+                            "releaseDate": "1983-03-09",
+                            "voteAverage": 7.8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mon ami Ivan Iapchine",
+                        "author": "Guerman",
+                        "provider": "moviedb",
+                        "type": "movie"
+                    },
+                    {
+                        "title": "Un temps pour vivre, un temps pour mourir",
+                        "author": "Hou Hsiao hsien",
+                        "description": "Evocation des trois periodes de la vie de Ah-Hsiao, surnomme Ah-Ha par sa grand-mere. En 1957 sa famille s'installe dans une petite ville du sud de Taiwan, apres avoir quitte la Chine continentale en 1948. L'histoire commence par l'enfance de Ah-Ha qui est marquee par les souvenirs de ses parents, les jeux pleins d'insouciance, puis son adolescente agitee, les premiers emois amoureux et se termine dans les annees soixante, dans la desillusion et le chagrin provoque par le deces de ses parents.",
+                        "productUrl": "https://www.themoviedb.org/movie/45999",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/j4tTtnu6Ex4b3Ls420l5yGCI8B5.jpg",
+                        "meta": {
+                            "releaseDate": "1985-08-03",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Shoah",
+                        "author": "Claude Lanzmann",
+                        "description": "Claude Lanzmann a retrouvé des rescapés juifs des camps d’extermination. Il a traqué les nazis qui se cachaient et réussi à les filmer clandestinement. Il est retourné sur les lieux, dans les villages limitrophes de Chelmno, Ponari, Treblinka, Sobibor, Auschwitz, pour interroger les témoins polonais. Ni fiction – tous les protagonistes ont été en contact direct avec les camps –, ni documentaire – il ne s’agit pas d’une compilation de souvenirs –, Shoah est avant tout un film de la mémoire qui abolit la distance entre le passé et le présent. Sans recourir aux documents d’archives – il n’y a pas un cadavre dans cette œuvre pétrie de mort – ni aux “images chocs”, Shoah (“anéantissement”, “destruction”, en hébreu) démonte les rouages de la “solution finale”. “Nous avons lu, après la guerre, quantité de témoignages sur les ghettos, sur les camps d’extermination.",
+                        "productUrl": "https://www.themoviedb.org/movie/42044",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/hWlNBFnhvAx2nu1xmRrjLLsa2JW.jpg",
+                        "meta": {
+                            "releaseDate": "1985-04-01",
+                            "voteAverage": 8.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Maine Océan",
+                        "author": "Jacques Rozier",
+                        "description": "Confortablement installée dans un compartiment de première classe de l'express Maine Ocean, Dejanira somnole. Le contrôleur survient et tente de lui expliquer qu'elle est en infraction, mais Dejanira ne comprend pas ce qu'on lui demande malgré l'intervention d'un second contrôleur.  Mimi De Saint Marc, une passagère, avocate de métier, se rendant à Angers pour défendre un de ses clients, le marin Petigas, prend fait et cause pour Dejanira.",
+                        "productUrl": "https://www.themoviedb.org/movie/63663",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/rX7BcicY2BgftD0N4i65LItqxpb.jpg",
+                        "meta": {
+                            "releaseDate": "1986-04-16",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'Apiculteur",
+                        "author": "Theo Angeloupoulos",
+                        "description": "Un apiculteur vieillissant répondant au nom de Spyros quitte sa femme et son foyer après le mariage de sa fille pour sillonner la Grèce au volant de sa camionnette.",
+                        "productUrl": "https://www.themoviedb.org/movie/48210",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/wfsrTWnVvnYFG8Y3MuiPQBYVqlX.jpg",
+                        "meta": {
+                            "releaseDate": "1986-01-01",
+                            "voteAverage": 7.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Smoking / No Smoking",
+                        "author": "Resnais",
+                        "description": "Adaptation de huit pièces d'Alan Ayckbourn (jamais représentées au théâtre) réunies en deux films de 2h20 chacun. L'histoire présente une série de personnages dans un petit village du Yorkshire interprétés par deux comédiens qui vont nous proposer plusieurs versions de leur vie. Réflexion sur le temps, ces deux films se complètent mais peuvent être vus dans l'ordre que choisira chaque spectateur.",
+                        "productUrl": "https://www.themoviedb.org/movie/61560",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/fY0Vrqm3VboD5dvOUqPK06OFHpi.jpg",
+                        "meta": {
+                            "releaseDate": "1993-12-15",
+                            "voteAverage": 6.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La Leçon de piano",
+                        "author": "Jane Campion",
+                        "description": "Au siècle dernier en Nouvelle-Zelande, Ada, mère d'une fillette de neuf ans, s'apprète à suivre son nouveau mari au fin fond du bush. Il accepte de transporter tous ses meubles à l'exception d'un piano qui échoue chez un voisin illettré. Ne pouvant supporter cette perte, Ada accepte le marché que lui propose ce dernier. Regagner son piano touche par touche en se soumettant à ses fantaisies. Palme d'or et prix d'interprétation féminine à Cannes en 1993.",
+                        "productUrl": "https://www.themoviedb.org/movie/713",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/zUemEMZtdOLO90r3tVsNMI8qiAQ.jpg",
+                        "meta": {
+                            "releaseDate": "1993-05-19",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Journal intime d'une jeune fille en chaleur",
+                        "author": "Nanni Moretti",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/327616",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/5xlvAMN5b11OhxtPrWA6olLGLlm.jpg",
+                        "meta": {
+                            "releaseDate": "1981-07-01",
+                            "voteAverage": 5.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La Comédie de Dieu",
+                        "author": "Joao Cesar Monteiro",
+                        "description": "Éloge de la folie à travers les tribulation de M. Jean de Dieu, homme paisible et glacier de son état qui collectionne à ses moments perdus des poils pubiens féminins qu'il classe dans un précieux album qu'il appelle \"le Livre des pensées\".",
+                        "productUrl": "https://www.themoviedb.org/movie/49974",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/PrtXk43oquUli6sruF7lvkwHFd.jpg",
+                        "meta": {
+                            "releaseDate": "1996-02-17",
+                            "voteAverage": 7.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Comment je me suis disputé... (ma vie sexuelle)",
+                        "author": "Desplechin",
+                        "description": "Les histoires d'amour et les histoires tout court de Paul, maître-assistant dans une faculté de la périphérie parisienne où il ne compte pas faire de vieux os.",
+                        "productUrl": "https://www.themoviedb.org/movie/83994",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/1XSmLjz4BjZStYMF6OtDBY0ZpJE.jpg",
+                        "meta": {
+                            "releaseDate": "1996-05-01",
+                            "voteAverage": 6.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Xiao Wu artisan pickpocket",
+                        "author": "Jia Jang Ke",
+                        "description": "Apres une absence mysterieuse, certainement un sejour en prison, Xiao Wu revient dans sa petite ville de Fenyang. Il retrouve Xiao Yong, son ancien comparse. Celui-ci a abandonne le vol a la tire pour une activite plus lucrative, le trafic de cigarettes. C'est devenu un nouveau riche, salue et respecte. Les deux amis sont devenus etrangers l'un a l'autre. Xiao Wu erre dans la ville, dont les vieux quartiers sont peu a peu rases. Il s'eprend de Mei Mei dans un bar karaoke mais il est rejete. Il part alors dans sa famille de paysans pauvres d'un village de montagne.",
+                        "productUrl": "https://www.themoviedb.org/movie/52103",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/tmwBGHgaIbTlMhXDZtgF2sMnhJg.jpg",
+                        "meta": {
+                            "releaseDate": "1997-01-01",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "En chair et en os",
+                        "author": "Pedro Almodovar",
+                        "description": "Victor Plaza vit une nuit d'amour avec Elena, qu'il vient de rencontrer. Mais, lorsqu'il se présente chez elle quelques jours après leur brève rencontre, ce n'est pas lui qu'Elena attend mais son dealer. L'intrusion de deux policiers au sang chaud dans leur histoire complique la situation, au point de bouleverser la vie de chacun.",
+                        "productUrl": "https://www.themoviedb.org/movie/267",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/1Lz8qTIhpr95BvMkHEsLu6rpyyc.jpg",
+                        "meta": {
+                            "releaseDate": "1997-10-29",
+                            "voteAverage": 7.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Hana-Bi",
+                        "author": "Takeshi Kitano",
+                        "description": "Terriblement traumatisé par la fin prochaine de sa femme et la paralysie d'un de ses collegues, blessé au cours d'une fusillade, le détective Nishi quitte la police. Il va commettre un hold-up pour soulager les miseres de ceux qui l'entourent. La sérénite du dernier voyage qu'il entreprend avec sa femme, vers le mont Fuji, va etre brisée par l'arrivée de yakusas vengeurs.",
+                        "productUrl": "https://www.themoviedb.org/movie/5910",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/55EBBrHskI3WzmAwGJwGXiSoHBH.jpg",
+                        "meta": {
+                            "releaseDate": "1997-11-05",
+                            "voteAverage": 7.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Suzaku",
+                        "author": "Naomi Kawase",
+                        "description": "Kozo, sylviculteur dont le village est frappe par la crise économique, se passionne pour la construction d'un tunnel de chemin de fer qui doit améliorer l’accès au village.",
+                        "productUrl": "https://www.themoviedb.org/movie/36895",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/yChcc0bbvd09Ar3vPIgZwYPup35.jpg",
+                        "meta": {
+                            "releaseDate": "1997-11-01",
+                            "voteAverage": 6.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Le goût de la cerise",
+                        "author": "Kiarostami",
+                        "description": "Dans la banlieue de Téhéran, un homme d'une cinquantaine d'années, désespéré, se met en quète de quelqu'un qui accepterait, moyennant finances, d'effectuer une tâche spéciale.",
+                        "productUrl": "https://www.themoviedb.org/movie/30020",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/vB2z1QRhaIoWmRNhDyGSYgiUaSd.jpg",
+                        "meta": {
+                            "releaseDate": "1997-05-16",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'humanité",
+                        "author": "Bruno Dumont",
+                        "description": "Dans un village du Nord de la France, Pharaon de Winter est un lieutenant de police qui semble légèrement déficient. Il vit seul avec sa mère depuis qu'il a perdu sa femme et son bébé, trois ans plus tôt dans un accident. Pharaon est attiré par sa voisine, Domino, qui l'invite souvent à passer la soirée avec elle et son fiancé. Le lieutenant de police est amené à enquêter sur le meurtre et le viol d'une fillette de onze ans, dont le corps a été retrouvé dans un champ de la commune. À travers ses investigations, sa recherche du criminel devient aussi une quête de preuves d'humanité entre les êtres.",
+                        "productUrl": "https://www.themoviedb.org/movie/65296",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/qQDJXzJziDX6UPT9xaIJWuwBPSV.jpg",
+                        "meta": {
+                            "releaseDate": "1999-05-17",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La Captive",
+                        "author": "Chantal Akerman",
+                        "description": "Ariane vit chez Simon dans un grand appartement parisien. Il veut tout savoir d'elle, la suit, la fait accompagner dans ses sorties, et la soumet à un questionnement incessant. Le fait qu'il connaisse le goût d'Ariane pour les femmes, qu'il se doute qu'elle a une double vie ne fait qu'exacerber sa douleur, son impuissance et sans doute son désir d'elle.",
+                        "productUrl": "https://www.themoviedb.org/movie/47244",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/wD8rE0YMFr92tGoQTH9Uu9WjH3k.jpg",
+                        "meta": {
+                            "releaseDate": "2000-09-27",
+                            "voteAverage": 5.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "The Egg and Ay-Yi-Yi!",
+                        "author": "Yang",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/379400",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/wUDtEHb4YZcKsZubpoBFFYbVV5C.jpg",
+                        "meta": {
+                            "releaseDate": "1971-06-06",
+                            "voteAverage": 0
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "The Yards",
+                        "author": "James Gray",
+                        "description": "À sa sortie de prison, Leo Handler revient chez lui avec un seul but : rester dans le droit chemin. Il trouve du travail chez son oncle Franck, patron de l'Electric Rail Corporation, qui règne sur le métro dans le Queens. Son ami de toujours, Willie, l'initie aux méthodes de la société. Leo découvre la face cachée des florissantes opérations de son oncle. Témoin de chantage, corruption, sabotage et même meurtre, il est au centre d'une situation explosive : il détient un secret qui fait de lui la cible de la plus impitoyable famille de la ville… La sienne.",
+                        "productUrl": "https://www.themoviedb.org/movie/19457",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/cmPZiy1yRG8A26JLg4aeB5Heekm.jpg",
+                        "meta": {
+                            "releaseDate": "2000-10-31",
+                            "voteAverage": 6.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Le voyage de Chihiro",
+                        "author": "Hayao Miyazaki",
+                        "description": "Chihiro, 10 ans, a tout d'une petite fille capricieuse. Elle s'apprête à emménager avec ses parents dans une nouvelle demeure. Sur la route, la petite famille se retrouve face à un immense bâtiment rouge au centre duquel s'ouvre un long tunnel. De l'autre côté du passage se dresse une ville fantôme. Les parents découvrent dans un restaurant désert de nombreux mets succulents et ne tardent pas à se jeter dessus. Ils se retrouvent alors transformés en cochons. Prise de panique, Chihiro s'enfuit et se dématérialise progressivement. L'énigmatique Haku se charge de lui expliquer le fonctionnement de l'univers dans lequel elle vient de pénétrer. Pour sauver ses parents, la fillette va devoir faire face à la terrible sorcière Yubaba, qui arbore les traits d'une harpie méphistophélique.",
+                        "productUrl": "https://www.themoviedb.org/movie/129",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/3i5UpVMYKAI8foP5LJNjnf9qwjm.jpg",
+                        "meta": {
+                            "releaseDate": "2002-04-10",
+                            "voteAverage": 8.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "À l'ouest des rails",
+                        "author": "Wang Bing",
+                        "description": "A Shenyang, dans la Chine profonde, Tie Xi est un gigantesque complexe industriel né au temps de l'occupation japonaise. Il a ensuite prospéré jusqu'à compter un million d'ouvriers avant 1990. Wang Bing a filmé de 1999 à 2001 la lente agonie des usines et des hommes dans l'effondrement final d'un système obsolète. En suivant au quotidien la descente aux Enfers d'une classe ouvrière autrefois promise à d'autres gloires par la Révolution chinoise, Wang Bing nous plonge au coeur d'une épopée moderne et il élève ces hommes et ces femmes au rang des plus bouleversants héros de cinéma. Chacune des trois parties intitulées Rouille (4h), Vestiges (2h56) et Rails (2h15) peut se voir indépendamment, car elles correspondent à la même histoire, mais vue d'un point différent.",
+                        "productUrl": "https://www.themoviedb.org/movie/86282",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/teuJZDMIh06QIM0TrPrCbk3ln7x.jpg",
+                        "meta": {
+                            "releaseDate": "2004-06-09",
+                            "voteAverage": 7.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Sang  et Or",
+                        "author": "Jafar Panahi",
+                        "description": "Charlie Davis ne voit d'autre issue pour réussir que dans la boxe. Il s'éloigne des conseils de Peg la femme qui l'aime, de ceux de sa mère, de son manager et de son ami Polaski pour s'en remettre à un organisateur peu scrupuleux...",
+                        "productUrl": "https://www.themoviedb.org/movie/17487",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/zb2seWnMyOwbvOP4BKsVAZ1BtPI.jpg",
+                        "meta": {
+                            "releaseDate": "1947-11-09",
+                            "voteAverage": 6.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "The Elephant Mother",
+                        "author": "Gus Van Sant",
+                        "description": "Un poignant récit sur la famille, l'amour et les racines. Partez avec Athena, majestueuse matriarche d'un troupeau d'éléphants en exil, face à une nature impitoyable. Ce film pour toute la famille, véritable déclaration d'amour aux espèces en danger, a été remarqué au festival international du film de Toronto en 2018, ainsi qu'à Sundance en 2019",
+                        "productUrl": "https://www.themoviedb.org/movie/541572",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/tuJJsrVImOwnootpKSaOGeFKtOr.jpg",
+                        "meta": {
+                            "releaseDate": "2019-10-18",
+                            "voteAverage": 9.8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Million Dollar Baby",
+                        "author": "Clint Eastwood",
+                        "description": "Rejeté depuis longtemps par sa fille, l'entraîneur Frankie Dunn s'est replié sur lui-même et vit dans un désert affectif, en évitant toute relation qui pourrait accroître sa douleur et sa culpabilité. Le jour où Maggie Fitzgerald, 31 ans, pousse la porte de son gymnase à la recherche d'un coach, elle n'amène pas seulement avec elle sa jeunesse et sa force, mais aussi une histoire jalonnée d'épreuves et une exigence, vitale et urgente: monter sur le ring, entraînée par Frankie, et enfin concrétiser le rêve d'une vie. Après avoir repoussé plusieurs fois sa demande, Frankie se laisse convaincre par l'inflexible détermination de la jeune femme. Une relation mouvementée, tour à tour stimulante et exaspérante, se noue entre eux, au fil de laquelle Maggie et l'entraîneur se découvrent une communauté d'esprit et une complicité inattendues...",
+                        "productUrl": "https://www.themoviedb.org/movie/70",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/7yWwlgq12qZ4nMLQHhEf8ITaggn.jpg",
+                        "meta": {
+                            "releaseDate": "2005-03-23",
+                            "voteAverage": 7.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "A History of Violence",
+                        "author": "David Cronenberg",
+                        "description": "Tom Stall, un père de famille à la vie paisiblement tranquille, abat dans un réflexe de légitime défense son agresseur dans un restaurant. Il devient alors un personnage médiatique, dont l'existence est dorénavant connue du grand public...",
+                        "productUrl": "https://www.themoviedb.org/movie/59",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/keHREQ9jRiHp7ja1SM8xmDCo6vI.jpg",
+                        "meta": {
+                            "releaseDate": "2005-11-02",
+                            "voteAverage": 7.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Les amants réguliers",
+                        "author": "Philippe Garrel",
+                        "description": "En 1969, un groupe de jeunes gens s'adonne à l'opium après avoir vécu les événements de 1968. Un amour fou naît au sein de ce groupe entre une jeune fille et un jeune homme de 20 ans qui s'étaient aperçus pendant l'insurrection.",
+                        "productUrl": "https://www.themoviedb.org/movie/45126",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/tQIVx2VbLKA8TcIQH8FDx3Fcv8E.jpg",
+                        "meta": {
+                            "releaseDate": "2005-10-26",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Lady Chatterley",
+                        "author": "Pascale Ferran",
+                        "description": "Dans le château des Chatterley, Constance coule des jours monotones, enfermée dans son mariage et son sens du devoir. Au printemps, au cœur de la forêt de Wragby, elle fait la connaissance de Parkin, le garde-chasse du domaine. Le film est leur histoire. Le récit d'une rencontre, d'un difficile apprivoisement, d'un lent éveil à la sensualité pour elle, d'un long retour à la vie pour lui. Ou comment l'amour ne fait qu'un avec l'expérience de la transformation.",
+                        "productUrl": "https://www.themoviedb.org/movie/3542",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/eYZtqziKhjilNiB4fPPjcX7kkeN.jpg",
+                        "meta": {
+                            "releaseDate": "2006-11-01",
+                            "voteAverage": 6.2
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Bled Number One",
+                        "author": "Rabah Ameur-Zaïmeche",
+                        "description": "A peine sorti de prison, Kamel est expulsé vers son pays d'origine, l'Algérie. Cet exil forcé le contraint à observer avec lucidité un pays en pleine effervescence, tiraillé entre un désir de modernité et le poids de traditions ancestrales.",
+                        "productUrl": "https://www.themoviedb.org/movie/99739",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/wLIKLe0vo1mXArinEm2QnznwrMA.jpg",
+                        "meta": {
+                            "releaseDate": "2006-06-07",
+                            "voteAverage": 5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "4 mois, 3 semaines, 2 jours",
+                        "author": "Cristian Mungiu",
+                        "description": "1987, Roumanie, quelques années avant la chute du communisme. Ottila et Gabita partagent une chambre dans la cité universitaire d'une petite ville. Gabita est enceinte et l'avortement est un crime. Les deux jeunes femmes font donc appel à un certain M. Bébé pour résoudre le problème. Mais elles n'étaient pas préparées à une telle épreuve.",
+                        "productUrl": "https://www.themoviedb.org/movie/2009",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/mmLT0HPZP4w5bAdm0ptgPn1v6et.jpg",
+                        "meta": {
+                            "releaseDate": "2007-08-29",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Climats, Les Orages De La Passion",
+                        "author": "Nuri Bilge Ceylan",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/361805",
+                        "type": "movie",
+                        "imageUrl": null,
+                        "meta": { "releaseDate": "", "voteAverage": 7 },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "No Country For Old Men",
+                        "author": "et Joel Coen",
+                        "description": "A la frontière qui sépare le Texas du Mexique, les trafiquants de drogue ont depuis longtemps remplacé les voleurs de bétail. Lorsque Llewelyn Moss tombe sur une camionnette abandonnée, cernée de cadavres ensanglantés, il ne sait rien de ce qui a conduit à ce drame. Et quand il prend les deux millions de dollars qu'il découvre à l'intérieur du véhicule, il n'a pas la moindre idée de ce que cela va provoquer... Moss a déclenché une réaction en chaîne d'une violence inouïe que le shérif Bell, un homme vieillissant et sans illusions, ne parviendra pas à contenir...",
+                        "productUrl": "https://www.themoviedb.org/movie/6977",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/gvljy21vEELenGZOttB5VlqHIhT.jpg",
+                        "meta": {
+                            "releaseDate": "2008-01-22",
+                            "voteAverage": 7.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "WALL·E",
+                        "author": "Stanton",
+                        "description": "Faites la connaissance de WALL·E (prononcez « Walli ») : WALL·E est le dernier être sur Terre et s'avère être un... petit robot ! 700 ans plus tôt, l'humanité a déserté notre planète laissant à cette incroyable petite machine le soin de nettoyer la Terre. Mais au bout de ces longues années, WALL·E a développé un petit défaut technique : une forte personnalité. Extrêmement curieux, très indiscret, il est surtout un peu trop seul... Cependant, sa vie s'apprête à être bouleversée avec l'arrivée d'une petite « robote », bien carénée et prénommée EVE. Tombant instantanément et éperdument amoureux d'elle, WALL·E va tout mettre en œuvre pour la séduire. Et lorsqu'EVE est rappelée dans l'espace pour y terminer sa mission, WALL·E n'hésite pas un seul instant : il se lance à sa poursuite... Hors de question pour lui de laisser passer le seul amour de sa vie... Pour être à ses côtés, il est prêt à aller au bout de l'univers et vivre la plus fantastique des aventures !",
+                        "productUrl": "https://www.themoviedb.org/movie/10681",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/qFmoOgaXN280oMnAIPdI01KTxBY.jpg",
+                        "meta": {
+                            "releaseDate": "2008-07-30",
+                            "voteAverage": 8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "My Magic",
+                        "author": "Khoo",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/8903",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/rPfqPEQwHjewFcRmdNnnLt6fqGb.jpg",
+                        "meta": {
+                            "releaseDate": "2008-01-01",
+                            "voteAverage": 4.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Vincere",
+                        "author": "Marco Bellochchio",
+                        "description": "Dans la vie de Mussolini, il y a un lourd secret que l'histoire officielle ne raconte pas : une femme, Ida Dalser, et un enfant, Benito Albino - conçu, reconnu puis désavoué. Ida rencontre Mussolini de manière fugace à Trente et en est éblouie. Elle le retrouve à Milan où il est un ardent militant socialiste qui harangue les foules et dirige le quotidien l'Avanti. Ida croit en lui, en ses idées. Pour l'aider à financer le Popolo d'Italia, point de départ du futur parti fasciste,elle vend tous ses biens... Lorsque la guerre éclate, Benito Mussolini s'engage et disparaît de la vie de la jeune maman, qui découvrira avec stupeur qu'il est déjà marié avec une autre femme. Ida n'aura dès lors de cesse de revendiquer sa qualité d'épouse légitime et de mère du fils aîné de Mussolini, mais sera systématiquement éloignée de force et son enfant mis dans un institut. Pourtant, elle ne se rendra jamais et ne cessera de revendiquer haut et fort sa vérité.",
+                        "productUrl": "https://www.themoviedb.org/movie/30239",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/xAOcKRaEimLfX3DP5wyirJoXSyt.jpg",
+                        "meta": {
+                            "releaseDate": "2009-05-19",
+                            "voteAverage": 6.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Un prophète",
+                        "author": "Jacques Audiard",
+                        "description": "Condamné à six ans de prison, Malik El Djebena ne sait ni lire, ni écrire. À son arrivée en Centrale, seul au monde, il paraît plus jeune, plus fragile que les autres détenus. Il a 19 ans. D'emblée, il tombe sous la coupe d'un groupe de prisonniers corses qui fait régner sa loi dans la prison. Le jeune homme apprend vite. Au fil des \"missions\", il s'endurcit et gagne la confiance des Corses. Mais, très vite, Malik utilise toute son intelligence pour développer discrètement son propre réseau...",
+                        "productUrl": "https://www.themoviedb.org/movie/21575",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/pDIlpXgsvoSXnT2OiLr4orQX2FG.jpg",
+                        "meta": {
+                            "releaseDate": "2009-08-26",
+                            "voteAverage": 7.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Ce cher mois d'août",
+                        "author": "Miguel Gomes",
+                        "description": "Au coeur du Portugal, montagnard, le mois d’août décuple la population et ses activités.\r Les gens rentrent au pays, tirent des feux d’artifice, contrôlent les incendies, font du karaoké, se jettent du pont, chassent le sanglier, boivent de la bière, font des enfants.",
+                        "productUrl": "https://www.themoviedb.org/movie/54384",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/r6HBjlltWzHv3GELrFBwe54XEdk.jpg",
+                        "meta": {
+                            "releaseDate": "2009-06-17",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Démineurs",
+                        "author": "Kathryn Bigelow",
+                        "description": "Bagdad. Le lieutenant James est à la tête de la meilleure unité de déminage de l'US Army. Leur mission : désamorcer des bombes dans des quartiers civils ou des théâtres de guerre, au péril de leur vie, alors que la situation locale est encore... explosive.",
+                        "productUrl": "https://www.themoviedb.org/movie/12162",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/6p6ecgpoK0uLAUZJkCDd6EeOcK2.jpg",
+                        "meta": {
+                            "releaseDate": "2009-09-23",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mystères de Lisbonne",
+                        "author": "Raoul Ruiz",
+                        "description": "\"Mystères de Lisbonne\" nous entraîne dans un tourbillon permanent d’aventures et de mésaventures, de coïncidences et de révélations, de sentiments et de passions violentes, de vengeances, d’amours contrariées et illégitimes dans un voyage mouvementé à travers le Portugal, la France, l’Italie et le Brésil. Dans cette Lisbonne d’intrigues et d’identités cachées, on croise une galerie de personnages qui influent sur le destin de Pedro da Silva, orphelin, interne d’un collège religieux. Le père Dinis, ancien aristocrate libertin devenu justicier; une comtesse rongée par la jalousie et assoiffée de vengeance; un pirate sanguinaire devenu homme d’affaires prospère. Tous traversent l’histoire du XIXe siècle et accompagnent la recherche d’identité de notre personnage.",
+                        "productUrl": "https://www.themoviedb.org/movie/57403",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/7v23ouxoAU9xIJtFFzR3O5v64dO.jpg",
+                        "meta": {
+                            "releaseDate": "2010-10-20",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Shutter Island",
+                        "author": "Martin Scorsese",
+                        "description": "En 1954, le marshal Teddy Daniels et son coéquipier Chuck Aule sont envoyés enquêter sur l'île de Shutter Island, dans un hôpital psychiatrique où sont internés de dangereux criminels. L'une des patientes, Rachel Solando, a inexplicablement disparu. Comment la meurtrière a-t-elle pu sortir d'une cellule fermée de l'extérieur ? Le seul indice retrouvé dans la pièce est une feuille de papier sur laquelle on peut lire une suite de chiffres et de lettres sans signification apparente. Œuvre cohérente d'une malade, ou cryptogramme ?",
+                        "productUrl": "https://www.themoviedb.org/movie/11324",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/rInIo5FysWl7Wehfy56vtYVAsSO.jpg",
+                        "meta": {
+                            "releaseDate": "2010-02-24",
+                            "voteAverage": 8.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Oncle Boonmee (celui qui se souvient de ses vies antérieures)",
+                        "author": "Weerasethakul",
+                        "description": "En Thaïlande, de nos jours. L'oncle Boonmee, un apiculteur d'une soixantaine d'années, souffre d'insuffisance rénale et se prépare à mourir. Il décide de passer les quelques jours qui lui restent dans une ferme située dans les montagnes, entouré de sa belle-sœur et d'un Laotien chargé de lui prodiguer des soins. Un soir, les fantômes de sa femme et de son fils défunts apparaissent à la table du dîner. Ce dernier a pris l'apparence d'un grand singe sombre aux yeux rouges et phosphorescents. Le vieil homme part alors dans la jungle tropicale avec sa famille pour atteindre la mystérieuse grotte qui fut le berceau de sa première existence. Au cours du voyage, ses vies antérieures prennent forme et se rappellent à lui.",
+                        "productUrl": "https://www.themoviedb.org/movie/38368",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/r9Z180sduIRGAvVp81aFcxHu4V4.jpg",
+                        "meta": {
+                            "releaseDate": "2010-05-21",
+                            "voteAverage": 6.7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "La BM du Seigneur",
+                        "author": "Jean-Charles Hue",
+                        "description": "Chez les Yéniches, communauté de gens du voyage, le respect des aînés et la ferveur religieuse côtoient indifféremment le vandalisme. Fred Dorkel est l'un d'entre eux : craint et estimé par les siens, il vit du vol de voitures. Une nuit, sa vie bascule : un ange lui apparait. Pour Fred, c'est le signe d'une seconde chance qu'il doit saisir. Il décide de se ranger, mais ce choix va l'opposer à sa famille...",
+                        "productUrl": "https://www.themoviedb.org/movie/57402",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/Bd18LoIpCiDNY9XYp0eYnGaWds.jpg",
+                        "meta": {
+                            "releaseDate": "2010-01-26",
+                            "voteAverage": 5.6
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'Apollonide : Souvenirs de la Maison Close",
+                        "author": "Bertrand Bonello",
+                        "description": "À l'aube du XXème siècle, dans une maison close à Paris, une prostituée a le visage marqué d'une cicatrice qui lui dessine un sourire tragique. Autour de la femme qui rit, la vie des autres filles s’organise, leurs rivalités, leurs craintes, leurs joies, leurs douleurs... Du monde extérieur, on ne sait rien. La maison est close.",
+                        "productUrl": "https://www.themoviedb.org/movie/84427",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/znUzmTEHKpbgXzMSF5DD08guWjZ.jpg",
+                        "meta": {
+                            "releaseDate": "2011-09-20",
+                            "voteAverage": 6.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Melancholia",
+                        "author": "Lars von Trier",
+                        "description": "À l'occasion de leur mariage, Justine et Michael donnent une somptueuse réception dans la maison de la sœur de Justine et de son beau-frère. Pendant ce temps, la planète Melancholia se dirige vers la Terre...",
+                        "productUrl": "https://www.themoviedb.org/movie/62215",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/pY8N9y26GX28MfKdQ8hnLOaj41R.jpg",
+                        "meta": {
+                            "releaseDate": "2011-08-10",
+                            "voteAverage": 7.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Holy Motors",
+                        "author": "Leos Carax",
+                        "description": "De l'aube à la nuit, quelques heures dans l'existence de Monsieur Oscar, un être qui voyage de vie en vie. Tour à tour grand patron, meurtrier, mendiante, créature monstrueuse, père de famille...  M. Oscar semble jouer des rôles, plongeant en chacun tout entier - mais où sont les caméras ?  Il est seul, uniquement accompagné de Céline, longue dame blonde aux commandes de l'immense machine qui le transporte dans Paris et autour. Tel un tueur consciencieux allant de gage en gage.  À la poursuite de la beauté du geste. Du moteur de l'action. Des femmes et des fantômes de sa vie.  Mais où est sa maison, sa famille, son repos ?",
+                        "productUrl": "https://www.themoviedb.org/movie/103328",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/w0Wi7raS9z7UoIbEF6aGxHIYyE6.jpg",
+                        "meta": {
+                            "releaseDate": "2012-07-04",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Saudade",
+                        "author": "Katsuya Tomita",
+                        "description": "Cyrus, Tim et Erik, trois amis de fac, décident de se revoir dans la villa paradisiaque du père de Cyrus au Brésil. L’oisiveté les conduit à s’exhiber nus sur un site web, mais le jeu tourne court lorsque les clients demandent à voir plus de sexe. Cyrus et Tim refusent, mais Erik, qui a laissé de grosses dettes en Allemagne, est prêt à tout pour se renflouer. Le trio éclate et Erik occupe son temps entre telenovelas et discothèques gays…",
+                        "productUrl": "https://www.themoviedb.org/movie/121886",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/y0QDrnx1YAOisqu0usHUjxd9GGV.jpg",
+                        "meta": {
+                            "releaseDate": "2004-01-27",
+                            "voteAverage": 4.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Amour",
+                        "author": "Michael Haneke",
+                        "description": "Georges et Anne sont octogénaires, ce sont des gens cultivés, professeurs de musique à la retraite. Leur fille, également musicienne, vit à l’étranger avec sa famille. Un jour, Anne est victime d’une petite attaque cérébrale. Lorsqu’elle sort de l’hôpital et revient chez elle, elle est paralysée d’un côté. L’amour qui unit ce vieux couple va être mis à rude épreuve.",
+                        "productUrl": "https://www.themoviedb.org/movie/86837",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/fSChghFVxk5O8rQ13zIeCF04vSr.jpg",
+                        "meta": {
+                            "releaseDate": "2012-10-24",
+                            "voteAverage": 7.8
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "L'inconnu du lac",
+                        "author": "Guiraudie",
+                        "description": "Tous les jours de l'été, Franck, un saisonnier, se rend au bord d'un lac, lieu de drague pour hommes. Il y rencontre Henri, qui passe ses journées seul. Depressif, celui-ci se remet mal de la mort de sa femme. Contre toute attente, les deux hommes qui tout sépare (l'âge, la sexualité et le physique) vont devenir amis. Franck finit par croiser le regard du mystérieux Michel. C'est le coup de foudre. Alors que les deux hommes entament une relation passionnée, dans les bois près du lac, Franck découvre bientôt que son amant est un meurtrier. Il devrait fuir mais irrésistiblement attiré, le jeune homme continue de jouer avec le feu...",
+                        "productUrl": "https://www.themoviedb.org/movie/186992",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/2t123ZcoRxTdayDYX8OTTifZsfc.jpg",
+                        "meta": {
+                            "releaseDate": "2013-05-17",
+                            "voteAverage": 6.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "BORDER 贖罪",
+                        "author": "Kiyoshi Kurosawa",
+                        "description": "",
+                        "productUrl": "https://www.themoviedb.org/movie/581953",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/iiVDIMStjhPxkC8l4vHsnjmfKch.jpg",
+                        "meta": {
+                            "releaseDate": "2017-10-29",
+                            "voteAverage": 0
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Tip Top",
+                        "author": "Serge Bozon",
+                        "description": "Dans un café arabe de Villeneuve, dans la banlieue lilloise, l'inspecteur Mendès sauve son indic, Younès, d'un mauvais sort, en déclenchant une bagarre grotesque après avoir proféré un chapelet d'insultes racistes. Le lendemain, ils défient la commissaire Esther Lafarge et le commandant Sally Marinelli, de la police des polices, chargées d'enquêter sur la mort suspecte d'un autre indic. Le commissaire Bontemps les reçoit fraîchement. Esther n'en a cure. Follement admirée par Sally, mise au placard pour voyeurisme, elle a sa propre méthode pour faire parler la veuve de l'indic, tout comme elle ne peut aimer son mari qu'en faisant l'amour à coups de marteau...",
+                        "productUrl": "https://www.themoviedb.org/movie/190870",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/tnfBN8nVTs1YQpqeiQukcf4qGPQ.jpg",
+                        "meta": {
+                            "releaseDate": "2013-09-11",
+                            "voteAverage": 3.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Under the Skin",
+                        "author": "Jonathan Glazer",
+                        "description": "En Écosse, au volant d'une camionnette, Laura, une extraterrestre d'apparence humaine, vêtue d'une fourrure, séduit des hommes. S'étant assurée qu'ils vivent seuls, elle les fait monter dans son véhicule. Elle les entraîne dans une maison sordide où elle les incite à se dénuder. Tandis qu'ils s'avancent vers elle et qu'elle recule, ils s'enfoncent et disparaissent peu à peu dans le sol devenu liquide. Leur dépouille va servir à donner apparence humaine à d'autres créatures...",
+                        "productUrl": "https://www.themoviedb.org/movie/97370",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/sDAeetnTc9XjaxvfOdVldnE48ZP.jpg",
+                        "meta": {
+                            "releaseDate": "2014-06-25",
+                            "voteAverage": 6.1
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Eau argentée",
+                        "author": "Mohammed et Wiam Simav Bedirxan",
+                        "description": "En Syrie, les Youtubeurs filment et meurent tous les jours. Tandis que d’autres tuent et filment.  A Paris, je ne peux que filmer le ciel et monter ces images youtube, guidé par cet amour indéfectible de la Syrie. De cette tension entre ma distance, mon pays et la révolution est née une rencontre.  Une jeune cinéaste Kurde de Homs m’a « Tchaté » : « Si ta caméra était ici à Homs que filmerais-tu ? »  Le film est l’histoire de ce partage.",
+                        "productUrl": "https://www.themoviedb.org/movie/272075",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/3sztzc2bjOxGCz73yUoSTU4dAGN.jpg",
+                        "meta": {
+                            "releaseDate": "2014-12-17",
+                            "voteAverage": 6.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Timbuktu",
+                        "author": "Sissako",
+                        "description": "Non loin de Tombouctou tombée sous le joug des extrémistes religieux, Kidane  mène une vie simple et paisible dans les dunes, entouré de sa femme Satima, sa fille Toya et de Issan, son petit berger âgé de 12 ans.  En ville, les habitants subissent, impuissants, le régime de terreur des djihadistes qui ont pris en otage leur foi. Fini la musique et les rires, les cigarettes et même le football… Les femmes sont devenues des ombres qui tentent de résister avec dignité. Des tribunaux improvisés rendent chaque jour leurs sentences absurdes et tragiques.  Kidane et les siens semblent un temps épargnés par le chaos de Tombouctou. Mais leur destin bascule le jour où Kidane tue accidentellement Amadou le pêcheur qui s'en est pris à GPS, sa vache préférée.  Il doit alors faire face aux nouvelles lois de ces occupants venus d’ailleurs…",
+                        "productUrl": "https://www.themoviedb.org/movie/265228",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/kbUv4f6YD0MzWKemqeLH2Fk5W3s.jpg",
+                        "meta": {
+                            "releaseDate": "2014-12-10",
+                            "voteAverage": 7
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Aquarius",
+                        "author": "Kleber Mendonça Filho",
+                        "description": "Clara, la soixantaine, ancienne critique musicale, est née dans un milieu bourgeois de Recife, au Brésil. Elle vit dans un immeuble singulier, l'Aquarius construit dans les années 1940, sur la très huppée Avenida Boa Viagem qui longe l’océan. Un important promoteur a racheté tous les appartements mais elle, se refuse à vendre le sien. Elle va rentrer en guerre froide avec la société immobilière qui la harcèle. Très perturbée par cette tension, elle repense à sa vie, son passé, ceux qu’elle aime.",
+                        "productUrl": "https://www.themoviedb.org/movie/377273",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/7BFSaJmpq3tzI0O2hPQE0XbSxza.jpg",
+                        "meta": {
+                            "releaseDate": "2016-09-28",
+                            "voteAverage": 7.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Manchester by the Sea",
+                        "author": "Kenneth Lonergan",
+                        "description": "Après le décès soudain de son frère Joe, Lee est désigné comme le tuteur de son neveu Patrick. Il se retrouve confronté à un passé tragique qui l’a séparé de sa femme Randi et de la communauté où il est né et a grandi.",
+                        "productUrl": "https://www.themoviedb.org/movie/334541",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/aiQRRGDU6FcQ3yMYMerqS5GyOnC.jpg",
+                        "meta": {
+                            "releaseDate": "2016-12-14",
+                            "voteAverage": 7.5
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Un jour dans la vie de Billy Lynn",
+                        "author": "Lee",
+                        "description": "En 2005, Billy Lynn, un jeune Texan de 19 ans, fait partie d'un régiment d'infanterie en Irak victime d'une violente attaque. Ayant survécu à l'altercation, il est érigé en héros, ainsi que plusieurs de ses camarades. Et c'est avec ce statut qu'ils sont rapatriés aux États-Unis par l'administration Bush, qui désire les voir parader au pays… avant de retourner au front.",
+                        "productUrl": "https://www.themoviedb.org/movie/293767",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/sKVy1db5owSyIQAZ57StvymBLJb.jpg",
+                        "meta": {
+                            "releaseDate": "2017-02-01",
+                            "voteAverage": 5.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Moonlight",
+                        "author": "Barry Jenkins",
+                        "description": "Le passage à l'âge adulte d'un jeune homme, Chiron, pendant l'ère de la guerre contre la drogue à Miami.",
+                        "productUrl": "https://www.themoviedb.org/movie/376867",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/6Eg6OfwghmSLVtt2sfGD5YOEFjI.jpg",
+                        "meta": {
+                            "releaseDate": "2017-02-01",
+                            "voteAverage": 7.4
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Phantom Thread",
+                        "author": "Paul Thomas Anderson",
+                        "description": "Dans le Londres glamour des années 50, le célèbre couturier Reynold Woodcock et sa sœur Cyril sont au cœur de la mode britannique, habillant la famille royale, les stars de cinéma, les héritières, les mondains et les dames dans le style reconnaissable de la Maison Woodcock. Les femmes défilent dans la vie de Woodcock, apportant à ce célibataire endurci inspiration et compagnie, jusqu’au jour où il rencontre Alma, une jeune femme au caractère fort qui deviendra rapidement sa muse et son amante. Lui qui contrôlait et planifiait sa vie au millimètre près, le voici bouleversé par l’amour.",
+                        "productUrl": "https://www.themoviedb.org/movie/400617",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/ihUl0Gqb0BIeOrvYVmHol8CZLv0.jpg",
+                        "meta": {
+                            "releaseDate": "2018-02-14",
+                            "voteAverage": 7.3
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "Mektoub, My Love: Canto Uno",
+                        "author": "Kechiche",
+                        "description": "En France en 1994, Amin, parisien d'adoption, retourne en été dans le Midi de la France où il a passé sa jeunesse chez ses parents qui tiennent un restaurant tunisien à Sète. Amin retrouve sa famille et ses amis de jeunesse, comme son cousin dragueur Tony ou sa meilleure amie Ophélie ; il passe son temps entre le restaurant familial, les bars du coin et la plage où viennent bronzer de jolies vacancières. Alors que Tony a du succès, Amin est plutôt timide. Il se trouve une occupation en photographiant la côte méditerranéenne dont il trouve la lumière fascinante.",
+                        "productUrl": "https://www.themoviedb.org/movie/337676",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/ghIhby39Af4hkZUCvdWFq0F3nqB.jpg",
+                        "meta": {
+                            "releaseDate": "2018-03-21",
+                            "voteAverage": 6.9
+                        },
+                        "provider": "moviedb"
+                    },
+                    {
+                        "title": "High Life",
+                        "author": "Claire Denis",
+                        "description": "Un groupe de criminels condamnés à mort acceptent de participer à une mission spatiale gouvernementale, dont l'objectif est de trouver des sources d'énergie alternatives, et de prendre part à des expériences de reproduction...",
+                        "productUrl": "https://www.themoviedb.org/movie/376865",
+                        "type": "movie",
+                        "imageUrl": "https://image.tmdb.org/t/p/w500/erqlOL9hHCnZvrJ9HB98z1tB7Is.jpg",
+                        "meta": {
+                            "releaseDate": "2018-11-07",
+                            "voteAverage": 5.6
+                        },
+                        "provider": "moviedb"
+                    }
+                ]
+            }
+        ]
+    }
+]
