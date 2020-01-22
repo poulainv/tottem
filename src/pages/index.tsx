@@ -47,7 +47,7 @@ export default () => {
                 <img
                     className="rounded mt-4 xl:mt-10 shadow-lg"
                     src="screen.png"
-                    alt=""
+                    alt="Screenshot of Tottem app"
                 />
             </div>
         </div>
