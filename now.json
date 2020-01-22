@@ -17,7 +17,12 @@
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
-        { "src": "public/*", "use": "@now/static" }
+        { "src": "public/*", "use": "@now/static" },
+        {
+            "src": "api/src/index.ts",
+            "use": "@now/node",
+            "config": { "maxLambdaSize": "20mb" }
+        }
     ],
     "routes": [{ "src": "/graphql", "dest": "/api/src/index.ts" }]
 }
