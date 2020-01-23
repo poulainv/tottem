@@ -5,14 +5,14 @@ import Link from 'next/link'
 export interface SectionsMenuProps {
     className?: string
     profileSlug: string
-    activeSectionIndex: number
-    sections: Array<{ slug: string; name?: string; index: number }>
+    activeSectionId: string
+    sections: Array<{ slug: string; name?: string; index: number; id: string }>
 }
 
 export default ({
     className,
     sections,
-    activeSectionIndex,
+    activeSectionId,
     profileSlug,
 }: SectionsMenuProps) => {
     return (
@@ -28,7 +28,7 @@ export default ({
                                     'px-4 py-2 text-gray-700 whitespace-no-wrap text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
                                     {
                                         'text-teal-800 border-teal-800':
-                                            index === activeSectionIndex,
+                                            section.id === activeSectionId,
                                     }
                                 )}
                             >

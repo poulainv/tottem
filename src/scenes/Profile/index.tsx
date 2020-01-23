@@ -70,7 +70,7 @@ export default (props: IProfilePageProps) => {
                     <SectionsMenu
                         className="mt-6 w-full mt-8"
                         profileSlug={props.profile}
-                        activeSectionIndex={activeSection.index}
+                        activeSectionId={activeSection.id}
                         sections={sections}
                     />
                     <CollectionList
