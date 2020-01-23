@@ -116,7 +116,7 @@ export default function Collection({
                 collectionSlug={collection.slug}
                 avatar={collection.owner.pictureUrl}
             />
-            <div className="text-2xl text-gray-900">
+            <div className="text-2xl text-gray-900 mt-2">
                 {collection.title || 'New Collection'}
             </div>
             {collection.detail && (

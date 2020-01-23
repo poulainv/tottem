@@ -43,7 +43,7 @@ export default (props: IProfilePageProps) => {
 
     return (
         <div className="bg-gray-100 border-t border-gray-200 min-h-screen">
-            <div className="xl:w-full max-w-2xl xl:max-w-4xl mx-2 xl:mx-auto pb-16 flex flex-col pt-5">
+            <div className="xl:w-full max-w-2xl xl:max-w-4xl mx-2 xl:mx-auto pb-16 flex flex-col">
                 <Seo
                     profileSlug={props.profile}
                     firstname={user.firstname}
@@ -51,7 +51,7 @@ export default (props: IProfilePageProps) => {
                     avatar={user.pictureUrl}
                     sectionSlug={activeSection.slug}
                 />
-                <div className="flex flex-col text-gray-900">
+                <div className="flex flex-col text-gray-900 mt-10">
                     <div className="flex">
                         <img
                             src={user.pictureUrl}
@@ -68,7 +68,7 @@ export default (props: IProfilePageProps) => {
                         </div>
                     </div>
                     <SectionsMenu
-                        className="mt-6 w-full"
+                        className="mt-6 w-full mt-8"
                         profileSlug={props.profile}
                         activeSectionIndex={activeSection.index}
                         sections={sections}
