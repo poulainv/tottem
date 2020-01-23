@@ -1,18 +1,15 @@
+import notification from 'antd/lib/notification'
+import { StyledButton } from '../../../../components/Button'
 import {
+    ItemDetailFragment,
+    ItemPreviewFragment,
+    useChangePositionMutation,
     useDeleteItemMutation,
     useUndeleteItemMutation,
-    ItemPreviewFragment,
-    ItemDetailFragment,
-    useChangePositionMutation,
 } from '../../../../generated/types'
-import { StyledButton } from '../../../../components/Button'
-import notification from 'antd/lib/notification'
-import { useInboxCount } from '../Sidenav/hooks'
 
 const useDeleteItem = () => {
-    const { decrementInboxCount, incrementInboxCount } = useInboxCount()
     const [deleteItem] = useDeleteItemMutation({
-        update: proxy => decrementInboxCount(proxy),
         onCompleted: ({ updateOneItem }) => {
             const key = `open${Date.now()}`
             if (updateOneItem === undefined) {
@@ -32,9 +29,7 @@ const useDeleteItem = () => {
             })
         },
     })
-    const [undeleteItem] = useUndeleteItemMutation({
-        update: proxy => incrementInboxCount(proxy),
-    })
+    const [undeleteItem] = useUndeleteItemMutation()
 
     const handleDelete = (id: string) => {
         deleteItem({
