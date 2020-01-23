@@ -3,8 +3,10 @@
         "sourceMap": true,
         "outDir": "dist",
         "resolveJsonModule": true,
+        "moduleResolution": "node",
         "strict": true,
-        "lib": ["es2018", "dom"],
+        "target": "ES2019",
+        "lib": ["es2019", "dom"],
         "esModuleInterop": true
     }
 }
