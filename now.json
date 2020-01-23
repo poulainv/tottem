@@ -2,6 +2,7 @@
     "version": 2,
     "build": {
         "env": {
+            "GRAPHQL_URL": "https://quiet-vincentpoulain.quiet.now.sh/graphql",
             "DATABASE_PROVIDER": "@database_provider",
             "DATABASE_URL": "@database_url",
             "AUTH0_DOMAIN": "@auth0_domain",
@@ -13,7 +14,9 @@
     },
     "env": {
         "DATABASE_PROVIDER": "@database_provider",
-        "DATABASE_URL": "@database_url"
+        "DATABASE_URL": "@database_url",
+        "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
+        "AUTH0_DOMAIN": "@auth0_domain"
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
