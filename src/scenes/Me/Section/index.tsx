@@ -60,7 +60,7 @@ export default ({ sectionId, authUserId }: SectionPageProps) => {
                         <div className="flex flex-col items-center">
                             <EmptyBox className="fill-current h-20 w-20 text-gray-400" />
                             <span className="text-gray-600 mt-4">
-                                Let's your first collection
+                                Let's create your first collection
                             </span>
                         </div>
                     </div>
