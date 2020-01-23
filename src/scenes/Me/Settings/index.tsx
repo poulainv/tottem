@@ -128,7 +128,7 @@ export default ({ authUserId }: SettingsProps) => {
                     <input
                         ref={register({
                             pattern: {
-                                value: /^[a-zA-z0-9_.-]{3,20}$/,
+                                value: /^[a-z0-9_.-]{3,20}$/,
                                 message:
                                     'Username should have between 3 and 20  alphanumeric characters',
                             },

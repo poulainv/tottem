@@ -35,7 +35,7 @@ interface Context extends NextPageContext {
 ProfilePage.getInitialProps = async (ctx: Context) => {
     const cookie = ctx.req?.headers?.cookie
     const isServer = typeof window === 'undefined'
-    const profileSlug: string = ctx.query.profile
+    const profileSlug: string = ctx.query.profile.toLowerCase()
     const collectionSlug: string = ctx.query.collectionSlug
     return {
         profileSlug,
