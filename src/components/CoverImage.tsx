@@ -42,7 +42,19 @@ export default ({ className, item }: CoverImageProps) => {
                 <div
                     className={classNames(
                         className,
-                        'absolute rounded border-gray-200 bg-gray-200 h-full w-full flex justify-center items-center'
+                        'absolute rounded border-gray-200 h-full w-full flex justify-center items-center',
+                        {
+                            'bg-purple-600': item.type === 'people',
+                            'bg-blue-600': item.type === 'book',
+                            'bg-orange-600': item.type === 'album',
+                            'bg-green-500': item.type === 'podcast',
+                            'bg-teal-600': ![
+                                'podcast',
+                                'album',
+                                'people',
+                                'book',
+                            ].includes(item.type),
+                        }
                     )}
                 >
                     <PlaceholderIcon className="text-white fill-current h-16 w-16" />
