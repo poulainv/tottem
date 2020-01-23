@@ -56,9 +56,11 @@ const EditableItem: React.FunctionComponent<IEditableItemProps> = ({
                         </div>
                     </div>
                 </div>
-                <div className="mt-4 text-gray-900 truncate">
-                    {item.description}
-                </div>
+                {item.description && (
+                    <div className="mt-4 text-gray-900 truncate">
+                        {item.description}
+                    </div>
+                )}
             </div>
             <form
                 className="w-1/2 min-h-full"

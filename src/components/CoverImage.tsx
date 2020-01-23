@@ -42,7 +42,7 @@ export default ({ className, item }: CoverImageProps) => {
                 <div
                     className={classNames(
                         className,
-                        'absolute rounded border-gray-200 bg-gray-200  h-full min-h-8 w-full flex justify-center items-center'
+                        'absolute rounded border-gray-200 bg-gray-200 h-full w-full flex justify-center items-center'
                     )}
                 >
                     <PlaceholderIcon className="text-white fill-current h-16 w-16" />
