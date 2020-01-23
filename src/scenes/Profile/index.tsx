@@ -58,11 +58,11 @@ export default (props: IProfilePageProps) => {
                             className="hidden xl:block h-32 w-32 rounded-full border-8 border-white object-cover flex-shrink-0"
                             alt=""
                         />
-                        <div className="flex flex-col ml-0 xl:ml-8 justify-between bg-white p-5 shadow w-full">
+                        <div className="flex flex-col ml-0 xl:ml-8 bg-white p-5 shadow w-full">
                             <h1 className="text-xl font-medium text-gray-900 leading-tight">
                                 {user.firstname}
                             </h1>
-                            <p className="text-gray-700 text-sm font-light mt-3 leading-relaxed">
+                            <p className="text-gray-700 text-sm font-light mt-3 leading-relaxed whitespace-pre-line">
                                 {user.biography}
                             </p>
                         </div>
