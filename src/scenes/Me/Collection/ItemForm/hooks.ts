@@ -29,25 +29,28 @@ const useItemUrlForm = (
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
             }
+            try {
+                // Side effect: update section collection preview
+                const collection = cache.readFragment<
+                    CollectionWithPreviewFragment
+                >({
+                    fragmentName: 'CollectionWithPreview',
+                    id: `Collection:${collectionId}`,
+                    fragment: CollectionWithPreviewFragmentDoc,
+                })
 
-            // Side effect: update section collection preview
-            const collection = cache.readFragment<
-                CollectionWithPreviewFragment
-            >({
-                fragmentName: 'CollectionWithPreview',
-                id: `Collection:${collectionId}`,
-                fragment: CollectionWithPreviewFragmentDoc,
-            })
-
-            cache.writeFragment({
-                id: `Collection:${collectionId}`,
-                fragment: CollectionWithPreviewFragmentDoc,
-                fragmentName: 'CollectionWithPreview',
-                data: {
-                    ...collection,
-                    items: [data.items].concat(collection?.items || []),
-                },
-            })
+                cache.writeFragment({
+                    id: `Collection:${collectionId}`,
+                    fragment: CollectionWithPreviewFragmentDoc,
+                    fragmentName: 'CollectionWithPreview',
+                    data: {
+                        ...collection,
+                        items: [data.items].concat(collection?.items || []),
+                    },
+                })
+            } catch {
+                // normal if query not available yet
+            }
 
             // Side effect: update current item list
             const cachedData = cache.readQuery<GetItemsQuery>({
@@ -115,23 +118,27 @@ const useItemFormSearch = (
             }
 
             // Side effect: update section collection preview
-            const collection = cache.readFragment<
-                CollectionWithPreviewFragment
-            >({
-                fragmentName: 'CollectionWithPreview',
-                id: `Collection:${collectionId}`,
-                fragment: CollectionWithPreviewFragmentDoc,
-            })
+            try {
+                const collection = cache.readFragment<
+                    CollectionWithPreviewFragment
+                >({
+                    fragmentName: 'CollectionWithPreview',
+                    id: `Collection:${collectionId}`,
+                    fragment: CollectionWithPreviewFragmentDoc,
+                })
 
-            cache.writeFragment({
-                id: `Collection:${collectionId}`,
-                fragment: CollectionWithPreviewFragmentDoc,
-                fragmentName: 'CollectionWithPreview',
-                data: {
-                    ...collection,
-                    items: [data.items].concat(collection?.items || []),
-                },
-            })
+                cache.writeFragment({
+                    id: `Collection:${collectionId}`,
+                    fragment: CollectionWithPreviewFragmentDoc,
+                    fragmentName: 'CollectionWithPreview',
+                    data: {
+                        ...collection,
+                        items: [data.items].concat(collection?.items || []),
+                    },
+                })
+            } catch {
+                // normal if query not available yet
+            }
 
             // Side effect: update current item list
             const cachedData = cache.readQuery<GetItemsQuery>({
