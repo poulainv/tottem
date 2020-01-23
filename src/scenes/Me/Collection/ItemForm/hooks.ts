@@ -7,6 +7,8 @@ import {
     useCreateItemFromSearchMutation,
     useCreateItemFromUrlMutation,
     useSearchItemLazyQuery,
+    CollectionWithPreviewFragment,
+    CollectionWithPreviewFragmentDoc,
 } from '../../../../generated/types'
 import { SelectValue } from 'antd/lib/select'
 
@@ -27,6 +29,27 @@ const useItemUrlForm = (
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
             }
+
+            // Side effect: update section collection preview
+            const collection = cache.readFragment<
+                CollectionWithPreviewFragment
+            >({
+                fragmentName: 'CollectionWithPreview',
+                id: `Collection:${collectionId}`,
+                fragment: CollectionWithPreviewFragmentDoc,
+            })
+
+            cache.writeFragment({
+                id: `Collection:${collectionId}`,
+                fragment: CollectionWithPreviewFragmentDoc,
+                fragmentName: 'CollectionWithPreview',
+                data: {
+                    ...collection,
+                    items: [data.items].concat(collection?.items || []),
+                },
+            })
+
+            // Side effect: update current item list
             const cachedData = cache.readQuery<GetItemsQuery>({
                 query: GetItemsDocument,
                 variables: {
@@ -90,6 +113,27 @@ const useItemFormSearch = (
             if (data === undefined || data === null) {
                 throw Error('Can not update cache because no data returned')
             }
+
+            // Side effect: update section collection preview
+            const collection = cache.readFragment<
+                CollectionWithPreviewFragment
+            >({
+                fragmentName: 'CollectionWithPreview',
+                id: `Collection:${collectionId}`,
+                fragment: CollectionWithPreviewFragmentDoc,
+            })
+
+            cache.writeFragment({
+                id: `Collection:${collectionId}`,
+                fragment: CollectionWithPreviewFragmentDoc,
+                fragmentName: 'CollectionWithPreview',
+                data: {
+                    ...collection,
+                    items: [data.items].concat(collection?.items || []),
+                },
+            })
+
+            // Side effect: update current item list
             const cachedData = cache.readQuery<GetItemsQuery>({
                 query: GetItemsDocument,
                 variables: {

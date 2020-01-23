@@ -4,17 +4,21 @@ fragment SectionDetails on Section {
         where: { isDeleted: { equals: false } }
         orderBy: { createdAt: asc }
     ) {
-        ...CollectionBasic
-        items(
-            first: 5
-            where: { isDeleted: { equals: false } }
-            orderBy: { position: asc }
-        ) {
-            ...ItemPreview
-        }
+        ...CollectionWithPreview
         owner {
             pictureUrl
         }
+    }
+}
+
+fragment CollectionWithPreview on Collection {
+    ...CollectionBasic
+    items(
+        first: 5
+        where: { isDeleted: { equals: false } }
+        orderBy: { position: asc }
+    ) {
+        ...ItemPreview
     }
 }
 

@@ -1596,11 +1596,14 @@ export type GetUserByAuthIdQuery = { __typename?: 'Query' } & {
 export type SectionDetailsFragment = { __typename?: 'Section' } & {
     collections: Array<
         { __typename?: 'Collection' } & {
-            items: Array<{ __typename?: 'Item' } & ItemPreviewFragment>
             owner: { __typename?: 'User' } & Pick<User, 'pictureUrl'>
-        } & CollectionBasicFragment
+        } & CollectionWithPreviewFragment
     >
 } & SectionBasicFragment
+
+export type CollectionWithPreviewFragment = { __typename?: 'Collection' } & {
+    items: Array<{ __typename?: 'Item' } & ItemPreviewFragment>
+} & CollectionBasicFragment
 
 export type ItemPreviewFragment = { __typename?: 'Item' } & Pick<
     Item,
@@ -1680,6 +1683,20 @@ export const ItemPreviewFragmentDoc = gql`
         createdAt
     }
 `
+export const CollectionWithPreviewFragmentDoc = gql`
+    fragment CollectionWithPreview on Collection {
+        ...CollectionBasic
+        items(
+            first: 5
+            where: { isDeleted: { equals: false } }
+            orderBy: { position: asc }
+        ) {
+            ...ItemPreview
+        }
+    }
+    ${CollectionBasicFragmentDoc}
+    ${ItemPreviewFragmentDoc}
+`
 export const SectionDetailsFragmentDoc = gql`
     fragment SectionDetails on Section {
         ...SectionBasic
@@ -1687,22 +1704,14 @@ export const SectionDetailsFragmentDoc = gql`
             where: { isDeleted: { equals: false } }
             orderBy: { createdAt: asc }
         ) {
-            ...CollectionBasic
-            items(
-                first: 5
-                where: { isDeleted: { equals: false } }
-                orderBy: { position: asc }
-            ) {
-                ...ItemPreview
-            }
+            ...CollectionWithPreview
             owner {
                 pictureUrl
             }
         }
     }
     ${SectionBasicFragmentDoc}
-    ${CollectionBasicFragmentDoc}
-    ${ItemPreviewFragmentDoc}
+    ${CollectionWithPreviewFragmentDoc}
 `
 export const ItemDetailFragmentDoc = gql`
     fragment ItemDetail on Item {
