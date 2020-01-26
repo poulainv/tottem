@@ -25,6 +25,7 @@ export default ({ collection }: Props) => {
             >
                 <div className="flex flex-row w-full">
                     <TextareaAutosize
+                        data-cy="title-collection"
                         autoFocus={!collection.title?.length} // autofocus only when collection unamed
                         onChange={() => dispatch('CHANGED')}
                         type="text"
@@ -39,6 +40,7 @@ export default ({ collection }: Props) => {
                     <Options className="-pl-2" collectionId={collection.id} />
                 </div>
                 <TextareaAutosize
+                    data-cy="detail-collection"
                     onChange={() => dispatch('CHANGED')}
                     placeholder="Notes"
                     className="mt-4 resize-none focus:border-blue-400 outline-none text-gray-700 leading-relaxed"

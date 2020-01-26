@@ -70,6 +70,8 @@ const useItemFormSearch = (
     const [value, setValue] = useState<string>()
     const { setInboxCount } = useInboxCount()
 
+    // onCompleted is called on each rerendered caused by
+    // https://github.com/apollographql/react-apollo/issues/3505
     const [dataSource, setDataSource] = useState<SearchItem[]>()
     const [search] = useSearchItemLazyQuery({
         onCompleted: data => {

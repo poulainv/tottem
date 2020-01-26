@@ -41,6 +41,7 @@ const EditableItem: React.FunctionComponent<IEditableItemProps> = ({
                                 />
                             </div>
                             <a
+                                data-cy="title-item"
                                 href={item.productUrl}
                                 target="_blank"
                                 className="font-medium text-gray-900 px-2 leading-tight truncate"

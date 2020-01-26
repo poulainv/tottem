@@ -16,6 +16,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
     const menu = (
         <Menu className="bg-gray-700 font-semibold">
             <Menu.Item
+                data-cy="item-url"
                 key="0"
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
                 onClick={() => onSelect('url')}
@@ -26,6 +27,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             <Menu.Divider />
             <Menu.Item
                 key="1"
+                data-cy="item-movie"
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
                 onClick={() => onSelect('search-movie')}
             >
@@ -35,6 +37,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             <Menu.Divider />
             <Menu.Item
                 key="2"
+                data-cy="item-book"
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
                 onClick={() => onSelect('search-book')}
             >
@@ -44,6 +47,7 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
             <Menu.Divider />
             <Menu.Item
                 key="3"
+                data-cy="item-album"
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
                 onClick={() => onSelect('search-album')}
             >
@@ -55,7 +59,10 @@ const AddButton: React.FunctionComponent<IAddButtonProps> = ({ onSelect }) => {
 
     return (
         <Dropdown overlay={menu} placement="bottomCenter">
-            <div className="h-8 w-8 text-gray-600 rounded-full border border-gray-600 hover:border-gray-900 hover:text-gray-900 flex justify-center items-center cursor-pointer">
+            <div
+                data-cy="new-item"
+                className="h-8 w-8 text-gray-600 rounded-full border border-gray-600 hover:border-gray-900 hover:text-gray-900 flex justify-center items-center cursor-pointer"
+            >
                 <PlusIcon height={16} width={16} className="fill-current" />
             </div>
         </Dropdown>

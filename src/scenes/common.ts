@@ -15,7 +15,7 @@ export type ItemType =
 export const useTracking = () => {
     useEffect(() => {
         initialize('UA-149517534-1', {
-            testMode: process.env.NODE_ENV === 'test',
+            testMode: process.env.NODE_ENV !== 'production',
         })
         pageview(window.location.pathname + window.location.search)
     })

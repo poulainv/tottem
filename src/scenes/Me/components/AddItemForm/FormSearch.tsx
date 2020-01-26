@@ -7,7 +7,12 @@ const { Option } = Select
 
 const renderOption = (item: SearchItem) => {
     return (
-        <Option key={item.id} label={item.title} className="py-2">
+        <Option
+            key={item.id}
+            label={item.title}
+            className="py-2"
+            data-cy="item-result-search"
+        >
             <div className="flex flex-row leading-none items-center justify-between">
                 <div className="flex flex-row flex-start leading-none items-center ">
                     <span>{item.title}</span>
@@ -55,6 +60,7 @@ export default ({
                 onSearch={onChange}
             >
                 <input
+                    data-cy="item-search-input"
                     autoComplete="off"
                     className="shadow flex-1 rounded-sm px-4 h-8 focus:outline-none"
                     name="title"

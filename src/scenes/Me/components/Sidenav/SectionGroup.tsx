@@ -56,7 +56,10 @@ export default ({
                         height={14}
                         width={14}
                     />
-                    <span className="block text-gray-800 truncate flex-shrink w-full">
+                    <span
+                        data-cy="nav-space"
+                        className="block text-gray-800 truncate flex-shrink w-full"
+                    >
                         {title === null || title === '' ? 'New Space' : title}
                     </span>
                     <div className="flex flex-row items-center flex-shrink-0">
@@ -102,6 +105,7 @@ export default ({
                                 as={collectionHref}
                             >
                                 <a
+                                    data-cy="nav-collection"
                                     className={classNames(
                                         `block px-6 py-1 rounded hover:bg-brand-100 cursor-pointer whitespace-no-wrap truncate mb-1 font-normal`,
                                         {
