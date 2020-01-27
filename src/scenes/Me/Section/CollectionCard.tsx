@@ -44,7 +44,10 @@ export default ({ className, avatar, collection }: CollectionCardProps) => {
                 )}
             >
                 <div className="flex flex-row justify-between">
-                    <p className="text-gray-900 font-semibold hover:text-black">
+                    <p
+                        data-cy="preview-collection-title"
+                        className="text-gray-900 font-semibold hover:text-black"
+                    >
                         {collection.title || 'New Collection'}
                     </p>
                     <Options

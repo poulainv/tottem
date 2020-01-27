@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Spinner = ({ size = 50 }: { size?: number }) => (
     <StyledSpinner viewBox="0 0 50 50" size={size}>
         <circle
+            data-cy="loading"
             className="path"
             cx="25"
             cy="25"

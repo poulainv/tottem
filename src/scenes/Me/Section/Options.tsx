@@ -21,6 +21,7 @@ const Options: React.FunctionComponent<IOptionsProps> = ({
         <Menu className="bg-gray-700 font-semibold">
             <Menu.Item
                 key="0"
+                data-cy="delete-space"
                 onClick={handleDeleteSection}
                 className="hover:bg-brand-600 text-white font-medium flex items-center"
             >
@@ -33,6 +34,7 @@ const Options: React.FunctionComponent<IOptionsProps> = ({
     return (
         <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
             <div
+                data-cy="option-space"
                 className={classNames(
                     'cursor-pointer w-6 rounded h-8 flex justify-center items-center hover:bg-gray-100',
                     className

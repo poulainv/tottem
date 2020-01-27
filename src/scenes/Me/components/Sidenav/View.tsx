@@ -100,7 +100,10 @@ const Sidenav: React.FC<SidenavProps> = ({
                                     />
                                     <span className="text-gray-800">Inbox</span>
                                 </div>
-                                <div className="text-gray-600">
+                                <div
+                                    data-cy="inbox-count"
+                                    className="text-gray-600"
+                                >
                                     {inboxCount}
                                 </div>
                             </div>
@@ -148,6 +151,7 @@ const Sidenav: React.FC<SidenavProps> = ({
                     )}
                     <div className="mt-2 border-t border-gray-300 py-2">
                         <button
+                            data-cy="new-space"
                             onClick={() => createSection()}
                             className="w-full px-2 py-2 flex text-gray-700 hover:bg-brand-100 rounded focus:outline-none"
                         >

@@ -23,6 +23,7 @@ export default ({
                 )}
             >
                 <input
+                    data-cy="item-url-input"
                     autoFocus
                     autoComplete="off"
                     className="shadow flex-1 rounded-sm px-4 h-8 focus:outline-none"

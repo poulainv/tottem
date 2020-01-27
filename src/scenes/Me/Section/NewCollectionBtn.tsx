@@ -15,6 +15,7 @@ export default ({ className, sectionId, authUserId }: Props) => {
     return (
         <Tooltip title={'Create collection in this space'}>
             <div
+                data-cy="new-collection"
                 onClick={() => createCollection()}
                 className={classNames(
                     'h-8 w-8 text-gray-600 rounded-full border border-gray-600 hover:border-gray-900 hover:text-gray-900 flex justify-center items-center cursor-pointer',

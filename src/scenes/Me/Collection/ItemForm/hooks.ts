@@ -97,6 +97,8 @@ const useItemFormSearch = (
     const [dataSource, setDataSource] = useState<SearchItem[]>()
     const [value, setValue] = useState<string>()
 
+    // onCompleted is called on each rerendered caused by 
+    // https://github.com/apollographql/react-apollo/issues/3505
     const [search] = useSearchItemLazyQuery({
         onCompleted: data => {
             if (data?.search !== undefined) {
@@ -138,6 +140,7 @@ const useItemFormSearch = (
                 })
             } catch {
                 // normal if query not available yet
+                // FIXME should be event driven
             }
 
             // Side effect: update current item list
