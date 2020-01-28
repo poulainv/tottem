@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "regions": ["dub1"],
     "build": {
         "env": {
             "GRAPHQL_URL": "https://quiet-vincentpoulain.quiet.now.sh/graphql",
