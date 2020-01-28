@@ -25,6 +25,8 @@ I have two considerations in mind:
         -   [Repository structure — front-end](#repository-structure--front-end)
         -   [How is it typesafe from end-to-end?](#how-is-it-typesafe-from-end-to-end)
         -   [Global state management](#global-state-management)
+    -   [SSR Workflow](#ssr-workflow)
+    -   [Deployment](#deployment)
     -   [Setup](#setup)
     -   [Contributors](#contributors)
 
@@ -86,6 +88,9 @@ Inspired by those [recommendations](https://medium.com/@alexmngn/how-to-better-o
 
 ```sh
 tottem/
+├── api # contains graphlq endpoint based on Apollo Server & Prisma2
+├──── prisma # contains model definitions & database migration logbook
+├──── src/schema # contains graphql resolvers using Prisma Client
 ├── src
 ├──── generated # contains generated code (types, hooks, ...)
 ├──── pages # static and dynamic routes declaration used by NextJS
@@ -196,6 +201,24 @@ const useBreadcrumbs = (profileSlug: string) => {
 }
 ```
 
+### SSR Workflow
+
+NextJS provides SSR features that make user experience awesome. NextJS comes with the concept of pre-rendering built-in, that can take 2 forms:
+
+-   Static Generation
+-   Server-side rendering
+
+When developing an app, pages are usually not static and need to be rendered on-demand depending on the context (ie. user). [NextJS documentation](https://nextjs.org/docs) is great. However, it can be a bit confusing and hard to deeply understand what's happening when we use NextJS / SSR. This is a sequence diagram aims explaining how NextJS SSR works in Tottem case:
+
+[![Tottem](./public/ssr-diagram.png)]()
+
+### Deployment
+
+The app is fully deployed on Zeit Now. Configuration can be found in `now.json` file. Merging on master trigger new deployment.
+
+The API runtime is _serverless_ and run via [Now Serverless Functions](https://zeit.co/docs/v2/serverless-functions/introduction).
+As described [here](https://github.com/poulainv/tottem/pull/113#issuecomment-577685621), API performance with Prisma Client is pretty good even with coldstart.
+
 ### Setup
 
 Locally PG instance is needed with some var env set. In `.env` for instance
@@ -218,8 +241,8 @@ npm run dev
 ```
 
 ```sh
-git clone git@github.com:poulainv/tottem-graphql.git
-cd tottem-graphql
+cd tottem
+cd api
 npm install
 npm run dev
 ```

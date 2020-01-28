@@ -1,0 +1,86 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+model User {
+  id           String       @default(cuid()) @id
+  authUserId   String?      @unique
+  slug         String       @unique
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  firstname    String
+  pictureUrl   String
+  biography    String?
+  linkedin     String?
+  github       String?
+  mail         String?
+  youtube      String?
+  website      String?
+  label        String?
+  sections     Section[]
+  collections  Collection[]
+  inboxedItems Item[]
+}
+
+model Section {
+  id          String       @default(cuid()) @id
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  slug        String
+  name        String?
+  index       Int          @default(0)
+  collections Collection[]
+  owner       User
+  isExpanded  Boolean      @default(true)
+  isDeleted   Boolean      @default(false)
+}
+
+model Collection {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  slug      String   @unique
+  name      String?
+  isDeleted Boolean  @default(false)
+  detail    String?
+  items     Item[]
+  section   Section
+  owner     User
+}
+
+model Item {
+  id          String      @default(cuid()) @id
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  isDeleted   Boolean     @default(false)
+  position    Int         @default(0)
+  title       String
+  provider    String?
+  author      String?
+  type        ItemType
+  productUrl  String?
+  imageUrl    String?
+  description String?
+  comment     String?
+  collection  Collection?
+  meta        String?     @default("{}")
+  inboxOwner  User?
+}
+
+
+enum ItemType {
+  book
+  album
+  movie
+  video
+  people
+  article
+  podcast
+  website
+  repository
+}

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "target": "ES2019",
+        "lib": ["es2019", "dom"],
+        "esModuleInterop": true
+    }
+}

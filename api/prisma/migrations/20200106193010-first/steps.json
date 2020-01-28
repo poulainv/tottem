@@ -1,0 +1,670 @@
+{
+    "version": "0.3.14-fixed",
+    "steps": [
+        {
+            "stepType": "CreateEnum",
+            "enum": "ItemType",
+            "values": [
+                "book",
+                "album",
+                "movie",
+                "video",
+                "people",
+                "article",
+                "podcast",
+                "website",
+                "repository"
+            ]
+        },
+        {
+            "stepType": "CreateModel",
+            "model": "User"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "id",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "User",
+            "field": "id",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "User",
+            "field": "id",
+            "directive": "default",
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "User",
+            "field": "id",
+            "directive": "id"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "authUserId",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "User",
+            "field": "authUserId",
+            "directive": "unique"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "slug",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "User",
+            "field": "slug",
+            "directive": "unique"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "User",
+            "field": "createdAt",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "User",
+            "field": "createdAt",
+            "directive": "default",
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "firstname",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "pictureUrl",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "biography",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "linkedin",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "github",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "mail",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "youtube",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "website",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "label",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "sections",
+            "type": "Section",
+            "arity": "list"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "collections",
+            "type": "Collection",
+            "arity": "list"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "User",
+            "field": "inboxedItems",
+            "type": "Item",
+            "arity": "list"
+        },
+        {
+            "stepType": "CreateModel",
+            "model": "Section"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "id",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "id",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Section",
+            "field": "id",
+            "directive": "default",
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "id",
+            "directive": "id"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "createdAt",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Section",
+            "field": "createdAt",
+            "directive": "default",
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "updatedAt",
+            "directive": "updatedAt"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "slug",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "name",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "index",
+            "type": "Int",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "index",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Section",
+            "field": "index",
+            "directive": "default",
+            "argument": "",
+            "value": "0"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "collections",
+            "type": "Collection",
+            "arity": "list"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "owner",
+            "type": "User",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "isExpanded",
+            "type": "Boolean",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "isExpanded",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Section",
+            "field": "isExpanded",
+            "directive": "default",
+            "argument": "",
+            "value": "true"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Section",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Section",
+            "field": "isDeleted",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Section",
+            "field": "isDeleted",
+            "directive": "default",
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "stepType": "CreateModel",
+            "model": "Collection"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "id",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "id",
+            "directive": "id"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "id",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Collection",
+            "field": "id",
+            "directive": "default",
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "createdAt",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Collection",
+            "field": "createdAt",
+            "directive": "default",
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "updatedAt",
+            "directive": "updatedAt"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "slug",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "slug",
+            "directive": "unique"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "name",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Collection",
+            "field": "isDeleted",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Collection",
+            "field": "isDeleted",
+            "directive": "default",
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "detail",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "items",
+            "type": "Item",
+            "arity": "list"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "section",
+            "type": "Section",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Collection",
+            "field": "owner",
+            "type": "User",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateModel",
+            "model": "Item"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "id",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "id",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Item",
+            "field": "id",
+            "directive": "default",
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "id",
+            "directive": "id"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "createdAt",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Item",
+            "field": "createdAt",
+            "directive": "default",
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "updatedAt",
+            "directive": "updatedAt"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "isDeleted",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Item",
+            "field": "isDeleted",
+            "directive": "default",
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "position",
+            "type": "Int",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "position",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Item",
+            "field": "position",
+            "directive": "default",
+            "argument": "",
+            "value": "0"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "title",
+            "type": "String",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "provider",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "author",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "type",
+            "type": "ItemType",
+            "arity": "required"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "productUrl",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "imageUrl",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "description",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "comment",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "collection",
+            "type": "Collection",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "meta",
+            "type": "String",
+            "arity": "optional"
+        },
+        {
+            "stepType": "CreateDirective",
+            "model": "Item",
+            "field": "meta",
+            "directive": "default"
+        },
+        {
+            "stepType": "CreateDirectiveArgument",
+            "model": "Item",
+            "field": "meta",
+            "directive": "default",
+            "argument": "",
+            "value": "\"{}\""
+        },
+        {
+            "stepType": "CreateField",
+            "model": "Item",
+            "field": "inboxOwner",
+            "type": "User",
+            "arity": "optional"
+        }
+    ]
+}

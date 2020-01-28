@@ -1,23 +1,39 @@
 {
     "version": 2,
+    "regions": ["dub1"],
     "build": {
         "env": {
+            "GRAPHQL_URL": "https://quiet-vincentpoulain.quiet.now.sh/graphql",
             "DATABASE_PROVIDER": "@database_provider",
             "DATABASE_URL": "@database_url",
             "AUTH0_DOMAIN": "@auth0_domain",
             "AUTH0_CLIENTID": "@auth0_client_id",
             "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
             "AUTH0_CALLBACK": "https://beta.tottem.app/auth/callback",
-            "GRAPHQL_URL": "https://tottem-graphql.herokuapp.com/graphql"
+            "ENGINE_API_KEY": "@engine_api_key"
         }
     },
     "env": {
+        "ENGINE_API_KEY": "@engine_api_key",
+        "GITHUB_API_KEY": "@github_api_key",
+        "GOOGLEBOOKS_API_KEY": "@googlebooks_api_key",
+        "MOVIEDB_API_KEY": "@moviedb_api_key",
+        "SPOTIFY_CLIENT_ID": "@spotify_client_id",
+        "SPOTIFY_CLIENT_SECRET": "@spotify_client_secret",
+        "YOUTUBE_API_KEY": "@youtube_api_key",
         "DATABASE_PROVIDER": "@database_provider",
-        "DATABASE_URL": "@database_url"
+        "DATABASE_URL": "@database_url",
+        "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
+        "AUTH0_DOMAIN": "@auth0_domain"
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },
-        { "src": "public/*", "use": "@now/static" }
+        { "src": "public/*", "use": "@now/static" },
+        {
+            "src": "api/src/index.ts",
+            "use": "@now/node",
+            "config": { "maxLambdaSize": "20mb" }
+        }
     ],
     "routes": [{ "src": "/graphql", "dest": "/api/src/index.ts" }]
 }
