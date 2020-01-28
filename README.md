@@ -208,13 +208,14 @@ NextJS provides SSR features that make user experience awesome. NextJS comes wit
 -   Static Generation
 -   Server-side rendering
 
-When developing an app, pages are usually not static and need to be rendered on-demand depending on the context (ie. user). [NextJS documentation](https://nextjs.org/docs) is great. However, it can be a bit confusing to deeply understand what's happening when we use NextJS / SSR. This is a sequence diagram aims explaining how NextJS SSR works in Tottem case:
+When developing an app, pages are usually not static and need to be rendered on-demand depending on the context (ie. user). [NextJS documentation](https://nextjs.org/docs) is great. However, it can be a bit confusing and hard to deeply understand what's happening when we use NextJS / SSR. This is a sequence diagram aims explaining how NextJS SSR works in Tottem case:
 
 [![Tottem](./public/ssr-diagram.png)]()
 
 ### Deployment
 
-The app is fully deployed on Zeit Now. Configuration can be found in `now.json` file. Merge on master trigger new deployment.
+The app is fully deployed on Zeit Now. Configuration can be found in `now.json` file. Merging on master trigger new deployment.
+
 The API runtime is _serverless_ and run via [Now Serverless Functions](https://zeit.co/docs/v2/serverless-functions/introduction).
 As described [here](https://github.com/poulainv/tottem/pull/113#issuecomment-577685621), API performance with Prisma Client is pretty good even with coldstart.
 
@@ -240,8 +241,8 @@ npm run dev
 ```
 
 ```sh
-git clone git@github.com:poulainv/tottem-graphql.git
-cd tottem-graphql
+cd tottem
+cd api
 npm install
 npm run dev
 ```
