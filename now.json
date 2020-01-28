@@ -9,10 +9,24 @@
             "AUTH0_DOMAIN": "@auth0_domain",
             "AUTH0_CLIENTID": "@auth0_client_id",
             "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
-            "AUTH0_CALLBACK": "https://quiet-vincentpoulain.quiet.now.sh/auth/callback"
+            "AUTH0_CALLBACK": "https://quiet-vincentpoulain.quiet.now.sh/auth/callback",
+            "ENGINE_API_KEY": "@engine_api_key",
+            "GITHUB_API_KEY": "@github_api_key",
+            "GOOGLEBOOKS_API_KEY": "@googlebooks_api_key",
+            "MOVIEDB_API_KEY": "@moviedb_api_key",
+            "SPOTIFY_CLIENT_ID": "@spotify_client_id",
+            "SPOTIFY_CLIENT_SECRET": "@spotify_client_secret",
+            "YOUTUBE_API_KEY": "@youtube_api_key"
         }
     },
     "env": {
+        "ENGINE_API_KEY": "@engine_api_key",
+        "GITHUB_API_KEY": "@github_api_key",
+        "GOOGLEBOOKS_API_KEY": "@googlebooks_api_key",
+        "MOVIEDB_API_KEY": "@moviedb_api_key",
+        "SPOTIFY_CLIENT_ID": "@spotify_client_id",
+        "SPOTIFY_CLIENT_SECRET": "@spotify_client_secret",
+        "YOUTUBE_API_KEY": "@youtube_api_key",
         "DATABASE_PROVIDER": "@database_provider",
         "DATABASE_URL": "@database_url",
         "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
