@@ -8,8 +8,16 @@ const client = jwksClient({
 
 function getKey(header: any, cb: any) {
     client.getSigningKey(header.kid, (err: any, key: any) => {
-        const signingKey = key.publicKey || key.rsaPublicKey
-        cb(null, signingKey)
+        let signingKey
+        try {
+            signingKey = key.publicKey || key.rsaPublicKey
+        } catch {
+            logger.error(
+                `Something went wrong when getting signingKey err: ${err} header: ${header} key:${key}`
+            )
+        } finally {
+            cb(null, signingKey)
+        }
     })
 }
 
