@@ -9,7 +9,7 @@
             "AUTH0_DOMAIN": "@auth0_domain",
             "AUTH0_CLIENTID": "@auth0_client_id",
             "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
-            "AUTH0_CALLBACK": "https://quiet-vincentpoulain.quiet.now.sh/auth/callback",
+            "AUTH0_CALLBACK": "https://beta.tottem.app/auth/callback",
             "ENGINE_API_KEY": "@engine_api_key"
         }
     },
