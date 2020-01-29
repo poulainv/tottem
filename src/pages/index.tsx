@@ -5,8 +5,13 @@ import MailIcon from '../../public/pictograms/mail.svg'
 import { StyledButton } from '../components/Button'
 import { useTracking } from '../scenes/common'
 
+const profileExamples = ['vincent', 'clem', 'francois', 'thinkerview']
+
 export default () => {
     useTracking()
+    const [profileExample, setProfileExample] = React.useState(
+        profileExamples[Math.floor(Math.random() * profileExamples.length)]
+    )
     return (
         <div style={{ backgroundColor: '#FDFDFD' }} className="h-screen w-full">
             <div className="flex flex-col max-w-4xl mx-auto pt-10 justify-between items-center h-full p-4">
@@ -36,13 +41,33 @@ export default () => {
                         Tottem is an open-source library. Smart, social and
                         beautiful.
                     </p>
-                    <Link as="/auth/login" href="/auth/login">
-                        <a className="mt-4">
-                            <StyledButton className="uppercase">
-                                Get started
-                            </StyledButton>
+                    <div className="flex mt-4 items-center">
+                        <Link as="/auth/login" href="/auth/login">
+                            <a>
+                                <StyledButton className="uppercase">
+                                    Get started
+                                </StyledButton>
+                            </a>
+                        </Link>
+                        <p className="ml-4">or </p>
+                        <a
+                            onClick={() =>
+                                setProfileExample(
+                                    profileExamples[
+                                        Math.floor(
+                                            Math.random() *
+                                                profileExamples.length
+                                        )
+                                    ]
+                                )
+                            }
+                            target="_blank"
+                            href={`/${profileExample}`}
+                            className="ml-2 text-green-700 font-medium"
+                        >
+                            Let's take a look to a random profile 🧐
                         </a>
-                    </Link>
+                    </div>
                 </div>
                 <img
                     className="rounded mt-4 xl:mt-10 shadow-lg"
