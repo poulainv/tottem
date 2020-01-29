@@ -51,7 +51,7 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
                 </div>
             </div>
             <div className="flex justify-end items-center text-gray-800 flex-shrink-0">
-                {username && (
+                {username ? (
                     <Link as="/me" href="/me">
                         <a className="flex items-center flex-shrink-0">
                             <img
@@ -64,6 +64,13 @@ const TopBar: React.FunctionComponent<ITopBarProps> = ({
                                 {username}
                             </p>
                             <p className="mx-1 text-gray-400">|</p>
+                        </a>
+                    </Link>
+                ) : (
+                    <Link href="/auth/login" as="/auth/login">
+                        <a className="text-sm font-medium text-teal-700">
+                            Create an account
+                            <span className="ml-2 mr-1 text-gray-400">|</span>
                         </a>
                     </Link>
                 )}
