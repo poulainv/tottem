@@ -130,7 +130,7 @@ export default ({ authUserId }: SettingsProps) => {
                             pattern: {
                                 value: /^[a-z0-9_.-]{3,20}$/,
                                 message:
-                                    'Username should have between 3 and 20  alphanumeric characters',
+                                    'Username should have between 3 and 20 lowercase alphanumeric characters',
                             },
                             required: {
                                 value: true,
