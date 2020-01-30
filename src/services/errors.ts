@@ -5,21 +5,18 @@ const handleGraphQLErrors: ErrorHandler = ({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
         graphQLErrors.forEach(({ message, locations, path, extensions }) => {
             if (extensions?.code === 'FORBIDDEN') {
-                openNotification('Not authorized', 'Try to log-in?')
+                sendMessage('Try to log-in?', 'Not authorized')
             } else {
-                openNotification(
-                    'Something went wrong 😪',
-                    'Not your fault, try again...'
-                )
+                sendMessage('Not your fault, try again...')
             }
         })
     }
     if (networkError) {
-        openNotification('Still connected?', 'Check your internet connection')
+        sendMessage('Check your internet connection', 'Still connected?')
     }
 }
 
-const openNotification = (title: string, message: string) => {
+const sendMessage = (message: string, title = 'Something went wrong 😪') => {
     const isServer = typeof window === 'undefined'
     if (!isServer) {
         notification.error({
@@ -31,4 +28,4 @@ const openNotification = (title: string, message: string) => {
     }
 }
 
-export { handleGraphQLErrors }
+export { handleGraphQLErrors, sendMessage }
