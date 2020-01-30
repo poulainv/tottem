@@ -17,6 +17,7 @@ export const useStatusMessage = () => {
     const dispatch = (action: 'SAVED' | 'SAVING' | 'CHANGED') => {
         switch (action) {
             case 'SAVED':
+                setTimeout(() => dispatch('CHANGED'), 3000)
                 return client.writeData({
                     data: {
                         statusMessage: 'Saved!',
