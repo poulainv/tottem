@@ -1,5 +1,5 @@
 import { SectionCreateManyWithoutSectionsInput, ItemType } from '@prisma/photon'
-import cuid = require('cuid')
+import cuid from 'cuid'
 import slugify from 'slugify'
 
 const initialSections = [
@@ -11,14 +11,6 @@ const initialSections = [
                 name: '😍 Must read content',
                 items: [
                     {
-                        type: 'article',
-                        author: 'Tristan Harris',
-                        imageUrl: '/images/articles/clickgoal.jpg',
-                        title: 'It’s Time to Redesign the Attention Economy',
-                        productUrl:
-                            'https://medium.com/thrive-global/its-time-to-redesign-the-attention-economy-f9215a2210be',
-                    },
-                    {
                         type: 'book',
                         author: 'Cennydd Bowles',
                         imageUrl:
@@ -26,51 +18,13 @@ const initialSections = [
                         productUrl:
                             'https://www.amazon.com/Future-Ethics-Cennydd-Bowles/dp/1999601912',
                         title: `Future Ethics`,
+                        comment: `👋  You do not have to read this book to use Tottem. 
+This is a friendly example of content you can add using the plus button above:
+- Search book, album or even movie
+- Add item from any link 
+Move or delete this item using button on the right 👉`,
                     },
                 ],
-            },
-            {
-                name: '🌍 Favorite non fiction books',
-                items: [
-                    {
-                        type: 'book',
-                        author: 'Yvon Chouinard',
-                        imageUrl: '/images/books/patagonia.jpg',
-                        productUrl:
-                            'https://www.amazon.fr/Let-People-Surfing-Education-Businessman-Including/dp/0143109677',
-                        title: 'Let my people go Surfing',
-                    },
-                    {
-                        type: 'book',
-                        author: 'Barry Schwartz',
-                        imageUrl: '/images/books/paradox.jpg',
-                        productUrl: '',
-                        title: 'The Paradox of Choice',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        name: 'Music',
-        index: 1,
-        collections: [
-            {
-                name: '🎷 Album on repeat',
-                items: [
-                    {
-                        type: 'album',
-                        author: 'Moderat',
-                        imageUrl: '/images/albums/moderat.jpg',
-                        title: 'II',
-                        productUrl:
-                            'https://open.spotify.com/album/4HDUXAmHj9KEs9wP1icwcy?si=BICxfcyhRLmKDM_-mIUVog',
-                    },
-                ],
-            },
-            {
-                name: '🧘‍♂️ Relaxing music',
-                items: [],
             },
         ],
     },
@@ -106,6 +60,7 @@ export const getInitialSections: (
                                         type: z.type as ItemType,
                                         productUrl: z.productUrl,
                                         imageUrl: z.imageUrl,
+                                        comment: z.comment,
                                     }
                                 }),
                             },
