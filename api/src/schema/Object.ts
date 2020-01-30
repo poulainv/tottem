@@ -74,6 +74,14 @@ export const Item = objectType({
     },
 })
 
+export const S3SignedPath = objectType({
+    name: 'S3SignedPath',
+    definition(t) {
+        t.string('signedRequest', { nullable: false })
+        t.string('url', { nullable: false })
+    },
+})
+
 export const SearchItem = objectType({
     name: 'SearchItem',
     definition(t) {

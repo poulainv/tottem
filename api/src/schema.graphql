@@ -558,6 +558,7 @@ type Mutation {
         slug: String!
     ): User!
     createOneUser(data: UserCreateInput!): User!
+    signS3(fileName: String!, fileType: String!): S3SignedPath!
     updateOneCollection(
         data: CollectionUpdateInput!
         where: CollectionWhereUniqueInput!
@@ -655,6 +656,11 @@ input QuerySectionsWhereInput {
     index: IntFilter
     isDeleted: BooleanFilter
     owner: UserWhereInput
+}
+
+type S3SignedPath {
+    signedRequest: String!
+    url: String!
 }
 
 type SearchItem {
