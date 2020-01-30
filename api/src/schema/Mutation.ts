@@ -48,6 +48,8 @@ export const Mutation = mutationType({
             },
             async resolve(_, { fileName, fileType }, ctx: Context) {
                 const s3 = new aws.S3({
+                    accessKeyId: process.env.ACCESS_KEY_ID_AWS,
+                    secretAccessKey: process.env.SECRET_ACCESS_KEY_AWS,
                     signatureVersion: 'v4',
                     region: 'eu-west-1',
                 })
