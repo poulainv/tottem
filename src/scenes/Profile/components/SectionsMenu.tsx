@@ -25,7 +25,7 @@ export default ({
                             <li
                                 key={index}
                                 className={classNames(
-                                    'px-4 py-2 text-gray-700 whitespace-no-wrap text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
+                                    'text-gray-700 whitespace-no-wrap text-xs tracking-wide font-medium uppercase transition-all duration-200 border-b-2 border-transparent hover:text-teal-800 hover:border-teal-800 cursor-pointer',
                                     {
                                         'text-teal-800 border-teal-800':
                                             section.id === activeSectionId,
@@ -36,7 +36,9 @@ export default ({
                                     href="/[profile]/[sectionSlug]"
                                     as={`/${profileSlug}/${section.slug}`}
                                 >
-                                    <a>{section.name || 'New Space'}</a>
+                                    <a className="px-4 py-2 inline-block">
+                                        {section.name || 'New Space'}
+                                    </a>
                                 </Link>
                             </li>
                         )
