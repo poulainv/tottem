@@ -38,7 +38,7 @@ export default () => {
                 </h1>
                 <div className="flex flex-col items-center">
                     <p className="text-gray-700 text-2xl font-light text-center">
-                        Tottem is an open-source library. Smart, social and
+                        Bookmark manager on steroid. Smart, social and
                         beautiful.
                     </p>
                     <div className="flex mt-4 items-center">
