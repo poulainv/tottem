@@ -7,6 +7,7 @@ import { booleanArg, idArg, intArg, mutationType, stringArg } from 'nexus'
 import { Context } from '../context'
 import { getInitialSections } from '../data/new-user'
 import { createNewItemFromSearch, inferNewItemFromUrl } from '../parsers'
+import aws from 'aws-sdk'
 
 interface Positonnable {
     position: number
@@ -39,6 +40,41 @@ export const Mutation = mutationType({
         t.crud.updateOneUser()
         t.crud.updateOneItem()
         t.crud.updateOneCollection()
+        t.field('signS3', {
+            type: 'S3SignedPath',
+            args: {
+                fileName: stringArg({ required: true }),
+                fileType: stringArg({ required: true }),
+            },
+            async resolve(_, { fileName, fileType }, ctx: Context) {
+                const s3 = new aws.S3({
+                    accessKeyId: process.env.ACCESS_KEY_ID_AWS,
+                    secretAccessKey: process.env.SECRET_ACCESS_KEY_AWS,
+                    signatureVersion: 'v4',
+                    region: 'eu-west-1',
+                })
+                const s3Bucket = 'tottem-media' // FIXME config
+                const s3Params = {
+                    Bucket: s3Bucket,
+                    Key: fileName,
+                    Expires: 60,
+                    ContentType: 'multipart/form-data',
+                    ACL: 'public-read',
+                }
+
+                const signedRequest = await s3.getSignedUrl(
+                    'putObject',
+                    s3Params
+                )
+                const url = `https://${s3Bucket}.s3.amazonaws.com/${fileName}`
+
+                return {
+                    signedRequest,
+                    url,
+                }
+            },
+        })
+
         t.field('createNewUser', {
             type: 'User',
             args: {

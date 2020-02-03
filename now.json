@@ -24,7 +24,9 @@
         "DATABASE_PROVIDER": "@database_provider",
         "DATABASE_URL": "@database_url",
         "AUTH0_AUDIENCE": "https://tottem-api.herokuapp.com/graphql",
-        "AUTH0_DOMAIN": "@auth0_domain"
+        "AUTH0_DOMAIN": "@auth0_domain",
+        "ACCESS_KEY_ID_AWS": "@aws_access_key_id",
+        "SECRET_ACCESS_KEY_AWS": "@aws_secret_access_key"
     },
     "builds": [
         { "src": "package.json", "use": "@now/next" },

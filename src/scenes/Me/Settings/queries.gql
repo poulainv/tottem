@@ -4,6 +4,15 @@ query getSettings($authUserId: String!) {
     }
 }
 
+mutation updateAvatar($authUserId: String!, $pictureUrl: String!) {
+    updateOneUser(
+        data: { pictureUrl: $pictureUrl }
+        where: { authUserId: $authUserId }
+    ) {
+        ...UserBasic
+    }
+}
+
 mutation updateSettings(
     $authUserId: String!
     $slug: String!
@@ -22,5 +31,11 @@ query checkUserSlug($slug: String!) {
     user(where: { slug: $slug }) {
         id
         slug
+    }
+}
+mutation signS3($fileName: String!, $fileType: String!) {
+    signS3(fileName: $fileName, fileType: $fileType) {
+        signedRequest
+        url
     }
 }

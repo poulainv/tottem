@@ -40,6 +40,7 @@
         "@types/node-fetch": "^2.5.2",
         "@types/spotify-web-api-node": "^4.0.1",
         "apollo-server": "^2.9.8",
+        "aws-sdk": "^2.610.0",
         "cheerio": "^1.0.0-rc.3",
         "cuid": "^2.1.8",
         "dotenv": "^8.2.0",

@@ -1055,6 +1055,11 @@ export interface NexusGenRootTypes {
     Item: photon.Item
     Mutation: {}
     Query: {}
+    S3SignedPath: {
+        // root type
+        signedRequest: string // String!
+        url: string // String!
+    }
     SearchItem: {
         // root type
         author?: string | null // String
@@ -1215,6 +1220,7 @@ export interface NexusGenFieldTypes {
         createItemFromUrl: NexusGenRootTypes['Item'] // Item!
         createNewUser: NexusGenRootTypes['User'] // User!
         createOneUser: NexusGenRootTypes['User'] // User!
+        signS3: NexusGenRootTypes['S3SignedPath'] // S3SignedPath!
         updateOneCollection: NexusGenRootTypes['Collection'] | null // Collection
         updateOneItem: NexusGenRootTypes['Item'] | null // Item
         updateOneSection: NexusGenRootTypes['Section'] | null // Section
@@ -1230,6 +1236,11 @@ export interface NexusGenFieldTypes {
         section: NexusGenRootTypes['Section'] | null // Section
         sections: NexusGenRootTypes['Section'][] // [Section!]!
         user: NexusGenRootTypes['User'] | null // User
+    }
+    S3SignedPath: {
+        // field return type
+        signedRequest: string // String!
+        url: string // String!
     }
     SearchItem: {
         // field return type
@@ -1313,6 +1324,11 @@ export interface NexusGenArgTypes {
         createOneUser: {
             // args
             data: NexusGenInputs['UserCreateInput'] // UserCreateInput!
+        }
+        signS3: {
+            // args
+            fileName: string // String!
+            fileType: string // String!
         }
         updateOneCollection: {
             // args
@@ -1418,6 +1434,7 @@ export type NexusGenObjectNames =
     | 'Item'
     | 'Mutation'
     | 'Query'
+    | 'S3SignedPath'
     | 'SearchItem'
     | 'Section'
     | 'User'

@@ -559,6 +559,7 @@ export type Mutation = {
     updateOneUser?: Maybe<User>
     updateOneItem?: Maybe<Item>
     updateOneCollection?: Maybe<Collection>
+    signS3: S3SignedPath
     createNewUser: User
     createEmptyCollection: Collection
     createEmptySection: Section
@@ -589,6 +590,11 @@ export type MutationUpdateOneItemArgs = {
 export type MutationUpdateOneCollectionArgs = {
     data: CollectionUpdateInput
     where: CollectionWhereUniqueInput
+}
+
+export type MutationSignS3Args = {
+    fileName: Scalars['String']
+    fileType: Scalars['String']
 }
 
 export type MutationCreateNewUserArgs = {
@@ -729,6 +735,12 @@ export type QuerySectionsWhereInput = {
     index?: Maybe<IntFilter>
     isDeleted?: Maybe<BooleanFilter>
     owner?: Maybe<UserWhereInput>
+}
+
+export type S3SignedPath = {
+    __typename?: 'S3SignedPath'
+    signedRequest: Scalars['String']
+    url: Scalars['String']
 }
 
 export type SearchItem = {
@@ -1358,6 +1370,15 @@ export type GetSettingsQuery = { __typename?: 'Query' } & {
     user: Maybe<{ __typename?: 'User' } & UserBasicFragment>
 }
 
+export type UpdateAvatarMutationVariables = {
+    authUserId: Scalars['String']
+    pictureUrl: Scalars['String']
+}
+
+export type UpdateAvatarMutation = { __typename?: 'Mutation' } & {
+    updateOneUser: Maybe<{ __typename?: 'User' } & UserBasicFragment>
+}
+
 export type UpdateSettingsMutationVariables = {
     authUserId: Scalars['String']
     slug: Scalars['String']
@@ -1375,6 +1396,18 @@ export type CheckUserSlugQueryVariables = {
 
 export type CheckUserSlugQuery = { __typename?: 'Query' } & {
     user: Maybe<{ __typename?: 'User' } & Pick<User, 'id' | 'slug'>>
+}
+
+export type SignS3MutationVariables = {
+    fileName: Scalars['String']
+    fileType: Scalars['String']
+}
+
+export type SignS3Mutation = { __typename?: 'Mutation' } & {
+    signS3: { __typename?: 'S3SignedPath' } & Pick<
+        S3SignedPath,
+        'signedRequest' | 'url'
+    >
 }
 
 export type CreateItemFromUrlMutationVariables = {
@@ -2498,6 +2531,57 @@ export type GetSettingsQueryResult = ApolloReactCommon.QueryResult<
     GetSettingsQuery,
     GetSettingsQueryVariables
 >
+export const UpdateAvatarDocument = gql`
+    mutation updateAvatar($authUserId: String!, $pictureUrl: String!) {
+        updateOneUser(
+            data: { pictureUrl: $pictureUrl }
+            where: { authUserId: $authUserId }
+        ) {
+            ...UserBasic
+        }
+    }
+    ${UserBasicFragmentDoc}
+`
+
+/**
+ * __useUpdateAvatarMutation__
+ *
+ * To run a mutation, you first call `useUpdateAvatarMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAvatarMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAvatarMutation, { data, loading, error }] = useUpdateAvatarMutation({
+ *   variables: {
+ *      authUserId: // value for 'authUserId'
+ *      pictureUrl: // value for 'pictureUrl'
+ *   },
+ * });
+ */
+export function useUpdateAvatarMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        UpdateAvatarMutation,
+        UpdateAvatarMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        UpdateAvatarMutation,
+        UpdateAvatarMutationVariables
+    >(UpdateAvatarDocument, baseOptions)
+}
+export type UpdateAvatarMutationHookResult = ReturnType<
+    typeof useUpdateAvatarMutation
+>
+export type UpdateAvatarMutationResult = ApolloReactCommon.MutationResult<
+    UpdateAvatarMutation
+>
+export type UpdateAvatarMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    UpdateAvatarMutation,
+    UpdateAvatarMutationVariables
+>
 export const UpdateSettingsDocument = gql`
     mutation updateSettings(
         $authUserId: String!
@@ -2612,6 +2696,52 @@ export type CheckUserSlugLazyQueryHookResult = ReturnType<
 export type CheckUserSlugQueryResult = ApolloReactCommon.QueryResult<
     CheckUserSlugQuery,
     CheckUserSlugQueryVariables
+>
+export const SignS3Document = gql`
+    mutation signS3($fileName: String!, $fileType: String!) {
+        signS3(fileName: $fileName, fileType: $fileType) {
+            signedRequest
+            url
+        }
+    }
+`
+
+/**
+ * __useSignS3Mutation__
+ *
+ * To run a mutation, you first call `useSignS3Mutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSignS3Mutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [signS3Mutation, { data, loading, error }] = useSignS3Mutation({
+ *   variables: {
+ *      fileName: // value for 'fileName'
+ *      fileType: // value for 'fileType'
+ *   },
+ * });
+ */
+export function useSignS3Mutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        SignS3Mutation,
+        SignS3MutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        SignS3Mutation,
+        SignS3MutationVariables
+    >(SignS3Document, baseOptions)
+}
+export type SignS3MutationHookResult = ReturnType<typeof useSignS3Mutation>
+export type SignS3MutationResult = ApolloReactCommon.MutationResult<
+    SignS3Mutation
+>
+export type SignS3MutationOptions = ApolloReactCommon.BaseMutationOptions<
+    SignS3Mutation,
+    SignS3MutationVariables
 >
 export const CreateItemFromUrlDocument = gql`
     mutation CreateItemFromUrl(

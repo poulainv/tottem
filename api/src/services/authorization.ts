@@ -32,6 +32,13 @@ const canModifyCollection = rule({ cache: 'strict' })(
     }
 )
 
+const canModifyCurrentUser = rule({ cache: 'strict' })(
+    async (parent, args, ctx: Context, info) => {
+        const userAuth = await ctx.user
+        return args.where.authUserId === userAuth?.auth0Id
+    }
+)
+
 const isSectionOwner = rule({ cache: 'strict' })(
     async (parent, args, ctx, info) => {
         return isUserOwner(ctx, 'section', args.sectionId)
@@ -42,6 +49,11 @@ const isSectionOwner = rule({ cache: 'strict' })(
 const permissions = shield(
     {
         Mutation: {
+            signS3: isAuthenticated,
+            updateOneUser: and(
+                isAuthenticated,
+                or(isAdmin, canModifyCurrentUser)
+            ),
             changeItemPosition: and(
                 isAuthenticated,
                 or(isAdmin, canModifyCollection)
