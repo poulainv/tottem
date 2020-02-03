@@ -70,16 +70,23 @@ export default ({ className, avatar, authUserId }: AvatarProps) => {
         }
 
         const { signedRequest, url } = data.signS3
-
-        const res = await axios.put(signedRequest, file, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-        if (res.status === 200) {
-            updateAvatar({
-                variables: { authUserId, pictureUrl: url },
+        try {
+            const res = await axios.put(signedRequest, file, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             })
+            if (res.status === 200) {
+                updateAvatar({
+                    variables: { authUserId, pictureUrl: url },
+                })
+            } else {
+                setLoading(false)
+                sendMessage('Unabled to upload your image')
+            }
+        } catch (e) {
+            setLoading(false)
+            sendMessage('Unabled to upload your image')
         }
     }
 
