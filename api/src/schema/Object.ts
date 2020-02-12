@@ -103,7 +103,7 @@ export const Inbox = objectType({
             description: 'Non deleted items count in inbox',
             resolve: async (_, {}, ctx) => {
                 const user = await ctx.user
-                const userInbox = await ctx.photon.users.findOne({
+                const userInbox = await ctx.prisma.user.findOne({
                     where: { authUserId: user?.auth0Id },
                     select: { inboxedItems: { where: { isDeleted: false } } },
                 })
@@ -118,7 +118,7 @@ export const Inbox = objectType({
             type: 'Item',
             async resolve(_, {}, ctx: Context) {
                 const user = await ctx.user
-                const userInbox = await ctx.photon.users.findOne({
+                const userInbox = await ctx.prisma.user.findOne({
                     where: { authUserId: user?.auth0Id },
                     select: { inboxedItems: { where: { isDeleted: false } } },
                 })

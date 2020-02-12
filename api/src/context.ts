@@ -1,12 +1,12 @@
-import { Photon } from '@prisma/photon'
+import { PrismaClient } from '@prisma/client'
 import { verifyIdentity, AuthenticatedUser } from './services/authentication'
 import express from 'express'
 import logger from './logging'
 
-const photon = new Photon()
+const client = new PrismaClient()
 
 interface Context {
-    photon: Photon
+    prisma: PrismaClient
     user: Promise<AuthenticatedUser | undefined>
 }
 
@@ -31,7 +31,7 @@ const createContext: (req: express.Request) => Context = req => {
 
     return {
         user,
-        photon,
+        prisma: client,
     }
 }
 

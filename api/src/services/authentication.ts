@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt, { Algorithm } from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
 import logger from '../logging'
 
@@ -24,7 +24,7 @@ function getKey(header: any, cb: any) {
 const options = {
     audience: process.env.AUTH0_AUDIENCE,
     issuer: `https://${process.env.AUTH0_DOMAIN}/`,
-    algorithms: ['RS256'],
+    algorithms: ['RS256' as Algorithm],
 }
 
 interface DecodedAccessToken {
@@ -72,10 +72,12 @@ export const verifyIdentity: (
                 options,
                 (err, decoded: string | object) => {
                     if (err) {
+                        logger.error(err)
                         return reject(
                             `Authorization headers not decoded ${err}`
                         )
                     } else if (typeof decoded === 'string') {
+                        logger.error(decoded)
                         return reject(
                             `Authorization headers decoded as string ${decoded}`
                         )

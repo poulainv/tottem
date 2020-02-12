@@ -1,8 +1,8 @@
-import { Photon } from '@prisma/photon'
+import { PrismaClient } from '@prisma/client'
 import { ICollection } from '../src/data/types'
 import { getSections } from '../src/data/utils'
 import logger from '../src/logging'
-import cuid = require('cuid')
+import cuid from 'cuid'
 import slugify from 'slugify'
 
 const profiles = [
@@ -16,14 +16,14 @@ const profiles = [
     'filgo',
     'thinkerview',
 ]
-const photon = new Photon()
+const client = new PrismaClient()
 // TODO Make nullable value optionnable rather than || ''!
 async function main() {
     for (const profileName of profiles) {
         const profile = require(`../src/data/${profileName}/profile`).default
         const sections = getSections(profileName)
         logger.info(`Create : ${profile.slug} profile`)
-        const user = await photon.users.create({
+        const user = await client.user.create({
             data: {
                 firstname: profile.firstname,
                 slug: profile.slug,
@@ -52,7 +52,7 @@ async function main() {
                 `Create : ${profile.slug}' collection ${section.name} items`
             )
             const sectionId = cuid()
-            await photon.sections.create({
+            await client.section.create({
                 data: {
                     id: sectionId,
                     slug: `${slugify(section.name)}-${sectionId}`,
@@ -114,5 +114,5 @@ async function main() {
 main()
     .catch(e => console.error(e))
     .finally(async () => {
-        await photon.disconnect()
+        await client.disconnect()
     })

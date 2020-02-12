@@ -89,7 +89,7 @@ const getOwnerAuth0id: (
 ) => Promise<string | undefined | null> = async (ctx, type, id) => {
     if (type === 'collection') {
         // Only member check object to update owner
-        const collection = await ctx.photon.collections.findOne({
+        const collection = await ctx.prisma.collection.findOne({
             where: {
                 id,
             },
@@ -99,7 +99,7 @@ const getOwnerAuth0id: (
         })
         return collection?.owner.authUserId
     } else if (type === 'section') {
-        const section = await ctx.photon.sections.findOne({
+        const section = await ctx.prisma.section.findOne({
             where: {
                 id,
             },
@@ -123,6 +123,7 @@ const isUserOwner: (
     if (id === undefined) {
         return Promise.resolve(true)
     }
+    logger.info(authUser?.auth0Id || '')
 
     const ownerAuth0id = await getOwnerAuth0id(ctx, type, id)
     if (ownerAuth0id !== authUser?.auth0Id) {

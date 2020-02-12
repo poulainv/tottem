@@ -1,4 +1,4 @@
-import { SectionCreateManyWithoutSectionsInput, ItemType } from '@prisma/photon'
+import { SectionCreateManyWithoutOwnerInput, ItemType } from '@prisma/client'
 import cuid from 'cuid'
 import slugify from 'slugify'
 
@@ -32,7 +32,7 @@ Move or delete this item using button on the right 👉`,
 
 export const getInitialSections: (
     userId: string
-) => SectionCreateManyWithoutSectionsInput = userId => {
+) => SectionCreateManyWithoutOwnerInput = userId => {
     return {
         create: initialSections.map(x => {
             const cuidSection = cuid()

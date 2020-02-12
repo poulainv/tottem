@@ -1,7 +1,7 @@
 import {
-    CollectionCreateOneWithoutCollectionInput,
-    UserCreateOneWithoutInboxOwnerInput,
-} from '@prisma/photon'
+    CollectionCreateManyWithoutOwnerInput,
+    UserCreateOneWithoutCollectionsInput,
+} from '@prisma/client'
 import cuid from 'cuid'
 import { booleanArg, idArg, intArg, mutationType, stringArg } from 'nexus'
 import { Context } from '../context'
@@ -88,7 +88,7 @@ export const Mutation = mutationType({
                 { slug, authUserId, pictureUrl, firstname },
                 ctx: Context
             ) {
-                return ctx.photon.users.create({
+                return ctx.prisma.user.create({
                     data: {
                         firstname,
                         pictureUrl,
@@ -110,7 +110,7 @@ export const Mutation = mutationType({
                     return Promise.reject('User not authenticated')
                 }
                 const id = cuid()
-                return ctx.photon.collections.create({
+                return ctx.prisma.collection.create({
                     data: {
                         id,
                         owner: {
@@ -136,12 +136,12 @@ export const Mutation = mutationType({
                     return Promise.reject('User not authenticated')
                 }
                 const sectionsCount = (
-                    await ctx.photon.sections.findMany({
+                    await ctx.prisma.section.findMany({
                         where: { AND: { owner: { authUserId: user.auth0Id } } },
                     })
                 ).length
                 const id = cuid()
-                return ctx.photon.sections.create({
+                return ctx.prisma.section.create({
                     data: {
                         id,
                         owner: {
@@ -172,7 +172,7 @@ export const Mutation = mutationType({
                 ctx: Context
             ) {
                 const items = (
-                    await ctx.photon.items.findMany({
+                    await ctx.prisma.item.findMany({
                         where: {
                             collection: { id: collectionId },
                             isDeleted: false,
@@ -190,11 +190,11 @@ export const Mutation = mutationType({
                     newIndex
                 )
                 const updates: Array<ReturnType<
-                    typeof ctx.photon.items.update
+                    typeof ctx.prisma.item.update
                 >> = []
                 for (const item of newIndexedItems) {
                     updates.push(
-                        ctx.photon.items.update({
+                        ctx.prisma.item.update({
                             data: {
                                 position: item.position,
                             },
@@ -203,7 +203,7 @@ export const Mutation = mutationType({
                     )
                 }
                 await Promise.all(updates)
-                return ctx.photon.items.findMany({
+                return ctx.prisma.item.findMany({
                     where: {
                         OR: newIndexedItems.map(x => {
                             return {
@@ -246,7 +246,7 @@ export const Mutation = mutationType({
                             },
                         }
                     }
-                    return ctx.photon.items.create({
+                    return ctx.prisma.item.create({
                         data: {
                             title: item.title,
                             author: item.author,
@@ -275,8 +275,8 @@ export const Mutation = mutationType({
                         return Promise.reject('User not authenticated')
                     }
                     let connect: {
-                        collection?: CollectionCreateOneWithoutCollectionInput
-                        inboxOwner?: UserCreateOneWithoutInboxOwnerInput
+                        collection?: CollectionCreateManyWithoutOwnerInput
+                        inboxOwner?: UserCreateOneWithoutCollectionsInput
                     } = {}
 
                     if (collectionId) {
@@ -296,7 +296,7 @@ export const Mutation = mutationType({
                             },
                         }
                     }
-                    return ctx.photon.items.create({
+                    return ctx.prisma.item.create({
                         data: {
                             title: item.title,
                             author: item.author,

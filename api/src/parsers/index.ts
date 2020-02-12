@@ -1,5 +1,5 @@
 import emoji from 'node-emoji'
-import { ItemType } from '@prisma/photon'
+import { ItemType } from '@prisma/client'
 import cheerio from 'cheerio'
 import URL from 'url'
 import { IItem } from '../interfaces'
