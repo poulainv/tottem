@@ -9,11 +9,11 @@ input BooleanFilter {
 type Collection {
     createdAt: DateTime!
     detail: String
-    id: ID!
+    id: String!
     isDeleted: Boolean!
     items(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         orderBy: CollectionItemsOrderByInput
@@ -27,12 +27,17 @@ type Collection {
     updatedAt: DateTime!
 }
 
-input CollectionCreateManyWithoutCollectionsInput {
+input CollectionCreateManyWithoutOwnerInput {
+    connect: [CollectionWhereUniqueInput!]
+    create: [CollectionCreateWithoutOwnerInput!]
+}
+
+input CollectionCreateManyWithoutSectionInput {
     connect: [CollectionWhereUniqueInput!]
     create: [CollectionCreateWithoutSectionInput!]
 }
 
-input CollectionCreateOneWithoutCollectionInput {
+input CollectionCreateOneWithoutItemsInput {
     connect: CollectionWhereUniqueInput
     create: CollectionCreateWithoutItemsInput
 }
@@ -40,11 +45,11 @@ input CollectionCreateOneWithoutCollectionInput {
 input CollectionCreateWithoutItemsInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     name: String
-    owner: UserCreateOneWithoutOwnerInput!
-    section: SectionCreateOneWithoutSectionInput!
+    owner: UserCreateOneWithoutCollectionsInput!
+    section: SectionCreateOneWithoutCollectionsInput!
     slug: String!
     updatedAt: DateTime
 }
@@ -52,11 +57,11 @@ input CollectionCreateWithoutItemsInput {
 input CollectionCreateWithoutOwnerInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
-    items: ItemCreateManyWithoutItemsInput
+    items: ItemCreateManyWithoutCollectionInput
     name: String
-    section: SectionCreateOneWithoutSectionInput!
+    section: SectionCreateOneWithoutCollectionsInput!
     slug: String!
     updatedAt: DateTime
 }
@@ -64,11 +69,11 @@ input CollectionCreateWithoutOwnerInput {
 input CollectionCreateWithoutSectionInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
-    items: ItemCreateManyWithoutItemsInput
+    items: ItemCreateManyWithoutCollectionInput
     name: String
-    owner: UserCreateOneWithoutOwnerInput!
+    owner: UserCreateOneWithoutCollectionsInput!
     slug: String!
     updatedAt: DateTime
 }
@@ -105,7 +110,7 @@ input CollectionScalarWhereInput {
 input CollectionUpdateInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     items: ItemUpdateManyWithoutCollectionInput
     name: String
@@ -118,7 +123,7 @@ input CollectionUpdateInput {
 input CollectionUpdateManyDataInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     name: String
     slug: String
@@ -166,7 +171,7 @@ input CollectionUpdateOneWithoutItemsInput {
 input CollectionUpdateWithoutItemsDataInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     name: String
     owner: UserUpdateOneRequiredWithoutCollectionsInput
@@ -178,7 +183,7 @@ input CollectionUpdateWithoutItemsDataInput {
 input CollectionUpdateWithoutOwnerDataInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     items: ItemUpdateManyWithoutCollectionInput
     name: String
@@ -190,7 +195,7 @@ input CollectionUpdateWithoutOwnerDataInput {
 input CollectionUpdateWithoutSectionDataInput {
     createdAt: DateTime
     detail: String
-    id: ID
+    id: String
     isDeleted: Boolean
     items: ItemUpdateManyWithoutCollectionInput
     name: String
@@ -243,7 +248,7 @@ input CollectionWhereInput {
 }
 
 input CollectionWhereUniqueInput {
-    id: ID
+    id: String
     slug: String
 }
 
@@ -288,7 +293,7 @@ type Item {
     comment: String
     createdAt: DateTime!
     description: String
-    id: ID!
+    id: String!
     imageUrl: String
     isDeleted: Boolean!
     meta: String
@@ -299,14 +304,14 @@ type Item {
     type: ItemType!
 }
 
-input ItemCreateManyWithoutInboxedItemsInput {
-    connect: [ItemWhereUniqueInput!]
-    create: [ItemCreateWithoutInboxOwnerInput!]
-}
-
-input ItemCreateManyWithoutItemsInput {
+input ItemCreateManyWithoutCollectionInput {
     connect: [ItemWhereUniqueInput!]
     create: [ItemCreateWithoutCollectionInput!]
+}
+
+input ItemCreateManyWithoutInboxOwnerInput {
+    connect: [ItemWhereUniqueInput!]
+    create: [ItemCreateWithoutInboxOwnerInput!]
 }
 
 input ItemCreateWithoutCollectionInput {
@@ -314,9 +319,9 @@ input ItemCreateWithoutCollectionInput {
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
-    inboxOwner: UserCreateOneWithoutInboxOwnerInput
+    inboxOwner: UserCreateOneWithoutInboxedItemsInput
     isDeleted: Boolean
     meta: String
     position: Int
@@ -329,11 +334,11 @@ input ItemCreateWithoutCollectionInput {
 
 input ItemCreateWithoutInboxOwnerInput {
     author: String
-    collection: CollectionCreateOneWithoutCollectionInput
+    collection: CollectionCreateOneWithoutItemsInput
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
     isDeleted: Boolean
     meta: String
@@ -389,7 +394,7 @@ input ItemUpdateInput {
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
     inboxOwner: UserUpdateOneWithoutInboxedItemsInput
     isDeleted: Boolean
@@ -407,7 +412,7 @@ input ItemUpdateManyDataInput {
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
     isDeleted: Boolean
     meta: String
@@ -453,7 +458,7 @@ input ItemUpdateWithoutCollectionDataInput {
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
     inboxOwner: UserUpdateOneWithoutInboxedItemsInput
     isDeleted: Boolean
@@ -472,7 +477,7 @@ input ItemUpdateWithoutInboxOwnerDataInput {
     comment: String
     createdAt: DateTime
     description: String
-    id: ID
+    id: String
     imageUrl: String
     isDeleted: Boolean
     meta: String
@@ -529,7 +534,7 @@ input ItemWhereInput {
 }
 
 input ItemWhereUniqueInput {
-    id: ID
+    id: String
 }
 
 type Mutation {
@@ -593,8 +598,8 @@ enum OrderByArg {
 type Query {
     collection(where: CollectionWhereUniqueInput!): Collection
     collections(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         orderBy: QueryCollectionsOrderByInput
@@ -607,8 +612,8 @@ type Query {
     """
     inbox: Inbox
     items(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         orderBy: QueryItemsOrderByInput
@@ -618,8 +623,8 @@ type Query {
     search(kind: String!, q: String!): [SearchItem!]!
     section(where: SectionWhereUniqueInput!): Section
     sections(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         orderBy: QuerySectionsOrderByInput
@@ -672,8 +677,8 @@ type SearchItem {
 
 type Section {
     collections(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         orderBy: SectionCollectionsOrderByInput
@@ -681,7 +686,7 @@ type Section {
         where: SectionCollectionsWhereInput
     ): [Collection!]!
     createdAt: DateTime!
-    id: ID!
+    id: String!
     index: Int!
     isExpanded: Boolean!
     name: String
@@ -697,32 +702,32 @@ input SectionCollectionsWhereInput {
     isDeleted: BooleanFilter
 }
 
-input SectionCreateManyWithoutSectionsInput {
+input SectionCreateManyWithoutOwnerInput {
     connect: [SectionWhereUniqueInput!]
     create: [SectionCreateWithoutOwnerInput!]
 }
 
-input SectionCreateOneWithoutSectionInput {
+input SectionCreateOneWithoutCollectionsInput {
     connect: SectionWhereUniqueInput
     create: SectionCreateWithoutCollectionsInput
 }
 
 input SectionCreateWithoutCollectionsInput {
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
     name: String
-    owner: UserCreateOneWithoutOwnerInput!
+    owner: UserCreateOneWithoutSectionsInput!
     slug: String!
     updatedAt: DateTime
 }
 
 input SectionCreateWithoutOwnerInput {
-    collections: CollectionCreateManyWithoutCollectionsInput
+    collections: CollectionCreateManyWithoutSectionInput
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
@@ -755,7 +760,7 @@ input SectionScalarWhereInput {
 input SectionUpdateInput {
     collections: CollectionUpdateManyWithoutSectionInput
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
@@ -767,7 +772,7 @@ input SectionUpdateInput {
 
 input SectionUpdateManyDataInput {
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
@@ -802,7 +807,7 @@ input SectionUpdateOneRequiredWithoutCollectionsInput {
 
 input SectionUpdateWithoutCollectionsDataInput {
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
@@ -815,7 +820,7 @@ input SectionUpdateWithoutCollectionsDataInput {
 input SectionUpdateWithoutOwnerDataInput {
     collections: CollectionUpdateManyWithoutSectionInput
     createdAt: DateTime
-    id: ID
+    id: String
     index: Int
     isDeleted: Boolean
     isExpanded: Boolean
@@ -857,7 +862,7 @@ input SectionWhereInput {
 }
 
 input SectionWhereUniqueInput {
-    id: ID
+    id: String
 }
 
 input StringFilter {
@@ -879,14 +884,14 @@ type User {
     biography: String
     firstname: String!
     github: String
-    id: ID!
+    id: String!
     label: String
     linkedin: String
     mail: String
     pictureUrl: String!
     sections(
-        after: ID
-        before: ID
+        after: String
+        before: String
         first: Int
         last: Int
         skip: Int
@@ -899,31 +904,36 @@ type User {
 input UserCreateInput {
     authUserId: String
     biography: String
-    collections: CollectionCreateManyWithoutCollectionsInput
+    collections: CollectionCreateManyWithoutOwnerInput
     createdAt: DateTime
     firstname: String!
     github: String
-    id: ID
-    inboxedItems: ItemCreateManyWithoutInboxedItemsInput
+    id: String
+    inboxedItems: ItemCreateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
     mail: String
     pictureUrl: String!
-    sections: SectionCreateManyWithoutSectionsInput
+    sections: SectionCreateManyWithoutOwnerInput
     slug: String!
     updatedAt: DateTime
     website: String
     youtube: String
 }
 
-input UserCreateOneWithoutInboxOwnerInput {
+input UserCreateOneWithoutCollectionsInput {
+    connect: UserWhereUniqueInput
+    create: UserCreateWithoutCollectionsInput
+}
+
+input UserCreateOneWithoutInboxedItemsInput {
     connect: UserWhereUniqueInput
     create: UserCreateWithoutInboxedItemsInput
 }
 
-input UserCreateOneWithoutOwnerInput {
+input UserCreateOneWithoutSectionsInput {
     connect: UserWhereUniqueInput
-    create: UserCreateWithoutCollectionsInput
+    create: UserCreateWithoutSectionsInput
 }
 
 input UserCreateWithoutCollectionsInput {
@@ -932,13 +942,13 @@ input UserCreateWithoutCollectionsInput {
     createdAt: DateTime
     firstname: String!
     github: String
-    id: ID
-    inboxedItems: ItemCreateManyWithoutInboxedItemsInput
+    id: String
+    inboxedItems: ItemCreateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
     mail: String
     pictureUrl: String!
-    sections: SectionCreateManyWithoutSectionsInput
+    sections: SectionCreateManyWithoutOwnerInput
     slug: String!
     updatedAt: DateTime
     website: String
@@ -948,16 +958,16 @@ input UserCreateWithoutCollectionsInput {
 input UserCreateWithoutInboxedItemsInput {
     authUserId: String
     biography: String
-    collections: CollectionCreateManyWithoutCollectionsInput
+    collections: CollectionCreateManyWithoutOwnerInput
     createdAt: DateTime
     firstname: String!
     github: String
-    id: ID
+    id: String
     label: String
     linkedin: String
     mail: String
     pictureUrl: String!
-    sections: SectionCreateManyWithoutSectionsInput
+    sections: SectionCreateManyWithoutOwnerInput
     slug: String!
     updatedAt: DateTime
     website: String
@@ -967,12 +977,12 @@ input UserCreateWithoutInboxedItemsInput {
 input UserCreateWithoutSectionsInput {
     authUserId: String
     biography: String
-    collections: CollectionCreateManyWithoutCollectionsInput
+    collections: CollectionCreateManyWithoutOwnerInput
     createdAt: DateTime
     firstname: String!
     github: String
-    id: ID
-    inboxedItems: ItemCreateManyWithoutInboxedItemsInput
+    id: String
+    inboxedItems: ItemCreateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
     mail: String
@@ -990,7 +1000,7 @@ input UserUpdateInput {
     createdAt: DateTime
     firstname: String
     github: String
-    id: ID
+    id: String
     inboxedItems: ItemUpdateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
@@ -1032,7 +1042,7 @@ input UserUpdateWithoutCollectionsDataInput {
     createdAt: DateTime
     firstname: String
     github: String
-    id: ID
+    id: String
     inboxedItems: ItemUpdateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
@@ -1052,7 +1062,7 @@ input UserUpdateWithoutInboxedItemsDataInput {
     createdAt: DateTime
     firstname: String
     github: String
-    id: ID
+    id: String
     label: String
     linkedin: String
     mail: String
@@ -1071,7 +1081,7 @@ input UserUpdateWithoutSectionsDataInput {
     createdAt: DateTime
     firstname: String
     github: String
-    id: ID
+    id: String
     inboxedItems: ItemUpdateManyWithoutInboxOwnerInput
     label: String
     linkedin: String
@@ -1123,6 +1133,6 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
     authUserId: String
-    id: ID
+    id: String
     slug: String
 }
