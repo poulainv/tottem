@@ -1339,8 +1339,8 @@ export interface NexusGenArgTypes {
     Collection: {
         items: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['ItemWhereUniqueInput'] | null // ItemWhereUniqueInput
+            before?: NexusGenInputs['ItemWhereUniqueInput'] | null // ItemWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             orderBy?: NexusGenInputs['CollectionItemsOrderByInput'] | null // CollectionItemsOrderByInput
@@ -1416,8 +1416,8 @@ export interface NexusGenArgTypes {
         }
         collections: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['CollectionWhereUniqueInput'] | null // CollectionWhereUniqueInput
+            before?: NexusGenInputs['CollectionWhereUniqueInput'] | null // CollectionWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             orderBy?: NexusGenInputs['QueryCollectionsOrderByInput'] | null // QueryCollectionsOrderByInput
@@ -1426,8 +1426,8 @@ export interface NexusGenArgTypes {
         }
         items: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['ItemWhereUniqueInput'] | null // ItemWhereUniqueInput
+            before?: NexusGenInputs['ItemWhereUniqueInput'] | null // ItemWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             orderBy?: NexusGenInputs['QueryItemsOrderByInput'] | null // QueryItemsOrderByInput
@@ -1445,8 +1445,8 @@ export interface NexusGenArgTypes {
         }
         sections: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['SectionWhereUniqueInput'] | null // SectionWhereUniqueInput
+            before?: NexusGenInputs['SectionWhereUniqueInput'] | null // SectionWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             orderBy?: NexusGenInputs['QuerySectionsOrderByInput'] | null // QuerySectionsOrderByInput
@@ -1461,8 +1461,8 @@ export interface NexusGenArgTypes {
     Section: {
         collections: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['CollectionWhereUniqueInput'] | null // CollectionWhereUniqueInput
+            before?: NexusGenInputs['CollectionWhereUniqueInput'] | null // CollectionWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             orderBy?: NexusGenInputs['SectionCollectionsOrderByInput'] | null // SectionCollectionsOrderByInput
@@ -1473,8 +1473,8 @@ export interface NexusGenArgTypes {
     User: {
         sections: {
             // args
-            after?: string | null // String
-            before?: string | null // String
+            after?: NexusGenInputs['SectionWhereUniqueInput'] | null // SectionWhereUniqueInput
+            before?: NexusGenInputs['SectionWhereUniqueInput'] | null // SectionWhereUniqueInput
             first?: number | null // Int
             last?: number | null // Int
             skip?: number | null // Int
