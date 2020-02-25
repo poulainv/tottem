@@ -26,7 +26,7 @@ export type Breadcrumb = {
 
 export type Collection = {
     __typename?: 'Collection'
-    id: Scalars['ID']
+    id: Scalars['String']
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     createdAt: Scalars['DateTime']
@@ -42,56 +42,61 @@ export type CollectionItemsArgs = {
     where?: Maybe<CollectionItemsWhereInput>
     orderBy?: Maybe<CollectionItemsOrderByInput>
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
 
-export type CollectionCreateManyWithoutCollectionsInput = {
+export type CollectionCreateManyWithoutOwnerInput = {
+    create?: Maybe<Array<CollectionCreateWithoutOwnerInput>>
+    connect?: Maybe<Array<CollectionWhereUniqueInput>>
+}
+
+export type CollectionCreateManyWithoutSectionInput = {
     create?: Maybe<Array<CollectionCreateWithoutSectionInput>>
     connect?: Maybe<Array<CollectionWhereUniqueInput>>
 }
 
-export type CollectionCreateOneWithoutCollectionInput = {
+export type CollectionCreateOneWithoutItemsInput = {
     create?: Maybe<CollectionCreateWithoutItemsInput>
     connect?: Maybe<CollectionWhereUniqueInput>
 }
 
 export type CollectionCreateWithoutItemsInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
-    section: SectionCreateOneWithoutSectionInput
-    owner: UserCreateOneWithoutOwnerInput
+    section: SectionCreateOneWithoutCollectionsInput
+    owner: UserCreateOneWithoutCollectionsInput
 }
 
 export type CollectionCreateWithoutOwnerInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
-    items?: Maybe<ItemCreateManyWithoutItemsInput>
-    section: SectionCreateOneWithoutSectionInput
+    items?: Maybe<ItemCreateManyWithoutCollectionInput>
+    section: SectionCreateOneWithoutCollectionsInput
 }
 
 export type CollectionCreateWithoutSectionInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     isDeleted?: Maybe<Scalars['Boolean']>
     detail?: Maybe<Scalars['String']>
-    items?: Maybe<ItemCreateManyWithoutItemsInput>
-    owner: UserCreateOneWithoutOwnerInput
+    items?: Maybe<ItemCreateManyWithoutCollectionInput>
+    owner: UserCreateOneWithoutCollectionsInput
 }
 
 export type CollectionFilter = {
@@ -124,7 +129,7 @@ export type CollectionScalarWhereInput = {
 }
 
 export type CollectionUpdateInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -137,7 +142,7 @@ export type CollectionUpdateInput = {
 }
 
 export type CollectionUpdateManyDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -185,7 +190,7 @@ export type CollectionUpdateOneWithoutItemsInput = {
 }
 
 export type CollectionUpdateWithoutItemsDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -197,7 +202,7 @@ export type CollectionUpdateWithoutItemsDataInput = {
 }
 
 export type CollectionUpdateWithoutOwnerDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -209,7 +214,7 @@ export type CollectionUpdateWithoutOwnerDataInput = {
 }
 
 export type CollectionUpdateWithoutSectionDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -264,7 +269,7 @@ export type CollectionWhereInput = {
 }
 
 export type CollectionWhereUniqueInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
 }
 
@@ -299,7 +304,7 @@ export type IntFilter = {
 
 export type Item = {
     __typename?: 'Item'
-    id: Scalars['ID']
+    id: Scalars['String']
     author?: Maybe<Scalars['String']>
     isDeleted: Scalars['Boolean']
     title: Scalars['String']
@@ -314,18 +319,18 @@ export type Item = {
     createdAt: Scalars['DateTime']
 }
 
-export type ItemCreateManyWithoutInboxedItemsInput = {
-    create?: Maybe<Array<ItemCreateWithoutInboxOwnerInput>>
-    connect?: Maybe<Array<ItemWhereUniqueInput>>
-}
-
-export type ItemCreateManyWithoutItemsInput = {
+export type ItemCreateManyWithoutCollectionInput = {
     create?: Maybe<Array<ItemCreateWithoutCollectionInput>>
     connect?: Maybe<Array<ItemWhereUniqueInput>>
 }
 
+export type ItemCreateManyWithoutInboxOwnerInput = {
+    create?: Maybe<Array<ItemCreateWithoutInboxOwnerInput>>
+    connect?: Maybe<Array<ItemWhereUniqueInput>>
+}
+
 export type ItemCreateWithoutCollectionInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -339,11 +344,11 @@ export type ItemCreateWithoutCollectionInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    inboxOwner?: Maybe<UserCreateOneWithoutInboxOwnerInput>
+    inboxOwner?: Maybe<UserCreateOneWithoutInboxedItemsInput>
 }
 
 export type ItemCreateWithoutInboxOwnerInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -357,7 +362,7 @@ export type ItemCreateWithoutInboxOwnerInput = {
     description?: Maybe<Scalars['String']>
     comment?: Maybe<Scalars['String']>
     meta?: Maybe<Scalars['String']>
-    collection?: Maybe<CollectionCreateOneWithoutCollectionInput>
+    collection?: Maybe<CollectionCreateOneWithoutItemsInput>
 }
 
 export type ItemFilter = {
@@ -399,7 +404,7 @@ export enum ItemType {
 }
 
 export type ItemUpdateInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -418,7 +423,7 @@ export type ItemUpdateInput = {
 }
 
 export type ItemUpdateManyDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -464,7 +469,7 @@ export type ItemUpdateManyWithWhereNestedInput = {
 }
 
 export type ItemUpdateWithoutCollectionDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -482,7 +487,7 @@ export type ItemUpdateWithoutCollectionDataInput = {
 }
 
 export type ItemUpdateWithoutInboxOwnerDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     isDeleted?: Maybe<Scalars['Boolean']>
@@ -544,7 +549,7 @@ export type ItemWhereInput = {
 }
 
 export type ItemWhereUniqueInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
 }
 
 export type Modal = {
@@ -669,8 +674,8 @@ export type QueryCollectionsArgs = {
     where?: Maybe<QueryCollectionsWhereInput>
     orderBy?: Maybe<QueryCollectionsOrderByInput>
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
@@ -679,8 +684,8 @@ export type QueryItemsArgs = {
     where?: Maybe<QueryItemsWhereInput>
     orderBy?: Maybe<QueryItemsOrderByInput>
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
@@ -698,8 +703,8 @@ export type QuerySectionsArgs = {
     where?: Maybe<QuerySectionsWhereInput>
     orderBy?: Maybe<QuerySectionsOrderByInput>
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
@@ -753,7 +758,7 @@ export type SearchItem = {
 
 export type Section = {
     __typename?: 'Section'
-    id: Scalars['ID']
+    id: Scalars['String']
     slug: Scalars['String']
     index: Scalars['Int']
     name?: Maybe<Scalars['String']>
@@ -766,8 +771,8 @@ export type SectionCollectionsArgs = {
     where?: Maybe<SectionCollectionsWhereInput>
     orderBy?: Maybe<SectionCollectionsOrderByInput>
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
@@ -781,18 +786,18 @@ export type SectionCollectionsWhereInput = {
     isDeleted?: Maybe<BooleanFilter>
 }
 
-export type SectionCreateManyWithoutSectionsInput = {
+export type SectionCreateManyWithoutOwnerInput = {
     create?: Maybe<Array<SectionCreateWithoutOwnerInput>>
     connect?: Maybe<Array<SectionWhereUniqueInput>>
 }
 
-export type SectionCreateOneWithoutSectionInput = {
+export type SectionCreateOneWithoutCollectionsInput = {
     create?: Maybe<SectionCreateWithoutCollectionsInput>
     connect?: Maybe<SectionWhereUniqueInput>
 }
 
 export type SectionCreateWithoutCollectionsInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
@@ -800,11 +805,11 @@ export type SectionCreateWithoutCollectionsInput = {
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
     isDeleted?: Maybe<Scalars['Boolean']>
-    owner: UserCreateOneWithoutOwnerInput
+    owner: UserCreateOneWithoutSectionsInput
 }
 
 export type SectionCreateWithoutOwnerInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug: Scalars['String']
@@ -812,7 +817,7 @@ export type SectionCreateWithoutOwnerInput = {
     index?: Maybe<Scalars['Int']>
     isExpanded?: Maybe<Scalars['Boolean']>
     isDeleted?: Maybe<Scalars['Boolean']>
-    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
+    collections?: Maybe<CollectionCreateManyWithoutSectionInput>
 }
 
 export type SectionFilter = {
@@ -837,7 +842,7 @@ export type SectionScalarWhereInput = {
 }
 
 export type SectionUpdateInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -850,7 +855,7 @@ export type SectionUpdateInput = {
 }
 
 export type SectionUpdateManyDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -885,7 +890,7 @@ export type SectionUpdateOneRequiredWithoutCollectionsInput = {
 }
 
 export type SectionUpdateWithoutCollectionsDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -897,7 +902,7 @@ export type SectionUpdateWithoutCollectionsDataInput = {
 }
 
 export type SectionUpdateWithoutOwnerDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
     updatedAt?: Maybe<Scalars['DateTime']>
     slug?: Maybe<Scalars['String']>
@@ -941,7 +946,7 @@ export type SectionWhereInput = {
 }
 
 export type SectionWhereUniqueInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
 }
 
 export type StringFilter = {
@@ -960,7 +965,7 @@ export type StringFilter = {
 
 export type User = {
     __typename?: 'User'
-    id: Scalars['ID']
+    id: Scalars['String']
     slug: Scalars['String']
     authUserId?: Maybe<Scalars['String']>
     biography?: Maybe<Scalars['String']>
@@ -977,14 +982,14 @@ export type User = {
 
 export type UserSectionsArgs = {
     skip?: Maybe<Scalars['Int']>
-    after?: Maybe<Scalars['ID']>
-    before?: Maybe<Scalars['ID']>
+    after?: Maybe<Scalars['String']>
+    before?: Maybe<Scalars['String']>
     first?: Maybe<Scalars['Int']>
     last?: Maybe<Scalars['Int']>
 }
 
 export type UserCreateInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
@@ -998,23 +1003,28 @@ export type UserCreateInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    sections?: Maybe<SectionCreateManyWithoutSectionsInput>
-    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
-    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
+    sections?: Maybe<SectionCreateManyWithoutOwnerInput>
+    collections?: Maybe<CollectionCreateManyWithoutOwnerInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxOwnerInput>
 }
 
-export type UserCreateOneWithoutInboxOwnerInput = {
-    create?: Maybe<UserCreateWithoutInboxedItemsInput>
-    connect?: Maybe<UserWhereUniqueInput>
-}
-
-export type UserCreateOneWithoutOwnerInput = {
+export type UserCreateOneWithoutCollectionsInput = {
     create?: Maybe<UserCreateWithoutCollectionsInput>
     connect?: Maybe<UserWhereUniqueInput>
 }
 
+export type UserCreateOneWithoutInboxedItemsInput = {
+    create?: Maybe<UserCreateWithoutInboxedItemsInput>
+    connect?: Maybe<UserWhereUniqueInput>
+}
+
+export type UserCreateOneWithoutSectionsInput = {
+    create?: Maybe<UserCreateWithoutSectionsInput>
+    connect?: Maybe<UserWhereUniqueInput>
+}
+
 export type UserCreateWithoutCollectionsInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1028,12 +1038,12 @@ export type UserCreateWithoutCollectionsInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    sections?: Maybe<SectionCreateManyWithoutSectionsInput>
-    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
+    sections?: Maybe<SectionCreateManyWithoutOwnerInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxOwnerInput>
 }
 
 export type UserCreateWithoutInboxedItemsInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1047,12 +1057,12 @@ export type UserCreateWithoutInboxedItemsInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    sections?: Maybe<SectionCreateManyWithoutSectionsInput>
-    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
+    sections?: Maybe<SectionCreateManyWithoutOwnerInput>
+    collections?: Maybe<CollectionCreateManyWithoutOwnerInput>
 }
 
 export type UserCreateWithoutSectionsInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug: Scalars['String']
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1066,12 +1076,12 @@ export type UserCreateWithoutSectionsInput = {
     youtube?: Maybe<Scalars['String']>
     website?: Maybe<Scalars['String']>
     label?: Maybe<Scalars['String']>
-    collections?: Maybe<CollectionCreateManyWithoutCollectionsInput>
-    inboxedItems?: Maybe<ItemCreateManyWithoutInboxedItemsInput>
+    collections?: Maybe<CollectionCreateManyWithoutOwnerInput>
+    inboxedItems?: Maybe<ItemCreateManyWithoutInboxOwnerInput>
 }
 
 export type UserUpdateInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1114,7 +1124,7 @@ export type UserUpdateOneWithoutInboxedItemsInput = {
 }
 
 export type UserUpdateWithoutCollectionsDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1133,7 +1143,7 @@ export type UserUpdateWithoutCollectionsDataInput = {
 }
 
 export type UserUpdateWithoutInboxedItemsDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1152,7 +1162,7 @@ export type UserUpdateWithoutInboxedItemsDataInput = {
 }
 
 export type UserUpdateWithoutSectionsDataInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
     createdAt?: Maybe<Scalars['DateTime']>
@@ -1209,7 +1219,7 @@ export type UserWhereInput = {
 }
 
 export type UserWhereUniqueInput = {
-    id?: Maybe<Scalars['ID']>
+    id?: Maybe<Scalars['String']>
     authUserId?: Maybe<Scalars['String']>
     slug?: Maybe<Scalars['String']>
 }
@@ -1226,7 +1236,7 @@ export type CreateNewUserMutation = { __typename?: 'Mutation' } & {
 }
 
 export type UpdateCollectionMutationVariables = {
-    collectionId: Scalars['ID']
+    collectionId: Scalars['String']
     slug: Scalars['String']
     name?: Maybe<Scalars['String']>
     detail?: Maybe<Scalars['String']>
@@ -1242,7 +1252,7 @@ export type UpdateCollectionMutation = { __typename?: 'Mutation' } & {
 }
 
 export type GetCollectionIdQueryVariables = {
-    collectionId: Scalars['ID']
+    collectionId: Scalars['String']
 }
 
 export type GetCollectionIdQuery = { __typename?: 'Query' } & {
@@ -1253,7 +1263,7 @@ export type GetCollectionIdQuery = { __typename?: 'Query' } & {
 }
 
 export type DeleteCollectionMutationVariables = {
-    id: Scalars['ID']
+    id: Scalars['String']
 }
 
 export type DeleteCollectionMutation = { __typename?: 'Mutation' } & {
@@ -1266,7 +1276,7 @@ export type DeleteCollectionMutation = { __typename?: 'Mutation' } & {
 }
 
 export type UnDeleteCollectionMutationVariables = {
-    id: Scalars['ID']
+    id: Scalars['String']
 }
 
 export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
@@ -1279,8 +1289,8 @@ export type UnDeleteCollectionMutation = { __typename?: 'Mutation' } & {
 }
 
 export type MoveItemFromCollectionToCollectionMutationVariables = {
-    itemId: Scalars['ID']
-    collectionId: Scalars['ID']
+    itemId: Scalars['String']
+    collectionId: Scalars['String']
 }
 
 export type MoveItemFromCollectionToCollectionMutation = {
@@ -1288,7 +1298,7 @@ export type MoveItemFromCollectionToCollectionMutation = {
 } & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
 
 export type MoveItemFromCollectionToInboxMutationVariables = {
-    itemId: Scalars['ID']
+    itemId: Scalars['String']
     authUserId: Scalars['String']
 }
 
@@ -1310,8 +1320,8 @@ export type GetInboxQuery = { __typename?: 'Query' } & {
 }
 
 export type MoveItemFromInboxToCollectionMutationVariables = {
-    itemId: Scalars['ID']
-    collectionId: Scalars['ID']
+    itemId: Scalars['String']
+    collectionId: Scalars['String']
 }
 
 export type MoveItemFromInboxToCollectionMutation = {
@@ -1319,7 +1329,7 @@ export type MoveItemFromInboxToCollectionMutation = {
 } & { updateOneItem: Maybe<{ __typename?: 'Item' } & Pick<Item, 'id'>> }
 
 export type GetSectionQueryVariables = {
-    sectionId: Scalars['ID']
+    sectionId: Scalars['String']
 }
 
 export type GetSectionQuery = { __typename?: 'Query' } & {
@@ -1327,7 +1337,7 @@ export type GetSectionQuery = { __typename?: 'Query' } & {
 }
 
 export type DeleteSectionMutationVariables = {
-    sectionId: Scalars['ID']
+    sectionId: Scalars['String']
 }
 
 export type DeleteSectionMutation = { __typename?: 'Mutation' } & {
@@ -1339,7 +1349,7 @@ export type DeleteSectionMutation = { __typename?: 'Mutation' } & {
 }
 
 export type UpdateSectionMutationVariables = {
-    sectionId: Scalars['ID']
+    sectionId: Scalars['String']
     title?: Maybe<Scalars['String']>
 }
 
@@ -1446,7 +1456,7 @@ export type SearchItemQuery = { __typename?: 'Query' } & {
 }
 
 export type DeleteItemMutationVariables = {
-    id: Scalars['ID']
+    id: Scalars['String']
 }
 
 export type DeleteItemMutation = { __typename?: 'Mutation' } & {
@@ -1456,7 +1466,7 @@ export type DeleteItemMutation = { __typename?: 'Mutation' } & {
 }
 
 export type SaveCommentItemMutationVariables = {
-    id: Scalars['ID']
+    id: Scalars['String']
     comment: Scalars['String']
 }
 
@@ -1465,7 +1475,7 @@ export type SaveCommentItemMutation = { __typename?: 'Mutation' } & {
 }
 
 export type UndeleteItemMutationVariables = {
-    id: Scalars['ID']
+    id: Scalars['String']
 }
 
 export type UndeleteItemMutation = { __typename?: 'Mutation' } & {
@@ -1487,7 +1497,7 @@ export type ChangePositionMutation = { __typename?: 'Mutation' } & {
 }
 
 export type GetItemsQueryVariables = {
-    collectionId: Scalars['String']
+    collectionId?: Maybe<Scalars['String']>
 }
 
 export type GetItemsQuery = { __typename?: 'Query' } & {
@@ -1561,7 +1571,7 @@ export type CreateSectionMutation = { __typename?: 'Mutation' } & {
 
 export type UpdateSectionExpandedMutationVariables = {
     isExpanded: Scalars['Boolean']
-    sectionId: Scalars['ID']
+    sectionId: Scalars['String']
 }
 
 export type UpdateSectionExpandedMutation = { __typename?: 'Mutation' } & {
@@ -1571,7 +1581,7 @@ export type UpdateSectionExpandedMutation = { __typename?: 'Mutation' } & {
 }
 
 export type GetCollectionProfileQueryVariables = {
-    collectionId: Scalars['ID']
+    collectionId: Scalars['String']
 }
 
 export type GetCollectionProfileQuery = { __typename?: 'Query' } & {
@@ -1842,7 +1852,7 @@ export type CreateNewUserMutationOptions = ApolloReactCommon.BaseMutationOptions
 >
 export const UpdateCollectionDocument = gql`
     mutation UpdateCollection(
-        $collectionId: ID!
+        $collectionId: String!
         $slug: String!
         $name: String
         $detail: String
@@ -1901,7 +1911,7 @@ export type UpdateCollectionMutationOptions = ApolloReactCommon.BaseMutationOpti
     UpdateCollectionMutationVariables
 >
 export const GetCollectionIdDocument = gql`
-    query getCollectionId($collectionId: ID!) {
+    query getCollectionId($collectionId: String!) {
         collection(where: { id: $collectionId }) {
             ...CollectionBasic
             createdAt
@@ -1959,7 +1969,7 @@ export type GetCollectionIdQueryResult = ApolloReactCommon.QueryResult<
     GetCollectionIdQueryVariables
 >
 export const DeleteCollectionDocument = gql`
-    mutation deleteCollection($id: ID!) {
+    mutation deleteCollection($id: String!) {
         updateOneCollection(data: { isDeleted: true }, where: { id: $id }) {
             id
             slug
@@ -2010,7 +2020,7 @@ export type DeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOpti
     DeleteCollectionMutationVariables
 >
 export const UnDeleteCollectionDocument = gql`
-    mutation unDeleteCollection($id: ID!) {
+    mutation unDeleteCollection($id: String!) {
         updateOneCollection(data: { isDeleted: false }, where: { id: $id }) {
             id
             slug
@@ -2059,8 +2069,8 @@ export type UnDeleteCollectionMutationOptions = ApolloReactCommon.BaseMutationOp
 >
 export const MoveItemFromCollectionToCollectionDocument = gql`
     mutation moveItemFromCollectionToCollection(
-        $itemId: ID!
-        $collectionId: ID!
+        $itemId: String!
+        $collectionId: String!
     ) {
         updateOneItem(
             data: { collection: { connect: { id: $collectionId } } }
@@ -2111,7 +2121,10 @@ export type MoveItemFromCollectionToCollectionMutationOptions = ApolloReactCommo
     MoveItemFromCollectionToCollectionMutationVariables
 >
 export const MoveItemFromCollectionToInboxDocument = gql`
-    mutation moveItemFromCollectionToInbox($itemId: ID!, $authUserId: String!) {
+    mutation moveItemFromCollectionToInbox(
+        $itemId: String!
+        $authUserId: String!
+    ) {
         updateOneItem(
             data: {
                 collection: { disconnect: true }
@@ -2223,7 +2236,10 @@ export type GetInboxQueryResult = ApolloReactCommon.QueryResult<
     GetInboxQueryVariables
 >
 export const MoveItemFromInboxToCollectionDocument = gql`
-    mutation moveItemFromInboxToCollection($itemId: ID!, $collectionId: ID!) {
+    mutation moveItemFromInboxToCollection(
+        $itemId: String!
+        $collectionId: String!
+    ) {
         updateOneItem(
             data: {
                 collection: { connect: { id: $collectionId } }
@@ -2276,7 +2292,7 @@ export type MoveItemFromInboxToCollectionMutationOptions = ApolloReactCommon.Bas
     MoveItemFromInboxToCollectionMutationVariables
 >
 export const GetSectionDocument = gql`
-    query getSection($sectionId: ID!) {
+    query getSection($sectionId: String!) {
         section(where: { id: $sectionId }) {
             ...SectionDetails
         }
@@ -2331,7 +2347,7 @@ export type GetSectionQueryResult = ApolloReactCommon.QueryResult<
     GetSectionQueryVariables
 >
 export const DeleteSectionDocument = gql`
-    mutation deleteSection($sectionId: ID!) {
+    mutation deleteSection($sectionId: String!) {
         updateOneSection(data: { isDeleted: true }, where: { id: $sectionId }) {
             id
             slug
@@ -2379,7 +2395,7 @@ export type DeleteSectionMutationOptions = ApolloReactCommon.BaseMutationOptions
     DeleteSectionMutationVariables
 >
 export const UpdateSectionDocument = gql`
-    mutation updateSection($sectionId: ID!, $title: String) {
+    mutation updateSection($sectionId: String!, $title: String) {
         updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
             id
             slug
@@ -2923,7 +2939,7 @@ export type SearchItemQueryResult = ApolloReactCommon.QueryResult<
     SearchItemQueryVariables
 >
 export const DeleteItemDocument = gql`
-    mutation deleteItem($id: ID!) {
+    mutation deleteItem($id: String!) {
         updateOneItem(data: { isDeleted: true }, where: { id: $id }) {
             id
             isDeleted
@@ -2970,7 +2986,7 @@ export type DeleteItemMutationOptions = ApolloReactCommon.BaseMutationOptions<
     DeleteItemMutationVariables
 >
 export const SaveCommentItemDocument = gql`
-    mutation saveCommentItem($id: ID!, $comment: String!) {
+    mutation saveCommentItem($id: String!, $comment: String!) {
         updateOneItem(data: { comment: $comment }, where: { id: $id }) {
             id
             comment
@@ -3018,7 +3034,7 @@ export type SaveCommentItemMutationOptions = ApolloReactCommon.BaseMutationOptio
     SaveCommentItemMutationVariables
 >
 export const UndeleteItemDocument = gql`
-    mutation undeleteItem($id: ID!) {
+    mutation undeleteItem($id: String!) {
         updateOneItem(data: { isDeleted: false }, where: { id: $id }) {
             id
             isDeleted
@@ -3122,7 +3138,7 @@ export type ChangePositionMutationOptions = ApolloReactCommon.BaseMutationOption
     ChangePositionMutationVariables
 >
 export const GetItemsDocument = gql`
-    query getItems($collectionId: String!) {
+    query getItems($collectionId: String) {
         items(where: { collection: { id: { equals: $collectionId } } }) {
             ...ItemPreview
             ...ItemDetail
@@ -3484,7 +3500,7 @@ export type CreateSectionMutationOptions = ApolloReactCommon.BaseMutationOptions
     CreateSectionMutationVariables
 >
 export const UpdateSectionExpandedDocument = gql`
-    mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: ID!) {
+    mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: String!) {
         updateOneSection(
             where: { id: $sectionId }
             data: { isExpanded: $isExpanded }
@@ -3535,7 +3551,7 @@ export type UpdateSectionExpandedMutationOptions = ApolloReactCommon.BaseMutatio
     UpdateSectionExpandedMutationVariables
 >
 export const GetCollectionProfileDocument = gql`
-    query getCollectionProfile($collectionId: ID!) {
+    query getCollectionProfile($collectionId: String!) {
         collection(where: { id: $collectionId }) {
             ...CollectionBasic
             createdAt
