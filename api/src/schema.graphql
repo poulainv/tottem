@@ -12,8 +12,8 @@ type Collection {
     id: String!
     isDeleted: Boolean!
     items(
-        after: String
-        before: String
+        after: ItemWhereUniqueInput
+        before: ItemWhereUniqueInput
         first: Int
         last: Int
         orderBy: CollectionItemsOrderByInput
@@ -598,8 +598,8 @@ enum OrderByArg {
 type Query {
     collection(where: CollectionWhereUniqueInput!): Collection
     collections(
-        after: String
-        before: String
+        after: CollectionWhereUniqueInput
+        before: CollectionWhereUniqueInput
         first: Int
         last: Int
         orderBy: QueryCollectionsOrderByInput
@@ -612,8 +612,8 @@ type Query {
     """
     inbox: Inbox
     items(
-        after: String
-        before: String
+        after: ItemWhereUniqueInput
+        before: ItemWhereUniqueInput
         first: Int
         last: Int
         orderBy: QueryItemsOrderByInput
@@ -623,8 +623,8 @@ type Query {
     search(kind: String!, q: String!): [SearchItem!]!
     section(where: SectionWhereUniqueInput!): Section
     sections(
-        after: String
-        before: String
+        after: SectionWhereUniqueInput
+        before: SectionWhereUniqueInput
         first: Int
         last: Int
         orderBy: QuerySectionsOrderByInput
@@ -677,8 +677,8 @@ type SearchItem {
 
 type Section {
     collections(
-        after: String
-        before: String
+        after: CollectionWhereUniqueInput
+        before: CollectionWhereUniqueInput
         first: Int
         last: Int
         orderBy: SectionCollectionsOrderByInput
@@ -890,8 +890,8 @@ type User {
     mail: String
     pictureUrl: String!
     sections(
-        after: String
-        before: String
+        after: SectionWhereUniqueInput
+        before: SectionWhereUniqueInput
         first: Int
         last: Int
         skip: Int
