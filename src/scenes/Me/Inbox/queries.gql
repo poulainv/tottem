@@ -8,7 +8,10 @@ query getInbox {
     }
 }
 
-mutation moveItemFromInboxToCollection($itemId: ID!, $collectionId: ID!) {
+mutation moveItemFromInboxToCollection(
+    $itemId: String!
+    $collectionId: String!
+) {
     updateOneItem(
         data: {
             collection: { connect: { id: $collectionId } }

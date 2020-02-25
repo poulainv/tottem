@@ -1,4 +1,4 @@
-query getCollectionProfile($collectionId: ID!) {
+query getCollectionProfile($collectionId: String!) {
     collection(where: { id: $collectionId }) {
         ...CollectionBasic
         createdAt

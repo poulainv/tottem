@@ -1,11 +1,11 @@
-query getCollectionId($collectionId: ID!) {
+query getCollectionId($collectionId: String!) {
     collection(where: { id: $collectionId }) {
         ...CollectionBasic
         createdAt
     }
 }
 
-mutation deleteCollection($id: ID!) {
+mutation deleteCollection($id: String!) {
     updateOneCollection(data: { isDeleted: true }, where: { id: $id }) {
         id
         slug
@@ -16,7 +16,7 @@ mutation deleteCollection($id: ID!) {
     }
 }
 
-mutation unDeleteCollection($id: ID!) {
+mutation unDeleteCollection($id: String!) {
     updateOneCollection(data: { isDeleted: false }, where: { id: $id }) {
         id
         slug
@@ -24,7 +24,10 @@ mutation unDeleteCollection($id: ID!) {
     }
 }
 
-mutation moveItemFromCollectionToCollection($itemId: ID!, $collectionId: ID!) {
+mutation moveItemFromCollectionToCollection(
+    $itemId: String!
+    $collectionId: String!
+) {
     updateOneItem(
         data: { collection: { connect: { id: $collectionId } } }
         where: { id: $itemId }
@@ -33,7 +36,7 @@ mutation moveItemFromCollectionToCollection($itemId: ID!, $collectionId: ID!) {
     }
 }
 
-mutation moveItemFromCollectionToInbox($itemId: ID!, $authUserId: String!) {
+mutation moveItemFromCollectionToInbox($itemId: String!, $authUserId: String!) {
     updateOneItem(
         data: {
             collection: { disconnect: true }

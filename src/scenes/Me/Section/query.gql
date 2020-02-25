@@ -1,10 +1,10 @@
-query getSection($sectionId: ID!) {
+query getSection($sectionId: String!) {
     section(where: { id: $sectionId }) {
         ...SectionDetails
     }
 }
 
-mutation deleteSection($sectionId: ID!) {
+mutation deleteSection($sectionId: String!) {
     updateOneSection(data: { isDeleted: true }, where: { id: $sectionId }) {
         id
         slug
@@ -12,7 +12,7 @@ mutation deleteSection($sectionId: ID!) {
     }
 }
 
-mutation updateSection($sectionId: ID!, $title: String) {
+mutation updateSection($sectionId: String!, $title: String) {
     updateOneSection(data: { name: $title }, where: { id: $sectionId }) {
         id
         slug

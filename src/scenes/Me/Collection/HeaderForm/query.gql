@@ -1,5 +1,5 @@
 mutation UpdateCollection(
-    $collectionId: ID!
+    $collectionId: String!
     $slug: String!
     $name: String
     $detail: String

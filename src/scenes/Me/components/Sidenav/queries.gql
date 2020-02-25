@@ -50,7 +50,7 @@ mutation createSection {
     }
 }
 
-mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: ID!) {
+mutation updateSectionExpanded($isExpanded: Boolean!, $sectionId: String!) {
     updateOneSection(
         where: { id: $sectionId }
         data: { isExpanded: $isExpanded }
