@@ -1,4 +1,4 @@
-import { queryType, stringArg } from 'nexus'
+import { schema } from 'nexus-future'
 import { Context } from '../context'
 import {
     GoogleBookSearch,
@@ -6,7 +6,7 @@ import {
     SpotifySearch,
 } from '../parsers/searchers'
 
-export const Query = queryType({
+export const Query = schema.queryType({
     definition(t) {
         t.crud.user()
         t.crud.collection()
@@ -35,8 +35,8 @@ export const Query = queryType({
         t.field('search', {
             type: 'SearchItem',
             args: {
-                q: stringArg({ required: true }),
-                kind: stringArg({ required: true }),
+                q: schema.stringArg({ required: true }),
+                kind: schema.stringArg({ required: true }),
             },
             list: true,
             async resolve(_, { q, kind }, ctx: Context) {

@@ -3,7 +3,7 @@ import {
     UserCreateOneWithoutCollectionsInput,
 } from '@prisma/client'
 import cuid from 'cuid'
-import { booleanArg, idArg, intArg, mutationType, stringArg } from 'nexus'
+import { schema } from 'nexus-future'
 import { Context } from '../context'
 import { getInitialSections } from '../data/new-user'
 import { createNewItemFromSearch, inferNewItemFromUrl } from '../parsers'
@@ -33,7 +33,7 @@ export function reAssignPosition<T extends Positonnable>(
     })
 }
 
-export const Mutation = mutationType({
+export const Mutation = schema.mutationType({
     definition(t) {
         t.crud.updateOneSection()
         t.crud.createOneUser()
@@ -43,8 +43,8 @@ export const Mutation = mutationType({
         t.field('signS3', {
             type: 'S3SignedPath',
             args: {
-                fileName: stringArg({ required: true }),
-                fileType: stringArg({ required: true }),
+                fileName: schema.stringArg({ required: true }),
+                fileType: schema.stringArg({ required: true }),
             },
             async resolve(_, { fileName, fileType }, ctx: Context) {
                 const s3 = new aws.S3({
@@ -78,10 +78,10 @@ export const Mutation = mutationType({
         t.field('createNewUser', {
             type: 'User',
             args: {
-                slug: stringArg({ required: true }),
-                authUserId: stringArg({ required: true }),
-                pictureUrl: stringArg({ required: true }),
-                firstname: stringArg({ required: true }),
+                slug: schema.stringArg({ required: true }),
+                authUserId: schema.stringArg({ required: true }),
+                pictureUrl: schema.stringArg({ required: true }),
+                firstname: schema.stringArg({ required: true }),
             },
             async resolve(
                 _,
@@ -102,7 +102,7 @@ export const Mutation = mutationType({
         t.field('createEmptyCollection', {
             type: 'Collection',
             args: {
-                sectionId: idArg({ required: true }),
+                sectionId: schema.idArg({ required: true }),
             },
             async resolve(_, { sectionId }, ctx: Context) {
                 const user = await ctx.user
@@ -162,9 +162,9 @@ export const Mutation = mutationType({
             It takes *indexes* (not position) and return changed items with new position.
             `,
             args: {
-                collectionId: idArg({ required: true }),
-                oldIndex: intArg({ required: true }),
-                newIndex: intArg({ required: true }),
+                collectionId: schema.idArg({ required: true }),
+                oldIndex: schema.intArg({ required: true }),
+                newIndex: schema.intArg({ required: true }),
             },
             async resolve(
                 _,
@@ -217,10 +217,10 @@ export const Mutation = mutationType({
         t.field('createItemFromSearch', {
             type: 'Item',
             args: {
-                id: stringArg({ required: true }),
-                kind: stringArg({ required: true }),
-                collectionId: stringArg(),
-                inbox: booleanArg(),
+                id: schema.stringArg({ required: true }),
+                kind: schema.stringArg({ required: true }),
+                collectionId: schema.stringArg(),
+                inbox: schema.booleanArg(),
             },
             async resolve(_, { id, kind, collectionId, inbox }, ctx: Context) {
                 return createNewItemFromSearch(id, kind).then(async item => {
@@ -264,9 +264,9 @@ export const Mutation = mutationType({
         t.field('createItemFromUrl', {
             type: 'Item',
             args: {
-                url: stringArg({ required: true }),
-                collectionId: stringArg(),
-                inbox: booleanArg(),
+                url: schema.stringArg({ required: true }),
+                collectionId: schema.stringArg(),
+                inbox: schema.booleanArg(),
             },
             async resolve(_, { url, collectionId, inbox }, ctx: Context) {
                 return inferNewItemFromUrl(url).then(async item => {

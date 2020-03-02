@@ -1,7 +1,7 @@
-import { enumType, objectType } from 'nexus'
+import { schema } from 'nexus-future'
 import { Context } from '../context'
 
-export const User = objectType({
+export const User = schema.objectType({
     name: 'User',
     definition(t) {
         t.model.id()
@@ -20,7 +20,7 @@ export const User = objectType({
     },
 })
 
-export const Section = objectType({
+export const Section = schema.objectType({
     name: 'Section',
     definition(t) {
         t.model.id()
@@ -36,7 +36,7 @@ export const Section = objectType({
     },
 })
 
-export const Collection = objectType({
+export const Collection = schema.objectType({
     name: 'Collection',
     definition(t) {
         t.model.id()
@@ -55,7 +55,7 @@ export const Collection = objectType({
     },
 })
 
-export const Item = objectType({
+export const Item = schema.objectType({
     name: 'Item',
     definition(t) {
         t.model.id()
@@ -74,7 +74,7 @@ export const Item = objectType({
     },
 })
 
-export const S3SignedPath = objectType({
+export const S3SignedPath = schema.objectType({
     name: 'S3SignedPath',
     definition(t) {
         t.string('signedRequest', { nullable: false })
@@ -82,7 +82,7 @@ export const S3SignedPath = objectType({
     },
 })
 
-export const SearchItem = objectType({
+export const SearchItem = schema.objectType({
     name: 'SearchItem',
     definition(t) {
         t.string('id')
@@ -92,7 +92,7 @@ export const SearchItem = objectType({
     },
 })
 
-export const Inbox = objectType({
+export const Inbox = schema.objectType({
     name: 'Inbox',
     description: 'Inbox user relative content',
     definition(t) {
@@ -132,7 +132,7 @@ export const Inbox = objectType({
     },
 })
 
-export const ItemType = enumType({
+export const ItemType = schema.enumType({
     name: 'ItemType',
     members: [
         'book',
