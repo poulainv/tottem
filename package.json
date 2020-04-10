@@ -36,7 +36,7 @@
         "apollo-link-context": "^1.0.19",
         "apollo-link-error": "^1.1.12",
         "apollo-link-http": "1.5.16",
-        "auth0-js": "^9.12.2",
+        "auth0-js": "^9.13.2",
         "axios": "^0.19.2",
         "babel-loader": "^8.0.6",
         "babel-plugin-import": "^1.13.0",
