@@ -3,7 +3,7 @@
     "regions": ["dub1"],
     "build": {
         "env": {
-            "GRAPHQL_URL": "https://quiet-vincentpoulain.quiet.now.sh/graphql",
+            "GRAPHQL_URL": "https://tottem.now.sh/graphql",
             "DATABASE_PROVIDER": "@database_provider",
             "DATABASE_URL": "@database_url",
             "AUTH0_DOMAIN": "@auth0_domain",
