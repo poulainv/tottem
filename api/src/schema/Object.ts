@@ -1,4 +1,4 @@
-import { enumType, objectType } from 'nexus'
+import { enumType, objectType } from '@nexus/schema'
 import { Context } from '../context'
 
 export const User = objectType({

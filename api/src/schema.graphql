@@ -103,6 +103,8 @@ input CollectionScalarWhereInput {
     name: NullableStringFilter
     NOT: [CollectionScalarWhereInput!]
     OR: [CollectionScalarWhereInput!]
+    ownerId: StringFilter
+    sectionId: StringFilter
     slug: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -242,7 +244,9 @@ input CollectionWhereInput {
     NOT: [CollectionWhereInput!]
     OR: [CollectionWhereInput!]
     owner: UserWhereInput
+    ownerId: StringFilter
     section: SectionWhereInput
+    sectionId: StringFilter
     slug: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -359,11 +363,13 @@ input ItemFilter {
 input ItemScalarWhereInput {
     AND: [ItemScalarWhereInput!]
     author: NullableStringFilter
+    collectionId: NullableStringFilter
     comment: NullableStringFilter
     createdAt: DateTimeFilter
     description: NullableStringFilter
     id: StringFilter
     imageUrl: NullableStringFilter
+    inboxOwnerId: NullableStringFilter
     isDeleted: BooleanFilter
     meta: NullableStringFilter
     NOT: [ItemScalarWhereInput!]
@@ -515,12 +521,14 @@ input ItemWhereInput {
     AND: [ItemWhereInput!]
     author: NullableStringFilter
     collection: CollectionWhereInput
+    collectionId: NullableStringFilter
     comment: NullableStringFilter
     createdAt: DateTimeFilter
     description: NullableStringFilter
     id: StringFilter
     imageUrl: NullableStringFilter
     inboxOwner: UserWhereInput
+    inboxOwnerId: NullableStringFilter
     isDeleted: BooleanFilter
     meta: NullableStringFilter
     NOT: [ItemWhereInput!]
@@ -753,6 +761,7 @@ input SectionScalarWhereInput {
     name: NullableStringFilter
     NOT: [SectionScalarWhereInput!]
     OR: [SectionScalarWhereInput!]
+    ownerId: StringFilter
     slug: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -857,6 +866,7 @@ input SectionWhereInput {
     NOT: [SectionWhereInput!]
     OR: [SectionWhereInput!]
     owner: UserWhereInput
+    ownerId: StringFilter
     slug: StringFilter
     updatedAt: DateTimeFilter
 }

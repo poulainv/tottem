@@ -3,7 +3,13 @@ import {
     UserCreateOneWithoutCollectionsInput,
 } from '@prisma/client'
 import cuid from 'cuid'
-import { booleanArg, idArg, intArg, mutationType, stringArg } from 'nexus'
+import {
+    booleanArg,
+    idArg,
+    intArg,
+    mutationType,
+    stringArg,
+} from '@nexus/schema'
 import { Context } from '../context'
 import { getInitialSections } from '../data/new-user'
 import { createNewItemFromSearch, inferNewItemFromUrl } from '../parsers'

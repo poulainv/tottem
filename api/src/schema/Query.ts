@@ -1,4 +1,4 @@
-import { queryType, stringArg } from 'nexus'
+import { queryType, stringArg } from '@nexus/schema'
 import { Context } from '../context'
 import {
     GoogleBookSearch,

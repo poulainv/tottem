@@ -1,0 +1,1155 @@
+{
+    "version": "0.3.14-fixed",
+    "steps": [
+        {
+            "tag": "CreateEnum",
+            "enum": "ItemType",
+            "values": [
+                "book",
+                "album",
+                "movie",
+                "video",
+                "people",
+                "article",
+                "podcast",
+                "website",
+                "repository"
+            ]
+        },
+        {
+            "tag": "CreateSource",
+            "source": "db"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Source",
+                "source": "db"
+            },
+            "argument": "provider",
+            "value": "\"postgresql\""
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Source",
+                "source": "db"
+            },
+            "argument": "url",
+            "value": "env(\"DATABASE_URL\")"
+        },
+        {
+            "tag": "CreateModel",
+            "model": "User"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "id",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "id"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "id"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "id"
+                },
+                "directive": "id"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "authUserId",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "authUserId"
+                },
+                "directive": "unique"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "slug",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "slug"
+                },
+                "directive": "unique"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "User",
+                    "field": "updatedAt"
+                },
+                "directive": "updatedAt"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "firstname",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "pictureUrl",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "biography",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "linkedin",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "github",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "mail",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "youtube",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "website",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "label",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "sections",
+            "type": "Section",
+            "arity": "List"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "collections",
+            "type": "Collection",
+            "arity": "List"
+        },
+        {
+            "tag": "CreateField",
+            "model": "User",
+            "field": "inboxedItems",
+            "type": "Item",
+            "arity": "List"
+        },
+        {
+            "tag": "CreateModel",
+            "model": "Section"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "id",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "id"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "id"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "id"
+                },
+                "directive": "id"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "updatedAt"
+                },
+                "directive": "updatedAt"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "slug",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "name",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "index",
+            "type": "Int",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "index"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "index"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "0"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "collections",
+            "type": "Collection",
+            "arity": "List"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "owner",
+            "type": "User",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            },
+            "argument": "fields",
+            "value": "[ownerId]"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            },
+            "argument": "references",
+            "value": "[id]"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "ownerId",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "isExpanded",
+            "type": "Boolean",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "isExpanded"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "isExpanded"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "true"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Section",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Section",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "tag": "CreateModel",
+            "model": "Collection"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "id",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "id"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "id"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "id"
+                },
+                "directive": "id"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "updatedAt"
+                },
+                "directive": "updatedAt"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "slug",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "slug"
+                },
+                "directive": "unique"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "name",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "detail",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "items",
+            "type": "Item",
+            "arity": "List"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "section",
+            "type": "Section",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "section"
+                },
+                "directive": "relation"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "section"
+                },
+                "directive": "relation"
+            },
+            "argument": "fields",
+            "value": "[sectionId]"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "section"
+                },
+                "directive": "relation"
+            },
+            "argument": "references",
+            "value": "[id]"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "sectionId",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "owner",
+            "type": "User",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            },
+            "argument": "fields",
+            "value": "[ownerId]"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Collection",
+                    "field": "owner"
+                },
+                "directive": "relation"
+            },
+            "argument": "references",
+            "value": "[id]"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Collection",
+            "field": "ownerId",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateModel",
+            "model": "Item"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "id",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "id"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "id"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "cuid()"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "id"
+                },
+                "directive": "id"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "createdAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "createdAt"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "now()"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "updatedAt",
+            "type": "DateTime",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "updatedAt"
+                },
+                "directive": "updatedAt"
+            }
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "isDeleted",
+            "type": "Boolean",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "isDeleted"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "false"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "position",
+            "type": "Int",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "position"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "position"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "0"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "title",
+            "type": "String",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "provider",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "author",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "type",
+            "type": "ItemType",
+            "arity": "Required"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "productUrl",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "imageUrl",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "description",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "comment",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "collection",
+            "type": "Collection",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "collection"
+                },
+                "directive": "relation"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "collection"
+                },
+                "directive": "relation"
+            },
+            "argument": "fields",
+            "value": "[collectionId]"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "collection"
+                },
+                "directive": "relation"
+            },
+            "argument": "references",
+            "value": "[id]"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "collectionId",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "meta",
+            "type": "String",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "meta"
+                },
+                "directive": "default"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "meta"
+                },
+                "directive": "default"
+            },
+            "argument": "",
+            "value": "\"{}\""
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "inboxOwner",
+            "type": "User",
+            "arity": "Optional"
+        },
+        {
+            "tag": "CreateDirective",
+            "location": {
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "inboxOwner"
+                },
+                "directive": "relation"
+            }
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "inboxOwner"
+                },
+                "directive": "relation"
+            },
+            "argument": "fields",
+            "value": "[inboxOwnerId]"
+        },
+        {
+            "tag": "CreateArgument",
+            "location": {
+                "tag": "Directive",
+                "path": {
+                    "tag": "Field",
+                    "model": "Item",
+                    "field": "inboxOwner"
+                },
+                "directive": "relation"
+            },
+            "argument": "references",
+            "value": "[id]"
+        },
+        {
+            "tag": "CreateField",
+            "model": "Item",
+            "field": "inboxOwnerId",
+            "type": "String",
+            "arity": "Optional"
+        }
+    ]
+}

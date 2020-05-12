@@ -35,13 +35,14 @@ model Section {
   name        String?
   index       Int          @default(0)
   collections Collection[]
-  owner       User
+  owner       User         @relation(fields: [ownerId], references: [id])
+  ownerId     String
   isExpanded  Boolean      @default(true)
   isDeleted   Boolean      @default(false)
 }
 
 model Collection {
-  id        String   @id @default(cuid())
+  id        String   @default(cuid()) @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   slug      String   @unique
@@ -49,29 +50,32 @@ model Collection {
   isDeleted Boolean  @default(false)
   detail    String?
   items     Item[]
-  section   Section
-  owner     User
+  section   Section  @relation(fields: [sectionId], references: [id])
+  sectionId String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  ownerId   String
 }
 
 model Item {
-  id          String      @default(cuid()) @id
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-  isDeleted   Boolean     @default(false)
-  position    Int         @default(0)
-  title       String
-  provider    String?
-  author      String?
-  type        ItemType
-  productUrl  String?
-  imageUrl    String?
-  description String?
-  comment     String?
-  collection  Collection?
-  meta        String?     @default("{}")
-  inboxOwner  User?
+  id           String      @default(cuid()) @id
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  isDeleted    Boolean     @default(false)
+  position     Int         @default(0)
+  title        String
+  provider     String?
+  author       String?
+  type         ItemType
+  productUrl   String?
+  imageUrl     String?
+  description  String?
+  comment      String?
+  collection   Collection? @relation(fields: [collectionId], references: [id])
+  collectionId String?
+  meta         String?     @default("{}")
+  inboxOwner   User?       @relation(fields: [inboxOwnerId], references: [id])
+  inboxOwnerId String?
 }
-
 
 enum ItemType {
   book

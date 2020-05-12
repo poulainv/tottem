@@ -97,6 +97,8 @@ export interface NexusGenInputs {
         name?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         NOT?: NexusGenInputs['CollectionScalarWhereInput'][] | null // [CollectionScalarWhereInput!]
         OR?: NexusGenInputs['CollectionScalarWhereInput'][] | null // [CollectionScalarWhereInput!]
+        ownerId?: NexusGenInputs['StringFilter'] | null // StringFilter
+        sectionId?: NexusGenInputs['StringFilter'] | null // StringFilter
         slug?: NexusGenInputs['StringFilter'] | null // StringFilter
         updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     }
@@ -260,7 +262,9 @@ export interface NexusGenInputs {
         NOT?: NexusGenInputs['CollectionWhereInput'][] | null // [CollectionWhereInput!]
         OR?: NexusGenInputs['CollectionWhereInput'][] | null // [CollectionWhereInput!]
         owner?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+        ownerId?: NexusGenInputs['StringFilter'] | null // StringFilter
         section?: NexusGenInputs['SectionWhereInput'] | null // SectionWhereInput
+        sectionId?: NexusGenInputs['StringFilter'] | null // StringFilter
         slug?: NexusGenInputs['StringFilter'] | null // StringFilter
         updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     }
@@ -351,11 +355,13 @@ export interface NexusGenInputs {
         // input type
         AND?: NexusGenInputs['ItemScalarWhereInput'][] | null // [ItemScalarWhereInput!]
         author?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
+        collectionId?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         comment?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
         description?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         id?: NexusGenInputs['StringFilter'] | null // StringFilter
         imageUrl?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
+        inboxOwnerId?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         isDeleted?: NexusGenInputs['BooleanFilter'] | null // BooleanFilter
         meta?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         NOT?: NexusGenInputs['ItemScalarWhereInput'][] | null // [ItemScalarWhereInput!]
@@ -515,12 +521,14 @@ export interface NexusGenInputs {
         AND?: NexusGenInputs['ItemWhereInput'][] | null // [ItemWhereInput!]
         author?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         collection?: NexusGenInputs['CollectionWhereInput'] | null // CollectionWhereInput
+        collectionId?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         comment?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         createdAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
         description?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         id?: NexusGenInputs['StringFilter'] | null // StringFilter
         imageUrl?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         inboxOwner?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+        inboxOwnerId?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         isDeleted?: NexusGenInputs['BooleanFilter'] | null // BooleanFilter
         meta?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         NOT?: NexusGenInputs['ItemWhereInput'][] | null // [ItemWhereInput!]
@@ -642,6 +650,7 @@ export interface NexusGenInputs {
         name?: NexusGenInputs['NullableStringFilter'] | null // NullableStringFilter
         NOT?: NexusGenInputs['SectionScalarWhereInput'][] | null // [SectionScalarWhereInput!]
         OR?: NexusGenInputs['SectionScalarWhereInput'][] | null // [SectionScalarWhereInput!]
+        ownerId?: NexusGenInputs['StringFilter'] | null // StringFilter
         slug?: NexusGenInputs['StringFilter'] | null // StringFilter
         updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     }
@@ -762,6 +771,7 @@ export interface NexusGenInputs {
         NOT?: NexusGenInputs['SectionWhereInput'][] | null // [SectionWhereInput!]
         OR?: NexusGenInputs['SectionWhereInput'][] | null // [SectionWhereInput!]
         owner?: NexusGenInputs['UserWhereInput'] | null // UserWhereInput
+        ownerId?: NexusGenInputs['StringFilter'] | null // StringFilter
         slug?: NexusGenInputs['StringFilter'] | null // StringFilter
         updatedAt?: NexusGenInputs['DateTimeFilter'] | null // DateTimeFilter
     }
