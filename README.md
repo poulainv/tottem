@@ -16,9 +16,6 @@ I have two considerations in mind:
 ## Summary
 
 -   [Summary](#summary)
--   [Product](#product)
-    -   [Why ?](#why)
-    -   [How ?](#how)
 -   [Tech](#tech)
     -   [Codebase](#codebase)
         -   [Main technologies](#main-technologies)
@@ -28,44 +25,20 @@ I have two considerations in mind:
     -   [SSR Workflow](#ssr-workflow)
     -   [Deployment](#deployment)
     -   [Setup](#setup)
-    -   [Contributors](#contributors)
-
-## Product
-
-First goal: designing a product human centered allowing people to build and manage their online and public library. Just a tool to manage and gather the content we love, in order to share it with friends & community 😇
-
-### Why ?
-
-More and more, people — especially journalists, are losing their ability to choose which content to promote & amplify. Consequently, what they will consume. Instead, automatic recommendation algorithms carefully choose the _best_ (sic!) content for you. Those deep learning algorithms create a unique & personal narrative stream of content in your social feed... You said, _best_ ? So what ? Not really, it's just designed to maximize clicks and views. Of course, what else they can do?
-
-[Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
-
-So, what if I want to explore durable book or article recommendations from a friend? What if I want to really dig into a specific subject?
-
-### How ?
-
-Tottem aims combining personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
-
-Tottem aims to provide the same high quality user experience that most of modern productivity tools provide. Managing your library should be easy and enjoyable. With a great tool, great content could be made and shared.
-
-The basic workflow:
-
-1. Collect everything in one Inbox.
-2. Organise into Spaces and Collection.
-3. Express yourself and explain your opinion
-4. Publish and share with your community
+-   [Product](#product)
+    -   [Why ?](#why)
+    -   [How ?](#how)
+-   [Contributors](#contributors)
 
 <div>
 
-[![Tottem](./public/screenshot-inbox.png)](https://beta.tottem.app)
+[![Tottem](./public/screenshot-section.png)](https://beta.tottem.app)
 
 </div>
 
-[![Tottem](./public/screenshot-profile.png)](https://beta.tottem.app)
-
 ## Tech
 
-The second goal is about experimenting how to build a web software today. This documentation explains which technologies are used here and how they are organised.
+First goal: experimenting the tools that are available to build web software in 2020. This documentation explains which technologies are used here and how they are organised.
 
 ### Codebase
 
@@ -139,7 +112,7 @@ const { data } = useGetItemsQuery({
     })
 ```
 
-🤯 No typo anymore, much less file & context switching with typescript ✨
+🤯 No typo anymore, much less files & context switching with typescript ✨
 
 #### Global state management
 
@@ -249,6 +222,53 @@ npm run dev
 
 Web app is available on `http://localhost:3000` and graphql endpoint on `http://localhost:4000/graphql`
 
-### Contributors
+## Product
+
+Second goal: designing a product human centered allowing people to build and manage their online and public library. A tool to manage and gather the content we love, in order to share it with friends & community 😇
+
+<div>
+
+[![Tottem](./public/screenshot-inbox.png)](https://beta.tottem.app)
+
+</div>
+
+### Why ?
+
+More and more, people — especially journalists, are losing their ability to choose which content to promote & amplify. Instead, automatic recommendation algorithms carefully choose the _best_ (sic!) content to amplify. As reader, those deep learning algorithms create a unique & personal narrative stream of content in your social feed... How it can be the _best_ ? Not really, it's just designed to maximize clicks and views. Of course, what else they can do?
+
+[Here, I'm happy to share some references](https://beta.tottem.app/vincent/c/inspirational-content-about-why-social-media-companies-are-dangerous-for-personal-attention-and-democracy-ck5i4lwp2000vws9e4ry25feh)
+
+So, what if I want to explore durable book or article recommendations from a friend? What if I want to really dig into a specific subject?
+
+### How ?
+
+Tottem aims combining personal productivity tool approach with (slow) social media capabilities to make users empowered and somehow emancipated.
+
+Tottem aims to provide the same high quality user experience that most of modern productivity tools provide. Managing your library should be easy and enjoyable. With a great tool, great content could be made and shared.
+
+The basic workflow:
+
+1. Collect everything in one Inbox.
+2. Organise into Spaces and Collection.
+3. Express yourself and explain your opinion
+4. Publish and share with your community
+
+<div>
+
+[![Tottem](./public/screenshot-profile.png)](https://beta.tottem.app)
+
+</div>
+
+### Design
+
+The UI/UX design is obviously inspired by [Notion](https://notion.so) and [Things 3](https://culturedcode.com/things/). The design work made with Figma is available [there](https://www.figma.com/file/isqiSo35dfp5oGIpYZlCM6/Tottem-Design?node-id=255%3A1261)
+
+<div align="center">
+
+[![Tottem](./public/screenshot-design.png)](https://www.figma.com/file/isqiSo35dfp5oGIpYZlCM6/Tottem-Design?node-id=255%3A1261)
+
+</div>
+
+## Contributors
 
 -   Clément Déon [@deonclem](https://github.com/deonclem)
